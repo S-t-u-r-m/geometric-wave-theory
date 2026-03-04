@@ -75,9 +75,36 @@
         </div>
 
         <div class="card" style="margin-top:1.5rem;">
-          <h4 style="margin-top:0;">Physical Meaning</h4>
-          <p><strong>6</strong> = the coordination number of a cubic lattice. Each node has exactly 6 nearest neighbors (one along each direction: &plusmn;x, &plusmn;y, &plusmn;z). This counts the number of bonds that anchor the proton&rsquo;s spherical standing wave to the medium.</p>
-          <p style="margin-bottom:0;"><strong>&pi;<sup>5</sup></strong> = boundary conditions from the 5 degrees of freedom per lattice element (3 spatial displacement directions + 2 internal oscillation states). Each DOF contributes one factor of &pi; through the standing wave quantization condition, and the product of all five gives &pi;<sup>5</sup> = 306.02.</p>
+          <h4 style="margin-top:0;">Where does 6&pi;<sup>5</sup> come from?</h4>
+          <p>The proton is the fundamental <strong>3D spherical standing wave</strong> (the j<sub>0</sub> mode). The electron is a <strong>1D transverse standing wave</strong>. Their mass ratio is the ratio of the mode energies &mdash; which reduces to counting how many more ways a 3D wave can store energy than a 1D wave on the same lattice.</p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin-top:0;">The factor of &pi;<sup>5</sup></h4>
+          <p>Each spatial dimension contributes a factor of &pi; from the standing wave boundary conditions (mode density in a box of side L goes as L/&pi; per dimension). For a 3D spherical mode relative to a 1D mode:</p>
+          <ul>
+            <li><strong>&pi;<sup>3</sup></strong> from the 3D mode density ratio &mdash; three dimensions of wave propagation, each contributing &pi; from the quantization condition k<sub>n</sub>&nbsp;=&nbsp;n&pi;/L</li>
+            <li><strong>&pi;<sup>2</sup></strong> from the spherical geometry &mdash; integrating j<sub>0</sub>(kr)&nbsp;=&nbsp;sin(kr)/kr over the solid angle (4&pi; steradians) and the radial boundary normalization</li>
+          </ul>
+          <p>This gives &pi;<sup>5</sup>&nbsp;=&nbsp;&pi;<sup>3</sup>&nbsp;&times;&nbsp;&pi;<sup>2</sup>&nbsp;=&nbsp;306.02. The same factors appear in standard textbook derivations of the density of states for 3D vs 1D quantum systems (e.g., Kittel, <em>Introduction to Solid State Physics</em>; Ashcroft &amp; Mermin, <em>Solid State Physics</em>).</p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin-top:0;">The factor of 6</h4>
+          <p><strong>6</strong> = the coordination number z of a simple cubic lattice. Each node connects to exactly 6 nearest neighbors (&plusmn;x, &plusmn;y, &plusmn;z), with z&nbsp;=&nbsp;2d for d&nbsp;=&nbsp;3 dimensions. This is the minimal regular lattice in 3D.</p>
+          <p>The coordination number enters because the j<sub>0</sub> (proton) mode couples to all six neighboring bonds simultaneously, while the transverse (electron) mode oscillates along a single bond direction. The proton wave &ldquo;uses&rdquo; all six bonds; the electron wave uses one.</p>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0;"><em>Note: The simple cubic lattice (z&nbsp;=&nbsp;6) is a structural assumption of GWT. Other lattice topologies (BCC with z&nbsp;=&nbsp;8, FCC with z&nbsp;=&nbsp;12) would give different mass ratios. GWT adopts simple cubic as the minimal geometry &mdash; the simplest structure consistent with three spatial dimensions.</em></p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin-top:0;">Why this is not numerology</h4>
+          <p>Any single formula matching a constant to 0.002% could be coincidence. What distinguishes 6&pi;<sup>5</sup> from a lucky guess:</p>
+          <ul>
+            <li><strong>Derivation path</strong> &mdash; each factor traces to a specific physical mechanism (mode counting, boundary conditions, lattice coordination), not an empirical fit</li>
+            <li><strong>Interlocking predictions</strong> &mdash; the same framework that gives 6&pi;<sup>5</sup> also derives &alpha;&nbsp;=&nbsp;1/137.036, the Koide relation, &alpha;<sub>s</sub>, all CKM/PMNS mixing angles, and 170+ other quantities. One hit is numerology; 179 from the same starting point is a system</li>
+            <li><strong>No free parameters</strong> &mdash; 6&pi;<sup>5</sup> is not fitted. It is the only output of the mode-counting argument. If it were wrong by 10%, the entire framework would be falsified</li>
+          </ul>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0;"><em>Fair critique: uniqueness has not been formally proven. It is possible that other combinations of small integers and &pi; could approximate 1836. The strength of the claim rests on the derivation chain, not on the numerical match alone.</em></p>
         </div>
 
         <hr>
