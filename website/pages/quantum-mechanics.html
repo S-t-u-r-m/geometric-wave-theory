@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Mechanics — Geometric Wave Theory</title>
+  <meta name="description" content="How GWT explains every quantum mystery: superposition, entanglement, tunneling, spin, and the Dirac equation — all from classical wave mechanics on a lattice.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span> Quantum Mechanics
+        </div>
+
+        <div class="section-header">
+          <h1>Quantum Mechanics</h1>
+          <p class="section-desc">QM is classical wave mechanics misidentified as particle mechanics. Every quantum mystery has a straightforward wave explanation.</p>
+        </div>
+
+        <section>
+          <h2>Overview</h2>
+          <p>Quantum mechanics is not strange. It is the inevitable behavior of <strong>waves in a discrete elastic medium</strong>. The Schr&ouml;dinger equation is the long-wavelength limit of the lattice wave equation &mdash; the same way the continuum string equation is the limit of a chain of masses and springs.</p>
+
+          <p>Every quantum &ldquo;mystery&rdquo; has a straightforward wave explanation. There is no measurement problem. No Copenhagen interpretation is needed. No observer collapses anything. Waves are <strong>real physical disturbances</strong> of the lattice, not probability amplitudes hovering in abstract Hilbert space.</p>
+
+          <p>The apparent weirdness of quantum mechanics comes from forcing a particle picture onto wave phenomena. Once you accept that matter is standing waves, every paradox dissolves.</p>
+        </section>
+
+        <section>
+          <h2>Quantum Weirdness Explained</h2>
+          <p>Every so-called mystery of quantum mechanics maps to ordinary wave behavior:</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mystery</th>
+                  <th>Wave Explanation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Superposition</td>
+                  <td>Waves naturally exist everywhere in the medium simultaneously</td>
+                </tr>
+                <tr>
+                  <td>Heisenberg uncertainty</td>
+                  <td>Fourier&rsquo;s theorem: narrow position &rarr; broad momentum, and vice versa</td>
+                </tr>
+                <tr>
+                  <td>Wave function |&psi;|&sup2;</td>
+                  <td>Wave intensity &mdash; how much energy at each point</td>
+                </tr>
+                <tr>
+                  <td>Spin-1/2</td>
+                  <td>Two internal ground states (+ and &minus;) per lattice node</td>
+                </tr>
+                <tr>
+                  <td>Entanglement</td>
+                  <td>Spatially extended wave was never &ldquo;two particles&rdquo; &mdash; still one wave</td>
+                </tr>
+                <tr>
+                  <td>Measurement collapse</td>
+                  <td>Measuring device is a wave too; interaction redistributes energy locally</td>
+                </tr>
+                <tr>
+                  <td>Double slit</td>
+                  <td>Wave passes through both slits, interferes with itself</td>
+                </tr>
+                <tr>
+                  <td>Tunneling</td>
+                  <td>Wave amplitude decays exponentially in high-potential region but never reaches zero</td>
+                </tr>
+                <tr>
+                  <td>Zero-point energy</td>
+                  <td>The lattice&rsquo;s ground state is not motionless &mdash; minimum vibration from discreteness</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>The Dirac Equation &mdash; Derived from the Lattice</h2>
+          <p>The Dirac equation is not postulated &mdash; it is <strong>derived</strong> from the structure of the elastic lattice in four steps:</p>
+
+          <ol>
+            <li><strong>Yin/yang (internal &plusmn;)</strong> &rarr; Each node has two internal states. These give the <strong>Pauli matrices</strong> and the symmetry group SU(2).</li>
+            <li><strong>3 spatial directions</strong> &rarr; Three independent displacement axes generate the <strong>Clifford algebra Cl(3,0)</strong>.</li>
+            <li><strong>Time as L<sub>0</sub></strong> &rarr; Causality requires a distinguished direction. Promoting time to a fourth basis vector extends the algebra to <strong>Cl(3,1)</strong>.</li>
+            <li><strong>Result</strong> &rarr; The anticommutation relation falls out automatically:</li>
+          </ol>
+
+          <div class="equation-box">
+            <span class="eq-label">Dirac Algebra</span>
+            {&gamma;<sup>&mu;</sup>, &gamma;<sup>&nu;</sup>} = 2g<sup>&mu;&nu;</sup>
+          </div>
+
+          <p>This is the defining relation of the Dirac equation. Every spinor, every chirality, every CPT property follows from lattice geometry &mdash; no axiom required. <a href="core-derivations.html">Full derivation &rarr;</a></p>
+        </section>
+
+        <hr>
+
+        <section id="predictions">
+          <h2>QM Predictions</h2>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Schr&ouml;dinger equation</div>
+              <div class="pred-values">GWT: derived as low-energy limit &nbsp;|&nbsp; Observed: works for all atoms</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Spin quantization</div>
+              <div class="pred-values">GWT: half-integer &#8463; from yin/yang &nbsp;|&nbsp; Observed: confirmed</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Hydrogen ground state E<sub>1</sub></div>
+              <div class="pred-values">GWT: &minus;13.61 eV &nbsp;|&nbsp; Observed: &minus;13.606 eV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">He<sup>+</sup> ground state</div>
+              <div class="pred-values">GWT: &minus;54.4 eV &nbsp;|&nbsp; Observed: &minus;54.4 eV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">He ground state</div>
+              <div class="pred-values">GWT: &minus;77.5 eV &nbsp;|&nbsp; Observed: &minus;79.0 eV</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">2%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">He ionization energy</div>
+              <div class="pred-values">GWT: 24.6 eV &nbsp;|&nbsp; Observed: 24.59 eV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">H<sub>2</sub> bond length</div>
+              <div class="pred-values">GWT: 0.754 &Aring; &nbsp;|&nbsp; Observed: 0.741 &Aring;</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">1.7%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Planck mass</div>
+              <div class="pred-values">GWT: &radic;(&#8463;c/G) &nbsp;|&nbsp; Observed: 2.176 &times; 10<sup>&minus;8</sup> kg</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Planck time</div>
+              <div class="pred-values">GWT: &radic;(&#8463;G/c<sup>5</sup>) &nbsp;|&nbsp; Observed: 5.391 &times; 10<sup>&minus;44</sup> s</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Planck energy</div>
+              <div class="pred-values">GWT: &radic;(&#8463;c<sup>5</sup>/G) &nbsp;|&nbsp; Observed: 1.956 &times; 10<sup>9</sup> J</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../index.html">&larr; Back to Home</a> &nbsp;&middot;&nbsp; <a href="core-derivations.html">Core Derivations &rarr;</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

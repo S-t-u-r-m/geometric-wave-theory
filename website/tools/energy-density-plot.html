@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Energy Density vs Radius — Lattice Framework</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0d0d1a; color: #e0e0e0; padding: 20px; }
+h1 { color: #00d4ff; margin-bottom: 8px; font-size: 1.6em; }
+h2 { color: #88aaff; margin: 18px 0 8px; font-size: 1.1em; border-bottom: 1px solid #223; padding-bottom: 4px; }
+.container { max-width: 1150px; margin: 0 auto; }
+.subtitle { color: #aaa; margin-bottom: 14px; font-size: 0.95em; line-height: 1.5; }
+.formulas { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; }
+.fcard { background: #111128; border-radius: 8px; padding: 14px; border-left: 4px solid; }
+.em   { border-color: #4488ff; }
+.qcd  { border-color: #ff4444; }
+.gap  { border-color: #ffaa00; }
+.fcard .ftitle { font-size: 0.8em; color: #aaa; margin-bottom: 5px; }
+.fcard .feq   { font-family: monospace; font-size: 1.0em; color: #e8e8ff; }
+.fcard .fval  { font-size: 0.85em; color: #aaa; margin-top: 4px; }
+.chart-box { background: #0a0a1e; border-radius: 12px; padding: 16px; margin: 14px 0; }
+.prediction { background: #111128; border-radius: 8px; padding: 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.7; border: 1px solid #223; }
+.hi  { color: #00ff88; font-weight: bold; }
+.hig { color: #ffaa00; font-weight: bold; }
+.hir { color: #ff6666; font-weight: bold; }
+.table-wrap { overflow-x: auto; margin: 10px 0; max-height: 420px; overflow-y: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.87em; }
+th { background: #1a1a3a; color: #88aaff; padding: 7px 11px; text-align: left; position: sticky; top: 0; z-index: 1; }
+td { padding: 5px 11px; border-top: 1px solid #1a1a2e; }
+tr:hover td { background: #141430; }
+.type-h   { color: #4488ff; }
+.type-a   { color: #88ccff; }
+.type-m   { color: #00ff88; }
+.type-n   { color: #ffaa00; }
+.type-hd  { color: #ff6666; }
+.ratio-em  { color: #88aaff; }
+.ratio-mid { color: #ffcc44; }
+.ratio-qcd { color: #ff6666; }
+.finding { background: #0d1a0d; border: 1px solid #2a4a2a; border-radius: 8px; padding: 14px; margin: 10px 0; }
+.finding h3 { color: #00ff88; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;margin:-20px -20px 20px;font-family:'Segoe UI',sans-serif;font-size:0.85rem;display:flex;align-items:center;gap:1rem;"><a href="../index.html" style="color:#58a6ff;text-decoration:none;">&larr; GWT Home</a><span style="color:#30363d;">|</span><a href="../pages/electromagnetism.html" style="color:#8b949e;text-decoration:none;">Electromagnetism</a></div>
+<div class="container">
+
+<h1>Energy Density vs Radius</h1>
+<p class="subtitle">
+  Lattice Framework prediction: vacuum pressure P<sub>vac</sub>(r) ∝ ħc/r⁴ produces
+  <strong>two parallel bands (slope = −4)</strong> on a log-log plot, separated by exactly
+  <span class="hig">8/α = 8 × 137 = 1096</span>.
+  Hydrogen atom levels are the calibration — they lie exactly on the EM line by construction.
+</p>
+
+<div class="formulas">
+  <div class="fcard em">
+    <div class="ftitle">EM LINE — Coulomb-bound systems</div>
+    <div class="feq">E/V = 3αħc / (8π r⁴)</div>
+    <div class="fval">= 2.754×10⁻²⁹ / r⁴ &nbsp;[J/m³, r in m]</div>
+  </div>
+  <div class="fcard qcd">
+    <div class="ftitle">QCD LINE — Strong-bound hadrons</div>
+    <div class="feq">E/V = 3ħc / (π r⁴)</div>
+    <div class="fval">= 3.019×10⁻²⁶ / r⁴ &nbsp;[J/m³, r in m]</div>
+  </div>
+  <div class="fcard gap">
+    <div class="ftitle">VERTICAL GAP between lines</div>
+    <div class="feq">8/α = 8 × 137 = 1096</div>
+    <div class="fval">= 10<sup>3.04</sup> decades on log axis</div>
+  </div>
+</div>
+
+<div class="prediction">
+  <strong>What the plot tests:</strong>
+  H atom levels → lie <span class="hi">exactly on EM line</span> (Coulomb).
+  Multi-electron atoms → <span class="hi">slightly below</span> EM line (electron screening).
+  Molecules → <span class="hi">below EM line</span> (partial bonds, dipole interactions).
+  Nuclei (binding E) → <span class="hig">between lines</span> (residual strong force ~1% of nucleon mass).
+  Hadrons (rest mass) → <span class="hir">on or near QCD line</span> (full QCD confinement).
+  <br><br>
+  <strong>The key falsifiable prediction:</strong>
+  All EM-bound systems should scatter along slope −4.
+  All QCD-bound systems should scatter along slope −4, offset by exactly 1096×.
+  Any deviation in <em>slope</em> would break the framework.
+</div>
+
+<div class="chart-box">
+  <canvas id="mainChart"></canvas>
+</div>
+
+<h2>Interpretation</h2>
+<div class="finding">
+  <h3>Finding: Two parallel bands, slope −4</h3>
+  <p>The "ratio to EM line" column below shows each system's E/V divided by the EM line value at the same radius.
+  Values near 1.0 = on EM line. Values near 1096 = on QCD line. Values between = intermediate forces (nuclear).
+  <br>Proton: ratio ≈ <span class="hir">1096</span> = exactly 8/α. This is the key result.</p>
+</div>
+
+<h2>Data Table</h2>
+<div class="table-wrap">
+  <table>
+    <tr>
+      <th>System</th>
+      <th>r (m)</th>
+      <th>E (eV or MeV)</th>
+      <th>E/V (J/m³)</th>
+      <th>Ratio to EM line</th>
+      <th>Type</th>
+    </tr>
+  </table>
+</div>
+
+</div><!-- container -->
+
+<script>
+// ===== CONSTANTS =====
+const hbar_c = 3.1615e-26;  // J·m
+const alpha  = 1 / 137.036;
+const a0     = 5.2918e-11;  // m
+const Ry     = 13.6057;     // eV
+const eVJ    = 1.60218e-19; // J per eV
+const MeVJ   = 1.60218e-13; // J per MeV
+const Ang    = 1e-10;
+const fm     = 1e-15;
+
+// ===== THEORETICAL LINES =====
+function EV_EM(r)  { return 3 * alpha * hbar_c / (8 * Math.PI * Math.pow(r, 4)); }
+function EV_QCD(r) { return 3 * hbar_c / (Math.PI * Math.pow(r, 4)); }
+function volSphere(r) { return (4/3) * Math.PI * Math.pow(r, 3); }
+function calcEV(r, E_J) { return E_J / volSphere(r); }
+
+function genLine(fn, r1, r2, n) {
+  const pts = [];
+  const lr1 = Math.log10(r1), lr2 = Math.log10(r2);
+  for (let i = 0; i <= n; i++) {
+    const r = Math.pow(10, lr1 + (lr2 - lr1) * i / n);
+    pts.push({ x: r, y: fn(r), name: 'theory' });
+  }
+  return pts;
+}
+
+// ===== DATA =====
+
+// 1. Hydrogen Bohr levels (exact EM line)
+const hData = [];
+for (let n = 1; n <= 14; n++) {
+  const r = n * n * a0;
+  const E = Ry / (n * n) * eVJ;
+  hData.push({ name: `H (n=${n})`, x: r, y: calcEV(r, E),
+    eLabel: `${(Ry/n/n).toFixed(3)} eV`, type: 'H atom' });
+}
+
+// 2. Multi-electron atoms: r = n²·a0 / Z_eff, E = first ionization
+// Z_eff from Slater's rules (approx)
+const atomRaw = [
+  { name:'He', n:1, Zeff:1.69,  IE:24.587 },
+  { name:'Li', n:2, Zeff:1.28,  IE: 5.392 },
+  { name:'Be', n:2, Zeff:1.91,  IE: 9.323 },
+  { name:'B',  n:2, Zeff:2.58,  IE: 8.298 },
+  { name:'C',  n:2, Zeff:3.22,  IE:11.260 },
+  { name:'N',  n:2, Zeff:3.85,  IE:14.534 },
+  { name:'O',  n:2, Zeff:4.49,  IE:13.618 },
+  { name:'F',  n:2, Zeff:5.13,  IE:17.423 },
+  { name:'Ne', n:2, Zeff:5.76,  IE:21.565 },
+  { name:'Na', n:3, Zeff:2.51,  IE: 5.139 },
+  { name:'Mg', n:3, Zeff:3.31,  IE: 7.646 },
+  { name:'Al', n:3, Zeff:3.50,  IE: 5.986 },
+  { name:'Si', n:3, Zeff:4.15,  IE: 8.151 },
+  { name:'P',  n:3, Zeff:4.80,  IE:10.487 },
+  { name:'S',  n:3, Zeff:5.45,  IE:10.360 },
+  { name:'Cl', n:3, Zeff:6.12,  IE:12.968 },
+  { name:'Ar', n:3, Zeff:6.75,  IE:15.760 },
+  { name:'K',  n:4, Zeff:2.77,  IE: 4.341 },
+  { name:'Ca', n:4, Zeff:3.50,  IE: 6.113 },
+  { name:'Rb', n:5, Zeff:2.77,  IE: 4.177 },
+  { name:'Cs', n:6, Zeff:3.30,  IE: 3.894 },
+];
+const atomData = atomRaw.map(a => {
+  const r = a.n * a.n * a0 / a.Zeff;
+  const E = a.IE * eVJ;
+  return { name: a.name, x: r, y: calcEV(r, E), eLabel: `${a.IE.toFixed(3)} eV`, type: 'Atom' };
+});
+
+// 3. Molecules: van-der-Waals molecular radius, total bond dissociation energy
+// Energies = total atomization enthalpy (sum of all bonds broken)
+const molRaw = [
+  { name:'H₂',          r:1.45*Ang, E:  4.478*eVJ },
+  { name:'HF',          r:1.55*Ang, E:  5.869*eVJ },
+  { name:'HCl',         r:1.78*Ang, E:  4.432*eVJ },
+  { name:'HBr',         r:1.90*Ang, E:  3.758*eVJ },
+  { name:'HI',          r:2.04*Ang, E:  3.054*eVJ },
+  { name:'F₂',          r:1.57*Ang, E:  1.599*eVJ },
+  { name:'Cl₂',         r:1.90*Ang, E:  2.514*eVJ },
+  { name:'N₂',          r:1.82*Ang, E:  9.793*eVJ },
+  { name:'O₂',          r:1.73*Ang, E:  5.165*eVJ },
+  { name:'CO',          r:1.65*Ang, E: 11.108*eVJ },
+  { name:'NO',          r:1.64*Ang, E:  6.506*eVJ },
+  { name:'H₂O',         r:1.45*Ang, E:  9.512*eVJ },
+  { name:'NH₃',         r:1.55*Ang, E: 12.157*eVJ },
+  { name:'CH₄',         r:2.00*Ang, E: 17.615*eVJ },
+  { name:'CO₂',         r:1.98*Ang, E: 16.665*eVJ },
+  { name:'C₂H₂',        r:2.05*Ang, E: 22.267*eVJ },
+  { name:'C₂H₄',        r:2.20*Ang, E: 24.365*eVJ },
+  { name:'C₂H₆',        r:2.35*Ang, E: 30.112*eVJ },
+  { name:'Benzene',     r:2.95*Ang, E: 57.374*eVJ },
+  { name:'Naphthalene', r:3.70*Ang, E:101.3*eVJ  },
+];
+const molData = molRaw.map(m => ({
+  name: m.name, x: m.r,
+  y: calcEV(m.r, m.E),
+  eLabel: `${(m.E/eVJ).toFixed(2)} eV`, type: 'Molecule'
+}));
+
+// 4. Nuclei: r = 1.203·A^(1/3) fm, E = total binding energy
+const r0nuc = 1.2030 * fm;
+const nucRaw = [
+  { name:'Deuteron', A:  2, BE:   2.2246 },
+  { name:'He-3',     A:  3, BE:   7.7180 },
+  { name:'He-4 (α)', A:  4, BE:  28.2957 },
+  { name:'Li-6',     A:  6, BE:  31.9944 },
+  { name:'Li-7',     A:  7, BE:  39.2446 },
+  { name:'Be-9',     A:  9, BE:  58.1650 },
+  { name:'B-10',     A: 10, BE:  64.7508 },
+  { name:'C-12',     A: 12, BE:  92.1616 },
+  { name:'N-14',     A: 14, BE: 104.6587 },
+  { name:'O-16',     A: 16, BE: 127.6193 },
+  { name:'Ne-20',    A: 20, BE: 160.6448 },
+  { name:'Mg-24',    A: 24, BE: 198.2568 },
+  { name:'Si-28',    A: 28, BE: 236.5367 },
+  { name:'Ca-40',    A: 40, BE: 342.0521 },
+  { name:'Fe-56',    A: 56, BE: 492.2589 },
+  { name:'Ni-58',    A: 58, BE: 506.4570 },
+  { name:'Ni-62',    A: 62, BE: 545.2590 },
+  { name:'Zr-90',    A: 90, BE: 783.8920 },
+  { name:'Sn-120',   A:120, BE:1020.5460 },
+  { name:'Pb-208',   A:208, BE:1636.4300 },
+  { name:'U-238',    A:238, BE:1801.6900 },
+];
+const nucData = nucRaw.map(n => {
+  const r = r0nuc * Math.pow(n.A, 1/3);
+  const E = n.BE * MeVJ;
+  return { name: n.name, x: r, y: calcEV(r, E), eLabel: `${n.BE.toFixed(2)} MeV`, type: 'Nucleus' };
+});
+
+// 5. Hadrons: charge radius, rest mass energy
+const hadRaw = [
+  { name:'π⁰',       r:0.657*fm, m:  134.9766 },
+  { name:'π±',       r:0.657*fm, m:  139.5702 },
+  { name:'K±',       r:0.560*fm, m:  493.677  },
+  { name:'K⁰',       r:0.560*fm, m:  497.611  },
+  { name:'η',        r:0.600*fm, m:  547.862  },
+  { name:'Proton',   r:0.8409*fm,m:  938.272  },
+  { name:'Neutron',  r:0.8600*fm,m:  939.565  },
+  { name:'Λ⁰',       r:0.800*fm, m: 1115.683  },
+  { name:'Σ⁺',       r:0.800*fm, m: 1189.370  },
+  { name:'Σ⁰',       r:0.800*fm, m: 1192.642  },
+  { name:'Ξ⁰',       r:0.800*fm, m: 1314.860  },
+  { name:'Δ(1232)',   r:0.850*fm, m: 1232.000  },
+  { name:'Ω⁻',       r:0.800*fm, m: 1672.450  },
+];
+const hadData = hadRaw.map(h => {
+  const E = h.m * MeVJ;
+  return { name: h.name, x: h.r, y: calcEV(h.r, E), eLabel: `${h.m.toFixed(2)} MeV`, type: 'Hadron' };
+});
+
+// ===== THEORETICAL LINES =====
+const emLine  = genLine(EV_EM,  1.2e-8, 2e-16, 150);
+const qcdLine = genLine(EV_QCD, 1.2e-8, 2e-16, 150);
+
+// ===== CHART =====
+const ctx = document.getElementById('mainChart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [
+      {
+        label: 'EM line  (3αħc / 8πr⁴)',
+        data: emLine,
+        type: 'line',
+        borderColor: '#3366ff',
+        backgroundColor: 'rgba(51,102,255,0.04)',
+        borderWidth: 2,
+        pointRadius: 0,
+        borderDash: [8, 4],
+        fill: false,
+        tension: 0,
+        order: 0,
+      },
+      {
+        label: 'QCD line  (3ħc / πr⁴)',
+        data: qcdLine,
+        type: 'line',
+        borderColor: '#ff3333',
+        backgroundColor: 'rgba(255,51,51,0.04)',
+        borderWidth: 2,
+        pointRadius: 0,
+        borderDash: [8, 4],
+        fill: false,
+        tension: 0,
+        order: 0,
+      },
+      {
+        label: 'H atom Bohr levels (n=1–14)',
+        data: hData,
+        backgroundColor: '#3366ff',
+        borderColor: '#1144cc',
+        pointRadius: 6,
+        pointHoverRadius: 9,
+        order: 2,
+      },
+      {
+        label: 'Atoms — first ionization',
+        data: atomData,
+        backgroundColor: '#88bbff',
+        borderColor: '#5588cc',
+        pointRadius: 5,
+        pointHoverRadius: 8,
+        order: 2,
+      },
+      {
+        label: 'Molecules — bond energy',
+        data: molData,
+        backgroundColor: '#00ee77',
+        borderColor: '#00aa55',
+        pointRadius: 5,
+        pointHoverRadius: 8,
+        order: 2,
+      },
+      {
+        label: 'Nuclei — binding energy',
+        data: nucData,
+        backgroundColor: '#ffaa00',
+        borderColor: '#cc7700',
+        pointRadius: 6,
+        pointHoverRadius: 9,
+        pointStyle: 'rectRot',
+        order: 2,
+      },
+      {
+        label: 'Hadrons — rest mass',
+        data: hadData,
+        backgroundColor: '#ff4444',
+        borderColor: '#cc1111',
+        pointRadius: 7,
+        pointHoverRadius: 10,
+        pointStyle: 'triangle',
+        order: 2,
+      },
+    ]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 1.65,
+    scales: {
+      x: {
+        type: 'logarithmic',
+        title: { display:true, text:'Radius  r  (m)', color:'#bbb', font:{size:13} },
+        ticks: {
+          color: '#999',
+          callback: function(v) {
+            const e = Math.round(Math.log10(v));
+            if (Math.abs(v / Math.pow(10, e) - 1) < 0.02)
+              return '10' + sup(e);
+            return '';
+          },
+          maxTicksLimit: 10,
+        },
+        grid: { color: '#181830' },
+        min: 1.5e-16,
+        max: 8e-9,
+      },
+      y: {
+        type: 'logarithmic',
+        title: { display:true, text:'Energy Density  E/V  (J / m³)', color:'#bbb', font:{size:13} },
+        ticks: {
+          color: '#999',
+          callback: function(v) {
+            const e = Math.round(Math.log10(v));
+            if (Math.abs(v / Math.pow(10, e) - 1) < 0.02)
+              return '10' + sup(e);
+            return '';
+          },
+          maxTicksLimit: 12,
+        },
+        grid: { color: '#181830' },
+        min: 5e2,
+        max: 5e36,
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#ccc',
+          font: { size: 12 },
+          padding: 14,
+          usePointStyle: true,
+        }
+      },
+      tooltip: {
+        backgroundColor: '#12122a',
+        borderColor: '#334466',
+        borderWidth: 1,
+        titleColor: '#88aaff',
+        bodyColor: '#e0e0e0',
+        padding: 11,
+        callbacks: {
+          title: ctx => ctx[0].raw.name || '',
+          label: ctx => {
+            const d = ctx.raw;
+            if (!d.eLabel) return [];
+            const ratio = d.y / EV_EM(d.x);
+            const qratio = d.y / EV_QCD(d.x);
+            return [
+              `r = ${fmtSci(d.x)} m`,
+              `E = ${d.eLabel}`,
+              `E/V = ${fmtSci(d.y)} J/m³`,
+              `ratio to EM line: ${ratio.toFixed(1)}×`,
+              `ratio to QCD line: ${qratio.toFixed(3)}×`,
+            ];
+          }
+        }
+      }
+    }
+  }
+});
+
+// ===== SUPERSCRIPT HELPER =====
+function sup(n) {
+  const m = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵',
+             '6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+  return String(n).split('').map(c=>m[c]||c).join('');
+}
+function fmtSci(v) {
+  if (!v || isNaN(v)) return '—';
+  const e = Math.floor(Math.log10(Math.abs(v)));
+  const m = (v / Math.pow(10, e)).toFixed(2);
+  return `${m}×10${sup(e)}`;
+}
+
+// ===== TABLE =====
+const allRows = [
+  ...hData,
+  ...atomData,
+  ...molData,
+  ...nucData,
+  ...hadData,
+];
+const typeClass = {
+  'H atom':'type-h','Atom':'type-a','Molecule':'type-m','Nucleus':'type-n','Hadron':'type-hd'
+};
+const table = document.querySelector('table');
+allRows.forEach(d => {
+  const ratio = d.y / EV_EM(d.x);
+  let rClass = 'ratio-em';
+  if (ratio > 10)   rClass = 'ratio-mid';
+  if (ratio > 200)  rClass = 'ratio-qcd';
+  const tr = document.createElement('tr');
+  tr.innerHTML =
+    `<td class="${typeClass[d.type]||''}">${d.name}</td>` +
+    `<td>${fmtSci(d.x)}</td>` +
+    `<td>${d.eLabel||'—'}</td>` +
+    `<td>${fmtSci(d.y)}</td>` +
+    `<td class="${rClass}">${ratio < 0.001 ? ratio.toExponential(2) : ratio.toFixed(2)}×</td>` +
+    `<td style="color:#888">${d.type}</td>`;
+  table.appendChild(tr);
+});
+</script>
+</body>
+</html>

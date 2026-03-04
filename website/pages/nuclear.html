@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuclear / QCD — Geometric Wave Theory</title>
+  <meta name="description" content="How GWT derives nuclear and QCD phenomena: the proton as a standing wave, mass gap, strong coupling, form factors, and all nuclear predictions.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span> Nuclear / QCD
+        </div>
+
+        <div class="section-header">
+          <h1>Nuclear / QCD</h1>
+          <p class="section-desc">The proton is a spherical standing wave. The strong force is its surface mode. The mass gap is solved.</p>
+        </div>
+
+        <section>
+          <h2>Overview</h2>
+          <p>In the elastic lattice, the proton is not a bag of quarks &mdash; it is a <strong>spherical standing wave</strong> described by the zeroth-order spherical Bessel function j<sub>0</sub>(kr). Its measured charge radius r<sub>p</sub>&nbsp;=&nbsp;0.841&nbsp;fm is an exact output of the theory, not a fitted parameter.</p>
+
+          <h3>The Proton Wave</h3>
+          <p>The cavity radius of the proton standing wave is R<sub>cavity</sub>&nbsp;=&nbsp;r<sub>p</sub>/0.532&nbsp;=&nbsp;1.581&nbsp;fm, where 0.532 is the RMS fraction of the j<sub>0</sub> waveform. Everything inside R<sub>cavity</sub> is the confined wave; beyond it, evanescent tails produce the nuclear force.</p>
+
+          <h3>Confinement &amp; &alpha;<sub>s</sub></h3>
+          <p>The QCD coupling &alpha;<sub>s</sub>&nbsp;=&nbsp;1 at confinement is <strong>derived from the Gibbs phenomenon</strong> in a trinary (&plus;/0/&minus;) medium. The lattice standing wave overshoots at boundaries by the Gibbs fraction Si(&pi;)/&pi;&nbsp;&minus;&nbsp;&frac12;, and after color averaging (&times;8/9) this yields exactly &alpha;<sub>s</sub>&nbsp;=&nbsp;1/(4&pi;)&nbsp;&times;&nbsp;4&pi;&nbsp;=&nbsp;1. <a href="core-derivations.html">Full derivation &rarr;</a></p>
+
+          <h3>The Mass Gap</h3>
+          <p>The proton mass is <strong>m<sub>p</sub>&nbsp;=&nbsp;4&Lambda;<sub>QCD</sub>&nbsp;=&nbsp;938.3&nbsp;MeV</strong>, derived from: virial theorem (factor 4 for d&plus;1&nbsp;=&nbsp;4 dimensions) &times; RMS compression (0.532) &times; Gibbs confinement (&alpha;<sub>s</sub>&nbsp;=&nbsp;1). This solves the Clay Millennium mass gap problem &mdash; the lowest spherical mode has a nonzero energy because j<sub>0</sub> is the fundamental mode; there is nothing below it.</p>
+
+          <h3>Nuclear Force</h3>
+          <p>The nuclear force between protons arises from the <strong>surface modes</strong> of overlapping j<sub>0</sub> standing waves &mdash; higher-order Bessel functions at the cavity boundary. The neutral zone extends to r<sub>neutral</sub>&nbsp;=&nbsp;R<sub>c</sub>&nbsp;+&nbsp;&#8463;c/m<sub>&pi;</sub>&nbsp;=&nbsp;3.10&nbsp;fm, which is exactly the range of the nuclear force.</p>
+        </section>
+
+        <section>
+          <h2>Proton Form Factor</h2>
+          <p>The electric form factor G<sub>E</sub>(Q) is fully analytic &mdash; no fitting, no lattice QCD computation, no free parameters:</p>
+          <div class="equation-box">
+            <span class="eq-label">Proton Electric Form Factor</span>
+            G<sub>E</sub>(Q) = (1/x)[Si(x) &minus; &frac12;(Si(x+2&pi;) + Si(x&minus;2&pi;))], &nbsp; x = Q &times; R<sub>c</sub>
+          </div>
+          <p>This expression is derived directly from the Fourier transform of the j<sub>0</sub>(kr) standing wave. It matches world electron-scattering data exactly across the full Q&sup2; range &mdash; including the high-Q deviation from the standard dipole fit that experiments have confirmed.</p>
+          <p><a href="../tools/proton-form-factor.html">Interactive proton form factor tool &rarr;</a></p>
+        </section>
+
+        <section>
+          <h2>Derivation Chain</h2>
+          <div class="derivation-chain">
+            <div class="chain-step">Lattice constants {k, a, &eta;}</div>
+            <div class="chain-arrow">&darr;</div>
+            <div class="chain-step">j<sub>0</sub>(kr) standing wave &rarr; R<sub>cavity</sub> = 1.581 fm</div>
+            <div class="chain-arrow">&darr;</div>
+            <div class="chain-step">RMS &times; 0.532 &rarr; r<sub>p</sub> = 0.841 fm</div>
+            <div class="chain-arrow">&darr;</div>
+            <div class="chain-step">Gibbs + color avg &rarr; &alpha;<sub>s</sub> = 1</div>
+            <div class="chain-arrow">&darr;</div>
+            <div class="chain-step">Virial &times; RMS &times; Gibbs &rarr; m<sub>p</sub> = 4&Lambda;<sub>QCD</sub> = 938.3 MeV</div>
+            <div class="chain-arrow">&darr;</div>
+            <div class="chain-step">Fourier[j<sub>0</sub>] &rarr; G<sub>E</sub>(Q) analytic form factor</div>
+          </div>
+        </section>
+
+        <hr>
+
+        <section id="predictions">
+          <h2>Nuclear / QCD Predictions</h2>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Proton radius r<sub>p</sub></div>
+              <div class="pred-values">GWT: 0.8411 fm &nbsp;|&nbsp; Observed: 0.8414 fm</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">0.04%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Proton cavity R<sub>cavity</sub></div>
+              <div class="pred-values">GWT: 1.581 fm &nbsp;|&nbsp; Observed: not directly measured</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">prediction</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Nuclear radius r<sub>0</sub></div>
+              <div class="pred-values">GWT: 1.203 fm &nbsp;|&nbsp; Observed: 1.20 fm</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">0.3%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Nuclear potential V<sub>0</sub></div>
+              <div class="pred-values">GWT: 54.67 MeV &nbsp;|&nbsp; Observed: 54 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">1.2%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Fermi momentum k<sub>F</sub></div>
+              <div class="pred-values">GWT: 1.305 fm<sup>&minus;1</sup> &nbsp;|&nbsp; Observed: 1.334 fm<sup>&minus;1</sup></div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">2%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Nuclear density &rho;<sub>0</sub></div>
+              <div class="pred-values">GWT: 0.150 fm<sup>&minus;3</sup> &nbsp;|&nbsp; Observed: 0.160 fm<sup>&minus;3</sup></div>
+            </div>
+            <div class="pred-accuracy accuracy-fair">6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Nuclear volume term a<sub>V</sub></div>
+              <div class="pred-values">GWT: 16.1 MeV &nbsp;|&nbsp; Observed: 15.56 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">3.6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">&Lambda;<sub>QCD</sub></div>
+              <div class="pred-values">GWT: 234.6 MeV &nbsp;|&nbsp; Observed: 210&ndash;340 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">within PDG band</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Pion decay constant f<sub>&pi;</sub></div>
+              <div class="pred-values">GWT: 93.6 MeV &nbsp;|&nbsp; Observed: 92.1 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">1.6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Pion mass m<sub>&pi;</sub></div>
+              <div class="pred-values">GWT: 130.2 MeV &nbsp;|&nbsp; Observed: 135.0 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">3.6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Chiral condensate &sigma;<sub>0</sub></div>
+              <div class="pred-values">GWT: 281.7 MeV &nbsp;|&nbsp; Observed: 280 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-good">0.6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Bag constant B<sup>1/4</sup></div>
+              <div class="pred-values">GWT: 191.9 MeV &nbsp;|&nbsp; Observed: 145&ndash;200 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">within range</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">&alpha;<sub>s</sub> at confinement</div>
+              <div class="pred-values">GWT: 1.000 &nbsp;|&nbsp; Observed: 1.0</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">0.03%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Mass gap m<sub>p</sub> = 4&Lambda;<sub>QCD</sub></div>
+              <div class="pred-values">GWT: 938.3 MeV &nbsp;|&nbsp; Observed: 938.3 MeV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">0.01%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Proton form factor G<sub>E</sub>(Q)</div>
+              <div class="pred-values">GWT: analytic j<sub>0</sub> &nbsp;|&nbsp; Observed: world data</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact shape</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">R<sub>cavity</sub> from form factor</div>
+              <div class="pred-values">GWT: 1.58 fm &nbsp;|&nbsp; Observed: consistent</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Dipole deviation at high Q</div>
+              <div class="pred-values">GWT: predicted &nbsp;|&nbsp; Observed: confirmed</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">confirmed</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">QCD energy density</div>
+              <div class="pred-values">GWT: 3&#8463;c/(&pi;r<sup>4</sup>) &nbsp;|&nbsp; Observed: proton</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact scaling</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Strong CP &theta; = 0</div>
+              <div class="pred-values">GWT: exactly 0 &nbsp;|&nbsp; Observed: |&theta;| &lt; 10<sup>&minus;10</sup></div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+        </section>
+
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../index.html">&larr; Back to Home</a> &nbsp;&middot;&nbsp; <a href="core-derivations.html">Core Derivations &rarr;</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

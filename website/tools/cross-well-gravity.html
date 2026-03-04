@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GWT Cross-Well Gravity & Soliton Mass Calculator</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0a0a2e;
+    color: #e0e0ff;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #7eb8ff;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .panel {
+    background: #12124a;
+    border: 1px solid #2a2a6a;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .panel h2 {
+    color: #7eb8ff;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #2a2a6a;
+    padding-bottom: 8px;
+  }
+  .full-width { grid-column: 1 / -1; }
+  canvas {
+    width: 100%;
+    background: #080828;
+    border-radius: 8px;
+    border: 1px solid #2a2a6a;
+  }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a4a;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-label { color: #aab; }
+  .result-value { color: #7eff7e; font-family: 'Consolas', monospace; font-weight: bold; }
+  .result-value.highlight { color: #ffcc00; font-size: 1.1em; }
+  .slider-group {
+    margin: 12px 0;
+  }
+  .slider-group label {
+    display: block;
+    color: #aab;
+    margin-bottom: 4px;
+    font-size: 0.9em;
+  }
+  .slider-group input[type="range"] {
+    width: 100%;
+    accent-color: #7eb8ff;
+  }
+  .slider-value {
+    text-align: right;
+    color: #7eb8ff;
+    font-family: 'Consolas', monospace;
+    font-size: 0.9em;
+  }
+  .equation {
+    background: #1a1a5a;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Consolas', monospace;
+    color: #ffcc00;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 0.95em;
+  }
+  .note {
+    color: #888;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 8px;
+  }
+  .summary-box {
+    background: #1a2a1a;
+    border: 1px solid #2a6a2a;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+  }
+  .summary-box h3 {
+    color: #7eff7e;
+    margin-bottom: 10px;
+  }
+  .tab-bar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  .tab {
+    padding: 8px 16px;
+    background: #1a1a4a;
+    border: 1px solid #2a2a6a;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    color: #aab;
+    font-size: 0.9em;
+  }
+  .tab.active {
+    background: #2a2a8a;
+    color: #7eb8ff;
+    border-bottom-color: #2a2a8a;
+  }
+  .warning {
+    background: #3a2a1a;
+    border: 1px solid #6a4a2a;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    color: #ffaa44;
+    font-size: 0.9em;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #1a1a4a;
+    font-size: 0.9em;
+  }
+  th { color: #7eb8ff; }
+  td { color: #ccd; }
+  td.num { font-family: 'Consolas', monospace; color: #7eff7e; text-align: right; }
+</style>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;margin:-20px -20px 20px;font-family:'Segoe UI',sans-serif;font-size:0.85rem;display:flex;align-items:center;gap:1rem;"><a href="../index.html" style="color:#58a6ff;text-decoration:none;">&larr; GWT Home</a><span style="color:#30363d;">|</span><a href="../pages/multi-well.html" style="color:#8b949e;text-decoration:none;">Multi-Well Cosmology</a></div>
+
+<h1>Cross-Well Gravity &amp; Soliton Mass Calculator</h1>
+<p class="subtitle">Geometric Wave Theory — Multi-Well Cosmology from V(x) = (ka²/π²)[1 − cos(πx/a)]</p>
+
+<div class="grid">
+
+  <!-- Cosine Potential Plot -->
+  <div class="panel full-width">
+    <h2>Cosine Potential: Multi-Well Structure</h2>
+    <canvas id="potentialCanvas" height="280"></canvas>
+    <div class="slider-group">
+      <label>Highlight well: <span id="wellLabel">0</span></label>
+      <input type="range" id="wellSlider" min="-2" max="2" value="0" step="1">
+    </div>
+  </div>
+
+  <!-- Cross-Well Coupling -->
+  <div class="panel">
+    <h2>Cross-Well Gravitational Coupling</h2>
+    <div class="equation">T(n) = exp(−n × π) — Evanescent transmission</div>
+
+    <div class="result-row">
+      <span class="result-label">Barrier height V_max</span>
+      <span class="result-value" id="vmax">0.1292 E_Planck</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Barrier width</span>
+      <span class="result-value">a = 1.616 × 10⁻³⁵ m</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Penetration depth δ</span>
+      <span class="result-value" id="pendepth">a/π = 5.14 × 10⁻³⁶ m</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Well 0 → Well ±1 coupling</span>
+      <span class="result-value highlight" id="T1">4.32%</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Well 0 → Well ±2 coupling</span>
+      <span class="result-value" id="T2">0.187%</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Equilibrium time</span>
+      <span class="result-value" id="eqtime">~150 t_Planck</span>
+    </div>
+
+    <div class="note">
+      Gravity (lattice compression) transmits through barrier evanescently.
+      Matter (standing waves) does not cross — too large for the barrier.
+    </div>
+  </div>
+
+  <!-- Soliton Properties -->
+  <div class="panel">
+    <h2>Kink Soliton Properties</h2>
+    <div class="equation">m_kink = (8/π²) × √(2k/η) × (a/π) = 16/π⁴ × m_P</div>
+
+    <div class="result-row">
+      <span class="result-label">Kink mass (Planck units)</span>
+      <span class="result-value highlight">0.1642 m_Planck</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Kink mass (kg)</span>
+      <span class="result-value" id="kinkkg">3.57 × 10⁻⁹ kg</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Kink mass (GeV)</span>
+      <span class="result-value" id="kinkgev">2.00 × 10¹⁸ GeV</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Kink width</span>
+      <span class="result-value">~a (one lattice spacing)</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Topological charge</span>
+      <span class="result-value">±1 (stable, cannot decay)</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Interaction</span>
+      <span class="result-value">Gravity only (no EM, no strong)</span>
+    </div>
+
+    <div class="note">
+      Kink solitons are domain walls between adjacent wells.
+      They are topologically protected — infinite lifetime.
+      Invisible to EM, but gravitate normally → dark matter candidate.
+    </div>
+  </div>
+
+  <!-- Evanescent Decay Plot -->
+  <div class="panel">
+    <h2>Evanescent Gravity Decay Through Barrier</h2>
+    <canvas id="decayCanvas" height="250"></canvas>
+    <p class="note">
+      Gravitational compression amplitude as it crosses from well 0 through
+      the domain wall into well 1. Exponential decay with depth δ = a/π.
+    </p>
+  </div>
+
+  <!-- Dark Matter Budget -->
+  <div class="panel">
+    <h2>Dark Matter Mass Budget</h2>
+    <canvas id="budgetCanvas" height="250"></canvas>
+    <div class="slider-group">
+      <label>Soliton density (per Mpc³): <span id="solitonLabel">10⁴⁵</span></label>
+      <input type="range" id="solitonSlider" min="40" max="52" value="45" step="0.5">
+    </div>
+  </div>
+
+  <!-- Multi-Well Mass Table -->
+  <div class="panel full-width">
+    <h2>Multi-Well Mass Accounting</h2>
+
+    <div class="slider-group">
+      <label>Number of occupied wells (including well 0): <span id="nwellLabel">3</span></label>
+      <input type="range" id="nwellSlider" min="1" max="5" value="3" step="1">
+    </div>
+    <div class="slider-group">
+      <label>Mass distribution: equal across wells? Asymmetry factor: <span id="asymLabel">1.0</span></label>
+      <input type="range" id="asymSlider" min="0.1" max="5.0" value="1.0" step="0.1">
+    </div>
+
+    <table id="wellTable">
+      <thead>
+        <tr>
+          <th>Well</th>
+          <th>Own Ω_m</th>
+          <th>Coupling to Well 0</th>
+          <th>Gravity felt in Well 0</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="wellBody">
+      </tbody>
+    </table>
+
+    <div class="summary-box">
+      <h3>Totals Seen From Well 0</h3>
+      <div class="result-row">
+        <span class="result-label">Own matter (Ω_b with G_eff)</span>
+        <span class="result-value" id="ownMatter">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Cross-well gravity contribution</span>
+        <span class="result-value" id="crossMatter">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Soliton (domain wall) contribution</span>
+        <span class="result-value" id="solitonMatter">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Total effective Ω_m seen</span>
+        <span class="result-value highlight" id="totalOmegaM">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Implied Ω_Λ = 1 − Ω_m</span>
+        <span class="result-value highlight" id="impliedOmegaL">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Planck observed Ω_Λ</span>
+        <span class="result-value" style="color:#ff8888;">0.685 ± 0.007</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Framework exact Ω_Λ</span>
+        <span class="result-value" style="color:#ffcc00;">2/3 = 0.6667</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Gap explained?</span>
+        <span class="result-value" id="gapStatus">—</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diffusion Rates -->
+  <div class="panel full-width">
+    <h2>Diffusion Rates Summary</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>What Diffuses</th>
+          <th>Speed</th>
+          <th>Coupling per Barrier</th>
+          <th>Equilibrium Time</th>
+          <th>Crosses Wells?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Static gravity field</td>
+          <td class="num">c</td>
+          <td class="num" id="diffT1">4.32%</td>
+          <td class="num">~150 t_P ≈ 10⁻⁴² s</td>
+          <td style="color:#7eff7e">✓ Yes (attenuated)</td>
+        </tr>
+        <tr>
+          <td>Gravitational waves</td>
+          <td class="num">c</td>
+          <td class="num" id="diffT1b">4.32%</td>
+          <td class="num">Propagation delay only</td>
+          <td style="color:#7eff7e">✓ Yes (attenuated)</td>
+        </tr>
+        <tr>
+          <td>EM radiation (light)</td>
+          <td class="num">c (in own well)</td>
+          <td class="num">~0%</td>
+          <td class="num">N/A</td>
+          <td style="color:#ff8888">✗ Stays in well</td>
+        </tr>
+        <tr>
+          <td>Matter (standing waves)</td>
+          <td class="num">0</td>
+          <td class="num">~0%</td>
+          <td class="num">N/A</td>
+          <td style="color:#ff8888">✗ Stays in well</td>
+        </tr>
+        <tr>
+          <td>Kink solitons (domain walls)</td>
+          <td class="num">< c</td>
+          <td class="num">N/A (they ARE the barrier)</td>
+          <td class="num">Stable forever</td>
+          <td style="color:#ffcc00">— They define the boundary</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="equation" style="margin-top:15px;">
+      Diffusion rate: Γ = T × (c/a) ≈ 0.043 × 1.86×10⁴³ s⁻¹ ≈ 8.0 × 10⁴¹ s⁻¹
+    </div>
+    <p class="note">
+      The diffusion rate Γ tells us how quickly gravitational information crosses one barrier.
+      At ~10⁴¹ crossings per second, cross-well gravity reaches steady state in ~10⁻⁴² seconds.
+      Over cosmic time (4.35 × 10¹⁷ s), the gravitational coupling is fully equilibrated.
+    </p>
+  </div>
+
+</div>
+
+<script>
+// === CONSTANTS ===
+const k_lat = 4.77e78;     // N/m lattice stiffness
+const a_lat = 1.616e-35;   // m lattice spacing
+const eta = 1.385e-8;      // kg inertial response
+const c_light = 2.998e8;   // m/s
+const h_planck = 6.626e-34;
+const G_N = 6.674e-11;
+const m_planck = 2.176e-8; // kg
+const E_planck = 1.956e9;  // J
+const t_planck = 5.391e-44; // s
+
+// Derived
+const V_max = (2 * k_lat * a_lat * a_lat) / (Math.PI * Math.PI);
+const V_max_EP = V_max / E_planck; // in Planck units
+const pen_depth = a_lat / Math.PI;
+const T1 = Math.exp(-Math.PI);      // well 0 -> well ±1
+const T2 = Math.exp(-2 * Math.PI);  // well 0 -> well ±2
+const m_kink = (16 / Math.pow(Math.PI, 4)) * m_planck;
+const m_kink_GeV = m_kink * c_light * c_light / 1.602e-10; // in GeV
+const omega_0 = c_light / a_lat;
+const Gamma_diff = T1 * omega_0;
+const tau_eq = 1.0 / Gamma_diff;
+const tau_eq_tP = tau_eq / t_planck;
+
+const Omega_b = 0.049;   // baryon density
+const G_eff_ratio = 6.8;  // G_eff / G_N
+
+// === POTENTIAL PLOT ===
+function drawPotential() {
+  const canvas = document.getElementById('potentialCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = 280 * 2;
+  ctx.scale(2, 2);
+  const W = canvas.offsetWidth;
+  const H = 280;
+
+  ctx.fillStyle = '#080828';
+  ctx.fillRect(0, 0, W, H);
+
+  const well = parseInt(document.getElementById('wellSlider').value);
+  document.getElementById('wellLabel').textContent = well;
+
+  // Draw potential V(x) = (ka²/π²)[1 - cos(πx/a)]
+  // Normalize: x from -2.5 to 2.5 (in units of 2a)
+  const xMin = -2.8, xMax = 2.8;
+  const margin = { left: 60, right: 20, top: 20, bottom: 40 };
+  const pw = W - margin.left - margin.right;
+  const ph = H - margin.top - margin.bottom;
+
+  function toScreen(xNorm, vNorm) {
+    const sx = margin.left + (xNorm - xMin) / (xMax - xMin) * pw;
+    const sy = margin.top + ph - vNorm * ph;
+    return [sx, sy];
+  }
+
+  // Draw grid
+  ctx.strokeStyle = '#1a1a4a';
+  ctx.lineWidth = 0.5;
+  for (let i = -2; i <= 2; i++) {
+    const [sx] = toScreen(i, 0);
+    ctx.beginPath();
+    ctx.moveTo(sx, margin.top);
+    ctx.lineTo(sx, H - margin.bottom);
+    ctx.stroke();
+  }
+
+  // Highlight selected well
+  const wellCenter = well;
+  const [wx1] = toScreen(wellCenter - 0.5, 0);
+  const [wx2] = toScreen(wellCenter + 0.5, 0);
+  ctx.fillStyle = 'rgba(126, 184, 255, 0.1)';
+  ctx.fillRect(wx1, margin.top, wx2 - wx1, ph);
+
+  // Draw potential curve
+  ctx.strokeStyle = '#7eb8ff';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  let first = true;
+  for (let px = 0; px <= pw; px++) {
+    const xNorm = xMin + (px / pw) * (xMax - xMin);
+    const x = xNorm * 2; // in units of a
+    const v = 0.5 * (1 - Math.cos(Math.PI * x / 1)); // normalized to [0,1]
+    const vNorm = v * 0.85 + 0.05;
+    const [sx, sy] = toScreen(xNorm, vNorm);
+    if (first) { ctx.moveTo(sx, sy); first = false; }
+    else ctx.lineTo(sx, sy);
+  }
+  ctx.stroke();
+
+  // Draw well labels
+  ctx.font = '13px Consolas, monospace';
+  ctx.textAlign = 'center';
+  for (let i = -2; i <= 2; i++) {
+    const [sx, sy] = toScreen(i, 0.05);
+    const isSelected = (i === well);
+    ctx.fillStyle = isSelected ? '#ffcc00' : '#7eb8ff';
+    ctx.font = isSelected ? 'bold 14px Consolas, monospace' : '12px Consolas, monospace';
+    ctx.fillText(`Well ${i}`, sx, sy + 15);
+
+    // Draw coupling percentage
+    if (i !== 0) {
+      const n = Math.abs(i);
+      const coupling = Math.exp(-n * Math.PI) * 100;
+      ctx.fillStyle = '#7eff7e';
+      ctx.font = '11px Consolas, monospace';
+      ctx.fillText(`T=${coupling.toFixed(2)}%`, sx, sy + 30);
+    } else {
+      ctx.fillStyle = '#7eff7e';
+      ctx.font = '11px Consolas, monospace';
+      ctx.fillText('T=100%', sx, sy + 30);
+    }
+  }
+
+  // Barrier labels
+  ctx.fillStyle = '#ff8888';
+  ctx.font = '11px Consolas, monospace';
+  for (let i = -2; i <= 2; i += 1) {
+    const xb = i + 0.5;
+    if (xb > xMax - 0.3 || xb < xMin + 0.3) continue;
+    const [sx, sy] = toScreen(xb, 0.92);
+    ctx.fillText('V_max', sx, sy);
+  }
+
+  // Draw soliton markers at barrier peaks
+  ctx.fillStyle = '#ff6666';
+  for (let i = -2; i <= 1; i++) {
+    const xb = i + 0.5;
+    if (xb > xMax - 0.3 || xb < xMin + 0.3) continue;
+    const [sx, sy] = toScreen(xb, 0.9);
+    ctx.beginPath();
+    ctx.arc(sx, sy, 5, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+  ctx.fillStyle = '#ff8888';
+  ctx.font = '10px Segoe UI, sans-serif';
+  const [sx0, sy0] = toScreen(-1.0, 0.98);
+  ctx.fillText('● = kink soliton (domain wall)', sx0 + 60, sy0);
+
+  // Axes labels
+  ctx.fillStyle = '#888';
+  ctx.font = '12px Segoe UI, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Displacement (units of 2a)', W / 2, H - 5);
+  ctx.save();
+  ctx.translate(15, H / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('V(x) / V_max', 0, 0);
+  ctx.restore();
+}
+
+// === EVANESCENT DECAY PLOT ===
+function drawDecay() {
+  const canvas = document.getElementById('decayCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = 250 * 2;
+  ctx.scale(2, 2);
+  const W = canvas.offsetWidth;
+  const H = 250;
+
+  ctx.fillStyle = '#080828';
+  ctx.fillRect(0, 0, W, H);
+
+  const margin = { left: 60, right: 20, top: 20, bottom: 40 };
+  const pw = W - margin.left - margin.right;
+  const ph = H - margin.top - margin.bottom;
+
+  // x from -1 to 3 (in units of a), showing well 0, barrier, well 1
+  const xMin = -1, xMax = 3;
+
+  function toScreen(x, y) {
+    const sx = margin.left + (x - xMin) / (xMax - xMin) * pw;
+    const sy = margin.top + ph * (1 - y);
+    return [sx, sy];
+  }
+
+  // Background zones
+  // Well 0: x < 0.5
+  const [zx0] = toScreen(0, 0);
+  const [zx1] = toScreen(0.5, 0);
+  const [zx2] = toScreen(1.5, 0);
+  const [zx3] = toScreen(2, 0);
+  ctx.fillStyle = 'rgba(126, 255, 126, 0.05)';
+  ctx.fillRect(margin.left, margin.top, zx1 - margin.left, ph);
+  ctx.fillStyle = 'rgba(255, 100, 100, 0.08)';
+  ctx.fillRect(zx1, margin.top, zx2 - zx1, ph);
+  ctx.fillStyle = 'rgba(126, 184, 255, 0.05)';
+  ctx.fillRect(zx2, margin.top, pw + margin.left - zx2, ph);
+
+  // Labels for zones
+  ctx.font = '11px Segoe UI, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#7eff7e';
+  ctx.fillText('Well 0', (margin.left + zx1) / 2, margin.top + 15);
+  ctx.fillStyle = '#ff8888';
+  ctx.fillText('Barrier', (zx1 + zx2) / 2, margin.top + 15);
+  ctx.fillStyle = '#7eb8ff';
+  ctx.fillText('Well 1', (zx2 + pw + margin.left) / 2, margin.top + 15);
+
+  // Draw gravity amplitude
+  ctx.strokeStyle = '#7eff7e';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  let first = true;
+  for (let px = 0; px <= pw; px++) {
+    const x = xMin + (px / pw) * (xMax - xMin);
+    let amp;
+    if (x < 0.5) {
+      // In well 0: full strength
+      amp = 1.0;
+    } else if (x < 1.5) {
+      // In barrier: evanescent decay
+      const d = (x - 0.5); // distance into barrier (units of a)
+      amp = Math.exp(-d * Math.PI);
+    } else {
+      // In well 1: transmitted amplitude
+      amp = Math.exp(-1.0 * Math.PI); // T1
+    }
+    const [sx, sy] = toScreen(x, amp);
+    if (first) { ctx.moveTo(sx, sy); first = false; }
+    else ctx.lineTo(sx, sy);
+  }
+  ctx.stroke();
+
+  // T1 line
+  ctx.strokeStyle = '#ffcc00';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([5, 5]);
+  const [, ty] = toScreen(0, T1);
+  ctx.beginPath();
+  ctx.moveTo(margin.left, ty);
+  ctx.lineTo(W - margin.right, ty);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#ffcc00';
+  ctx.font = '12px Consolas, monospace';
+  ctx.textAlign = 'right';
+  ctx.fillText(`T₁ = ${(T1 * 100).toFixed(2)}%`, W - margin.right - 5, ty - 5);
+
+  // Axes
+  ctx.strokeStyle = '#444';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(margin.left, H - margin.bottom);
+  ctx.lineTo(W - margin.right, H - margin.bottom);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(margin.left, margin.top);
+  ctx.lineTo(margin.left, H - margin.bottom);
+  ctx.stroke();
+
+  // Y-axis labels
+  ctx.fillStyle = '#888';
+  ctx.font = '11px Consolas, monospace';
+  ctx.textAlign = 'right';
+  for (let v = 0; v <= 1; v += 0.25) {
+    const [, sy] = toScreen(0, v);
+    ctx.fillText((v * 100).toFixed(0) + '%', margin.left - 5, sy + 4);
+  }
+
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#888';
+  ctx.font = '12px Segoe UI, sans-serif';
+  ctx.fillText('Distance through barrier (units of a)', W / 2, H - 5);
+  ctx.save();
+  ctx.translate(12, H / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Gravity amplitude', 0, 0);
+  ctx.restore();
+}
+
+// === BUDGET BAR CHART ===
+function drawBudget() {
+  const canvas = document.getElementById('budgetCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = 250 * 2;
+  ctx.scale(2, 2);
+  const W = canvas.offsetWidth;
+  const H = 250;
+
+  ctx.fillStyle = '#080828';
+  ctx.fillRect(0, 0, W, H);
+
+  const nWells = parseInt(document.getElementById('nwellSlider').value);
+  const solitonExp = parseFloat(document.getElementById('solitonSlider').value);
+  const solitonDensity = Math.pow(10, solitonExp);
+
+  // CORRECT MODEL:
+  // Each well has Omega_b = 0.049 baryons (if equally populated by Big Bang)
+  // G_eff applies to OUR well's baryons only (large-scale self-gravity enhancement)
+  // Cross-well: neighbor baryons × evanescent coupling (NO G_eff boost)
+  const Omega_b_geff = Omega_b * G_eff_ratio; // 0.049 × 6.8 = 0.333
+
+  let crossWell = 0;
+  const neighborWells = nWells - 1;
+  for (let n = 1; n <= Math.ceil(neighborWells / 2); n++) {
+    const Tn = Math.exp(-n * Math.PI);
+    const count = (n <= neighborWells / 2) ? 2 : (neighborWells % 2 === 0 ? 0 : 1);
+    crossWell += count * Omega_b * Tn; // Just Omega_b × coupling, no G_eff
+  }
+
+  // Soliton contribution
+  const rho_crit = 8.53e-27; // kg/m³
+  const Mpc3_m3 = Math.pow(3.086e22, 3);
+  const solitonOmega = (solitonDensity * m_kink) / (rho_crit * Mpc3_m3);
+
+  const total = Omega_b_geff + crossWell + solitonOmega;
+
+  // Draw bar chart
+  const barX = 40, barW = W - 120, barY = 30, barH = 40;
+
+  const components = [
+    { label: `Baryons × G_eff (0.049 × ${G_eff_ratio})`, value: Omega_b_geff, color: '#7eff7e' },
+    { label: 'Cross-well gravity (no G_eff)', value: crossWell, color: '#7eb8ff' },
+    { label: 'Soliton mass', value: solitonOmega, color: '#ff6666' },
+  ];
+
+  // Scale bar to show up to 0.45
+  const scale = barW / 0.45;
+  let cx = barX;
+  components.forEach(comp => {
+    const w = comp.value * scale;
+    ctx.fillStyle = comp.color;
+    ctx.fillRect(cx, barY, Math.max(w, 0.5), barH);
+    cx += w;
+  });
+
+  // Border
+  ctx.strokeStyle = '#444';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(barX, barY, barW, barH);
+
+  // 1/3 marker
+  const thirdX = barX + (1/3) * scale;
+  ctx.strokeStyle = '#ffcc00';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([5, 3]);
+  ctx.beginPath();
+  ctx.moveTo(thirdX, barY - 5);
+  ctx.lineTo(thirdX, barY + barH + 5);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#ffcc00';
+  ctx.font = '11px Consolas, monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('Ω_m = 1/3', thirdX, barY - 8);
+
+  // 0.315 marker (Planck observed)
+  const planckX = barX + 0.315 * scale;
+  ctx.strokeStyle = '#ff8888';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([3, 3]);
+  ctx.beginPath();
+  ctx.moveTo(planckX, barY - 5);
+  ctx.lineTo(planckX, barY + barH + 5);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#ff8888';
+  ctx.fillText('Planck 0.315', planckX, barY - 8);
+
+  // Legend
+  let ly = barY + barH + 30;
+  ctx.font = '12px Segoe UI, sans-serif';
+  ctx.textAlign = 'left';
+  components.forEach(comp => {
+    ctx.fillStyle = comp.color;
+    ctx.fillRect(barX, ly - 10, 14, 14);
+    ctx.fillStyle = '#ccd';
+    const val = comp.value < 0.0001 ? comp.value.toExponential(2) : comp.value.toFixed(4);
+    ctx.fillText(`${comp.label}: Ω = ${val}`, barX + 22, ly + 1);
+    ly += 22;
+  });
+
+  ctx.fillStyle = '#ffcc00';
+  ctx.font = 'bold 13px Consolas, monospace';
+  ctx.fillText(`Total Ω_m (seen): ${total.toFixed(4)}`, barX, ly + 10);
+
+  document.getElementById('solitonLabel').textContent = `10^${solitonExp.toFixed(1)}`;
+}
+
+// === WELL TABLE ===
+function updateWellTable() {
+  const nWells = parseInt(document.getElementById('nwellSlider').value);
+  const asym = parseFloat(document.getElementById('asymSlider').value);
+  document.getElementById('nwellLabel').textContent = nWells;
+  document.getElementById('asymLabel').textContent = asym.toFixed(1);
+
+  // CORRECT MODEL:
+  // Each well has Omega_b baryons. Big Bang was hot enough to populate all wells.
+  // Asymmetry factor: well 0 gets asym × Omega_b, others get 1 × Omega_b
+  // G_eff only applies to well 0's own baryons
+  // Cross-well gravity: neighbor Omega_b × evanescent coupling (basic G only)
+  const well0_Ob = Omega_b * asym;  // baryon density in our well
+  const other_Ob = Omega_b;          // baryon density in each neighbor
+
+  const tbody = document.getElementById('wellBody');
+  tbody.innerHTML = '';
+
+  let ownSeen = well0_Ob * G_eff_ratio; // our baryons with G_eff enhancement
+  let crossTotal = 0;
+
+  // Generate well indices centered on 0
+  const wells = [];
+  if (nWells === 1) wells.push(0);
+  else if (nWells === 2) wells.push(0, 1);
+  else if (nWells === 3) wells.push(-1, 0, 1);
+  else if (nWells === 4) wells.push(-1, 0, 1, 2);
+  else if (nWells === 5) wells.push(-2, -1, 0, 1, 2);
+
+  wells.forEach(w => {
+    const isHome = (w === 0);
+    const n = Math.abs(w);
+    const coupling = isHome ? 1.0 : Math.exp(-n * Math.PI);
+    const ownOb = isHome ? well0_Ob : other_Ob;
+    // What we feel: own well gets G_eff, cross-well gets basic coupling only
+    const feltOm = isHome ? (ownOb * G_eff_ratio) : (ownOb * coupling);
+
+    if (!isHome) crossTotal += feltOm;
+
+    const tr = document.createElement('tr');
+    const couplingLabel = isHome ? `G_eff × ${G_eff_ratio}` : `${(coupling * 100).toFixed(3)}%`;
+    tr.innerHTML = `
+      <td style="color:${isHome ? '#ffcc00' : '#7eb8ff'}">Well ${w} ${isHome ? '(us)' : ''}</td>
+      <td class="num">${ownOb.toFixed(4)}</td>
+      <td class="num">${couplingLabel}</td>
+      <td class="num">${feltOm.toFixed(5)}</td>
+      <td style="color:${isHome ? '#7eff7e' : n <= 1 ? '#7eb8ff' : '#ff8888'}">${isHome ? 'Home' : n <= 1 ? 'Stable' : 'Unstable?'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Soliton contribution
+  const solitonExp = parseFloat(document.getElementById('solitonSlider').value);
+  const solitonDensity = Math.pow(10, solitonExp);
+  const rho_crit = 8.53e-27;
+  const Mpc3_m3 = Math.pow(3.086e22, 3);
+  const solitonOmega = (solitonDensity * m_kink) / (rho_crit * Mpc3_m3);
+
+  const grandTotal = ownSeen + crossTotal + solitonOmega;
+  const impliedOmL = 1 - grandTotal;
+
+  document.getElementById('ownMatter').textContent = ownSeen.toFixed(4);
+  document.getElementById('crossMatter').textContent = crossTotal.toFixed(5);
+  document.getElementById('solitonMatter').textContent = solitonOmega.toExponential(2);
+  document.getElementById('totalOmegaM').textContent = grandTotal.toFixed(4);
+  document.getElementById('impliedOmegaL').textContent = impliedOmL.toFixed(4);
+
+  // Gap analysis
+  const gap = Math.abs(impliedOmL - 0.6667) / 0.6667 * 100;
+  const planckGap = Math.abs(0.685 - 0.6667) / 0.6667 * 100;
+  const status = document.getElementById('gapStatus');
+  if (gap < 1) {
+    status.textContent = `✓ Gap: ${gap.toFixed(2)}% (improved from Planck's ${planckGap.toFixed(1)}%)`;
+    status.style.color = '#7eff7e';
+  } else if (gap < planckGap) {
+    status.textContent = `Partial: ${gap.toFixed(2)}% (Planck: ${planckGap.toFixed(1)}%)`;
+    status.style.color = '#ffcc00';
+  } else {
+    status.textContent = `Gap: ${gap.toFixed(2)}% — adjust parameters`;
+    status.style.color = '#ff8888';
+  }
+
+  drawBudget();
+}
+
+// === INIT ===
+function init() {
+  drawPotential();
+  drawDecay();
+  updateWellTable();
+
+  document.getElementById('wellSlider').addEventListener('input', drawPotential);
+  document.getElementById('nwellSlider').addEventListener('input', updateWellTable);
+  document.getElementById('asymSlider').addEventListener('input', updateWellTable);
+  document.getElementById('solitonSlider').addEventListener('input', updateWellTable);
+}
+
+// Handle resize
+window.addEventListener('resize', () => {
+  drawPotential();
+  drawDecay();
+  drawBudget();
+});
+
+window.addEventListener('load', init);
+</script>
+
+</body>
+</html>

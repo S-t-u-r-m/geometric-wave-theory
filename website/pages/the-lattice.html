@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lattice — Geometric Wave Theory</title>
+  <meta name="description" content="The elastic lattice medium: its structure, potential V(x), constant equivalence, and the completion of Hooke's Law.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span> The Lattice
+        </div>
+
+        <div class="section-header">
+          <h1>The Lattice</h1>
+          <p class="section-desc">The medium in which all physics takes place: a three-dimensional elastic lattice at the Planck scale.</p>
+        </div>
+
+        <!-- THE MEDIUM -->
+        <section id="medium">
+          <h2>The Medium</h2>
+          <p>Space is not empty. It is an elastic three-dimensional lattice — an enormous network of nodes connected by bonds, each with spring constant k and separation a. This lattice is the medium through which all waves propagate.</p>
+
+          <div class="card">
+            <h4>Key Properties</h4>
+            <ul style="color:var(--text-secondary);">
+              <li><strong>Discrete:</strong> Nodes are separated by a&nbsp;=&nbsp;1.616&times;10<sup>&minus;35</sup>&nbsp;m (the Planck length). Below this scale, there is no space.</li>
+              <li><strong>Elastic:</strong> Each bond obeys Hooke's law with k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m. Displacements are restorative.</li>
+              <li><strong>Inertial:</strong> Each node resists displacement with inertial response &eta;&nbsp;=&nbsp;1.385&times;10<sup>&minus;8</sup>&nbsp;kg.</li>
+              <li><strong>Three-dimensional:</strong> N<sub>c</sub>&nbsp;=&nbsp;3 independent oscillation directions.</li>
+              <li><strong>Not detectable as mass:</strong> &eta; is an inertial property (like &epsilon;<sub>0</sub>), not a gravitating mass. Only disturbances (particles) gravitate.</li>
+            </ul>
+          </div>
+
+          <h3>Why No &ldquo;Aether Wind&rdquo;?</h3>
+          <p>The Michelson-Morley experiment found no motion through a medium — but GWT explains this automatically. The Earth is not a solid object moving through a static lattice. The Earth <em>is</em> a standing wave pattern in the lattice. A standing wave carries its local medium with it. The null result was always guaranteed — not a fix applied after the fact.</p>
+        </section>
+
+        <hr>
+
+        <!-- THE POTENTIAL -->
+        <section id="potential">
+          <h2>The Potential V(x)</h2>
+          <p>The energy stored when a lattice node is displaced by x from equilibrium:</p>
+
+          <div class="equation-box">
+            <span class="eq-label">Lattice Potential (uniquely derived)</span>
+            V(x) = (ka&sup2;/&pi;&sup2;) [1 &minus; cos(&pi;x/a)]
+          </div>
+
+          <p>This is not assumed — it is the <strong>unique</strong> potential consistent with wave mechanics on a discrete lattice:</p>
+
+          <div class="derivation-chain">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">Bonds between nodes are standing waves &rarr; displacement shifts the wave phase &rarr; energy is cosine in phase</div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">The Brillouin zone cutoff at &pi;/a kills all harmonics n&nbsp;&ge;&nbsp;2 &rarr; only the fundamental survives</div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">Result: a unique cosine potential with no free parameters</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Key Quantities</h4>
+            <table>
+              <tbody>
+                <tr><td>Barrier height V<sub>max</sub></td><td class="mono">2ka&sup2;/&pi;&sup2; = 4/&pi;&sup3; E<sub>Planck</sub> &asymp; 0.13 E<sub>P</sub></td></tr>
+                <tr><td>Barrier energy per node</td><td class="mono">&asymp; 2.5&times;10<sup>8</sup> J</td></tr>
+                <tr><td>Kink soliton mass</td><td class="mono">16/&pi;<sup>4</sup> m<sub>Planck</sub> &asymp; 0.164 m<sub>P</sub></td></tr>
+              </tbody>
+            </table>
+            <p style="margin-bottom:0;">The cosine potential is the <strong>sine-Gordon equation</strong> — exactly solvable, with stable kink soliton solutions.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- CONSTANT EQUIVALENCE -->
+        <section id="equivalence">
+          <h2>Constant Equivalence</h2>
+          <p>The lattice constants {k, a, &eta;} and the Planck constants {c, &#8463;, G} are the <strong>same information</strong> expressed in different language:</p>
+
+          <div class="equation-box">
+            <span class="eq-label">Lattice &rarr; Planck</span>
+            c = a&radic;(k/&eta;) &nbsp;&nbsp;&nbsp; &#8463; = &pi;ka&sup3;/c &nbsp;&nbsp;&nbsp; G = 2c<sup>4</sup>/(&pi;ka)
+          </div>
+
+          <div class="equation-box">
+            <span class="eq-label">Planck &rarr; Lattice</span>
+            k = 2&#8463;c/(&pi;a&sup3;) &nbsp;&nbsp;&nbsp; &eta; = 2&#8463;/(&pi;ac) &nbsp;&nbsp;&nbsp; a = l<sub>P</sub>
+          </div>
+
+          <div class="card">
+            <h4>In Planck Units</h4>
+            <p>Setting c&nbsp;=&nbsp;&#8463;&nbsp;=&nbsp;G&nbsp;=&nbsp;1 (Planck units):</p>
+            <div class="equation-box" style="text-align:center; border-left-color: var(--accent-purple);">
+              k = &eta; = 2/&pi; &nbsp;&nbsp;&nbsp;&nbsp; a = 1
+            </div>
+            <p>The lattice is <strong>perfectly impedance-matched</strong> — stiffness equals inertia. The factor 2/&pi; is the average of |sin(x)| over a full cycle: a wave mechanics signature.</p>
+            <p style="margin-bottom:0;">This means {c, &#8463;, G} tells you <em>what</em> the constants are; {k, a, &eta;} tells you <em>why</em> they exist.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- HOOKE'S LAW -->
+        <section id="hooke">
+          <h2>Hooke's Law — Completed</h2>
+          <p>In 1660, Robert Hooke discovered F&nbsp;=&nbsp;&minus;kx: the restoring force of a spring is proportional to displacement. But Hooke never explained <em>why</em> springs exist or what happens in three dimensions.</p>
+
+          <h3>The Missing 2/3</h3>
+          <p>In a 3D elastic medium, displacement along one direction produces:</p>
+
+          <div class="card">
+            <table>
+              <thead><tr><th>Component</th><th>Fraction</th><th>Direction</th><th>Physical Effect</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>Longitudinal</strong></td>
+                  <td class="mono">1/d = 1/3</td>
+                  <td>Along displacement</td>
+                  <td>Compression &rarr; <strong>Gravity</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Transverse</strong></td>
+                  <td class="mono">(d&minus;1)/d = 2/3</td>
+                  <td>Perpendicular</td>
+                  <td>Restoring force &rarr; <strong>Dark Energy</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Hooke's law in 1D captures only the 1/3 longitudinal response. The other <strong>2/3 — the transverse restoring force — is dark energy</strong>. The &ldquo;missing 2/3&rdquo; was hidden inside Hooke's law for 366 years.</p>
+
+          <div class="equation-box">
+            <span class="eq-label">Hooke's Law Completed (3D)</span>
+            F<sub>longitudinal</sub> = &minus;kx/3 &nbsp;&nbsp; (gravity)<br>
+            F<sub>transverse</sub> &nbsp;&nbsp;= &minus;2kx/3 &nbsp; (dark energy)<br>
+            F<sub>total</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &minus;kx &nbsp;&nbsp;&nbsp;&nbsp; (Hooke's law)
+          </div>
+
+          <h3>The Fundamental Spring</h3>
+          <p>Every spring you've ever seen — a car suspension, a slinky, a rubber band — is made of atoms. Those atoms are standing waves. Those standing waves exist in the elastic lattice. The lattice has spring constant k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m.</p>
+          <p><strong>This is the first spring.</strong> All other springs in nature are emergent echoes of this one Planck-scale bond.</p>
+
+          <h3>Nested Well Suppression</h3>
+          <p>Every mass has a crossover radius where its gravity (1/3 longitudinal) yields to the surrounding dark energy (2/3 transverse):</p>
+
+          <div class="equation-box">
+            r<sub>cross</sub> = (GM / H<sub>0</sub>&sup2;)<sup>1/3</sup>
+          </div>
+
+          <table>
+            <thead><tr><th>Object</th><th>r<sub>cross</sub></th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Proton</td><td class="mono">~10<sup>&minus;13</sup> m</td><td>Buried by atom</td></tr>
+              <tr><td>Earth</td><td class="mono">4.6 ly</td><td>Buried by Sun</td></tr>
+              <tr><td>Sun</td><td class="mono">320 ly</td><td>Buried by Galaxy</td></tr>
+              <tr><td>Milky Way</td><td class="mono">5.5 Mly</td><td>Buried by Local Group</td></tr>
+              <tr><td>Supercluster</td><td class="mono">~200 Mly</td><td><strong>FREE</strong> &mdash; dark energy dominates</td></tr>
+            </tbody>
+          </table>
+          <p>Dark energy is the <strong>default state</strong> of the lattice. Gravity is the local override. Only at supercluster scales and above does the transverse restoring force win uncontested.</p>
+        </section>
+
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../index.html">&larr; Back to Home</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Personal/session files
+MEMORY.md
+.claude/
+last thoughts.txt
+
+# Python files (not used on site)
+*.py
+
+# Generated images
+*.png
+
+# Old working notes (not published)
+EWT_Assumptions.txt
+EWT_Constants.txt
+EWT_For_Dummies.md
+EWT_Plain_English.md
+EWT_Predictions.txt
+EWT_Transcript_Locations.txt
+Elastic_Theory_Math_Derivations.md
+Elastic_Theory_Summary(1).md
+Hookes_Law_2D_to_3D.md
+
+# Standalone tool files (duplicates of website versions)
+atomic_mass_predictor.html
+cross_well_gravity.html
+cyclic_cosmology.html
+energy_density_plot.html
+lattice_cosmology_simulator.html
+proton_form_factor.html
+wave_atom_modeler.html
+wave_bond_simulator.py
+wave_bonds.png
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini

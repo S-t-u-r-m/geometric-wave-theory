@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lattice Framework — Atomic Wave Modeler</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0d1117; color: #c9d1d9;
+  height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+}
+#header {
+  background: #161b22; border-bottom: 1px solid #30363d;
+  padding: 8px 16px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+h1 { color: #58a6ff; font-size: 1.1em; white-space: nowrap; }
+#element-box {
+  background: #0d1117; border: 2px solid #58a6ff; border-radius: 8px;
+  padding: 4px 12px; text-align: center; min-width: 72px;
+}
+#el-symbol { font-size: 1.6em; font-weight: bold; color: #58a6ff; line-height: 1.1; }
+#el-z      { font-size: 0.7em; color: #8b949e; }
+#el-name   { font-size: 0.9em; color: #e6edf3; }
+input[type=range] { width: 260px; accent-color: #58a6ff; cursor: pointer; }
+#z-input {
+  width: 56px; background: #21262d; border: 1px solid #30363d;
+  color: #c9d1d9; padding: 4px 6px; border-radius: 4px; font-size: 1em; text-align: center;
+}
+.btn {
+  background: #21262d; border: 1px solid #30363d; color: #79c0ff;
+  padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85em;
+}
+.btn:hover { background: #30363d; }
+#main {
+  flex: 1; display: grid; grid-template-columns: 1fr 252px; overflow: hidden;
+}
+#canvas-panel {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 8px; background: #010409; position: relative;
+}
+#canvas-label { font-size: 0.72em; color: #484f58; margin-top: 4px; }
+#coord-info {
+  position: absolute; bottom: 28px; left: 12px;
+  font-size: 0.72em; color: #484f58; font-family: monospace;
+}
+#side-panel {
+  background: #161b22; border-left: 1px solid #30363d;
+  padding: 10px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto;
+}
+.panel-title {
+  color: #79c0ff; font-size: 0.8em; font-weight: bold;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 1px solid #30363d; padding-bottom: 3px; margin-bottom: 4px;
+}
+#view-toggle { display: flex; gap: 4px; }
+.toggle-btn {
+  flex: 1; background: #21262d; border: 1px solid #30363d; color: #8b949e;
+  padding: 3px; border-radius: 4px; cursor: pointer; font-size: 0.78em; text-align: center;
+}
+.toggle-btn.active { background: #1f3a5f; border-color: #58a6ff; color: #58a6ff; }
+.prop-row {
+  display: flex; justify-content: space-between; font-size: 0.8em;
+  padding: 2px 0; border-bottom: 1px solid #21262d;
+}
+.prop-label { color: #8b949e; }
+.prop-value { color: #e6edf3; font-family: monospace; }
+.prop-value.green { color: #3fb950; }
+.prop-value.orange { color: #ffa657; }
+.prop-value.red { color: #ff7b72; }
+#energy-canvas { width: 100%; display: block; }
+.mode-row { display: flex; align-items: center; gap: 5px; padding: 1px 0; font-size: 0.78em; }
+.mode-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.mode-label { flex: 1; }
+.mode-energy { color: #8b949e; font-family: monospace; font-size: 0.9em; }
+.mode-outer { color: #ffa657; font-weight: bold; }
+#footer-note {
+  margin-top: auto; font-size: 0.68em; color: #484f58; line-height: 1.5;
+  border-top: 1px solid #21262d; padding-top: 6px;
+}
+</style>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;margin:-20px -20px 20px;font-family:'Segoe UI',sans-serif;font-size:0.85rem;display:flex;align-items:center;gap:1rem;"><a href="../index.html" style="color:#58a6ff;text-decoration:none;">&larr; GWT Home</a><span style="color:#30363d;">|</span><a href="../pages/quantum-mechanics.html" style="color:#8b949e;text-decoration:none;">Quantum Mechanics</a></div>
+
+<div id="header">
+  <h1>⟡ Lattice Atomic Wave Modeler</h1>
+  <div id="element-box">
+    <div id="el-symbol">H</div>
+    <div id="el-z">Z = 1</div>
+  </div>
+  <div id="el-name">Hydrogen</div>
+  <input type="range" id="z-slider" min="1" max="137" value="1"
+         oninput="onZChange(this.value)">
+  <input type="number" id="z-input" min="1" max="137" value="1"
+         oninput="onZChange(this.value)">
+  <button class="btn" onclick="onZChange(currentZ-1)">&#9664;</button>
+  <button class="btn" onclick="onZChange(currentZ+1)">&#9654;</button>
+  <span style="font-size:0.75em;color:#484f58">← → keys also work</span>
+</div>
+
+<div id="main">
+  <div id="canvas-panel">
+    <canvas id="wave-canvas"></canvas>
+    <div id="canvas-label">2D cross-section &mdash; lattice wave intensity |&psi;|&sup2;(r,&theta;) &mdash; hover for radius</div>
+    <div id="coord-info"></div>
+  </div>
+
+  <div id="side-panel">
+    <div>
+      <div class="panel-title">View Mode</div>
+      <div id="view-toggle">
+        <div class="toggle-btn active" onclick="setView('intensity',this)">Intensity |&psi;|&sup2;</div>
+        <div class="toggle-btn" onclick="setView('amplitude',this)">Amplitude &psi;</div>
+      </div>
+    </div>
+    <div>
+      <div class="panel-title">Wave Properties</div>
+      <div id="props"></div>
+    </div>
+    <div>
+      <div class="panel-title">Energy Levels (eV)</div>
+      <canvas id="energy-canvas" height="300"></canvas>
+    </div>
+    <div>
+      <div class="panel-title">Filled Wave Modes</div>
+      <div id="mode-list"></div>
+    </div>
+    <div id="footer-note">
+      Lattice Framework: atoms are unified standing waves. Each mode = a discrete
+      frequency set by boundary conditions on the lattice field. Chemistry = wave
+      overlap and coupling. No electrons. No orbits. Pure wave mechanics.
+    </div>
+  </div>
+</div>
+
+<script>
+// =============================================================
+// ELEMENT DATA  (Z=1 to 137)
+// =============================================================
+const ELEMENTS = [null,
+  {s:'H',   n:'Hydrogen'},      {s:'He',  n:'Helium'},
+  {s:'Li',  n:'Lithium'},       {s:'Be',  n:'Beryllium'},
+  {s:'B',   n:'Boron'},         {s:'C',   n:'Carbon'},
+  {s:'N',   n:'Nitrogen'},      {s:'O',   n:'Oxygen'},
+  {s:'F',   n:'Fluorine'},      {s:'Ne',  n:'Neon'},
+  {s:'Na',  n:'Sodium'},        {s:'Mg',  n:'Magnesium'},
+  {s:'Al',  n:'Aluminum'},      {s:'Si',  n:'Silicon'},
+  {s:'P',   n:'Phosphorus'},    {s:'S',   n:'Sulfur'},
+  {s:'Cl',  n:'Chlorine'},      {s:'Ar',  n:'Argon'},
+  {s:'K',   n:'Potassium'},     {s:'Ca',  n:'Calcium'},
+  {s:'Sc',  n:'Scandium'},      {s:'Ti',  n:'Titanium'},
+  {s:'V',   n:'Vanadium'},      {s:'Cr',  n:'Chromium'},
+  {s:'Mn',  n:'Manganese'},     {s:'Fe',  n:'Iron'},
+  {s:'Co',  n:'Cobalt'},        {s:'Ni',  n:'Nickel'},
+  {s:'Cu',  n:'Copper'},        {s:'Zn',  n:'Zinc'},
+  {s:'Ga',  n:'Gallium'},       {s:'Ge',  n:'Germanium'},
+  {s:'As',  n:'Arsenic'},       {s:'Se',  n:'Selenium'},
+  {s:'Br',  n:'Bromine'},       {s:'Kr',  n:'Krypton'},
+  {s:'Rb',  n:'Rubidium'},      {s:'Sr',  n:'Strontium'},
+  {s:'Y',   n:'Yttrium'},       {s:'Zr',  n:'Zirconium'},
+  {s:'Nb',  n:'Niobium'},       {s:'Mo',  n:'Molybdenum'},
+  {s:'Tc',  n:'Technetium'},    {s:'Ru',  n:'Ruthenium'},
+  {s:'Rh',  n:'Rhodium'},       {s:'Pd',  n:'Palladium'},
+  {s:'Ag',  n:'Silver'},        {s:'Cd',  n:'Cadmium'},
+  {s:'In',  n:'Indium'},        {s:'Sn',  n:'Tin'},
+  {s:'Sb',  n:'Antimony'},      {s:'Te',  n:'Tellurium'},
+  {s:'I',   n:'Iodine'},        {s:'Xe',  n:'Xenon'},
+  {s:'Cs',  n:'Cesium'},        {s:'Ba',  n:'Barium'},
+  {s:'La',  n:'Lanthanum'},     {s:'Ce',  n:'Cerium'},
+  {s:'Pr',  n:'Praseodymium'},  {s:'Nd',  n:'Neodymium'},
+  {s:'Pm',  n:'Promethium'},    {s:'Sm',  n:'Samarium'},
+  {s:'Eu',  n:'Europium'},      {s:'Gd',  n:'Gadolinium'},
+  {s:'Tb',  n:'Terbium'},       {s:'Dy',  n:'Dysprosium'},
+  {s:'Ho',  n:'Holmium'},       {s:'Er',  n:'Erbium'},
+  {s:'Tm',  n:'Thulium'},       {s:'Yb',  n:'Ytterbium'},
+  {s:'Lu',  n:'Lutetium'},      {s:'Hf',  n:'Hafnium'},
+  {s:'Ta',  n:'Tantalum'},      {s:'W',   n:'Tungsten'},
+  {s:'Re',  n:'Rhenium'},       {s:'Os',  n:'Osmium'},
+  {s:'Ir',  n:'Iridium'},       {s:'Pt',  n:'Platinum'},
+  {s:'Au',  n:'Gold'},          {s:'Hg',  n:'Mercury'},
+  {s:'Tl',  n:'Thallium'},      {s:'Pb',  n:'Lead'},
+  {s:'Bi',  n:'Bismuth'},       {s:'Po',  n:'Polonium'},
+  {s:'At',  n:'Astatine'},      {s:'Rn',  n:'Radon'},
+  {s:'Fr',  n:'Francium'},      {s:'Ra',  n:'Radium'},
+  {s:'Ac',  n:'Actinium'},      {s:'Th',  n:'Thorium'},
+  {s:'Pa',  n:'Protactinium'},  {s:'U',   n:'Uranium'},
+  {s:'Np',  n:'Neptunium'},     {s:'Pu',  n:'Plutonium'},
+  {s:'Am',  n:'Americium'},     {s:'Cm',  n:'Curium'},
+  {s:'Bk',  n:'Berkelium'},     {s:'Cf',  n:'Californium'},
+  {s:'Es',  n:'Einsteinium'},   {s:'Fm',  n:'Fermium'},
+  {s:'Md',  n:'Mendelevium'},   {s:'No',  n:'Nobelium'},
+  {s:'Lr',  n:'Lawrencium'},    {s:'Rf',  n:'Rutherfordium'},
+  {s:'Db',  n:'Dubnium'},       {s:'Sg',  n:'Seaborgium'},
+  {s:'Bh',  n:'Bohrium'},       {s:'Hs',  n:'Hassium'},
+  {s:'Mt',  n:'Meitnerium'},    {s:'Ds',  n:'Darmstadtium'},
+  {s:'Rg',  n:'Roentgenium'},   {s:'Cn',  n:'Copernicium'},
+  {s:'Nh',  n:'Nihonium'},      {s:'Fl',  n:'Flerovium'},
+  {s:'Mc',  n:'Moscovium'},     {s:'Lv',  n:'Livermorium'},
+  {s:'Ts',  n:'Tennessine'},    {s:'Og',  n:'Oganesson'},
+  // Z=119-137 predicted
+  {s:'E119',n:'Ununennium (pred.)'}, {s:'E120',n:'Unbinilium (pred.)'},
+  {s:'E121',n:'Unbiunium (pred.)'},  {s:'E122',n:'Unbibium (pred.)'},
+  {s:'E123',n:'Unbitrium (pred.)'},  {s:'E124',n:'Unbiquadium (pred.)'},
+  {s:'E125',n:'Unbipentium (pred.)'},{s:'E126',n:'Unbihexium (pred.)'},
+  {s:'E127',n:'Unbiseptium (pred.)'},{s:'E128',n:'Unbioctium (pred.)'},
+  {s:'E129',n:'Unbiennium (pred.)'}, {s:'E130',n:'Untrinilium (pred.)'},
+  {s:'E131',n:'Untriunium (pred.)'}, {s:'E132',n:'Untribium (pred.)'},
+  {s:'E133',n:'Untritrium (pred.)'}, {s:'E134',n:'Untriquadium (pred.)'},
+  {s:'E135',n:'Untripentium (pred.)'},{s:'E136',n:'Untrihexium (pred.)'},
+  {s:'E137',n:'Feynmanium (pred.) — Z_max = 1/\u03b1'},
+];
+
+// =============================================================
+// MODE FILLING ORDER  (energy order, Madelung rule)
+// In Lattice language: modes fill from lowest lattice frequency
+// =============================================================
+const MODE_ORDER = [
+  {n:1,l:0,cap:2},  {n:2,l:0,cap:2},  {n:2,l:1,cap:6},
+  {n:3,l:0,cap:2},  {n:3,l:1,cap:6},  {n:4,l:0,cap:2},
+  {n:3,l:2,cap:10}, {n:4,l:1,cap:6},  {n:5,l:0,cap:2},
+  {n:4,l:2,cap:10}, {n:5,l:1,cap:6},  {n:6,l:0,cap:2},
+  {n:4,l:3,cap:14}, {n:5,l:2,cap:10}, {n:6,l:1,cap:6},
+  {n:7,l:0,cap:2},  {n:5,l:3,cap:14}, {n:6,l:2,cap:10},
+  {n:7,l:1,cap:6},  {n:8,l:0,cap:2},  {n:5,l:4,cap:18},
+  {n:6,l:3,cap:14}, {n:7,l:2,cap:10}, {n:8,l:1,cap:6},
+];
+
+const L_NAMES  = ['s','p','d','f','g','h'];
+const L_COLORS = ['#58a6ff','#3fb950','#ffa657','#ff7b72','#d2a8ff','#79c0ff'];
+
+function modeName(n, l) { return n + (L_NAMES[l] || '?'); }
+
+// =============================================================
+// MATH: associated Laguerre polynomial L_k^alpha(x)
+// =============================================================
+function laguerre(k, alpha, x) {
+  if (k < 0) return 0;
+  if (k === 0) return 1;
+  if (k === 1) return 1 + alpha - x;
+  let L2 = 1, L1 = 1 + alpha - x;
+  for (let j = 2; j <= k; j++) {
+    const L = ((2*j - 1 + alpha - x) * L1 - (j - 1 + alpha) * L2) / j;
+    L2 = L1; L1 = L;
+  }
+  return L1;
+}
+
+function factorial(n) {
+  if (n <= 1) return 1;
+  let r = 1; for (let i = 2; i <= n; i++) r *= i; return r;
+}
+
+// Hydrogen-like radial wave function R_nl(r, zEff), r in units of a0
+function radialWave(n, l, r, zEff) {
+  if (r < 1e-14) r = 1e-14;
+  const rho  = 2.0 * zEff * r / n;
+  const nr   = n - l - 1;                          // radial node count
+  const norm = Math.sqrt(
+    Math.pow(2.0 * zEff / n, 3) * factorial(nr) / (2.0 * n * factorial(n + l))
+  );
+  return norm * Math.exp(-rho * 0.5) * Math.pow(rho, l) * laguerre(nr, 2*l+1, rho);
+}
+
+// Real spherical harmonic Y_l0(theta), m=0 only
+function Y_l0(l, cosT) {
+  const PI = Math.PI;
+  switch (l) {
+    case 0: return Math.sqrt(1  / (4*PI));
+    case 1: return Math.sqrt(3  / (4*PI)) * cosT;
+    case 2: return Math.sqrt(5  / (16*PI)) * (3*cosT*cosT - 1);
+    case 3: return Math.sqrt(7  / (16*PI)) * cosT * (5*cosT*cosT - 3);
+    case 4: { const c2=cosT*cosT;
+              return Math.sqrt(9/(256*PI)) * (35*c2*c2 - 30*c2 + 3); }
+    default: return 0;
+  }
+}
+
+// =============================================================
+// EFFECTIVE NUCLEAR CHARGE — wave overlap screening model
+// Inner modes (n' < n) screen ~85% (inner wave lives mostly
+// inside outer mode's radius). Same-n modes screen ~35%
+// (perpendicular spatial modes, partial overlap).
+// d/f inner modes to outer p modes screen more (1.00).
+// =============================================================
+function getFilledModes(Z) {
+  const modes = []; let rem = Z;
+  for (const m of MODE_ORDER) {
+    if (rem <= 0) break;
+    const count = Math.min(rem, m.cap);
+    modes.push({n:m.n, l:m.l, cap:m.cap, count});
+    rem -= count;
+  }
+  return modes;
+}
+
+function calcZeff(targetN, targetL, targetIdx, filledModes, Z) {
+  let sigma = 0;
+  for (let i = 0; i < targetIdx; i++) {
+    const m = filledModes[i];
+    if (m.n < targetN) {
+      // Inner mode: d/f vs outer s/p screens slightly more
+      sigma += m.count * ((m.l >= 2 && m.n >= targetN - 1) ? 1.00 : 0.85);
+    } else if (m.n === targetN) {
+      sigma += m.count * 0.35;
+    }
+  }
+  return Math.max(1.0, Z - sigma);
+}
+
+// =============================================================
+// COLOR MAPS
+// =============================================================
+function plasmaColor(t) {
+  t = Math.max(0, Math.min(1, t));
+  // black → purple → red → orange → yellow
+  const r = Math.min(255, Math.round(255 * Math.pow(t, 0.45)));
+  const g = Math.min(255, Math.round(255 * Math.max(0, (t - 0.35) / 0.65)));
+  const b = Math.min(255, Math.round(255 * Math.max(0, (0.55 - t) / 0.55)));
+  return [r, g, b];
+}
+
+function ampColor(t) {  // t in [-1,1]: blue=negative, red=positive
+  t = Math.max(-1, Math.min(1, t));
+  if (t >= 0) {
+    const v = Math.round(255 * t);
+    return [v, Math.round(v * 0.15), Math.round(v * 0.2)];
+  } else {
+    const v = Math.round(255 * (-t));
+    return [Math.round(v * 0.15), Math.round(v * 0.35), v];
+  }
+}
+
+// =============================================================
+// STATE
+// =============================================================
+let currentZ = 1;
+let viewMode  = 'intensity';
+let rafId     = null;
+
+const waveCanvas   = document.getElementById('wave-canvas');
+const waveCtx      = waveCanvas.getContext('2d');
+const energyCanvas = document.getElementById('energy-canvas');
+const energyCtx    = energyCanvas.getContext('2d');
+
+// =============================================================
+// MAIN RENDER
+// =============================================================
+function render() {
+  const Z  = currentZ;
+  const sz = waveCanvas.width;
+  if (sz <= 0) return;
+  const cx = sz * 0.5, cy = sz * 0.5;
+
+  const filledModes = getFilledModes(Z);
+  if (filledModes.length === 0) return;
+
+  const zeffs = filledModes.map((m, i) => calcZeff(m.n, m.l, i, filledModes, Z));
+
+  // Scale canvas to show ~2.5× mean radius of outermost mode
+  const om  = filledModes[filledModes.length - 1];
+  const oze = zeffs[zeffs.length - 1];
+  const rMean = (om.n * om.n) * (3.0 - om.l*(om.l+1)/(om.n*om.n)) / (2.0 * oze);
+  const scale = (sz * 0.44) / Math.max(0.5, rMean * 2.5); // px per a0
+
+  // Compute wave field on grid
+  const imgData = waveCtx.createImageData(sz, sz);
+  const pix = imgData.data;
+  const vals = new Float32Array(sz * sz);
+  let vMax = 0, vMin = 0;
+
+  for (let py = 0; py < sz; py++) {
+    const yPhys = (cy - py) / scale;
+    for (let px = 0; px < sz; px++) {
+      const xPhys = (px - cx) / scale;
+      const r = Math.sqrt(xPhys*xPhys + yPhys*yPhys);
+      const cosT = r > 1e-12 ? yPhys / r : 1.0;
+
+      let val = 0;
+      for (let i = 0; i < filledModes.length; i++) {
+        const m  = filledModes[i];
+        const ze = zeffs[i];
+        const R  = radialWave(m.n, m.l, r, ze);
+
+        if (viewMode === 'amplitude') {
+          // Show ψ = R × Y_l0 (dominant m=0 component)
+          val += (m.count / m.cap) * R * Y_l0(m.l, cosT);
+        } else {
+          // Intensity: fully-filled subshells → spherically symmetric
+          // Partially filled outermost → show m=0 angular shape
+          if (i === filledModes.length - 1 && m.count < m.cap) {
+            const Y = Y_l0(m.l, cosT);
+            val += m.count * R * R * Y * Y;
+          } else {
+            // Spherically averaged: Σ_m |Y_lm|² = (2l+1)/(4π)
+            val += m.count * R * R * (2*m.l + 1) / (4 * Math.PI);
+          }
+        }
+      }
+
+      vals[py*sz + px] = val;
+      if (val > vMax) vMax = val;
+      if (val < vMin) vMin = val;
+    }
+  }
+
+  // Colorize
+  const logK = 60.0;
+  const logMax = vMax > 0 ? Math.log(1 + vMax * logK) : 1;
+  const absMax = Math.max(Math.abs(vMax), Math.abs(vMin));
+
+  for (let i = 0; i < sz * sz; i++) {
+    const v = vals[i];
+    let rgb;
+    if (viewMode === 'amplitude') {
+      rgb = ampColor(absMax > 0 ? v / absMax : 0);
+    } else {
+      const t = logMax > 0 ? Math.log(1 + Math.max(0,v) * logK) / logMax : 0;
+      rgb = plasmaColor(Math.pow(t, 0.65));
+    }
+    const p = i * 4;
+    pix[p] = rgb[0]; pix[p+1] = rgb[1]; pix[p+2] = rgb[2]; pix[p+3] = 255;
+  }
+  waveCtx.putImageData(imgData, 0, 0);
+
+  // Scale bar
+  const barA0 = Math.max(1, Math.round(sz * 0.18 / scale));
+  const barPx = barA0 * scale;
+  waveCtx.fillStyle = '#555';
+  waveCtx.fillRect(10, sz - 18, barPx, 2);
+  waveCtx.fillStyle = '#555';
+  waveCtx.font = '11px monospace';
+  waveCtx.fillText(barA0 + ' a\u2080', 10, sz - 5);
+
+  // Nucleus dot
+  waveCtx.beginPath();
+  waveCtx.arc(cx, cy, 3, 0, 2*Math.PI);
+  waveCtx.fillStyle = 'rgba(255,255,255,0.6)';
+  waveCtx.fill();
+
+  drawEnergyLevels(filledModes, zeffs);
+  updateProps(filledModes, zeffs);
+  updateModeList(filledModes, zeffs);
+}
+
+// =============================================================
+// ENERGY LEVEL DIAGRAM
+// =============================================================
+function drawEnergyLevels(filledModes, zeffs) {
+  const W = 232, H = energyCanvas.height;
+  energyCanvas.width = W;
+  const ctx = energyCtx;
+  ctx.clearRect(0, 0, W, H);
+
+  const energies = filledModes.map((m, i) =>
+    -13.6 * zeffs[i] * zeffs[i] / (m.n * m.n));
+
+  const eMin   = Math.min(...energies);
+  const eMax   = 5;
+  const eRange = eMax - eMin || 1;
+
+  const padT = 18, padB = 24, padL = 44, padR = 8;
+  const dH   = H - padT - padB;
+
+  // Zero line
+  const yZ = padT + dH * (0 - eMax) / eRange;
+  if (yZ >= padT && yZ <= H - padB) {
+    ctx.strokeStyle = '#30363d'; ctx.setLineDash([2,4]);
+    ctx.beginPath(); ctx.moveTo(padL, yZ); ctx.lineTo(W - padR, yZ); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#484f58'; ctx.font = '8px monospace';
+    ctx.fillText('0', 2, yZ + 3);
+  }
+
+  // Axis label
+  ctx.fillStyle = '#484f58'; ctx.font = '8px monospace';
+  ctx.fillText('eV', 2, padT - 4);
+
+  filledModes.forEach((m, i) => {
+    const E = energies[i];
+    const y = padT + dH * (E - eMax) / eRange;
+    if (y < padT - 2 || y > H - padB + 2) return;
+
+    const col  = L_COLORS[m.l] || '#c9d1d9';
+    const isOu = (i === filledModes.length - 1);
+
+    ctx.strokeStyle = col;
+    ctx.lineWidth   = isOu ? 2.5 : 1.5;
+    ctx.globalAlpha = (m.count < m.cap) ? 0.55 : 1.0;
+    ctx.beginPath(); ctx.moveTo(padL+2, y); ctx.lineTo(W-padR-2, y); ctx.stroke();
+    ctx.globalAlpha = 1.0; ctx.lineWidth = 1;
+
+    ctx.fillStyle = col;
+    ctx.font = isOu ? 'bold 9px monospace' : '8px monospace';
+    ctx.fillText(modeName(m.n, m.l), 2, y + 3);
+
+    if (isOu || Math.abs(E) < 200) {
+      ctx.fillStyle = '#8b949e'; ctx.font = '7px monospace';
+      ctx.textAlign = 'right';
+      ctx.fillText(E.toFixed(0), W - padR, y - 1);
+      ctx.textAlign = 'left';
+    }
+  });
+}
+
+// =============================================================
+// PROPERTIES PANEL
+// =============================================================
+function updateProps(filledModes, zeffs) {
+  const Z  = currentZ;
+  const om = filledModes[filledModes.length - 1];
+  const oze = zeffs[zeffs.length - 1];
+  const IE  = 13.6 * oze * oze / (om.n * om.n);
+  const rMean = (om.n*om.n) * (3 - om.l*(om.l+1)/(om.n*om.n)) / (2*oze);
+
+  const waveTypes = [
+    '1D radial (spherical)',
+    '2D surface (dumbbell)',
+    '3D bulk (cloverleaf)',
+    '4D kink mode',
+    '5D mode'
+  ];
+
+  const unpaired = om.cap - om.count;
+  let rClass, rLabel;
+  if (unpaired === 0) {
+    rLabel = 'Stable — modes fully paired';  rClass = 'green';
+  } else if (unpaired <= 2 || om.count <= 2) {
+    rLabel = 'High — strong coupling drive';  rClass = 'red';
+  } else {
+    rLabel = 'Moderate — partial pairing'; rClass = 'orange';
+  }
+
+  document.getElementById('props').innerHTML = `
+<div class="prop-row">
+  <span class="prop-label">Outermost mode</span>
+  <span class="prop-value" style="color:${L_COLORS[om.l]}">${modeName(om.n,om.l)} &nbsp;${om.count}/${om.cap}</span>
+</div>
+<div class="prop-row">
+  <span class="prop-label">Effective Z (outer)</span>
+  <span class="prop-value">${oze.toFixed(2)}</span>
+</div>
+<div class="prop-row">
+  <span class="prop-label">Mode energy</span>
+  <span class="prop-value">${(-IE).toFixed(2)} eV</span>
+</div>
+<div class="prop-row">
+  <span class="prop-label">Mean wave radius</span>
+  <span class="prop-value">${rMean.toFixed(2)} a\u2080 &nbsp;(${(rMean*0.529).toFixed(3)} \u00c5)</span>
+</div>
+<div class="prop-row">
+  <span class="prop-label">Mode geometry</span>
+  <span class="prop-value">${waveTypes[om.l] || 'higher'}</span>
+</div>
+<div class="prop-row">
+  <span class="prop-label">Unpaired modes</span>
+  <span class="prop-value">${unpaired} / ${om.cap}</span>
+</div>
+<div class="prop-row">
+  <span class="prop-label">Coupling drive</span>
+  <span class="prop-value ${rClass}">${rLabel}</span>
+</div>`;
+}
+
+// =============================================================
+// MODE LIST
+// =============================================================
+function updateModeList(filledModes, zeffs) {
+  let html = '';
+  for (let i = filledModes.length - 1; i >= 0; i--) {
+    const m   = filledModes[i];
+    const ze  = zeffs[i];
+    const E   = -13.6 * ze * ze / (m.n * m.n);
+    const col = L_COLORS[m.l] || '#c9d1d9';
+    const isOu = (i === filledModes.length - 1);
+    const bar  = '\u2588'.repeat(Math.round(m.count/m.cap*6)) +
+                 '\u2591'.repeat(6 - Math.round(m.count/m.cap*6));
+    html += `<div class="mode-row${isOu?' mode-outer':''}">
+      <div class="mode-dot" style="background:${col}"></div>
+      <span class="mode-label">${modeName(m.n,m.l)} ${bar} ${m.count}/${m.cap}</span>
+      <span class="mode-energy">${E.toFixed(0)}eV</span>
+    </div>`;
+  }
+  document.getElementById('mode-list').innerHTML = html;
+}
+
+// =============================================================
+// CONTROLS
+// =============================================================
+function onZChange(val) {
+  const z = Math.max(1, Math.min(137, parseInt(val) || 1));
+  if (z === currentZ) return;
+  currentZ = z;
+  const el = ELEMENTS[z] || {s:'E'+z, n:'Unknown'};
+  document.getElementById('el-symbol').textContent = el.s;
+  document.getElementById('el-z').textContent      = 'Z = ' + z;
+  document.getElementById('el-name').textContent   = el.n;
+  document.getElementById('z-slider').value = z;
+  document.getElementById('z-input').value  = z;
+  if (rafId) cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(render);
+}
+
+function setView(v, btn) {
+  viewMode = v;
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowUp')   onZChange(currentZ + 1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowDown') onZChange(currentZ - 1);
+});
+
+// Mouse hover: show radius under cursor
+waveCanvas.addEventListener('mousemove', e => {
+  const rect = waveCanvas.getBoundingClientRect();
+  const px   = (e.clientX - rect.left) * waveCanvas.width  / rect.width;
+  const py   = (e.clientY - rect.top)  * waveCanvas.height / rect.height;
+  const sz   = waveCanvas.width;
+
+  const fm  = getFilledModes(currentZ);
+  const om  = fm[fm.length - 1];
+  const oze = calcZeff(om.n, om.l, fm.length-1, fm, currentZ);
+  const rM  = (om.n*om.n)*(3-om.l*(om.l+1)/(om.n*om.n))/(2*oze);
+  const sc  = (sz*0.44)/Math.max(0.5,rM*2.5);
+
+  const xP = (px - sz*0.5) / sc;
+  const yP = (sz*0.5 - py) / sc;
+  const r  = Math.sqrt(xP*xP + yP*yP);
+  document.getElementById('coord-info').textContent =
+    'r = ' + r.toFixed(2) + ' a\u2080  (' + (r*0.529).toFixed(3) + ' \u00c5)';
+});
+
+// =============================================================
+// INIT & RESIZE
+// =============================================================
+function resize() {
+  const panel = document.getElementById('canvas-panel');
+  const w = panel.clientWidth  - 20;
+  const h = panel.clientHeight - 40;
+  const s = Math.max(100, Math.min(w, h));
+  waveCanvas.width  = s;
+  waveCanvas.height = s;
+  render();
+}
+
+window.addEventListener('resize', () => { clearTimeout(window._rt); window._rt = setTimeout(resize,80); });
+setTimeout(resize, 60);
+</script>
+</body>
+</html>

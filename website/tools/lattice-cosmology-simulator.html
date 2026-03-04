@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lattice Cosmology Simulator — Geometric Wave Theory</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0d1117; --panel: #161b22; --border: #30363d;
+  --text: #c9d1d9; --muted: #8b949e; --dim: #6e7681;
+  --blue: #58a6ff; --green: #3fb950; --orange: #f0883e;
+  --red: #f85149; --purple: #a371f7; --teal: #39d353;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px; padding: 16px; min-width: 1000px;
+}
+h1 { color: var(--blue); font-size: 20px; margin-bottom: 4px; }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+#layout { display: grid; grid-template-columns: 270px 1fr; gap: 16px; }
+#controls { display: flex; flex-direction: column; gap: 12px; }
+.panel {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px;
+}
+.panel h3 {
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px; margin-bottom: 10px;
+}
+.ctrl { margin-bottom: 10px; }
+.ctrl:last-child { margin-bottom: 0; }
+.ctrl-row { display: flex; justify-content: space-between; margin-bottom: 3px; font-size: 12px; }
+.ctrl-val { color: var(--blue); font-weight: bold; font-family: monospace; }
+input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
+.hint { font-size: 10px; color: var(--dim); margin-top: 2px; font-style: italic; }
+button {
+  width: 100%; padding: 7px; background: var(--blue); color: #0d1117;
+  border: none; border-radius: 6px; cursor: pointer;
+  font-weight: 700; font-size: 12px; transition: background 0.15s;
+}
+button:hover { background: #79c0ff; }
+button:disabled { background: #30363d; color: var(--muted); cursor: not-allowed; }
+.metric {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 4px 0; border-bottom: 1px solid #1c2128; font-size: 12px;
+}
+.metric:last-child { border-bottom: none; }
+.metric .lbl { color: var(--muted); }
+.metric .val { font-family: monospace; font-weight: bold; }
+.good { color: var(--green); }
+.warn { color: var(--orange); }
+.bad  { color: var(--red); }
+.neu  { color: var(--text); }
+.lattice-box {
+  background: rgba(88,166,255,0.07); border: 1px solid rgba(88,166,255,0.25);
+  border-radius: 6px; padding: 10px; margin-top: 8px;
+}
+.lattice-box .f { font-family: monospace; font-size: 11px; color: var(--blue); line-height: 1.8; }
+.lattice-box .result-line {
+  display: flex; justify-content: space-between;
+  font-size: 12px; margin-top: 6px; padding-top: 6px;
+  border-top: 1px solid rgba(88,166,255,0.2);
+}
+#plots { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 12px; }
+.plot-panel { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.plot-title { font-size: 11px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+.obs-band { font-size: 10px; color: var(--dim); margin-top: 4px; }
+#status-bar {
+  margin-top: 12px; padding: 8px 12px;
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 6px; font-size: 11px; color: var(--muted);
+  display: flex; justify-content: space-between; align-items: center;
+}
+#status-bar .highlight { color: var(--blue); }
+</style>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;margin:-20px -20px 20px;font-family:'Segoe UI',sans-serif;font-size:0.85rem;display:flex;align-items:center;gap:1rem;"><a href="../index.html" style="color:#58a6ff;text-decoration:none;">&larr; GWT Home</a><span style="color:#30363d;">|</span><a href="../pages/gravity-cosmology.html" style="color:#8b949e;text-decoration:none;">Gravity &amp; Cosmology</a></div>
+
+<h1>Lattice Cosmology Simulator</h1>
+<p class="subtitle">
+  Geometric Wave Theory — Dynamic dark energy from net-neutral lattice restoring pressure.<br>
+  As the universe expands the lattice gas thins (k&nbsp;∝&nbsp;R<sup>-α</sup>) and voids open,
+  creating a competition that determines the equation of state and a <em>measurable lattice property</em>.
+</p>
+
+<div id="layout">
+<div id="controls">
+
+  <div class="panel">
+    <h3>Cosmological Parameters</h3>
+    <div class="ctrl">
+      <div class="ctrl-row"><span>H₀ (km/s/Mpc)</span><span class="ctrl-val" id="v_H0">70.0</span></div>
+      <input type="range" id="s_H0" min="60" max="80" step="0.5" value="70">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-row"><span>Ω<sub>matter</sub></span><span class="ctrl-val" id="v_Om">0.315</span></div>
+      <input type="range" id="s_Om" min="0.10" max="0.50" step="0.005" value="0.315">
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Lattice / Lattice Parameters</h3>
+    <div class="ctrl">
+      <div class="ctrl-row"><span>α (dilution exponent)</span><span class="ctrl-val" id="v_alpha">0.00</span></div>
+      <input type="range" id="s_alpha" min="0" max="0.25" step="0.005" value="0.00">
+      <div class="hint">k(R) = k₀·R<sup>-α</sup> &nbsp;→&nbsp; G(R) = G₀·R<sup>α</sup></div>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-row"><span>Void growth rate k<sub>v</sub></span><span class="ctrl-val" id="v_kv">3.0</span></div>
+      <input type="range" id="s_kv" min="0.3" max="10" step="0.1" value="3.0">
+      <div class="hint">How fast voids form during structure formation</div>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-row"><span>Max void fraction f<sub>v</sub></span><span class="ctrl-val" id="v_fv">0.80</span></div>
+      <input type="range" id="s_fv" min="0.50" max="0.95" step="0.01" value="0.80">
+    </div>
+    <div style="margin-top:8px">
+      <button id="btn_fit">Find Best-Fit α (minimize χ²)</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Key Observables</h3>
+    <div class="metric"><span class="lbl">Transition z<sub>acc</sub> (target 0.67)</span><span class="val" id="m_ztrans">—</span></div>
+    <div class="metric"><span class="lbl">Age of universe (target 13.8 Gyr)</span><span class="val" id="m_age">—</span></div>
+    <div class="metric"><span class="lbl">w₀ today (DESI: −0.7 to −1.3)</span><span class="val" id="m_w0">—</span></div>
+    <div class="metric"><span class="lbl">w<sub>a</sub> CPL drift</span><span class="val" id="m_wa">—</span></div>
+    <div class="metric"><span class="lbl">Ω<sub>DE</sub> today</span><span class="val" id="m_OmDE">—</span></div>
+    <div class="metric"><span class="lbl">Ġ/G today (bound &lt;10⁻¹²/yr)</span><span class="val" id="m_Gdot">—</span></div>
+    <div class="metric"><span class="lbl">ΔG/G at z=1 (BBN-safe &lt;4%)</span><span class="val" id="m_DG">—</span></div>
+  </div>
+
+  <div class="panel">
+    <h3>Derived Lattice Property</h3>
+    <div class="lattice-box">
+      <div class="f">k(R) = k₀ · R<sup>−α</sup></div>
+      <div class="f">G(R) = G₀ · R<sup>α</sup></div>
+      <div class="f">V<sub>node</sub>(r) ∝ r<sup>−(α−2)</sup> &nbsp; [LJ-type]</div>
+      <div class="f">k ∝ r<sub>eq</sub><sup>−(α+2)</sup> per bond</div>
+      <div class="result-line">
+        <span style="color:var(--muted)">Best-fit α</span>
+        <span id="m_alpha_best" style="color:var(--blue);font-family:monospace;font-weight:bold">—</span>
+      </div>
+      <div class="result-line">
+        <span style="color:var(--muted)">Lattice type</span>
+        <span id="m_lattice_type" style="color:var(--green);font-size:11px">—</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end controls -->
+
+<div id="plots">
+  <div class="plot-panel">
+    <div class="plot-title">Hubble parameter E(z) = H(z)/H₀</div>
+    <canvas id="ch_H" height="200"></canvas>
+  </div>
+  <div class="plot-panel">
+    <div class="plot-title">Equation of state w(z)</div>
+    <canvas id="ch_w" height="200"></canvas>
+    <div class="obs-band">DESI 2024 preferred: w₀ ≈ −0.83, w<sub>a</sub> ≈ −0.75 (depends on SN catalog)</div>
+  </div>
+  <div class="plot-panel">
+    <div class="plot-title">Deceleration parameter q(z) — acceleration when q &lt; 0</div>
+    <canvas id="ch_q" height="200"></canvas>
+    <div class="obs-band">Transition z<sub>acc</sub> ≈ 0.67 observed (dashed line)</div>
+  </div>
+  <div class="plot-panel">
+    <div class="plot-title">Gravitational constant G(z)/G₀</div>
+    <canvas id="ch_G" height="200"></canvas>
+    <div class="obs-band">Observational bounds: |ΔG/G| &lt; 4% over cosmic history</div>
+  </div>
+</div><!-- end plots -->
+</div><!-- end layout -->
+
+<div id="status-bar">
+  <span id="status_txt">Ready. Adjust sliders or click Find Best-Fit α.</span>
+  <span class="highlight" id="status_chi2"></span>
+</div>
+
+<script>
+// ================================================================
+//  LATTICE COSMOLOGY MODEL — Geometric Wave Theory
+//
+//  Modified Friedmann equation:
+//    H²(R) = H₀² · E²(R)
+//    E²(R) = Ω_m/R³ + Ω_r/R⁴ + Ω_DE · g(R)
+//
+//  Dynamic dark energy density (normalised g(1)=1):
+//    g(R) = R^(−α) · [f_v(R) / f_v(1)]
+//
+//  Physical interpretation:
+//    R^(−α)        → lattice thins as universe expands, k decreases
+//    f_v(R)/f_v(1) → void fraction grows as structure forms
+//    Competition between thinning (reduces pressure)
+//    and void growth (increases pressure gradient)
+//
+//  Lattice property extracted:
+//    k(R) = k₀ · R^(−α)
+//    G(R) = G₀ · R^α   (G grows as lattice thins)
+//    α → inter-node force law V(r) ∝ r^(−(α−2))
+// ================================================================
+
+const OMEGA_R = 9.4e-5; // radiation density (fixed)
+
+let P = {
+  H0:   70.0,
+  Om:   0.315,
+  alpha: 0.0,
+  kv:   3.0,
+  fv:   0.80,
+};
+
+function OmDE() { return Math.max(0, 1 - P.Om - OMEGA_R); }
+
+// Void fraction: sigmoid growth — 0 in early universe, saturates at fv_max
+function fvoid(R) {
+  return P.fv * Math.tanh(P.kv * Math.max(0, R));
+}
+
+// Normalised dark energy density: g(1) = 1 by construction
+function g(R) {
+  if (R <= 1e-6) return 0;
+  const fv1 = fvoid(1.0);
+  if (fv1 < 1e-10) return 1;
+  return Math.pow(R, -P.alpha) * fvoid(R) / fv1;
+}
+
+// E²(R) = H²(R) / H₀²
+function E2(R) {
+  if (R <= 0) return 1e12;
+  return P.Om / Math.pow(R, 3)
+       + OMEGA_R / Math.pow(R, 4)
+       + OmDE() * g(R);
+}
+function E(R) { return Math.sqrt(Math.max(0, E2(R))); }
+
+// Effective equation of state w(R) from dark energy density evolution
+function w_eff(R) {
+  if (R < 0.01) return -1;
+  const dR = R * 5e-4;
+  const g0 = g(R), gp = g(R + dR), gm = g(R - dR);
+  if (g0 < 1e-12) return -1;
+  const dlng_dlnR = R * (gp - gm) / (2 * dR * g0);
+  return -1 - dlng_dlnR / 3;
+}
+
+// Deceleration parameter q(R) = −Ṙ·R⁻¹H⁻² ‧ d²R/dt²
+// q = −(1 + R·E′(R)/E(R))
+function q_decel(R) {
+  if (R < 0.01) return 0.5;
+  const dR = R * 5e-4;
+  const E0 = E(R), Ep = E(R + dR), Em = E(R - dR);
+  const dEdR = (Ep - Em) / (2 * dR);
+  return -(1 + R * dEdR / E0);
+}
+
+// G(R)/G₀
+function G_ratio(R) { return Math.pow(R, P.alpha); }
+
+// ── H₀ in yr⁻¹: H₀ = 70 km/s/Mpc = 70/(3.086e19 km/Mpc) s⁻¹ × 3.156e7 s/yr
+function H0_per_yr() { return P.H0 / 3.086e19 * 3.156e7; }
+
+// ================================================================
+//  NUMERICAL INTEGRATION  (Trapezoidal, 1000 steps)
+// ================================================================
+function computeModel() {
+  const R_MIN = 0.01, R_MAX = 3.0, N = 1000;
+  const dR = (R_MAX - R_MIN) / N;
+  const rows = [];
+  let t_Gyr = 0;
+
+  // H₀ in Gyr⁻¹
+  const H0g = P.H0 / 3.086e19 * 3.156e7; // yr⁻¹
+  const H0Gyr = H0g * 1e-9; // Gyr⁻¹? No: H0g is in yr⁻¹, ×1e-9 = Gyr⁻¹
+  // Actually H0 = 70 km/s/Mpc ≈ 1/13.97 Gyr⁻¹
+  // Let's compute properly:
+  // H0 [s⁻¹] = 70e3 / (3.086e22) = 2.269e-18 s⁻¹
+  // H0 [Gyr⁻¹] = 2.269e-18 × 3.156e7 × 1e9 = 0.07161 Gyr⁻¹
+  const H0_Gyr_inv = P.H0 * 1e3 / 3.086e22 * 3.156e7 * 1e9;
+
+  let prev_integrand = null;
+
+  for (let i = 0; i <= N; i++) {
+    const R = R_MIN + i * dR;
+    const z = 1 / R - 1;
+    const Ev = E(R);
+    const integrand = 1 / (R * H0_Gyr_inv * Ev);
+
+    if (i > 0 && prev_integrand !== null) {
+      t_Gyr += 0.5 * (prev_integrand + integrand) * dR;
+    }
+    prev_integrand = integrand;
+
+    rows.push({
+      R, z,
+      E: Ev,
+      w: w_eff(R),
+      q: q_decel(R),
+      G_r: G_ratio(R),
+      t_Gyr,
+    });
+  }
+  return rows;
+}
+
+// Find z where q changes sign (deceleration → acceleration)
+function findZtrans(rows) {
+  for (let i = rows.length - 1; i > 0; i--) {
+    if (rows[i].q <= 0 && rows[i - 1].q > 0) {
+      const frac = rows[i - 1].q / (rows[i - 1].q - rows[i].q);
+      return rows[i - 1].z + frac * (rows[i].z - rows[i - 1].z);
+    }
+  }
+  return null;
+}
+
+// Age = t at R=1
+function findAge(rows) {
+  // Find closest to R=1
+  let best = rows[0], bestDist = Math.abs(rows[0].R - 1);
+  for (const r of rows) {
+    const d = Math.abs(r.R - 1);
+    if (d < bestDist) { bestDist = d; best = r; }
+  }
+  return best.t_Gyr;
+}
+
+// CPL w_a = −dw/dR|_{R=1}  (CPL: w(a) = w₀ + w_a(1−a))
+function findWa(rows) {
+  // w(R) near R=1
+  const R1 = 1.0;
+  const dR = 0.05;
+  const w_plus = w_eff(R1 + dR);
+  const w_minus = w_eff(R1 - dR);
+  const dwdR = (w_plus - w_minus) / (2 * dR);
+  return -dwdR; // w_a = −dw/dR at R=1
+}
+
+// ================================================================
+//  BEST-FIT FINDER
+// ================================================================
+function findBestFit() {
+  let best_alpha = 0, best_chi2 = 1e10;
+
+  // Scan α: 0 to 0.20 in steps of 0.001
+  for (let a = 0; a <= 0.20; a += 0.001) {
+    P.alpha = a;
+    const rows = computeModel();
+    const zt = findZtrans(rows);
+    const age = findAge(rows);
+    if (zt === null || age === null) continue;
+
+    const chi2_z   = Math.pow((zt  - 0.670) / 0.05, 2);
+    const chi2_age = Math.pow((age - 13.80) / 0.10, 2);
+    const chi2 = chi2_z + chi2_age;
+
+    if (chi2 < best_chi2) { best_chi2 = chi2; best_alpha = a; }
+  }
+  return { alpha: best_alpha, chi2: best_chi2 };
+}
+
+// ================================================================
+//  CHARTS
+// ================================================================
+const CHART_OPTS = {
+  responsive: true,
+  maintainAspectRatio: true,
+  animation: { duration: 0 },
+  plugins: {
+    legend: { labels: { color: '#8b949e', font: { size: 10 }, boxWidth: 16, padding: 8 } },
+  },
+  scales: {
+    x: {
+      ticks: { color: '#8b949e', font: { size: 9 }, maxTicksLimit: 7 },
+      grid:  { color: '#1c2128' },
+    },
+    y: {
+      ticks: { color: '#8b949e', font: { size: 9 } },
+      grid:  { color: '#1c2128' },
+    },
+  },
+};
+
+function makeChart(id, yLabel, datasets, yMin, yMax) {
+  return new Chart(document.getElementById(id), {
+    type: 'line',
+    data: { labels: [], datasets },
+    options: {
+      ...CHART_OPTS,
+      scales: {
+        ...CHART_OPTS.scales,
+        x: { ...CHART_OPTS.scales.x, title: { display: true, text: 'redshift z', color: '#6e7681', font:{size:10} } },
+        y: {
+          ...CHART_OPTS.scales.y,
+          title: { display: true, text: yLabel, color: '#6e7681', font:{size:10} },
+          ...(yMin !== undefined ? { min: yMin } : {}),
+          ...(yMax !== undefined ? { max: yMax } : {}),
+        },
+      },
+    },
+  });
+}
+
+let charts = {};
+
+function initCharts() {
+  charts.H = makeChart('ch_H', 'E(z)', [
+    { label: 'Lattice model',       borderColor: '#58a6ff', borderWidth: 2, pointRadius: 0, tension: 0.3, data: [] },
+    { label: 'ΛCDM (α=0, const Λ)', borderColor: '#f0883e', borderWidth: 1.5, borderDash: [5,3], pointRadius: 0, data: [] },
+  ], 0);
+
+  charts.w = makeChart('ch_w', 'w_eff(z)', [
+    { label: 'Lattice w(z)',    borderColor: '#a371f7', borderWidth: 2, pointRadius: 0, tension: 0.3, data: [] },
+    { label: 'ΛCDM (w = −1)', borderColor: '#f0883e', borderWidth: 1.5, borderDash: [5,3], pointRadius: 0, data: [] },
+    { label: 'DESI preferred (−0.83)', borderColor: '#3fb950', borderWidth: 1, borderDash: [3,3], pointRadius: 0, data: [] },
+  ], -2.5, 0.5);
+
+  charts.q = makeChart('ch_q', 'q(z)', [
+    { label: 'Lattice q(z)', borderColor: '#3fb950', borderWidth: 2, pointRadius: 0, tension: 0.3, data: [] },
+    { label: 'ΛCDM',        borderColor: '#f0883e', borderWidth: 1.5, borderDash: [5,3], pointRadius: 0, data: [] },
+    { label: 'q = 0',       borderColor: '#6e7681', borderWidth: 1, borderDash: [2,4], pointRadius: 0, data: [] },
+  ], -1.5, 1.5);
+
+  charts.G = makeChart('ch_G', 'G(z)/G₀', [
+    { label: 'G(z)/G₀',       borderColor: '#f85149', borderWidth: 2, pointRadius: 0, tension: 0.3, data: [] },
+    { label: 'ΛCDM (G=const)', borderColor: '#f0883e', borderWidth: 1.5, borderDash: [5,3], pointRadius: 0, data: [] },
+    { label: '+4% bound',      borderColor: '#6e7681', borderWidth: 1, borderDash: [2,4], pointRadius: 0, data: [] },
+    { label: '−4% bound',      borderColor: '#6e7681', borderWidth: 1, borderDash: [2,4], pointRadius: 0, data: [] },
+  ]);
+}
+
+function updateCharts() {
+  const rows = computeModel();
+
+  // ΛCDM reference: α=0, constant g=1
+  const saved_alpha = P.alpha, saved_kv = P.kv;
+  P.alpha = 0; P.kv = 999; // kv=999 → f_v(R)/f_v(1) ≈ 1 for all R (constant dark energy)
+  const rowsLCDM = computeModel();
+  P.alpha = saved_alpha; P.kv = saved_kv;
+
+  // Build display arrays (z from ~3 down to 0, reversed for left=high-z)
+  const disp = rows.filter(r => r.z >= 0 && r.z <= 3.0);
+  disp.sort((a, b) => b.z - a.z); // high z first
+  const dispL = rowsLCDM.filter(r => r.z >= 0 && r.z <= 3.0);
+  dispL.sort((a, b) => b.z - a.z);
+
+  // Downsample to ~200 points for performance
+  const step = Math.max(1, Math.floor(disp.length / 200));
+  const pts = disp.filter((_, i) => i % step === 0);
+  const ptsL = dispL.filter((_, i) => i % step === 0);
+
+  const labels = pts.map(r => r.z.toFixed(2));
+
+  // H chart
+  charts.H.data.labels = labels;
+  charts.H.data.datasets[0].data = pts.map(r => +r.E.toFixed(4));
+  charts.H.data.datasets[1].data = ptsL.map(r => +r.E.toFixed(4));
+  charts.H.update();
+
+  // w chart
+  const clampW = v => Math.max(-3, Math.min(0.5, v));
+  charts.w.data.labels = labels;
+  charts.w.data.datasets[0].data = pts.map(r => +clampW(r.w).toFixed(4));
+  charts.w.data.datasets[1].data = labels.map(() => -1);
+  charts.w.data.datasets[2].data = labels.map(() => -0.83); // DESI central
+  charts.w.update();
+
+  // q chart — find z_trans for annotation
+  const zt = findZtrans(rows);
+  charts.q.data.labels = labels;
+  charts.q.data.datasets[0].data = pts.map(r => +Math.max(-2, Math.min(2, r.q)).toFixed(4));
+  charts.q.data.datasets[1].data = ptsL.map(r => +Math.max(-2, Math.min(2, r.q)).toFixed(4));
+  charts.q.data.datasets[2].data = labels.map(() => 0);
+  charts.q.update();
+
+  // G chart
+  charts.G.data.labels = labels;
+  charts.G.data.datasets[0].data = pts.map(r => +r.G_r.toFixed(6));
+  charts.G.data.datasets[1].data = labels.map(() => 1.0);
+  charts.G.data.datasets[2].data = labels.map(() => 1.04);
+  charts.G.data.datasets[3].data = labels.map(() => 0.96);
+  charts.G.update();
+
+  // ── Update key observables ──
+  const age = findAge(rows);
+  const w0  = w_eff(1.0);
+  const wa  = findWa(rows);
+
+  // Ġ/G = α × H₀
+  const H0yr = H0_per_yr();
+  const Gdot = P.alpha * H0yr;
+  const DG_z1 = (G_ratio(0.5) - 1) * 100; // G(z=1)/G₀ - 1 in %
+
+  function setMetric(id, txt, cls) {
+    const el = document.getElementById(id);
+    el.textContent = txt; el.className = 'val ' + cls;
+  }
+
+  setMetric('m_ztrans',
+    zt !== null ? zt.toFixed(3) : '—',
+    zt !== null && Math.abs(zt - 0.67) < 0.08 ? 'good' : 'warn');
+
+  setMetric('m_age',
+    age !== null ? age.toFixed(2) + ' Gyr' : '—',
+    age !== null && Math.abs(age - 13.8) < 0.3 ? 'good' : 'warn');
+
+  setMetric('m_w0',
+    w0.toFixed(3),
+    (w0 > -1.3 && w0 < -0.7) ? 'good' : 'warn');
+
+  setMetric('m_wa',
+    wa.toFixed(3),
+    'neu');
+
+  setMetric('m_OmDE', OmDE().toFixed(3), 'neu');
+
+  setMetric('m_Gdot',
+    Gdot.toExponential(2) + ' yr⁻¹',
+    Gdot < 1e-12 ? 'good' : Gdot < 1e-11 ? 'warn' : 'bad');
+
+  setMetric('m_DG',
+    DG_z1.toFixed(3) + '%',
+    Math.abs(DG_z1) < 4 ? 'good' : 'bad');
+
+  // ── Lattice interpretation ──
+  if (P.alpha > 0) {
+    document.getElementById('m_alpha_best').textContent = P.alpha.toFixed(3);
+    // V(r) ∝ r^(−n) → k ∝ r_eq^(−(n+2)) → n+2 = α → n = α−2
+    const n = P.alpha - 2;
+    let latticeType;
+    if (Math.abs(P.alpha) < 0.005) {
+      latticeType = 'Hookean (rigid springs, k = const)';
+    } else if (P.alpha < 0.1) {
+      latticeType = 'Nearly Hookean (very weak distance dependence)';
+    } else if (Math.abs(P.alpha - 2) < 0.2) {
+      latticeType = 'Lennard-Jones type (k ∝ r⁻²)';
+    } else if (Math.abs(P.alpha - 3) < 0.2) {
+      latticeType = 'Coulomb / gravity-like (k ∝ r⁻³)';
+    } else {
+      latticeType = `Power-law: V(r) ∝ r^${(-(P.alpha - 2)).toFixed(2)}`;
+    }
+    document.getElementById('m_lattice_type').textContent = latticeType;
+  }
+
+  // Status bar χ²
+  if (zt !== null && age !== null) {
+    const chi2 = Math.pow((zt - 0.67) / 0.05, 2) + Math.pow((age - 13.8) / 0.1, 2);
+    document.getElementById('status_chi2').textContent =
+      `χ² = ${chi2.toFixed(2)}  |  z_trans error = ${(zt - 0.67).toFixed(3)}  |  age error = ${(age - 13.8).toFixed(2)} Gyr`;
+  }
+}
+
+// ================================================================
+//  UI WIRING
+// ================================================================
+function wireSlider(sliderId, displayId, decimals, key) {
+  const s = document.getElementById(sliderId);
+  const d = document.getElementById(displayId);
+  s.addEventListener('input', () => {
+    const v = parseFloat(s.value);
+    d.textContent = v.toFixed(decimals);
+    P[key] = v;
+    updateCharts();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCharts();
+  wireSlider('s_H0',    'v_H0',    1, 'H0');
+  wireSlider('s_Om',    'v_Om',    3, 'Om');
+  wireSlider('s_alpha', 'v_alpha', 3, 'alpha');
+  wireSlider('s_kv',    'v_kv',    1, 'kv');
+  wireSlider('s_fv',    'v_fv',    2, 'fv');
+
+  document.getElementById('btn_fit').addEventListener('click', () => {
+    const btn = document.getElementById('btn_fit');
+    btn.disabled = true;
+    btn.textContent = 'Computing…';
+    document.getElementById('status_txt').textContent = 'Running χ² scan over α = 0 → 0.20…';
+
+    setTimeout(() => {
+      const { alpha, chi2 } = findBestFit();
+      P.alpha = alpha;
+      document.getElementById('s_alpha').value = alpha;
+      document.getElementById('v_alpha').textContent = alpha.toFixed(3);
+      document.getElementById('m_alpha_best').textContent = alpha.toFixed(3);
+      document.getElementById('status_txt').textContent =
+        `Best-fit α = ${alpha.toFixed(3)} found. Lattice spring constant scales as k ∝ R^(−${alpha.toFixed(3)}).`;
+
+      updateCharts();
+      btn.disabled = false;
+      btn.textContent = 'Find Best-Fit α (minimize χ²)';
+    }, 30);
+  });
+
+  updateCharts();
+  document.getElementById('status_txt').textContent =
+    'Loaded. Adjust sliders to explore lattice model, or click Find Best-Fit α.';
+});
+</script>
+</body>
+</html>

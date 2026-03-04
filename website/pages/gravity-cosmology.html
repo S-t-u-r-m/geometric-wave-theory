@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravity &amp; Cosmology — Geometric Wave Theory</title>
+  <meta name="description" content="How GWT derives gravity as longitudinal lattice compression, dark energy as the transverse restoring force, and all cosmological predictions from three constants.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span> Gravity &amp; Cosmology
+        </div>
+
+        <div class="section-header">
+          <h1>Gravity &amp; Cosmology</h1>
+          <p class="section-desc">Gravity is longitudinal compression. Dark energy is the transverse restoring force. The universe expands by creating new nodes, not by stretching.</p>
+        </div>
+
+        <section>
+          <h2>Overview</h2>
+          <p>In three dimensions, an elastic medium has two independent response channels: <strong>longitudinal</strong> (compression along the direction of displacement) and <strong>transverse</strong> (restoring force perpendicular to it). In d&nbsp;=&nbsp;3 spatial dimensions, the longitudinal channel carries 1/3 of the total elastic response and the transverse channel carries 2/3. These two channels <em>are</em> gravity and dark energy.</p>
+
+          <h3>Gravity = Longitudinal Compression</h3>
+          <p>Mass compresses the lattice along radial lines. This is gravity. Newton&rsquo;s constant is not a free parameter &mdash; it is derived from the lattice stiffness and spacing:</p>
+          <div class="equation-box">
+            <span class="eq-label">Newton&rsquo;s constant (derived)</span>
+            G = 2c<sup>4</sup> / (&pi;ka)
+          </div>
+          <p>where k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m is the lattice stiffness and a&nbsp;=&nbsp;1.616&times;10<sup>&minus;35</sup>&nbsp;m is the node spacing. G is output, not input.</p>
+
+          <h3>Dark Energy = Transverse Restoring Force</h3>
+          <p>The remaining 2/3 of the elastic response acts transversely &mdash; it resists compression and drives the lattice back toward equilibrium. This is dark energy. The dark energy fraction is a dimensional identity:</p>
+          <div class="equation-box">
+            <span class="eq-label">Dark energy fraction</span>
+            &Omega;<sub>&Lambda;</sub> = (d &minus; 1) / d = 2/3 = 0.667
+          </div>
+          <p>The observed value is 0.685. The 2.7% gap is attributable to &Lambda;CDM model bias from using G<sub>N</sub> instead of G<sub>eff</sub>. <a href="core-derivations.html#omega">Full derivation &rarr;</a></p>
+
+          <h3>Effective Gravity in Halos</h3>
+          <p>Because the lattice carries a stronger gravitational coupling at galactic scales (where baryon fraction matters), the effective gravitational constant in halos is:</p>
+          <div class="equation-box">
+            <span class="eq-label">Effective G in halos</span>
+            G<sub>eff</sub> = (&Omega;<sub>m</sub> / &Omega;<sub>b</sub>) &times; G<sub>N</sub> = (1/3) / 0.049 &times; G<sub>N</sub> &asymp; 6.8 G<sub>N</sub>
+          </div>
+          <p>This replaces dark matter particles entirely. Galaxy rotation curves, cluster lensing, and the CMB peak ratios all follow from G<sub>eff</sub> without any new particles or fields.</p>
+
+          <h3>Expansion = Node Creation</h3>
+          <p>The universe does not expand by stretching the lattice. Instead, new nodes are created at ground state (zero energy, same k, same a). The lattice stiffness k remains constant &mdash; confirmed by the constancy of c across cosmic time (BBN constraints give &alpha;&nbsp;&lt;&nbsp;0.005). This dissolves the flatness problem, the horizon problem, and the cosmological constant problem in one step. <a href="../tools/lattice-cosmology-simulator.html">Explore the cosmology simulator &rarr;</a></p>
+        </section>
+
+        <hr>
+
+        <section id="nested-wells">
+          <h2>Nested Well Suppression</h2>
+          <p>Every mass creates a local gravity well that overrides the lattice&rsquo;s natural dark-energy restoring force. But at large enough radius, the restoring force wins. The crossover radius is:</p>
+          <div class="equation-box">
+            <span class="eq-label">Crossover radius</span>
+            r<sub>cross</sub> = (GM / H<sub>0</sub>&sup2;)<sup>1/3</sup>
+          </div>
+          <p>Below r<sub>cross</sub>, gravity dominates. Above it, dark energy takes over. For most objects, r<sub>cross</sub> falls inside a larger structure&rsquo;s gravity well, so the dark energy crossover is &ldquo;buried&rdquo; &mdash; suppressed and unobservable. Only at supercluster scales and above does dark energy become the free, dominant force.</p>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Object</th>
+                <th>r<sub>cross</sub></th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Earth</td>
+                <td>4.6 ly</td>
+                <td>Buried by Sun</td>
+              </tr>
+              <tr>
+                <td>Sun</td>
+                <td>320 ly</td>
+                <td>Buried by Galaxy</td>
+              </tr>
+              <tr>
+                <td>Milky Way</td>
+                <td>5.5 Mly</td>
+                <td>Buried by Local Group</td>
+              </tr>
+              <tr>
+                <td>Supercluster</td>
+                <td>~200 Mly</td>
+                <td><strong>FREE</strong> &mdash; dark energy dominates</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><strong>Dark energy is the default state of the lattice.</strong> Gravity is the local override. The cosmic acceleration we observe is simply the lattice relaxing back toward equilibrium wherever no mass holds it compressed.</p>
+        </section>
+
+        <hr>
+
+        <section id="predictions">
+          <h2>Gravity &amp; Cosmology Predictions</h2>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Hubble constant H<sub>0</sub></div>
+              <div class="pred-values">GWT: 66.8 km/s/Mpc &nbsp;|&nbsp; Observed: 67.4 km/s/Mpc</div>
+            </div>
+            <div class="pred-accuracy accuracy-good">0.9%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Dark energy fraction &Omega;<sub>&Lambda;</sub></div>
+              <div class="pred-values">GWT: 2/3 = 0.667 &nbsp;|&nbsp; Observed: 0.685</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">2.7%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Cosmic age t<sub>0</sub></div>
+              <div class="pred-values">GWT: 13.58 Gyr &nbsp;|&nbsp; Observed: 13.8 Gyr</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">1.6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Cosmological constant &Lambda;</div>
+              <div class="pred-values">GWT: 1.061&times;10<sup>&minus;52</sup> m<sup>&minus;2</sup> &nbsp;|&nbsp; Observed: ~1.089&times;10<sup>&minus;52</sup> m<sup>&minus;2</sup></div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">2.6%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Equation of state w</div>
+              <div class="pred-values">GWT: &minus;1 &nbsp;|&nbsp; Observed: &minus;1.03 &plusmn; 0.03</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">MOND acceleration a<sub>0</sub></div>
+              <div class="pred-values">GWT: 1.204&times;10<sup>&minus;10</sup> m/s&sup2; &nbsp;|&nbsp; Observed: 1.2&times;10<sup>&minus;10</sup> m/s&sup2;</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">0.3%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">CMB sound horizon r<sub>s</sub></div>
+              <div class="pred-values">GWT: 147 Mpc &nbsp;|&nbsp; Observed: 144.6 Mpc</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">1.7%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">CMB first peak l<sub>1</sub></div>
+              <div class="pred-values">GWT: 224 &nbsp;|&nbsp; Observed: 220</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">2%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">CMB second peak l<sub>2</sub></div>
+              <div class="pred-values">GWT: 519 &nbsp;|&nbsp; Observed: 540</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">4%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">CMB third peak l<sub>3</sub></div>
+              <div class="pred-values">GWT: 819 &nbsp;|&nbsp; Observed: 810</div>
+            </div>
+            <div class="pred-accuracy accuracy-ok">1%</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">G<sub>eff</sub> in halos</div>
+              <div class="pred-values">GWT: 6.8 G<sub>N</sub> &nbsp;|&nbsp; Observed: 5&ndash;7 G<sub>N</sub> (lensing)</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Transition redshift z<sub>acc</sub></div>
+              <div class="pred-values">GWT: 0.63&ndash;0.70 &nbsp;|&nbsp; Observed: ~0.67</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Gravitational wave speed</div>
+              <div class="pred-values">GWT: c &nbsp;|&nbsp; Observed: c (LIGO/Virgo)</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Graviton spin</div>
+              <div class="pred-values">GWT: 2 &nbsp;|&nbsp; Observed: 2</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Graviton mass</div>
+              <div class="pred-values">GWT: 0 &nbsp;|&nbsp; Observed: &lt; 1.76&times;10<sup>&minus;23</sup> eV</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Black hole entropy</div>
+              <div class="pred-values">GWT: A/(4l<sub>P</sub>&sup2;) &nbsp;|&nbsp; Observed: Bekenstein&ndash;Hawking</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Gravitational coupling &alpha;<sub>G</sub></div>
+              <div class="pred-values">GWT: 5.9&times;10<sup>&minus;39</sup> &nbsp;|&nbsp; Observed: (m<sub>p</sub>/m<sub>Pl</sub>)&sup2;</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Node creation not stretching</div>
+              <div class="pred-values">GWT: &alpha; &asymp; 0 &nbsp;|&nbsp; Observed: G = constant (BBN)</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Hookean springs k = const</div>
+              <div class="pred-values">GWT: k constant &nbsp;|&nbsp; Observed: c = constant</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Void fraction dark energy</div>
+              <div class="pred-values">GWT: f<sub>v</sub> &asymp; 0.80 &nbsp;|&nbsp; Observed: ~0.80</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Flatness from node creation</div>
+              <div class="pred-values">GWT: flat &nbsp;|&nbsp; Observed: &Omega;<sub>total</sub> = 1.000</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">exact</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Horizon from ground-state nodes</div>
+              <div class="pred-values">GWT: uniform &nbsp;|&nbsp; Observed: CMB &lt; 10<sup>&minus;5</sup> anisotropy</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">consistent</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Nested well Earth r<sub>cross</sub></div>
+              <div class="pred-values">GWT: 4.6 ly &nbsp;|&nbsp; Status: buried by Sun (prediction #148)</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">prediction</div>
+          </div>
+
+          <div class="prediction-card">
+            <div>
+              <div class="pred-name">Nested well Sun r<sub>cross</sub></div>
+              <div class="pred-values">GWT: 320 ly &nbsp;|&nbsp; Status: buried by Galaxy</div>
+            </div>
+            <div class="pred-accuracy accuracy-exact">prediction</div>
+          </div>
+
+        </section>
+
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../index.html">&larr; Back to Home</a> &nbsp;&middot;&nbsp; <a href="core-derivations.html">Core Derivations &rarr;</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Predictions — Geometric Wave Theory</title>
+  <meta name="description" content="All 179 GWT predictions: searchable, filterable, sortable. Every prediction derived from three constants with zero free parameters.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .pred-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .pred-table thead th {
+      position: sticky; top: 0; z-index: 2;
+      background: var(--bg-tertiary); cursor: pointer; user-select: none;
+    }
+    .pred-table thead th:hover { color: var(--accent-blue); }
+    .pred-table thead th .sort-arrow { font-size: 0.7rem; margin-left: 0.3rem; opacity: 0.4; }
+    .pred-table thead th.sorted .sort-arrow { opacity: 1; color: var(--accent-blue); }
+    .pred-table tbody tr { transition: background var(--transition); }
+    .pred-table tbody tr:hover { background: var(--bg-hover); }
+    .pred-table td, .pred-table th { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .pred-table .col-num { width: 3rem; text-align: center; color: var(--text-muted); }
+    .pred-table .col-name { min-width: 180px; }
+    .pred-table .col-ewt, .pred-table .col-obs { font-family: var(--font-mono); font-size: 0.82rem; white-space: nowrap; }
+    .pred-table .col-err { text-align: center; }
+    .pred-table .col-realm { white-space: nowrap; }
+    .pred-table .col-tier { text-align: center; }
+    .pred-table .col-calc { text-align: center; white-space: nowrap; }
+    .pred-table .col-calc a { color: var(--accent-blue); text-decoration: none; font-size: 0.78rem; }
+    .pred-table .col-calc a:hover { text-decoration: underline; }
+    .hidden-row { display: none; }
+    .result-count { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .tier-badge { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 10px; font-weight: 600; }
+    .tier-1 { background: rgba(0,255,136,0.12); color: var(--accent-green); }
+    .tier-2 { background: rgba(88,166,255,0.12); color: var(--accent-blue); }
+    .tier-3 { background: rgba(251,191,36,0.12); color: var(--accent-yellow); }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper" style="max-width:1100px;">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span> All Predictions
+        </div>
+
+        <div class="section-header">
+          <h1>All Predictions</h1>
+          <p class="section-desc">179 quantitative predictions from three constants. Search, filter, and sort the complete table.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+          <input type="text" id="searchBox" placeholder="Search predictions...">
+          <select id="realmFilter">
+            <option value="">All Realms</option>
+            <option value="Fundamental">Fundamental Constants</option>
+            <option value="Particle">Particle Masses</option>
+            <option value="Mixing">Mixing Angles</option>
+            <option value="Nuclear">Nuclear / QCD</option>
+            <option value="Atomic">Atomic / Hydrogen</option>
+            <option value="Neutrino">Neutrinos</option>
+            <option value="Wave Size">Particle Wave Sizes</option>
+            <option value="Cosmology">Cosmology</option>
+            <option value="Gravity">Gravity / GR</option>
+            <option value="EM">Electromagnetism</option>
+            <option value="Form Factor">Proton Form Factor</option>
+            <option value="Coupling">Coupling Unification</option>
+            <option value="Black Hole">Black Holes</option>
+            <option value="Lattice">Lattice Potential</option>
+            <option value="Multi-Well">Multi-Well</option>
+            <option value="Cyclic">Cyclic Cosmology</option>
+            <option value="Resolved">Resolved Mysteries</option>
+            <option value="Engineering">Engineering</option>
+          </select>
+          <select id="tierFilter">
+            <option value="">All Tiers</option>
+            <option value="1">Tier 1 — Tested</option>
+            <option value="2">Tier 2 — Derived</option>
+            <option value="3">Tier 3 — Testable</option>
+          </select>
+          <select id="accuracyFilter">
+            <option value="">All Accuracies</option>
+            <option value="exact">Exact / &lt;0.5%</option>
+            <option value="good">&lt;1%</option>
+            <option value="ok">&lt;5%</option>
+            <option value="fair">&lt;10%</option>
+            <option value="consistent">Consistent</option>
+          </select>
+        </div>
+
+        <div class="result-count" id="resultCount">Showing 179 of 179 predictions</div>
+
+        <!-- Table -->
+        <div style="overflow-x:auto;">
+        <table class="pred-table" id="predTable">
+          <thead>
+            <tr>
+              <th class="col-num" data-sort="num">#<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-name" data-sort="name">Prediction<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-ewt" data-sort="ewt">GWT Value<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-obs" data-sort="obs">Observed<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-err" data-sort="err">Error<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-realm" data-sort="realm">Realm<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-tier" data-sort="tier">Tier<span class="sort-arrow">&#9650;</span></th>
+              <th class="col-calc">Calc</th>
+            </tr>
+          </thead>
+          <tbody id="predBody">
+          </tbody>
+        </table>
+        </div>
+
+        <!-- Summary Stats -->
+        <section style="margin-top: 3rem;">
+          <h2>Summary Statistics</h2>
+          <div class="score-card">
+            <div class="score-item">
+              <div class="score-number">179</div>
+              <div class="score-label">Total Predictions</div>
+            </div>
+            <div class="score-item">
+              <div class="score-number">0</div>
+              <div class="score-label">Free Parameters</div>
+            </div>
+            <div class="score-item">
+              <div class="score-number">72</div>
+              <div class="score-label">Under 1% Error</div>
+            </div>
+            <div class="score-item">
+              <div class="score-number">105</div>
+              <div class="score-label">Under 5% Error</div>
+            </div>
+            <div class="score-item">
+              <div class="score-number">111</div>
+              <div class="score-label">Under 10% Error</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:1.5rem;">
+            <h4>Tier Classification</h4>
+            <table>
+              <tbody>
+                <tr><td><span class="tier-badge tier-1">Tier 1</span></td><td><strong>Tested</strong> — compared to experimental data</td><td>136 predictions</td></tr>
+                <tr><td><span class="tier-badge tier-2">Tier 2</span></td><td><strong>Derived</strong> — mathematically complete, awaiting measurement</td><td>35 predictions</td></tr>
+                <tr><td><span class="tier-badge tier-3">Tier 3</span></td><td><strong>Testable</strong> — specific experiments proposed</td><td>8 predictions</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../index.html">&larr; Back to Home</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    /* ========== PREDICTION DATA ========== */
+    const predictions = [
+      // FUNDAMENTAL CONSTANTS
+      {n:1, name:"Speed of light c", ewt:"2.998×10⁸ m/s", obs:"2.998×10⁸ m/s", err:0, errTxt:"exact", realm:"Fundamental", tier:1},
+      {n:2, name:"Planck constant h", ewt:"6.626×10⁻³⁴ J·s", obs:"6.626×10⁻³⁴ J·s", err:0, errTxt:"exact", realm:"Fundamental", tier:1},
+      {n:3, name:"Gravitational constant G", ewt:"6.674×10⁻¹¹", obs:"6.674×10⁻¹¹", err:0, errTxt:"exact", realm:"Fundamental", tier:1},
+      {n:4, name:"Fine structure constant α", ewt:"1/137.036", obs:"1/137.036", err:0.0001, errTxt:"0.0001%", realm:"Fundamental", tier:1},
+      {n:5, name:"Strong coupling αs(M_Z)", ewt:"0.1179", obs:"0.1180", err:0.08, errTxt:"0.08%", realm:"Fundamental", tier:1},
+      {n:6, name:"sin²θ_W at M_Z", ewt:"15/64 = 0.2344", obs:"0.2312", err:1.4, errTxt:"1.4%", realm:"Fundamental", tier:1},
+      {n:7, name:"α_GUT", ewt:"1/47.01", obs:"1/47.5 ± 1", err:1, errTxt:"~1%", realm:"Coupling", tier:1},
+
+      // PARTICLE MASSES
+      {n:8, name:"Electron mass m_e", ewt:"0.511 MeV", obs:"0.511 MeV", err:0, errTxt:"exact", realm:"Particle", tier:1},
+      {n:9, name:"Muon mass m_μ", ewt:"105.658 MeV", obs:"105.658 MeV", err:0.005, errTxt:"0.005%", realm:"Particle", tier:1},
+      {n:10, name:"Tau mass m_τ", ewt:"1776.97 MeV", obs:"1776.86 MeV", err:0.006, errTxt:"0.006%", realm:"Particle", tier:1},
+      {n:11, name:"Up quark m_u", ewt:"2.044 MeV", obs:"~2.2 MeV", err:7, errTxt:"7%", realm:"Particle", tier:1},
+      {n:12, name:"Down quark m_d", ewt:"4.60 MeV", obs:"~4.7 MeV", err:2, errTxt:"2%", realm:"Particle", tier:1},
+      {n:13, name:"Strange quark m_s", ewt:"95 MeV", obs:"93.4 MeV", err:2, errTxt:"~2%", realm:"Particle", tier:1},
+      {n:14, name:"Charm quark m_c", ewt:"1270 MeV", obs:"1270 MeV", err:0, errTxt:"exact", realm:"Particle", tier:1},
+      {n:15, name:"Bottom quark m_b", ewt:"~4.18 GeV", obs:"4.18 GeV", err:0.5, errTxt:"<1%", realm:"Particle", tier:1},
+      {n:16, name:"Top quark m_t", ewt:"174 GeV", obs:"172.7 GeV", err:0.8, errTxt:"0.8%", realm:"Particle", tier:1},
+      {n:17, name:"Proton mass m_p", ewt:"938.3 MeV", obs:"938.3 MeV", err:0, errTxt:"exact", realm:"Particle", tier:1},
+      {n:18, name:"W boson M_W", ewt:"79.6 GeV", obs:"80.38 GeV", err:1, errTxt:"~1%", realm:"Particle", tier:1},
+      {n:19, name:"Z boson M_Z", ewt:"91.0 GeV", obs:"91.19 GeV", err:0.2, errTxt:"0.2%", realm:"Particle", tier:1},
+      {n:20, name:"Higgs boson m_H", ewt:"125.1 GeV", obs:"125.09 GeV", err:0.01, errTxt:"<0.1%", realm:"Particle", tier:1},
+      {n:21, name:"Higgs vev v", ewt:"245.5 GeV", obs:"246.22 GeV", err:0.3, errTxt:"0.3%", realm:"Particle", tier:1},
+
+      // MIXING ANGLES
+      {n:22, name:"Cabibbo angle V_us", ewt:"0.2274", obs:"0.2243", err:1.4, errTxt:"1.4%", realm:"Mixing", tier:1},
+      {n:23, name:"CKM V_cb", ewt:"0.0422", obs:"0.0408", err:3.4, errTxt:"3.4%", realm:"Mixing", tier:1},
+      {n:24, name:"CKM V_ub", ewt:"0.00343", obs:"0.00369", err:7, errTxt:"7%", realm:"Mixing", tier:1},
+      {n:25, name:"CKM CP phase δ", ewt:"70.53°", obs:"~65.5°", err:8, errTxt:"~8%", realm:"Mixing", tier:1},
+      {n:26, name:"Jarlskog invariant J", ewt:"3.02×10⁻⁵", obs:"3.08×10⁻⁵", err:2, errTxt:"2%", realm:"Mixing", tier:1},
+      {n:27, name:"PMNS θ₁₂ (solar)", ewt:"35.26°", obs:"33.41°", err:5.5, errTxt:"5.5%", realm:"Mixing", tier:1},
+      {n:28, name:"PMNS θ₂₃ (atmospheric)", ewt:"49.5°", obs:"49.1°", err:0.8, errTxt:"0.8%", realm:"Mixing", tier:1},
+      {n:29, name:"PMNS θ₁₃ (reactor)", ewt:"9.25°", obs:"8.57°", err:8, errTxt:"8%", realm:"Mixing", tier:1},
+      {n:30, name:"PMNS δ_CP", ewt:"−109.5°", obs:"−90 to −135°", err:-1, errTxt:"consistent", realm:"Mixing", tier:1},
+
+      // NUCLEAR / QCD
+      {n:31, name:"Proton radius r_p", ewt:"0.8411 fm", obs:"0.8414 fm", err:0.04, errTxt:"0.04%", realm:"Nuclear", tier:1},
+      {n:32, name:"Proton cavity R_cavity", ewt:"1.581 fm", obs:"(not measured)", err:-1, errTxt:"derived", realm:"Nuclear", tier:2},
+      {n:33, name:"Nuclear radius r₀", ewt:"1.203 fm", obs:"1.20 fm", err:0.3, errTxt:"0.3%", realm:"Nuclear", tier:1},
+      {n:34, name:"Nuclear potential V₀", ewt:"54.67 MeV", obs:"54 MeV", err:1.2, errTxt:"1.2%", realm:"Nuclear", tier:1},
+      {n:35, name:"Fermi momentum k_F", ewt:"1.305 fm⁻¹", obs:"1.334 fm⁻¹", err:2, errTxt:"2%", realm:"Nuclear", tier:1},
+      {n:36, name:"Nuclear density ρ₀", ewt:"0.150 fm⁻³", obs:"0.160 fm⁻³", err:6, errTxt:"6%", realm:"Nuclear", tier:1},
+      {n:37, name:"Nuclear volume term a_V", ewt:"16.1 MeV", obs:"15.56 MeV", err:3.6, errTxt:"3.6%", realm:"Nuclear", tier:1},
+      {n:38, name:"Λ_QCD", ewt:"234.6 MeV", obs:"210–340 MeV", err:-1, errTxt:"within band", realm:"Nuclear", tier:1},
+      {n:39, name:"Pion decay constant f_π", ewt:"93.6 MeV", obs:"92.1 MeV", err:1.6, errTxt:"1.6%", realm:"Nuclear", tier:1},
+      {n:40, name:"Pion mass m_π", ewt:"130.2 MeV", obs:"135.0 MeV", err:3.6, errTxt:"3.6%", realm:"Nuclear", tier:1},
+      {n:41, name:"Chiral condensate σ₀", ewt:"281.7 MeV", obs:"280 MeV", err:0.6, errTxt:"0.6%", realm:"Nuclear", tier:1},
+      {n:42, name:"Bag constant B^(1/4)", ewt:"191.9 MeV", obs:"145–200 MeV", err:-1, errTxt:"within range", realm:"Nuclear", tier:1},
+      {n:43, name:"αs at confinement", ewt:"1.000", obs:"1.0", err:0.03, errTxt:"0.03%", realm:"Nuclear", tier:1},
+      {n:44, name:"Mass gap m_p = 4Λ_QCD", ewt:"938.3 MeV", obs:"938.3 MeV", err:0.01, errTxt:"0.01%", realm:"Nuclear", tier:1},
+
+      // ATOMIC / HYDROGEN
+      {n:45, name:"Bohr radius a₀", ewt:"52,918 fm", obs:"52,918 fm", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:46, name:"a₀/r_p ratio", ewt:"6π⁵/(4α) = 62,920", obs:"62,920", err:0.005, errTxt:"0.005%", realm:"Atomic", tier:1},
+      {n:47, name:"H ground state E₁", ewt:"−13.61 eV", obs:"−13.606 eV", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:48, name:"He⁺ ground state", ewt:"−54.4 eV", obs:"−54.4 eV", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:49, name:"He ground state", ewt:"−77.5 eV", obs:"−79.0 eV", err:2, errTxt:"2%", realm:"Atomic", tier:1},
+      {n:50, name:"He ionization energy", ewt:"24.6 eV", obs:"24.59 eV", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:51, name:"H₂ bond length", ewt:"0.754 Å", obs:"0.741 Å", err:1.7, errTxt:"1.7%", realm:"Atomic", tier:1},
+      {n:52, name:"H₂ bond energy (1s basis)", ewt:"3.40 eV", obs:"4.748 eV", err:28, errTxt:"28%", realm:"Atomic", tier:1},
+      {n:53, name:"m_p/m_e ratio", ewt:"6π⁵ = 1836.12", obs:"1836.15", err:0.002, errTxt:"0.002%", realm:"Atomic", tier:1},
+
+      // NEUTRINOS
+      {n:54, name:"Neutrino mass scale M", ewt:"0.05053 eV", obs:"~0.050 eV", err:1, errTxt:"1%", realm:"Neutrino", tier:1},
+      {n:55, name:"Δm²₃₁", ewt:"2.450×10⁻³ eV²", obs:"2.534×10⁻³", err:3.3, errTxt:"3.3%", realm:"Neutrino", tier:1},
+      {n:56, name:"Δm²₂₁", ewt:"7.66×10⁻⁵ eV²", obs:"7.53×10⁻⁵", err:1.7, errTxt:"1.7%", realm:"Neutrino", tier:1},
+      {n:57, name:"N_ν (generations)", ewt:"3", obs:"2.984 ± 0.008", err:0.5, errTxt:"0.5%", realm:"Neutrino", tier:1},
+
+      // PARTICLE WAVE SIZES
+      {n:58, name:"ν₃ wave size λ_C", ewt:"3.905 μm", obs:"awaiting", err:-1, errTxt:"awaiting", realm:"Wave Size", tier:2},
+      {n:59, name:"ν₂ wave size λ_C", ewt:"14.76 μm", obs:"awaiting", err:-1, errTxt:"awaiting", realm:"Wave Size", tier:2},
+      {n:60, name:"ν₁ wave size λ_C", ewt:"19.51 μm", obs:"awaiting", err:-1, errTxt:"awaiting", realm:"Wave Size", tier:2},
+      {n:61, name:"Ghostliness ratio ν₃", ewt:"1.81×10¹²", obs:"consistent w/ σ", err:-1, errTxt:"consistent", realm:"Wave Size", tier:2},
+      {n:62, name:"Electron r_rms", ewt:"2.818 fm", obs:"2.8179 fm", err:0, errTxt:"exact", realm:"Wave Size", tier:1},
+      {n:63, name:"Muon r_rms", ewt:"0.01363 fm", obs:"awaiting", err:-1, errTxt:"awaiting", realm:"Wave Size", tier:2},
+      {n:64, name:"Tau r_rms", ewt:"8.10×10⁻⁴ fm", obs:"awaiting", err:-1, errTxt:"awaiting", realm:"Wave Size", tier:2},
+      {n:65, name:"Proton r_neutral", ewt:"3.10 fm", obs:"nuclear range 1–3 fm", err:-1, errTxt:"consistent", realm:"Wave Size", tier:1},
+      {n:66, name:"Nuclear hard core", ewt:"3.16 fm", obs:"~3 fm", err:-1, errTxt:"consistent", realm:"Wave Size", tier:1},
+
+      // COSMOLOGICAL
+      {n:67, name:"Hubble constant H₀", ewt:"66.8 km/s/Mpc", obs:"67.4", err:0.9, errTxt:"0.9%", realm:"Cosmology", tier:1},
+      {n:68, name:"Dark energy fraction Ω_Λ", ewt:"2/3 = 0.667", obs:"0.685", err:2.7, errTxt:"2.7%", realm:"Cosmology", tier:1},
+      {n:69, name:"Cosmic age t₀", ewt:"13.58 Gyr", obs:"13.8 Gyr", err:1.6, errTxt:"1.6%", realm:"Cosmology", tier:1},
+      {n:70, name:"Cosmological constant Λ", ewt:"1.061×10⁻⁵² m⁻²", obs:"~1.089×10⁻⁵²", err:2.6, errTxt:"2.6%", realm:"Cosmology", tier:1},
+      {n:71, name:"Equation of state w", ewt:"−1", obs:"−1.03 ± 0.03", err:0, errTxt:"exact", realm:"Cosmology", tier:1},
+      {n:72, name:"MOND acceleration a₀", ewt:"1.204×10⁻¹⁰ m/s²", obs:"1.2×10⁻¹⁰", err:0.3, errTxt:"0.3%", realm:"Cosmology", tier:1},
+      {n:73, name:"CMB sound horizon r_s", ewt:"147 Mpc", obs:"144.6 Mpc", err:1.7, errTxt:"1.7%", realm:"Cosmology", tier:1},
+      {n:74, name:"CMB first peak ℓ₁", ewt:"224", obs:"220", err:2, errTxt:"2%", realm:"Cosmology", tier:1},
+      {n:75, name:"CMB second peak ℓ₂", ewt:"519", obs:"540", err:4, errTxt:"4%", realm:"Cosmology", tier:1},
+      {n:76, name:"CMB third peak ℓ₃", ewt:"819", obs:"810", err:1, errTxt:"1%", realm:"Cosmology", tier:1},
+      {n:77, name:"G_eff in galactic halos", ewt:"6.8 G_N", obs:"5–7 G_N (lensing)", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:78, name:"CMB quadrupole suppression", ewt:"suppressed", obs:"5× below ΛCDM", err:-1, errTxt:"direction ok", realm:"Cosmology", tier:1},
+      {n:79, name:"Transition redshift z_acc", ewt:"0.63–0.70", obs:"~0.67", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:80, name:"Dark energy w₀", ewt:"−1.01", obs:"current: −0.83 ± 0.13", err:-1, errTxt:"testable (DESI)", realm:"Cosmology", tier:3},
+      {n:81, name:"Dark energy w_a", ewt:"−0.05", obs:"current: −0.75 ± 0.29", err:-1, errTxt:"testable (DESI)", realm:"Cosmology", tier:3},
+      {n:82, name:"Lattice dilution α", ewt:"< 0.005", obs:"G = const (BBN)", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+
+      // PROTON FORM FACTOR
+      {n:83, name:"G_E(Q) analytic form", ewt:"j₀-based Si(x)", obs:"world data", err:-1, errTxt:"exact shape", realm:"Form Factor", tier:1},
+      {n:84, name:"R_cavity from form factor", ewt:"1.58 fm", obs:"all datasets", err:-1, errTxt:"consistent", realm:"Form Factor", tier:1},
+      {n:85, name:"Dipole deviation at high Q", ewt:"predicted", obs:"observed", err:-1, errTxt:"confirmed", realm:"Form Factor", tier:1},
+
+      // ENERGY DENSITY
+      {n:86, name:"EM energy density scaling", ewt:"3αħc/(8πr⁴)", obs:"all atoms", err:0, errTxt:"exact", realm:"EM", tier:1},
+      {n:87, name:"QCD energy density scaling", ewt:"3ħc/(πr⁴)", obs:"proton", err:0, errTxt:"exact", realm:"EM", tier:1},
+      {n:88, name:"EM/QCD gap ratio", ewt:"8/α = 1096", obs:"observed", err:0, errTxt:"exact", realm:"EM", tier:1},
+
+      // COUPLING UNIFICATION
+      {n:89, name:"Unification scale", ewt:"~10¹⁶ GeV", obs:"GUT scale", err:-1, errTxt:"consistent", realm:"Coupling", tier:1},
+      {n:90, name:"α_GUT value", ewt:"1/47.01", obs:"1/47.5 ± 1", err:1, errTxt:"~1%", realm:"Coupling", tier:1},
+      {n:91, name:"Proton lifetime", ewt:"~10⁴⁴ years", obs:"> 10³⁴ years", err:-1, errTxt:"survives bound", realm:"Coupling", tier:1},
+
+      // ADDITIONAL DERIVED
+      {n:92, name:"Magnetic moment ratio μ_n/μ_p", ewt:"−2/3 = −0.6667", obs:"−0.6850", err:2.7, errTxt:"2.7%", realm:"EM", tier:1},
+      {n:93, name:"Neutron magnetic moment (from ratio)", ewt:"−1.862 μ_N", obs:"−1.9130 μ_N", err:2.7, errTxt:"2.7%", realm:"EM", tier:1},
+      {n:94, name:"Electron g−2 (leading)", ewt:"α/(2π) = 0.00116", obs:"0.00116", err:0.1, errTxt:"0.1%", realm:"EM", tier:1},
+      {n:95, name:"Planck mass", ewt:"√(ħc/G)", obs:"2.176×10⁻⁸ kg", err:0, errTxt:"exact", realm:"Fundamental", tier:1},
+      {n:96, name:"Planck time", ewt:"√(ħG/c⁵)", obs:"5.391×10⁻⁴⁴ s", err:0, errTxt:"exact", realm:"Fundamental", tier:1},
+      {n:97, name:"Planck energy", ewt:"√(ħc⁵/G)", obs:"1.956×10⁹ J", err:0, errTxt:"exact", realm:"Fundamental", tier:1},
+      {n:98, name:"Gravitational wave speed", ewt:"c", obs:"c (LIGO/Virgo)", err:0, errTxt:"exact", realm:"Cosmology", tier:1},
+      {n:99, name:"Graviton spin", ewt:"2", obs:"2 (theoretical)", err:0, errTxt:"exact", realm:"Cosmology", tier:1},
+      {n:100, name:"Graviton mass", ewt:"0", obs:"< 1.76×10⁻²³ eV", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:101, name:"Black hole entropy", ewt:"A/(4l_P²)", obs:"Bekenstein-Hawking", err:0, errTxt:"exact", realm:"Black Hole", tier:1},
+      {n:102, name:"Casimir force", ewt:"π²ħc/(240d⁴)", obs:"measured", err:0, errTxt:"exact", realm:"EM", tier:1},
+      {n:103, name:"Charge quantization", ewt:"integer e", obs:"integer e", err:0, errTxt:"exact", realm:"EM", tier:1},
+      {n:104, name:"Spin quantization", ewt:"half-integer ħ", obs:"half-integer ħ", err:0, errTxt:"exact", realm:"Particle", tier:1},
+
+      // LATTICE NODE COUNTING
+      {n:105, name:"Lattice node density", ewt:"2.37×10¹⁰⁴ /m³", obs:"(Planck density)", err:-1, errTxt:"derived", realm:"Lattice", tier:2},
+      {n:106, name:"Nodes in ν₃ wave volume", ewt:"~10⁸⁸", obs:"—", err:-1, errTxt:"derived", realm:"Wave Size", tier:2},
+      {n:107, name:"Nodes in weak interaction", ewt:"~10⁵²", obs:"—", err:-1, errTxt:"derived", realm:"Wave Size", tier:2},
+      {n:108, name:"Interaction fraction", ewt:"~10⁻³⁶", obs:"consistent w/ σ", err:-1, errTxt:"consistent", realm:"Wave Size", tier:2},
+
+      // LATTICE COSMOLOGY
+      {n:109, name:"Node creation (not stretching)", ewt:"α ≈ 0", obs:"G = const", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:110, name:"Hookean springs k = const", ewt:"k constant", obs:"c = constant", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:111, name:"Void fraction dark energy", ewt:"f_v ≈ 0.80", obs:"~0.80 (surveys)", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:112, name:"Flatness from node creation", ewt:"flat", obs:"Ω_total = 1.000", err:0, errTxt:"exact", realm:"Cosmology", tier:1},
+      {n:113, name:"Horizon from ground-state", ewt:"uniform CMB", obs:"< 10⁻⁵ anisotropy", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+
+      // RESOLVED MYSTERIES
+      {n:114, name:"Gravitational coupling α_G", ewt:"5.9×10⁻³⁹", obs:"(m_p/m_Pl)²", err:0, errTxt:"exact", realm:"Resolved", tier:1},
+      {n:115, name:"Charge quantization (winding)", ewt:"integer e", obs:"integer e", err:0, errTxt:"exact", realm:"Resolved", tier:1},
+      {n:116, name:"Proton stability (j₀ mode)", ewt:"infinite", obs:"> 10³⁴ yr", err:-1, errTxt:"consistent", realm:"Resolved", tier:1},
+      {n:117, name:"Electron g−2 leading term", ewt:"α/(2π) = 0.00116", obs:"0.00116", err:0.1, errTxt:"0.1%", realm:"Resolved", tier:1},
+      {n:118, name:"θ_QCD = 0", ewt:"exactly 0", obs:"|θ| < 10⁻¹⁰", err:-1, errTxt:"consistent", realm:"Resolved", tier:1},
+      {n:119, name:"No axions", ewt:"do not exist", obs:"not found", err:-1, errTxt:"consistent", realm:"Resolved", tier:1},
+      {n:120, name:"Muon g−2: no anomaly", ewt:"no anomaly", obs:"unresolved", err:-1, errTxt:"testable", realm:"Resolved", tier:3},
+      {n:121, name:"Baryogenesis mechanism", ewt:"node creation", obs:"qualitative", err:-1, errTxt:"qualitative", realm:"Resolved", tier:2},
+
+      // BLACK HOLES
+      {n:122, name:"No singularity (Planck core)", ewt:"Planck core", obs:"consistent", err:-1, errTxt:"consistent", realm:"Black Hole", tier:2},
+      {n:123, name:"Min BH mass = m_Planck", ewt:"2.2×10⁻⁸ kg", obs:"consistent", err:-1, errTxt:"consistent", realm:"Black Hole", tier:2},
+      {n:124, name:"Min BH size = 2a", ewt:"3.2×10⁻³⁵ m", obs:"consistent", err:-1, errTxt:"consistent", realm:"Black Hole", tier:2},
+      {n:125, name:"Max temperature T_Planck", ewt:"1.4×10³² K", obs:"consistent", err:-1, errTxt:"consistent", realm:"Black Hole", tier:2},
+      {n:126, name:"Information preserved", ewt:"no paradox", obs:"consistent", err:-1, errTxt:"consistent", realm:"Black Hole", tier:2},
+      {n:127, name:"No wormholes", ewt:"impossible", obs:"consistent", err:-1, errTxt:"consistent", realm:"Black Hole", tier:2},
+
+      // WARP & ENGINEERING
+      {n:128, name:"Warp drives physically valid", ewt:"engineering barrier", obs:"—", err:-1, errTxt:"derived", realm:"Engineering", tier:2},
+
+      // LATTICE POTENTIAL
+      {n:129, name:"Lattice potential V(x) = cosine", ewt:"unique from Brillouin", obs:"—", err:-1, errTxt:"derived", realm:"Lattice", tier:2},
+      {n:130, name:"Barrier height V_max", ewt:"0.13 E_Planck", obs:"—", err:-1, errTxt:"derived", realm:"Lattice", tier:2},
+      {n:131, name:"Warp levels quantized", ewt:"discrete wells", obs:"—", err:-1, errTxt:"derived", realm:"Engineering", tier:2},
+      {n:132, name:"Domain wall warp energy", ewt:"~10⁴³ J for 1m", obs:"—", err:-1, errTxt:"derived", realm:"Engineering", tier:2},
+      {n:133, name:"Kink soliton mass", ewt:"0.164 m_Planck", obs:"—", err:-1, errTxt:"derived", realm:"Lattice", tier:2},
+      {n:134, name:"BH core = phase transition", ewt:"nodes crest barrier", obs:"—", err:-1, errTxt:"derived", realm:"Black Hole", tier:2},
+
+      // TESTABLE
+      {n:135, name:"Lattice pulse signals", ewt:"coherent in noise", obs:"re-analyze LIGO", err:-1, errTxt:"testable now", realm:"Engineering", tier:3},
+      {n:136, name:"GW echoes from BH mergers", ewt:"post-merger echoes", obs:"LISA/ET (~2030s)", err:-1, errTxt:"testable future", realm:"Black Hole", tier:3},
+      {n:137, name:"Compressed-well nuclear shift", ewt:"shifted stability", obs:"requires domain wall", err:-1, errTxt:"testable future", realm:"Engineering", tier:3},
+
+      // MULTI-WELL
+      {n:138, name:"Multi-well occupation (5→3)", ewt:"5 allowed, 3 stable", obs:"—", err:-1, errTxt:"derived", realm:"Multi-Well", tier:2},
+      {n:139, name:"Cross-well gravity (dark matter)", ewt:"invisible mass", obs:"lensing surveys", err:-1, errTxt:"testable", realm:"Multi-Well", tier:2},
+      {n:140, name:"Shared stellar gravity wells", ewt:"stars anchor all wells", obs:"—", err:-1, errTxt:"derived", realm:"Multi-Well", tier:2},
+      {n:141, name:"Cross-well coupling T(n)", ewt:"exp(−nπ) ≈ 4.3%/well", obs:"—", err:-1, errTxt:"derived", realm:"Multi-Well", tier:2},
+      {n:142, name:"Soliton dark matter mass", ewt:"0.164 m_Planck", obs:"—", err:-1, errTxt:"derived", realm:"Multi-Well", tier:2},
+      {n:143, name:"Gravity diffusion rate", ewt:"Γ ≈ 8×10⁴¹ s⁻¹", obs:"—", err:-1, errTxt:"derived", realm:"Multi-Well", tier:2},
+
+      // CYCLIC COSMOLOGY
+      {n:144, name:"Gravity drives expansion", ewt:"2:1 over-correction", obs:"—", err:-1, errTxt:"derived", realm:"Cyclic", tier:2},
+      {n:145, name:"Ground state = zero", ewt:"V(0) = 0", obs:"—", err:-1, errTxt:"derived", realm:"Cyclic", tier:2},
+      {n:146, name:"Cyclic cosmology", ewt:"self-resetting", obs:"—", err:-1, errTxt:"speculative", realm:"Cyclic", tier:3},
+
+      // HOOKE'S LAW COMPLETION
+      {n:147, name:"Hooke's Law 3D (⅓ + ⅔)", ewt:"F_long=−kx/3, F_trans=−2kx/3", obs:"dark energy = 2/3", err:-1, errTxt:"consistent", realm:"Cosmology", tier:1},
+      {n:148, name:"Nested well suppression", ewt:"r_cross = (GM/H₀²)^⅓", obs:"—", err:-1, errTxt:"derived", realm:"Cosmology", tier:2},
+
+      // GR TESTS
+      {n:149, name:"Gravitational lensing (solar)", ewt:"1.750″", obs:"1.750 ± 0.060″", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:150, name:"Mercury perihelion precession", ewt:"42.98″/century", obs:"42.98 ± 0.04″/century", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:151, name:"Venus perihelion precession", ewt:"8.63″/century", obs:"8.62 ± 0.5″/century", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:152, name:"Earth perihelion precession", ewt:"3.84″/century", obs:"3.84 ± 0.01″/century", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:153, name:"Mars perihelion precession", ewt:"1.35″/century", obs:"1.35 ± 0.1″/century", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:154, name:"Shapiro time delay (Mars)", ewt:"~247 μs", obs:"250 ± 10 μs", err:1.2, errTxt:"1.2%", realm:"Gravity", tier:1},
+      {n:155, name:"PPN γ (Cassini)", ewt:"γ = 1 (exact)", obs:"1.000021 ± 0.000023", err:0.002, errTxt:"0.002%", realm:"Gravity", tier:1},
+      {n:156, name:"Geodetic precession (GP-B)", ewt:"6640 mas/yr", obs:"6601.8 ± 18.3 mas/yr", err:0.6, errTxt:"0.6%", realm:"Gravity", tier:1},
+      {n:157, name:"Frame dragging (GP-B)", ewt:"39 mas/yr", obs:"37.2 ± 7.2 mas/yr", err:4.8, errTxt:"4.8%", realm:"Gravity", tier:1},
+      {n:158, name:"Einstein-Hilbert identity", ewt:"ka/32 = 2.409×10⁴²", obs:"c⁴/(16πG) ratio 1.0003", err:0.03, errTxt:"0.03%", realm:"Gravity", tier:1},
+      {n:159, name:"Binary pulsar orbital decay", ewt:"quadrupole match", obs:"0.17% (40+ yr)", err:0.17, errTxt:"0.17%", realm:"Gravity", tier:1},
+      {n:160, name:"GW polarizations + quadrupole", ewt:"h+, hx, no dipole", obs:"Confirmed (LIGO)", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:161, name:"GW chirp waveform", ewt:"inspiral match", obs:"Confirmed (GW150914)", err:0, errTxt:"exact", realm:"Gravity", tier:1},
+      {n:162, name:"Lattice dispersion relation", ewt:"v_g = c·cos(qa/2)", obs:"Untested", err:-1, errTxt:"testable future", realm:"Gravity", tier:3},
+
+      // ELECTROWEAK (additional)
+      {n:163, name:"sin²θ_W at GUT scale", ewt:"3/8 = 0.375", obs:"0.375 (SU(5))", err:0, errTxt:"exact", realm:"Coupling", tier:1},
+      {n:164, name:"cos θ_W", ewt:"7/8 = 0.875", obs:"0.8815", err:0.7, errTxt:"0.7%", realm:"Fundamental", tier:1},
+      {n:165, name:"Weak coupling g₂", ewt:"0.647", obs:"0.653", err:0.9, errTxt:"~1%", realm:"Fundamental", tier:1},
+      {n:166, name:"Higgs quartic λ", ewt:"0.129", obs:"0.129 ± 0.006", err:0, errTxt:"<0.1%", realm:"Particle", tier:1},
+      {n:167, name:"Gauge group derived", ewt:"SU(3)×SU(2)×U(1)", obs:"SU(3)×SU(2)×U(1)", err:0, errTxt:"exact", realm:"Resolved", tier:1},
+      {n:168, name:"Number of gauge bosons", ewt:"8+3+1 = 12", obs:"12", err:0, errTxt:"exact", realm:"Resolved", tier:1},
+
+      // ATOMIC / NUCLEAR (additional)
+      {n:169, name:"H level E₂", ewt:"−3.40 eV", obs:"−3.401 eV", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:170, name:"H level E₃", ewt:"−1.51 eV", obs:"−1.512 eV", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:171, name:"H level E₄", ewt:"−0.85 eV", obs:"−0.850 eV", err:0, errTxt:"exact", realm:"Atomic", tier:1},
+      {n:172, name:"Nuclear magic numbers", ewt:"2,8,20,28,50,82,126", obs:"all 7 exact", err:0, errTxt:"exact", realm:"Nuclear", tier:1},
+      {n:173, name:"Fermi energy T_F", ewt:"35.3 MeV", obs:"~35 MeV", err:1, errTxt:"~1%", realm:"Nuclear", tier:1},
+
+      // FINE STRUCTURE / MIXING / COSMOLOGY (additional)
+      {n:174, name:"Fundamental charge e", ewt:"1.6015×10⁻¹⁹ C", obs:"1.6020×10⁻¹⁹ C", err:0.03, errTxt:"0.03%", realm:"Fundamental", tier:1},
+      {n:175, name:"Wolfenstein λ", ewt:"0.2243", obs:"0.2243 ± 0.0005", err:0, errTxt:"exact", realm:"Mixing", tier:1},
+      {n:176, name:"Wolfenstein A", ewt:"√(2/3) = 0.8165", obs:"0.836 ± 0.015", err:2.4, errTxt:"2.4%", realm:"Mixing", tier:1},
+      {n:177, name:"CKM V_td (derived)", ewt:"0.0096", obs:"—", err:-1, errTxt:"derived", realm:"Mixing", tier:2},
+      {n:178, name:"Dark energy density u_DE", ewt:"5.11×10⁻¹⁰ J/m³", obs:"5.26×10⁻¹⁰", err:2.8, errTxt:"2.8%", realm:"Cosmology", tier:1},
+      {n:179, name:"Deceleration parameter q₀", ewt:"−1/2", obs:"−0.55 ± 0.05", err:-1, errTxt:"within 1σ", realm:"Cosmology", tier:1},
+    ];
+
+    /* ========== CALCULATION PAGE MAP ========== */
+    const calcMap = {
+      // By prediction number → [page, anchor]
+      1: ['calc-master-equations.html','speed-of-light'],
+      2: ['calc-master-equations.html','planck-constant'],
+      3: ['calc-master-equations.html','gravitational-constant'],
+      4: ['calc-fine-structure.html',''],
+      5: ['calc-strong-qcd.html','running-alphas'],
+      6: ['calc-electroweak.html','sin2-mz'],
+      7: ['calc-strong-qcd.html','gut-coupling'],
+      8: ['calc-particle-masses.html','electron'],
+      9: ['calc-particle-masses.html','muon'],
+      10: ['calc-particle-masses.html','tau-koide'],
+      11: ['calc-particle-masses.html','light-quarks'],
+      12: ['calc-particle-masses.html','light-quarks'],
+      13: ['calc-particle-masses.html','light-quarks'],
+      14: ['calc-particle-masses.html','heavy-quarks'],
+      15: ['calc-particle-masses.html','heavy-quarks'],
+      16: ['calc-particle-masses.html','heavy-quarks'],
+      17: ['calc-strong-qcd.html','mass-gap'],
+      18: ['calc-electroweak.html','w-mass'],
+      19: ['calc-electroweak.html','z-mass'],
+      20: ['calc-electroweak.html','higgs-mass'],
+      21: ['calc-electroweak.html','higgs-vev'],
+      22: ['calc-mixing-angles.html',''],
+      23: ['calc-mixing-angles.html',''],
+      24: ['calc-mixing-angles.html',''],
+      25: ['calc-mixing-angles.html',''],
+      26: ['calc-mixing-angles.html',''],
+      27: ['calc-mixing-angles.html',''],
+      28: ['calc-mixing-angles.html',''],
+      29: ['calc-mixing-angles.html',''],
+      30: ['calc-mixing-angles.html',''],
+      31: ['calc-proton-nuclear.html',''],
+      32: ['calc-proton-nuclear.html',''],
+      33: ['calc-proton-nuclear.html',''],
+      34: ['calc-proton-nuclear.html',''],
+      35: ['calc-proton-nuclear.html',''],
+      36: ['calc-proton-nuclear.html',''],
+      37: ['calc-proton-nuclear.html',''],
+      38: ['calc-strong-qcd.html','lambda-qcd'],
+      39: ['calc-proton-nuclear.html',''],
+      40: ['calc-proton-nuclear.html',''],
+      41: ['calc-proton-nuclear.html',''],
+      42: ['calc-strong-qcd.html',''],
+      43: ['calc-strong-qcd.html','confinement'],
+      44: ['calc-strong-qcd.html','mass-gap'],
+      45: ['calc-atomic.html',''],
+      46: ['calc-atomic.html',''],
+      47: ['calc-atomic.html',''],
+      48: ['calc-atomic.html',''],
+      49: ['calc-atomic.html',''],
+      50: ['calc-atomic.html',''],
+      51: ['calc-atomic.html',''],
+      52: ['calc-atomic.html',''],
+      53: ['calc-particle-masses.html','proton-electron'],
+      54: ['calc-neutrinos.html',''],
+      55: ['calc-neutrinos.html',''],
+      56: ['calc-neutrinos.html',''],
+      57: ['calc-neutrinos.html',''],
+      58: ['calc-neutrinos.html',''],
+      59: ['calc-neutrinos.html',''],
+      60: ['calc-neutrinos.html',''],
+      61: ['calc-neutrinos.html',''],
+      62: ['calc-neutrinos.html',''],
+      63: ['calc-neutrinos.html',''],
+      64: ['calc-neutrinos.html',''],
+      65: ['calc-proton-nuclear.html',''],
+      66: ['calc-proton-nuclear.html',''],
+      67: ['calc-cosmology.html',''],
+      68: ['calc-cosmology.html',''],
+      69: ['calc-cosmology.html',''],
+      70: ['calc-cosmology.html',''],
+      71: ['calc-cosmology.html',''],
+      72: ['calc-cosmology.html',''],
+      73: ['calc-cosmology.html',''],
+      74: ['calc-cosmology.html',''],
+      75: ['calc-cosmology.html',''],
+      76: ['calc-cosmology.html',''],
+      77: ['calc-cosmology.html',''],
+      78: ['calc-cosmology.html',''],
+      79: ['calc-cosmology.html',''],
+      80: ['calc-cosmology.html',''],
+      81: ['calc-cosmology.html',''],
+      82: ['calc-cosmology.html',''],
+      83: ['calc-proton-nuclear.html',''],
+      84: ['calc-proton-nuclear.html',''],
+      85: ['calc-proton-nuclear.html',''],
+      86: ['calc-proton-nuclear.html',''],
+      87: ['calc-proton-nuclear.html',''],
+      88: ['calc-proton-nuclear.html',''],
+      89: ['calc-strong-qcd.html','gut-coupling'],
+      90: ['calc-strong-qcd.html','gut-coupling'],
+      91: ['calc-strong-qcd.html',''],
+      92: ['calc-proton-nuclear.html',''],
+      93: ['calc-proton-nuclear.html',''],
+      94: ['calc-fine-structure.html',''],
+      95: ['calc-master-equations.html',''],
+      96: ['calc-master-equations.html',''],
+      97: ['calc-master-equations.html',''],
+      98: ['calc-gravity-gr.html',''],
+      99: ['calc-gravity-gr.html',''],
+      100: ['calc-gravity-gr.html',''],
+      101: ['calc-gravity-gr.html',''],
+      102: ['calc-atomic.html',''],
+      103: ['calc-fine-structure.html',''],
+      104: ['calc-lagrangian.html',''],
+      109: ['calc-cosmology.html',''],
+      110: ['calc-cosmology.html',''],
+      111: ['calc-cosmology.html',''],
+      112: ['calc-cosmology.html',''],
+      113: ['calc-cosmology.html',''],
+      114: ['calc-master-equations.html',''],
+      115: ['calc-fine-structure.html',''],
+      118: ['calc-lagrangian.html',''],
+      129: ['calc-lagrangian.html',''],
+      130: ['calc-lagrangian.html',''],
+      133: ['calc-lagrangian.html',''],
+      147: ['calc-cosmology.html',''],
+      148: ['calc-cosmology.html',''],
+      // GR tests
+      149: ['calc-gravity-gr.html',''],
+      150: ['calc-gravity-gr.html',''],
+      151: ['calc-gravity-gr.html',''],
+      152: ['calc-gravity-gr.html',''],
+      153: ['calc-gravity-gr.html',''],
+      154: ['calc-gravity-gr.html',''],
+      155: ['calc-gravity-gr.html',''],
+      156: ['calc-gravity-gr.html',''],
+      157: ['calc-gravity-gr.html',''],
+      158: ['calc-gravity-gr.html',''],
+      159: ['calc-gravity-gr.html',''],
+      160: ['calc-gravity-gr.html',''],
+      161: ['calc-gravity-gr.html',''],
+      162: ['calc-gravity-gr.html',''],
+      // Electroweak additional
+      163: ['calc-electroweak.html',''],
+      164: ['calc-electroweak.html',''],
+      165: ['calc-electroweak.html',''],
+      166: ['calc-electroweak.html',''],
+      167: ['calc-electroweak.html',''],
+      168: ['calc-electroweak.html',''],
+      // Atomic/Nuclear additional
+      169: ['calc-atomic.html',''],
+      170: ['calc-atomic.html',''],
+      171: ['calc-atomic.html',''],
+      172: ['calc-proton-nuclear.html',''],
+      173: ['calc-proton-nuclear.html',''],
+      // Fine structure / Mixing / Cosmology additional
+      174: ['calc-fine-structure.html',''],
+      175: ['calc-mixing-angles.html',''],
+      176: ['calc-mixing-angles.html',''],
+      177: ['calc-mixing-angles.html',''],
+      178: ['calc-cosmology.html',''],
+      179: ['calc-cosmology.html',''],
+    };
+
+    function getCalcLink(n) {
+      const entry = calcMap[n];
+      if (!entry) return '';
+      const [page, anchor] = entry;
+      const href = '../calculations/' + page + (anchor ? '#' + anchor : '');
+      return '<a href="' + href + '">see calc &rsaquo;</a>';
+    }
+
+    /* ========== RENDER TABLE ========== */
+    const tbody = document.getElementById('predBody');
+    const searchBox = document.getElementById('searchBox');
+    const realmFilter = document.getElementById('realmFilter');
+    const tierFilter = document.getElementById('tierFilter');
+    const accuracyFilter = document.getElementById('accuracyFilter');
+    const resultCount = document.getElementById('resultCount');
+
+    function errClass(err, txt) {
+      if (txt === 'exact' || err === 0) return 'accuracy-exact';
+      if (err > 0 && err < 0.5) return 'accuracy-exact';
+      if (err > 0 && err < 1) return 'accuracy-good';
+      if (err > 0 && err < 5) return 'accuracy-ok';
+      if (err > 0 && err < 10) return 'accuracy-fair';
+      if (err >= 10) return 'accuracy-poor';
+      // consistent, derived, testable, etc.
+      if (txt.includes('consistent') || txt.includes('confirmed') || txt.includes('exact')) return 'accuracy-exact';
+      if (txt.includes('derived')) return '';
+      if (txt.includes('testable') || txt.includes('awaiting') || txt.includes('speculative')) return '';
+      if (txt.includes('within')) return 'accuracy-ok';
+      return '';
+    }
+
+    function tierClass(t) {
+      return 'tier-' + t;
+    }
+
+    function renderTable() {
+      const search = searchBox.value.toLowerCase();
+      const realm = realmFilter.value;
+      const tier = tierFilter.value;
+      const acc = accuracyFilter.value;
+
+      let html = '';
+      let count = 0;
+
+      predictions.forEach(p => {
+        // Filter
+        if (search && !p.name.toLowerCase().includes(search) && !p.ewt.toLowerCase().includes(search) && !p.realm.toLowerCase().includes(search)) return;
+        if (realm && p.realm !== realm) return;
+        if (tier && p.tier !== parseInt(tier)) return;
+        if (acc) {
+          if (acc === 'exact' && !(p.err >= 0 && p.err < 0.5)) return;
+          if (acc === 'good' && !(p.err >= 0 && p.err < 1)) return;
+          if (acc === 'ok' && !(p.err >= 0 && p.err < 5)) return;
+          if (acc === 'fair' && !(p.err >= 0 && p.err < 10)) return;
+          if (acc === 'consistent' && p.err !== -1) return;
+        }
+
+        count++;
+        const ec = errClass(p.err, p.errTxt);
+        html += `<tr>
+          <td class="col-num">${p.n}</td>
+          <td class="col-name"><strong>${p.name}</strong></td>
+          <td class="col-ewt">${p.ewt}</td>
+          <td class="col-obs">${p.obs}</td>
+          <td class="col-err"><span class="badge ${ec}">${p.errTxt}</span></td>
+          <td class="col-realm">${p.realm}</td>
+          <td class="col-tier"><span class="tier-badge ${tierClass(p.tier)}">T${p.tier}</span></td>
+          <td class="col-calc">${getCalcLink(p.n)}</td>
+        </tr>`;
+      });
+
+      tbody.innerHTML = html;
+      resultCount.textContent = `Showing ${count} of ${predictions.length} predictions`;
+    }
+
+    /* ========== SORTING ========== */
+    let sortCol = 'num';
+    let sortAsc = true;
+
+    document.querySelectorAll('.pred-table thead th[data-sort]').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.dataset.sort;
+        if (sortCol === col) { sortAsc = !sortAsc; }
+        else { sortCol = col; sortAsc = true; }
+
+        document.querySelectorAll('.pred-table thead th').forEach(h => h.classList.remove('sorted'));
+        th.classList.add('sorted');
+        th.querySelector('.sort-arrow').innerHTML = sortAsc ? '&#9650;' : '&#9660;';
+
+        predictions.sort((a, b) => {
+          let va, vb;
+          switch(col) {
+            case 'num': va = a.n; vb = b.n; break;
+            case 'name': va = a.name; vb = b.name; break;
+            case 'ewt': va = a.ewt; vb = b.ewt; break;
+            case 'obs': va = a.obs; vb = b.obs; break;
+            case 'err': va = a.err; vb = b.err; break;
+            case 'realm': va = a.realm; vb = b.realm; break;
+            case 'tier': va = a.tier; vb = b.tier; break;
+            default: va = a.n; vb = b.n;
+          }
+          if (typeof va === 'string') {
+            return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+          }
+          return sortAsc ? va - vb : vb - va;
+        });
+
+        renderTable();
+      });
+    });
+
+    /* ========== FILTER EVENTS ========== */
+    searchBox.addEventListener('input', renderTable);
+    realmFilter.addEventListener('change', renderTable);
+    tierFilter.addEventListener('change', renderTable);
+    accuracyFilter.addEventListener('change', renderTable);
+
+    /* Initial render */
+    renderTable();
+  })();
+  </script>
+</body>
+</html>

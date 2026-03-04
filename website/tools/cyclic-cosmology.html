@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GWT Cyclic Cosmology — Timeline Calculator</title>
+<style>
+  body { background:#0a0a1a; color:#e0e0e0; font-family:'Segoe UI',sans-serif; margin:0; padding:20px; }
+  h1 { color:#88ccff; text-align:center; margin-bottom:5px; }
+  .subtitle { text-align:center; color:#888; margin-bottom:20px; font-size:14px; }
+  .container { max-width:1100px; margin:0 auto; }
+  .panel { background:#12122a; border:1px solid #333; border-radius:8px; padding:20px; margin-bottom:20px; }
+  .panel h2 { color:#ff9944; margin-top:0; border-bottom:1px solid #333; padding-bottom:8px; }
+  .panel h3 { color:#88ccff; margin-top:15px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; }
+  th { background:#1a1a3a; color:#88ccff; padding:8px; text-align:left; border:1px solid #333; }
+  td { padding:8px; border:1px solid #333; }
+  tr:nth-child(even) { background:#15152a; }
+  .highlight { color:#ffcc44; font-weight:bold; }
+  .speculative { color:#ff6666; font-style:italic; }
+  .proven { color:#66ff66; }
+  canvas { background:#0d0d20; border:1px solid #333; border-radius:4px; display:block; margin:10px auto; }
+  .slider-row { display:flex; align-items:center; gap:10px; margin:8px 0; }
+  .slider-row label { width:250px; flex-shrink:0; }
+  .slider-row input[type=range] { flex:1; }
+  .slider-row .val { width:160px; text-align:right; color:#ffcc44; font-family:monospace; }
+  .note { color:#888; font-size:13px; padding:5px 0; }
+  .eq { background:#1a1a3a; padding:10px; border-radius:4px; font-family:monospace; margin:8px 0; color:#88ff88; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media(max-width:800px) { .two-col { grid-template-columns:1fr; } }
+  .stage { display:flex; align-items:stretch; margin:4px 0; }
+  .stage-bar { border-radius:4px; min-height:40px; display:flex; align-items:center; padding:0 10px; font-size:13px; font-weight:bold; }
+  .stage-label { width:200px; flex-shrink:0; padding:8px; font-size:13px; }
+  .stage-time { width:180px; flex-shrink:0; padding:8px; font-size:13px; color:#ffcc44; text-align:right; font-family:monospace; }
+</style>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;margin:-20px -20px 20px;font-family:'Segoe UI',sans-serif;font-size:0.85rem;display:flex;align-items:center;gap:1rem;"><a href="../index.html" style="color:#58a6ff;text-decoration:none;">&larr; GWT Home</a><span style="color:#30363d;">|</span><a href="../pages/cyclic-cosmology.html" style="color:#8b949e;text-decoration:none;">Cyclic Cosmology</a></div>
+<div class="container">
+<h1>Cyclic Cosmology — Timeline Calculator</h1>
+<p class="subtitle">GWT Section 30 — The Self-Resetting Universe</p>
+
+<!-- CYCLE DIAGRAM -->
+<div class="panel">
+  <h2>The Cycle</h2>
+  <canvas id="cycleCanvas" width="1060" height="200"></canvas>
+</div>
+
+<!-- TIMELINE -->
+<div class="panel">
+  <h2>Full Cycle Timeline</h2>
+  <canvas id="timelineCanvas" width="1060" height="300"></canvas>
+
+  <table id="timelineTable">
+    <tr><th>Stage</th><th>Duration</th><th>Cumulative</th><th>Key Process</th><th>Status</th></tr>
+  </table>
+</div>
+
+<!-- CALCULATORS -->
+<div class="two-col">
+  <div class="panel">
+    <h2>Black Hole Evaporation</h2>
+    <p class="note">Hawking evaporation time: t = 5120π G²M³ / (ℏc⁴)</p>
+
+    <div class="slider-row">
+      <label>BH mass (solar masses):</label>
+      <input type="range" id="bhMass" min="0" max="12" step="0.1" value="10">
+      <span class="val" id="bhMassVal">10^10 M☉</span>
+    </div>
+
+    <div class="eq" id="bhCalc"></div>
+
+    <table>
+      <tr><th>Black Hole Type</th><th>Mass</th><th>Evaporation Time</th></tr>
+      <tr><td>Stellar</td><td>10 M☉</td><td id="tStellar"></td></tr>
+      <tr><td>Intermediate</td><td>10⁴ M☉</td><td id="tInter"></td></tr>
+      <tr><td>Supermassive (Milky Way)</td><td>4×10⁶ M☉</td><td id="tMW"></td></tr>
+      <tr><td>Ultra-massive</td><td>10¹⁰ M☉</td><td id="tUltra"></td></tr>
+      <tr><td>Largest possible</td><td>10¹² M☉</td><td id="tMax"></td></tr>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Matter Lifecycle</h2>
+    <p class="note">How all matter converts to radiation</p>
+
+    <canvas id="matterCanvas" width="500" height="250"></canvas>
+
+    <table>
+      <tr><th>Process</th><th>Converts</th><th>Timescale</th></tr>
+      <tr><td>Fusion (stars)</td><td>H → He → ... → Fe</td><td>~10¹⁴ yr</td></tr>
+      <tr><td>BH capture</td><td>All matter → BH mass</td><td>~10⁴⁰ yr</td></tr>
+      <tr><td>Hawking radiation</td><td>BH mass → photons</td><td>~10¹⁰⁰ yr</td></tr>
+      <tr><td>Redshift</td><td>Photon energy → ~0</td><td>~10¹⁵⁰ yr</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- COLLAPSE PHYSICS -->
+<div class="panel">
+  <h2>Collapse Phase</h2>
+  <div class="two-col">
+    <div>
+      <h3>Known Parameters</h3>
+      <div class="eq">
+Collapse speed: v = c = 3×10⁸ m/s
+Planck density: ρ_P = 5.155×10⁹⁶ kg/m³
+Barrier peak: V_max = (4/π³) E_P ≈ 0.13 E_P
+Current universe radius: R ≈ 4.4×10²⁶ m
+      </div>
+
+      <div class="slider-row">
+        <label>Universe radius at collapse (×R_now):</label>
+        <input type="range" id="collapseR" min="0" max="6" step="0.1" value="2">
+        <span class="val" id="collapseRVal">100 × R_now</span>
+      </div>
+
+      <div class="eq" id="collapseCalc"></div>
+    </div>
+    <div>
+      <h3>Collapse Timeline</h3>
+      <canvas id="collapseCanvas" width="500" height="200"></canvas>
+      <p class="note">The collapse propagates at c. Once triggered, it's a cascade —
+      like a black hole formation but for the entire lattice. The collapse front
+      sweeps inward, compressing everything to Planck density.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RE-IGNITION -->
+<div class="panel">
+  <h2>Re-Ignition: The Next Big Bang</h2>
+  <div class="two-col">
+    <div>
+      <h3>At the Barrier Peak</h3>
+      <div class="eq">
+V(x=a) = V_max = 2ka²/π²
+V_max = (4/π³) × E_Planck
+V_max ≈ 0.1292 × 1.956×10⁹ J
+V_max ≈ 2.53×10⁸ J per node
+      </div>
+      <p>Every node sits at the cosine barrier peak — maximally unstable.
+      Zero-point fluctuation energy:</p>
+      <div class="eq">
+E_ZPF = ½ ℏω_max = ½ ℏ(πc/a)
+E_ZPF = ½ × E_Planck = 9.78×10⁸ J
+      </div>
+      <p class="highlight">E_ZPF > V_max → zero-point energy EXCEEDS barrier height!</p>
+      <p>The barrier cannot hold. Re-ignition is not just probable — it is <span class="highlight">guaranteed</span>
+      by the uncertainty principle. The lattice MUST release.</p>
+    </div>
+    <div>
+      <h3>Energy Budget per Cycle</h3>
+      <canvas id="energyCanvas" width="500" height="200"></canvas>
+      <p class="note">Total energy is conserved across the cycle. The Big Bang
+      doesn't create energy — it converts lattice compression (potential) into
+      waves (kinetic). The collapse converts waves back to compression.</p>
+      <div class="eq" id="energyCalc"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SURVIVAL -->
+<div class="panel">
+  <h2>What Survives the Reset?</h2>
+  <table>
+    <tr><th>Candidate</th><th>Mechanism</th><th>Survival?</th><th>Notes</th></tr>
+    <tr>
+      <td>Ordinary matter</td>
+      <td>Standing waves</td>
+      <td class="speculative">No</td>
+      <td>v_g → 0 at Planck compression. Waves can't exist.</td>
+    </tr>
+    <tr>
+      <td>Radiation</td>
+      <td>Traveling waves</td>
+      <td class="speculative">No</td>
+      <td>Compressed to zero wavelength → absorbed by medium</td>
+    </tr>
+    <tr>
+      <td>Kink solitons</td>
+      <td>Topological defects</td>
+      <td style="color:#ffcc44">Maybe</td>
+      <td>Not waves — medium features. May persist through compression.</td>
+    </tr>
+    <tr>
+      <td>Warp bubbles</td>
+      <td>Self-contained compression</td>
+      <td style="color:#ffcc44">Maybe</td>
+      <td>Bubble interior has own physics. Could ride through collapse like a spore.</td>
+    </tr>
+    <tr>
+      <td>CMB anomalies</td>
+      <td>Collapse asymmetry imprint</td>
+      <td style="color:#ffcc44">Testable</td>
+      <td>Non-uniform collapse → directional imprints in next cycle's CMB.</td>
+    </tr>
+    <tr>
+      <td>Lattice communications</td>
+      <td>Medium-level encoding</td>
+      <td style="color:#ffcc44">Unknown</td>
+      <td>If encoded at Planck scale in medium structure, might persist.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SUMMARY -->
+<div class="panel">
+  <h2>Cycle Summary</h2>
+  <div class="eq" id="summaryCalc"></div>
+  <p class="note"><span class="proven">Green</span> = derived from GWT |
+  <span class="highlight">Yellow</span> = calculated from known physics |
+  <span class="speculative">Red</span> = speculative (co-dependence hypothesis)</p>
+</div>
+
+</div>
+
+<script>
+// ===== CONSTANTS =====
+const c = 2.998e8;         // m/s
+const G = 6.674e-11;       // m³/(kg·s²)
+const hbar = 1.055e-34;    // J·s
+const Msun = 1.989e30;     // kg
+const yr = 3.156e7;        // seconds per year
+const R_now = 4.4e26;      // observable universe radius, m
+const E_Planck = 1.956e9;  // J
+const rho_Planck = 5.155e96; // kg/m³
+const a_lattice = 1.616e-35; // m
+
+// ===== HAWKING EVAPORATION =====
+function hawkingTime(M) {
+    return 5120 * Math.PI * G*G * M*M*M / (hbar * c*c*c*c);
+}
+
+function formatTime(seconds) {
+    let yrs = seconds / yr;
+    if (yrs < 1e3) return yrs.toFixed(1) + ' years';
+    let exp = Math.log10(yrs);
+    return '10^' + exp.toFixed(1) + ' years';
+}
+
+function formatTimeShort(logYrs) {
+    return '10^' + logYrs.toFixed(0) + ' yr';
+}
+
+// ===== POPULATE BH TABLE =====
+function updateBH() {
+    let logM = parseFloat(document.getElementById('bhMass').value);
+    document.getElementById('bhMassVal').textContent = '10^' + logM.toFixed(1) + ' M☉';
+
+    let M = Math.pow(10, logM) * Msun;
+    let t = hawkingTime(M);
+    let tYr = t / yr;
+
+    document.getElementById('bhCalc').textContent =
+        'M = 10^' + logM.toFixed(1) + ' M☉ = ' + M.toExponential(2) + ' kg\n' +
+        't_evap = 5120π G²M³/(ℏc⁴) = ' + t.toExponential(2) + ' s = ' + formatTime(t);
+
+    // Fixed BH types
+    document.getElementById('tStellar').textContent = formatTime(hawkingTime(10 * Msun));
+    document.getElementById('tInter').textContent = formatTime(hawkingTime(1e4 * Msun));
+    document.getElementById('tMW').textContent = formatTime(hawkingTime(4e6 * Msun));
+    document.getElementById('tUltra').textContent = formatTime(hawkingTime(1e10 * Msun));
+    document.getElementById('tMax').textContent = formatTime(hawkingTime(1e12 * Msun));
+}
+
+// ===== COLLAPSE CALCULATOR =====
+function updateCollapse() {
+    let logScale = parseFloat(document.getElementById('collapseR').value);
+    let scale = Math.pow(10, logScale);
+    document.getElementById('collapseRVal').textContent = scale.toExponential(0) + ' × R_now';
+
+    let R = scale * R_now;
+    let t_collapse = R / c;
+    let t_years = t_collapse / yr;
+
+    document.getElementById('collapseCalc').textContent =
+        'R_collapse = ' + R.toExponential(2) + ' m\n' +
+        't_collapse = R/c = ' + t_collapse.toExponential(2) + ' s = ' + formatTime(t_collapse) + '\n' +
+        'Collapse is FAST compared to expansion phase (~10^100 yr)';
+
+    drawCollapse(logScale);
+}
+
+// ===== TIMELINE STAGES =====
+const stages = [
+    { name: 'Big Bang → Now', logStart: 0, logEnd: 10.14, color: '#4488ff', process: 'Star formation, galaxy evolution', status: 'proven' },
+    { name: 'Stellar era ends', logStart: 10.14, logEnd: 14, color: '#44aaff', process: 'Last red dwarfs burn out', status: 'proven' },
+    { name: 'BH capture era', logStart: 14, logEnd: 40, color: '#8844ff', process: 'All matter falls into BHs', status: 'proven' },
+    { name: 'Hawking evaporation', logStart: 40, logEnd: 100, color: '#ff4488', process: 'All BHs evaporate to radiation', status: 'proven' },
+    { name: 'Radiation redshift', logStart: 100, logEnd: 150, color: '#ff8844', process: 'All radiation → ~zero energy', status: 'calculated' },
+    { name: 'Structural collapse', logStart: 150, logEnd: 150.3, color: '#ff2222', process: 'Lattice folds inward at c', status: 'speculative' },
+    { name: 'Re-ignition', logStart: 150.3, logEnd: 150.4, color: '#ffffff', process: 'Barrier peak → cascade release', status: 'speculative' },
+];
+
+function populateTimeline() {
+    let table = document.getElementById('timelineTable');
+    stages.forEach(s => {
+        let row = table.insertRow();
+        row.insertCell().textContent = s.name;
+        row.insertCell().textContent = '~' + formatTimeShort(s.logEnd - s.logStart > 1 ? s.logEnd : s.logEnd - s.logStart);
+        row.insertCell().textContent = '~' + formatTimeShort(s.logEnd);
+        row.insertCell().textContent = s.process;
+        let statusCell = row.insertCell();
+        statusCell.textContent = s.status;
+        statusCell.className = s.status === 'proven' ? 'proven' :
+                               s.status === 'speculative' ? 'speculative' : 'highlight';
+    });
+}
+
+// ===== DRAWING: CYCLE DIAGRAM =====
+function drawCycle() {
+    let canvas = document.getElementById('cycleCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let cx = canvas.width / 2, cy = canvas.height / 2;
+    let rx = 350, ry = 70;
+
+    // Draw ellipse (the cycle)
+    ctx.beginPath();
+    ctx.strokeStyle = '#4488ff';
+    ctx.lineWidth = 3;
+    ctx.ellipse(cx, cy, rx, ry, 0, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    // Labels around the cycle
+    let labels = [
+        { angle: Math.PI, text: 'BIG BANG\n(release)', color: '#ff4444' },
+        { angle: Math.PI * 0.5, text: 'EXPAND\n(2:1 over-correction)', color: '#44ff44' },
+        { angle: 0, text: 'EXHAUST\n(matter → radiation)', color: '#ffaa44' },
+        { angle: -Math.PI * 0.5, text: 'COLLAPSE\n(lattice folds)', color: '#ff44ff' },
+    ];
+
+    ctx.font = '12px Segoe UI';
+    ctx.textAlign = 'center';
+    labels.forEach(l => {
+        let x = cx + rx * Math.cos(l.angle);
+        let y = cy + ry * Math.sin(l.angle);
+
+        // Arrow
+        ctx.beginPath();
+        ctx.fillStyle = l.color;
+        ctx.arc(x, y, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Label
+        ctx.fillStyle = l.color;
+        let lines = l.text.split('\n');
+        let yOff = l.angle > 0 ? 25 : -20;
+        lines.forEach((line, i) => {
+            ctx.fillText(line, x, y + yOff + i * 14);
+        });
+    });
+
+    // Arrow heads on the ellipse
+    for (let a = 0; a < 4; a++) {
+        let angle = Math.PI * (0.25 + a * 0.5);
+        let x = cx + rx * Math.cos(angle);
+        let y = cy + ry * Math.sin(angle);
+        let dx = -rx * Math.sin(angle);
+        let dy = ry * Math.cos(angle);
+        let len = Math.sqrt(dx*dx + dy*dy);
+        dx /= len; dy /= len;
+
+        ctx.beginPath();
+        ctx.fillStyle = '#4488ff';
+        ctx.moveTo(x + dy*6, y - dx*6);
+        ctx.lineTo(x + dx*12, y + dy*12);
+        ctx.lineTo(x - dy*6, y + dx*6);
+        ctx.fill();
+    }
+
+    // Center text
+    ctx.font = 'bold 14px Segoe UI';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('~10^100-150 years per cycle', cx, cy + 5);
+}
+
+// ===== DRAWING: TIMELINE =====
+function drawTimeline() {
+    let canvas = document.getElementById('timelineCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let margin = 60;
+    let w = canvas.width - 2 * margin;
+    let h = canvas.height;
+    let barY = 120;
+    let barH = 50;
+
+    // Log scale: 0 to 155
+    let logMin = 0, logMax = 155;
+    function xPos(logT) { return margin + (logT / logMax) * w; }
+
+    // Draw stages as colored bars
+    stages.forEach(s => {
+        let x1 = xPos(s.logStart);
+        let x2 = xPos(s.logEnd);
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = 0.6;
+        ctx.fillRect(x1, barY, Math.max(x2 - x1, 2), barH);
+        ctx.globalAlpha = 1;
+
+        // Label
+        if (x2 - x1 > 30) {
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '10px Segoe UI';
+            ctx.textAlign = 'center';
+            ctx.fillText(s.name, (x1 + x2) / 2, barY + barH / 2 + 4);
+        }
+    });
+
+    // Axis
+    ctx.strokeStyle = '#666';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(margin, barY + barH + 10);
+    ctx.lineTo(margin + w, barY + barH + 10);
+    ctx.stroke();
+
+    // Ticks
+    ctx.fillStyle = '#aaa';
+    ctx.font = '11px monospace';
+    ctx.textAlign = 'center';
+    for (let t = 0; t <= 150; t += 10) {
+        let x = xPos(t);
+        ctx.beginPath();
+        ctx.moveTo(x, barY + barH + 10);
+        ctx.lineTo(x, barY + barH + 18);
+        ctx.stroke();
+        ctx.fillText('10^' + t, x, barY + barH + 30);
+    }
+    ctx.fillText('years', margin + w / 2, barY + barH + 45);
+
+    // "We are here" marker
+    let xNow = xPos(10.14);
+    ctx.strokeStyle = '#ffcc44';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(xNow, barY - 30);
+    ctx.lineTo(xNow, barY);
+    ctx.stroke();
+    ctx.fillStyle = '#ffcc44';
+    ctx.font = 'bold 12px Segoe UI';
+    ctx.fillText('WE ARE HERE', xNow, barY - 35);
+    ctx.fillText('13.8 Gyr', xNow, barY - 20);
+
+    // Title
+    ctx.fillStyle = '#88ccff';
+    ctx.font = 'bold 14px Segoe UI';
+    ctx.textAlign = 'left';
+    ctx.fillText('Universe Cycle Timeline (log scale)', margin, 20);
+
+    // Key milestones
+    ctx.font = '11px Segoe UI';
+    ctx.fillStyle = '#aaa';
+    let milestones = [
+        { log: 14, text: 'Last star dies' },
+        { log: 40, text: 'All in BHs' },
+        { log: 100, text: 'Last BH evaporates' },
+        { log: 150, text: 'Collapse' },
+    ];
+    milestones.forEach((m, i) => {
+        let x = xPos(m.log);
+        ctx.strokeStyle = '#555';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(x, barY - 10);
+        ctx.lineTo(x, barY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#ccc';
+        ctx.textAlign = 'center';
+        ctx.fillText(m.text, x, barY - 15);
+    });
+}
+
+// ===== DRAWING: MATTER PIE =====
+function drawMatter() {
+    let canvas = document.getElementById('matterCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let stages = [
+        { label: 'Stars\n(fusion)', frac: 0.05, color: '#ffcc44' },
+        { label: 'Stellar\nremnants', frac: 0.10, color: '#ff8844' },
+        { label: 'BH\ncapture', frac: 0.30, color: '#8844ff' },
+        { label: 'Hawking\nradiation', frac: 0.35, color: '#ff4488' },
+        { label: 'Redshift\n→ zero', frac: 0.20, color: '#ff2222' },
+    ];
+
+    // Draw as flow bars
+    let x = 30, barW = (canvas.width - 60) / stages.length - 5;
+    let maxH = 180;
+
+    stages.forEach((s, i) => {
+        let bx = x + i * (barW + 5);
+        let bh = maxH * s.frac * 2;
+        let by = canvas.height - 30 - bh;
+
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = 0.7;
+        ctx.fillRect(bx, by, barW, bh);
+        ctx.globalAlpha = 1;
+
+        // Arrow between
+        if (i < stages.length - 1) {
+            ctx.fillStyle = '#666';
+            let ax = bx + barW + 1;
+            ctx.beginPath();
+            ctx.moveTo(ax, canvas.height - 30 - maxH * 0.3);
+            ctx.lineTo(ax + 4, canvas.height - 30 - maxH * 0.25);
+            ctx.lineTo(ax, canvas.height - 30 - maxH * 0.2);
+            ctx.fill();
+        }
+
+        // Label
+        ctx.fillStyle = '#fff';
+        ctx.font = '10px Segoe UI';
+        ctx.textAlign = 'center';
+        let lines = s.label.split('\n');
+        lines.forEach((line, li) => {
+            ctx.fillText(line, bx + barW/2, by - 5 + li * 12 - (lines.length - 1) * 6);
+        });
+
+        // Percentage
+        ctx.fillStyle = s.color;
+        ctx.fillText((s.frac * 100).toFixed(0) + '%', bx + barW/2, canvas.height - 15);
+    });
+
+    ctx.fillStyle = '#888';
+    ctx.font = '11px Segoe UI';
+    ctx.textAlign = 'center';
+    ctx.fillText('Fraction of matter lifetime in each stage', canvas.width/2, 12);
+}
+
+// ===== DRAWING: COLLAPSE =====
+function drawCollapse(logScale) {
+    let canvas = document.getElementById('collapseCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let scale = Math.pow(10, logScale);
+    let R = scale * R_now;
+    let t_total = R / c / yr; // years
+
+    let margin = 50;
+    let w = canvas.width - 2 * margin;
+    let h = canvas.height - 2 * margin;
+
+    // Draw shrinking radius vs time
+    ctx.strokeStyle = '#ff4488';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+        let frac = i / 100;
+        let x = margin + frac * w;
+        let r = 1 - frac; // linear collapse at speed c
+        let y = margin + (1 - r) * h;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // Planck density line
+    ctx.strokeStyle = '#ff2222';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(margin, margin + h);
+    ctx.lineTo(margin + w, margin + h);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#ff2222';
+    ctx.font = '10px Segoe UI';
+    ctx.textAlign = 'right';
+    ctx.fillText('Planck density', margin + w, margin + h - 5);
+
+    // Labels
+    ctx.fillStyle = '#aaa';
+    ctx.font = '11px Segoe UI';
+    ctx.textAlign = 'center';
+    ctx.fillText('Time → (' + formatTime(R/c) + ' total)', margin + w/2, canvas.height - 5);
+
+    ctx.save();
+    ctx.translate(15, margin + h/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.fillText('Radius', 0, 0);
+    ctx.restore();
+
+    // "RE-IGNITION" flash at end
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 12px Segoe UI';
+    ctx.textAlign = 'right';
+    ctx.fillText('RE-IGNITION', margin + w - 5, margin + h - 15);
+}
+
+// ===== DRAWING: ENERGY =====
+function drawEnergy() {
+    let canvas = document.getElementById('energyCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let w = canvas.width, h = canvas.height;
+    let margin = 40;
+
+    // Draw energy partition over time
+    // Kinetic (waves) starts high, drops to zero
+    // Potential (compression) starts zero, rises at end
+
+    ctx.strokeStyle = '#44ff44';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+        let frac = i / 100;
+        let x = margin + frac * (w - 2*margin);
+        // Waves: high after bang, decays
+        let waves = Math.exp(-3 * frac);
+        if (frac > 0.95) waves = 0;
+        let y = margin + (1 - waves) * (h - 2*margin);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    ctx.strokeStyle = '#ff4444';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+        let frac = i / 100;
+        let x = margin + frac * (w - 2*margin);
+        // Compression: rises sharply at end
+        let comp = 0;
+        if (frac > 0.9) comp = Math.pow((frac - 0.9) / 0.1, 3);
+        let y = margin + (1 - comp) * (h - 2*margin);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // Total (constant)
+    ctx.strokeStyle = '#888';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(margin, margin + 10);
+    ctx.lineTo(w - margin, margin + 10);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Legend
+    ctx.font = '11px Segoe UI';
+    ctx.fillStyle = '#44ff44';
+    ctx.textAlign = 'left';
+    ctx.fillText('Waves (kinetic)', margin + 10, margin + 25);
+    ctx.fillStyle = '#ff4444';
+    ctx.fillText('Compression (potential)', margin + 10, margin + 40);
+    ctx.fillStyle = '#888';
+    ctx.fillText('Total (conserved)', margin + 10, margin + 55);
+
+    // Axis labels
+    ctx.fillStyle = '#aaa';
+    ctx.textAlign = 'center';
+    ctx.fillText('Big Bang → Exhaust → Collapse → Big Bang', w/2, h - 5);
+}
+
+// ===== SUMMARY =====
+function updateSummary() {
+    let t_evap_max = hawkingTime(1e12 * Msun) / yr;
+    let logCycle = Math.log10(t_evap_max) + 50; // rough: evaporation + redshift era
+
+    document.getElementById('summaryCalc').innerHTML =
+        '<span style="color:#66ff66">PROVEN:</span>\n' +
+        '  Ω_Λ = (d-1)/d = 2/3 → expansion accelerates (2:1 ratio)\n' +
+        '  Ground state = zero → universe relaxes toward equilibrium\n' +
+        '  Gravity drives expansion (compression → over-correction)\n\n' +
+        '<span style="color:#ffcc44">CALCULATED:</span>\n' +
+        '  Last star dies: ~10^14 years\n' +
+        '  All matter in BHs: ~10^40 years\n' +
+        '  Last BH evaporates: ~10^100 years (largest: ~10^' + Math.log10(t_evap_max).toFixed(0) + ' yr)\n' +
+        '  Radiation negligible: ~10^150 years (estimate)\n' +
+        '  Collapse time: ~10^10 years (fast vs expansion)\n\n' +
+        '<span style="color:#ff6666">SPECULATIVE:</span>\n' +
+        '  Lattice structural collapse when matter exhausts\n' +
+        '  Re-ignition from barrier peak instability\n' +
+        '  Cycle time: ~10^' + logCycle.toFixed(0) + ' years\n' +
+        '  E_ZPF (½E_Planck) > V_max (0.13 E_Planck) → re-ignition guaranteed';
+
+    document.getElementById('energyCalc').textContent =
+        'Energy conservation per cycle:\n' +
+        'E_total = E_waves + E_compression = constant\n' +
+        'Big Bang: E_waves = max, E_compression = 0\n' +
+        'Exhaust:  E_waves → 0,  E_compression → 0 (radiated away)\n' +
+        'Collapse: E_waves = 0,  E_compression = max (re-concentrated)\n' +
+        'Net energy created per cycle: ZERO';
+}
+
+// ===== INIT =====
+function init() {
+    drawCycle();
+    drawTimeline();
+    drawMatter();
+    drawEnergy();
+    updateBH();
+    updateCollapse();
+    populateTimeline();
+    updateSummary();
+}
+
+document.getElementById('bhMass').addEventListener('input', updateBH);
+document.getElementById('collapseR').addEventListener('input', updateCollapse);
+
+init();
+</script>
+</body>
+</html>
