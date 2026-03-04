@@ -236,7 +236,7 @@ the one true input — equivalent to choosing units at the Planck scale.
 | c | 2.998×10⁸ m/s | c = a√(k/η) | Wave speed in the medium |
 | h | 6.626×10⁻³⁴ J·s | h = π²ka³/c | Energy quantum = mode energy at Planck scale |
 | G | 6.674×10⁻¹¹ N·m²/kg² | G = 2c⁴/(πka) | Gravitational constant from pressure deficit |
-| ħ | h/2π | ħ = πka³/c | Reduced Planck constant |
+| ħ | h/2π | ħ = πka³/(2c) | Reduced Planck constant |
 | l_P | a | l_P = a | Planck length = lattice spacing |
 | m_P | η | m_P ∝ η | Planck mass from element mass |
 
