@@ -316,8 +316,13 @@ Key derived results:
 - W and H share p=24 = d×2^d (same tunneling depth as top quark)
 - Boson n values: v=d, W=2d-1, H=2^d (all pure d=3 expressions)
 - M_Z = M_W/cos θ_W = 91.6 GeV (+0.5%)
-- Remaining open: CKM matrix, PMNS matrix, CP violation, n-p mass difference
-**Page now 25 sections.**
+- Remaining open: CKM matrix, PMNS matrix, CP violation
+**Neutron-proton mass difference DERIVED (§26):**
+- m_n - m_p = (m_d - m_u) - α×Λ_QCD×√(d+2)/d = 2.569 - 1.276 = **1.293 MeV** (0.03% off!)
+- EM correction: Coulomb at effective quark separation s = r_p/√(d+2) = r_p/√5
+- √5 = √(d+2) = Wyler symmetric space dimension D_IV(5)
+- Nuclear stability is a theorem: m_d-m_u > α×Λ_QCD×√5/3 > m_e > 0 (all from d=3)
+**Page now 26 sections.**
 
 ## Open Ideas / Future Todos
 1. **Lattice internal structure (SPECULATIVE — keep off website for now)**
