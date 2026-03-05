@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Mechanics in Planck Units &mdash; GWT Calculations</title>
+  <meta name="description" content="Every quantum mechanical 'mystery' reduced to classical wave mechanics on a discrete lattice. In Planck units, quantum = classical.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-step {
+      background: var(--bg-secondary);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .calc-result {
+      background: rgba(0, 255, 136, 0.06);
+      border-left: 3px solid var(--accent-green);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0;
+    }
+    .calc-result strong {
+      color: var(--accent-green);
+    }
+    .calc-num {
+      background: var(--accent-blue);
+      color: var(--bg-primary);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .dict-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .dict-table th {
+      background: var(--bg-tertiary);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+    }
+    .dict-table th:first-child { color: #ef4444; }
+    .dict-table th:nth-child(2) { color: var(--accent-green); }
+    .dict-table th:nth-child(3) { color: var(--accent-blue); }
+    .dict-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .dict-table tr:hover {
+      background: rgba(59, 130, 246, 0.04);
+    }
+    .dict-table .formula {
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+    }
+    .dict-table .planck {
+      font-family: var(--font-mono);
+      color: var(--accent-blue);
+    }
+    .postulate-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .postulate-card h4 {
+      margin: 0 0 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .postulate-card .qm-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+    .postulate-card .wave-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      background: rgba(0, 255, 136, 0.12);
+      color: var(--accent-green);
+    }
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .tier-table th {
+      background: var(--bg-tertiary);
+      color: var(--accent-blue);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+    }
+    .tier-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier-table .formula {
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+    }
+    @media (max-width: 768px) {
+      .dict-table, .tier-table { font-size: 0.8rem; }
+      .dict-table td, .dict-table th,
+      .tier-table td, .tier-table th { padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span>
+          <a href="../pages/core-derivations.html">Core Derivations</a> <span>&rsaquo;</span>
+          Quantum Mechanics in Planck Units
+        </div>
+
+        <div class="section-header">
+          <h1>Quantum = Classical Waves</h1>
+          <p class="section-desc">In lattice-Planck units, every quantum mechanical &ldquo;mystery&rdquo; becomes a trivial statement about waves on a discrete medium. There is no quantum mechanics &mdash; only wave mechanics that humans misidentified as something new.</p>
+        </div>
+
+        <!-- ===== SECTION 1: THE DICTIONARY ===== -->
+        <section id="dictionary">
+          <h2>&sect;1 &mdash; The QM &harr; Wave Dictionary</h2>
+
+          <p>Set lattice-Planck units: a = 1 (lattice spacing), k = 1 (spring constant), &eta; = 1 (inertia). Then c = 1 and &#8463; = &pi;/2. Every quantum concept translates to a wave concept:</p>
+
+          <table class="dict-table">
+            <thead>
+              <tr><th>QM Concept</th><th>Wave Reality</th><th>Planck Units</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Planck&rsquo;s constant &#8463;</td>
+                <td class="formula">Action per half-cycle of a wave</td>
+                <td class="planck">&pi;/2</td>
+              </tr>
+              <tr>
+                <td>Wave function &psi;</td>
+                <td class="formula">Lattice displacement field &phi;(x,t)</td>
+                <td class="planck">Dimensionless amplitude</td>
+              </tr>
+              <tr>
+                <td>|&psi;|&sup2; (probability)</td>
+                <td class="formula">Wave intensity = energy density</td>
+                <td class="planck">&phi;&sup2;(x)</td>
+              </tr>
+              <tr>
+                <td>Superposition</td>
+                <td class="formula">Waves add linearly (Hooke&rsquo;s law)</td>
+                <td class="planck">&phi; = &phi;<sub>1</sub> + &phi;<sub>2</sub></td>
+              </tr>
+              <tr>
+                <td>Quantized energy E = n&#8463;&omega;</td>
+                <td class="formula">Standing wave boundary conditions</td>
+                <td class="planck">E<sub>n</sub> = n&pi;&omega;/2</td>
+              </tr>
+              <tr>
+                <td>Spin &frac12;</td>
+                <td class="formula">Binary internal state (yin/yang, &plusmn;)</td>
+                <td class="planck">s = &plusmn;1 (in units of &#8463;/2 = &pi;/4)</td>
+              </tr>
+              <tr>
+                <td>Photon</td>
+                <td class="formula">Transverse wave packet</td>
+                <td class="planck">E = &pi;&omega;/2</td>
+              </tr>
+              <tr>
+                <td>Electron</td>
+                <td class="formula">Zone-edge standing wave (&lambda; = 2a)</td>
+                <td class="planck">m<sub>e</sub> = &pi;&sup2;/2</td>
+              </tr>
+              <tr>
+                <td>Proton</td>
+                <td class="formula">Spherical j<sub>0</sub> standing wave</td>
+                <td class="planck">m<sub>p</sub> = 3&pi;<sup>7</sup></td>
+              </tr>
+              <tr>
+                <td>Uncertainty principle</td>
+                <td class="formula">Fourier theorem on a lattice</td>
+                <td class="planck">&Delta;x &middot; &Delta;p &ge; &pi;/4</td>
+              </tr>
+              <tr>
+                <td>Tunneling</td>
+                <td class="formula">Evanescent wave through potential barrier</td>
+                <td class="planck">T = e<sup>&minus;2&kappa;L</sup></td>
+              </tr>
+              <tr>
+                <td>Entanglement</td>
+                <td class="formula">One spatially extended wave, not &ldquo;two particles&rdquo;</td>
+                <td class="planck">&phi;(x<sub>1</sub>, x<sub>2</sub>) &ne; f(x<sub>1</sub>)g(x<sub>2</sub>)</td>
+              </tr>
+              <tr>
+                <td>Measurement / collapse</td>
+                <td class="formula">Wave&ndash;wave interaction redistributes energy locally</td>
+                <td class="planck">No mystery. Detector is also a wave.</td>
+              </tr>
+              <tr>
+                <td>Zero-point energy</td>
+                <td class="formula">Lattice ground-state vibration (can&rsquo;t freeze a discrete medium)</td>
+                <td class="planck">E<sub>0</sub> = &pi;&omega;/4 per mode</td>
+              </tr>
+              <tr>
+                <td>Commutator [x, p] = i&#8463;</td>
+                <td class="formula">Discrete lattice shift &harr; phase rotation</td>
+                <td class="planck">[x, p] = i&pi;/2</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="calc-result">
+            <strong>The pattern:</strong> Every quantum mechanical concept is a classical wave concept. The factor &#8463; = &pi;/2 is not a &ldquo;quantum of action&rdquo; &mdash; it is the action accumulated by a wave in half a cycle on a lattice with spacing a = 1. Quantum mechanics is what you get when you do classical wave mechanics and forget that the medium is discrete.
+          </div>
+        </section>
+
+        <!-- ===== SECTION 2: UNCERTAINTY ===== -->
+        <section id="uncertainty">
+          <h2>&sect;2 &mdash; Uncertainty Principle = Fourier Theorem</h2>
+
+          <p>The Heisenberg uncertainty principle is not a fundamental law. It is <strong>Fourier&rsquo;s theorem</strong> applied to waves on a lattice.</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.15rem;">
+            <span class="eq-label">Uncertainty in Planck Units</span>
+            &Delta;x &middot; &Delta;p &ge; &#8463;/2 = &pi;/4
+          </div>
+
+          <p>Any wave localized to &Delta;x lattice spacings must contain a spread of wavenumbers &Delta;k &ge; 1/(2&Delta;x). Since momentum p = &#8463;k = (&pi;/2)k:</p>
+
+          <div class="calc-step">
+            <div class="calc-num">1</div>
+            <div><strong>Fourier constraint:</strong> &Delta;x &middot; &Delta;k &ge; 1/2 (mathematical identity for any wave)</div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-num">2</div>
+            <div><strong>Multiply by &#8463;:</strong> &Delta;x &middot; (&#8463;&Delta;k) &ge; &#8463;/2 &rarr; &Delta;x &middot; &Delta;p &ge; &pi;/4</div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-num">3</div>
+            <div><strong>Lattice cutoff:</strong> The minimum &Delta;x = 1 (one lattice spacing = Planck length). The maximum &Delta;p = &pi;/2 (Brillouin zone edge: p<sub>max</sub> = &#8463;&pi;/a = &pi;&sup2;/2). These are geometric facts, not physics.</div>
+          </div>
+
+          <div class="calc-result">
+            <strong>What this means:</strong> The uncertainty principle is not a &ldquo;limitation on knowledge&rdquo; or a sign that &ldquo;reality is fundamentally probabilistic.&rdquo; It is the same mathematical identity that prevents a guitar string from being localized to one point while having a single pure frequency. Waves spread. That is all.
+          </div>
+
+          <div class="card">
+            <h4>Minimum uncertainty in Planck units</h4>
+            <p>The tightest localization possible is one lattice spacing: &Delta;x = 1 (Planck length). At that scale:</p>
+            <p style="text-align:center; font-family: var(--font-mono); font-size:1.05rem; color: var(--accent-green);">
+              &Delta;p &ge; &pi;/4 &asymp; 0.785 &nbsp;&nbsp;(Planck momentum units)
+            </p>
+            <p style="margin-bottom:0;">This is the lattice&rsquo;s built-in resolution limit. Below one lattice spacing, the concept of &ldquo;position&rdquo; ceases to exist &mdash; not because of quantum mysticism, but because there are no nodes closer than a = 1.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 3: SCHRODINGER EQUATION ===== -->
+        <section id="schrodinger">
+          <h2>&sect;3 &mdash; The Schr&ouml;dinger Equation = Lattice Wave Equation</h2>
+
+          <p>The fundamental equation on the lattice is the classical wave equation for a discrete elastic medium:</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.05rem;">
+            <span class="eq-label">Lattice Wave Equation (Planck units)</span>
+            &part;&sup2;&phi;/&part;t&sup2; = &Sigma;<sub>nn</sub> (&phi;<sub>neighbor</sub> &minus; &phi;) + V&prime;(&phi;)
+          </div>
+
+          <p>This is Newton&rsquo;s second law applied to each lattice node: acceleration = restoring force from neighbors + potential force. In the low-energy, long-wavelength limit, this becomes:</p>
+
+          <div class="calc-step">
+            <div class="calc-num">1</div>
+            <div><strong>Continuum limit</strong> (wavelength &Gt; a): the discrete Laplacian becomes &nabla;&sup2;&phi;, giving the wave equation &part;&sup2;&phi;/&part;t&sup2; = &nabla;&sup2;&phi; (with c = 1).</div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-num">2</div>
+            <div><strong>Non-relativistic limit</strong>: factor out the rest-mass oscillation &phi; = &psi; &middot; e<sup>&minus;imt</sup>. The slowly-varying envelope &psi; satisfies:</div>
+          </div>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Schr&ouml;dinger Equation (Planck units)</span>
+            i(&pi;/2) &part;&psi;/&part;t = &minus;(&pi;/2)&sup2;/(2m) &nabla;&sup2;&psi; + V&psi;
+          </div>
+
+          <p>This is exactly the textbook Schr&ouml;dinger equation with &#8463; = &pi;/2. It was not <em>postulated</em> &mdash; it was <em>derived</em> as the low-energy limit of the lattice wave equation.</p>
+
+          <div class="calc-result">
+            <strong>The Schr&ouml;dinger equation is to the lattice wave equation what the guitar-string equation is to a chain of masses on springs.</strong> Same physics, different resolution. At long wavelengths you see smooth Schr&ouml;dinger waves. At short wavelengths (near a = 1) you see the lattice nodes directly. Quantum mechanics is the infrared limit of classical wave mechanics on a discrete medium.
+          </div>
+
+          <div class="card">
+            <h4>Dispersion relation</h4>
+            <p>The lattice dispersion relation (exact, all wavelengths):</p>
+            <p style="text-align:center; font-family: var(--font-mono); font-size:1rem; color: var(--accent-green);">
+              &omega;&sup2; = (4/a&sup2;) sin&sup2;(qa/2) &rarr; &omega;&sup2; = 4 sin&sup2;(q/2) &nbsp;&nbsp;(Planck units)
+            </p>
+            <p>At long wavelength (q &Lt; 1): &omega; &asymp; q (linear, relativistic). At the zone edge (q = &pi;): &omega; = 2 (maximum frequency). The group velocity v<sub>g</sub> = cos(q/2) goes to zero at the zone edge &mdash; this is why the electron (zone-edge mode) has mass: it cannot propagate.</p>
+            <p style="margin-bottom:0;">The textbook E = p&sup2;/(2m) is the long-wavelength approximation of this exact lattice result.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 4: QUANTIZATION ===== -->
+        <section id="quantization">
+          <h2>&sect;4 &mdash; Quantized Energy = Standing Wave Boundary Conditions</h2>
+
+          <p>Energy quantization is not a &ldquo;quantum postulate.&rdquo; It is what happens when a wave is confined between boundaries.</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Standing Wave Condition</span>
+            k<sub>n</sub> = n&pi;/L &nbsp;&nbsp;&rArr;&nbsp;&nbsp; E<sub>n</sub> = n&sup2;&pi;&sup3;/(4L&sup2;m)
+          </div>
+
+          <p>A wave confined to a region of size L lattice spacings can only sustain wavelengths &lambda; = 2L/n. The allowed wavenumbers are k<sub>n</sub> = n&pi;/L, exactly as for a vibrating string. The energy E = &#8463;&sup2;k&sup2;/(2m) = (&pi;/2)&sup2; &middot; (n&pi;/L)&sup2; / (2m) = n&sup2;&pi;&sup3;/(4L&sup2;m).</p>
+
+          <h3>Hydrogen atom quantum numbers</h3>
+
+          <p>Every quantum number is a mode count:</p>
+
+          <table class="dict-table">
+            <thead>
+              <tr><th>Quantum Number</th><th>Wave Meaning</th><th>Planck Origin</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>n</strong> (principal)</td>
+                <td class="formula">Radial mode count: n nodes in radial direction</td>
+                <td class="planck">Inner BC at r = r<sub>p</sub>, outer BC at r &rarr; &infin;</td>
+              </tr>
+              <tr>
+                <td><strong>l</strong> (orbital)</td>
+                <td class="formula">Angular mode type: l nodal planes through origin</td>
+                <td class="planck">Spherical harmonic Y<sub>l</sub><sup>m</sup> = angular standing wave</td>
+              </tr>
+              <tr>
+                <td><strong>m<sub>l</sub></strong> (magnetic)</td>
+                <td class="formula">Orientation of angular pattern relative to z-axis</td>
+                <td class="planck">&minus;l &le; m &le; +l: (2l+1) orientations</td>
+              </tr>
+              <tr>
+                <td><strong>s</strong> (spin)</td>
+                <td class="formula">Internal yin/yang state: &plusmn; polarization</td>
+                <td class="planck">s = &plusmn;1 (binary), always exactly 2 states</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="calc-result">
+            <strong>Pauli exclusion principle:</strong> Two standing waves with identical mode numbers (n, l, m<sub>l</sub>, s) would be the same wave. You cannot have two copies of the same wave at the same location &mdash; that is just one wave with twice the amplitude. &ldquo;No two fermions in the same state&rdquo; = &ldquo;a standing wave is unique.&rdquo;
+          </div>
+        </section>
+
+        <!-- ===== SECTION 5: SPIN ===== -->
+        <section id="spin">
+          <h2>&sect;5 &mdash; Spin = Internal Binary State</h2>
+
+          <p>Each lattice node has a binary internal degree of freedom: it can be displaced in the positive or negative direction along the bond. This is the <strong>yin/yang state</strong> &mdash; the origin of spin.</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Spin in Planck Units</span>
+            s = &plusmn;&#8463;/2 = &plusmn;&pi;/4
+          </div>
+
+          <p>The &ldquo;&frac12;&rdquo; in spin-&frac12; is not mysterious. It means the spin angular momentum is half of &#8463; = &pi;/2, which is &pi;/4. This is the minimum angular momentum on the lattice &mdash; one internal flip per cycle.</p>
+
+          <div class="card">
+            <h4>From yin/yang to the Dirac equation</h4>
+            <ol>
+              <li><strong>Two internal states (&plusmn;)</strong> per node &rarr; Pauli matrices &sigma;<sub>x</sub>, &sigma;<sub>y</sub>, &sigma;<sub>z</sub> span the internal space (SU(2))</li>
+              <li><strong>Three spatial directions</strong> (x, y, z) &rarr; Clifford algebra Cl(3,0): &sigma;<sub>i</sub>&sigma;<sub>j</sub> + &sigma;<sub>j</sub>&sigma;<sub>i</sub> = 2&delta;<sub>ij</sub></li>
+              <li><strong>Time as a distinguished direction</strong> &rarr; extends to Cl(3,1) with &gamma; matrices: {&gamma;<sup>&mu;</sup>, &gamma;<sup>&nu;</sup>} = 2g<sup>&mu;&nu;</sup></li>
+              <li><strong>The Dirac equation follows:</strong> (i&gamma;<sup>&mu;</sup>&part;<sub>&mu;</sub> &minus; m)&psi; = 0</li>
+            </ol>
+            <p style="margin-bottom:0;">Every spinor, chirality, CPT property, and antimatter state is a consequence of lattice geometry. The Dirac equation is <em>derived</em>, not postulated.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 6: BORN RULE ===== -->
+        <section id="born-rule">
+          <h2>&sect;6 &mdash; The Born Rule = Wave Intensity</h2>
+
+          <p>The Born rule states that the probability of finding a particle at position x is |&psi;(x)|&sup2;. In wave mechanics, this is not a postulate &mdash; it is a definition:</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Born Rule (Wave Form)</span>
+            P(x) = |&phi;(x)|&sup2; / &int;|&phi;|&sup2;dx = energy density at x / total energy
+          </div>
+
+          <p>Where will a detector click? Where the wave is most intense. A water wave hitting a beach deposits most energy where the amplitude is largest. A lattice wave deposits most energy (triggers detectors) where |&phi;|&sup2; is largest. There is no mystery.</p>
+
+          <div class="calc-result">
+            <strong>Why squared?</strong> Energy in a Hookean medium is proportional to displacement squared: E = &frac12;k&phi;&sup2;. This is Hooke&rsquo;s law, not quantum mechanics. The &ldquo;probability = amplitude squared&rdquo; rule is the statement that detectors respond to energy, and energy goes as amplitude squared in any elastic medium.
+          </div>
+        </section>
+
+        <!-- ===== SECTION 7: TUNNELING ===== -->
+        <section id="tunneling">
+          <h2>&sect;7 &mdash; Tunneling = Evanescent Waves</h2>
+
+          <p>A wave encountering a potential barrier V &gt; E does not stop. Its amplitude decays exponentially inside the barrier &mdash; an evanescent wave. If the barrier is thin enough, non-zero amplitude emerges on the other side.</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Tunneling (Planck units)</span>
+            T = e<sup>&minus;2&kappa;L</sup> &nbsp;&nbsp;where&nbsp;&nbsp; &kappa; = &radic;(2m(V&minus;E)) / (&pi;/2)
+          </div>
+
+          <p>This is identical to frustrated total internal reflection in optics, evanescent coupling in waveguides, and the decay of sound through a wall. All are classical wave phenomena. The lattice adds one feature: the minimum barrier width is 1 (one lattice spacing), setting a maximum tunneling rate.</p>
+
+          <h3>Cosmological tunneling</h3>
+
+          <p>The most spectacular tunneling result: each lattice node sits in a double-well cosine potential. The tunneling rate through the barrier determines the <em>age of the universe</em>:</p>
+
+          <div class="equation-box" style="text-align:center;">
+            <span class="eq-label">Cosmological Tunneling Rate</span>
+            &Gamma; = e<sup>&minus;1/&alpha;</sup> = e<sup>&minus;137</sup> &asymp; 10<sup>&minus;60</sup> per Planck time
+          </div>
+
+          <p>The inverse of this rate is the Hubble time: t<sub>H</sub> &asymp; d&sup3; &middot; e<sup>1/&alpha;</sup> Planck times &asymp; 10<sup>60</sup> Planck times &asymp; 13.8 Gyr. The universe is old because &alpha; is small. Cosmology is quantum tunneling on a grand scale.</p>
+        </section>
+
+        <!-- ===== SECTION 8: ENTANGLEMENT ===== -->
+        <section id="entanglement">
+          <h2>&sect;8 &mdash; Entanglement = One Wave, Not Two Particles</h2>
+
+          <p>The &ldquo;spooky action at a distance&rdquo; that troubled Einstein has a simple wave explanation: there were never two separate particles. There was always one spatially extended wave.</p>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">QM says</span> Two entangled particles in an EPR pair have correlated measurements even when separated by light-years. Measuring one &ldquo;instantly affects&rdquo; the other.</h4>
+            <h4><span class="wave-label">Wave reality</span> A single wave occupies a large region of the lattice. Its internal correlations (phase relationships between nodes) are built in from the start. Measuring at one end samples the wave; the correlation was always there. Nothing travels.</h4>
+          </div>
+
+          <p>Consider a vibrating drumhead. Press one edge down &mdash; the opposite edge moves up. Not because a signal traveled across the drum, but because the drum is one connected object with correlated modes. The lattice is the drum.</p>
+
+          <div class="calc-result">
+            <strong>Bell inequality violations:</strong> Bell&rsquo;s theorem proves that no <em>local hidden variable</em> theory can reproduce QM correlations. But a wave is not a local hidden variable &mdash; it is a non-local, spatially extended object. Waves naturally produce the correlations Bell tested, because the wave was never localized to begin with. Bell&rsquo;s theorem eliminates particle models. It does not constrain wave models.
+          </div>
+        </section>
+
+        <!-- ===== SECTION 9: MEASUREMENT ===== -->
+        <section id="measurement">
+          <h2>&sect;9 &mdash; Measurement = Wave Interaction</h2>
+
+          <p>The &ldquo;measurement problem&rdquo; is the most famous puzzle in quantum mechanics: how does a superposition &ldquo;collapse&rdquo; to a definite outcome? The wave answer: it doesn&rsquo;t. There was never a collapse.</p>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">QM says</span> The wave function collapses upon measurement. Before: superposition. After: definite state. The transition is instantaneous, non-unitary, and unexplained.</h4>
+            <h4><span class="wave-label">Wave reality</span> A detector is also a wave (a large, complex standing wave in the lattice). When the target wave and detector wave interact, energy redistributes locally. The interaction is deterministic &mdash; it <em>looks</em> random only because the detector&rsquo;s internal state (10<sup>23</sup> modes) is unknowable in practice.</h4>
+          </div>
+
+          <p>No collapse. No non-unitary evolution. No observer-dependent reality. Just two waves interacting on the lattice, governed by the same wave equation before, during, and after &ldquo;measurement.&rdquo;</p>
+
+          <div class="card">
+            <h4>The double slit</h4>
+            <p>A wave passes through two slits. It interferes with itself. An interference pattern forms. This happens for water waves, sound waves, light waves, electron waves, and neutron waves &mdash; because they are all waves in the same medium.</p>
+            <p>&ldquo;Detecting which slit&rdquo; destroys the pattern because the detector wave interacts with the target wave at the slit, disrupting the phase relationship needed for interference. This is wave mechanics, not quantum weirdness.</p>
+            <p style="margin-bottom:0;">In Planck units: the slit separation d determines the fringe spacing &Delta;y = (&pi;/2)L/(pd), where p = (&pi;/2)k is the wave momentum and L is the distance to the screen. Pure geometry.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 10: HYDROGEN IN PLANCK UNITS ===== -->
+        <section id="hydrogen">
+          <h2>&sect;10 &mdash; The Hydrogen Atom in d and &pi;</h2>
+
+          <p>The simplest atom &mdash; one proton wave + one electron wave &mdash; has every property determined by d = 3 and &pi;:</p>
+
+          <table class="tier-table">
+            <thead>
+              <tr><th>Quantity</th><th>Formula (d, &pi;, &alpha;)</th><th>d = 3 Value</th><th>SI Value</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bohr radius a<sub>0</sub></td>
+                <td class="formula">1/(2d &middot; &pi;<sup>2d&minus;1</sup> &middot; &alpha;<sup>d&sup2;+d+1</sup>)</td>
+                <td>1/(6&pi;<sup>5</sup>&alpha;<sup>13</sup>)</td>
+                <td>0.529 &Aring;</td>
+              </tr>
+              <tr>
+                <td>Ground state E<sub>1</sub></td>
+                <td class="formula">&minus;d &middot; &pi;<sup>2d&minus;1</sup> &middot; &alpha;<sup>d(d+1)+2</sup> &middot; E<sub>Pl</sub></td>
+                <td>&minus;3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td>
+                <td>&minus;13.61 eV</td>
+              </tr>
+              <tr>
+                <td>Rydberg energy</td>
+                <td class="formula">d &middot; &pi;<sup>2d&minus;1</sup> &middot; &alpha;<sup>d(d+1)+2</sup> &middot; E<sub>Pl</sub></td>
+                <td>3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td>
+                <td>13.61 eV</td>
+              </tr>
+              <tr>
+                <td>Energy levels E<sub>n</sub></td>
+                <td class="formula">E<sub>1</sub>/n&sup2;</td>
+                <td>&minus;3&pi;<sup>5</sup>&alpha;<sup>14</sup>/n&sup2;</td>
+                <td>&minus;13.61/n&sup2; eV</td>
+              </tr>
+              <tr>
+                <td>He screening constant</td>
+                <td class="formula">(2d&minus;1)/2<sup>d+1</sup></td>
+                <td>5/16</td>
+                <td>5/16</td>
+              </tr>
+              <tr>
+                <td>H<sub>2</sub> bond energy</td>
+                <td class="formula">(1/d) &middot; Rydberg</td>
+                <td>(1/3) &middot; 13.6 eV</td>
+                <td>4.54 eV</td>
+              </tr>
+              <tr>
+                <td>a<sub>0</sub>/r<sub>p</sub> ratio</td>
+                <td class="formula">1/(2d &middot; &alpha;<sup>d&sup2;+d+1</sup> &middot; &pi;<sup>2d&minus;1</sup>) &times; d&pi;<sup>2d</sup>/2</td>
+                <td>6&pi;<sup>5</sup>/(4&alpha;) = 62,923</td>
+                <td>62,920</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="calc-result">
+            <strong>The &alpha; exponents decoded:</strong> The Bohr radius involves &alpha;<sup>13</sup> where 13 = d&sup2; + d + 1 = 9 + 3 + 1. The ground-state energy involves &alpha;<sup>14</sup> where 14 = d(d+1) + 2 = 12 + 2. Every exponent is a polynomial in d. The hydrogen atom is pure lattice geometry.
+          </div>
+        </section>
+
+        <!-- ===== SECTION 11: EVERY POSTULATE DERIVED ===== -->
+        <section id="postulates">
+          <h2>&sect;11 &mdash; Every QM Postulate, Derived</h2>
+
+          <p>Textbook quantum mechanics has 5&ndash;6 postulates. Every one is a theorem of wave mechanics on a discrete lattice:</p>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">Postulate 1</span> States are vectors in Hilbert space</h4>
+            <p style="margin-bottom:0;"><span class="wave-label">Derived</span> Wave displacements on the lattice form a vector space. Linearity (superposition) comes from Hooke&rsquo;s law: F = &minus;k&phi; is linear. The inner product &langle;&phi;|&chi;&rangle; = &Sigma; &phi;<sub>i</sub>&chi;<sub>i</sub> is the overlap energy on the lattice. Completeness follows from the finite (but enormous) number of lattice nodes.</p>
+          </div>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">Postulate 2</span> Observables are Hermitian operators</h4>
+            <p style="margin-bottom:0;"><span class="wave-label">Derived</span> Physical observables (energy, momentum, angular momentum) are generators of lattice symmetries. Translation symmetry &rarr; momentum operator. Time-translation symmetry &rarr; Hamiltonian. Rotation symmetry &rarr; angular momentum. Hermiticity follows from the lattice being a real elastic medium (energy is real-valued).</p>
+          </div>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">Postulate 3</span> Measurement yields eigenvalues</h4>
+            <p style="margin-bottom:0;"><span class="wave-label">Derived</span> Standing waves have definite frequencies (eigenvalues of the Hamiltonian). When a detector wave resonates with a standing wave, it responds at that frequency. &ldquo;Measurement yields an eigenvalue&rdquo; = &ldquo;a tuning fork responds to its natural frequency.&rdquo;</p>
+          </div>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">Postulate 4</span> Probability = |&langle;a|&psi;&rangle;|&sup2; (Born rule)</h4>
+            <p style="margin-bottom:0;"><span class="wave-label">Derived</span> Energy in a Hookean medium: E = &frac12;k&phi;&sup2;. Detectors respond to energy. Fraction of energy in mode |a&rangle; = |&langle;a|&psi;&rangle;|&sup2; / ||&psi;||&sup2;. The Born rule is Hooke&rsquo;s law. (<a href="#born-rule">See &sect;6</a>)</p>
+          </div>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">Postulate 5</span> Time evolution: i&#8463; d|&psi;&rangle;/dt = H|&psi;&rangle;</h4>
+            <p style="margin-bottom:0;"><span class="wave-label">Derived</span> This IS the lattice wave equation in the non-relativistic limit, with &#8463; = &pi;/2. (<a href="#schrodinger">See &sect;3</a>)</p>
+          </div>
+
+          <div class="postulate-card">
+            <h4><span class="qm-label">Postulate 6</span> Collapse upon measurement</h4>
+            <p style="margin-bottom:0;"><span class="wave-label">Eliminated</span> No collapse occurs. Wave&ndash;wave interaction redistributes energy locally. The deterministic wave equation governs the system at all times, including during &ldquo;measurement.&rdquo; Apparent randomness arises from practical ignorance of the detector&rsquo;s 10<sup>23</sup> internal modes. (<a href="#measurement">See &sect;9</a>)</p>
+          </div>
+
+          <div class="calc-result">
+            <strong>Score:</strong> Postulates 1&ndash;5 are derived as theorems. Postulate 6 (collapse) is eliminated entirely. Quantum mechanics has zero independent postulates. It is classical wave mechanics on a discrete 3D lattice with spacing a, stiffness k, and inertia &eta;.
+          </div>
+        </section>
+
+        <!-- ===== SECTION 12: THE COMPLETE QM TABLE ===== -->
+        <section id="qm-table">
+          <h2>&sect;12 &mdash; Every QM Constant in Planck Units</h2>
+
+          <table class="tier-table">
+            <thead>
+              <tr><th>Quantity</th><th>SI Expression</th><th>Planck Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Action quantum &#8463;</td><td class="formula">1.055 &times; 10<sup>&minus;34</sup> J&middot;s</td><td class="formula">&pi;/2</td></tr>
+              <tr><td>Spin quantum &#8463;/2</td><td class="formula">5.27 &times; 10<sup>&minus;35</sup> J&middot;s</td><td class="formula">&pi;/4</td></tr>
+              <tr><td>Minimum uncertainty &#8463;/2</td><td class="formula">5.27 &times; 10<sup>&minus;35</sup></td><td class="formula">&pi;/4</td></tr>
+              <tr><td>Fine structure &alpha;</td><td class="formula">1/137.036</td><td class="formula">d&sup2;/(2<sup>d+1</sup> &middot; 120<sup>1/4</sup> &middot; &pi;<sup>11/4</sup>)</td></tr>
+              <tr><td>Electron mass m<sub>e</sub></td><td class="formula">9.109 &times; 10<sup>&minus;31</sup> kg</td><td class="formula">&pi;&sup2;/(d&minus;1) = &pi;&sup2;/2</td></tr>
+              <tr><td>Bohr radius a<sub>0</sub></td><td class="formula">5.29 &times; 10<sup>&minus;11</sup> m</td><td class="formula">1/(6&pi;<sup>5</sup>&alpha;<sup>13</sup>)</td></tr>
+              <tr><td>Rydberg energy</td><td class="formula">13.606 eV</td><td class="formula">3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td></tr>
+              <tr><td>Compton wavelength &lambda;<sub>C</sub></td><td class="formula">2.43 &times; 10<sup>&minus;12</sup> m</td><td class="formula">2&pi;(&#8463;/m<sub>e</sub>c) = &pi;&sup2;/(&pi;&sup2;/2) = 2</td></tr>
+              <tr><td>Zero-point energy (per mode)</td><td class="formula">&#8463;&omega;/2</td><td class="formula">&pi;&omega;/4</td></tr>
+              <tr><td>Photon energy</td><td class="formula">&#8463;&omega;</td><td class="formula">&pi;&omega;/2</td></tr>
+              <tr><td>de Broglie wavelength</td><td class="formula">&lambda; = h/p</td><td class="formula">&lambda; = &pi;&sup2;/p</td></tr>
+              <tr><td>Magnetic moment (electron)</td><td class="formula">e&#8463;/(2m<sub>e</sub>)</td><td class="formula">&alpha;&pi;/2 &middot; (2/&pi;&sup2;) = &alpha;/&pi;</td></tr>
+            </tbody>
+          </table>
+
+          <div class="card" style="border-left: 3px solid var(--accent-green);">
+            <h4>The Punchline</h4>
+            <p>Every quantum mechanical constant, equation, and &ldquo;postulate&rdquo; reduces to classical wave mechanics on a 3D discrete lattice. The only inputs are:</p>
+            <ul>
+              <li><strong>d = 3</strong> spatial dimensions</li>
+              <li><strong>&pi;</strong> = ratio of circumference to diameter (wave geometry)</li>
+              <li><strong>a = 1</strong> lattice spacing (sets the scale)</li>
+            </ul>
+            <p style="margin-bottom:0;">Quantum mechanics is not a separate theory of physics. It is the name humans gave to classical wave mechanics when they discovered it without knowing the medium existed.</p>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../pages/quantum-mechanics.html">&larr; Quantum Mechanics Overview</a> &nbsp;|&nbsp; <a href="calc-planck-reduction.html">Planck-Unit Reduction &rarr;</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

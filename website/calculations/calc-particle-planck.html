@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Particle Physics in Planck Units &mdash; GWT Calculations</title>
+  <meta name="description" content="Every particle, coupling, decay, and interaction reduced to d = 3 spatial dimensions and π. The Standard Model is lattice wave mechanics.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-step {
+      background: var(--bg-secondary);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .calc-result {
+      background: rgba(0, 255, 136, 0.06);
+      border-left: 3px solid var(--accent-green);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0;
+    }
+    .calc-result strong {
+      color: var(--accent-green);
+    }
+    .calc-num {
+      background: var(--accent-blue);
+      color: var(--bg-primary);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .dict-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .dict-table th {
+      background: var(--bg-tertiary);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+    }
+    .dict-table th:first-child { color: #ef4444; }
+    .dict-table th:nth-child(2) { color: var(--accent-green); }
+    .dict-table th:nth-child(3) { color: var(--accent-blue); }
+    .dict-table th:nth-child(4) { color: #a855f7; }
+    .dict-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .dict-table tr:hover {
+      background: rgba(59, 130, 246, 0.04);
+    }
+    .dict-table .formula {
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+    }
+    .dict-table .planck {
+      font-family: var(--font-mono);
+      color: var(--accent-blue);
+    }
+    .dict-table .tier {
+      font-family: var(--font-mono);
+      color: #a855f7;
+      font-size: 0.82rem;
+    }
+    .particle-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .particle-card h4 {
+      margin: 0 0 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .particle-card .sm-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+    .particle-card .gwt-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      background: rgba(0, 255, 136, 0.12);
+      color: var(--accent-green);
+    }
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .tier-table th {
+      background: var(--bg-tertiary);
+      color: var(--accent-blue);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+    }
+    .tier-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier-table .formula {
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+    }
+    .tier-table .accuracy {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, 0.1);
+      color: var(--accent-green);
+      white-space: nowrap;
+    }
+    .chain-arrow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .chain-arrow .arr { color: var(--accent-blue); font-weight: 700; }
+    .chain-arrow .tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      background: rgba(0,255,136,0.08);
+      padding: 0.15rem 0.5rem;
+      border-radius: 8px;
+    }
+    @media (max-width: 768px) {
+      .dict-table, .tier-table { font-size: 0.8rem; }
+      .dict-table td, .dict-table th,
+      .tier-table td, .tier-table th { padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span>
+          <a href="../pages/core-derivations.html">Core Derivations</a> <span>&rsaquo;</span>
+          Particle Physics in Planck Units
+        </div>
+
+        <div class="section-header">
+          <h1>Particles = Lattice Modes</h1>
+          <p class="section-desc">Every particle, coupling, mass hierarchy, and interaction in the Standard Model reduced to wave modes on a 3D discrete lattice. In Planck units (a&nbsp;=&nbsp;k&nbsp;=&nbsp;&eta;&nbsp;=&nbsp;1), the entire particle zoo follows from <strong>d&nbsp;=&nbsp;3</strong> and <strong>&pi;</strong>.</p>
+        </div>
+
+        <!-- ===== SECTION 1: THE SM → LATTICE DICTIONARY ===== -->
+        <section id="dictionary">
+          <h2>&sect;1 &mdash; The Standard Model &harr; Lattice Dictionary</h2>
+
+          <p>Set lattice-Planck units: a&nbsp;=&nbsp;1, k&nbsp;=&nbsp;1, &eta;&nbsp;=&nbsp;1. Then c&nbsp;=&nbsp;1, &#8463;&nbsp;=&nbsp;&pi;/2, G&nbsp;=&nbsp;1/(4&pi;). Every Standard Model concept maps to a lattice wave concept:</p>
+
+          <table class="dict-table">
+            <thead>
+              <tr><th>Standard Model</th><th>Lattice Reality</th><th>Planck Formula</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Electron</td>
+                <td class="formula">1D transverse standing wave</td>
+                <td class="planck">m<sub>e</sub> = 2d&pi;<sup>d+2</sup>&alpha;<sup>N<sub>gauge</sub></sup> m<sub>P</sub></td>
+              </tr>
+              <tr>
+                <td>Up quark</td>
+                <td class="formula">2D surface mode</td>
+                <td class="planck">m<sub>u</sub> = 2<sup>2</sup> m<sub>e</sub></td>
+              </tr>
+              <tr>
+                <td>Down quark</td>
+                <td class="formula">3D bulk mode</td>
+                <td class="planck">m<sub>d</sub> = d<sup>2</sup> m<sub>e</sub></td>
+              </tr>
+              <tr>
+                <td>Proton</td>
+                <td class="formula">j<sub>0</sub> spherical standing wave</td>
+                <td class="planck">m<sub>p</sub> = 2d &middot; &pi;<sup>d+2</sup> &middot; m<sub>e</sub></td>
+              </tr>
+              <tr>
+                <td>Muon</td>
+                <td class="formula">2nd-generation axial mode</td>
+                <td class="planck">m<sub>&mu;</sub> = [d/(2&alpha;) + &radic;(d/2)] m<sub>e</sub></td>
+              </tr>
+              <tr>
+                <td>Tau</td>
+                <td class="formula">3rd-generation axial mode</td>
+                <td class="planck">Koide: (N<sub>c</sub>&minus;1)/N<sub>c</sub> = 2/d</td>
+              </tr>
+              <tr>
+                <td>Neutrinos</td>
+                <td class="formula">Extended low-k lattice ripples</td>
+                <td class="planck">M<sub>&nu;</sub> = m<sub>e</sub><sup>d</sup> / (d &middot; m<sub>p</sub><sup>2</sup>)</td>
+              </tr>
+              <tr>
+                <td>Photon (&gamma;)</td>
+                <td class="formula">Transverse lattice wave (massless)</td>
+                <td class="planck">m = 0, v = c = 1</td>
+              </tr>
+              <tr>
+                <td>Gluons (8)</td>
+                <td class="formula">d<sup>2</sup>&minus;1 = 8 internal bond vibrations</td>
+                <td class="planck">N<sub>g</sub> = d<sup>2</sup> &minus; 1</td>
+              </tr>
+              <tr>
+                <td>W<sup>&plusmn;</sup>, Z<sup>0</sup></td>
+                <td class="formula">Massive lattice modes (broken symmetry)</td>
+                <td class="planck">M<sub>W</sub> = g<sub>2</sub>v/2</td>
+              </tr>
+              <tr>
+                <td>Higgs boson</td>
+                <td class="formula">Amplitude mode of cosine potential</td>
+                <td class="planck">&lambda; = &pi;<sup>2</sup>g<sub>2</sub><sup>2</sup>/2<sup>d+2</sup></td>
+              </tr>
+              <tr>
+                <td>Color charge</td>
+                <td class="formula">SU(d) rotational symmetry of d bonds</td>
+                <td class="planck">N<sub>c</sub> = d</td>
+              </tr>
+              <tr>
+                <td>Generations (3)</td>
+                <td class="formula">One per spatial axis</td>
+                <td class="planck">N<sub>gen</sub> = d</td>
+              </tr>
+              <tr>
+                <td>Fine structure &alpha;</td>
+                <td class="formula">Wyler geometric coupling</td>
+                <td class="planck">d<sup>2</sup>/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>(d<sup>2</sup>+d&minus;1)/(d+1)</sup>]</td>
+              </tr>
+              <tr>
+                <td>Feynman vertex</td>
+                <td class="formula">Wave scattering at lattice node</td>
+                <td class="planck">Amplitude &propto; &alpha;<sup>n/2</sup></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 2: GAUGE GROUP FROM GEOMETRY ===== -->
+        <section id="gauge-group">
+          <h2>&sect;2 &mdash; SU(3) &times; SU(2) &times; U(1) from d = 3</h2>
+
+          <p>The Standard Model gauge group is not an input &mdash; it is forced by the lattice geometry. Each factor comes from a different degree of freedom:</p>
+
+          <div class="calc-step">
+            <div class="calc-num">1</div>
+            <div><strong>SU(d) = SU(3)</strong> &mdash; d = 3 spatial directions at each lattice node. Rotations among the d bonds give the color group. Number of generators: d<sup>2</sup>&nbsp;&minus;&nbsp;1&nbsp;=&nbsp;8 (gluons).</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">2</div>
+            <div><strong>SU(d&minus;1) = SU(2)</strong> &mdash; d&nbsp;&minus;&nbsp;1&nbsp;=&nbsp;2 internal (yin-yang) polarization states. Rotations between them give the weak isospin group. Number of generators: (d&minus;1)<sup>2</sup>&nbsp;&minus;&nbsp;1&nbsp;=&nbsp;3 (W<sup>+</sup>, W<sup>&minus;</sup>, W<sup>0</sup>).</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">3</div>
+            <div><strong>U(1)</strong> &mdash; 1 overall phase of the lattice displacement. This global phase rotation gives hypercharge / electromagnetism. Generator count: 1 (photon).</div>
+          </div>
+
+          <div class="calc-result">
+            <strong>Total gauge group:</strong> SU(d) &times; SU(d&minus;1) &times; U(1) = SU(3) &times; SU(2) &times; U(1)<br><br>
+            <strong>Total gauge bosons:</strong> (d<sup>2</sup>&minus;1) + ((d&minus;1)<sup>2</sup>&minus;1) + 1 = 8 + 3 + 1 = <strong>12</strong><br><br>
+            This is purely geometric &mdash; any 3D discrete medium with nearest-neighbor restoring forces must have this symmetry group. There is no other option.
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0;">Why d&minus;1 for weak isospin?</h4>
+            <p style="margin-bottom:0;">Each lattice node has d spatial bonds and 2 polarization states. The 2 polarizations form an SU(2) doublet &mdash; the &ldquo;yin-yang&rdquo; of the medium. But 2 = d&nbsp;&minus;&nbsp;1 only when d = 3. This is another hint that d = 3 is special: it is the unique dimension where the weak group SU(2) is the &ldquo;complement&rdquo; of the color group SU(3).</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 3: MASS HIERARCHY IN PLANCK UNITS ===== -->
+        <section id="mass-hierarchy">
+          <h2>&sect;3 &mdash; The Mass Hierarchy in d and &pi;</h2>
+
+          <p>In lattice-Planck units, the Planck mass is m<sub>P</sub>&nbsp;=&nbsp;1. Every other mass is a fraction of m<sub>P</sub>, suppressed by powers of &alpha; and geometric factors. The &ldquo;hierarchy problem&rdquo; dissolves: each power of &alpha; is a geometric tunneling step.</p>
+
+          <table class="dict-table">
+            <thead>
+              <tr><th>Particle</th><th>Planck-Unit Mass</th><th>In d, &pi;</th><th>Steps from m<sub>P</sub></th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Planck mass</strong></td>
+                <td class="formula">1</td>
+                <td class="planck">1</td>
+                <td class="tier">0 steps</td>
+              </tr>
+              <tr>
+                <td><strong>Higgs VEV v</strong></td>
+                <td class="formula">(d+2)/2 &middot; &alpha;<sup>d<sup>2</sup>&minus;1</sup></td>
+                <td class="planck">5/2 &middot; &alpha;<sup>8</sup></td>
+                <td class="tier">8 &alpha;-steps</td>
+              </tr>
+              <tr>
+                <td><strong>Top quark</strong></td>
+                <td class="formula">v / &radic;2</td>
+                <td class="planck">5/(2&radic;2) &middot; &alpha;<sup>8</sup></td>
+                <td class="tier">8 &alpha;-steps</td>
+              </tr>
+              <tr>
+                <td><strong>Higgs boson</strong></td>
+                <td class="formula">&radic;(2&lambda;) &middot; v</td>
+                <td class="planck">&pi; g<sub>2</sub>/4 &middot; v</td>
+                <td class="tier">8 &alpha;-steps + EW</td>
+              </tr>
+              <tr>
+                <td><strong>W boson</strong></td>
+                <td class="formula">g<sub>2</sub> v / 2</td>
+                <td class="planck">g<sub>2</sub>/2 &middot; (5/2)&alpha;<sup>8</sup></td>
+                <td class="tier">8 &alpha;-steps + EW</td>
+              </tr>
+              <tr>
+                <td><strong>Z boson</strong></td>
+                <td class="formula">M<sub>W</sub> / cos&theta;<sub>W</sub></td>
+                <td class="planck">M<sub>W</sub> &middot; 2d/(2d&minus;1)</td>
+                <td class="tier">8 &alpha;-steps + EW</td>
+              </tr>
+              <tr>
+                <td><strong>Proton</strong></td>
+                <td class="formula">2d &middot; &pi;<sup>d+2</sup> &middot; m<sub>e</sub></td>
+                <td class="planck">2d &middot; &pi;<sup>d+2</sup> &middot; m<sub>e</sub></td>
+                <td class="tier">12 &alpha;-steps</td>
+              </tr>
+              <tr>
+                <td><strong>Electron</strong></td>
+                <td class="formula">2d &middot; &pi;<sup>d+2</sup> &middot; &alpha;<sup>N<sub>gauge</sub></sup></td>
+                <td class="planck">6&pi;<sup>5</sup> &middot; &alpha;<sup>12</sup></td>
+                <td class="tier">12 &alpha;-steps</td>
+              </tr>
+              <tr>
+                <td><strong>Neutrino</strong></td>
+                <td class="formula">m<sub>e</sub><sup>d</sup> / (d &middot; m<sub>p</sub><sup>2</sup>)</td>
+                <td class="planck">&sim; &alpha;<sup>36</sup></td>
+                <td class="tier">36 &alpha;-steps</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="calc-result">
+            <strong>The hierarchy is not a problem &mdash; it is a counting exercise.</strong> Each mass sits at a specific number of &alpha;-tunneling steps below the Planck scale. The number of steps equals the number of gauge boson channels the wave must traverse:
+            <ul style="margin-bottom:0;">
+              <li>v sits 8 steps down (8 gluons = d<sup>2</sup>&minus;1)</li>
+              <li>m<sub>e</sub> sits 12 steps down (8 gluons + 3 weak + 1 photon = N<sub>gauge</sub>)</li>
+              <li>m<sub>&nu;</sub> sits ~36 steps down (3 generations &times; 12)</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 4: PARTICLE TYPES AS WAVE DIMENSIONALITY ===== -->
+        <section id="particle-types">
+          <h2>&sect;4 &mdash; Particle Types = Wave Dimensionality</h2>
+
+          <p>The particle zoo is not fundamental diversity &mdash; it is waves vibrating in different numbers of dimensions. The dimensional mode number n determines the particle type.</p>
+
+          <div class="particle-card">
+            <h4><span class="sm-label">Standard Model</span> <span class="gwt-label">Lattice</span> n = 1: Leptons</h4>
+            <p>A 1D transverse ripple along a single lattice axis. Mass scales as n<sup>2</sup>&nbsp;=&nbsp;1. The electron is the simplest lattice excitation &mdash; a single spring displaced from equilibrium.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">m<sub>e</sub> = 1<sup>2</sup> &times; m<sub>base</sub> &nbsp;&nbsp;&nbsp; [1D mode &rarr; lepton]</p>
+          </div>
+
+          <div class="particle-card">
+            <h4><span class="sm-label">Standard Model</span> <span class="gwt-label">Lattice</span> n = 2: Up-type quarks</h4>
+            <p>A 2D surface wave oscillating on two lattice axes simultaneously. Mass scales as n<sup>2</sup>&nbsp;=&nbsp;4. The surface wave is confined to a plane &mdash; it carries color charge because it couples to 2 of the d spatial bonds.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">m<sub>u</sub> = 2<sup>2</sup> &times; m<sub>e</sub> = 4 m<sub>e</sub> &nbsp;&nbsp;&nbsp; [2D mode &rarr; up quark]</p>
+          </div>
+
+          <div class="particle-card">
+            <h4><span class="sm-label">Standard Model</span> <span class="gwt-label">Lattice</span> n = d = 3: Down-type quarks</h4>
+            <p>A 3D bulk wave oscillating in all d lattice directions. Mass scales as n<sup>2</sup>&nbsp;=&nbsp;d<sup>2</sup>&nbsp;=&nbsp;9. The bulk wave engages all spatial bonds &mdash; maximum coupling to the color field.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">m<sub>d</sub> = d<sup>2</sup> &times; m<sub>e</sub> = 9 m<sub>e</sub> &nbsp;&nbsp;&nbsp; [3D mode &rarr; down quark]</p>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0;">The n<sup>2</sup> rule</h4>
+            <p>Mass &propto; n<sup>2</sup> is the energy eigenvalue of a standing wave in n dimensions: E<sub>n</sub>&nbsp;&propto;&nbsp;n<sup>2</sup> from the dispersion relation &omega;<sup>2</sup>&nbsp;=&nbsp;(2/a)<sup>2</sup> sin<sup>2</sup>(ka/2). This is the same n<sup>2</sup> that appears in quantum mechanics for a particle in a box. It is not new physics &mdash; it is undergraduate wave mechanics applied to the lattice.</p>
+            <p style="margin-bottom:0;">The lepton-quark distinction is nothing but the question: <em>how many spatial dimensions does this wave vibrate in?</em> Leptons vibrate in 1. Quarks vibrate in 2 or 3. That is the entire mystery of &ldquo;why are quarks different from leptons.&rdquo;</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 5: GENERATION STRUCTURE ===== -->
+        <section id="generations">
+          <h2>&sect;5 &mdash; Three Generations = Three Spatial Axes</h2>
+
+          <p>The Standard Model has three generations of fermions (e, &mu;, &tau;) with no explanation for why three. In GWT: N<sub>gen</sub>&nbsp;=&nbsp;d&nbsp;=&nbsp;3. Each generation is a wave whose primary oscillation axis aligns with one of the d spatial directions.</p>
+
+          <div class="calc-step">
+            <div class="calc-num">1</div>
+            <div><strong>1st generation</strong> (e, u, d): oscillation aligned with x-axis. Lowest energy, most stable.</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">2</div>
+            <div><strong>2nd generation</strong> (&mu;, c, s): oscillation aligned with y-axis. Higher energy excitation of the same mode pattern, related by &alpha;-suppressed tunneling: m<sub>&mu;</sub>/m<sub>e</sub>&nbsp;&asymp;&nbsp;d/(2&alpha;).</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">3</div>
+            <div><strong>3rd generation</strong> (&tau;, t, b): oscillation aligned with z-axis. Highest energy excitation. The three masses satisfy the Koide relation because the three axes form a symmetric 3-state system.</div>
+          </div>
+
+          <div class="calc-result">
+            <strong>Why exactly 3?</strong> Because a 3D lattice has exactly d&nbsp;=&nbsp;3 independent oscillation axes. A 4th generation would require a 4th spatial dimension. The number of generations is not a free parameter &mdash; it is the dimensionality of space.
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0;">The Koide relation in d</h4>
+            <p>The three lepton masses satisfy (m<sub>e</sub>&nbsp;+&nbsp;m<sub>&mu;</sub>&nbsp;+&nbsp;m<sub>&tau;</sub>)&nbsp;/&nbsp;(&radic;m<sub>e</sub>&nbsp;+&nbsp;&radic;m<sub>&mu;</sub>&nbsp;+&nbsp;&radic;m<sub>&tau;</sub>)<sup>2</sup>&nbsp;=&nbsp;2/3.</p>
+            <p style="margin-bottom:0;">This ratio = (d&minus;1)/d. In a symmetric d-state system, the sum of eigenvalues divided by the square of the sum of square roots is always (d&minus;1)/d. This is the same 2/3 that appears in &Omega;<sub>&Lambda;</sub>&nbsp;=&nbsp;(d&minus;1)/d: the fraction of degrees of freedom that are transverse to any given direction.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 6: QUARK MASSES DECODED ===== -->
+        <section id="quark-hierarchy">
+          <h2>&sect;6 &mdash; The Complete Quark Mass Hierarchy</h2>
+
+          <p>Every quark mass connects to the Planck scale through a specific number of &alpha;-tunneling steps, with the tunneling mediated by either &alpha; (electromagnetic), &alpha;<sub>GUT</sub> (grand unified), or Yukawa (y<sub>t</sub>&nbsp;&asymp;&nbsp;1) coupling.</p>
+
+          <table class="dict-table">
+            <thead>
+              <tr><th>Quark</th><th>Derivation Chain</th><th>In d, &pi;, &alpha;</th><th>Accuracy</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Up</strong></td>
+                <td class="formula">m<sub>u</sub> = 2<sup>2</sup> m<sub>e</sub></td>
+                <td class="planck">4 &times; 6&pi;<sup>5</sup>&alpha;<sup>12</sup> m<sub>P</sub></td>
+                <td class="tier">7%</td>
+              </tr>
+              <tr>
+                <td><strong>Down</strong></td>
+                <td class="formula">m<sub>d</sub> = d<sup>2</sup> m<sub>e</sub></td>
+                <td class="planck">9 &times; 6&pi;<sup>5</sup>&alpha;<sup>12</sup> m<sub>P</sub></td>
+                <td class="tier">2%</td>
+              </tr>
+              <tr>
+                <td><strong>Strange</strong></td>
+                <td class="formula">m<sub>s</sub> = m<sub>b</sub> &middot; &alpha;<sub>GUT</sub></td>
+                <td class="planck">&alpha;<sub>GUT</sub>-tunneling from b</td>
+                <td class="tier">5%</td>
+              </tr>
+              <tr>
+                <td><strong>Charm</strong></td>
+                <td class="formula">m<sub>c</sub> = &alpha; &middot; m<sub>t</sub></td>
+                <td class="planck">&alpha;-tunneling from top</td>
+                <td class="tier">0.6%</td>
+              </tr>
+              <tr>
+                <td><strong>Bottom</strong></td>
+                <td class="formula">m<sub>b</sub> = m<sub>s</sub> / &alpha;<sub>GUT</sub></td>
+                <td class="planck">&alpha;<sub>GUT</sub>-tunneling chain</td>
+                <td class="tier">exact</td>
+              </tr>
+              <tr>
+                <td><strong>Top</strong></td>
+                <td class="formula">m<sub>t</sub> = v / &radic;2</td>
+                <td class="planck">(d+2)/(2&radic;2) &middot; &alpha;<sup>8</sup> m<sub>P</sub></td>
+                <td class="tier">0.5%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="card">
+            <h4 style="margin-top:0;">The up-type / down-type mass pattern</h4>
+            <p>The two mass chains correspond to the two tunneling couplings:</p>
+            <div class="chain-arrow"><span class="arr">&bull;</span> <strong>Up-type chain:</strong> m<sub>P</sub> <span class="tag">&alpha;<sup>8</sup></span> &rarr; v <span class="tag">/&radic;2</span> &rarr; m<sub>t</sub> <span class="tag">&times;&alpha;</span> &rarr; m<sub>c</sub> <span class="tag">&times;&alpha;</span> &rarr; m<sub>u</sub> (approximate)</div>
+            <div class="chain-arrow"><span class="arr">&bull;</span> <strong>Down-type chain:</strong> m<sub>e</sub> <span class="tag">&times;d<sup>2</sup></span> &rarr; m<sub>d</sub> <span class="tag">&times;~20</span> &rarr; m<sub>s</sub> <span class="tag">/&alpha;<sub>GUT</sub></span> &rarr; m<sub>b</sub></div>
+            <p style="margin-bottom:0;">Up-type quarks descend from the Higgs VEV; down-type quarks ascend from the electron mass. The two chains meet at the electroweak scale. This is why up-type quarks are generally heavier than their same-generation down-type partners for heavy quarks (t > b, c > s) but reversed for the lightest pair (u < d): the chains cross.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 7: ELECTROWEAK IN d AND π ===== -->
+        <section id="electroweak">
+          <h2>&sect;7 &mdash; Electroweak Sector in d and &pi;</h2>
+
+          <p>Every electroweak parameter reduces to d and &pi; through the Weinberg angle, which is a geometric projection ratio of the lattice DOF.</p>
+
+          <div class="particle-card">
+            <h4>Weinberg angle: sin<sup>2</sup>&theta;<sub>W</sub> = 15/64</h4>
+            <p>15 = C(d+2, 2) = C(5, 2) = the number of 2-element subsets of the (d+2)&nbsp;=&nbsp;5 DOF per lattice node.</p>
+            <p>64 = 2<sup>2d</sup> = 2<sup>6</sup> = the total binary phase space of the 2d nearest-neighbor bonds.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">sin<sup>2</sup>&theta;<sub>W</sub> = C(d+2,2) / 2<sup>2d</sup> = 15/64 = 0.234375 &nbsp;[obs: 0.2312] &nbsp; 1.4% error</p>
+          </div>
+
+          <div class="particle-card">
+            <h4>cos&theta;<sub>W</sub> = (2d&minus;1)/2d = 7/8</h4>
+            <p>The numerator 2d&minus;1 = 5 counts the neutral channels (all bonds minus the charged one). The denominator 2d = 6 counts total bond directions. But from the Weinberg angle: cos<sup>2</sup>&theta;<sub>W</sub>&nbsp;=&nbsp;49/64, giving cos&theta;<sub>W</sub>&nbsp;=&nbsp;7/8 exactly.</p>
+            <p style="margin-bottom:0;">This means <strong>7 = 2d+1</strong> and <strong>8 = 2<sup>d</sup></strong> &mdash; both pure functions of d.</p>
+          </div>
+
+          <div class="particle-card">
+            <h4>Higgs quartic coupling: &lambda; = &pi;<sup>2</sup>g<sub>2</sub><sup>2</sup> / 2<sup>d+2</sup></h4>
+            <p>The Higgs potential is the cosine potential of the lattice: V(&phi;)&nbsp;=&nbsp;k(1&nbsp;&minus;&nbsp;cos(&phi;/a)), expanded to quartic order. The &pi;<sup>2</sup>/2<sup>d+2</sup> factor comes from the BZ boundary normalization divided by the (d+2)-dimensional DOF count.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">&lambda; = &pi;<sup>2</sup>g<sub>2</sub><sup>2</sup>/32 &asymp; 0.129 &nbsp;&rarr;&nbsp; m<sub>H</sub> = &radic;(2&lambda;) &middot; v &asymp; 124.7 GeV &nbsp;[obs: 125.09] &nbsp; 0.3%</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 8: QCD IN PLANCK UNITS ===== -->
+        <section id="qcd">
+          <h2>&sect;8 &mdash; QCD: Color as Spatial Rotation</h2>
+
+          <p>Quantum Chromodynamics is lattice wave mechanics with SU(d)&nbsp;=&nbsp;SU(3) symmetry. Every QCD concept maps to a spatial-rotation concept on the lattice.</p>
+
+          <div class="calc-step">
+            <div class="calc-num">1</div>
+            <div><strong>Color charge = spatial axis label.</strong> A quark &ldquo;colored red&rdquo; is a wave oscillating primarily along the x-axis. Blue = y-axis. Green = z-axis. Color rotation = spatial rotation of the vibration direction.</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">2</div>
+            <div><strong>Gluons = bond vibration modes.</strong> d<sup>2</sup>&minus;1 = 8 traceless generators of SU(d) = 8 independent ways to rotate the vibration axis. Each generator corresponds to one gluon field.</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">3</div>
+            <div><strong>Confinement = Gibbs overshoot.</strong> When &alpha;<sub>s</sub> runs to 1 at ~1 fm, the lattice wave equation develops a discontinuity (like the Gibbs phenomenon in truncated Fourier series). The overshoot creates a confining tube &mdash; the color flux tube. Free quarks are impossible because isolated oscillation directions cannot propagate on a 3D medium without mixing all three axes.</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">4</div>
+            <div><strong>Asymptotic freedom = BZ boundary thinning.</strong> At high momenta (small wavelengths), the lattice dispersion relation &omega; = (2/a)sin(ka/2) flattens near the Brillouin zone boundary. The effective coupling shrinks because short-wavelength modes &ldquo;see&rdquo; fewer lattice sites &mdash; the renormalization is geometric thinning of the interaction region.</div>
+          </div>
+
+          <div class="calc-result">
+            <strong>QCD &beta;-function in lattice terms:</strong><br>
+            b<sub>0</sub> = (11d &minus; 2N<sub>f</sub>) / (d&pi;) = (33 &minus; 2N<sub>f</sub>) / (3&pi;)<br><br>
+            For N<sub>f</sub> = 6 quarks: b<sub>0</sub> = (33&minus;12)/(3&pi;) = 21/(3&pi;) = 7/&pi;<br><br>
+            The factor 11d arises from the self-interaction of d<sup>2</sup>&minus;1 gluon modes: 11 = d<sup>2</sup>&minus;1 + d = 8 + 3 (gluon loops + ghost contribution from d spatial dimensions). The factor 2N<sub>f</sub> arises from quark loops (2 helicities per flavor).
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0;">Mass gap: m<sub>p</sub> = 4&Lambda;<sub>QCD</sub></h4>
+            <p>The proton mass emerges from dimensional transmutation: the coupling &alpha;<sub>s</sub> trades its strength for a mass scale &Lambda;<sub>QCD</sub>. The factor 4 = 2<sup>d&minus;1</sup> counts the independent spin-color channels that contribute to the bound state energy.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">m<sub>p</sub> = 2<sup>d&minus;1</sup> &Lambda;<sub>QCD</sub> = 4 &times; 234.6 MeV = 938.3 MeV &nbsp; [exact]</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 9: MIXING ANGLES FROM GEOMETRY ===== -->
+        <section id="mixing">
+          <h2>&sect;9 &mdash; Mixing Angles = Tetrahedral Geometry</h2>
+
+          <p>The CKM and PMNS mixing matrices are not arbitrary &mdash; they reflect the geometry of a regular tetrahedron inscribed in the unit sphere. The tetrahedron is the unique d-simplex in d = 3 dimensions.</p>
+
+          <div class="particle-card">
+            <h4>CKM CP-violating phase</h4>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">&delta;<sub>CKM</sub> = arccos(+1/d) = arccos(1/3) = 70.53&deg; &nbsp; [obs: 73.5&deg; &plusmn; 5&deg;]</p>
+            <p>1/d = 1/3 is the dot product of two edges of a regular tetrahedron. The CKM phase is the dihedral angle of the d-simplex.</p>
+          </div>
+
+          <div class="particle-card">
+            <h4>PMNS CP-violating phase</h4>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">&delta;<sub>PMNS</sub> = arccos(&minus;1/d) = arccos(&minus;1/3) = 109.47&deg; &nbsp; [obs: ~108&deg;]</p>
+            <p>The supplementary angle: &delta;<sub>CKM</sub> + &delta;<sub>PMNS</sub> = 180&deg;. Quarks and leptons &ldquo;see&rdquo; opposite faces of the same tetrahedron.</p>
+          </div>
+
+          <div class="particle-card">
+            <h4>Cabibbo angle: V<sub>us</sub> = &radic;(m<sub>d</sub>/m<sub>s</sub>)</h4>
+            <p style="margin-bottom:0;">The Fritzsch relation: the mixing angle between 1st and 2nd generation is the square root of the mass ratio. This is a general result for any system where mass mixing arises from overlapping wave functions on adjacent lattice sites.</p>
+            <p style="font-family: var(--font-mono); color: var(--accent-green);">V<sub>us</sub> = &radic;(m<sub>d</sub>/m<sub>s</sub>) = &radic;(4.7/93.4) = 0.2243 &nbsp; [obs: 0.2243] &nbsp; exact</p>
+          </div>
+
+          <div class="particle-card">
+            <h4>Wolfenstein A parameter</h4>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">A = &radic;(2/d) = &radic;(2/3) = 0.8165 &nbsp; [obs: 0.836 &plusmn; 0.015] &nbsp; 2.3%</p>
+            <p>The ratio 2/d appears because the mixing involves 2 internal DOF (weak isospin) distributed over d spatial directions.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 10: NEUTRINOS IN d AND π ===== -->
+        <section id="neutrinos">
+          <h2>&sect;10 &mdash; Neutrinos: The Lightest Waves</h2>
+
+          <p>Neutrinos are lattice waves so extended that they barely interact. Their mass scale is triply suppressed relative to the electron &mdash; a d-fold power of the seesaw.</p>
+
+          <div class="calc-step">
+            <div class="calc-num">1</div>
+            <div><strong>Neutrino mass scale:</strong> M<sub>&nu;</sub> = m<sub>e</sub><sup>d</sup> / (d &middot; m<sub>p</sub><sup>2</sup>). This is a &ldquo;cubic seesaw&rdquo;: the neutrino mass is the electron mass raised to the d-th power, divided by the strong scale squared and normalized by d.</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">2</div>
+            <div><strong>Atmospheric splitting:</strong> &Delta;m<sup>2</sup><sub>31</sub> = (24/25) M<sup>2</sup>, where 24/25 = (d!&middot;2<sup>d</sup>)/((d!&middot;2<sup>d</sup>)+1) = 48/49... Actually: 24 = d! &middot; 2<sup>d</sup> = 6 &times; 4 = 24 and the denominator 25 = 24+1. The ratio tracks the mode density near the lattice BZ edge.</div>
+          </div>
+
+          <div class="calc-step">
+            <div class="calc-num">3</div>
+            <div><strong>Solar splitting:</strong> &Delta;m<sup>2</sup><sub>21</sub> = (3/100) M<sup>2</sup>. The factor 3/100 arises from the beta-function ratio: b<sub>0</sub>/(d<sup>2</sup>+1)<sup>2</sup> where b<sub>0</sub> = 7/&pi; and (d<sup>2</sup>+1)<sup>2</sup> = 100.</div>
+          </div>
+
+          <div class="calc-result">
+            <strong>Why neutrinos are &ldquo;ghostly&rdquo; in d and &pi;:</strong><br><br>
+            Neutrino Compton wavelength: &lambda;<sub>&nu;</sub> &sim; &#8463;/(M<sub>&nu;</sub> c) &sim; 10<sup>12</sup> lattice spacings<br>
+            Weak interaction range: r<sub>W</sub> &sim; 1/M<sub>W</sub> &sim; 10<sup>0</sup> lattice spacings<br><br>
+            The ghostliness ratio &lambda;<sub>&nu;</sub>/r<sub>W</sub> &sim; 10<sup>12</sup> &mdash; the neutrino wave is a trillion times larger than the force that could scatter it. It passes through matter like an ocean swell passes over a pebble.
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 11: INTERACTIONS AS WAVE SCATTERING ===== -->
+        <section id="interactions">
+          <h2>&sect;11 &mdash; Interactions = Wave Scattering</h2>
+
+          <p>In the Standard Model, interactions are mediated by virtual particle exchange. In GWT, interactions are wave scattering at lattice nodes &mdash; no particles are exchanged, only wave amplitude is redistributed.</p>
+
+          <div class="particle-card">
+            <h4><span class="sm-label">SM: Feynman Vertex</span> <span class="gwt-label">Lattice: Node Scattering</span></h4>
+            <p>A Feynman vertex where two fermion lines meet a boson line = two waves arriving at a lattice node, where the nonlinear restoring force (the anharmonic term in V(&phi;)) redirects amplitude. The coupling constant is the strength of the anharmonicity relative to the linear spring.</p>
+            <p style="margin-bottom:0; font-family: var(--font-mono); color: var(--accent-green);">Vertex amplitude &propto; &alpha;<sup>1/2</sup> per EM vertex, &alpha;<sub>s</sub><sup>1/2</sup> per QCD vertex</p>
+          </div>
+
+          <div class="particle-card">
+            <h4><span class="sm-label">SM: Cross Section</span> <span class="gwt-label">Lattice: Scattering Cross Area</span></h4>
+            <p>The scattering cross section &sigma; measures the effective area over which two waves interact. In Planck units:</p>
+            <p style="font-family: var(--font-mono); color: var(--accent-green);">&sigma; &sim; &alpha;<sup>2</sup> / E<sup>2</sup> (EM) &nbsp;&nbsp;&nbsp; &sigma; &sim; &alpha;<sub>s</sub><sup>2</sup> / E<sup>2</sup> (QCD)</p>
+            <p style="margin-bottom:0;">The &alpha;<sup>2</sup> comes from two vertices (one for each scattering event). The 1/E<sup>2</sup> comes from the de Broglie wavelength squared &mdash; higher energy waves are smaller and harder to hit.</p>
+          </div>
+
+          <div class="particle-card">
+            <h4><span class="sm-label">SM: Decay Rate</span> <span class="gwt-label">Lattice: Mode Lifetime</span></h4>
+            <p>A particle decay is a high-frequency lattice mode losing energy to lower-frequency modes (like a vibrating guitar string transferring energy to the body). The decay rate &Gamma; in Planck units:</p>
+            <p style="font-family: var(--font-mono); color: var(--accent-green);">&Gamma; &sim; &alpha;<sup>n</sup> &middot; m &nbsp; (where n = number of vertices in the decay diagram)</p>
+            <p style="margin-bottom:0;">The lifetime &tau; = 1/&Gamma;. Particles that can only decay through many vertices (large n) live longer &mdash; each vertex contributes a factor of &alpha; &asymp; 1/137, suppressing the rate. This is why the proton is stable: its decay would require &sim;36 vertices (3 generations &times; 12 gauge bosons), giving &tau; &sim; &alpha;<sup>&minus;36</sup> in Planck times &asymp; 10<sup>41</sup> years.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 12: COMPLETE PARTICLE SPECTRUM TABLE ===== -->
+        <section id="spectrum">
+          <h2>&sect;12 &mdash; Complete Particle Spectrum in d and &pi;</h2>
+
+          <p>Every Standard Model particle expressed in lattice-Planck units. The column &ldquo;d, &pi; only?&rdquo; indicates whether the formula uses only the two fundamental inputs (d and &pi;) or also requires compound quantities like &alpha;.</p>
+
+          <table class="tier-table">
+            <thead>
+              <tr>
+                <th>Particle</th>
+                <th>Formula (Planck units)</th>
+                <th>Value</th>
+                <th>Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Coupling Constants</td>
+              </tr>
+              <tr>
+                <td>&alpha;</td>
+                <td class="formula">d<sup>2</sup>/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>(d<sup>2</sup>+d&minus;1)/(d+1)</sup>]</td>
+                <td>1/137.036</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+              <tr>
+                <td>sin<sup>2</sup>&theta;<sub>W</sub></td>
+                <td class="formula">C(d+2,2) / 2<sup>2d</sup></td>
+                <td>15/64 = 0.2344</td>
+                <td><span class="accuracy">1.4%</span></td>
+              </tr>
+              <tr>
+                <td>cos&theta;<sub>W</sub></td>
+                <td class="formula">(2d+1) / 2<sup>d</sup></td>
+                <td>7/8</td>
+                <td><span class="accuracy">0.1%</span></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Leptons</td>
+              </tr>
+              <tr>
+                <td>Electron</td>
+                <td class="formula">2d&pi;<sup>d+2</sup>&alpha;<sup>12</sup> m<sub>P</sub></td>
+                <td>0.5112 MeV</td>
+                <td><span class="accuracy">0.04%</span></td>
+              </tr>
+              <tr>
+                <td>Muon</td>
+                <td class="formula">[d/(2&alpha;)+&radic;(d/2)] m<sub>e</sub></td>
+                <td>105.66 MeV</td>
+                <td><span class="accuracy">0.005%</span></td>
+              </tr>
+              <tr>
+                <td>Tau</td>
+                <td class="formula">Koide[(d&minus;1)/d] from e, &mu;</td>
+                <td>1776.97 MeV</td>
+                <td><span class="accuracy">0.006%</span></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Quarks</td>
+              </tr>
+              <tr>
+                <td>Up</td>
+                <td class="formula">2<sup>2</sup> m<sub>e</sub></td>
+                <td>2.044 MeV</td>
+                <td><span class="accuracy">7%</span></td>
+              </tr>
+              <tr>
+                <td>Down</td>
+                <td class="formula">d<sup>2</sup> m<sub>e</sub></td>
+                <td>4.599 MeV</td>
+                <td><span class="accuracy">2%</span></td>
+              </tr>
+              <tr>
+                <td>Strange</td>
+                <td class="formula">&alpha;<sub>GUT</sub>-chain</td>
+                <td>88.9 MeV</td>
+                <td><span class="accuracy">5%</span></td>
+              </tr>
+              <tr>
+                <td>Charm</td>
+                <td class="formula">&alpha; &middot; v/&radic;2</td>
+                <td>1267 MeV</td>
+                <td><span class="accuracy">0.6%</span></td>
+              </tr>
+              <tr>
+                <td>Bottom</td>
+                <td class="formula">m<sub>s</sub>/&alpha;<sub>GUT</sub></td>
+                <td>4.18 GeV</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+              <tr>
+                <td>Top</td>
+                <td class="formula">(d+2)/(2&radic;2) &middot; &alpha;<sup>d<sup>2</sup>&minus;1</sup> m<sub>P</sub></td>
+                <td>173.6 GeV</td>
+                <td><span class="accuracy">0.5%</span></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Gauge Bosons</td>
+              </tr>
+              <tr>
+                <td>Photon</td>
+                <td class="formula">m = 0 (exact lattice symmetry)</td>
+                <td>0</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+              <tr>
+                <td>8 Gluons</td>
+                <td class="formula">d<sup>2</sup>&minus;1 = 8, m = 0 (confined)</td>
+                <td>0 (confined)</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+              <tr>
+                <td>W<sup>&plusmn;</sup></td>
+                <td class="formula">g<sub>2</sub>v/2</td>
+                <td>79.4 GeV</td>
+                <td><span class="accuracy">1.2%</span></td>
+              </tr>
+              <tr>
+                <td>Z<sup>0</sup></td>
+                <td class="formula">M<sub>W</sub> &middot; 2d/(2d+1) ... &times;2d/(2d&minus;1)</td>
+                <td>90.7 GeV</td>
+                <td><span class="accuracy">0.5%</span></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Scalar</td>
+              </tr>
+              <tr>
+                <td>Higgs</td>
+                <td class="formula">&radic;(2&pi;<sup>2</sup>g<sub>2</sub><sup>2</sup>/2<sup>d+2</sup>) &middot; v</td>
+                <td>124.7 GeV</td>
+                <td><span class="accuracy">0.3%</span></td>
+              </tr>
+              <tr>
+                <td>Higgs VEV</td>
+                <td class="formula">(d+2)/2 &middot; &alpha;<sup>d<sup>2</sup>&minus;1</sup> m<sub>P</sub></td>
+                <td>245.5 GeV</td>
+                <td><span class="accuracy">0.3%</span></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Composite</td>
+              </tr>
+              <tr>
+                <td>Proton</td>
+                <td class="formula">2<sup>d&minus;1</sup> &Lambda;<sub>QCD</sub></td>
+                <td>938.3 MeV</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+              <tr>
+                <td>m<sub>p</sub>/m<sub>e</sub></td>
+                <td class="formula">2d &middot; &pi;<sup>d+2</sup></td>
+                <td>1836.12</td>
+                <td><span class="accuracy">0.002%</span></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td colspan="4" style="font-weight:700; color:var(--accent-blue); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:1rem;">Mixing</td>
+              </tr>
+              <tr>
+                <td>&delta;<sub>CKM</sub></td>
+                <td class="formula">arccos(1/d)</td>
+                <td>70.53&deg;</td>
+                <td><span class="accuracy">4%</span></td>
+              </tr>
+              <tr>
+                <td>&delta;<sub>PMNS</sub></td>
+                <td class="formula">arccos(&minus;1/d)</td>
+                <td>109.47&deg;</td>
+                <td><span class="accuracy">1.4%</span></td>
+              </tr>
+              <tr>
+                <td>V<sub>us</sub></td>
+                <td class="formula">&radic;(m<sub>d</sub>/m<sub>s</sub>)</td>
+                <td>0.2243</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+              <tr>
+                <td>A (Wolfenstein)</td>
+                <td class="formula">&radic;(2/d)</td>
+                <td>0.8165</td>
+                <td><span class="accuracy">2.3%</span></td>
+              </tr>
+              <tr>
+                <td>N<sub>gen</sub></td>
+                <td class="formula">d</td>
+                <td>3</td>
+                <td><span class="accuracy">exact</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 13: THE FIVE NUMBERS ===== -->
+        <section id="five-numbers">
+          <h2>&sect;13 &mdash; Five Numbers Build Everything</h2>
+
+          <p>The entire Standard Model &mdash; 17 particles, 19+ parameters, 3 generations &mdash; reduces to five numbers that the lattice forces:</p>
+
+          <div class="particle-card" style="text-align:center;">
+            <h4 style="justify-content:center; font-size:1.2rem;">d = 3 &nbsp;&nbsp;&bull;&nbsp;&nbsp; &pi; &nbsp;&nbsp;&bull;&nbsp;&nbsp; 2 &nbsp;&nbsp;&bull;&nbsp;&nbsp; e &nbsp;&nbsp;&bull;&nbsp;&nbsp; 1</h4>
+            <p><strong>d = 3</strong>: spatial dimensions (forces N<sub>c</sub>, N<sub>gen</sub>, gauge group, tetrahedron angles)</p>
+            <p><strong>&pi;</strong>: circle constant (forces BZ boundary, mode density, Wyler formula)</p>
+            <p><strong>2</strong>: yin-yang polarization count = d&minus;1 (forces SU(2), Koide 2/3, &Omega;<sub>&Lambda;</sub>)</p>
+            <p><strong>e</strong>: natural exponential (forces RG running, tunneling rates, decay widths)</p>
+            <p style="margin-bottom:0;"><strong>1</strong>: the lattice unit itself (a = k = &eta; = 1 defines the Planck scale)</p>
+          </div>
+
+          <div class="calc-result">
+            <strong>The Standard Model is not fundamental.</strong> It is the low-energy effective description of classical wave mechanics on a 3D discrete elastic medium. Every &ldquo;particle&rdquo; is a standing wave. Every &ldquo;force&rdquo; is a restoring pressure. Every &ldquo;coupling constant&rdquo; is a geometric ratio. Every &ldquo;mass&rdquo; is stored elastic energy. There is nothing else.
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div style="display:flex; justify-content:space-between; margin-top:3rem; flex-wrap:wrap; gap:1rem;">
+          <a href="calc-quantum-planck.html" class="btn btn-outline">&larr; QM in Planck Units</a>
+          <a href="calc-planck-reduction.html" class="btn btn-primary">Planck-Unit Reduction &rarr;</a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

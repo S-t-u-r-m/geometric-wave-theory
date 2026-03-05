@@ -124,6 +124,10 @@
         { label: 'Gravity & GR Tests', href: '/calculations/calc-gravity-gr.html' },
         { label: 'Mixing Angles', href: '/calculations/calc-mixing-angles.html' },
         { label: 'The Lagrangian', href: '/calculations/calc-lagrangian.html' },
+        { label: 'Planck-Unit Reduction', href: '/calculations/calc-planck-reduction.html' },
+        { label: 'QM in Planck Units', href: '/calculations/calc-quantum-planck.html' },
+        { label: 'Particle Physics in Planck Units', href: '/calculations/calc-particle-planck.html' },
+        { label: 'The Hamiltonian (Solved)', href: '/calculations/calc-hamiltonian.html' },
       ]
     },
     { label: 'All Predictions', href: '/predictions/index.html' },
