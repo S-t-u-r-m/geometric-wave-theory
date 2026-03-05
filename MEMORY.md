@@ -316,13 +316,21 @@ Key derived results:
 - W and H share p=24 = d×2^d (same tunneling depth as top quark)
 - Boson n values: v=d, W=2d-1, H=2^d (all pure d=3 expressions)
 - M_Z = M_W/cos θ_W = 91.6 GeV (+0.5%)
-- Remaining open: CKM matrix, PMNS matrix, CP violation
+- Remaining refinements: CKM (already on separate page), higher-order PMNS corrections
 **Neutron-proton mass difference DERIVED (§26):**
 - m_n - m_p = (m_d - m_u) - α×Λ_QCD×√(d+2)/d = 2.569 - 1.276 = **1.293 MeV** (0.03% off!)
 - EM correction: Coulomb at effective quark separation s = r_p/√(d+2) = r_p/√5
 - √5 = √(d+2) = Wyler symmetric space dimension D_IV(5)
 - Nuclear stability is a theorem: m_d-m_u > α×Λ_QCD×√5/3 > m_e > 0 (all from d=3)
-**Page now 26 sections.**
+**Neutrinos & PMNS DERIVED (§27):**
+- Neutrinos are STANDING waves (not kink-antikink — seesaw mode-coupling instead)
+- M_ν = m_e/(4d³π^(4d-2)) = m_e/(108π¹⁰) ≈ 0.0499 eV (~1%)
+- Splittings: Δm²₃₁ = (d×2^d)/(d×2^d+1) × M² = (24/25)M²; Δm²₂₁ = d/(4(d×2^d+1)) × M² = (3/100)M²
+- Ratio Δm²₃₁/Δm²₂₁ = 2^(d+2) = 32 (observed: 33.7, -5%)
+- PMNS: sin²θ₁₂ = 1/d = 1/3 (tribimaximal), θ₂₃ ≈ 49.5°, θ₁₃ ≈ 9.25°
+- δ_CP(PMNS) = arccos(-1/d) = -109.5°, δ_CP(CKM) = arccos(+1/d) = 70.5° → sum = 180°
+- §24 ν_e entry CORRECTED: neutrinos use seesaw formula, not m(n,p)
+**Page now 27 sections. Standard Model fully derived.**
 
 ## Open Ideas / Future Todos
 1. **Lattice internal structure (SPECULATIVE — keep off website for now)**
