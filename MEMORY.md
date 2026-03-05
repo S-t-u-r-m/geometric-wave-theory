@@ -306,7 +306,18 @@ Key derived results:
 - Up quarks cluster at n = 11,12,13 (centered on d(d+1)=12 = gauge boson count)
 - Mass hierarchy = integer differences in tunneling depth, each step = factor T^2 ~ 1/5
 - Zero free parameters: only pi, d=3, two integers, and m_Planck
-**Page now 24 sections.**
+**Electroweak sector DERIVED (§25):**
+- Coupling ratios at Planck scale: g_s² : g_w² : g'² = d : (d-1) : 1 = 3:2:1
+- sin²θ_W(M_Pl) = 1/d = 1/3 (runs to 15/64 at low energy)
+- Top Yukawa y_t = 1 (top IS the kink condensate)
+- Higgs quartic λ = 1/2^d = 1/8 → M_H = v/2 = m_t/√2
+- cos θ_W = (2d+1)/(2d+2) = 7/8 (-0.7%)
+- **Bosons fit m(n,p) formula**: v at (3,23) = 246.14 GeV (-0.0%), W at (5,24) = 80.18 GeV (-0.2%), H at (8,24) = 124.75 GeV (-0.4%)
+- W and H share p=24 = d×2^d (same tunneling depth as top quark)
+- Boson n values: v=d, W=2d-1, H=2^d (all pure d=3 expressions)
+- M_Z = M_W/cos θ_W = 91.6 GeV (+0.5%)
+- Remaining open: CKM matrix, PMNS matrix, CP violation, n-p mass difference
+**Page now 25 sections.**
 
 ## Open Ideas / Future Todos
 1. **Lattice internal structure (SPECULATIVE — keep off website for now)**
