@@ -420,8 +420,8 @@ ax4.set_title('3D Discreteness Corrections')
 ax4.legend()
 
 plt.tight_layout()
-plt.savefig('lagrangian/breather_3d_results.png', dpi=150)
-print(f"\nPlot saved to lagrangian/breather_3d_results.png")
+plt.savefig('calculations/breather_3d_results.png', dpi=150)
+print(f"\nPlot saved to calculations/breather_3d_results.png")
 
 # ============================================================
 # SUMMARY
