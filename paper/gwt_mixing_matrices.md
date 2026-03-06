@@ -132,7 +132,7 @@ where U_TBM is the Harrison-Perkins-Scott tribimaximal matrix [3]:
 
 The correction parameters are:
 
-    theta_corr = arcsin((m_e / m_mu)^(1/3)) = 10.08 degrees
+    theta_corr = arcsin((m_e / m_mu)^(1/3)) = 9.74 degrees
 
     n_hat = (-1, sqrt(3), -(m_tau/m_p)^(1/3)) / |(-1, sqrt(3), -(m_tau/m_p)^(1/3))|
 
