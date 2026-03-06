@@ -311,69 +311,76 @@
         <section id="pmns">
           <h2>&sect;5 &mdash; PMNS Mixing Angles</h2>
 
-          <p>The PMNS matrix describes how the three neutrino mass eigenstates (&nu;<sub>1</sub>, &nu;<sub>2</sub>, &nu;<sub>3</sub>) mix to form the three flavor eigenstates (&nu;<sub>e</sub>, &nu;<sub>&mu;</sub>, &nu;<sub>&tau;</sub>). In GWT, the mixing angles are determined by the lattice geometry &mdash; specifically, by the angular relationships between oscillation directions in 3D space.</p>
+          <p>The PMNS matrix describes how the three neutrino mass eigenstates (&nu;<sub>1</sub>, &nu;<sub>2</sub>, &nu;<sub>3</sub>) mix to form the three flavor eigenstates (&nu;<sub>e</sub>, &nu;<sub>&mu;</sub>, &nu;<sub>&tau;</sub>). In GWT, the PMNS matrix is derived from a single rotation applied to the tribimaximal (TBM) leading order:</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">PMNS Rotation Formula</span>
+            U<sub>PMNS</sub> = R(&theta;, axis) &times; U<sub>TBM</sub>
+          </div>
+
+          <p>where &theta;&nbsp;=&nbsp;arcsin((&sigma;<sub>&mu;</sub>/&sigma;<sub>e</sub>))&nbsp;=&nbsp;arcsin((m<sub>e</sub>/m<sub>&mu;</sub>)<sup>1/d</sup>) and axis<sub>i</sub>&nbsp;=&nbsp;&mu;-direction<sub>i</sub>&nbsp;&times;&nbsp;max(1,&thinsp;&sigma;<sub>p</sub>/&sigma;<sub>i</sub>). The axis is the muon direction in the TBM flavour triangle, rescaled by the proton wrapping factor. The angle is the standing-wave size ratio of the muon at the electron&rsquo;s scale. Zero free parameters. See <a href="calc-hamiltonian.html#neutrinos">&sect;27 of the Hamiltonian page</a> for the full geometric derivation.</p>
 
           <h3>&theta;<sub>12</sub> (Solar Angle)</h3>
 
           <div class="equation-box" style="text-align:center; font-size:1.1rem;">
             <span class="eq-label">Solar Mixing Angle</span>
-            &theta;<sub>12</sub> = arctan(1/&radic;2) = 35.26&deg;
+            &theta;<sub>12</sub> = 33.49&deg; &nbsp; (sin&sup2;&theta;<sub>12</sub> = 0.304)
           </div>
 
-          <p>This is the <strong>tetrahedral angle</strong> &mdash; the angle between any edge and the opposite face of a regular tetrahedron inscribed in a cube. It appears because the three oscillation directions of the lattice form a symmetric three-body system, and the natural mixing between the first two eigenstates is set by the geometry of an equilateral projection in 3D.</p>
+          <p>The TBM leading order gives sin&sup2;&theta;<sub>12</sub>&nbsp;=&nbsp;1/d&nbsp;=&nbsp;1/3 (35.26&deg;). The rotation correction R(&theta;,&thinsp;axis)&nbsp;&times;&nbsp;U<sub>TBM</sub> brings this down to 33.49&deg;, within +0.1&sigma; of observation.</p>
 
           <div class="calc-comparison">
             <div>
               <div class="comp-label">GWT Prediction</div>
-              <div class="comp-value">35.26&deg;</div>
+              <div class="comp-value">33.49&deg;</div>
             </div>
             <div>
               <div class="comp-label">Observed (NuFIT 6.0)</div>
               <div class="comp-value">33.41&deg;</div>
             </div>
-            <div class="comp-accuracy">5.5%</div>
+            <div class="comp-accuracy">+0.1&sigma;</div>
           </div>
 
           <h3>&theta;<sub>23</sub> (Atmospheric Angle)</h3>
 
           <div class="equation-box" style="text-align:center; font-size:1.1rem;">
             <span class="eq-label">Atmospheric Mixing Angle</span>
-            &theta;<sub>23</sub> = 49.5&deg; &nbsp; (near-maximal)
+            &theta;<sub>23</sub> = 49.28&deg; &nbsp; (sin&sup2;&theta;<sub>23</sub> = 0.574)
           </div>
 
-          <p>The atmospheric angle is near 45&deg; (maximal mixing) because the second and third generation neutrinos couple to nearly equivalent transverse modes in the lattice. The small deviation from 45&deg; arises from the mass hierarchy &mdash; &nu;<sub>3</sub> is slightly heavier, breaking the perfect symmetry.</p>
+          <p>The TBM leading order gives &theta;<sub>23</sub>&nbsp;=&nbsp;45&deg; (maximal mixing). The rotation correction shifts this to 49.28&deg;, within +0.1&sigma; of observation. The deviation from 45&deg; arises from the proton wrapping factor in the rotation axis.</p>
 
           <div class="calc-comparison">
             <div>
               <div class="comp-label">GWT Prediction</div>
-              <div class="comp-value">49.5&deg;</div>
+              <div class="comp-value">49.28&deg;</div>
             </div>
             <div>
               <div class="comp-label">Observed (NuFIT 6.0)</div>
-              <div class="comp-value">49.1&deg;</div>
+              <div class="comp-value">49.20&deg;</div>
             </div>
-            <div class="comp-accuracy">0.8%</div>
+            <div class="comp-accuracy">+0.1&sigma;</div>
           </div>
 
           <h3>&theta;<sub>13</sub> (Reactor Angle)</h3>
 
           <div class="equation-box" style="text-align:center; font-size:1.1rem;">
             <span class="eq-label">Reactor Mixing Angle</span>
-            &theta;<sub>13</sub> = 9.25&deg; &nbsp; (geometric projection)
+            &theta;<sub>13</sub> = 8.63&deg; &nbsp; (sin&sup2;&theta;<sub>13</sub> = 0.0225)
           </div>
 
-          <p>The reactor angle is small because &nu;<sub>1</sub> and &nu;<sub>3</sub> are nearly orthogonal oscillation modes &mdash; they correspond to maximally separated directions in the lattice. Their overlap is a small geometric projection, giving a correspondingly small mixing angle.</p>
+          <p>The TBM leading order gives &theta;<sub>13</sub>&nbsp;=&nbsp;0. The rotation axis has a nonzero (1,1,1) component (12% of the axis norm) due to the tau wrapping correction, which mixes the TBM eigenvector with the degenerate subspace and generates &theta;<sub>13</sub>&nbsp;&ne;&nbsp;0. The predicted 8.63&deg; is within +0.5&sigma; of observation.</p>
 
           <div class="calc-comparison">
             <div>
               <div class="comp-label">GWT Prediction</div>
-              <div class="comp-value">9.25&deg;</div>
+              <div class="comp-value">8.63&deg;</div>
             </div>
             <div>
               <div class="comp-label">Observed (NuFIT 6.0)</div>
               <div class="comp-value">8.57&deg;</div>
             </div>
-            <div class="comp-accuracy">8%</div>
+            <div class="comp-accuracy">+0.5&sigma;</div>
           </div>
 
           <h3>&delta;<sub>CP</sub> (CP-Violating Phase)</h3>
@@ -399,7 +406,7 @@
 
           <div class="card" style="margin-top:1.5rem;">
             <h4>The Geometric Pattern</h4>
-            <p style="margin-bottom:0;">All four PMNS parameters trace back to the geometry of 3D space: the tetrahedral angle (arctan(1/&radic;2)), near-maximal mixing (transverse mode equivalence), small reactor angle (orthogonal mode projection), and the tetrahedral supplement (arccos(&minus;1/3)). The Standard Model has no explanation for why these particular angles appear. GWT derives all four from N<sub>c</sub>&nbsp;=&nbsp;3.</p>
+            <p style="margin-bottom:0;">All four PMNS parameters are derived from U<sub>PMNS</sub>&nbsp;=&nbsp;R(&theta;,&thinsp;axis)&nbsp;&times;&nbsp;U<sub>TBM</sub> with geometrically determined rotation parameters. The axis is the muon direction in the TBM flavour triangle, rescaled by the proton wrapping factor max(1,&thinsp;&sigma;<sub>p</sub>/&sigma;<sub>i</sub>). The angle is the standing-wave size ratio &theta;&nbsp;=&nbsp;arcsin((m<sub>e</sub>/m<sub>&mu;</sub>)<sup>1/d</sup>). All three mixing angles are predicted within 1&sigma; of observation with zero free parameters. The CP phase is the tetrahedral dihedral angle &delta;&nbsp;=&nbsp;arccos(&minus;1/d). The Standard Model requires 7 free parameters for the neutrino sector; GWT derives all of them from d&nbsp;=&nbsp;3, m<sub>e</sub>, m<sub>&mu;</sub>, m<sub>&tau;</sub>, and m<sub>p</sub>.</p>
           </div>
         </section>
 
@@ -532,21 +539,21 @@
               </tr>
               <tr>
                 <td><strong>&theta;<sub>12</sub> (solar)</strong></td>
-                <td class="mono">35.26&deg;</td>
+                <td class="mono">33.49&deg;</td>
                 <td class="mono">33.41&deg;</td>
-                <td><span class="badge badge-yellow">5.5%</span></td>
+                <td><span class="badge badge-green">+0.1&sigma;</span></td>
               </tr>
               <tr>
                 <td><strong>&theta;<sub>23</sub> (atm.)</strong></td>
-                <td class="mono">49.5&deg;</td>
-                <td class="mono">49.1&deg;</td>
-                <td><span class="badge badge-green">0.8%</span></td>
+                <td class="mono">49.28&deg;</td>
+                <td class="mono">49.20&deg;</td>
+                <td><span class="badge badge-green">+0.1&sigma;</span></td>
               </tr>
               <tr>
                 <td><strong>&theta;<sub>13</sub> (reactor)</strong></td>
-                <td class="mono">9.25&deg;</td>
+                <td class="mono">8.63&deg;</td>
                 <td class="mono">8.57&deg;</td>
-                <td><span class="badge badge-yellow">8%</span></td>
+                <td><span class="badge badge-green">+0.5&sigma;</span></td>
               </tr>
               <tr>
                 <td><strong>&delta;<sub>CP</sub></strong></td>
@@ -578,7 +585,7 @@
           <div class="card" style="margin-top:1.5rem; border-left: 3px solid var(--accent-green);">
             <h4>What This Means</h4>
             <p>The Standard Model requires at least 7 free parameters to describe the neutrino sector (3 masses, 3 mixing angles, 1 CP phase) and leaves the mass scale itself unexplained. GWT derives <strong>all of them</strong> from three lattice constants and N<sub>c</sub>&nbsp;=&nbsp;3.</p>
-            <p>Five of the eight predictions are accurate to better than 3.3%. The remaining three (&theta;<sub>12</sub>, &theta;<sub>13</sub>, &delta;<sub>CP</sub>) are within the range expected for leading-order geometric predictions. The three wave size predictions (&nu;<sub>1</sub>, &nu;<sub>2</sub>, &nu;<sub>3</sub>) are unique to GWT and currently untestable &mdash; but they explain, for the first time, <em>why</em> neutrinos are ghostly.</p>
+            <p>All three PMNS mixing angles are predicted within 1&sigma; of observation: &theta;<sub>12</sub>&nbsp;=&nbsp;33.49&deg; (+0.1&sigma;), &theta;<sub>23</sub>&nbsp;=&nbsp;49.28&deg; (+0.1&sigma;), &theta;<sub>13</sub>&nbsp;=&nbsp;8.63&deg; (+0.5&sigma;). The mass scale, mass splittings, and CP phase are all derived with zero free parameters. The three wave size predictions (&nu;<sub>1</sub>, &nu;<sub>2</sub>, &nu;<sub>3</sub>) are unique to GWT and currently untestable &mdash; but they explain, for the first time, <em>why</em> neutrinos are ghostly.</p>
             <p style="margin-bottom:0;">The neutrino sector is not mysterious. It is geometry.</p>
           </div>
         </section>

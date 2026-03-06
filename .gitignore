@@ -3,11 +3,15 @@ MEMORY.md
 .claude/
 last thoughts.txt
 
-# Python files (not used on site)
+# Python files (root-level exploration scripts, not used on site)
 *.py
+# BUT include lagrangian/ — these are the final derivations and simulations
+!lagrangian/*.py
 
-# Generated images
+# Generated images (root-level)
 *.png
+# BUT include lagrangian results
+!lagrangian/*.png
 
 # Old working notes (not published)
 EWT_Assumptions.txt

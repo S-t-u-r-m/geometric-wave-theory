@@ -343,5 +343,34 @@ Key derived results:
    - Likely derivable from geometry (consistent with "geometric all the way down" pattern)
    - Park until the 148 predictions are published; this is a future paper
 
+## GWT Lagrangian Source of Truth — COMPLETE (March 5 2026)
+File: lagrangian/gwt_lagrangian.py — single authoritative parameter registry
+**Final scorecard: 30 parameters — 9 SOLID, 21 DERIVED, 0 CONJECTURAL, 0 NUMEROLOGY**
+
+Key breakthroughs:
+- **Harmonic fraction derivation**: ALL fermion n-values = fractions of N = d·2^d = 24
+  - Anchors: 1/2 (top), 2/3 (electron), 3/4 (tau), 1/6 (mu/strange)
+  - Up quarks: {-1, 0, +1} symmetric split around N/2 = 12
+  - Down quarks: {+1, 0, +d} split from N/(2d) = 4 (uniaxial/symmetric/body-diagonal)
+  - Leptons: each gen picks distinct harmonic (free particles, not confined)
+- **sin²θ_W = 15/64**: cos θ_W = (2^d-1)/2^d = 7/8 (d-cube vertex counting)
+- **CKM CP phase**: cos δ = (d+2)/(d(d+1)) = 5/12 (Wyler dim / gauge boson count)
+- **WHY d=3**: 2^(d-1) = d+1 has unique integer solution d=3
+
+## Lattice Discreteness Corrections — SIMULATED (March 5 2026)
+Discrete lattice simulations confirm corrections and explain mu-strange splitting.
+- **1D sim** (discrete_breather_sim.py): corrections scale as -2.44·sin(nγ)^3.6, range -0.02% to -1.5%
+- **3D sim** (breather_3d_sim.py): FREE vs CONFINED breathers on 48³ cubic lattice
+- **MU-STRANGE SPLITTING DERIVED**: cubic confinement L=2^d-1=7 gives 11.88% (obs 12.32%, 3.6% error)
+  - muon pred = 104.6 MeV (obs 105.7, -1.0%), strange pred = 92.9 MeV (obs 93.4, -0.6%)
+  - L=7 = kink mass M_s - 1 = 2^d - 1 (proton extends 7 sites from center in each axis)
+- **Observer dependence**: resolved — lattice rest frame + emergent Lorentz symmetry at low energy
+- All documented in gwt_lagrangian.py under "OPEN RESEARCH: LATTICE DISCRETENESS CORRECTIONS"
+
+## Website Audit — COMPLETE (March 5 2026)
+- ALL calculation files checked against lagrangian source of truth
+- Stale formulas REMOVED: m_u=4m_e, m_d=9m_e, v=(5/2)·m_Pl·α⁸ → replaced with m(n,p)
+- Pion mass improved: 130.2→133.6 MeV (3.6%→1.0%); all downstream values propagated
+
 ## Detailed Session History
 See: session_history.md (all sessions Feb 26 – Feb 28 2026)
