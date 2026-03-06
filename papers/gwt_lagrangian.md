@@ -165,20 +165,20 @@ All within 1 sigma.
 
 Third-order perturbative coupling: electron -> proton -> electron, averaged over d axes.
 
-**Wyler S^3 correction:** M_eff = M_nu * (1 + 1/(6 pi^2)) = 51.4 meV
+**Wyler S^3 correction:** M_eff = M_nu * (1 + 1/(6 pi^2)) = 50.7 meV
 
 **Mass splittings** use N_eff = 25 * (1 + 1/(2 pi^2)) = 26.27 (D_IV(5) Shilov boundary correction):
 
-    Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.539e-3 eV^2
-    Delta_m^2_21 = (d/(4 N_eff)) * M_eff^2 = 7.54e-5 eV^2
+    Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.476e-3 eV^2
+    Delta_m^2_21 = (d/(4 N_eff)) * M_eff^2 = 7.35e-5 eV^2
 
 | Parameter | Predicted | Observed (NuFIT 6.0) | Error |
 |-----------|-----------|----------------------|-------|
-| M_nu | 51.4 meV | ~50 meV | ~1% |
-| Delta_m^2_31 | 2.539e-3 eV^2 | 2.534e-3 eV^2 | +0.2% |
-| Delta_m^2_21 | 7.54e-5 eV^2 | 7.53e-5 eV^2 | +0.1% |
+| M_nu | 50.7 meV | ~50 meV | ~1.5% |
+| Delta_m^2_31 | 2.476e-3 eV^2 | 2.534e-3 eV^2 | -2.3% |
+| Delta_m^2_21 | 7.35e-5 eV^2 | 7.53e-5 eV^2 | -2.4% |
 | Ratio | 33.69 | 33.65 | +0.1% |
-| nu_3 | 51.4 meV | -- | -- |
+| nu_3 | 50.7 meV | -- | -- |
 | nu_2 | 13.3 meV | -- | -- |
 | nu_1 | 10.0 meV | -- | -- |
 | Sum | 74.7 meV | < 120 meV | OK |

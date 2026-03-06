@@ -2,7 +2,7 @@
 
 **Jonathan D. Wollenberg**
 
-March 2026
+March 5, 2026
 
 ---
 
@@ -140,7 +140,7 @@ The correction angle uses the cube root (1/d = 1/3, bulk geometry) of the electr
 
 ### 4.2 Results
 
-Using physical lepton masses (m_e = 0.51100, m_mu = 105.658, m_tau = 1776.86, m_p = 938.272 MeV):
+Using physical lepton masses (m_e = 0.51100, m_mu = 105.658, m_tau = 1776.86, m_p = 926.5 MeV (GWT: 6*pi^5*m_e)):
 
 | Angle | Predicted | NuFIT 6.0 (NO) | Uncertainty | Pull (sigma) |
 |-------|-----------|-----------------|-------------|--------------|

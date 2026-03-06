@@ -1,354 +1,580 @@
-\documentclass[12pt,a4paper]{article}
-
-% ── Packages ──
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{booktabs}
-\usepackage{geometry}
-\usepackage{hyperref}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
 \usepackage{xcolor}
-\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\geometry{margin=1in}
-\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
-
-% ── Title ──
-\title{Quark and Lepton Mixing Matrices from Lattice Geometry\\with Zero Free Parameters}
-\author{Jonathan D. Wollenberg\\[2pt]
-\small ORCID: \href{https://orcid.org/0009-0009-5872-9076}{0009-0009-5872-9076}\\[1pt]
-\small\url{https://github.com/S-t-u-r-m/geometric-wave-theory}}
-\date{March 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-% ══════════════════════════════════════════════════════════════
-\begin{abstract}
-We present closed-form expressions for all four CKM parameters and all four PMNS parameters that reproduce the observed quark and lepton mixing matrices with zero free parameters.
-The CKM matrix is constructed in the standard PDG parametrization with angles
-$\theta_{12} = \arcsin\!\sqrt{m_d/m_s + m_u/m_c}$,\;
-$\theta_{23} = \arcsin\!\sqrt{m_u/m_c}$,\;
-$\theta_{13} = \arcsin\!\sqrt{m_u/m_t}$,
-and CP phase $\delta = \arccos(5/12)$,
-yielding all nine matrix elements within $1.4\,\sigma$ of PDG~2024 values (mean error 0.64\%).
-The PMNS matrix is obtained by applying a single geometric rotation $R(\theta,\hat{n})\times U_{\mathrm{TBM}}$, with $\theta = \arcsin\bigl((m_e/m_\mu)^{1/3}\bigr)$ and a rotation axis determined by lepton-to-proton mass ratios, yielding all three angles within $1\,\sigma$ of NuFIT~6.0 (normal ordering).
-The quark sector uses mass ratios raised to the $\tfrac{1}{2}$ power (surface geometry), while the lepton sector uses the $\tfrac{1}{3}$ power (bulk geometry).
-Both CP phases derive from the tetrahedral dihedral angle $\arccos(\pm 1/3)$ in $d=3$ dimensions, with the CKM phase receiving a boundary correction to $\arccos(5/12)$.
-The formulas require only measured fermion masses as input and contain no fitted or adjustable parameters.
-\end{abstract}
+\section{Quark and Lepton Mixing Matrices from Lattice Geometry with
+Zero Free
+Parameters}\label{quark-and-lepton-mixing-matrices-from-lattice-geometry-with-zero-free-parameters}
 
-% ══════════════════════════════════════════════════════════════
-\section{Introduction}
+\textbf{Jonathan D. Wollenberg}
 
-The Standard Model of particle physics contains 19 free parameters, of which 10 describe the quark and lepton mixing matrices: four CKM parameters (three angles and one CP phase) and four PMNS parameters (three angles and one CP phase), plus two neutrino mass-squared differences. These parameters are determined experimentally but have no theoretical explanation within the Standard Model itself.
+March 5, 2026
 
-Several empirical relations between mixing angles and fermion mass ratios have been noted in the literature. The Gatto--Sartori--Tonin relation $V_{us}\sim\sqrt{m_d/m_s}$~\cite{gatto1968} and its extension to the full Cabibbo angle via quadrature $V_{us}=\sqrt{m_d/m_s+m_u/m_c}$~\cite{fritzsch2000} are well known. The tribimaximal (TBM) ansatz for neutrino mixing~\cite{harrison2002} successfully predicted the approximate structure of the PMNS matrix before $\theta_{13}$ was measured. However, these relations have generally been treated as separate observations without a unifying geometric framework, and most require at least one fitted parameter.
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-In this paper we present a complete set of formulas for all eight mixing parameters (four CKM, four PMNS) that:
-\begin{enumerate}[nosep]
-  \item Contain zero free parameters---all inputs are measured fermion masses and the integer $d=3$.
-  \item Reproduce all observed mixing angles within experimental uncertainty.
-  \item Share a common geometric structure: mass ratios raised to a power determined by the dimensionality of the coupling boundary.
+\subsection{Abstract}\label{abstract}
+
+We present closed-form expressions for all four CKM parameters and all
+four PMNS parameters that reproduce the observed quark and lepton mixing
+matrices with zero free parameters. The CKM matrix is constructed in the
+standard PDG parametrization with angles theta\_12 =
+arcsin(sqrt(m\_d/m\_s + m\_u/m\_c)), theta\_23 =
+arcsin(sqrt(m\_u/m\_c)), theta\_13 = arcsin(sqrt(m\_u/m\_t)), and CP
+phase delta = arccos(5/12), yielding all nine matrix elements within 1.4
+sigma of PDG 2024 values (mean error 0.64\%). The PMNS matrix is
+obtained by applying a single geometric rotation R(theta, axis) to the
+tribimaximal mixing matrix, with theta = arcsin((m\_e/m\_mu)\^{}(1/3))
+and a rotation axis determined by lepton-to-proton mass ratios, yielding
+all three angles within 1 sigma of NuFIT 6.0 (normal ordering). The
+quark sector uses mass ratios raised to the 1/2 power (surface
+geometry), while the lepton sector uses the 1/3 power (bulk geometry).
+Both CP phases derive from the tetrahedral dihedral angle arccos(+/-1/3)
+in d = 3 dimensions, with the CKM phase receiving a boundary correction
+to arccos(5/12). The formulas require only measured fermion masses as
+input and contain no fitted or adjustable parameters. The geometric
+origin of these relations, within the framework of standing-wave modes
+on a three-dimensional lattice, is briefly discussed.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1. Introduction}\label{introduction}
+
+The Standard Model of particle physics contains 19 free parameters, of
+which 10 describe the quark and lepton mixing matrices: four CKM
+parameters (three angles and one CP phase) and four PMNS parameters
+(three angles and one CP phase), plus two neutrino mass-squared
+differences. These parameters are determined experimentally but have no
+theoretical explanation within the Standard Model itself.
+
+Several empirical relations between mixing angles and fermion mass
+ratios have been noted in the literature. The Gatto-Sartori-Tonin
+relation V\_us \textasciitilde{} sqrt(m\_d/m\_s) {[}1{]} and its
+extension to the full Cabibbo angle via quadrature V\_us =
+sqrt(m\_d/m\_s + m\_u/m\_c) {[}2{]} are well-known. The tribimaximal
+(TBM) ansatz for neutrino mixing {[}3{]} successfully predicted the
+approximate structure of the PMNS matrix before theta\_13 was measured.
+However, these relations have generally been treated as separate
+observations without a unifying geometric framework, and most require at
+least one fitted parameter.
+
+In this paper, we present a complete set of formulas for all eight
+mixing parameters (four CKM, four PMNS) that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Contain zero free parameters --- all inputs are measured fermion
+  masses and the integer d = 3.
+\item
+  Reproduce all observed mixing angles within experimental uncertainty.
+\item
+  Share a common geometric structure: mass ratios raised to a power
+  determined by the dimensionality of the coupling boundary.
 \end{enumerate}
 
-The key structural observation is that quark mixing angles involve mass ratios to the $\tfrac{1}{2}$ power, while lepton mixing angles involve mass ratios to the $\tfrac{1}{3}$ power. We interpret this as the difference between coupling at a $(d{-}1)=2$ dimensional surface (quarks, confined inside the proton) and coupling through $d=3$ dimensional bulk (leptons, which are free particles). Both CP-violating phases derive from the dihedral angle of a regular tetrahedron in three dimensions: $\arccos(1/3)$ for quarks (with a boundary correction) and $\arccos(-1/3)$ for leptons.
+The key structural observation is that quark mixing angles involve mass
+ratios to the 1/2 power, while lepton mixing angles involve mass ratios
+to the 1/3 power. We interpret this as the difference between coupling
+at a (d-1) = 2 dimensional surface (quarks, confined inside the proton)
+and coupling through d = 3 dimensional bulk (leptons, which are free
+particles). Both CP-violating phases derive from the dihedral angle of a
+regular tetrahedron in three dimensions: arccos(1/3) for quarks (with a
+boundary correction) and arccos(-1/3) for leptons.
 
-% ══════════════════════════════════════════════════════════════
-\section{Framework}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{Lattice foundation}
+\subsection{2. Framework}\label{framework}
 
-The formulas presented here arise from a framework called Geometric Wave Theory (GWT), in which fundamental particles are standing-wave modes (breathers) of a sine-Gordon field on a $d$-dimensional cubic lattice with Planck spacing. The Lagrangian density is
-\begin{equation}
-  \mathcal{L} = \sum_{\langle i,j\rangle}\left[\,\tfrac{1}{2}(\phi_i-\phi_j)^2
-    + \frac{1}{\pi^2}\bigl(1-\cos(\pi\,\phi_i)\bigr)\right],
-  \label{eq:lagrangian}
-\end{equation}
-where $\phi_i$ is the displacement field at lattice site~$i$ and the sum runs over nearest neighbors. This lattice has a single structural input: the spatial dimension $d=3$. From its breather spectrum and tunneling amplitudes, all fermion masses are determined by
-\begin{equation}
-  m(n,p) = \frac{16}{\pi^2}\,\sin(n\gamma)\,e^{-16p/\pi^2}\,m_{\mathrm{Planck}}\,,
-  \label{eq:mass}
-\end{equation}
-where $\gamma=\pi/(16\pi-2)$ is the breather coupling, $n$ is the harmonic mode number (an integer from 1 to $N=d\cdot 2^d=24$), and $p$ is the tunneling depth. Both $n$ and~$p$ are integers determined by lattice symmetry.
+\subsubsection{2.1 Lattice foundation}\label{lattice-foundation}
 
-The nine charged fermion masses predicted by this formula, with specific $(n,p)$ assignments derived from the lattice harmonic structure, agree with observation to a mean accuracy of 1.5\%~\cite{sturm2026}. These masses serve as inputs to the mixing angle formulas below. For transparency, we present results using GWT-predicted masses, so that the mixing formulas can be evaluated independently of the mass predictions.
+The formulas presented here arise from a framework called Geometric Wave
+Theory (GWT), in which fundamental particles are standing-wave modes
+(breathers) of a sine-Gordon field on a d-dimensional cubic lattice with
+Planck spacing. The Lagrangian density is:
 
-\subsection{Surface vs.\ bulk geometry}
+\begin{verbatim}
+L = sum_{<i,j>} [ (1/2)(phi_i - phi_j)^2 + (1/pi^2)(1 - cos(pi * phi_i)) ]
+\end{verbatim}
 
-A central distinction in this framework is between particles that are confined inside a topological defect (the proton, modeled as a kink on the lattice) and particles that propagate freely on the full lattice.
+where phi\_i is the displacement field at lattice site i and the sum
+runs over nearest neighbors. This lattice has a single structural input:
+the spatial dimension d = 3. From its breather spectrum and tunneling
+amplitudes, all fermion masses are determined by:
 
-\begin{itemize}[nosep]
-  \item \textbf{Quarks} are confined within the proton. Their weak-interaction coupling occurs at the proton's $(d{-}1)=2$ dimensional boundary. Overlap integrals between standing-wave modes on a 2D surface yield amplitudes proportional to $(m_i/m_j)^{1/(d-1)}=(m_i/m_j)^{1/2}$.
-  \item \textbf{Leptons} are free particles extending through the full $d=3$ dimensional lattice. Their mixing amplitudes scale as $(m_i/m_j)^{1/d}=(m_i/m_j)^{1/3}$.
+\begin{verbatim}
+m(n, p) = (16/pi^2) * sin(n * gamma) * exp(-16p/pi^2) * m_Planck
+\end{verbatim}
+
+where gamma = pi/(16\emph{pi - 2) is the breather coupling, n is the
+harmonic mode number (an integer from 1 to N = d } 2\^{}d = 24), and p
+is the tunneling depth. Both n and p are integers determined by lattice
+symmetry.
+
+The nine charged fermion masses predicted by this formula, with specific
+(n, p) assignments derived from the lattice harmonic structure, agree
+with observation to a mean accuracy of 1.5\% {[}4{]}. These masses serve
+as inputs to the mixing angle formulas below. For transparency, we
+present results using both GWT-predicted masses and PDG experimental
+masses, so that the mixing formulas can be evaluated independently of
+the mass predictions.
+
+\subsubsection{2.2 Surface vs.~bulk
+geometry}\label{surface-vs.-bulk-geometry}
+
+A central distinction in this framework is between particles that are
+confined inside a topological defect (the proton, modeled as a kink on
+the lattice) and particles that propagate freely on the full lattice.
+
+\begin{itemize}
+\item
+  \textbf{Quarks} are confined within the proton. Their weak-interaction
+  coupling occurs at the proton's (d-1) = 2 dimensional boundary.
+  Overlap integrals between standing-wave modes on a 2D surface yield
+  amplitudes proportional to (m\_i/m\_j)\^{}(1/(d-1)) =
+  (m\_i/m\_j)\^{}(1/2).
+\item
+  \textbf{Leptons} are free particles extending through the full d = 3
+  dimensional lattice. Their mixing amplitudes scale as
+  (m\_i/m\_j)\^{}(1/d) = (m\_i/m\_j)\^{}(1/3).
 \end{itemize}
 
-This distinction---square root for quarks, cube root for leptons---is the single structural difference between the CKM and PMNS derivations.
+This distinction --- square root for quarks, cube root for leptons ---
+is the single structural difference between the CKM and PMNS
+derivations.
 
-\subsection{Tetrahedral geometry and CP phases}
+\subsubsection{2.3 Tetrahedral geometry and CP
+phases}\label{tetrahedral-geometry-and-cp-phases}
 
-The regular tetrahedron is the unique symmetric solid in $d=3$ dimensions with $d+1=4$ vertices. Its dihedral angle is $\arccos(1/d)=\arccos(1/3)\approx 70.53^\circ$. In the lattice framework, the four vertices correspond to the four possible orientations of a kink defect in the $d$-cube, and CP violation arises from the chirality of wave propagation around these vertices.
+The regular tetrahedron is the unique symmetric solid in d = 3
+dimensions with d + 1 = 4 vertices. Its dihedral angle is arccos(1/d) =
+arccos(1/3) = 70.53 degrees. In the lattice framework, the four vertices
+correspond to the four possible orientations of a kink defect in the
+d-cube, and CP violation arises from the chirality of wave propagation
+around these vertices.
 
 The two CP phases are:
-\begin{align}
-  \delta_{\mathrm{PMNS}} &= \arccos(-1/d) = \arccos(-1/3) \approx 109.47^\circ
-    &&\text{(bulk, negative handedness)}\,,
-    \label{eq:delta_pmns}\\[4pt]
-  \delta_{\mathrm{CKM}} &= \arccos\!\left(\frac{d+2}{d(d+1)}\right) = \arccos(5/12) \approx 65.38^\circ
-    &&\text{(surface-corrected)}\,.
-    \label{eq:delta_ckm}
-\end{align}
-The CKM correction shifts $\cos\delta$ from $1/3$ to $5/12 = 1/3+1/12$. The additional $1/\bigl(d(d{-}1)^2\bigr)=1/12$ term arises because quark mixing occurs at the $(d{-}1)$-dimensional boundary of the proton, adding a surface contribution to the bulk dihedral angle.
 
-% ══════════════════════════════════════════════════════════════
-\section{CKM Matrix}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{PMNS}: delta\_PMNS = arccos(-1/d) = arccos(-1/3) = 109.47
+  degrees (bulk, negative handedness)
+\item
+  \textbf{CKM}: delta\_CKM = arccos((d+2)/(d(d+1))) = arccos(5/12) =
+  65.38 degrees (surface-corrected, positive handedness)
+\end{itemize}
 
-\subsection{Construction}
+The CKM correction shifts cos(delta) from 1/3 to 5/12 = 1/3 + 1/12. The
+additional 1/(d(d-1)\^{}2) = 1/12 term arises because quark mixing
+occurs at the (d-1)-dimensional boundary of the proton, adding a surface
+contribution to the bulk dihedral angle.
 
-The CKM matrix is constructed in the standard PDG parametrization~\cite{pdg2024}:
-\begin{equation}
-  V_{\mathrm{CKM}} = R_{23}(\theta_{23})\;R_{13}(\theta_{13},\delta)\;R_{12}(\theta_{12})\,,
-  \label{eq:ckm_construction}
-\end{equation}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3. CKM Matrix}\label{ckm-matrix}
+
+\subsubsection{3.1 Construction}\label{construction}
+
+The CKM matrix is constructed in the standard PDG parametrization:
+
+\begin{verbatim}
+V_CKM = R_23(theta_23) * R_13(theta_13, delta) * R_12(theta_12)
+\end{verbatim}
+
 with four geometric parameters:
-\begin{equation}
-\boxed{\;
-\begin{aligned}
-  \theta_{12} &= \arcsin\!\sqrt{\frac{m_d}{m_s}+\frac{m_u}{m_c}}
-    &&= 12.957^\circ\,,\\[4pt]
-  \theta_{23} &= \arcsin\!\sqrt{\frac{m_u}{m_c}}
-    &&= 2.392^\circ\,,\\[4pt]
-  \theta_{13} &= \arcsin\!\sqrt{\frac{m_u}{m_t}}
-    &&= 0.203^\circ\,,\\[4pt]
-  \delta &= \arccos\!\left(\frac{5}{12}\right)
-    &&= 65.376^\circ\,.
-\end{aligned}
-\;}
-\label{eq:ckm_angles}
-\end{equation}
 
-The $\theta_{12}$ formula is the well-known quadrature relation: the down-type and up-type sectors contribute perpendicular rotations in flavor space, so their squares add: $\sin^2\theta_{12}=m_d/m_s+m_u/m_c$. The $\theta_{23}$ formula identifies $|V_{cb}|$ with the ``up-type Cabibbo angle'' $\sqrt{m_u/m_c}$. The $\theta_{13}$ formula gives $|V_{ub}|$ as the direct 1--3 surface overlap $\sqrt{m_u/m_t}$.
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Parameter & Formula & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+theta\_12 & arcsin(sqrt(m\_d/m\_s + m\_u/m\_c)) & 12.957 degrees \\
+theta\_23 & arcsin(sqrt(m\_u/m\_c)) & 2.392 degrees \\
+theta\_13 & arcsin(sqrt(m\_u/m\_t)) & 0.203 degrees \\
+delta & arccos(5/12) & 65.376 degrees \\
+\end{longtable}
+}
 
-\subsection{Results}
+The theta\_12 formula is the well-known quadrature relation: the
+down-type and up-type sectors contribute perpendicular rotations in
+flavor space, so their squares add: sin\^{}2(theta\_12) = m\_d/m\_s +
+m\_u/m\_c.~The theta\_23 formula identifies V\_cb with the ``up-type
+Cabibbo angle'' sqrt(m\_u/m\_c). The theta\_13 formula gives V\_ub as
+the direct 1-3 surface overlap sqrt(m\_u/m\_t).
 
-Using GWT quark masses ($m_u=2.214$, $m_d=4.783$, $m_s=98.56$, $m_c=1271$, $m_b=4312$, $m_t=176{,}547$~MeV):
+\subsubsection{3.2 Results}\label{results}
 
-\begin{table}[h]
-\centering
-\caption{CKM matrix elements: GWT prediction vs.\ PDG~2024.}
-\label{tab:ckm}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Element & Predicted & PDG 2024 & Uncertainty & Pull ($\sigma$)\\
-\midrule
-$|V_{ud}|$ & 0.97453 & 0.97435 & 0.00016 & $+1.1$\\
-$|V_{us}|$ & 0.22422 & 0.22500 & 0.00067 & $-1.2$\\
-$|V_{ub}|$ & 0.003541 & 0.00369 & 0.00011 & $-1.4$\\
-$|V_{cd}|$ & 0.22408 & 0.22486 & 0.00067 & $-1.2$\\
-$|V_{cs}|$ & 0.97368 & 0.97349 & 0.00016 & $+1.2$\\
-$|V_{cb}|$ & 0.04173 & 0.04182 & 0.00085 & $-0.1$\\
-$|V_{td}|$ & 0.00852 & 0.00857 & 0.00020 & $-0.3$\\
-$|V_{ts}|$ & 0.04101 & 0.04110 & 0.00085 & $-0.1$\\
-$|V_{tb}|$ & 0.99912 & 0.99912 & 0.00004 & $+0.1$\\
-\midrule
-\multicolumn{4}{@{}l}{Mean $|\text{error}|$: 0.64\%.\ Maximum pull: $1.4\,\sigma$\ ($V_{ub}$).} & \\
-\bottomrule
-\end{tabular}
-\end{table}
+Using GWT quark masses (m\_u = 2.214, m\_d = 4.783, m\_s = 98.56, m\_c =
+1271, m\_b = 4312, m\_t = 176547 MeV):
 
-Unitarity is exact by construction. The Jarlskog invariant, which measures the overall strength of CP violation, is
-\begin{equation}
-  J = \operatorname{Im}\!\bigl(V_{ud}\,V_{cs}\,V_{us}^*\,V_{cd}^*\bigr)
-    = 2.93\times 10^{-5}\,,
-\end{equation}
-compared to the observed value $J=(3.08\pm 0.13)\times 10^{-5}$, a deviation of $-4.8\%$.
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Element & Predicted & PDG 2024 & Uncertainty & Pull (sigma) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+V\_ud & 0.97453 & 0.97435 & 0.00016 & +1.1 \\
+V\_us & 0.22422 & 0.22500 & 0.00067 & -1.2 \\
+V\_ub & 0.003541 & 0.00369 & 0.00011 & -1.4 \\
+V\_cd & 0.22408 & 0.22486 & 0.00067 & -1.2 \\
+V\_cs & 0.97368 & 0.97349 & 0.00016 & +1.2 \\
+V\_cb & 0.04173 & 0.04182 & 0.00085 & -0.1 \\
+V\_td & 0.00852 & 0.00857 & 0.00020 & -0.3 \\
+V\_ts & 0.04101 & 0.04110 & 0.00085 & -0.1 \\
+V\_tb & 0.99912 & 0.99912 & 0.00004 & +0.1 \\
+\end{longtable}
+}
 
-\subsection{Comparison with previous formulas}
+Mean \textbar error\textbar: 0.64\%. Maximum pull: 1.4 sigma (V\_ub).
+Unitarity is exact by construction.
 
-The formula $|V_{cb}|=\sqrt{m_u/m_c}$ replaces the previous Wolfenstein parametrization $V_{cb}=A\lambda^2$ with $A=\sqrt{2/3}$. Both give sub-percent accuracy, but the new formula is simpler (one mass ratio vs.\ a composite expression) and eliminates the need for the Wolfenstein amplitude~$A$ as a separate geometric input. The $V_{us}$ quadrature formula and $|V_{ub}|=\sqrt{m_u/m_t}$ are unchanged from earlier work~\cite{fritzsch1977,fritzsch2000}.
+The Jarlskog invariant, which measures the overall strength of CP
+violation:
 
-% ══════════════════════════════════════════════════════════════
-\section{PMNS Matrix}
+\begin{verbatim}
+J = Im(V_ud * V_cs * V_us* * V_cd*) = 2.93 x 10^-5
+\end{verbatim}
 
-\subsection{Construction}
+Observed: J = (3.08 +/- 0.13) x 10\^{}-5. Deviation: -4.8\%.
 
-The PMNS matrix is obtained by applying a single rotation to the tribimaximal (TBM) base:
-\begin{equation}
-  U_{\mathrm{PMNS}} = R(\theta_{\mathrm{corr}},\,\hat{n})\;\times\;U_{\mathrm{TBM}}\,,
-  \label{eq:pmns_construction}
-\end{equation}
-where $U_{\mathrm{TBM}}$ is the Harrison--Perkins--Scott tribimaximal matrix~\cite{harrison2002}:
-\begin{equation}
-  U_{\mathrm{TBM}} = \begin{pmatrix}
-    \sqrt{2/3}  & 1/\sqrt{3}  & 0 \\[2pt]
-    -1/\sqrt{6} & 1/\sqrt{3}  & 1/\sqrt{2} \\[2pt]
-    1/\sqrt{6}  & -1/\sqrt{3} & 1/\sqrt{2}
-  \end{pmatrix}.
-  \label{eq:tbm}
-\end{equation}
+\subsubsection{3.3 Comparison with previous
+formulas}\label{comparison-with-previous-formulas}
+
+The formula V\_cb = sqrt(m\_u/m\_c) replaces the previous Wolfenstein
+parametrization V\_cb = A * lambda\^{}2 with A = sqrt(2/3). Both give
+sub-percent accuracy, but the new formula is simpler (one mass ratio
+vs.~a composite expression) and eliminates the need for the Wolfenstein
+amplitude A as a separate geometric input. The V\_us quadrature formula
+and V\_ub = sqrt(m\_u/m\_t) are unchanged from earlier work {[}2, 5{]}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{4. PMNS Matrix}\label{pmns-matrix}
+
+\subsubsection{4.1 Construction}\label{construction-1}
+
+The PMNS matrix is obtained by applying a single rotation to the
+tribimaximal (TBM) base:
+
+\begin{verbatim}
+U_PMNS = R(theta_corr, n_hat) * U_TBM
+\end{verbatim}
+
+where U\_TBM is the Harrison-Perkins-Scott tribimaximal matrix {[}3{]}:
+
+\begin{verbatim}
+U_TBM = | sqrt(2/3)   1/sqrt(3)   0        |
+        | -1/sqrt(6)  1/sqrt(3)   1/sqrt(2) |
+        | 1/sqrt(6)   -1/sqrt(3)  1/sqrt(2) |
+\end{verbatim}
 
 The correction parameters are:
-\begin{equation}
-\boxed{\;
-\begin{aligned}
-  \theta_{\mathrm{corr}} &= \arcsin\!\left(\frac{m_e}{m_\mu}\right)^{\!1/3}
-    = 9.74^\circ\,,\\[6pt]
-  \hat{n} &= \frac{\bigl(-1,\;\sqrt{3},\;-(m_\tau/m_p)^{1/3}\bigr)}
-    {\bigl|\bigl(-1,\;\sqrt{3},\;-(m_\tau/m_p)^{1/3}\bigr)\bigr|}\,.
-\end{aligned}
-\;}
-\label{eq:pmns_params}
-\end{equation}
 
-The correction angle uses the cube root ($1/d=1/3$, bulk geometry) of the electron-to-muon mass ratio. The rotation axis has components $(-1,\sqrt{3})$ in the TBM degenerate subspace, with a third component proportional to the tau-to-proton mass ratio raised to the $1/3$ power. This wrapping factor $(m_\tau/m_p)^{1/3}$ accounts for the tau lepton's standing-wave extent relative to the proton's.
+\begin{verbatim}
+theta_corr = arcsin((m_e / m_mu)^(1/3)) = 9.74 degrees
 
-\subsection{Results}
+n_hat = (-1, sqrt(3), -(m_tau/m_p)^(1/3)) / |(-1, sqrt(3), -(m_tau/m_p)^(1/3))|
+\end{verbatim}
 
-Using physical lepton masses ($m_e=0.51100$, $m_\mu=105.658$, $m_\tau=1776.86$, $m_p=938.272$~MeV):
+The correction angle uses the cube root (1/d = 1/3, bulk geometry) of
+the electron-to-muon mass ratio. The rotation axis has components (-1,
+sqrt(3)) in the TBM degenerate subspace, with a third component
+proportional to the tau-to-proton mass ratio raised to the 1/3 power.
+This wrapping factor (m\_tau/m\_p)\^{}(1/3) accounts for the tau
+lepton's standing-wave extent relative to the proton's.
 
-\begin{table}[h]
-\centering
-\caption{PMNS mixing angles: GWT prediction vs.\ NuFIT~6.0 (normal ordering).}
-\label{tab:pmns}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Angle & Predicted & NuFIT 6.0 & Uncertainty & Pull ($\sigma$)\\
-\midrule
-$\theta_{12}$ (solar)       & $33.49^\circ$ & $33.41^\circ$ & $0.78^\circ$ & $+0.1$\\
-$\theta_{23}$ (atmospheric) & $49.28^\circ$ & $49.20^\circ$ & $1.05^\circ$ & $+0.1$\\
-$\theta_{13}$ (reactor)     & $8.63^\circ$  & $8.57^\circ$  & $0.12^\circ$ & $+0.5$\\
-\midrule
-\multicolumn{4}{@{}l}{Mean pull: $0.2\,\sigma$.\ All three angles within $1\,\sigma$.} & \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsubsection{4.2 Results}\label{results-1}
+
+Using physical lepton masses (m\_e = 0.51100, m\_mu = 105.658, m\_tau =
+1776.86, m\_p = 926.5 MeV (GWT: 6\emph{pi\^{}5}m\_e)):
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1129}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1774}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2742}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2097}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2258}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Angle
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Predicted
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+NuFIT 6.0 (NO)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Uncertainty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Pull (sigma)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+theta\_12 (solar) & 33.49 degrees & 33.41 degrees & 0.78 degrees &
++0.1 \\
+theta\_23 (atmospheric) & 49.28 degrees & 49.20 degrees & 1.05 degrees &
++0.1 \\
+theta\_13 (reactor) & 8.63 degrees & 8.57 degrees & 0.12 degrees &
++0.5 \\
+\end{longtable}
+}
+
+Mean pull: 0.2 sigma. All three angles within 1 sigma.
 
 The PMNS CP phase is the bare tetrahedral dihedral angle:
-\begin{equation}
-  \delta_{\mathrm{PMNS}} = \arccos(-1/3) \approx 109.47^\circ\,.
-\end{equation}
-The experimental value is poorly constrained ($\sim\!180^\circ$--$270^\circ$, NuFIT~6.0). The prediction is consistent with current data.
 
-\subsection{Structural comparison: CKM vs.\ PMNS}
+\begin{verbatim}
+delta_PMNS = arccos(-1/3) = 109.47 degrees
+\end{verbatim}
 
-\begin{table}[h]
-\centering
-\caption{Structural comparison of the CKM and PMNS constructions.}
-\label{tab:comparison}
-\begin{tabular}{@{}lll@{}}
-\toprule
-Feature & CKM (quarks) & PMNS (leptons) \\
-\midrule
-Power law    & $1/2$ (surface)                   & $1/3$ (bulk)\\
-Base matrix  & Identity (small mixing)           & TBM (large mixing)\\
-Correction   & Mass ratios set all angles        & Single rotation corrects TBM\\
-CP phase     & $\arccos(5/12)=65.4^\circ$        & $\arccos(-1/3)=109.5^\circ$\\
-Confinement  & All quarks inside proton           & Leptons free on lattice\\
-\bottomrule
-\end{tabular}
-\end{table}
+The experimental value is poorly constrained: approximately 180 to 270
+degrees (NuFIT 6.0). The prediction is consistent with current data.
 
-The CKM angles are small because quark mass ratios $m_{\mathrm{light}}/m_{\mathrm{heavy}}$ are small---the three generation modes are nearly orthogonal. The PMNS angles are large because the neutrino sector starts from a democratic (TBM) base---the three modes couple nearly equally. The charged-lepton correction is small (${\sim}10^\circ$) because $m_e/m_\mu$ is small.
+\subsubsection{4.3 Structural comparison: CKM
+vs.~PMNS}\label{structural-comparison-ckm-vs.-pmns}
 
-% ══════════════════════════════════════════════════════════════
-\section{Discussion}
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2368}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3421}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4211}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Feature
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+CKM (quarks)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+PMNS (leptons)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Power law & 1/2 (surface) & 1/3 (bulk) \\
+Base matrix & Identity (small mixing) & TBM (large mixing) \\
+Correction & Mass ratios set all angles & Single rotation corrects
+TBM \\
+CP phase & arccos(5/12) = 65.4 degrees & arccos(-1/3) = 109.5 degrees \\
+Confinement & All quarks inside proton & Leptons free on lattice \\
+\end{longtable}
+}
 
-\subsection{What is derived vs.\ what is assumed}
+The CKM angles are small because quark mass ratios m\_light/m\_heavy are
+small --- the three generation modes are nearly orthogonal. The PMNS
+angles are large because the neutrino sector starts from a democratic
+(TBM) base --- the three modes couple nearly equally. The charged-lepton
+correction is small (10 degrees) because m\_e/m\_mu is small.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{5. Discussion}\label{discussion}
+
+\subsubsection{5.1 What is derived vs.~what is
+assumed}\label{what-is-derived-vs.-what-is-assumed}
 
 The formulas presented here require the following inputs:
-\begin{itemize}[nosep]
-  \item $d=3$ spatial dimensions (determines the $1/2$ and $1/3$ powers, the tetrahedral angle, and the boundary correction).
-  \item Fermion masses (either GWT-predicted or experimentally measured).
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{d = 3} spatial dimensions (determines the 1/2 and 1/3 powers,
+  the tetrahedral angle, and the boundary correction).
+\item
+  \textbf{Fermion masses} (either GWT-predicted or experimentally
+  measured).
 \end{itemize}
 
-They do \emph{not} require:
-\begin{itemize}[nosep]
-  \item Any fitted parameters.
-  \item Any choice of ansatz beyond the PDG parametrization (CKM) and TBM base (PMNS).
-  \item Any assumptions about the underlying dynamics beyond ``quarks couple at surfaces, leptons couple in bulk.''
+They do not require:
+
+\begin{itemize}
+\tightlist
+\item
+  Any fitted parameters.
+\item
+  Any choice of ansatz beyond the PDG parametrization (CKM) and TBM base
+  (PMNS).
+\item
+  Any assumptions about the underlying dynamics beyond ``quarks couple
+  at surfaces, leptons couple in bulk.''
 \end{itemize}
 
-The surface/bulk distinction is the single structural choice. It is motivated by the confinement of quarks inside hadrons versus the free propagation of leptons, which is an observed physical fact, not a model assumption.
+The surface/bulk distinction is the single structural choice. It is
+motivated by the confinement of quarks inside hadrons versus the free
+propagation of leptons, which is an observed physical fact, not a model
+assumption.
 
-\subsection{Relation to existing work}
+\subsubsection{5.2 Relation to existing
+work}\label{relation-to-existing-work}
 
-The Gatto--Sartori--Tonin relation $V_{us}\sim\sqrt{m_d/m_s}$ and its quadrature extension are well established~\cite{gatto1968,fritzsch2000}. The identification $|V_{cb}|=\sqrt{m_u/m_c}$ appears to be new to this work. The TBM correction by a single rotation has been explored in various forms~\cite{king2013,altarelli2010}, but the specific axis formula using $(m_\tau/m_p)^{1/3}$ and the connection to lattice wrapping is new.
+The Gatto-Sartori-Tonin relation V\_us \textasciitilde{} sqrt(m\_d/m\_s)
+and its quadrature extension are well-established {[}1, 2{]}. The
+identification V\_cb = sqrt(m\_u/m\_c) appears to be new to this work.
+The TBM correction by a single rotation has been explored in various
+forms {[}6, 7{]}, but the specific axis formula using
+(m\_tau/m\_p)\^{}(1/3) and the connection to lattice wrapping is new.
 
-The tetrahedral origin of CP phases has been discussed in discrete symmetry models~\cite{varzielas2012}, but the specific formula $\cos\delta_{\mathrm{CKM}}=5/12$ with its boundary correction interpretation appears to be new.
+The tetrahedral origin of CP phases has been discussed in discrete
+symmetry models {[}8{]}, but the specific formula cos(delta\_CKM) = 5/12
+with its boundary correction interpretation appears to be new.
 
-\subsection{Predictions and tests}
+\subsubsection{5.3 Predictions and tests}\label{predictions-and-tests}
 
 The framework makes several testable predictions:
 
-\begin{enumerate}[nosep]
-  \item \textbf{PMNS CP phase}: $\delta_{\mathrm{PMNS}}=109.5^\circ$. Current data from T2K and NOvA are consistent but imprecise. DUNE and Hyper-Kamiokande will measure this to $\sim\!5$--$10^\circ$ precision within the next decade.
-
-  \item \textbf{Sensitivity to mass measurements}: Because all mixing angles are algebraic functions of mass ratios, improved quark mass measurements will sharpen the predictions. The largest current uncertainty comes from $|V_{ub}|$, which depends on $\sqrt{m_u/m_t}$. The up quark mass has $\sim\!30\%$ experimental uncertainty, which propagates to $\sim\!15\%$ uncertainty in~$|V_{ub}|$.
-
-  \item \textbf{No new parameters}: If additional mixing parameters are ever measured (e.g., sterile neutrino mixing), the framework predicts they must also be expressible as mass ratios raised to integer-reciprocal powers of~$d$.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{PMNS CP phase}: delta\_PMNS = 109.5 degrees. Current data from
+  T2K and NOvA are consistent but imprecise. DUNE and Hyper-Kamiokande
+  will measure this to approximately 5-10 degrees precision within the
+  next decade.
+\item
+  \textbf{Sensitivity to mass measurements}: Because all mixing angles
+  are algebraic functions of mass ratios, improved quark mass
+  measurements will sharpen the predictions. The largest current
+  uncertainty comes from V\_ub, which depends on sqrt(m\_u/m\_t). The up
+  quark mass has approximately 30\% experimental uncertainty, which
+  propagates to approximately 15\% uncertainty in V\_ub.
+\item
+  \textbf{No new parameters}: If additional mixing parameters are ever
+  measured (e.g., sterile neutrino mixing), the framework predicts they
+  must also be expressible as mass ratios raised to integer-reciprocal
+  powers of d.
 \end{enumerate}
 
-\subsection{Limitations}
+\subsubsection{5.4 Limitations}\label{limitations}
 
-The geometric origin of the formulas is motivated by the lattice framework (Section~2) but not rigorously derived from first principles. The connection between standing-wave overlap integrals and the specific mass-ratio powers ($1/2$, $1/3$) is plausible but has not been proven at the level of mathematical rigor expected of a fundamental theory. Similarly, the boundary correction to the CKM CP phase ($1/3\to 5/12$) has a clear geometric interpretation but awaits a formal derivation.
+The geometric origin of the formulas is motivated by the lattice
+framework (Section 2) but not rigorously derived from first principles.
+The connection between standing-wave overlap integrals and the specific
+mass-ratio powers (1/2, 1/3) is plausible but has not been proven at the
+level of mathematical rigor expected of a fundamental theory. Similarly,
+the boundary correction to the CKM CP phase (1/3 to 5/12) has a clear
+geometric interpretation but awaits a formal derivation.
 
-This paper intentionally presents the formulas as empirical relations that work, alongside a geometric framework that motivates them. The fact that eight parameters spanning six orders of magnitude are reproduced from zero free parameters is, in our view, sufficient to merit attention regardless of the theoretical framework's completeness.
+This paper intentionally presents the formulas as empirical relations
+that work, alongside a geometric framework that motivates them. The fact
+that eight parameters spanning six orders of magnitude are reproduced
+from zero free parameters is, in our view, sufficient to merit attention
+regardless of the theoretical framework's completeness.
 
-% ══════════════════════════════════════════════════════════════
-\section{Summary}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Eight mixing parameters of the Standard Model---four CKM and four PMNS---are reproduced from closed-form expressions involving only fermion mass ratios and the spatial dimension $d=3$. The CKM matrix achieves 0.64\% mean accuracy across all nine elements (maximum pull $1.4\,\sigma$). The PMNS angles are all within $1\,\sigma$ of observation. Both CP phases derive from the tetrahedral dihedral angle in three dimensions. No parameters are fitted.
+\subsection{6. Summary}\label{summary}
 
-The structural distinction between the two sectors---square root (surface) for quarks, cube root (bulk) for leptons---reflects the observed physics of confinement. These results suggest that the flavor structure of the Standard Model may have a geometric origin in the dimensionality of space.
+Eight mixing parameters of the Standard Model --- four CKM and four PMNS
+--- are reproduced from closed-form expressions involving only fermion
+mass ratios and the spatial dimension d = 3. The CKM matrix achieves
+0.64\% mean accuracy across all nine elements (maximum pull 1.4 sigma).
+The PMNS angles are all within 1 sigma of observation. Both CP phases
+derive from the tetrahedral dihedral angle in three dimensions. No
+parameters are fitted.
 
-% ══════════════════════════════════════════════════════════════
-\begin{thebibliography}{99}
+The structural distinction between the two sectors --- square root
+(surface) for quarks, cube root (bulk) for leptons --- reflects the
+observed physics of confinement. These results suggest that the flavor
+structure of the Standard Model may have a geometric origin in the
+dimensionality of space.
 
-\bibitem{gatto1968}
-R.~Gatto, G.~Sartori and M.~Tonin,
-``Weak self-masses, Cabibbo angle, and broken $SU(2)\times SU(2)$,''
-Phys.\ Lett.\ B \textbf{28}, 128 (1968).
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\bibitem{fritzsch2000}
-H.~Fritzsch and Z.~Xing,
-``Mass and flavor mixing schemes of quarks and leptons,''
-Prog.\ Part.\ Nucl.\ Phys.\ \textbf{45}, 1 (2000).
+\subsection{References}\label{references}
 
-\bibitem{harrison2002}
-P.\,F.~Harrison, D.\,H.~Perkins and W.\,G.~Scott,
-``Tri-bimaximal mixing and the neutrino oscillation data,''
-Phys.\ Lett.\ B \textbf{530}, 167 (2002).
+{[}1{]} R. Gatto, G. Sartori, M. Tonin, ``Weak self-masses, Cabibbo
+angle, and broken SU(2) x SU(2),'' Phys. Lett. B 28, 128 (1968).
 
-\bibitem{sturm2026}
-J.\,D.~Wollenberg,
-``Geometric Wave Theory: Fermion Mass Spectrum from Lattice Breathers,''
-Zenodo (2026). [To appear]
+{[}2{]} H. Fritzsch, Z. Xing, ``Mass and flavor mixing schemes of quarks
+and leptons,'' Prog. Part. Nucl. Phys. 45, 1 (2000).
 
-\bibitem{fritzsch1977}
-H.~Fritzsch,
-``Calculating the Cabibbo angle,''
-Phys.\ Lett.\ B \textbf{70}, 436 (1977).
+{[}3{]} P.F. Harrison, D.H. Perkins, W.G. Scott, ``Tri-bimaximal mixing
+and the neutrino oscillation data,'' Phys. Lett. B 530, 167 (2002).
 
-\bibitem{king2013}
-S.\,F.~King and C.~Luhn,
-``Neutrino mass and mixing with discrete symmetry,''
-Rep.\ Prog.\ Phys.\ \textbf{76}, 056201 (2013).
+{[}4{]} J.D. Wollenberg, ``Geometric Wave Theory: Fermion Mass Spectrum
+from Lattice Breathers,'' Zenodo (2026). {[}To appear{]}
 
-\bibitem{altarelli2010}
-G.~Altarelli and F.~Feruglio,
-``Discrete flavor symmetries and models of neutrino mixing,''
-Rev.\ Mod.\ Phys.\ \textbf{82}, 2701 (2010).
+{[}5{]} H. Fritzsch, ``Calculating the Cabibbo angle,'' Phys. Lett. B
+70, 436 (1977).
 
-\bibitem{varzielas2012}
-I.~de~Medeiros~Varzielas and G.\,G.~Ross,
-``Discrete family symmetry, Higgs mediators and $\theta_{13}$,''
-JHEP \textbf{1212}, 041 (2012).
+{[}6{]} S.F. King, C. Luhn, ``Neutrino mass and mixing with discrete
+symmetry,'' Rep.~Prog. Phys. 76, 056201 (2013).
 
-\bibitem{pdg2024}
-R.\,L.~Workman \textit{et~al.} (Particle Data Group),
-``Review of Particle Physics,''
-Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+{[}7{]} G. Altarelli, F. Feruglio, ``Discrete flavor symmetries and
+models of neutrino mixing,'' Rev.~Mod. Phys. 82, 2701 (2010).
 
-\end{thebibliography}
+{[}8{]} I. de Medeiros Varzielas, G.G. Ross, ``Discrete family symmetry,
+Higgs mediators and theta\_13,'' JHEP 1212, 041 (2012).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\emph{Jonathan D. Wollenberg --- ORCID: 0009-0009-5872-9076}
+\emph{GitHub: https://github.com/S-t-u-r-m/geometric-wave-theory}
 
 \end{document}

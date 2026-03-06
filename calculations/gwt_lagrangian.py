@@ -345,7 +345,7 @@ for name, (n, p, obs_MeV, status, concern) in fermion_assignments.items():
 m_e = 0.51100  # MeV
 m_mu = 105.658
 m_tau = 1776.86
-m_p = 938.272
+m_p = 6 * np.pi**5 * m_fermion(16, 32)  # GWT m_p = 6*pi^5 * m_e_gwt = 926.5 MeV
 
 theta_PMNS_corr = np.arcsin((m_e / m_mu)**(1.0/d))  # correction angle
 # TBM base angles
