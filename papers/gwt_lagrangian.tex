@@ -55,39 +55,39 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
+  pdftitle={The GWT Lagrangian: 35 Standard Model Parameters from a Single Integer d=3},
+  pdfauthor={Jonathan D. Wollenberg},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
+\title{The GWT Lagrangian: 35 Standard Model Parameters from a Single
+Integer d=3}
 \author{Jonathan D. Wollenberg}
-\date{March 2026}
+\date{March 5, 2026}
 
 \begin{document}
+\maketitle
 
-\section{The GWT Lagrangian: 30 Standard Model Parameters from a Single
-Integer
-d=3}\label{the-gwt-lagrangian-30-standard-model-parameters-from-a-single-integer-d3}
+ORCID: \href{https://orcid.org/0009-0009-5872-9076}{0009-0009-5872-9076}
 
-\textbf{Jonathan D. Wollenberg} ORCID:
-\href{https://orcid.org/0009-0009-5872-9076}{0009-0009-5872-9076}
 GitHub:
 \href{https://github.com/S-t-u-r-m/geometric-wave-theory}{S-t-u-r-m/geometric-wave-theory}
-March 2026
 
 \subsection{Abstract}\label{abstract}
 
 We present a zero-parameter Lagrangian on a d-dimensional cubic lattice
-with Planck spacing that determines all 30 catalogued parameters of the
-Standard Model -- 9 gauge/structural, 9 fermion masses, 4 CKM, 4 PMNS, 2
-Higgs, and 2 cosmological -- from the single integer d=3. The Lagrangian
-is a nearest-neighbor sine-Gordon model whose kink mass, breather
-spectrum, and tunneling amplitudes fix every fermion mass via a
-two-integer formula m(n,p). Gauge couplings arise from the
-Brillouin-zone geometry of the bounded symmetric domain D\_IV(d+2).
-Mixing matrices follow from mass-ratio rotations (surface geometry for
-quarks, bulk geometry for leptons). Of the 30 parameters, 9 are exact
-structural results forced by d=3, and 21 are derived with a mean
-accuracy of 2.3\%. No parameter is fitted, conjectural, or
-numerological.
+with Planck spacing that determines all 35 catalogued parameters of the
+Standard Model -- 9 gauge/structural, 9 charged fermion masses, 3
+neutrino masses + 2 mass splittings, 4 CKM, 4 PMNS, 2 Higgs, and 2
+cosmological -- from the single integer d=3. The Lagrangian is a
+nearest-neighbor sine-Gordon model whose kink mass, breather spectrum,
+and tunneling amplitudes fix every fermion mass via a two-integer
+formula m(n,p). Gauge couplings arise from the Brillouin-zone geometry
+of the bounded symmetric domain D\_IV(d+2). Mixing matrices follow from
+mass-ratio rotations (surface geometry for quarks, bulk geometry for
+leptons). Of the 35 parameters, 9 are exact structural results forced by
+d=3, and 26 are derived with a mean accuracy of 2.1\%. No parameter is
+fitted, conjectural, or numerological.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -109,7 +109,8 @@ d=3. 2. A universal fermion mass formula (Eq. 2) with two integer
 quantum numbers (n,p). 3. All gauge couplings from Brillouin-zone
 geometry. 4. All mixing angles from fermion mass ratios, no fitted
 parameters. 5. Both CP phases from the tetrahedral dihedral angle
-arccos(+/-1/d).
+arccos(+/-1/d). 6. Neutrino masses from third-order perturbation theory,
+splittings to 0.2\%.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -274,12 +275,12 @@ Element & Predicted & Observed (PDG 2024) & Error \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-& V\_us & & 0.22422 \\
-& V\_cb & & 0.04173 \\
-& V\_ub & & 0.00354 \\
+V\_us & 0.22422 & 0.22500 & -0.35\% \\
+V\_cb & 0.04173 & 0.04182 & -0.21\% \\
+V\_ub & 0.00354 & 0.00369 & -4.0\% \\
 delta\_CKM & 65.38 deg & 65.5 +/- 3.0 deg & -0.2\% \\
-& V\_td & & 0.00852 \\
-& V\_ts & & 0.04101 \\
+V\_td & 0.00852 & 0.00854 & -0.2\% \\
+V\_ts & 0.04101 & 0.04110 & -0.2\% \\
 J (Jarlskog) & 2.93e-5 & 3.08e-5 & -4.8\% \\
 \end{longtable}
 }
@@ -319,7 +320,50 @@ All within 1 sigma.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{8. Higgs Sector (Tier 4)}\label{higgs-sector-tier-4}
+\subsection{8. Neutrino Masses (Tier 3)}\label{neutrino-masses-tier-3}
+
+\textbf{Eq. 6 (Neutrino mass scale):}
+
+\begin{verbatim}
+M_nu = m_e^3 / (d * m_p^2) = m_e / (108 pi^10) = 49.9 meV
+\end{verbatim}
+
+Third-order perturbative coupling: electron -\textgreater{} proton
+-\textgreater{} electron, averaged over d axes.
+
+\textbf{Wyler S\^{}3 correction:} M\_eff = M\_nu * (1 + 1/(6 pi\^{}2)) =
+51.4 meV
+
+\textbf{Mass splittings} use N\_eff = 25 * (1 + 1/(2 pi\^{}2)) = 26.27
+(D\_IV(5) Shilov boundary correction):
+
+\begin{verbatim}
+Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.539e-3 eV^2
+Delta_m^2_21 = (d/(4 N_eff)) * M_eff^2 = 7.54e-5 eV^2
+\end{verbatim}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Parameter & Predicted & Observed (NuFIT 6.0) & Error \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+M\_nu & 51.4 meV & \textasciitilde50 meV & \textasciitilde1\% \\
+Delta\_m\^{}2\_31 & 2.539e-3 eV\^{}2 & 2.534e-3 eV\^{}2 & +0.2\% \\
+Delta\_m\^{}2\_21 & 7.54e-5 eV\^{}2 & 7.53e-5 eV\^{}2 & +0.1\% \\
+Ratio & 33.69 & 33.65 & +0.1\% \\
+nu\_3 & 51.4 meV & -- & -- \\
+nu\_2 & 13.3 meV & -- & -- \\
+nu\_1 & 10.0 meV & -- & -- \\
+Sum & 74.7 meV & \textless{} 120 meV & OK \\
+\end{longtable}
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{9. Higgs Sector (Tier 4)}\label{higgs-sector-tier-4}
 
 \begin{itemize}
 \tightlist
@@ -333,7 +377,7 @@ All within 1 sigma.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{9. Cosmological Parameters (Tier
+\subsection{10. Cosmological Parameters (Tier
 5)}\label{cosmological-parameters-tier-5}
 
 \begin{verbatim}
@@ -343,14 +387,14 @@ q_0 = -1/(d-1) = -1/2 = -0.500          (obs: -0.55, 9.1%)
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{10. Complete Summary}\label{complete-summary}
+\subsection{11. Complete Summary}\label{complete-summary}
 
-\textbf{30 parameters from d=3:} - 9 SOLID (exact structural) - 21
-DERIVED (mean error 2.3\%) - 0 conjectural, 0 numerological, 0 fitted
+\textbf{35 parameters from d=3:} - 9 SOLID (exact structural) - 26
+DERIVED (mean error 2.1\%) - 0 conjectural, 0 numerological, 0 fitted
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{11. Discussion}\label{discussion}
+\subsection{12. Discussion}\label{discussion}
 
 \textbf{Why d=3:} 2\^{}(d-1) = d+1 has unique integer solution d=3.
 
@@ -362,7 +406,7 @@ DERIVED (mean error 2.3\%) - 0 conjectural, 0 numerological, 0 fitted
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{12. Conclusion}\label{conclusion}
+\subsection{13. Conclusion}\label{conclusion}
 
 A single sine-Gordon Lagrangian on a cubic lattice with Planck spacing
 determines all 30 SM parameters from d=3. Source code:

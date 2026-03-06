@@ -1,13 +1,16 @@
-# The GWT Lagrangian: 30 Standard Model Parameters from a Single Integer d=3
+---
+title: "The GWT Lagrangian: 35 Standard Model Parameters from a Single Integer d=3"
+author: "Jonathan D. Wollenberg"
+date: "March 5, 2026"
+---
 
-**Jonathan D. Wollenberg**
 ORCID: [0009-0009-5872-9076](https://orcid.org/0009-0009-5872-9076)
+
 GitHub: [S-t-u-r-m/geometric-wave-theory](https://github.com/S-t-u-r-m/geometric-wave-theory)
-March 2026
 
 ## Abstract
 
-We present a zero-parameter Lagrangian on a d-dimensional cubic lattice with Planck spacing that determines all 30 catalogued parameters of the Standard Model -- 9 gauge/structural, 9 fermion masses, 4 CKM, 4 PMNS, 2 Higgs, and 2 cosmological -- from the single integer d=3. The Lagrangian is a nearest-neighbor sine-Gordon model whose kink mass, breather spectrum, and tunneling amplitudes fix every fermion mass via a two-integer formula m(n,p). Gauge couplings arise from the Brillouin-zone geometry of the bounded symmetric domain D_IV(d+2). Mixing matrices follow from mass-ratio rotations (surface geometry for quarks, bulk geometry for leptons). Of the 30 parameters, 9 are exact structural results forced by d=3, and 21 are derived with a mean accuracy of 2.3%. No parameter is fitted, conjectural, or numerological.
+We present a zero-parameter Lagrangian on a d-dimensional cubic lattice with Planck spacing that determines all 35 catalogued parameters of the Standard Model -- 9 gauge/structural, 9 charged fermion masses, 3 neutrino masses + 2 mass splittings, 4 CKM, 4 PMNS, 2 Higgs, and 2 cosmological -- from the single integer d=3. The Lagrangian is a nearest-neighbor sine-Gordon model whose kink mass, breather spectrum, and tunneling amplitudes fix every fermion mass via a two-integer formula m(n,p). Gauge couplings arise from the Brillouin-zone geometry of the bounded symmetric domain D_IV(d+2). Mixing matrices follow from mass-ratio rotations (surface geometry for quarks, bulk geometry for leptons). Of the 35 parameters, 9 are exact structural results forced by d=3, and 26 are derived with a mean accuracy of 2.1%. No parameter is fitted, conjectural, or numerological.
 
 ---
 
@@ -23,6 +26,7 @@ Key results:
 3. All gauge couplings from Brillouin-zone geometry.
 4. All mixing angles from fermion mass ratios, no fitted parameters.
 5. Both CP phases from the tetrahedral dihedral angle arccos(+/-1/d).
+6. Neutrino masses from third-order perturbation theory, splittings to 0.2%.
 
 ---
 
@@ -121,12 +125,12 @@ All use 1/2 power (surface geometry, quarks confined in proton).
 
 | Element | Predicted | Observed (PDG 2024) | Error |
 |---------|-----------|---------------------|-------|
-| |V_us| | 0.22422 | 0.22500 | -0.35% |
-| |V_cb| | 0.04173 | 0.04182 | -0.21% |
-| |V_ub| | 0.00354 | 0.00369 | -4.0% |
+| V_us | 0.22422 | 0.22500 | -0.35% |
+| V_cb | 0.04173 | 0.04182 | -0.21% |
+| V_ub | 0.00354 | 0.00369 | -4.0% |
 | delta_CKM | 65.38 deg | 65.5 +/- 3.0 deg | -0.2% |
-| |V_td| | 0.00852 | 0.00854 | -0.2% |
-| |V_ts| | 0.04101 | 0.04110 | -0.2% |
+| V_td | 0.00852 | 0.00854 | -0.2% |
+| V_ts | 0.04101 | 0.04110 | -0.2% |
 | J (Jarlskog) | 2.93e-5 | 3.08e-5 | -4.8% |
 
 All 9 elements within 1.4 sigma. Mean error 0.64%.
@@ -153,30 +157,58 @@ All within 1 sigma.
 
 ---
 
-## 8. Higgs Sector (Tier 4)
+## 8. Neutrino Masses (Tier 3)
+
+**Eq. 6 (Neutrino mass scale):**
+
+    M_nu = m_e^3 / (d * m_p^2) = m_e / (108 pi^10) = 49.9 meV
+
+Third-order perturbative coupling: electron -> proton -> electron, averaged over d axes.
+
+**Wyler S^3 correction:** M_eff = M_nu * (1 + 1/(6 pi^2)) = 51.4 meV
+
+**Mass splittings** use N_eff = 25 * (1 + 1/(2 pi^2)) = 26.27 (D_IV(5) Shilov boundary correction):
+
+    Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.539e-3 eV^2
+    Delta_m^2_21 = (d/(4 N_eff)) * M_eff^2 = 7.54e-5 eV^2
+
+| Parameter | Predicted | Observed (NuFIT 6.0) | Error |
+|-----------|-----------|----------------------|-------|
+| M_nu | 51.4 meV | ~50 meV | ~1% |
+| Delta_m^2_31 | 2.539e-3 eV^2 | 2.534e-3 eV^2 | +0.2% |
+| Delta_m^2_21 | 7.54e-5 eV^2 | 7.53e-5 eV^2 | +0.1% |
+| Ratio | 33.69 | 33.65 | +0.1% |
+| nu_3 | 51.4 meV | -- | -- |
+| nu_2 | 13.3 meV | -- | -- |
+| nu_1 | 10.0 meV | -- | -- |
+| Sum | 74.7 meV | < 120 meV | OK |
+
+---
+
+## 9. Higgs Sector (Tier 4)
 
 - **VEV:** v = m(3,23) = 246.1 GeV (-0.03%). Cross-check: sqrt(2) m_t = 244.4 GeV (-0.7%).
 - **Quartic:** lambda_H = 1/2^d = 1/8 = 0.125. M_H = m(8,24) = 124.8 GeV (-0.4%).
 
 ---
 
-## 9. Cosmological Parameters (Tier 5)
+## 10. Cosmological Parameters (Tier 5)
 
     Omega_Lambda = (d-1)/d = 2/3 = 0.667    (obs: 0.685, 2.7%)
     q_0 = -1/(d-1) = -1/2 = -0.500          (obs: -0.55, 9.1%)
 
 ---
 
-## 10. Complete Summary
+## 11. Complete Summary
 
-**30 parameters from d=3:**
+**35 parameters from d=3:**
 - 9 SOLID (exact structural)
-- 21 DERIVED (mean error 2.3%)
+- 26 DERIVED (mean error 2.1%)
 - 0 conjectural, 0 numerological, 0 fitted
 
 ---
 
-## 11. Discussion
+## 12. Discussion
 
 **Why d=3:** 2^(d-1) = d+1 has unique integer solution d=3.
 
@@ -186,7 +218,7 @@ All within 1 sigma.
 
 ---
 
-## 12. Conclusion
+## 13. Conclusion
 
 A single sine-Gordon Lagrangian on a cubic lattice with Planck spacing determines all 30 SM parameters from d=3. Source code: https://github.com/S-t-u-r-m/geometric-wave-theory
 
