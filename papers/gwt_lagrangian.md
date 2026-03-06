@@ -220,7 +220,7 @@ Third-order perturbative coupling: electron -> proton -> electron, averaged over
 
 ## 13. Conclusion
 
-A single sine-Gordon Lagrangian on a cubic lattice with Planck spacing determines all 30 SM parameters from d=3. Source code: https://github.com/S-t-u-r-m/geometric-wave-theory
+A single sine-Gordon Lagrangian on a cubic lattice with Planck spacing determines all 35 SM parameters from d=3. Source code: https://github.com/S-t-u-r-m/geometric-wave-theory
 
 ## References
 
