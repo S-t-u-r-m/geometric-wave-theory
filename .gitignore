@@ -3,37 +3,20 @@ MEMORY.md
 .claude/
 last thoughts.txt
 
-# Python files (root-level exploration scripts, not used on site)
-*.py
-# BUT include lagrangian/ — these are the final derivations and simulations
-!lagrangian/*.py
+# Notes folder (historical working files, not published)
+notes/
 
-# Generated images (root-level)
-*.png
-# BUT include lagrangian results
-!lagrangian/*.png
+# Python cache
+__pycache__/
 
-# Old working notes (not published)
-EWT_Assumptions.txt
-EWT_Constants.txt
-EWT_For_Dummies.md
-EWT_Plain_English.md
-EWT_Predictions.txt
-EWT_Transcript_Locations.txt
-Elastic_Theory_Math_Derivations.md
-Elastic_Theory_Summary(1).md
-Hookes_Law_2D_to_3D.md
+# Root-level Python/image files (shouldn't exist after reorg, but just in case)
+/*.py
+/*.png
 
-# Standalone tool files (duplicates of website versions)
-atomic_mass_predictor.html
-cross_well_gravity.html
-cyclic_cosmology.html
-energy_density_plot.html
-lattice_cosmology_simulator.html
-proton_form_factor.html
-wave_atom_modeler.html
-wave_bond_simulator.py
-wave_bonds.png
+# BUT include calculations/ — these are the final derivations and simulations
+!calculations/*.py
+!calculations/*.png
+!papers/*.py
 
 # OS files
 Thumbs.db

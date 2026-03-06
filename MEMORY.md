@@ -5,14 +5,20 @@ Unified physics: everything is standing waves in an elastic lattice medium.
 Working directory: c:\Users\johnn\OneDrive\Desktop\project
 Theory renamed: "Lattice Framework" → "Resonant Wave Theory (RWT)" → "Elastic Wave Theory (EWT)" → **Geometric Wave Theory (GWT)**
 
+## Project Structure
+- `calculations/` — final derivation scripts and source of truth (gwt_lagrangian.py, pmns_formula.py, etc.)
+- `papers/` — Zenodo publication (gwt_mixing_matrices.tex/.md)
+- `website/` — GWT website (calculations, predictions, tools, pages)
+- `notes/` — historical working notes, exploration scripts, standalone tools
+
 ## Key Files
-- `Elastic_Equations_Quick_Reference.md` — master equation sheet (~9,000 lines, primary doc)
-- `Elastic_Wave_Theory_Summary_Paper.md` — condensed 20-section summary (609 lines)
-- `atomic_mass_predictor.html` — element predictor (PRIMARY TOOL, opens in browser)
-- `energy_density_plot.html` — EM vs QCD energy density log-log plot
-- `proton_form_factor.html` — j₀ vs dipole form factor with exp. data and R_c slider
-- `wave_atom_modeler.html` — interactive atomic wave visualizer
-- `Elastic_Theory_Math_Derivations.md` — detailed derivations (~40KB)
+- `notes/Elastic_Equations_Quick_Reference.md` — master equation sheet (~9,000 lines, primary doc)
+- `notes/Elastic_Wave_Theory_Summary_Paper.md` — condensed 20-section summary (609 lines)
+- `notes/Elastic_Theory_Math_Derivations.md` — detailed derivations (~40KB)
+- `notes/atomic_mass_predictor.html` — element predictor (opens in browser)
+- `notes/energy_density_plot.html` — EM vs QCD energy density log-log plot
+- `notes/proton_form_factor.html` — j₀ vs dipole form factor with exp. data and R_c slider
+- `notes/wave_atom_modeler.html` — interactive atomic wave visualizer
 
 ## Framework Core (the ONE true input = Planck scale)
 Three master equations: c=a√(k/η), h=π²ka³/c, G=2c⁴/(πka)
@@ -344,7 +350,7 @@ Key derived results:
    - Park until the 148 predictions are published; this is a future paper
 
 ## GWT Lagrangian Source of Truth — COMPLETE (March 5 2026)
-File: lagrangian/gwt_lagrangian.py — single authoritative parameter registry
+File: calculations/gwt_lagrangian.py — single authoritative parameter registry
 **Final scorecard: 30 parameters — 9 SOLID, 21 DERIVED, 0 CONJECTURAL, 0 NUMEROLOGY**
 
 Key breakthroughs:
