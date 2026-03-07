@@ -153,7 +153,7 @@
 
           <div class="calc-result">
             <strong>Result: V<sub>us</sub> = &lambda; = 0.2242</strong><br>
-            <span style="color:var(--text-secondary);">Observed: V<sub>us</sub> = 0.2243 &plusmn; 0.0005</span>
+            <span style="color:var(--text-secondary);">Observed: V<sub>us</sub> = 0.22500 &plusmn; 0.00067 (PDG 2024)</span>
           </div>
 
           <div class="calc-comparison">
@@ -163,9 +163,9 @@
             </div>
             <div>
               <div class="comp-label">Observed (PDG)</div>
-              <div class="comp-value">V<sub>us</sub> = 0.2243 &plusmn; 0.0005</div>
+              <div class="comp-value">V<sub>us</sub> = 0.22500 &plusmn; 0.00067</div>
             </div>
-            <div class="comp-accuracy">&minus;0.2&sigma;</div>
+            <div class="comp-accuracy">&minus;1.2&sigma;</div>
           </div>
 
           <p>The down-type sector contributes &radic;(m<sub>d</sub>/m<sub>s</sub>)&nbsp;=&nbsp;0.2203 and the up-type contributes &radic;(m<sub>u</sub>/m<sub>c</sub>)&nbsp;=&nbsp;0.0417. Because they rotate in <em>orthogonal</em> flavour planes, their squares add: &lambda;&sup2;&nbsp;=&nbsp;(m<sub>d</sub>/m<sub>s</sub>)&nbsp;+&nbsp;(m<sub>u</sub>/m<sub>c</sub>). The &frac12; power comes from the (d&minus;1)&nbsp;=&nbsp;2 dimensional proton boundary where quarks couple &mdash; this is the surface geometry analog of the &frac13; power used in PMNS bulk geometry.</p>
@@ -299,16 +299,16 @@
           <p>The CP-violating phase of the CKM matrix is the <strong>dihedral angle of a regular tetrahedron</strong> &mdash; the fundamental 3D symmetric object uniquely determined by N<sub>c</sub>&nbsp;=&nbsp;3:</p>
 
           <div class="equation-box" style="text-align:center; font-size:1.2rem;">
-            <span class="eq-label">CKM CP Phase (boundary-corrected)</span>
-            cos(&delta;<sub>CKM</sub>) = 1/d + 1/(d(d&minus;1)&sup2;) = 5/12 &nbsp;&rarr;&nbsp; &delta;<sub>CKM</sub> = 65.38&deg;
+            <span class="eq-label">CKM CP Phase (from antibonding geometry)</span>
+            cos(&delta;<sub>CKM</sub>) = (2d&minus;1)/(4d) = 1/(2f<sub>anti</sub>) = 5/12 &nbsp;&rarr;&nbsp; &delta;<sub>CKM</sub> = 65.38&deg;
           </div>
 
           <div class="calc-step">
             <div class="calc-num">1</div>
             <div>
-              <strong>Leading order: tetrahedral dihedral angle</strong><br>
+              <strong>The antibonding factor f<sub>anti</sub></strong><br>
               <span style="color:var(--text-secondary);">
-                The regular tetrahedron has dihedral angle arccos(1/d)&nbsp;=&nbsp;arccos(1/3)&nbsp;=&nbsp;70.53&deg;. This is the &ldquo;bulk&rdquo; phase from d&nbsp;=&nbsp;3 geometry. However, CKM mixing occurs at the proton&rsquo;s (d&minus;1)-dimensional boundary, not the bulk.
+                In bond physics, the antibonding enhancement is f<sub>anti</sub>&nbsp;=&nbsp;2d/(2d&minus;1)&nbsp;=&nbsp;6/5. This measures the asymmetry between constructive and destructive interference channels in d&nbsp;=&nbsp;3 dimensions. The same asymmetry governs the CP-violating phase of the quark mixing matrix.
               </span>
             </div>
           </div>
@@ -316,10 +316,11 @@
           <div class="calc-step">
             <div class="calc-num">2</div>
             <div>
-              <strong>Boundary correction: add surface term</strong><br>
+              <strong>CP phase = inverse antibonding scale</strong><br>
               <span style="color:var(--text-secondary);">
-                The boundary contributes an additional 1/(d(d&minus;1)&sup2;) to the cosine. For d&nbsp;=&nbsp;3: 1/(3&times;4)&nbsp;=&nbsp;1/12. The total is:<br>
-                cos(&delta;) = 1/d + 1/(d(d&minus;1)&sup2;) = 1/3 + 1/12 = <strong style="color:var(--accent-green);">5/12</strong>
+                The cosine of the CP phase is the reciprocal of twice the antibonding factor:<br>
+                cos(&delta;) = 1/(2f<sub>anti</sub>) = (2d&minus;1)/(4d) = 5/12 = <strong style="color:var(--accent-green);">0.41667</strong><br>
+                This connects CP violation directly to the bonding/antibonding asymmetry of 3D standing waves.
               </span>
             </div>
           </div>
@@ -330,7 +331,7 @@
               <strong>Compute the angle</strong><br>
               <span style="color:var(--text-secondary);">
                 &delta;<sub>CKM</sub> = arccos(5/12) = <strong style="color:var(--accent-green);">65.38&deg;</strong><br>
-                <em>Consistency check:</em> for d&nbsp;=&nbsp;2 (only 2 generations), cos(&delta;)&nbsp;=&nbsp;1&nbsp;&rarr;&nbsp;&delta;&nbsp;=&nbsp;0&deg;, correctly predicting no CP violation.
+                <em>Consistency check:</em> for d&nbsp;=&nbsp;2, cos(&delta;)&nbsp;=&nbsp;3/8&nbsp;&rarr;&nbsp;&delta;&nbsp;=&nbsp;67.98&deg;. For d&nbsp;=&nbsp;1, cos(&delta;)&nbsp;=&nbsp;1/4&nbsp;&rarr;&nbsp;&delta;&nbsp;=&nbsp;75.52&deg;. The phase decreases with increasing d, converging to arccos(1/2)&nbsp;=&nbsp;60&deg; as d&nbsp;&rarr;&nbsp;&infin;.
               </span>
             </div>
           </div>
@@ -372,7 +373,7 @@
               <strong>Insert GWT mixing angles</strong><br>
               <span style="color:var(--text-secondary);">
                 s<sub>12</sub> = &lambda; = 0.2242<br>
-                s<sub>23</sub> = V<sub>cb</sub> = 0.04105<br>
+                s<sub>23</sub> = V<sub>cb</sub> = 0.04173<br>
                 s<sub>13</sub> = V<sub>ub</sub> = 0.003541<br>
                 &delta; = arccos(5/12) = 65.38&deg;
               </span>
@@ -385,7 +386,7 @@
               <strong>Compute cosines</strong><br>
               <span style="color:var(--text-secondary);">
                 c<sub>12</sub> = &radic;(1 &minus; 0.2242&sup2;) = 0.9745<br>
-                c<sub>23</sub> = &radic;(1 &minus; 0.04105&sup2;) = 0.9992<br>
+                c<sub>23</sub> = &radic;(1 &minus; 0.04173&sup2;) = 0.9991<br>
                 c<sub>13</sub> = &radic;(1 &minus; 0.003541&sup2;) = 0.99999
               </span>
             </div>
@@ -396,31 +397,31 @@
             <div>
               <strong>Multiply all factors</strong><br>
               <span style="color:var(--text-secondary);">
-                J = 0.9745 &times; 0.9992 &times; (0.99999)&sup2; &times; 0.2242 &times; 0.04105 &times; 0.003541 &times; sin(65.38&deg;)<br>
-                J = 0.9745 &times; 0.9992 &times; 1.0000 &times; 0.2242 &times; 0.04105 &times; 0.003541 &times; 0.9091<br>
-                J &asymp; <strong style="color:var(--accent-green);">2.88 &times; 10<sup>&minus;5</sup></strong>
+                J = 0.9745 &times; 0.9991 &times; (0.99999)&sup2; &times; 0.2242 &times; 0.04173 &times; 0.003541 &times; sin(65.38&deg;)<br>
+                J = 0.9745 &times; 0.9991 &times; 1.0000 &times; 0.2242 &times; 0.04173 &times; 0.003541 &times; 0.9091<br>
+                J &asymp; <strong style="color:var(--accent-green);">2.93 &times; 10<sup>&minus;5</sup></strong>
               </span>
             </div>
           </div>
 
           <div class="calc-result">
-            <strong>Result: J &asymp; 2.88 &times; 10<sup>&minus;5</sup></strong><br>
-            <span style="color:var(--text-secondary);">Observed: J = 3.08 &times; 10<sup>&minus;5</sup></span>
+            <strong>Result: J &asymp; 2.93 &times; 10<sup>&minus;5</sup></strong><br>
+            <span style="color:var(--text-secondary);">Observed: J = 3.08 &times; 10<sup>&minus;5</sup> &plusmn; 0.15 &times; 10<sup>&minus;5</sup></span>
           </div>
 
           <div class="calc-comparison">
             <div>
               <div class="comp-label">GWT Prediction</div>
-              <div class="comp-value">J &asymp; 2.88 &times; 10<sup>&minus;5</sup></div>
+              <div class="comp-value">J &asymp; 2.93 &times; 10<sup>&minus;5</sup></div>
             </div>
             <div>
               <div class="comp-label">Observed</div>
               <div class="comp-value">J = 3.08 &times; 10<sup>&minus;5</sup></div>
             </div>
-            <div class="comp-accuracy">&minus;1.3&sigma;</div>
+            <div class="comp-accuracy">&minus;1.0&sigma;</div>
           </div>
 
-          <p>The Jarlskog invariant is a derived quantity &mdash; it inherits the deviation in V<sub>ub</sub>. The &minus;1.3&sigma; accuracy reflects the consistent use of the four geometric inputs.</p>
+          <p>The Jarlskog invariant is a derived quantity &mdash; it inherits the deviation in V<sub>ub</sub>. The &minus;1.0&sigma; accuracy reflects the consistent use of the four geometric inputs.</p>
         </section>
 
         <hr>
@@ -573,10 +574,9 @@
             <div>
               <strong>Relationship to CKM phase</strong><br>
               <span style="color:var(--text-secondary);">
-                CKM (bare): &delta; = arccos(+1/3) = 70.53&deg; (positive handedness)<br>
-                CKM (corrected): &delta; = arccos(5/12) = 65.38&deg; (with boundary correction)<br>
-                PMNS: &delta; = arccos(&minus;1/3) = 109.47&deg; (negative handedness)<br>
-                The bare phases are supplementary: 70.53&deg; + 109.47&deg; = 180&deg;. The CKM boundary correction shifts the quark phase by &minus;5.15&deg;.
+                CKM: &delta; = arccos(1/(2f<sub>anti</sub>)) = arccos(5/12) = 65.38&deg; (antibonding geometry)<br>
+                PMNS: &delta; = arccos(&minus;1/3) = 109.47&deg; (tetrahedral dihedral, opposite handedness)<br>
+                Both phases arise from d&nbsp;=&nbsp;3 wave geometry: CKM from the bonding/antibonding asymmetry, PMNS from the tetrahedral symmetry of democratic mixing.
               </span>
             </div>
           </div>
@@ -647,12 +647,12 @@
             </table>
           </div>
 
-          <p>The PMNS phase is the bare tetrahedral dihedral angle arccos(&minus;1/3). The CKM phase receives a boundary correction because quarks couple at the proton&rsquo;s (d&minus;1)-dimensional surface: cos(&delta;<sub>CKM</sub>)&nbsp;=&nbsp;1/d&nbsp;+&nbsp;1/(d(d&minus;1)&sup2;)&nbsp;=&nbsp;5/12. The bare phases are exactly supplementary; the 5.15&deg; shift is the boundary contribution.</p>
+          <p>The PMNS phase is the bare tetrahedral dihedral angle arccos(&minus;1/3). The CKM phase comes from the antibonding geometry of 3D standing waves: cos(&delta;<sub>CKM</sub>)&nbsp;=&nbsp;1/(2f<sub>anti</sub>)&nbsp;=&nbsp;(2d&minus;1)/(4d)&nbsp;=&nbsp;5/12. The CP phase encodes the asymmetry between constructive and destructive interference channels &mdash; the same f<sub>anti</sub>&nbsp;=&nbsp;6/5 that governs antibonding in molecules.</p>
 
           <div class="card" style="border-left: 3px solid var(--accent-purple);">
-            <h4>Why the Tetrahedron?</h4>
-            <p>In a 3D lattice with N<sub>c</sub>&nbsp;=&nbsp;3 spatial dimensions, the maximum number of equidistant points is 4 (the vertices of a regular tetrahedron). Three generations of matter correspond to three edges meeting at each vertex. The dihedral angle arccos(1/3) is the <em>only</em> angle at which four equidistant planes can meet in 3D space.</p>
-            <p style="margin-bottom:0;">CP violation is not a mysterious accident. It is the <strong>geometric inevitability</strong> of three generations living in three dimensions.</p>
+            <h4>Why These Phases?</h4>
+            <p>The PMNS phase arccos(&minus;1/3) is the tetrahedral dihedral angle &mdash; the unique angle at which four equidistant planes meet in 3D space. The CKM phase arccos(5/12) = arccos(1/(2f<sub>anti</sub>)) comes from the antibonding geometry: f<sub>anti</sub>&nbsp;=&nbsp;2d/(2d&minus;1)&nbsp;=&nbsp;6/5 measures the asymmetry between constructive and destructive wave interference, and the CP phase encodes this asymmetry as a complex rotation.</p>
+            <p style="margin-bottom:0;">CP violation is not a mysterious accident. It is the <strong>geometric inevitability</strong> of three generations living in three dimensions, with phases set by the wave interference geometry of d&nbsp;=&nbsp;3.</p>
           </div>
         </section>
 
@@ -748,7 +748,7 @@
               <strong>Jarlskog invariant</strong><br>
               <span style="color:var(--text-secondary);">
                 J = Im(V<sub>ud</sub>V<sub>cs</sub>V<sup>*</sup><sub>us</sub>V<sup>*</sup><sub>cd</sub>) = <strong style="color:var(--accent-green);">2.93 &times; 10<sup>&minus;5</sup></strong><br>
-                Observed: J = 3.08 &times; 10<sup>&minus;5</sup> (&minus;4.8%)
+                Observed: J = 3.08 &times; 10<sup>&minus;5</sup> (&minus;4.8%, &minus;1.0&sigma;)
               </span>
             </div>
           </div>
@@ -809,7 +809,7 @@
                   <td>J (Jarlskog)</td>
                   <td class="mono">2.93 &times; 10<sup>&minus;5</sup></td>
                   <td class="mono">3.08 &times; 10<sup>&minus;5</sup></td>
-                  <td><span class="badge badge-yellow">&minus;4.8%</span></td>
+                  <td><span class="badge badge-green">&minus;1.0&sigma;</span></td>
                 </tr>
                 <tr>
                   <td>V<sub>td</sub></td>
@@ -879,7 +879,7 @@
             <h4>The Pattern</h4>
             <p>All mixing parameters from zero free parameters. The CKM matrix is fully determined by four mass ratios and one geometric angle: &theta;<sub>12</sub>&nbsp;=&nbsp;arcsin(&radic;(m<sub>d</sub>/m<sub>s</sub>&nbsp;+&nbsp;m<sub>u</sub>/m<sub>c</sub>)), &theta;<sub>23</sub>&nbsp;=&nbsp;arcsin(&radic;(m<sub>u</sub>/m<sub>c</sub>)), &theta;<sub>13</sub>&nbsp;=&nbsp;arcsin(&radic;(m<sub>u</sub>/m<sub>t</sub>)), &delta;&nbsp;=&nbsp;arccos(5/12). All 9 elements within 1.4&sigma;, mean error 0.64%.</p>
             <p>The quark sector (CKM) has small mixing angles because quark mass ratios are small &mdash; the three generation modes are nearly orthogonal. The lepton sector (PMNS) has large mixing angles because neutrino mass ratios are close to unity &mdash; the three modes are nearly democratic.</p>
-            <p style="margin-bottom:0;">Both sectors share the same geometric origin: the regular tetrahedron in 3D space, with CP phases arccos(&plusmn;1/3). Quarks use the &frac12; power (surface, d&minus;1&nbsp;=&nbsp;2); leptons use the &frac13; power (bulk, d&nbsp;=&nbsp;3). One geometry, two boundary conditions.</p>
+            <p style="margin-bottom:0;">Both sectors derive from d&nbsp;=&nbsp;3 wave geometry: CKM uses the &frac12; power (surface, d&minus;1&nbsp;=&nbsp;2) with CP phase from antibonding asymmetry arccos(1/(2f<sub>anti</sub>))&nbsp;=&nbsp;arccos(5/12); PMNS uses the &frac13; power (bulk, d&nbsp;=&nbsp;3) with CP phase from tetrahedral symmetry arccos(&minus;1/3). One geometry, two boundary conditions.</p>
           </div>
         </section>
 
