@@ -720,6 +720,34 @@ register(GWTParam(
     derivation="Follows from Omega_Lambda = (d-1)/d. Standard LambdaCDM relation.",
 ))
 
+# Baryon asymmetry: η_B = J × α² × d/2^d
+# CONJECTURAL — compelling numerically but α² justification needs tightening.
+#
+# Physical interpretation:
+#   J = Jarlskog invariant (CP violation strength from CKM matrix)
+#   α² = probability of photon-mediated "rescue" (baryogenesis requires EM interaction)
+#   d/2^d = 3/8 = geometric projection factor (3D → lattice)
+#
+# The Jarlskog invariant is computed from the GWT CKM angles:
+J_GWT = (c12_ckm * s12_ckm * c23_ckm * s23_ckm * c13_ckm**2 * s13_ckm
+         * np.sin(delta_CKM_rad))
+eta_B_gwt = J_GWT * alpha_wyler**2 * (d / 2**d)
+
+register(GWTParam(
+    name="Baryon asymmetry",
+    symbol="eta_B",
+    formula_text="J × alpha^2 × d/2^d",
+    value=eta_B_gwt,
+    observed=6.1e-10,
+    unit="",
+    error_pct=abs(eta_B_gwt - 6.1e-10) / 6.1e-10 * 100,
+    status="CONJECTURAL",
+    derivation="Baryon-to-photon ratio from CP violation × EM interaction × geometry. "
+               "J = Jarlskog invariant (CP violation from CKM mass ratios), "
+               "alpha^2 = photon rescue probability, d/2^d = 3/8 geometric projection. "
+               "CONJECTURAL: alpha^2 interpretation needs stronger justification.",
+))
+
 
 # ==============================================================
 # TIER 7: ATOMIC / MOLECULAR
