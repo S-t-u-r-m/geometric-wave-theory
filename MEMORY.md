@@ -198,6 +198,33 @@ Running total: ~138 predictions/results
 - New tool: cross_well_gravity.html (coupling calculator + soliton mass + well table)
 - Ω_Λ = 2/3 proof: dimensional argument Ω_Λ = (d-1)/d; 2.7% gap = ΛCDM model bias (wrong G)
 
+## Unified Mode-Counting Mass Formula (March 8 2026)
+Building block: F = 2d × pi^(2d-1) = 6pi^5 = 1836.12 (BZ mode density)
+All standalone wave masses: m = (2d)^a × pi^b × alpha^12 × m_Planck
+
+| Particle | Formula | Error |
+|---|---|---|
+| Electron | F × alpha^12 × m_Pl | +0.03% |
+| Muon | m_e × (d/(2alpha) + sqrt(d/2)) | +0.04% |
+| Proton | F^2 × alpha^12 × m_Pl | +0.03% |
+| Tau | (2d×pi^d)^3 × alpha^12 × m_Pl | +0.88% |
+| Z boson | F^2 × pi^4 × alpha^12 × m_Pl | +0.26% |
+| W boson | Z × (2^d-1)/2^d | -0.48% |
+
+Key relationships: m_p/m_e = F, m_Z/m_p = pi^4 (4 axes), m_W/m_Z = 7/8
+
+**Third route to alpha** (bridges breather and mode-counting):
+ln(1/alpha) = ((d+1)/N_gauge) × [16×2^d/pi^2 + ln(2d)] → 1/137.042 (0.005%)
+- 16×2^d/pi^2 = sine-Gordon tunneling depth
+- ln(2d) = BZ mode density correction
+- (d+1)/N_gauge = 4/12 = axes per gauge boson
+- This is the BARE alpha; measured 137.036 is DRESSED (vacuum polarization)
+- Bare alpha gives better mass predictions (5/6 particles improve)
+- Wyler (137.036) accidentally matches dressed; tunneling (137.042) is more fundamental
+
+Quarks: internal proton modes (use m(n,p) breather formula, not this)
+Neutrinos: seesaw derivation (separate)
+
 ## Cyclic Cosmology — Self-Resetting Universe (March 1 2026 — Section 30)
 - Gravity DRIVES expansion: compression → 2:1 over-correction (d=3) → net outward force
 - Without matter, no gravity, no expansion — empty lattice is static
