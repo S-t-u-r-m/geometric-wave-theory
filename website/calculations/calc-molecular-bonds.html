@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Molecular Bonds &mdash; GWT Calculations</title>
+  <meta name="description" content="Bond dissociation energies, bond lengths, and bond angles for 24 molecules from Geometric Wave Theory. Zero free parameters &mdash; all constants derived from d=3.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-step { background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; border-left: 3px solid var(--accent-blue); }
+    .calc-step h4 { margin-top: 0; color: var(--accent-blue); }
+    .calc-result { background: rgba(0,255,136,0.08); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; border-left: 3px solid var(--accent-green); }
+    .calc-result h4 { margin-top: 0; color: var(--accent-green); }
+    .calc-num { font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.8; }
+    .calc-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .calc-comparison > div { background: var(--bg-secondary); padding: 1rem; border-radius: 6px; text-align: center; }
+    .calc-comparison .label { font-size: 0.8rem; color: var(--text-muted); }
+    .calc-comparison .value { font-family: var(--font-mono); font-size: 1.1rem; margin-top: 0.3rem; }
+    @media (max-width: 600px) { .calc-comparison { grid-template-columns: 1fr; } }
+    .bond-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .bond-table th { background: var(--bg-secondary); padding: 0.5rem 0.6rem; text-align: left; border-bottom: 2px solid var(--border); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+    .bond-table td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.85rem; }
+    .bond-table tr:hover { background: rgba(255,255,255,0.03); }
+    .bond-table .mol-name { font-weight: 600; color: var(--text-primary); }
+    .param-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .param-card { background: var(--bg-secondary); border-radius: 8px; padding: 1rem; text-align: center; }
+    .param-card .param-val { font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-green); }
+    .param-card .param-name { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem; }
+    .param-card .param-deriv { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-overlay"></div>
+    <nav class="nav-sidebar" aria-label="Main navigation"></nav>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a> <span>&rsaquo;</span>
+          <a href="../pages/core-derivations.html">Core Derivations</a> <span>&rsaquo;</span>
+          Molecular Bonds
+        </div>
+
+        <div class="section-header">
+          <h1>Molecular Bonds</h1>
+          <p class="section-desc">Bond dissociation energies, bond lengths, and bond angles for 24 molecules &mdash; zero free parameters. All constants derived from d&nbsp;=&nbsp;3.</p>
+        </div>
+
+
+        <!-- ===== SECTION 1: THE FORMULA ===== -->
+        <section id="formula">
+          <h2>&sect;1 &mdash; The Bond Energy Formula</h2>
+
+          <div class="equation-box" style="text-align:center; font-size:1.15rem;">
+            <span class="eq-label">General Bond Energy</span>
+            D<sub>e</sub> = (&pi;/3) &middot; &radic;(E<sub>1</sub>E<sub>2</sub>) &middot; |sin(&phi;)| &middot; n<sub>bonds</sub> + (1/7) &middot; q&sup2; &middot; 2E<sub>H</sub>/R
+          </div>
+
+          <p>When two atomic standing waves overlap, they form a <strong>shared standing wave pattern</strong>. The bond energy is the total stability gained by synchronizing into this shared mode versus remaining as two independent waves. The formula has two contributions from the <strong>same wave mechanism</strong>:</p>
+          <ol>
+            <li><strong>Oscillatory overlap</strong> &mdash; the resonance energy from waves constructively interfering along the bond axis</li>
+            <li><strong>Charge displacement monopole</strong> &mdash; when the shared wave is asymmetric (different-frequency atoms), the lopsided charge distribution creates a 1/R attraction</li>
+          </ol>
+
+          <div class="calc-step">
+            <h4>Physical picture</h4>
+            <div class="calc-num">
+              Two standing waves overlap &rarr; form shared standing wave pattern.<br>
+              Same frequency (homonuclear): symmetric pattern, pure resonance. q&nbsp;=&nbsp;0.<br>
+              Different frequency (heteronuclear): lopsided pattern &rarr; monopole moment &rarr; 1/R attraction.<br><br>
+              This is identical to coupled oscillator synchronization: two pendulums on<br>
+              a shared beam exchange energy to find a lower-energy normal mode.<br>
+              The energy difference released = the bond dissociation energy.
+            </div>
+          </div>
+
+          <div class="calc-step">
+            <h4>Key quantities</h4>
+            <div class="calc-num">
+              E<sub>1</sub>, E<sub>2</sub> = orbital energies: E = E<sub>H</sub>/n<sup>a</sup><br>
+              &phi; = standing wave phase: R/n<sub>1</sub><sup>b</sup> + R/n<sub>2</sub><sup>b</sup><br>
+              q = charge transfer: &Delta;&epsilon; / &radic;(&Delta;&epsilon;&sup2; + 4V&sup2;)  &mdash; measures wave asymmetry<br>
+              |sin(&phi;)| = overlap amplitude (always positive; validated by exact integral)<br>
+              &radic;(E<sub>1</sub>E<sub>2</sub>) = geometric mean &mdash; natural energy scale of coupled oscillators
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 2: PARAMETERS FROM d=3 ===== -->
+        <section id="parameters">
+          <h2>&sect;2 &mdash; All Parameters from d = 3</h2>
+
+          <p>Every constant in the formula is derived from the spatial dimension d&nbsp;=&nbsp;3. Zero free parameters.</p>
+
+          <div class="param-grid">
+            <div class="param-card">
+              <div class="param-val">&pi;/3</div>
+              <div class="param-name">C<sub>bond</sub> &mdash; coupling</div>
+              <div class="param-deriv">&pi;/d: single bond mode</div>
+            </div>
+            <div class="param-card">
+              <div class="param-val">9/10</div>
+              <div class="param-name">f<sub>&pi;</sub> &mdash; pi-bond fraction</div>
+              <div class="param-deriv">d&sup2;/(d&sup2;+1): tensor coupling</div>
+            </div>
+            <div class="param-card">
+              <div class="param-val">7/10</div>
+              <div class="param-name">&alpha; &mdash; energy node</div>
+              <div class="param-deriv">1 &minus; f<sub>&pi;</sub>/d: scalar disruption</div>
+            </div>
+            <div class="param-card">
+              <div class="param-val">19/20</div>
+              <div class="param-name">&beta; &mdash; phase node</div>
+              <div class="param-deriv">(1+f<sub>&pi;</sub>)/2: &sigma;/&pi; average</div>
+            </div>
+            <div class="param-card">
+              <div class="param-val">6/5</div>
+              <div class="param-name">f<sub>anti</sub> &mdash; antibonding</div>
+              <div class="param-deriv">2d/(2d&minus;1): exchange enhancement</div>
+            </div>
+            <div class="param-card">
+              <div class="param-val">1/7</div>
+              <div class="param-name">c<sub>ionic</sub> &mdash; monopole</div>
+              <div class="param-deriv">1/(2d+1): charge displacement</div>
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 3: BOND ENERGIES TABLE ===== -->
+        <section id="energies">
+          <h2>&sect;3 &mdash; Bond Dissociation Energies (24 Molecules)</h2>
+
+          <p>All energies in eV. The formula uses experimental bond lengths R and Clementi-Raimondi effective nuclear charges &mdash; both are observables, not fit parameters.</p>
+
+          <table class="bond-table">
+            <thead>
+              <tr>
+                <th>Molecule</th>
+                <th>D<sub>e</sub> (GWT)</th>
+                <th>D<sub>e</sub> (Obs)</th>
+                <th>Error</th>
+                <th>q</th>
+                <th>BO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="mol-name">H<sub>2</sub></td><td>4.746</td><td>4.745</td><td><span class="badge badge-green">+0.0%</span></td><td>0.000</td><td>1</td></tr>
+              <tr><td class="mol-name">Li<sub>2</sub></td><td>1.103</td><td>1.056</td><td><span class="badge badge-green">+4.4%</span></td><td>0.000</td><td>1</td></tr>
+              <tr><td class="mol-name">B<sub>2</sub></td><td>3.016</td><td>3.02</td><td><span class="badge badge-green">&minus;0.1%</span></td><td>0.000</td><td>2</td></tr>
+              <tr><td class="mol-name">C<sub>2</sub></td><td>6.101</td><td>6.32</td><td><span class="badge badge-green">&minus;3.5%</span></td><td>0.000</td><td>2</td></tr>
+              <tr><td class="mol-name">N<sub>2</sub></td><td>9.935</td><td>9.759</td><td><span class="badge badge-green">+1.8%</span></td><td>0.000</td><td>3</td></tr>
+              <tr><td class="mol-name">O<sub>2</sub></td><td>5.222</td><td>5.213</td><td><span class="badge badge-green">+0.2%</span></td><td>0.000</td><td>2</td></tr>
+              <tr><td class="mol-name">F<sub>2</sub></td><td>1.625</td><td>1.660</td><td><span class="badge badge-green">&minus;2.1%</span></td><td>0.000</td><td>1</td></tr>
+              <tr><td class="mol-name">Na<sub>2</sub></td><td>0.718</td><td>0.746</td><td><span class="badge badge-green">&minus;3.7%</span></td><td>0.000</td><td>1</td></tr>
+              <tr><td class="mol-name">Cl<sub>2</sub></td><td>2.519</td><td>2.514</td><td><span class="badge badge-green">+0.2%</span></td><td>0.000</td><td>1</td></tr>
+              <tr><td class="mol-name">HF</td><td>5.897</td><td>5.869</td><td><span class="badge badge-green">+0.5%</span></td><td>0.995</td><td>1</td></tr>
+              <tr><td class="mol-name">CO</td><td>11.087</td><td>11.225</td><td><span class="badge badge-green">&minus;1.2%</span></td><td>0.868</td><td>3</td></tr>
+              <tr><td class="mol-name">NO</td><td>6.840</td><td>6.497</td><td><span class="badge badge-yellow">+5.3%</span></td><td>0.843</td><td>2</td></tr>
+              <tr><td class="mol-name">OH</td><td>4.811</td><td>4.392</td><td><span class="badge badge-yellow">+9.5%</span></td><td>0.995</td><td>1</td></tr>
+              <tr><td class="mol-name">NH</td><td>3.420</td><td>3.570</td><td><span class="badge badge-green">&minus;4.2%</span></td><td>0.997</td><td>1</td></tr>
+              <tr><td class="mol-name">BH</td><td>3.498</td><td>3.42</td><td><span class="badge badge-green">+2.3%</span></td><td>0.790</td><td>1</td></tr>
+              <tr><td class="mol-name">H<sub>2</sub>O</td><td>5.081</td><td>5.117</td><td><span class="badge badge-green">&minus;0.7%</span></td><td>0.994</td><td>1</td></tr>
+            </tbody>
+          </table>
+
+          <p style="font-size:0.85rem; color:var(--text-muted);">Table shows the 16 molecules within 10% accuracy. Eight outliers (HCl, LiH, LiF, CH, BF, CN, NaH, NaCl) have errors 27&ndash;84% and require numerical 3D wave overlap treatment &mdash; see <a href="#outliers">&sect;6</a>.</p>
+
+          <div class="calc-result">
+            <h4>Result: 24-molecule scorecard</h4>
+            <div class="calc-comparison">
+              <div>
+                <div class="label">Within 5%</div>
+                <div class="value">14 / 24</div>
+              </div>
+              <div>
+                <div class="label">Within 10%</div>
+                <div class="value">16 / 24</div>
+              </div>
+            </div>
+            <div class="calc-comparison" style="margin-top: 0.5rem;">
+              <div>
+                <div class="label">Homonuclear</div>
+                <div class="value">9/9 within 5%</div>
+              </div>
+              <div>
+                <div class="label">Median error</div>
+                <div class="value">4.0%</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 4: BOND LENGTHS ===== -->
+        <section id="lengths">
+          <h2>&sect;4 &mdash; Bond Lengths</h2>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Wave Contact Distance</span>
+            R = r<sub>bond,1</sub> + r<sub>bond,2</sub> &nbsp;&nbsp;where&nbsp;&nbsp; r<sub>bond</sub> = n&sup2; / (Z<sub>eff</sub> &middot; (n &minus; l))
+          </div>
+
+          <p>Bond length is not determined by energy minimization &mdash; it is the <strong>contact distance</strong> where two atomic standing waves first touch. For triple bonds (all d&nbsp;=&nbsp;3 spatial modes engaged), this simplifies to the full atomic radius n&sup2;/Z.</p>
+
+          <div class="calc-result">
+            <h4>Result: Bond length predictions</h4>
+            <div class="calc-comparison">
+              <div>
+                <div class="label">Triple bonds</div>
+                <div class="value">4/4 within 5%</div>
+              </div>
+              <div>
+                <div class="label">Triple avg error</div>
+                <div class="value">2.4%</div>
+              </div>
+            </div>
+            <p style="margin-top:1rem; margin-bottom:0;">Triple bond examples: N<sub>2</sub> = 2.087 Bohr (obs 2.074, +0.6%), CO = 2.174 Bohr (obs 2.132, +2.0%), BF = 2.436 (obs 2.386, +2.1%), CN = 2.319 (obs 2.214, +4.7%).</p>
+            <p style="margin-bottom:0; color:var(--text-muted); font-size:0.9rem;">Single/double bonds: 10/20 within 15%. Weak homonuclear bonds (H<sub>2</sub>, Li<sub>2</sub>, Na<sub>2</sub>, F<sub>2</sub>, Cl<sub>2</sub>) systematically underestimated &mdash; outer wave lobes extend beyond the bonding radius.</p>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 5: BOND ANGLE ===== -->
+        <section id="angle">
+          <h2>&sect;5 &mdash; Bond Angle</h2>
+
+          <div class="equation-box" style="text-align:center; font-size:1.15rem;">
+            <span class="eq-label">Water Bond Angle</span>
+            cos(&theta;) = &minus;1/(d+1) = &minus;1/4 &nbsp;&rarr;&nbsp; &theta; = 104.48&deg;
+          </div>
+
+          <p>Two O&ndash;H bonds repel via (d+1)-fold coordination geometry. In d&nbsp;=&nbsp;3, this is tetrahedral coordination (4 directions), giving cos(&theta;)&nbsp;=&nbsp;&minus;1/4.</p>
+
+          <div class="calc-result">
+            <h4>Result: Water bond angle</h4>
+            <div class="calc-comparison">
+              <div>
+                <div class="label">GWT</div>
+                <div class="value">104.48&deg;</div>
+              </div>
+              <div>
+                <div class="label">Observed</div>
+                <div class="value">104.45&deg;</div>
+              </div>
+            </div>
+            <div style="text-align:center; margin-top:0.75rem;">
+              <span class="badge badge-green">+0.03%</span>
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 6: NON-BONDING ===== -->
+        <section id="non-bonding">
+          <h2>&sect;6 &mdash; Non-Bonding Prediction</h2>
+
+          <p>The formula correctly predicts which atoms <strong>do not</strong> form bonds. When the net bond order is zero (all bonding orbitals cancelled by antibonding), the covalent term vanishes. With no bonding electrons, there is no wave asymmetry to generate an ionic correction either &mdash; so D<sub>e</sub>&nbsp;=&nbsp;0.</p>
+
+          <div class="calc-result">
+            <h4>Result: 8/8 noble gas pairs correctly predicted</h4>
+            <div class="calc-num">
+              He<sub>2</sub>, Ne<sub>2</sub>, Ar<sub>2</sub>, HeNe, HeAr, NeAr, HeLi, HeNa &rarr; all D<sub>e</sub> = 0<br>
+              Mechanism: antibonding enhancement f<sub>anti</sub> = 6/5 ensures<br>
+              antibonding cancellation exceeds bonding for filled shells.
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 7: OUTLIERS ===== -->
+        <section id="outliers">
+          <h2>&sect;7 &mdash; Outliers and Failure Modes</h2>
+
+          <p>Eight molecules have errors exceeding 20%. These are <strong>not random failures</strong> &mdash; they fall into four classified categories, all pointing to the same limitation: the analytic formula is a strong-coupling approximation that doesn&rsquo;t capture the full 3D wave overlap geometry.</p>
+
+          <table class="bond-table">
+            <thead>
+              <tr>
+                <th>Molecule</th>
+                <th>Error</th>
+                <th>Failure Mode</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="mol-name">HCl</td><td>+84%</td><td>Phase wrapped (&phi;/&pi; = 1.49), |sin| overshoot</td></tr>
+              <tr><td class="mol-name">LiH</td><td>+65%</td><td>Phase wrapped (&phi;/&pi; = 1.21), |sin| overshoot</td></tr>
+              <tr><td class="mol-name">NaH</td><td>+46%</td><td>Phase wrapped (&phi;/&pi; = 1.27), |sin| overshoot</td></tr>
+              <tr><td class="mol-name">NaCl</td><td>&minus;42%</td><td>Phase wrapped + fully ionic (q = 0.99)</td></tr>
+              <tr><td class="mol-name">LiF</td><td>&minus;41%</td><td>Fully ionic (q = 1.00), monopole c = 1/7 too weak</td></tr>
+              <tr><td class="mol-name">CH</td><td>&minus;40%</td><td>Phase at node (&phi;/&pi; = 1.01), sin(&pi;) &asymp; 0</td></tr>
+              <tr><td class="mol-name">CN</td><td>+31%</td><td>Asymmetric triple bond, covalent overshoot</td></tr>
+              <tr><td class="mol-name">BF</td><td>+27%</td><td>Asymmetric triple bond, covalent overshoot</td></tr>
+            </tbody>
+          </table>
+
+          <div class="calc-step">
+            <h4>What the outliers tell us</h4>
+            <div class="calc-num">
+              The formula captures the RIGHT PHYSICS &mdash; coupled standing wave synchronization.<br>
+              It works perfectly for homonuclear molecules (same frequency = symmetric overlap).<br><br>
+              The outliers all involve heteronuclear pairs where the overlap geometry<br>
+              depends on the precise 3D wave shape, not just the 1D phase.<br><br>
+              Fixing these requires a numerical coupled wave equation solver, not more parameters.<br>
+              This is analogous to how Hartree-Fock captures the right mechanism<br>
+              but needs configuration interaction for quantitative accuracy.
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SECTION 8: UNIFIED MECHANISM ===== -->
+        <section id="mechanism">
+          <h2>&sect;8 &mdash; One Mechanism, Not Two</h2>
+
+          <p>In standard chemistry, covalent and ionic bonding are taught as fundamentally different phenomena &mdash; electron sharing versus electron transfer. In GWT, there is <strong>no such distinction</strong>. Both are manifestations of the same standing wave mechanics:</p>
+
+          <div class="calc-step">
+            <h4>The wave picture</h4>
+            <div class="calc-num">
+              Standard chemistry:                    GWT:<br>
+              &bull; Covalent = electron sharing       &bull; Symmetric wave overlap (q = 0)<br>
+              &bull; Ionic = electron transfer          &bull; Asymmetric wave overlap (q &rarr; 1)<br>
+              &bull; Two different forces               &bull; One mechanism, continuous parameter q<br>
+              &bull; Electrons are particles             &bull; Electrons are standing waves<br><br>
+              The charge transfer parameter q = &Delta;&epsilon;/&radic;(&Delta;&epsilon;&sup2; + 4V&sup2;) measures<br>
+              how lopsided the shared standing wave pattern is &mdash; nothing more.<br>
+              At q = 0, the pattern is symmetric (pure resonance).<br>
+              At q &rarr; 1, it is heavily lopsided (charge displacement = &ldquo;ionic&rdquo;).
+            </div>
+          </div>
+
+          <p>The &ldquo;ionic&rdquo; 1/R term is not a separate Coulomb force between ions. It is the <strong>monopole moment</strong> of the asymmetric shared wave &mdash; a geometric consequence of two different-frequency waves sharing a space.</p>
+        </section>
+
+        <hr>
+
+
+        <!-- ===== SUMMARY TABLE ===== -->
+        <section id="summary">
+          <h2>Summary</h2>
+
+          <table class="bond-table">
+            <thead>
+              <tr>
+                <th>Prediction</th>
+                <th>GWT</th>
+                <th>Observed</th>
+                <th>Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bond energies (homonuclear)</td>
+                <td colspan="2" style="text-align:center;">9 molecules</td>
+                <td><span class="badge badge-green">9/9 within 5%</span></td>
+              </tr>
+              <tr>
+                <td>Bond energies (all 24)</td>
+                <td colspan="2" style="text-align:center;">24 molecules</td>
+                <td><span class="badge badge-yellow">16/24 within 10%</span></td>
+              </tr>
+              <tr>
+                <td>Triple bond lengths</td>
+                <td colspan="2" style="text-align:center;">4 molecules</td>
+                <td><span class="badge badge-green">avg 2.4%</span></td>
+              </tr>
+              <tr>
+                <td>Water bond angle</td>
+                <td class="mono">104.48&deg;</td>
+                <td class="mono">104.45&deg;</td>
+                <td><span class="badge badge-green">+0.03%</span></td>
+              </tr>
+              <tr>
+                <td>Non-bonding pairs</td>
+                <td colspan="2" style="text-align:center;">8 noble gas pairs</td>
+                <td><span class="badge badge-green">8/8 correct</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="card" style="margin-top:1.5rem; border-left: 3px solid var(--accent-green);">
+            <h4>What This Means</h4>
+            <p>Chemical bonding &mdash; the force that holds molecules together &mdash; emerges directly from standing wave synchronization on a 3D elastic lattice. No free parameters, no fitting, no separate ionic/covalent distinction. Just coupled oscillators finding their lowest-energy shared mode.</p>
+            <p>The formula is the <strong>strong-coupling limit</strong> of the two-level standing wave system. Improving the 8 outliers requires solving the full coupled wave equation numerically &mdash; a computational challenge, not a conceptual one.</p>
+            <p style="margin-bottom:0;"><a href="calc-atomic.html#h2-bond">See the H<sub>2</sub> harmonic derivation &rarr;</a></p>
+          </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="page-footer">
+          <p>Geometric Wave Theory &mdash; Everything is a wave in an elastic medium.</p>
+          <p><a href="../pages/core-derivations.html">&larr; Back to Core Derivations</a></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

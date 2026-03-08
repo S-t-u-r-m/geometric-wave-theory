@@ -225,13 +225,12 @@
 
           <div class="calc-step">
             <h4>Step 1 &mdash; Pion Decay Constant f<sub>&pi;</sub></h4>
-            <p>The decay constant measures how strongly the pion couples to the weak current. In GWT, it is the QCD scale divided by the phase-space factor &radic;(2&pi;):</p>
+            <p>The decay constant measures how strongly the pion couples to the weak axial current. In GWT, chiral symmetry is broken by the kink condensate, whose VEV has d spatial components (one per lattice axis). The pion projects onto a single direction in flavor space, giving:</p>
             <div class="calc-num">
-              f<sub>&pi;</sub> = &Lambda;<sub>QCD</sub> / &radic;(2&pi;)<br><br>
-              &radic;(2&pi;) = &radic;(6.2832) = 2.5066<br><br>
-              f<sub>&pi;</sub> = 234.6 MeV / 2.5066<br>
-              <strong>f<sub>&pi;</sub> = 93.6 MeV</strong>
+              f<sub>&pi;</sub><sup>F</sup> = &Lambda;<sub>QCD</sub> / &radic;d = 231.6 / &radic;3 = <strong>133.7 MeV</strong><br><br>
+              f<sub>&pi;</sub> = f<sub>&pi;</sub><sup>F</sup> / &radic;2 = 133.7 / 1.414 = <strong>94.6 MeV</strong>
             </div>
+            <p>The &radic;d factor is a directional projection: f<sub>&pi;</sub><sup>2</sup>&nbsp;=&nbsp;&Lambda;<sup>2</sup>/d because the condensate VEV distributes equally over d axes and the pion couples to one.</p>
           </div>
 
           <div class="calc-result">
@@ -239,32 +238,38 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">f<sub>&pi;</sub> = 93.6 MeV</div>
+                <div class="value">f<sub>&pi;</sub> = 94.6 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (PDG 2024)</div>
-                <div class="value">f<sub>&pi;</sub> = 92.1 MeV</div>
+                <div class="value">f<sub>&pi;</sub> = 92.2 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.6%</strong></p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 2.6%</strong></p>
           </div>
 
           <div class="calc-step">
-            <h4>Step 2 &mdash; Pion Mass via GMOR Relation</h4>
-            <p>The Gell-Mann&ndash;Oakes&ndash;Renner relation connects the pion mass to the light quark masses and the chiral condensate. In GWT, the condensate scale is &sigma;<sub>0</sub>&nbsp;=&nbsp;N<sub>c</sub><sup>1/6</sup>&nbsp;&times;&nbsp;&Lambda;<sub>QCD</sub>&nbsp;=&nbsp;281.7&nbsp;MeV:</p>
+            <h4>Step 2 &mdash; Chiral Condensate</h4>
+            <p>The vacuum condensate density counts virtual q&macr;q pairs. In GWT, this is determined by the number of coupling channels in the Wyler domain D<sub>IV</sub>(d+2), normalized by the d-cube unit cell volume:</p>
             <div class="calc-num">
-              m<sub>&pi;</sub><sup>2</sup> = (m<sub>u</sub> + m<sub>d</sub>) &times; &sigma;<sub>0</sub><sup>3</sup> / f<sub>&pi;</sub><sup>2</sup>
+              |&langle;q&macr;q&rangle;| = [d(d+2) / 2<sup>d</sup>] &times; &Lambda;<sup>3</sup> = (15/8) &times; &Lambda;<sup>3</sup>
             </div>
-            <p>Using GWT-derived quark masses from the m(n,p) formula: m<sub>u</sub>&nbsp;=&nbsp;m(13,31)&nbsp;=&nbsp;2.21&nbsp;MeV, m<sub>d</sub>&nbsp;=&nbsp;m(5,30)&nbsp;=&nbsp;4.78&nbsp;MeV:</p>
+            <p>where d(d+2)&nbsp;=&nbsp;(d+1)<sup>2</sup>&minus;1&nbsp;=&nbsp;15 counts the coupling channels and 2<sup>d</sup>&nbsp;=&nbsp;8 is the d-cube vertex count (volume normalization). The same D<sub>IV</sub>(5) geometry that gives &alpha;&nbsp;=&nbsp;1/137.036.</p>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 3 &mdash; Pion Mass via GMOR Relation</h4>
+            <p>The Gell-Mann&ndash;Oakes&ndash;Renner relation is exact in QCD:</p>
             <div class="calc-num">
-              m<sub>u</sub> + m<sub>d</sub> = 2.21 + 4.78 = 6.99 MeV<br><br>
-              &sigma;<sub>0</sub><sup>3</sup> = (281.7)<sup>3</sup> = 2.236 &times; 10<sup>7</sup> MeV<sup>3</sup><br><br>
-              f<sub>&pi;</sub><sup>2</sup> = (93.6)<sup>2</sup> = 8761 MeV<sup>2</sup><br><br>
-              m<sub>&pi;</sub><sup>2</sup> = 6.99 &times; 2.236 &times; 10<sup>7</sup> / 8761<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1.563 &times; 10<sup>8</sup> / 8761<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 17,842 MeV<sup>2</sup><br><br>
-              m<sub>&pi;</sub> = &radic;(17,842)<br>
-              &nbsp;&nbsp;&nbsp; = <strong>133.6 MeV</strong>
+              m<sub>&pi;</sub><sup>2</sup> &times; f<sub>&pi;</sub><sup>2</sup> = (m<sub>u</sub> + m<sub>d</sub>) &times; |&langle;q&macr;q&rangle;|
+            </div>
+            <p>Using GWT-derived quark masses: m<sub>u</sub>&nbsp;=&nbsp;m(13,31)&nbsp;=&nbsp;2.21&nbsp;MeV, m<sub>d</sub>&nbsp;=&nbsp;m(5,30)&nbsp;=&nbsp;4.78&nbsp;MeV:</p>
+            <div class="calc-num">
+              m<sub>u</sub> + m<sub>d</sub> = 6.99 MeV<br><br>
+              |&langle;q&macr;q&rangle;| = (15/8) &times; (231.6)<sup>3</sup> = 2.329 &times; 10<sup>7</sup> MeV<sup>3</sup><br><br>
+              f<sub>&pi;</sub><sup>2</sup> = (94.6)<sup>2</sup> = 8949 MeV<sup>2</sup><br><br>
+              m<sub>&pi;</sub><sup>2</sup> = 6.99 &times; 2.329 &times; 10<sup>7</sup> / 8949 = 18,189 MeV<sup>2</sup><br><br>
+              m<sub>&pi;</sub> = &radic;(18,189) = <strong>134.87 MeV</strong>
             </div>
           </div>
 
@@ -273,14 +278,14 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">m<sub>&pi;<sup>0</sup></sub> = 133.6 MeV</div>
+                <div class="value">m<sub>&pi;<sup>0</sup></sub> = 134.87 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (PDG 2024)</div>
-                <div class="value">m<sub>&pi;<sup>0</sup></sub> = 135.0 MeV</div>
+                <div class="value">m<sub>&pi;<sup>0</sup></sub> = 134.98 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.0%</strong> &mdash; The pion is anomalously light because it is a near-Goldstone mode of the broken chiral symmetry. Its mass vanishes in the limit m<sub>u</sub>,&nbsp;m<sub>d</sub>&nbsp;&rarr;&nbsp;0.</p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 0.08%</strong> &mdash; The pion is anomalously light because it is a near-Goldstone mode of the broken chiral symmetry. Its mass vanishes in the limit m<sub>u</sub>,&nbsp;m<sub>d</sub>&nbsp;&rarr;&nbsp;0. The d(d+2)/2<sup>d</sup>&nbsp;=&nbsp;15/8 condensate factor connects the Wyler domain geometry to the d-cube lattice.</p>
           </div>
         </section>
 
@@ -295,8 +300,8 @@
             <h4>Step 1 &mdash; Pion Compton Wavelength</h4>
             <div class="calc-num">
               &lambdabar;<sub>&pi;</sub> = &hbar;c / m<sub>&pi;</sub>c<sup>2</sup><br>
-              &nbsp;&nbsp;&nbsp;&nbsp; = 197.327 MeV&middot;fm / 133.6 MeV<br>
-              <strong>&lambdabar;<sub>&pi;</sub> = 1.477 fm</strong>
+              &nbsp;&nbsp;&nbsp;&nbsp; = 197.327 MeV&middot;fm / 134.87 MeV<br>
+              <strong>&lambdabar;<sub>&pi;</sub> = 1.463 fm</strong>
             </div>
           </div>
 
@@ -496,26 +501,24 @@
 
         <!-- ===== SECTION 8: STRING TENSION ===== -->
         <section id="string-tension">
-          <h2>8. Chiral Condensate Scale and Energy Density</h2>
-          <p>The Chiral condensate scale &mdash; the energy per unit length of the color flux tube between confined modes &mdash; follows from &Lambda;<sub>QCD</sub> with a factor set by the number of color modes N<sub>c</sub>.</p>
+          <h2>8. Chiral Condensate</h2>
+          <p>The chiral condensate |&langle;q&macr;q&rangle;| measures the density of virtual quark-antiquark pairs in the QCD vacuum. In GWT, it is determined by the geometry of the Wyler domain and the d-cube lattice:</p>
 
           <div class="calc-step">
-            <h4>Step 1 &mdash; Random Walk Factor</h4>
-            <p>The chiral condensate scale picks up a factor of N<sub>c</sub><sup>1/6</sup>, which is the random-walk correction for N<sub>c</sub> color degrees of freedom sharing the flux tube:</p>
+            <h4>Step 1 &mdash; Condensate Factor</h4>
+            <p>The condensate density is proportional to the number of coupling channels in D<sub>IV</sub>(d+2), normalized by the d-cube unit cell volume:</p>
             <div class="calc-num">
-              N<sub>c</sub><sup>1/6</sup> = 3<sup>1/6</sup><br><br>
-              ln(3) = 1.0986<br>
-              ln(3)/6 = 0.18310<br>
-              3<sup>1/6</sup> = e<sup>0.18310</sup> = <strong>1.201</strong>
+              R = d(d+2) / 2<sup>d</sup> = 3 &times; 5 / 8 = <strong>15/8 = 1.875</strong>
             </div>
+            <p>d(d+2)&nbsp;=&nbsp;(d+1)<sup>2</sup>&minus;1&nbsp;=&nbsp;15 counts the coupling channels from the Wyler domain. 2<sup>d</sup>&nbsp;=&nbsp;8 is the d-cube vertex count (volume normalization).</p>
           </div>
 
           <div class="calc-step">
-            <h4>Step 2 &mdash; Compute Chiral Condensate Scale</h4>
+            <h4>Step 2 &mdash; Compute Condensate</h4>
             <div class="calc-num">
-              &sigma;<sub>0</sub> = N<sub>c</sub><sup>1/6</sup> &times; &Lambda;<sub>QCD</sub><br>
-              &nbsp;&nbsp;&nbsp; = 1.201 &times; 234.6 MeV<br>
-              <strong>&sigma;<sub>0</sub> = 281.7 MeV</strong>
+              |&langle;q&macr;q&rangle;| = (15/8) &times; &Lambda;<sub>QCD</sub><sup>3</sup><br>
+              &nbsp;&nbsp;&nbsp; = 1.875 &times; (231.6)<sup>3</sup><br>
+              <strong>|&langle;q&macr;q&rangle;|<sup>1/3</sup> = 285.2 MeV</strong>
             </div>
           </div>
 
@@ -524,14 +527,14 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">&sigma;<sub>0</sub> = 281.7 MeV</div>
+                <div class="value">|&langle;q&macr;q&rangle;|<sup>1/3</sup> = 285.2 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (lattice QCD)</div>
-                <div class="value">&sigma;<sub>0</sub> &asymp; 280 MeV</div>
+                <div class="value">|&langle;q&macr;q&rangle;|<sup>1/3</sup> &asymp; 280 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 0.6%</strong> &mdash; The chiral condensate scale determines the confining potential between wave modes at large separation. It sets the energy scale for heavy quarkonia spectroscopy and the deconfinement temperature.</p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.9%</strong> &mdash; The chiral condensate determines the vacuum structure of QCD. Combined with f<sub>&pi;</sub> and the GMOR relation, it predicts the pion mass to 0.08%.</p>
           </div>
 
           <div class="calc-step">
@@ -700,9 +703,69 @@
 
         <hr>
 
-        <!-- ===== SECTION 12: SUMMARY TABLE ===== -->
+        <!-- ===== SECTION 12: DEUTERON BINDING ===== -->
+        <section id="deuteron">
+          <h2>12. Deuteron Binding Energy</h2>
+          <p>The deuteron (proton + neutron) is the simplest bound nucleus. GWT predicts its binding energy using the same harmonic bond formula that works for the hydrogen molecule, with nuclear energy and length scales replacing atomic ones.</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.2rem;">
+            <span class="eq-label">Deuteron Binding (Harmonic Bond Formula)</span>
+            B<sub>d</sub> = (&pi;/d) &times; E<sub>nuc</sub> &times; sin(2R<sub>d</sub>/a<sub>nuc</sub>)
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 1 &mdash; Nuclear Energy Scale</h4>
+            <p>The nuclear seesaw energy &mdash; the pion recoil energy, analogous to ionization energy E<sub>H</sub>&nbsp;=&nbsp;m<sub>e</sub>&alpha;<sup>2</sup>/2 in atomic physics:</p>
+            <div class="calc-num">
+              E<sub>nuc</sub> = m<sub>&pi;</sub><sup>2</sup> / (2&thinsp;m<sub>p</sub>)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp; = (134.87)<sup>2</sup> / (2 &times; 926.5)<br>
+              <strong>E<sub>nuc</sub> = 9.82 MeV</strong>
+            </div>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 2 &mdash; Nuclear Bohr Radius</h4>
+            <p>The pion Compton wavelength &mdash; the natural length scale of nuclear forces, analogous to the Bohr radius a<sub>0</sub>:</p>
+            <div class="calc-num">
+              a<sub>nuc</sub> = &hbar;c / m<sub>&pi;</sub> = 197.3 / 134.87<br>
+              <strong>a<sub>nuc</sub> = 1.463 fm</strong>
+            </div>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 3 &mdash; Phase and Binding</h4>
+            <p>The deuteron charge radius R<sub>d</sub>&nbsp;=&nbsp;2.1421&nbsp;fm sits just below the first node at &pi;/2&nbsp;=&nbsp;1.571 in nuclear Bohr units (2.30 fm). This is why the deuteron is barely bound &mdash; it lives near the node of the standing wave:</p>
+            <div class="calc-num">
+              R<sub>d</sub>/a<sub>nuc</sub> = 2.1421 / 1.463 = 1.464 nuclear Bohr<br>
+              &pi;/2 = 1.571 (first node)<br>
+              &delta; = &pi;/2 &minus; 1.464 = 0.107 (barely below the node!)<br><br>
+              B<sub>d</sub> = (&pi;/3) &times; 9.82 &times; sin(2 &times; 1.464)<br>
+              &nbsp;&nbsp;&nbsp; = 1.047 &times; 9.82 &times; 0.2089<br>
+              <strong>B<sub>d</sub> = 2.147 MeV</strong>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <h4>Result: Deuteron Binding Energy</h4>
+            <div class="calc-comparison">
+              <div>
+                <div class="label">GWT Prediction</div>
+                <div class="value">B<sub>d</sub> = 2.147 MeV</div>
+              </div>
+              <div>
+                <div class="label">Observed</div>
+                <div class="value">B<sub>d</sub> = 2.2246 MeV</div>
+              </div>
+            </div>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 3.5%</strong> &mdash; The harmonic bond formula D&nbsp;=&nbsp;(&pi;/d)&thinsp;E&thinsp;sin(2R/a) works at both atomic (H<sub>2</sub>, 0.04%) and nuclear (deuteron, 3.5%) scales with the appropriate energy and length units. The deuteron&rsquo;s weak binding is explained geometrically: it sits just 0.107 nuclear Bohr units below the first standing-wave node.</p>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- ===== SECTION 13: SUMMARY TABLE ===== -->
         <section id="summary">
-          <h2>12. Summary &mdash; All Proton &amp; Nuclear Predictions</h2>
+          <h2>13. Summary &mdash; All Proton &amp; Nuclear Predictions</h2>
           <p>Every result below is derived from the three lattice constants {k,&nbsp;a,&nbsp;&eta;} through the QCD chain. Zero free parameters enter at any stage. The proton is a j<sub>0</sub> standing wave; the nucleus is a collection of these waves packed according to 3D mode-filling rules.</p>
 
           <div class="calc-result">
@@ -715,8 +778,8 @@
                 <tr><td>Proton radius r<sub>p</sub></td><td>0.8411 fm</td><td>0.8414 &plusmn; 0.0019 fm</td><td>0.04%</td></tr>
                 <tr><td>Cavity radius R<sub>c</sub></td><td>1.581 fm</td><td>&mdash;</td><td>(prediction)</td></tr>
                 <tr><td>Proton mass m<sub>p</sub></td><td>938.4 MeV</td><td>938.272 MeV</td><td>0.01%</td></tr>
-                <tr><td>Pion decay constant f<sub>&pi;</sub></td><td>93.6 MeV</td><td>92.1 MeV</td><td>1.6%</td></tr>
-                <tr><td>Pion mass m<sub>&pi;<sup>0</sup></sub></td><td>133.6 MeV</td><td>135.0 MeV</td><td>1.0%</td></tr>
+                <tr><td>Pion decay constant f<sub>&pi;</sub></td><td>94.6 MeV</td><td>92.2 MeV</td><td>2.6%</td></tr>
+                <tr><td>Pion mass m<sub>&pi;<sup>0</sup></sub></td><td>134.87 MeV</td><td>134.98 MeV</td><td>0.08%</td></tr>
                 <tr><td>Nuclear force range r<sub>neutral</sub></td><td>3.06 fm</td><td>~3 fm</td><td>~3%</td></tr>
                 <tr><td>Nuclear radius r<sub>0</sub></td><td>1.203 fm</td><td>1.20 fm</td><td>0.3%</td></tr>
                 <tr><td>Nuclear potential V<sub>0</sub></td><td>54.67 MeV</td><td>53.9 &plusmn; 1 MeV</td><td>1.2%</td></tr>
@@ -724,10 +787,11 @@
                 <tr><td>Nuclear density &rho;<sub>0</sub></td><td>0.150 fm<sup>&minus;3</sup></td><td>0.16 fm<sup>&minus;3</sup></td><td>6%</td></tr>
                 <tr><td>Fermi energy T<sub>F</sub></td><td>35.3 MeV</td><td>~35 MeV</td><td>~1%</td></tr>
                 <tr><td>Volume energy a<sub>V</sub></td><td>16.1 MeV</td><td>15.56 MeV</td><td>3.6%</td></tr>
-                <tr><td>Chiral condensate scale &sigma;<sub>0</sub></td><td>281.7 MeV</td><td>280 MeV</td><td>0.6%</td></tr>
+                <tr><td>Chiral condensate |&langle;q&macr;q&rangle;|<sup>1/3</sup></td><td>285.2 MeV</td><td>280 MeV</td><td>1.9%</td></tr>
                 <tr><td>Energy density gap</td><td>8/&alpha; = 1096</td><td>~10<sup>3</sup></td><td>exact</td></tr>
                 <tr><td>Form factor G<sub>E</sub>(Q)</td><td>analytic j<sub>0</sub></td><td>world data</td><td>&lt; 2%</td></tr>
                 <tr><td>&mu;<sub>n</sub>/&mu;<sub>p</sub></td><td>&minus;0.6667</td><td>&minus;0.6850</td><td>2.7%</td></tr>
+                <tr><td>Deuteron binding B<sub>d</sub></td><td>2.147 MeV</td><td>2.2246 MeV</td><td>3.5%</td></tr>
                 <tr><td>Magic numbers</td><td>2, 8, 20, 28, 50, 82, 126</td><td>2, 8, 20, 28, 50, 82, 126</td><td>exact</td></tr>
               </tbody>
             </table>

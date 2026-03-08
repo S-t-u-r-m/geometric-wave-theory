@@ -119,6 +119,7 @@
         { label: 'Electroweak', href: '/calculations/calc-electroweak.html' },
         { label: 'Proton & Nuclear', href: '/calculations/calc-proton-nuclear.html' },
         { label: 'Atomic Physics', href: '/calculations/calc-atomic.html' },
+        { label: 'Molecular Bonds', href: '/calculations/calc-molecular-bonds.html' },
         { label: 'Neutrinos', href: '/calculations/calc-neutrinos.html' },
         { label: 'Cosmology', href: '/calculations/calc-cosmology.html' },
         { label: 'Gravity & GR Tests', href: '/calculations/calc-gravity-gr.html' },
@@ -167,7 +168,7 @@
     // Header
     const header = document.createElement('div');
     header.className = 'nav-header';
-    header.innerHTML = `<a href="${resolve('/index.html')}">Geometric Wave Theory<span class="nav-subtitle">179 predictions &middot; 0 free parameters</span></a>`;
+    header.innerHTML = `<a href="${resolve('/index.html')}">Geometric Wave Theory<span class="nav-subtitle">200 predictions &middot; 0 free parameters</span></a>`;
     sidebar.appendChild(header);
 
     // Body

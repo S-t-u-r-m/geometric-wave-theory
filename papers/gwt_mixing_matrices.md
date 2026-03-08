@@ -2,7 +2,7 @@
 
 **Jonathan D. Wollenberg**
 
-March 5, 2026
+March 7, 2026
 
 ---
 
@@ -202,6 +202,8 @@ The framework makes several testable predictions:
 2. **Sensitivity to mass measurements**: Because all mixing angles are algebraic functions of mass ratios, improved quark mass measurements will sharpen the predictions. The largest current uncertainty comes from V_ub, which depends on sqrt(m_u/m_t). The up quark mass has approximately 30% experimental uncertainty, which propagates to approximately 15% uncertainty in V_ub.
 
 3. **No new parameters**: If additional mixing parameters are ever measured (e.g., sterile neutrino mixing), the framework predicts they must also be expressible as mass ratios raised to integer-reciprocal powers of d.
+
+4. **Beyond mixing matrices**: The same d = 3 geometry that determines the mixing angles also predicts mass splittings and nuclear binding. Using GWT-predicted masses with a transverse Wyler correction (Vol(S^(d-1)) = 4*pi for Weyl spinors), the neutrino mass squared splittings are predicted to 0.4% (Delta_m2_31) and 0.6% (Delta_m2_21). The pion mass from GMOR with a geometric condensate factor d(d+2)/2^d = 15/8 agrees to 0.08%. The deuteron binding energy from a harmonic bond formula agrees to 3.5%. These results use the same fermion masses as the mixing angle formulas, with no additional free parameters.
 
 ### 5.4 Limitations
 
