@@ -234,6 +234,34 @@ register(GWTParam(
              "alpha = tunneling suppression distributed across gauge bosons per axis.",
 ))
 
+# Strong coupling constant
+# BARE: Gibbs overshoot = truncation of BZ modes at the confinement boundary
+# Si(pi)/pi = integral of sinc over one BZ zone. Truncation → 9% overshoot.
+# alpha_s(confinement) = 1.000 from virial theorem (Tier 1, 0.03%)
+# alpha_s(M_Z) = Gibbs value, DRESSED by one gluon self-loop: alpha_s * (1 + alpha_s/pi)
+# Physical: gluons carry color charge → self-interact → coupling at M_Z is dressed.
+# Analogous to alpha_EM bare (137.042) vs dressed (137.036).
+from scipy import integrate as _integrate
+_Si_pi = _integrate.quad(lambda x: np.sin(x)/x, 0, np.pi)[0]
+alpha_s_bare = 4/np.pi * (_Si_pi/np.pi - 0.5)   # 0.11394 (Gibbs overshoot)
+alpha_s_dressed = alpha_s_bare * (1 + alpha_s_bare/np.pi)  # 0.11807 (one gluon loop)
+
+register(GWTParam(
+    name="Strong coupling at M_Z",
+    symbol="alpha_s(M_Z)",
+    formula_text="(4/pi)*(Si(pi)/pi - 1/2) * (1 + alpha_s/pi)",
+    value=alpha_s_dressed,
+    observed=0.1179,
+    unit="",
+    error_pct=abs(alpha_s_dressed - 0.1179) / 0.1179 * 100,
+    status="DERIVED",
+    derivation="Bare: 4/pi * (Si(pi)/pi - 1/2) = 0.1139 from Gibbs overshoot at BZ boundary. "
+               "Dressed: multiply by (1 + alpha_s/pi) = gluon self-loop correction. "
+               "Same bare/dressed pattern as alpha_EM. Result: 0.1181 vs 0.1179 (+0.15%).",
+    concerns="Previous value used an approximate formula giving 0.1179 directly. "
+             "Now properly decomposed into bare Gibbs value + one-loop dressing.",
+))
+
 # Weinberg angle at M_Z — CHOOSE ONE
 # Option A: cos(theta_W) = (2d+1)/(2d+2) = 7/8
 # Option B: sin^2(theta_W) = d(d+2)/(2(d+1))^2 = 15/64

@@ -84,6 +84,7 @@ QM = classical wave mechanics misidentified as particle mechanics
 - Proton form factor: G_E(Q)=(1/x)[Si(x)−½(Si(x+2π)+Si(x−2π))], x=Q×R_c (analytic, exact)
 - CMB without dark matter: G_eff=Ω_m/Ω_b×G_N = (1/3)/0.049 = 6.8 G_N (derived from Ω_Λ=2/3)
 - Gibbs→αs=1: Si(π)/π−1/2=9/(32π); ×8/9 = 1/(4π); αs=1 (0.03%)
+- alpha_s(M_Z): bare Gibbs = 0.1139, dressed = 0.1181 via (1+alpha_s/pi) gluon self-loop (+0.15%)
 - Dirac derived: yin/yang → Pauli → Cl(3,0); time=L0 → Cl(3,1) → {γᵘ,γᵛ}=2gᵘᵛ
 - Mass gap complete: virial(4=d+1) × RMS(0.532) × Gibbs(αs=1) → m_p=4Λ_QCD (0.01%)
 
