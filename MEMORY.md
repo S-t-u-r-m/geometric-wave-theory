@@ -207,11 +207,17 @@ All standalone wave masses: m = (2d)^a × pi^b × alpha^12 × m_Planck
 | Electron | F × alpha^12 × m_Pl | +0.03% |
 | Muon | m_e × (d/(2alpha) + sqrt(d/2)) | +0.04% |
 | Proton | F^2 × alpha^12 × m_Pl | +0.03% |
-| Tau | (2d×pi^d)^3 × alpha^12 × m_Pl | +0.88% |
-| Z boson | F^2 × pi^4 × alpha^12 × m_Pl | +0.26% |
-| W boson | Z × (2^d-1)/2^d | -0.48% |
+| Tau | (2d×pi^d)^3 × alpha^12 × m_Pl × pi^(-alpha) | +0.01% |
+| Z boson | F^2 × pi^4 × alpha^12 × m_Pl | +0.21% |
+| W boson | Z * cos(theta_W_corr) * sqrt(1 - alpha/(d-1)) | +0.00% |
+| sin^2(theta_W) | 15/64 - d*alpha/2 = 0.2234 | +0.03% |
 
-Key relationships: m_p/m_e = F, m_Z/m_p = pi^4 (4 axes), m_W/m_Z = 7/8
+Radiative corrections (March 8 2026):
+- Tau: pi^(-alpha) = vacuum self-energy of free 3D wave (0.88% -> 0.01%)
+- Weinberg angle: sin^2 = 15/64 - d*alpha/2 (d=3 spatial axes * alpha/2 each; 1.4% -> 0.03%)
+- W self-energy: sqrt(1 - alpha/(d-1)) (d-1=2 weak isospin axes; -0.53% -> 0.00%)
+- Combined W = Z * cos(corrected) * sqrt(1-alpha/2) = 80376.6 MeV (obs: 80377)
+Key relationships: m_p/m_e = F, m_Z/m_p = pi^4 (4 axes)
 
 **Third route to alpha** (bridges breather and mode-counting):
 ln(1/alpha) = ((d+1)/N_gauge) × [16×2^d/pi^2 + ln(2d)] → 1/137.042 (0.005%)
