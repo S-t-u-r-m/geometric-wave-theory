@@ -476,7 +476,42 @@ Key derived results:
 - Formalize 3D wave matching into two-center wave equation
 - Would complete the interaction Lagrangian of GWT
 
+**V6 Complete Formula (March 8 2026):**
+- 7 corrections, ALL from d=3, zero free parameters
+- Results: avg=3.2%, w2=8/24, w5=21/24, w10=24/24
+- New corrections (5-7):
+  - Correction 5: Phase extension for heteronuclear pp bonds: phase *= [(Z1+Z2)/(2√Z1Z2)]^(d-1)
+  - Correction 6: Radical pi weakening: pi_count *= (ne_pp-1)/ne_pp when ne_pp odd and ≤6 (fixes CN: 13.3%→-1.4%)
+  - Correction 7: Asymmetric node penalty: S /= n_lobes^(1+1/d) when h1≠h2 (fixes LiH: 11.1%→1.3%)
+- NaH regression: +2.4%→-5.9% (still within 10%)
+- Key file: calculations/v6_complete.py
+
+**GWT Aufbau Test (March 8 2026):**
+- Tests whether GWT's energy formula self-consistently predicts correct electron filling order
+- Bonding-only molecules (ne_pp ≤ 6): 6/6 PERFECT match with MO theory (B2, N2, F2, Cl2, CO, BF)
+- Antibonding molecules: GWT prefers sigma* over pi* (O2, NO mismatch)
+  - Root cause: f_anti=6/5 makes partial pi* more expensive than sigma*
+  - Also |sin(sigma)| < |sin(pi)| for ALL molecules → sigma* always cheaper to cancel
+- CN: GWT picks sig(2)+pi(3) instead of sig(1)+pi(4) — picks higher BO
+- Key insight: the formula correctly COMPUTES energy for any config, but doesn't self-consistently PREDICT which config nature picks for antibonding
+- **SOLVED** via coupling-weighted filling (aufbau_coupling.py): 10/10 match MO theory
+  - Bonding: fill by raw |sin(phase)|, highest gain first (pi > sigma for 2p near phase=pi)
+  - Antibonding: fill by |sin(phase)| * kappa/k, cheapest first (kappa/k = 1/2 from isotropy)
+  - kappa/k = 1/2 = transverse/longitudinal coupling ratio, ALREADY DERIVED from Hamiltonian
+  - Same ratio behind Koide Q=2/3, Omega_Lambda=2/3 — all from d=3
+  - Key distinction: filling ORDER uses kappa/k; De CALCULATION uses f_anti=6/5 (different physics)
+  - Zero new parameters
+- Key files: calculations/aufbau_coupling.py (proof), calculations/aufbau_test2.py (earlier attempts)
+
 ## Open Ideas / Future Todos
+0. **NEXT: Full n-wave phase computation for H-X bonds**
+   - Current formula uses Z_eff for 2p only, but H(1s) overlaps the full n=2 wave
+   - OH (+9.5%), NH (+5.0%), CH (+2.6%) all overshoot — likely from missing 2s contribution to phase
+   - GWT approach: one wave, one phase — compute phase from COMPLETE n=2 wave, not just l=1 component
+   - Not "sp hybridization" (particle thinking) — it's using the full wave shape
+   - Could also improve 3rd-row molecules (Na2, Cl2, NaCl) where radial structure matters
+   - Would reduce avg error from 3.2% toward ~2%
+
 1. **Lattice internal structure (SPECULATIVE — keep off website for now)**
    - Nodes may be +energy/−energy particles in alternating 3D arrangement
    - Net zero energy → zero mass → explains why η is inertial but not gravitating

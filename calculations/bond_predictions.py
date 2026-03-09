@@ -48,7 +48,7 @@ c_ionic = 1.0 / (2*d + 1)            # 1/7   -- Coulomb coupling
 Z_eff = {
     'H_1s':  1.0000, 'Li_2s': 1.2792, 'B_2p':  2.4214,
     'C_2p':  3.1358, 'N_2p':  3.8340, 'O_2p':  4.4532,
-    'F_2p':  5.0998, 'Na_3s': 2.5074, 'Cl_3p': 4.8864,
+    'F_2p':  5.0998, 'Na_3s': 2.5074, 'Cl_3p': 6.1161,
 }
 
 
@@ -142,8 +142,8 @@ def compute_bond_energy(name, R, De_exp, bonds, orb1, orb2):
     # Corrected exponents
     a1 = 2 + (1 - 2*l1) * alpha * h1
     a2 = 2 + (1 - 2*l2) * alpha * h2
-    b1 = 1 + (1 - 2*l1) * beta * h1
-    b2 = 1 + (1 - 2*l2) * beta * h2
+    b1 = 1 + beta * h1
+    b2 = 1 + beta * h2
 
     # Energy scale (geometric mean of orbital energies)
     E1 = E_H / n1**a1
@@ -246,8 +246,8 @@ def get_sigma_phase(R, orb1, orb2):
     n1, l1 = get_n(orb1), get_l(orb1)
     n2, l2 = get_n(orb2), get_l(orb2)
     h1, h2 = has_nodes(orb1), has_nodes(orb2)
-    b1 = 1 + (1 - 2*l1) * beta * h1
-    b2 = 1 + (1 - 2*l2) * beta * h2
+    b1 = 1 + beta * h1
+    b2 = 1 + beta * h2
     return R / n1**b1 + R / n2**b2
 
 header = (f"{'Mol':<7} {'De_exp':>7} {'De_pred':>7} {'err%':>7}  "
@@ -393,8 +393,8 @@ for mol in molecules:
     n1, l1 = get_n(o1), get_l(o1)
     n2, l2 = get_n(o2), get_l(o2)
     h1, h2 = has_nodes(o1), has_nodes(o2)
-    b1 = 1 + (1 - 2*l1) * beta * h1
-    b2 = 1 + (1 - 2*l2) * beta * h2
+    b1 = 1 + beta * h1
+    b2 = 1 + beta * h2
     phase = R / n1**b1 + R / n2**b2
 
     De_pred, D_cov, D_ion, q = compute_bond_energy(*mol)

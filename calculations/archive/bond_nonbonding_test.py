@@ -41,7 +41,7 @@ Z_eff = {
     'Ne_2p': 5.7584,
     'Na_3s': 2.5074,
     'Ar_3p': 6.7641,
-    'Cl_3p': 4.8864,
+    'Cl_3p': 6.1161,
 }
 
 def get_n(orb): return int(orb.split('_')[1][0])
