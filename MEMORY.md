@@ -148,13 +148,13 @@ Running total: ~138 predictions/results
 
 ## Dr. G. Bruce Mainland — Key Contact (March 1 2026)
 - Professor Emeritus, OSU Newark physics; retired 2012; award-winning educator
-- John's former professor ~15 years ago
+- Jonathan Wollenberg's former professor ~15 years ago
 - Research: deriving ε₀, c, α from quantum vacuum structure (with Bernard Mulligan)
 - His result: 1/α ≅ 8²√(3π/2) ≅ 138.93 (1.4% off) — particle picture limited him
 - EWT comparison: same 5 DOF, wave picture → D_IV(5) → 1/137.036 (0.0001%) — 1400× better
 - His key paper: arxiv.org/abs/2104.05563 (2021)
 - Also proved vacuum energy doesn't gravitate — parallels η = inertial response
-- Email sent March 1 2026 to mainland.1@osu.edu
+- Email sent March 1 2026 to mainland.1@osu.edu; follow-up sent March 10 with derivations (6π⁵, α, c)
 - His work is a subset of EWT; he had the goal but not the medium
 
 ## Full Lattice Potential — DERIVED (March 1 2026 — Section 27, rewritten)
@@ -476,14 +476,21 @@ Key derived results:
 - Formalize 3D wave matching into two-center wave equation
 - Would complete the interaction Lagrangian of GWT
 
-**V6 Complete Formula (March 8 2026):**
-- 7 corrections, ALL from d=3, zero free parameters
-- Results: avg=3.2%, w2=8/24, w5=21/24, w10=24/24
-- New corrections (5-7):
-  - Correction 5: Phase extension for heteronuclear pp bonds: phase *= [(Z1+Z2)/(2√Z1Z2)]^(d-1)
-  - Correction 6: Radical pi weakening: pi_count *= (ne_pp-1)/ne_pp when ne_pp odd and ≤6 (fixes CN: 13.3%→-1.4%)
-  - Correction 7: Asymmetric node penalty: S /= n_lobes^(1+1/d) when h1≠h2 (fixes LiH: 11.1%→1.3%)
-- NaH regression: +2.4%→-5.9% (still within 10%)
+**V6 Complete Formula (March 8-9 2026):**
+- 6 corrections, ALL from d=3, zero free parameters
+- Results: **avg=2.5%, med=2.3%, max=6.3%, w2=7/23, w5=21/23, w10=23/23**
+- Corrections:
+  - Correction 1: **3D parity-dependent node counting** (March 9 breakthrough):
+    S /= n_lobes^(1 + (-1)^(rn+1)/d^rn), rn = real radial nodes
+    Odd nodes (Li 2s, rn=1): exponent=4/3, STRONGER suppression (3D r² weights negative outer lobe)
+    Even nodes (Na 3s, rn=2): exponent=8/9, WEAKER suppression (3D r² weights positive outer lobe)
+    Fixes LiH: +11.1% → +1.3%, NaH stays at +2.0% — **seesaw broken by node parity**
+  - Correction 2: Overlap floor 1/(d+1) = 1/4
+  - Correction 3: Enhanced ionic c = d/(2d+1) = 3/7 when D_cov/delta_eps < 1/d³
+  - Correction 4: Phase extension for heteronuclear pp bonds: phase *= [(Z1+Z2)/(2√Z1Z2)]^(d-1)
+  - Correction 5: Half-filled sigma for radicals
+  - Correction 6: Radical pi weakening: pi_count *= (ne_pp-1)/ne_pp (fixes CN)
+- Key insight (user): orbital SHAPES matter — 3D volume element r²dr weights outer lobe differently depending on node parity. 1D node correction missed this.
 - Key file: calculations/v6_complete.py
 
 **GWT Aufbau Test (March 8 2026):**
@@ -504,13 +511,11 @@ Key derived results:
 - Key files: calculations/aufbau_coupling.py (proof), calculations/aufbau_test2.py (earlier attempts)
 
 ## Open Ideas / Future Todos
-0. **NEXT: Full n-wave phase computation for H-X bonds**
-   - Current formula uses Z_eff for 2p only, but H(1s) overlaps the full n=2 wave
-   - OH (+9.5%), NH (+5.0%), CH (+2.6%) all overshoot — likely from missing 2s contribution to phase
-   - GWT approach: one wave, one phase — compute phase from COMPLETE n=2 wave, not just l=1 component
-   - Not "sp hybridization" (particle thinking) — it's using the full wave shape
-   - Could also improve 3rd-row molecules (Na2, Cl2, NaCl) where radial structure matters
-   - Would reduce avg error from 3.2% toward ~2%
+0. **NEXT: Build out educational/derivation pages for self-study**
+   - Goal: understand every derivation well enough to reproduce independently
+   - Focus on working through calculations, not just reading results
+   - Bond formula on hold (~90% complete, avg=2.5%, parked for now)
+   - Remaining bond outliers (NaCl -6.3%, BF -5.1%, Cl2 +4.9%) deferred
 
 1. **Lattice internal structure (SPECULATIVE — keep off website for now)**
    - Nodes may be +energy/−energy particles in alternating 3D arrangement
