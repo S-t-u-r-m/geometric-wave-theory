@@ -12,6 +12,7 @@ import cupy as cp
 import numpy as np
 import time as timer
 import sys
+import json
 
 pi = float(np.pi)
 V_0 = 1.0 / pi**2
@@ -144,6 +145,7 @@ print(f"  Each run = 3 evolutions x {n_steps} steps on {N}^3 grid")
 sys.stdout.flush()
 
 start_time = timer.time()
+results = {"s_wave": {}, "p_wave": {}, "mixed": {}, "dense_s": [], "dense_p": [], "dense_mixed": []}
 
 # --- s-wave (l=0) breathers ---
 print(f"\n{'='*80}")
@@ -164,6 +166,11 @@ for n1, n2, label in [(1,1,"mode 1+1"), (3,3,"mode 3+3"), (1,3,"mode 1+3")]:
         progress(f"({n1},{n2}) R={R} ++")
         elapsed = timer.time() - t0
         print(f"  {R:6.1f} {E1:10.4f} {E2:10.4f} {E12_pm:10.4f} {dE_pm:+10.4f} {dE_pp:+10.4f}  ({elapsed:.1f}s)", flush=True)
+        key = f"({n1},{n2})"
+        if key not in results["s_wave"]:
+            results["s_wave"][key] = []
+        results["s_wave"][key].append({"R": float(R), "E1": float(E1), "E2": float(E2),
+                                        "dE_pm": float(dE_pm), "dE_pp": float(dE_pp)})
 
 
 # --- p-wave (l=1) breathers ---
@@ -187,6 +194,11 @@ for n1, n2, label in [(3,3,"mode 3+3 p-wave"), (1,3,"mode 1s+3p")]:
         progress(f"p-wave ({n1},{n2}) R={R} ++")
         elapsed = timer.time() - t0
         print(f"  {R:6.1f} {E1:10.4f} {E2:10.4f} {E12_pm:10.4f} {dE_pm:+10.4f} {dE_pp:+10.4f}  ({elapsed:.1f}s)", flush=True)
+        key = f"({n1},{n2})"
+        if key not in results["p_wave"]:
+            results["p_wave"][key] = []
+        results["p_wave"][key].append({"R": float(R), "E1": float(E1), "E2": float(E2),
+                                        "dE_pm": float(dE_pm), "dE_pp": float(dE_pp)})
 
 
 # --- Mixed s+p ---
@@ -205,6 +217,7 @@ for R in [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0, 8.0]:
     progress(f"mixed s+p R={R} ++")
     elapsed = timer.time() - t0
     print(f"  {R:6.1f} {dE_pm:+10.4f} {dE_pp:+10.4f}  ({elapsed:.1f}s)", flush=True)
+    results["mixed"].setdefault("(1,3)", []).append({"R": float(R), "dE_pm": float(dE_pm), "dE_pp": float(dE_pp)})
 
 # --- DENSE R SCAN for oscillation detection ---
 print(f"\n{'='*80}")
@@ -220,6 +233,7 @@ for R in np.arange(1.0, 12.1, 0.5):
     _, _, _, dE_pp = run_3d_gpu(N, L, 1, 1, R, sign2=+1, l1=0, l2=0, n_steps=n_steps)
     progress(f"dense s(1,1) R={R}")
     print(f"  {R:6.1f} {dE_pm:+10.4f} {dE_pp:+10.4f}", flush=True)
+    results["dense_s"].append({"R": float(R), "dE_pm": float(dE_pm), "dE_pp": float(dE_pp)})
 
 # p-wave (3,3) dense scan
 print(f"\n  --- Dense scan: mode (3,3) p-wave ---")
@@ -230,6 +244,7 @@ for R in np.arange(1.0, 12.1, 0.5):
     _, _, _, dE_pp = run_3d_gpu(N, L, 3, 3, R, sign2=+1, l1=1, l2=1, n_steps=n_steps)
     progress(f"dense p(3,3) R={R}")
     print(f"  {R:6.1f} {dE_pm:+10.4f} {dE_pp:+10.4f}", flush=True)
+    results["dense_p"].append({"R": float(R), "dE_pm": float(dE_pm), "dE_pp": float(dE_pp)})
 
 # Mixed s+p dense scan
 print(f"\n  --- Dense scan: mode 1(s) + 3(p) mixed ---")
@@ -241,7 +256,16 @@ for R in np.arange(1.0, 12.1, 0.5):
     progress(f"dense mixed R={R}")
     print(f"  {R:6.1f} {dE_pm:+10.4f} {dE_pp:+10.4f}", flush=True)
 
+    results["dense_mixed"].append({"R": float(R), "dE_pm": float(dE_pm), "dE_pp": float(dE_pp)})
+
 total_elapsed = timer.time() - start_time
 print(f"\n{'='*80}")
 print(f"  DONE — Total time: {total_elapsed/60:.1f} minutes")
 print(f"{'='*80}")
+
+# Save results to JSON
+outfile = "calculations/breather_3d_results.json"
+results["meta"] = {"grid": N, "L": L, "n_steps": n_steps, "total_time_min": round(total_elapsed/60, 1)}
+with open(outfile, "w") as f:
+    json.dump(results, f, indent=2)
+print(f"\n  Results saved to {outfile}")

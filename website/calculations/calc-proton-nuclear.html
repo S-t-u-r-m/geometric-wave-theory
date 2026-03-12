@@ -225,12 +225,11 @@
 
           <div class="calc-step">
             <h4>Step 1 &mdash; Pion Decay Constant f<sub>&pi;</sub></h4>
-            <p>The decay constant measures how strongly the pion couples to the weak axial current. In GWT, chiral symmetry is broken by the kink condensate, whose VEV has d spatial components (one per lattice axis). The pion projects onto a single direction in flavor space, giving:</p>
+            <p>The decay constant measures how strongly the pion couples to the weak axial current. In GWT, f<sub>&pi;</sub> is set by the antibonding geometry of the d=3 lattice: 2d&minus;1&nbsp;=&nbsp;5 spatial antibonding modes &times;&nbsp;2 (particle/antiparticle) gives a denominator of 10:</p>
             <div class="calc-num">
-              f<sub>&pi;</sub><sup>F</sup> = &Lambda;<sub>QCD</sub> / &radic;d = 231.6 / &radic;3 = <strong>133.7 MeV</strong><br><br>
-              f<sub>&pi;</sub> = f<sub>&pi;</sub><sup>F</sup> / &radic;2 = 133.7 / 1.414 = <strong>94.6 MeV</strong>
+              f<sub>&pi;</sub> = m<sub>p</sub> / [2(2d&minus;1)] = m<sub>p</sub> / 10 = 938.3 / 10 = <strong>93.8 MeV</strong>
             </div>
-            <p>The &radic;d factor is a directional projection: f<sub>&pi;</sub><sup>2</sup>&nbsp;=&nbsp;&Lambda;<sup>2</sup>/d because the condensate VEV distributes equally over d axes and the pion couples to one.</p>
+            <p>The factor 2(2d&minus;1)&nbsp;=&nbsp;10 counts the antibonding modes available to the pion in 3D: the kink condensate has 2d&minus;1&nbsp;=&nbsp;5 spatial modes (one per lattice axis minus parity), doubled by particle/antiparticle symmetry.</p>
           </div>
 
           <div class="calc-result">
@@ -238,23 +237,23 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">f<sub>&pi;</sub> = 94.6 MeV</div>
+                <div class="value">f<sub>&pi;</sub> = 93.8 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (PDG 2024)</div>
-                <div class="value">f<sub>&pi;</sub> = 92.2 MeV</div>
+                <div class="value">f<sub>&pi;</sub> = 92.1 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 2.6%</strong></p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.9%</strong></p>
           </div>
 
           <div class="calc-step">
             <h4>Step 2 &mdash; Chiral Condensate</h4>
             <p>The vacuum condensate density counts virtual q&macr;q pairs. In GWT, this is determined by the number of coupling channels in the Wyler domain D<sub>IV</sub>(d+2), normalized by the d-cube unit cell volume:</p>
             <div class="calc-num">
-              |&langle;q&macr;q&rangle;| = [d(d+2) / 2<sup>d</sup>] &times; &Lambda;<sup>3</sup> = (15/8) &times; &Lambda;<sup>3</sup>
+              |&langle;q&macr;q&rangle;| = [d(d+2) / 2<sup>d</sup>] &times; &Lambda;<sub>QCD</sub><sup>3</sup> = (15/8) &times; (234.6)<sup>3</sup> = 2.420 &times; 10<sup>7</sup> MeV<sup>3</sup>
             </div>
-            <p>where d(d+2)&nbsp;=&nbsp;(d+1)<sup>2</sup>&minus;1&nbsp;=&nbsp;15 counts the coupling channels and 2<sup>d</sup>&nbsp;=&nbsp;8 is the d-cube vertex count (volume normalization). The same D<sub>IV</sub>(5) geometry that gives &alpha;&nbsp;=&nbsp;1/137.042.</p>
+            <p>where &Lambda;<sub>QCD</sub>&nbsp;=&nbsp;m<sub>p</sub>/4&nbsp;=&nbsp;234.6&nbsp;MeV, d(d+2)&nbsp;=&nbsp;(d+1)<sup>2</sup>&minus;1&nbsp;=&nbsp;15 counts the coupling channels, and 2<sup>d</sup>&nbsp;=&nbsp;8 is the d-cube vertex count (volume normalization). The same D<sub>IV</sub>(5) geometry that gives &alpha;&nbsp;=&nbsp;1/137.042.</p>
           </div>
 
           <div class="calc-step">
@@ -265,12 +264,21 @@
             </div>
             <p>Using GWT-derived quark masses: m<sub>u</sub>&nbsp;=&nbsp;m(13,31)&nbsp;=&nbsp;2.21&nbsp;MeV, m<sub>d</sub>&nbsp;=&nbsp;m(5,30)&nbsp;=&nbsp;4.78&nbsp;MeV:</p>
             <div class="calc-num">
-              m<sub>u</sub> + m<sub>d</sub> = 6.99 MeV<br><br>
-              |&langle;q&macr;q&rangle;| = (15/8) &times; (231.6)<sup>3</sup> = 2.329 &times; 10<sup>7</sup> MeV<sup>3</sup><br><br>
-              f<sub>&pi;</sub><sup>2</sup> = (94.6)<sup>2</sup> = 8949 MeV<sup>2</sup><br><br>
-              m<sub>&pi;</sub><sup>2</sup> = 6.99 &times; 2.329 &times; 10<sup>7</sup> / 8949 = 18,189 MeV<sup>2</sup><br><br>
-              m<sub>&pi;</sub> = &radic;(18,189) = <strong>134.87 MeV</strong>
+              m<sub>u</sub> + m<sub>d</sub> = 7.00 MeV<br><br>
+              |&langle;q&macr;q&rangle;| = (15/8) &times; (234.6)<sup>3</sup> = 2.420 &times; 10<sup>7</sup> MeV<sup>3</sup><br><br>
+              f<sub>&pi;</sub><sup>2</sup> = (93.8)<sup>2</sup> = 8803 MeV<sup>2</sup><br><br>
+              m<sub>&pi;</sub><sup>2</sup> = 7.00 &times; 2.420 &times; 10<sup>7</sup> / 8803 = 19,235 MeV<sup>2</sup><br><br>
+              m<sub>&pi;</sub><sup>(bare)</sup> = &radic;(19,235) = <strong>138.7 MeV</strong>
             </div>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 4 &mdash; Pseudoscalar VP Correction (possible correction)</h4>
+            <p>The GMOR result is the <em>bare</em> pion mass. The physical pion, a quark-antiquark pseudoscalar, may lose mass through vacuum polarization &mdash; the same mechanism that dresses all fermion masses. Each of d&nbsp;=&nbsp;3 spatial axes contributes one &pi;<sup>&minus;&alpha;</sup> attenuation factor:</p>
+            <div class="calc-num">
+              m<sub>&pi;</sub> = m<sub>&pi;</sub><sup>(bare)</sup> &times; &pi;<sup>&minus;d&alpha;</sup> = 138.7 &times; 0.9753 = <strong>135.3 MeV</strong>
+            </div>
+            <p>This follows the VP sign rule: fermionic content &rarr; mass decreases, with d&nbsp;=&nbsp;3 spatial loop axes. Equivalently, two fermion constituents each receive &pi;<sup>&minus;d&alpha;/2</sup>, and the squared result is &pi;<sup>&minus;d&alpha;</sup>. This correction is physically motivated and pattern-consistent with the tau (&pi;<sup>&minus;&alpha;</sup>, 1 axis) and Z (&pi;<sup>&minus;&alpha;/4</sup>, 4 axes) corrections, but is not yet formally derived from the lattice Lagrangian.</p>
           </div>
 
           <div class="calc-result">
@@ -278,14 +286,14 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">m<sub>&pi;<sup>0</sup></sub> = 134.87 MeV</div>
+                <div class="value">m<sub>&pi;<sup>0</sup></sub> = 135.3 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (PDG 2024)</div>
                 <div class="value">m<sub>&pi;<sup>0</sup></sub> = 134.98 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 0.08%</strong> &mdash; The pion is anomalously light because it is a near-Goldstone mode of the broken chiral symmetry. Its mass vanishes in the limit m<sub>u</sub>,&nbsp;m<sub>d</sub>&nbsp;&rarr;&nbsp;0. The d(d+2)/2<sup>d</sup>&nbsp;=&nbsp;15/8 condensate factor connects the Wyler domain geometry to the d-cube lattice.</p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 0.2%</strong> &mdash; The pion is anomalously light because it is a near-Goldstone mode of the broken chiral symmetry. Its mass vanishes in the limit m<sub>u</sub>,&nbsp;m<sub>d</sub>&nbsp;&rarr;&nbsp;0. The d(d+2)/2<sup>d</sup>&nbsp;=&nbsp;15/8 condensate factor connects the Wyler domain geometry to the d-cube lattice. Without the VP correction, the bare GMOR mass is 138.7 MeV (+2.7%).</p>
           </div>
         </section>
 
@@ -517,8 +525,8 @@
             <h4>Step 2 &mdash; Compute Condensate</h4>
             <div class="calc-num">
               |&langle;q&macr;q&rangle;| = (15/8) &times; &Lambda;<sub>QCD</sub><sup>3</sup><br>
-              &nbsp;&nbsp;&nbsp; = 1.875 &times; (231.6)<sup>3</sup><br>
-              <strong>|&langle;q&macr;q&rangle;|<sup>1/3</sup> = 285.2 MeV</strong>
+              &nbsp;&nbsp;&nbsp; = 1.875 &times; (234.6)<sup>3</sup><br>
+              <strong>|&langle;q&macr;q&rangle;|<sup>1/3</sup> = 289.2 MeV</strong>
             </div>
           </div>
 
@@ -527,14 +535,14 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">|&langle;q&macr;q&rangle;|<sup>1/3</sup> = 285.2 MeV</div>
+                <div class="value">|&langle;q&macr;q&rangle;|<sup>1/3</sup> = 289.2 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (lattice QCD)</div>
                 <div class="value">|&langle;q&macr;q&rangle;|<sup>1/3</sup> &asymp; 280 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.9%</strong> &mdash; The chiral condensate determines the vacuum structure of QCD. Combined with f<sub>&pi;</sub> and the GMOR relation, it predicts the pion mass to 0.08%.</p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 3.3%</strong> &mdash; The chiral condensate determines the vacuum structure of QCD. Combined with f<sub>&pi;</sub> and the GMOR relation, it predicts the pion mass to 0.2% (with VP correction).</p>
           </div>
 
           <div class="calc-step">

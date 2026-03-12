@@ -775,29 +775,57 @@ m_u + m_d = breather masses from n=13, n=5 modes
 
 **Step 4: Pion mass** — solving GMOR:
 ```
-m_pi = sqrt((m_u + m_d) * |<qq>|) / f_pi
-     = sqrt(8.9 * 24.25e6) / 93.8
-     = 138.7 MeV                                     (obs: 134.98 MeV, +2.7%)
+m_pi_bare = sqrt((m_u + m_d) * |<qq>|) / f_pi
+          = sqrt(8.9 * 24.25e6) / 93.8
+          = 138.7 MeV                                (obs: 134.98 MeV, +2.7%)
 ```
 
-**Error budget**: The 2.7% overshoot traces to f_pi being 1.9% high. The condensate and quark masses contribute the remaining ~0.8%. This is a geometric-factor accuracy issue, not a missing physics correction — the formula is exact in the d→∞ limit and the 2.7% is the finite-d discreteness effect.
-
-**Deuteron sensitivity**: The 2.7% m_pi error amplifies to 37% in deuteron binding because the deuteron sits near a standing-wave node where sin(2R/a) ≈ 0. With exact m_pi (134.98 MeV), B_d = 2.147 MeV (3.5% error). This is a sensitivity issue, not a formula flaw.
+**POSSIBLE CORRECTION — pseudoscalar VP dressing:**
+```
+m_pi = m_pi_bare * pi^(-d*alpha)
+     = 138.7 * 0.9753
+     = 135.3 MeV                                    (obs: 134.98 MeV, +0.21%)
+```
+The pion (q-qbar pseudoscalar) may lose mass through the same VP mechanism as fermions.
+Each of d=3 spatial axes contributes one pi^(-alpha) attenuation, giving pi^(-d*alpha).
+Equivalently: two fermion constituents each get pi^(-d*alpha/2), squared → same result.
+This is consistent with the VP sign rule (fermionic content → mass decreases) and uses the
+same building blocks as tau (pi^(-alpha), 1 axis) and Z (pi^(-alpha/4), 4 axes).
+**Status**: physically motivated, pattern-consistent, but not yet formally derived from
+the lattice Lagrangian. The bare GMOR mass (138.7 MeV, +2.7%) remains valid without it.
 
 ### Nuclear energy scales (from pion seesaw)
 ```
-E_nuc = m_pi^2 / (2*m_p) = 9.82 MeV       (nuclear "ionization energy")
-a_nuc = hbar*c / m_pi = 1.463 fm            (nuclear "Bohr radius")
+E_nuc = m_pi^2 / (2*m_p) = 9.75 MeV       (nuclear "ionization energy")
+a_nuc = hbar*c / m_pi = 1.459 fm            (nuclear "Bohr radius")
 ```
 Same seesaw structure as atomic physics: E_H = m_e*alpha^2/2, a_0 = hbar/(m_e*c*alpha).
+(Values shown use VP-corrected m_pi; with bare m_pi: E_nuc = 10.25, a_nuc = 1.423 fm.)
 
 ### Deuteron binding energy
 ```
-B_d = (pi/d) * E_nuc * sin(2*R_d / a_nuc)
-    = (pi/3) * 9.82 * sin(2 * 1.464)
-    = 2.147 MeV                              (obs: 2.225 MeV, 3.5%)
+B_d = (pi/d) * E_nuc * sin(2/d^2)
+    = (pi/3) * 9.75 * sin(2/9)
+    = 2.250 MeV                              (obs: 2.225 MeV, +1.1%)
 ```
-Same harmonic bond formula as H2, with nuclear scales. The deuteron sits just 0.107 nuclear Bohr units below the first standing-wave node (pi/2 = 1.571) — explaining why it's barely bound.
+Harmonic bond formula (same as H2) with nuclear scales and two possible corrections:
+
+**POSSIBLE CORRECTION 1 — VP-dressed m_pi** (see above): reduces E_nuc from 10.25 to 9.75 MeV and shifts a_nuc from 1.423 to 1.459 fm. Without VP: B_d = 1.39 MeV (-37%) from node sensitivity amplifying the 2.75% GMOR error.
+
+**POSSIBLE CORRECTION 2 — GWT-derived deuteron radius:**
+```
+R_d = (pi/2 - 1/d^2) * a_nuc = 2.129 fm    (obs: 2.142 fm, -0.6%)
+```
+The deuteron sits 1/d^2 nuclear Bohr units below the standing-wave node at pi/2.
+The 1/d^2 = 1/9 is the same coupling tensor fraction that appears in the Koide
+delta parameter (delta = 2/d^2). This eliminates the observed R_d input entirely.
+Since sin(2*(pi/2 - 1/d^2)) = sin(pi - 2/d^2) = sin(2/d^2), the formula simplifies
+to B_d = (pi/d)*E_nuc*sin(2/d^2) — a clean expression in d alone.
+**Status**: geometrically motivated (coupling tensor fraction), pattern-consistent
+(same 1/d^2 as Koide), but needs formal derivation from nuclear wave equation.
+
+**Without corrections**: B_d = 1.39 MeV (-37%), entirely from GMOR node amplification.
+**With VP only**: B_d = 2.07 MeV (-6.8%). **With both**: B_d = 2.25 MeV (+1.1%).
 
 ### Volume energy coefficient (semi-empirical mass formula)
 ```

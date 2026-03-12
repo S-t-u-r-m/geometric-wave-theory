@@ -491,16 +491,16 @@
           <div class="calc-step">
             <h4>Step 1 &mdash; The Formula</h4>
             <div class="calc-num">
-              f<sub>&pi;</sub> = &Lambda;<sub>QCD</sub> / &radic;(2&pi;)
+              f<sub>&pi;</sub> = m<sub>p</sub> / 2(2d&minus;1) = m<sub>p</sub> / 10
             </div>
+            <p style="margin-top:0.5rem;">The pion is the antibonding surface mode of the proton standing wave. In d&nbsp;=&nbsp;3, the proton has 2d&minus;1&nbsp;=&nbsp;5 face modes; the two-body antibonding combination gives the factor of 10.</p>
           </div>
 
           <div class="calc-step">
             <h4>Step 2 &mdash; Evaluate</h4>
             <div class="calc-num">
-              f<sub>&pi;</sub> = 234.6 MeV / &radic;(6.2832)<br>
-              &nbsp;&nbsp;&nbsp; = 234.6 / 2.5066<br>
-              &nbsp;&nbsp;&nbsp; = <strong>93.6 MeV</strong>
+              f<sub>&pi;</sub> = 938.0 MeV / 10<br>
+              &nbsp;&nbsp;&nbsp; = <strong>93.8 MeV</strong>
             </div>
           </div>
 
@@ -509,14 +509,14 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">f<sub>&pi;</sub> = 93.6 MeV</div>
+                <div class="value">f<sub>&pi;</sub> = 93.8 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (PDG)</div>
                 <div class="value">f<sub>&pi;</sub> = 92.1 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.6%</strong></p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.9%</strong></p>
           </div>
 
           <h3>7b. Chiral Condensate &sigma;<sub>0</sub></h3>
@@ -524,16 +524,17 @@
           <div class="calc-step">
             <h4>Step 1 &mdash; The Formula</h4>
             <div class="calc-num">
-              &sigma;<sub>0</sub> = N<sub>c</sub><sup>1/6</sup> &times; &Lambda;<sub>QCD</sub>
+              &sigma;<sub>0</sub> = [d(d+2)/2<sup>d</sup>]<sup>1/3</sup> &times; &Lambda;<sub>QCD</sub>
             </div>
+            <p style="margin-top:0.5rem;">The condensate factor d(d+2)/2<sup>d</sup>&nbsp;=&nbsp;15/8 counts the fraction of lattice spring modes that participate in chiral symmetry breaking in d&nbsp;=&nbsp;3 dimensions.</p>
           </div>
 
           <div class="calc-step">
             <h4>Step 2 &mdash; Evaluate</h4>
             <div class="calc-num">
-              N<sub>c</sub><sup>1/6</sup> = 3<sup>1/6</sup> = 3<sup>0.1667</sup> = 1.201<br><br>
-              &sigma;<sub>0</sub> = 1.201 &times; 234.6 MeV<br>
-              &nbsp;&nbsp;&nbsp; = <strong>281.7 MeV</strong>
+              [d(d+2)/2<sup>d</sup>]<sup>1/3</sup> = (15/8)<sup>1/3</sup> = 1.2335<br><br>
+              &sigma;<sub>0</sub> = 1.2335 &times; 234.6 MeV<br>
+              &nbsp;&nbsp;&nbsp; = <strong>289.2 MeV</strong>
             </div>
           </div>
 
@@ -542,14 +543,14 @@
             <div class="calc-comparison">
               <div>
                 <div class="label">GWT Prediction</div>
-                <div class="value">&sigma;<sub>0</sub> = 281.7 MeV</div>
+                <div class="value">&sigma;<sub>0</sub> = 289.2 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (lattice QCD)</div>
                 <div class="value">&sigma;<sub>0</sub> &asymp; 280 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 0.5%</strong></p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 3.3%</strong></p>
           </div>
 
           <h3>7c. Pion Mass m<sub>&pi;</sub> (via GMOR Relation)</h3>
@@ -559,11 +560,11 @@
             <div class="calc-num">
               m<sub>&pi;</sub><sup>2</sup> = (m<sub>u</sub> + m<sub>d</sub>) &times; &sigma;<sub>0</sub><sup>3</sup> / f<sub>&pi;</sub><sup>2</sup>
             </div>
-            <p style="margin-top:0.5rem;">Where &sigma;<sub>0</sub> = N<sub>c</sub><sup>1/6</sup> &times; &Lambda;<sub>QCD</sub> = 281.7 MeV is the chiral condensate scale.</p>
+            <p style="margin-top:0.5rem;">Where &sigma;<sub>0</sub> = [d(d+2)/2<sup>d</sup>]<sup>1/3</sup> &times; &Lambda;<sub>QCD</sub> = 289.2 MeV is the chiral condensate scale.</p>
           </div>
 
           <div class="calc-step">
-            <h4>Step 2 &mdash; Using GWT Quark Masses</h4>
+            <h4>Step 2 &mdash; Using GWT Quark Masses (bare)</h4>
             <div class="calc-num">
               m<sub>u</sub> = m(13, 31) = 2.21 MeV<br>
               m<sub>d</sub> = m(5, 30) = 4.78 MeV<br>
@@ -572,30 +573,37 @@
           </div>
 
           <div class="calc-step">
-            <h4>Step 3 &mdash; Evaluate</h4>
+            <h4>Step 3 &mdash; Evaluate (bare GMOR)</h4>
             <div class="calc-num">
-              &sigma;<sub>0</sub><sup>3</sup> = (281.7)<sup>3</sup> = 2.236 &times; 10<sup>7</sup> MeV<sup>3</sup><br>
-              f<sub>&pi;</sub><sup>2</sup> = (93.6)<sup>2</sup> = 8,761 MeV<sup>2</sup><br><br>
-              m<sub>&pi;</sub><sup>2</sup> = 6.99 &times; 2.236 &times; 10<sup>7</sup> / 8,761<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1.563 &times; 10<sup>8</sup> / 8,761<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 17,842 MeV<sup>2</sup><br><br>
-              m<sub>&pi;</sub> = &radic;(17,842) = <strong>133.6 MeV</strong>
+              &sigma;<sub>0</sub><sup>3</sup> = (289.2)<sup>3</sup> = 2.420 &times; 10<sup>7</sup> MeV<sup>3</sup><br>
+              f<sub>&pi;</sub><sup>2</sup> = (93.8)<sup>2</sup> = 8,798 MeV<sup>2</sup><br><br>
+              m<sub>&pi;</sub><sup>2</sup> = 6.99 &times; 2.420 &times; 10<sup>7</sup> / 8,798<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1.922 &times; 10<sup>4</sup> MeV<sup>2</sup><br><br>
+              m<sub>&pi;,bare</sub> = &radic;(19,220) = <strong>138.7 MeV</strong>
             </div>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 4 &mdash; VP Correction (possible correction)</h4>
+            <div class="calc-num">
+              m<sub>&pi;,phys</sub> = m<sub>&pi;,bare</sub> &times; &pi;<sup>&minus;d&alpha;</sup> = 138.7 &times; 0.9753 = <strong>135.3 MeV</strong>
+            </div>
+            <p style="margin-top:0.5rem;">The pion (pseudoscalar q&macr;q) loses mass through d&nbsp;=&nbsp;3 spatial vacuum polarization loops, same sign rule as fermions. Physically motivated and pattern-consistent but not yet formally derived from the lattice Lagrangian.</p>
           </div>
 
           <div class="calc-result">
             <h4>Result: Pion Mass</h4>
             <div class="calc-comparison">
               <div>
-                <div class="label">GWT Prediction (GWT quark masses)</div>
-                <div class="value">m<sub>&pi;</sub> = 133.6 MeV</div>
+                <div class="label">GWT Prediction</div>
+                <div class="value">m<sub>&pi;</sub> = 135.3 MeV</div>
               </div>
               <div>
                 <div class="label">Observed (&pi;<sup>0</sup>)</div>
                 <div class="value">m<sub>&pi;</sub> = 135.0 MeV</div>
               </div>
             </div>
-            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 1.0%</strong> with GWT-derived quark masses from the m(n,p) formula. The small remaining discrepancy comes from the GMOR approximation and higher-order chiral corrections, not from the quark masses.</p>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Accuracy: 0.2%</strong> with GWT-derived quark masses from the m(n,p) formula and VP dressing.</p>
           </div>
         </section>
 
@@ -778,21 +786,21 @@
               </tr>
               <tr style="border-bottom:1px solid var(--border-color);">
                 <td style="padding:0.5rem 0.6rem;">f<sub>&pi;</sub> (pion decay constant)</td>
-                <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">93.6 MeV</td>
+                <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">93.8 MeV</td>
                 <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">92.1 MeV</td>
-                <td style="text-align:center; padding:0.5rem 0.6rem;"><span class="badge badge-green">1.6%</span></td>
+                <td style="text-align:center; padding:0.5rem 0.6rem;"><span class="badge badge-green">1.9%</span></td>
               </tr>
               <tr style="border-bottom:1px solid var(--border-color);">
                 <td style="padding:0.5rem 0.6rem;">&sigma;<sub>0</sub> (chiral condensate)</td>
-                <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">281.7 MeV</td>
+                <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">289.2 MeV</td>
                 <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">280 MeV</td>
-                <td style="text-align:center; padding:0.5rem 0.6rem;"><span class="badge badge-green">0.5%</span></td>
+                <td style="text-align:center; padding:0.5rem 0.6rem;"><span class="badge badge-green">3.3%</span></td>
               </tr>
               <tr style="border-bottom:1px solid var(--border-color);">
                 <td style="padding:0.5rem 0.6rem;">m<sub>&pi;</sub> (pion mass)</td>
-                <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">133.6 MeV</td>
+                <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">135.3 MeV</td>
                 <td style="text-align:right; padding:0.5rem 0.6rem; font-family:var(--font-mono);">135.0 MeV</td>
-                <td style="text-align:center; padding:0.5rem 0.6rem;"><span class="badge badge-green">1.0%</span></td>
+                <td style="text-align:center; padding:0.5rem 0.6rem;"><span class="badge badge-green">0.2%</span></td>
               </tr>
               <tr style="border-bottom:1px solid var(--border-color);">
                 <td style="padding:0.5rem 0.6rem;">r<sub>0</sub> (nuclear radius)</td>
