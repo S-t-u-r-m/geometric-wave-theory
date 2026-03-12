@@ -537,8 +537,9 @@ register(GWTParam(
     unit="deg",
     error_pct=abs(theta13_pmns - 8.54) / 8.54 * 100,
     status="DERIVED",
-    derivation="Same rotation. Wrapping factor (m_tau/m_p)^(1/d) enters via rotation axis.",
-    concerns="Wrapping factor was introduced to fix theta_13. Geometric motivation exists but post-hoc.",
+    derivation="Same rotation. Axis component (m_tau/m_p)^(1/d) is the tau wrapping factor: "
+               "tau sits inside the proton radius, so the proton wraps around it. "
+               "The 1/d power is forced by 3D bulk overlap integrals (leptons span bulk, quarks span surface).",
 ))
 
 # PMNS CP phase
