@@ -170,6 +170,69 @@
 
         <hr>
 
+        <!-- ===== SECTION 2b: CLOSED-FORM αs ===== -->
+        <section id="closed-form-alphas">
+          <h2>2b. Closed-Form &alpha;<sub>s</sub> from Lattice Geometry</h2>
+          <p>Independent of the GUT running above, the strong coupling has a direct closed-form derivation from the Lagrangian. The Gibbs overshoot of a confined gluon field on the d=3 lattice gives &alpha;<sub>s</sub> as a ratio of integers and &pi;.</p>
+
+          <div class="calc-step">
+            <h4>Step 1 &mdash; Gibbs Overshoot Identity</h4>
+            <p>Any field confined to a sharp boundary (like a hadron) produces a Gibbs overshoot. The lattice identity:</p>
+            <div class="calc-num">
+              Si(&pi;)/&pi; &minus; 1/2 = d<sup>2</sup> / (2<sup>d+2</sup> &middot; &pi;) = 9/(32&pi;) &nbsp;&nbsp; [0.04% match]
+            </div>
+            <p>where d<sup>2</sup> = 9 is the spatial coupling tensor rank, 2<sup>d+2</sup> = 32 is the extended hypercube (2<sup>d</sup> vertices &times; 2 kink &times; 2 antikink), and &pi; is the BZ half-width.</p>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 2 &mdash; Spring Constant &times; Overshoot</h4>
+            <p>The coupling equals 2k (spring constant for kink + antikink boundaries) times the overshoot:</p>
+            <div class="calc-num">
+              &alpha;<sub>s</sub>(bare) = 2 &times; (2/&pi;) &times; d<sup>2</sup>/(2<sup>d+2</sup> &middot; &pi;)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = d<sup>2</sup> / (2<sup>d</sup> &middot; &pi;<sup>2</sup>)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <strong>9 / (8&pi;<sup>2</sup>) = 0.11399</strong>
+            </div>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 3 &mdash; Gluon Self-Loop Dressing</h4>
+            <p>Gluons carry color charge (SU(d)), so they self-interact. One gluon self-loop dresses the bare coupling:</p>
+            <div class="calc-num">
+              &alpha;<sub>s</sub>(dressed) = &alpha;<sub>s</sub>(bare) &times; (1 + &alpha;<sub>s</sub>(bare)/&pi;)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 0.11399 &times; (1 + 0.11399/&pi;)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 0.11399 &times; 1.03628<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <strong>0.11812</strong>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <h4>Result: Strong Coupling (Closed Form)</h4>
+            <div class="calc-comparison">
+              <div>
+                <div class="label">GWT Bare (lattice)</div>
+                <div class="value">&alpha;<sub>s</sub> = 9/(8&pi;<sup>2</sup>) = 0.11399</div>
+              </div>
+              <div>
+                <div class="label">GWT Dressed (+1 loop)</div>
+                <div class="value">&alpha;<sub>s</sub> = 0.11812</div>
+              </div>
+            </div>
+            <div class="calc-comparison" style="margin-top:0.5rem;">
+              <div>
+                <div class="label">GUT Running (Section 2)</div>
+                <div class="value">&alpha;<sub>s</sub>(M<sub>Z</sub>) = 0.1179</div>
+              </div>
+              <div>
+                <div class="label">Observed (PDG 2024)</div>
+                <div class="value">&alpha;<sub>s</sub>(M<sub>Z</sub>) = 0.1180 &plusmn; 0.0009</div>
+              </div>
+            </div>
+            <p style="margin-top:1rem; margin-bottom:0;"><strong>Three independent routes converge:</strong> GUT running (0.1179), dressed Gibbs (0.1181), and PDG measurement (0.1180). The bare lattice value 9/(8&pi;<sup>2</sup>) is a closed-form expression in d and &pi; alone &mdash; same bare/dressed pattern as the fine structure constant.</p>
+          </div>
+        </section>
+
+        <hr>
+
         <!-- ===== SECTION 3: LAMBDA QCD ===== -->
         <section id="lambda-qcd">
           <h2>3. &Lambda;<sub>QCD</sub> from Dimensional Transmutation</h2>
