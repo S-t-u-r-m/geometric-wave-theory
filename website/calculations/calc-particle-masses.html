@@ -504,33 +504,18 @@
         <h2 id="higgs">7. Higgs VEV and Mass</h2>
         <p>The Higgs vacuum expectation value is not a free parameter &mdash; it follows from the universal mass formula and the fact that the top quark IS the kink condensate.</p>
 
-        <h3>7a. Higgs VEV: two independent routes</h3>
+        <h3>7a. Higgs VEV from the breather spectrum</h3>
 
         <div class="equation-box">
-          <span class="eq-label">Higgs VEV &mdash; Route 1</span>
-          v = &radic;2 &times; m<sub>t</sub> &nbsp;&nbsp;&nbsp; (top Yukawa y<sub>t</sub> = 1)
-        </div>
-
-        <div class="calc-step">
-          <h4>Route 1 &mdash; The top quark saturates the Higgs coupling</h4>
-          <div class="calc-num">
-            The top quark sits at p = d&times;2<sup>d</sup> = 24, the shallowest fermion. Its Yukawa coupling is exactly 1:<br>
-            y<sub>t</sub> = &radic;2 &times; m<sub>t</sub>/v = 1 &nbsp; &rArr; &nbsp; v = &radic;2 &times; m<sub>t</sub><br><br>
-            Using observed m<sub>t</sub> = 172.8 GeV:<br>
-            v = &radic;2 &times; 172.8 = <strong>244.4 GeV</strong> (&minus;0.7%)
-          </div>
-        </div>
-
-        <div class="equation-box">
-          <span class="eq-label">Higgs VEV &mdash; Route 2</span>
+          <span class="eq-label">Higgs VEV</span>
           v = m(n=d, p=d&times;2<sup>d</sup>&minus;1) = m(3, 23)
         </div>
 
         <div class="calc-step">
-          <h4>Route 2 &mdash; The universal mass formula</h4>
+          <h4>Primary &mdash; The universal mass formula</h4>
           <div class="calc-num">
-            The VEV sits one tunneling step above the top quark, at p = 23 = 24&minus;1.<br>
-            The breather index n = d = 3 carries the spatial dimension itself.<br><br>
+            The VEV is a lattice condensate mode &mdash; the same breather formula that predicts all fermion masses.<br>
+            n = d = 3 carries the spatial dimension itself. p = 23 = d&times;2<sup>d</sup>&minus;1, one step above the top anchor.<br><br>
             v = m(3, 23) = (16/&pi;&sup2;) sin(3&gamma;) &times; e<sup>&minus;16&times;23/&pi;&sup2;</sup> &times; m<sub>Pl</sub><br>
             v = <strong>246.1 GeV</strong> (&minus;0.03%)
           </div>
@@ -540,21 +525,16 @@
           <h4>Result</h4>
           <div class="calc-comparison">
             <div>
-              <div class="label">Route 1 (y<sub>t</sub>=1)</div>
-              <div class="value" style="color: var(--accent-green);">244.4 GeV</div>
-            </div>
-            <div>
-              <div class="label">Route 2 (m(3,23))</div>
+              <div class="label">GWT (m(3,23))</div>
               <div class="value" style="color: var(--accent-green);">246.1 GeV</div>
             </div>
           </div>
-          <p style="margin-top:0.5rem; text-align:center;">Observed: <strong>246.22 GeV</strong></p>
-          <p style="margin-top:0; margin-bottom:0; text-align:center;"><span class="badge badge-green">0.03% error</span> (Route 2)</p>
+          <p style="margin-top:0.5rem; text-align:center;">Observed: <strong>246.22 GeV</strong> &nbsp; <span class="badge badge-green">0.03%</span></p>
         </div>
 
         <div class="card" style="margin-top:1.5rem;">
-          <h4 style="margin-top:0;">Two routes, one physics</h4>
-          <p style="margin-bottom:0;">Route 1 (y<sub>t</sub> = 1) expresses the physical fact that the top quark IS the Higgs condensate. Route 2 (m(3,23)) gives the same result from the universal mass formula with n = d and p = d&times;2<sup>d</sup>&minus;1. The two routes are not independent &mdash; they are the same lattice physics seen from two angles.</p>
+          <h4 style="margin-top:0;">Cross-check: y<sub>t</sub> &asymp; 1</h4>
+          <p>The top quark sits at p = 24, the shallowest fermion. With y<sub>t</sub> = 1, we get v = &radic;2 &times; m<sub>t</sub> &asymp; 244 GeV (&minus;1%). The ~1% gap arises because the VEV is a vacuum condensate, not a propagating fermion &mdash; the fermion VP correction &pi;<sup>&minus;d&alpha;</sup> over-dresses it. This confirms that y<sub>t</sub> &asymp; 1 <strong>emerges naturally</strong> from the lattice but is not the primary derivation.</p>
         </div>
 
         <h3 style="margin-top:2.5rem;">7b. Higgs Mass: m<sub>H</sub> = &radic;(2&lambda;) &times; v</h3>
