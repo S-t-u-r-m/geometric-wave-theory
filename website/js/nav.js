@@ -24,7 +24,7 @@
       label: 'Core Derivations',
       items: [
         { label: 'c, \u0127, G from {k, a, \u03b7}', href: '/pages/core-derivations.html#master' },
-        { label: '\u03b1 = 1/137.036', href: '/pages/core-derivations.html#alpha' },
+        { label: '\u03b1 = 1/137.042', href: '/pages/core-derivations.html#alpha' },
         { label: 'Strong coupling \u03b1s', href: '/pages/core-derivations.html#alphas' },
         { label: 'Mass formulas', href: '/pages/core-derivations.html#mass' },
         { label: '\u03a9_\u039b = 2/3', href: '/pages/core-derivations.html#omega' },
