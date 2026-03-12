@@ -457,13 +457,13 @@ Leptons span 3D bulk → use 1/d = 1/3 power (cube root). Quarks on 2D surface �
 M_nu = m_e^3 / (d * m_p^2)
 
 Using GWT-predicted m_p = 6*pi^5 * m_e:
-M_nu = m_e / (d * (6*pi^5)^2) = m_e / (108*pi^10) ≈ 49.9 meV
+M_nu = m_e^3 / (d * m_p^2) = m_e / (d * (6*pi^5)^2) ≈ 49.9 meV
 ```
 Third-order perturbation: electron → proton → electron, averaged over d axes.
 
 ### Gauge gate correction (lattice-derived)
 ```
-M_eff = M_nu * (1 + 1/(N_gauge * pi)) = M_nu * (1 + 1/(12*pi)) = 50.7 meV
+M_eff = M_nu * (1 + 1/(N_gauge * pi)) = M_nu * (1 + 1/(12*pi)) = 51.2 meV
 ```
 1/(N_gauge * pi) = 1/(|A_4| * pi): one gauge gate contribution over one half-period of the cosine potential. Previously labeled "Wyler transverse sphere" — now pure lattice geometry.
 
@@ -476,11 +476,11 @@ d*2^d = 24 = |O| = order of chiral octahedral group (proper rotations of the cub
 
 ### Mass splittings
 ```
-Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.476 × 10^-3 eV^2
-  Observed: 2.534 × 10^-3 eV^2. Error: -2.3%
+Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.523 × 10^-3 eV^2
+  Observed: 2.534 × 10^-3 eV^2. Error: -0.4%
 
-Delta_m^2_21 = (d/(4*N_eff)) * M_eff^2 = 7.35 × 10^-5 eV^2
-  Observed: 7.53 × 10^-5 eV^2. Error: -2.4%
+Delta_m^2_21 = (d/(4*N_eff)) * M_eff^2 = 7.49 × 10^-5 eV^2
+  Observed: 7.53 × 10^-5 eV^2. Error: -0.5%
 
 Ratio: Delta_m^2_31 / Delta_m^2_21 = 33.69
   Observed: 33.65. Error: +0.1%
@@ -489,10 +489,10 @@ Ratio: Delta_m^2_31 / Delta_m^2_21 = 33.69
 ### Individual masses
 | State | Formula | Mass |
 |-------|---------|------|
-| nu_3 | M_eff | 50.7 meV |
-| nu_2 | sqrt(m_1^2 + Delta_m^2_21) | 13.3 meV |
+| nu_3 | M_eff | 51.2 meV |
+| nu_2 | sqrt(m_1^2 + Delta_m^2_21) | 13.6 meV |
 | nu_1 | M_eff / sqrt(N_eff) | 10.0 meV |
-| Sum | | 74.7 meV (< 120 meV cosmological bound) |
+| Sum | | 74.8 meV (< 120 meV cosmological bound) |
 
 ---
 
