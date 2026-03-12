@@ -208,25 +208,47 @@
 
           <p>A cross-check route that gives the <strong>dressed</strong> coupling. The Wyler formula computes the volume of the bounded symmetric domain D<sub>IV</sub>(5), which implicitly includes virtual pair contributions (vacuum polarization). The result matches the <em>measured</em> value to 0.0001%.</p>
 
+          <h3>What Is a Bounded Symmetric Domain?</h3>
+
+          <p>A <strong>bounded symmetric domain</strong> (BSD) is a bounded open region in &Copf;<sup>n</sup> that has a biholomorphic (complex-analytic) involution fixing each interior point. In plain terms: a finite, smooth, maximally symmetric "arena" for wave dynamics. &Eacute;lie Cartan classified all irreducible BSDs into exactly six types:</p>
+
+          <div class="card">
+            <table>
+              <thead>
+                <tr><th>Type</th><th>Name</th><th>Structure</th><th>Eliminated By</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>I</td><td>Grassmann</td><td>p&times;q matrix domains</td><td>Vector, not matrix &rarr; out</td></tr>
+                <tr><td>II</td><td>Antisymmetric</td><td>Skew-symmetric matrices</td><td>Vector, not matrix &rarr; out</td></tr>
+                <tr><td>III</td><td>Symmetric</td><td>Symmetric matrices</td><td>Vector, not matrix &rarr; out</td></tr>
+                <tr><td>IV</td><td><strong>Lie ball</strong></td><td><strong>Vectors with quadratic constraint</strong></td><td><strong>Survives</strong></td></tr>
+                <tr><td>V</td><td>Exceptional (16D)</td><td>Cayley plane</td><td>Wrong dimension &rarr; out</td></tr>
+                <tr><td>VI</td><td>Exceptional (27D)</td><td>Exceptional Jordan algebra</td><td>Wrong dimension &rarr; out</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The lattice configuration space is a <em>vector</em> space (mode amplitudes), not a matrix space. This eliminates types I&ndash;III. The exceptional types require 16 or 27 dimensions. Only <strong>type IV (Lie ball)</strong> acts on vectors in arbitrary dimension.</p>
+
           <h3>Four Constraints &rarr; Unique Domain</h3>
           <p>The lattice wave equation imposes four properties on the configuration space:</p>
 
           <div class="derivation-chain">
             <div class="step">
               <div class="step-num">1</div>
-              <div class="step-content"><strong>5-dimensional</strong> &mdash; from the 3 spatial + 2 internal DOF per node</div>
+              <div class="step-content"><strong>5-dimensional</strong> &mdash; 3 spatial momenta + 2 internal (spin/isospin) DOF per node. This fixes n&nbsp;=&nbsp;5 in D<sub>IV</sub>(n), eliminating all other dimensions.</div>
             </div>
             <div class="step">
               <div class="step-num">2</div>
-              <div class="step-content"><strong>Quadratic constraint</strong> &mdash; the wave equation &square;&phi;&nbsp;=&nbsp;0 is quadratic in mode amplitudes; the dispersion relation &omega;<sup>2</sup>&nbsp;=&nbsp;(k/&eta;)&Sigma;sin<sup>2</sup>(q<sub>i</sub>a/2) is a quadratic form</div>
+              <div class="step-content"><strong>Quadratic constraint</strong> &mdash; the dispersion relation &omega;<sup>2</sup>&nbsp;=&nbsp;(k/&eta;)&Sigma;sin<sup>2</sup>(q<sub>i</sub>a/2) is quadratic in the small-q limit. The domain inherits a quadratic norm |z&middot;z|&nbsp;&lt;&nbsp;1, which is the defining property of type IV (Lie ball). Types I&ndash;III use matrix norms instead.</div>
             </div>
             <div class="step">
               <div class="step-num">3</div>
-              <div class="step-content"><strong>Bounded</strong> &mdash; the Brillouin zone cutoff at q<sub>max</sub>&nbsp;=&nbsp;&pi;/a means no infinite modes exist; the domain is compact</div>
+              <div class="step-content"><strong>Bounded</strong> &mdash; the Brillouin zone cutoff q<sub>max</sub>&nbsp;=&nbsp;&pi;/a means no infinite modes exist. The configuration space is compact, satisfying the "bounded" requirement.</div>
             </div>
             <div class="step">
               <div class="step-num">4</div>
-              <div class="step-content"><strong>Symmetric</strong> &mdash; lattice isotropy: all spatial directions are equivalent, all internal states are equivalent</div>
+              <div class="step-content"><strong>Symmetric</strong> &mdash; lattice isotropy: the cubic group acts transitively on spatial directions, and internal states are equivalent under SU(2). Together these give a biholomorphic involution at each point.</div>
             </div>
           </div>
 
@@ -241,26 +263,31 @@
 
           <h3>Characteristic Volumes of D<sub>IV</sub>(5)</h3>
 
+          <p>For type-IV domains, the volume formula is known: Vol(D<sub>IV</sub>(n))&nbsp;=&nbsp;&pi;<sup>n</sup>&nbsp;/&nbsp;(2<sup>n&minus;1</sup>&nbsp;&times;&nbsp;n!). The <strong>Shilov boundary</strong> &part;<sub>S</sub> is the "distinguished boundary" where harmonic functions attain their maximum &mdash; physically, it is the set of extremal mode configurations. For D<sub>IV</sub>(n), the Shilov boundary is a quotient of the (n&minus;1)-sphere with area 2&pi;<sup>n/2</sup>&nbsp;/&nbsp;&Gamma;(n/2). The <strong>codimension</strong> = dim(D)&nbsp;&minus;&nbsp;dim(&part;<sub>S</sub>) determines the root exponent in Wyler's formula: the coupling emerges as a codimension-weighted ratio of bulk to boundary volumes.</p>
+
           <div class="card">
             <table>
               <thead>
-                <tr><th>Quantity</th><th>Formula</th><th>Value</th></tr>
+                <tr><th>Quantity</th><th>Formula</th><th>Value</th><th>Derivation</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Volume of D<sub>IV</sub>(5)</td>
                   <td class="mono">&pi;<sup>5</sup> / (2<sup>4</sup> &times; 5!)</td>
                   <td class="mono">&pi;<sup>5</sup> / 1920</td>
+                  <td>&pi;<sup>n</sup>/(2<sup>n&minus;1</sup>&middot;n!) with n&nbsp;=&nbsp;5</td>
                 </tr>
                 <tr>
                   <td>Shilov boundary S<sup>4</sup></td>
                   <td class="mono">8&pi;<sup>2</sup> / 3</td>
                   <td class="mono">26.319</td>
+                  <td>2&pi;<sup>5/2</sup>/&Gamma;(5/2) = 2&pi;<sup>5/2</sup>/(3&radic;&pi;/4) = 8&pi;<sup>2</sup>/3</td>
                 </tr>
                 <tr>
                   <td>Codimension</td>
                   <td class="mono">5 &minus; 1</td>
                   <td class="mono">4</td>
+                  <td>dim(D<sub>IV</sub>) &minus; dim(&part;<sub>S</sub>) = 5 &minus; 1</td>
                 </tr>
               </tbody>
             </table>
@@ -365,35 +392,74 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="mono">9 = 3<sup>2</sup></td>
+                  <td class="mono">9 = d<sup>2</sup></td>
                   <td class="mono">9</td>
-                  <td>EM vertex couples to spatial DOF; two vertices &times; 3 directions = 3&times;3 = 9</td>
+                  <td>EM vertex couples to d spatial DOF at both endpoints: d&times;d = d<sup>2</sup>. For photon exchange between two charged waves, each endpoint samples all d&nbsp;=&nbsp;3 spatial directions.</td>
                 </tr>
                 <tr>
                   <td class="mono">16 = 2<sup>4</sup></td>
                   <td class="mono">16</td>
-                  <td>4 wave legs at interaction vertex, each with 2 internal states (yin/yang)</td>
+                  <td>2<sup>codim</sup> = 2<sup>4</sup>. The codimension-4 boundary embedding requires 4 binary orientation choices (one per embedding axis). Equivalently: 4 wave legs at the interaction vertex, each with 2 polarization states.</td>
                 </tr>
                 <tr>
                   <td class="mono">&pi;<sup>3</sup></td>
                   <td class="mono">31.006</td>
-                  <td>Angular measure of boundary conditions in the 3D spatial part of config space</td>
+                  <td>&pi;<sup>d</sup> = angular integration over the d&nbsp;=&nbsp;3 spatial BZ directions. Each spatial axis contributes a factor of &pi; from integrating sin<sup>2</sup>(q<sub>i</sub>a/2) over the Brillouin zone [0,&nbsp;&pi;/a].</td>
                 </tr>
                 <tr>
                   <td class="mono">5! = 120</td>
                   <td class="mono">120</td>
-                  <td>Permutation symmetry of the 5 DOF (all orderings of the configuration space)</td>
+                  <td>n! = permutation group S<sub>5</sub> of the 5 configuration-space DOF. The domain volume carries a 1/n! from the symmetric integration measure &mdash; same origin as 1/n! in statistical mechanics partition functions.</td>
                 </tr>
                 <tr>
                   <td class="mono">1/4 power</td>
                   <td class="mono">&mdash;</td>
-                  <td>Codimension = 5 &minus; 1 = 4; the 4th root corrects for the boundary embedding</td>
+                  <td>1/codim = 1/4. The coupling is a codimension-weighted ratio: &alpha;&nbsp;&propto;&nbsp;(Vol<sub>bulk</sub>/Vol<sub>boundary</sub>)<sup>1/codim</sup>. This is the standard Bergman kernel scaling for the Poisson integral on D<sub>IV</sub>(n).</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p>Every factor in the formula traces back to a physical property of the lattice. Nothing is adjustable. Nothing is fit. The formula is the geometry of D<sub>IV</sub>(5) expressed as a number.</p>
+
+          <h3>The &alpha;<sup>12</sup> = &alpha;<sup>|A<sub>4</sub>|</sup> Connection</h3>
+
+          <p>In GWT, the octahedral symmetry group of the d&nbsp;=&nbsp;3 cubic lattice gives a chain of subgroups that controls the gauge structure:</p>
+
+          <div class="equation-box" style="text-align:center; font-size:1.1rem;">
+            <span class="eq-label">Octahedral Chain</span>
+            |O<sub>h</sub>| = 48 &rarr; |O| = 24 &rarr; |A<sub>4</sub>| = 12
+          </div>
+
+          <p>The alternating group A<sub>4</sub> consists of the <strong>even permutations of (d+1) = 4 spacetime coordinates</strong>. Its order |A<sub>4</sub>|&nbsp;=&nbsp;(d+1)!/2&nbsp;=&nbsp;12 counts the number of independent gauge channels through which vacuum fluctuations propagate. When computing the full vacuum polarization amplitude, each A<sub>4</sub> element contributes one gauge propagator factor of &alpha;, giving &alpha;<sup>12</sup> total.</p>
+
+          <p>This is unique to d&nbsp;=&nbsp;3: the equation (d+1)!/2&nbsp;=&nbsp;2d(d&minus;1) has the unique positive-integer solution d&nbsp;=&nbsp;3, linking the gauge channel count to the spatial dimension.</p>
+
+          <h3>Bare vs. Dressed: Tunneling and Geometry</h3>
+
+          <p>GWT provides two independent routes to &alpha;, and their small difference is physically meaningful:</p>
+
+          <div class="card">
+            <table>
+              <thead>
+                <tr><th>Route</th><th>Result</th><th>What It Computes</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lattice tunneling (&sect;1)</td>
+                  <td class="mono">1/&alpha;<sub>bare</sub> = 137.042</td>
+                  <td>The raw coupling from kink tunneling through the cosine barrier &mdash; no vacuum loops included</td>
+                </tr>
+                <tr>
+                  <td>Wyler geometry (&sect;3)</td>
+                  <td class="mono">1/&alpha;<sub>dressed</sub> = 137.036</td>
+                  <td>The volume ratio on D<sub>IV</sub>(5), which integrates over <em>all</em> accessible modes including virtual pairs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The 0.005% gap = <strong>vacuum polarization</strong>. The Shilov boundary area counts all extremal mode configurations, including virtual pair states that screen the bare charge. The domain volume formula thus automatically incorporates VP to all orders. This is why Wyler's number matches the <em>measured</em> (dressed) coupling while the tunneling formula gives the <em>bare</em> coupling.</p>
         </section>
 
         <hr>

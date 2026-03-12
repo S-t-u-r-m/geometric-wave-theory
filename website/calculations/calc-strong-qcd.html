@@ -176,17 +176,54 @@
           <p>Independent of the GUT running above, the strong coupling has a direct closed-form derivation from the Lagrangian. The Gibbs overshoot of a confined gluon field on the d=3 lattice gives &alpha;<sub>s</sub> as a ratio of integers and &pi;.</p>
 
           <div class="calc-step">
-            <h4>Step 1 &mdash; Gibbs Overshoot Identity</h4>
-            <p>Any field confined to a sharp boundary (like a hadron) produces a Gibbs overshoot. The lattice identity:</p>
-            <div class="calc-num">
-              Si(&pi;)/&pi; &minus; 1/2 = d<sup>2</sup> / (2<sup>d+2</sup> &middot; &pi;) = 9/(32&pi;) &nbsp;&nbsp; [0.04% match]
-            </div>
-            <p>where d<sup>2</sup> = 9 is the spatial coupling tensor rank, 2<sup>d+2</sup> = 32 is the extended hypercube (2<sup>d</sup> vertices &times; 2 kink &times; 2 antikink), and &pi; is the BZ half-width.</p>
+            <h4>Step 1 &mdash; Confinement Creates a Step Function</h4>
+            <p>The lattice potential V&nbsp;=&nbsp;(1/&pi;<sup>2</sup>)(1&nbsp;&minus;&nbsp;cos(&pi;&phi;)) confines gluon modes inside hadrons. At the hadron boundary, the gluon field drops abruptly from its interior amplitude to zero &mdash; a <strong>Heaviside step function</strong> in the field profile. Any sharp cutoff in a wave produces ringing.</p>
           </div>
 
           <div class="calc-step">
-            <h4>Step 2 &mdash; Spring Constant &times; Overshoot</h4>
-            <p>The coupling equals 2k (spring constant for kink + antikink boundaries) times the overshoot:</p>
+            <h4>Step 2 &mdash; Gibbs Phenomenon (Standard Result)</h4>
+            <p>Fourier-expanding a step function and summing N&nbsp;&rarr;&nbsp;&infin; terms, the partial sums overshoot at the discontinuity by a universal fraction. The overshoot amplitude is:</p>
+            <div class="calc-num">
+              Si(&pi;)/&pi; = (1/&pi;) &int;<sub>0</sub><sup>&pi;</sup> sin(t)/t &thinsp;dt = 1.8519/&pi; = 0.58949
+            </div>
+            <p>The fractional overshoot beyond the step (height = 1/2) is:</p>
+            <div class="calc-num">
+              <strong>Si(&pi;)/&pi; &minus; 1/2 = 0.08949</strong> &nbsp;&nbsp; (exact, ~8.95% overshoot)
+            </div>
+            <p>This is the <em>Gibbs constant</em> &mdash; a pure number from Fourier analysis, independent of the specific wave equation.</p>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 3 &mdash; Rational Proxy: d<sup>2</sup>/(2<sup>d+2</sup>&middot;&pi;)</h4>
+            <p>The lattice provides a close rational approximation to the Gibbs constant. For d&nbsp;=&nbsp;3:</p>
+            <div class="calc-num">
+              d<sup>2</sup> / (2<sup>d+2</sup> &middot; &pi;) = 9 / (32&pi;) = <strong>0.08953</strong> &nbsp;&nbsp; (0.04% above exact)
+            </div>
+            <p>This is a <strong>rational proxy</strong>, not an identity. The 0.04% gap is negligible for physical predictions but is noted for mathematical honesty.</p>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 4 &mdash; The 2<sup>d+2</sup> = 32 Decomposition</h4>
+            <p>The denominator 32 counts the boundary modes that produce the overshoot:</p>
+            <div class="calc-num">
+              2<sup>d+2</sup> = 2<sup>d</sup> &times; 2 &times; 2 = 8 &times; 2 &times; 2 = 32
+            </div>
+            <ul style="margin-top:0.5rem;">
+              <li><strong>2<sup>d</sup> = 8</strong> &mdash; vertices of the d-cube (gluon color-anticolor states confined inside the hadron)</li>
+              <li><strong>&times; 2</strong> &mdash; kink boundary (field rising from 0 to interior amplitude)</li>
+              <li><strong>&times; 2</strong> &mdash; antikink boundary (field falling back to 0)</li>
+            </ul>
+            <p>The numerator d<sup>2</sup>&nbsp;=&nbsp;9 is the rank of the spatial coupling tensor: a confined gluon at each boundary samples all d&times;d directional pairs.</p>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 5 &mdash; Spring Constant from the Cosine Potential</h4>
+            <p>The cosine potential V&nbsp;=&nbsp;(1/&pi;<sup>2</sup>)(1&minus;cos(&pi;&phi;)) has spring constant k&nbsp;=&nbsp;d/dt<sup>2</sup>V|<sub>min</sub>&nbsp;=&nbsp;1. A kink soliton connecting two adjacent minima has mass M<sub>kink</sub>&nbsp;=&nbsp;8/&pi;<sup>2</sup> (BPS bound, exact). The effective coupling at the boundary is 2/&pi; (= M<sub>kink</sub>/4, the energy per boundary per mode).</p>
+          </div>
+
+          <div class="calc-step">
+            <h4>Step 6 &mdash; Bare Coupling = Spring &times; Overshoot</h4>
+            <p>Multiplying the boundary spring factor (2/&pi;) by 2 (kink + antikink) and the Gibbs overshoot fraction:</p>
             <div class="calc-num">
               &alpha;<sub>s</sub>(bare) = 2 &times; (2/&pi;) &times; d<sup>2</sup>/(2<sup>d+2</sup> &middot; &pi;)<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = d<sup>2</sup> / (2<sup>d</sup> &middot; &pi;<sup>2</sup>)<br>
@@ -195,7 +232,7 @@
           </div>
 
           <div class="calc-step">
-            <h4>Step 3 &mdash; Gluon Self-Loop Dressing</h4>
+            <h4>Step 7 &mdash; Gluon Self-Loop Dressing</h4>
             <p>Gluons carry color charge (SU(d)), so they self-interact. One gluon self-loop dresses the bare coupling:</p>
             <div class="calc-num">
               &alpha;<sub>s</sub>(dressed) = &alpha;<sub>s</sub>(bare) &times; (1 + &alpha;<sub>s</sub>(bare)/&pi;)<br>

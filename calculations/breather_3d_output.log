@@ -1,0 +1,381 @@
+================================================================================
+  3D BREATHER INTERACTION — GPU ACCELERATED
+================================================================================
+  Grid: 60x60x60 = 216000 points
+  Box: L=20.0, dx=0.333
+  Steps: 3000
+  Total simulation runs: 216
+  Each run = 3 evolutions x 3000 steps on 60^3 grid
+
+================================================================================
+  s-WAVE (l=0) BREATHER INTERACTION
+================================================================================
+
+  --- (1,1) mode 1+1, s-wave ---
+       R         E1         E2        E12     dE(+-)     dE(++)
+  [PROGRESS] 1/216 (0%) | Elapsed: 0.1min | ETA: 11.7min | (1,1) R=2.0 +-
+  [PROGRESS] 2/216 (1%) | Elapsed: 0.1min | ETA: 11.2min | (1,1) R=2.0 ++
+     2.0    23.4410    23.4410     0.1066   -46.7753  +374.7048  (6.3s)
+  [PROGRESS] 3/216 (1%) | Elapsed: 0.2min | ETA: 10.9min | (1,1) R=3.0 +-
+  [PROGRESS] 4/216 (2%) | Elapsed: 0.2min | ETA: 11.2min | (1,1) R=3.0 ++
+     3.0    23.4410    23.4410     0.2399   -46.6420  +381.9083  (6.3s)
+  [PROGRESS] 5/216 (2%) | Elapsed: 0.3min | ETA: 10.9min | (1,1) R=4.0 +-
+  [PROGRESS] 6/216 (3%) | Elapsed: 0.3min | ETA: 11.0min | (1,1) R=4.0 ++
+     4.0    23.4410    23.4410     0.4263   -46.4556  +402.9472  (6.2s)
+  [PROGRESS] 7/216 (3%) | Elapsed: 0.4min | ETA: 10.8min | (1,1) R=5.0 +-
+  [PROGRESS] 8/216 (4%) | Elapsed: 0.4min | ETA: 10.6min | (1,1) R=5.0 ++
+     5.0    23.4410    23.4410     0.6659   -46.2160  +383.5653  (5.6s)
+  [PROGRESS] 9/216 (4%) | Elapsed: 0.5min | ETA: 10.9min | (1,1) R=7.0 +-
+  [PROGRESS] 10/216 (5%) | Elapsed: 0.5min | ETA: 10.8min | (1,1) R=7.0 ++
+     7.0    23.4410    23.4410     1.3034   -45.5785  +339.7771  (7.0s)
+  [PROGRESS] 11/216 (5%) | Elapsed: 0.6min | ETA: 10.6min | (1,1) R=10.0 +-
+  [PROGRESS] 12/216 (6%) | Elapsed: 0.6min | ETA: 10.7min | (1,1) R=10.0 ++
+    10.0    23.4410    23.4410     2.6432   -44.2387  +271.0168  (6.4s)
+
+  --- (3,3) mode 3+3, s-wave ---
+       R         E1         E2        E12     dE(+-)     dE(++)
+  [PROGRESS] 13/216 (6%) | Elapsed: 0.7min | ETA: 10.8min | (3,3) R=2.0 +-
+  [PROGRESS] 14/216 (6%) | Elapsed: 0.7min | ETA: 10.6min | (3,3) R=2.0 ++
+     2.0    27.6787    27.6787     2.7371   -52.6203   +16.3968  (6.5s)
+  [PROGRESS] 15/216 (7%) | Elapsed: 0.8min | ETA: 10.9min | (3,3) R=3.0 +-
+  [PROGRESS] 16/216 (7%) | Elapsed: 0.9min | ETA: 10.9min | (3,3) R=3.0 ++
+     3.0    27.6787    27.6787     5.6670   -49.6904   +17.9926  (7.8s)
+  [PROGRESS] 17/216 (8%) | Elapsed: 0.9min | ETA: 10.7min | (3,3) R=4.0 +-
+  [PROGRESS] 18/216 (8%) | Elapsed: 1.0min | ETA: 10.7min | (3,3) R=4.0 ++
+     4.0    27.6787    27.6787     9.0013   -46.3561   +20.2595  (6.0s)
+  [PROGRESS] 19/216 (9%) | Elapsed: 1.0min | ETA: 10.5min | (3,3) R=5.0 +-
+  [PROGRESS] 20/216 (9%) | Elapsed: 1.1min | ETA: 10.4min | (3,3) R=5.0 ++
+     5.0    27.6787    27.6787    12.2357   -43.1216   +20.4667  (5.4s)
+  [PROGRESS] 21/216 (10%) | Elapsed: 1.1min | ETA: 10.3min | (3,3) R=7.0 +-
+  [PROGRESS] 22/216 (10%) | Elapsed: 1.2min | ETA: 10.3min | (3,3) R=7.0 ++
+     7.0    27.6787    27.6787    17.0600   -38.2973   +20.5064  (6.3s)
+  [PROGRESS] 23/216 (11%) | Elapsed: 1.2min | ETA: 10.2min | (3,3) R=10.0 +-
+  [PROGRESS] 24/216 (11%) | Elapsed: 1.3min | ETA: 10.2min | (3,3) R=10.0 ++
+    10.0    27.6787    27.6787    20.1031   -35.2542   +38.7419  (6.4s)
+
+  --- (1,3) mode 1+3, s-wave ---
+       R         E1         E2        E12     dE(+-)     dE(++)
+  [PROGRESS] 25/216 (12%) | Elapsed: 1.3min | ETA: 10.0min | (1,3) R=2.0 +-
+  [PROGRESS] 26/216 (12%) | Elapsed: 1.4min | ETA: 10.0min | (1,3) R=2.0 ++
+     2.0    23.4410    27.6787    42.7404    -8.3792   +52.4760  (6.0s)
+  [PROGRESS] 27/216 (12%) | Elapsed: 1.4min | ETA: 9.9min | (1,3) R=3.0 +-
+  [PROGRESS] 28/216 (13%) | Elapsed: 1.5min | ETA: 9.9min | (1,3) R=3.0 ++
+     3.0    23.4410    27.6787    42.8399    -8.2798   +51.9122  (5.9s)
+  [PROGRESS] 29/216 (13%) | Elapsed: 1.5min | ETA: 9.9min | (1,3) R=4.0 +-
+  [PROGRESS] 30/216 (14%) | Elapsed: 1.6min | ETA: 9.9min | (1,3) R=4.0 ++
+     4.0    23.4410    27.6787    42.8943    -8.2254   +51.3124  (7.3s)
+  [PROGRESS] 31/216 (14%) | Elapsed: 1.6min | ETA: 9.8min | (1,3) R=5.0 +-
+  [PROGRESS] 32/216 (15%) | Elapsed: 1.7min | ETA: 9.8min | (1,3) R=5.0 ++
+     5.0    23.4410    27.6787    42.8190    -8.3006   +51.3484  (6.4s)
+  [PROGRESS] 33/216 (15%) | Elapsed: 1.7min | ETA: 9.7min | (1,3) R=7.0 +-
+  [PROGRESS] 34/216 (16%) | Elapsed: 1.8min | ETA: 9.6min | (1,3) R=7.0 ++
+     7.0    23.4410    27.6787    41.8173    -9.3023   +52.5377  (5.8s)
+  [PROGRESS] 35/216 (16%) | Elapsed: 1.8min | ETA: 9.5min | (1,3) R=10.0 +-
+  [PROGRESS] 36/216 (17%) | Elapsed: 1.9min | ETA: 9.4min | (1,3) R=10.0 ++
+    10.0    23.4410    27.6787    36.2944   -14.8253   +60.2302  (5.4s)
+
+================================================================================
+  p-WAVE (l=1) BREATHER INTERACTION
+================================================================================
+
+  --- (3,3) mode 3+3 p-wave, l=(1,1) ---
+       R         E1         E2        E12     dE(+-)     dE(++)
+  [PROGRESS] 37/216 (17%) | Elapsed: 1.9min | ETA: 9.3min | p-wave (3,3) R=2.0 +-
+  [PROGRESS] 38/216 (18%) | Elapsed: 2.0min | ETA: 9.2min | p-wave (3,3) R=2.0 ++
+     2.0     9.3474     9.3474     9.9327    -8.7621    +6.9232  (5.3s)
+  [PROGRESS] 39/216 (18%) | Elapsed: 2.0min | ETA: 9.1min | p-wave (3,3) R=3.0 +-
+  [PROGRESS] 40/216 (19%) | Elapsed: 2.1min | ETA: 9.1min | p-wave (3,3) R=3.0 ++
+     3.0     9.3474     9.3474    15.2605    -3.4343    +1.3509  (5.4s)
+  [PROGRESS] 41/216 (19%) | Elapsed: 2.1min | ETA: 9.0min | p-wave (3,3) R=4.0 +-
+  [PROGRESS] 42/216 (19%) | Elapsed: 2.1min | ETA: 8.9min | p-wave (3,3) R=4.0 ++
+     4.0     9.3474     9.3474    19.5362    +0.8415    -2.8292  (5.3s)
+  [PROGRESS] 43/216 (20%) | Elapsed: 2.2min | ETA: 8.8min | p-wave (3,3) R=5.0 +-
+  [PROGRESS] 44/216 (20%) | Elapsed: 2.2min | ETA: 8.7min | p-wave (3,3) R=5.0 ++
+     5.0     9.3474     9.3474    22.2488    +3.5540    -5.6980  (5.3s)
+  [PROGRESS] 45/216 (21%) | Elapsed: 2.3min | ETA: 8.7min | p-wave (3,3) R=7.0 +-
+  [PROGRESS] 46/216 (21%) | Elapsed: 2.3min | ETA: 8.6min | p-wave (3,3) R=7.0 ++
+     7.0     9.3474     9.3474    24.8248    +6.1300    -7.6534  (5.4s)
+  [PROGRESS] 47/216 (22%) | Elapsed: 2.4min | ETA: 8.5min | p-wave (3,3) R=10.0 +-
+  [PROGRESS] 48/216 (22%) | Elapsed: 2.4min | ETA: 8.5min | p-wave (3,3) R=10.0 ++
+    10.0     9.3474     9.3474    28.0902    +9.3954    -3.9138  (5.4s)
+
+  --- (1,3) mode 1s+3p, l=(0,1) ---
+       R         E1         E2        E12     dE(+-)     dE(++)
+  [PROGRESS] 49/216 (23%) | Elapsed: 2.5min | ETA: 8.4min | p-wave (1,3) R=2.0 +-
+  [PROGRESS] 50/216 (23%) | Elapsed: 2.5min | ETA: 8.3min | p-wave (1,3) R=2.0 ++
+     2.0    23.4410     9.3474    61.3152   +28.5268   +18.2676  (5.3s)
+  [PROGRESS] 51/216 (24%) | Elapsed: 2.6min | ETA: 8.3min | p-wave (1,3) R=3.0 +-
+  [PROGRESS] 52/216 (24%) | Elapsed: 2.6min | ETA: 8.2min | p-wave (1,3) R=3.0 ++
+     3.0    23.4410     9.3474    63.0269   +30.2385   +15.9743  (5.4s)
+  [PROGRESS] 53/216 (25%) | Elapsed: 2.6min | ETA: 8.1min | p-wave (1,3) R=4.0 +-
+  [PROGRESS] 54/216 (25%) | Elapsed: 2.7min | ETA: 8.1min | p-wave (1,3) R=4.0 ++
+     4.0    23.4410     9.3474    63.9503   +31.1620   +14.2323  (5.4s)
+  [PROGRESS] 55/216 (25%) | Elapsed: 2.7min | ETA: 8.0min | p-wave (1,3) R=5.0 +-
+  [PROGRESS] 56/216 (26%) | Elapsed: 2.8min | ETA: 7.9min | p-wave (1,3) R=5.0 ++
+     5.0    23.4410     9.3474    63.5890   +30.8006   +12.9231  (5.4s)
+  [PROGRESS] 57/216 (26%) | Elapsed: 2.8min | ETA: 7.9min | p-wave (1,3) R=7.0 +-
+  [PROGRESS] 58/216 (27%) | Elapsed: 2.9min | ETA: 7.8min | p-wave (1,3) R=7.0 ++
+     7.0    23.4410     9.3474    58.6241   +25.8358   +12.1863  (5.4s)
+  [PROGRESS] 59/216 (27%) | Elapsed: 2.9min | ETA: 7.7min | p-wave (1,3) R=10.0 +-
+  [PROGRESS] 60/216 (28%) | Elapsed: 3.0min | ETA: 7.7min | p-wave (1,3) R=10.0 ++
+    10.0    23.4410     9.3474    45.0442   +12.2559   +17.7230  (5.4s)
+
+================================================================================
+  MIXED s+p INTERACTION
+================================================================================
+
+  --- mode 1(s) + mode 3(p) ---
+       R     dE(+-)     dE(++)
+  [PROGRESS] 61/216 (28%) | Elapsed: 3.0min | ETA: 7.6min | mixed s+p R=1.5 +-
+  [PROGRESS] 62/216 (29%) | Elapsed: 3.0min | ETA: 7.6min | mixed s+p R=1.5 ++
+     1.5   +27.3890   +19.5046  (5.4s)
+  [PROGRESS] 63/216 (29%) | Elapsed: 3.1min | ETA: 7.5min | mixed s+p R=2.0 +-
+  [PROGRESS] 64/216 (30%) | Elapsed: 3.1min | ETA: 7.4min | mixed s+p R=2.0 ++
+     2.0   +28.5268   +18.2676  (5.4s)
+  [PROGRESS] 65/216 (30%) | Elapsed: 3.2min | ETA: 7.4min | mixed s+p R=2.5 +-
+  [PROGRESS] 66/216 (31%) | Elapsed: 3.2min | ETA: 7.3min | mixed s+p R=2.5 ++
+     2.5   +29.4650   +17.0589  (5.4s)
+  [PROGRESS] 67/216 (31%) | Elapsed: 3.3min | ETA: 7.3min | mixed s+p R=3.0 +-
+  [PROGRESS] 68/216 (31%) | Elapsed: 3.3min | ETA: 7.2min | mixed s+p R=3.0 ++
+     3.0   +30.2385   +15.9743  (5.4s)
+  [PROGRESS] 69/216 (32%) | Elapsed: 3.4min | ETA: 7.2min | mixed s+p R=3.5 +-
+  [PROGRESS] 70/216 (32%) | Elapsed: 3.4min | ETA: 7.1min | mixed s+p R=3.5 ++
+     3.5   +30.8450   +15.0571  (5.4s)
+  [PROGRESS] 71/216 (33%) | Elapsed: 3.5min | ETA: 7.0min | mixed s+p R=4.0 +-
+  [PROGRESS] 72/216 (33%) | Elapsed: 3.5min | ETA: 7.0min | mixed s+p R=4.0 ++
+     4.0   +31.1620   +14.2323  (5.4s)
+  [PROGRESS] 73/216 (34%) | Elapsed: 3.5min | ETA: 6.9min | mixed s+p R=5.0 +-
+  [PROGRESS] 74/216 (34%) | Elapsed: 3.6min | ETA: 6.9min | mixed s+p R=5.0 ++
+     5.0   +30.8006   +12.9231  (5.4s)
+  [PROGRESS] 75/216 (35%) | Elapsed: 3.6min | ETA: 6.8min | mixed s+p R=6.0 +-
+  [PROGRESS] 76/216 (35%) | Elapsed: 3.7min | ETA: 6.8min | mixed s+p R=6.0 ++
+     6.0   +29.0872   +12.2578  (5.5s)
+  [PROGRESS] 77/216 (36%) | Elapsed: 3.7min | ETA: 6.7min | mixed s+p R=8.0 +-
+  [PROGRESS] 78/216 (36%) | Elapsed: 3.8min | ETA: 6.7min | mixed s+p R=8.0 ++
+     8.0   +21.5248   +12.9734  (5.4s)
+
+================================================================================
+  DENSE R SCAN — Looking for oscillation
+================================================================================
+
+  --- Dense scan: mode (1,1) s-wave ---
+       R     dE(+-)     dE(++)
+  [PROGRESS] 79/216 (37%) | Elapsed: 3.8min | ETA: 6.6min | dense s(1,1) R=1.0
+  [PROGRESS] 80/216 (37%) | Elapsed: 3.9min | ETA: 6.6min | dense s(1,1) R=1.0
+     1.0   -46.8553  +367.3905
+  [PROGRESS] 81/216 (38%) | Elapsed: 3.9min | ETA: 6.5min | dense s(1,1) R=1.5
+  [PROGRESS] 82/216 (38%) | Elapsed: 3.9min | ETA: 6.5min | dense s(1,1) R=1.5
+     1.5   -46.8219  +364.5586
+  [PROGRESS] 83/216 (38%) | Elapsed: 4.0min | ETA: 6.4min | dense s(1,1) R=2.0
+  [PROGRESS] 84/216 (39%) | Elapsed: 4.0min | ETA: 6.3min | dense s(1,1) R=2.0
+     2.0   -46.7753  +374.7050
+  [PROGRESS] 85/216 (39%) | Elapsed: 4.1min | ETA: 6.3min | dense s(1,1) R=2.5
+  [PROGRESS] 86/216 (40%) | Elapsed: 4.1min | ETA: 6.2min | dense s(1,1) R=2.5
+     2.5   -46.7153  +380.3092
+  [PROGRESS] 87/216 (40%) | Elapsed: 4.2min | ETA: 6.2min | dense s(1,1) R=3.0
+  [PROGRESS] 88/216 (41%) | Elapsed: 4.2min | ETA: 6.1min | dense s(1,1) R=3.0
+     3.0   -46.6420  +381.9081
+  [PROGRESS] 89/216 (41%) | Elapsed: 4.3min | ETA: 6.1min | dense s(1,1) R=3.5
+  [PROGRESS] 90/216 (42%) | Elapsed: 4.3min | ETA: 6.0min | dense s(1,1) R=3.5
+     3.5   -46.5554  +396.2203
+  [PROGRESS] 91/216 (42%) | Elapsed: 4.3min | ETA: 6.0min | dense s(1,1) R=4.0
+  [PROGRESS] 92/216 (43%) | Elapsed: 4.4min | ETA: 5.9min | dense s(1,1) R=4.0
+     4.0   -46.4556  +402.9473
+  [PROGRESS] 93/216 (43%) | Elapsed: 4.4min | ETA: 5.9min | dense s(1,1) R=4.5
+  [PROGRESS] 94/216 (44%) | Elapsed: 4.5min | ETA: 5.8min | dense s(1,1) R=4.5
+     4.5   -46.3424  +398.3381
+  [PROGRESS] 95/216 (44%) | Elapsed: 4.5min | ETA: 5.8min | dense s(1,1) R=5.0
+  [PROGRESS] 96/216 (44%) | Elapsed: 4.6min | ETA: 5.7min | dense s(1,1) R=5.0
+     5.0   -46.2160  +383.5656
+  [PROGRESS] 97/216 (45%) | Elapsed: 4.6min | ETA: 5.7min | dense s(1,1) R=5.5
+  [PROGRESS] 98/216 (45%) | Elapsed: 4.7min | ETA: 5.6min | dense s(1,1) R=5.5
+     5.5   -46.0764  +372.4384
+  [PROGRESS] 99/216 (46%) | Elapsed: 4.7min | ETA: 5.6min | dense s(1,1) R=6.0
+  [PROGRESS] 100/216 (46%) | Elapsed: 4.7min | ETA: 5.5min | dense s(1,1) R=6.0
+     6.0   -45.9236  +372.0783
+  [PROGRESS] 101/216 (47%) | Elapsed: 4.8min | ETA: 5.4min | dense s(1,1) R=6.5
+  [PROGRESS] 102/216 (47%) | Elapsed: 4.8min | ETA: 5.4min | dense s(1,1) R=6.5
+     6.5   -45.7576  +363.0301
+  [PROGRESS] 103/216 (48%) | Elapsed: 4.9min | ETA: 5.3min | dense s(1,1) R=7.0
+  [PROGRESS] 104/216 (48%) | Elapsed: 4.9min | ETA: 5.3min | dense s(1,1) R=7.0
+     7.0   -45.5785  +339.7771
+  [PROGRESS] 105/216 (49%) | Elapsed: 5.0min | ETA: 5.2min | dense s(1,1) R=7.5
+  [PROGRESS] 106/216 (49%) | Elapsed: 5.0min | ETA: 5.2min | dense s(1,1) R=7.5
+     7.5   -45.3864  +331.7307
+  [PROGRESS] 107/216 (50%) | Elapsed: 5.0min | ETA: 5.1min | dense s(1,1) R=8.0
+  [PROGRESS] 108/216 (50%) | Elapsed: 5.1min | ETA: 5.1min | dense s(1,1) R=8.0
+     8.0   -45.1815  +317.1575
+  [PROGRESS] 109/216 (50%) | Elapsed: 5.1min | ETA: 5.0min | dense s(1,1) R=8.5
+  [PROGRESS] 110/216 (51%) | Elapsed: 5.2min | ETA: 5.0min | dense s(1,1) R=8.5
+     8.5   -44.9640  +299.4296
+  [PROGRESS] 111/216 (51%) | Elapsed: 5.2min | ETA: 4.9min | dense s(1,1) R=9.0
+  [PROGRESS] 112/216 (52%) | Elapsed: 5.3min | ETA: 4.9min | dense s(1,1) R=9.0
+     9.0   -44.7341  +291.0360
+  [PROGRESS] 113/216 (52%) | Elapsed: 5.3min | ETA: 4.8min | dense s(1,1) R=9.5
+  [PROGRESS] 114/216 (53%) | Elapsed: 5.4min | ETA: 4.8min | dense s(1,1) R=9.5
+     9.5   -44.4922  +278.2737
+  [PROGRESS] 115/216 (53%) | Elapsed: 5.4min | ETA: 4.8min | dense s(1,1) R=10.0
+  [PROGRESS] 116/216 (54%) | Elapsed: 5.5min | ETA: 4.7min | dense s(1,1) R=10.0
+    10.0   -44.2387  +271.0167
+  [PROGRESS] 117/216 (54%) | Elapsed: 5.5min | ETA: 4.7min | dense s(1,1) R=10.5
+  [PROGRESS] 118/216 (55%) | Elapsed: 5.5min | ETA: 4.6min | dense s(1,1) R=10.5
+    10.5   -43.9742  +270.3044
+  [PROGRESS] 119/216 (55%) | Elapsed: 5.6min | ETA: 4.6min | dense s(1,1) R=11.0
+  [PROGRESS] 120/216 (56%) | Elapsed: 5.6min | ETA: 4.5min | dense s(1,1) R=11.0
+    11.0   -43.6994  +261.4972
+  [PROGRESS] 121/216 (56%) | Elapsed: 5.7min | ETA: 4.5min | dense s(1,1) R=11.5
+  [PROGRESS] 122/216 (56%) | Elapsed: 5.7min | ETA: 4.4min | dense s(1,1) R=11.5
+    11.5   -43.4152  +252.1143
+  [PROGRESS] 123/216 (57%) | Elapsed: 5.8min | ETA: 4.4min | dense s(1,1) R=12.0
+  [PROGRESS] 124/216 (57%) | Elapsed: 5.8min | ETA: 4.3min | dense s(1,1) R=12.0
+    12.0   -43.1225  +242.1533
+
+  --- Dense scan: mode (3,3) p-wave ---
+       R     dE(+-)     dE(++)
+  [PROGRESS] 125/216 (58%) | Elapsed: 5.9min | ETA: 4.3min | dense p(3,3) R=1.0
+  [PROGRESS] 126/216 (58%) | Elapsed: 5.9min | ETA: 4.2min | dense p(3,3) R=1.0
+     1.0   -14.6828   +12.6162
+  [PROGRESS] 127/216 (59%) | Elapsed: 5.9min | ETA: 4.2min | dense p(3,3) R=1.5
+  [PROGRESS] 128/216 (59%) | Elapsed: 6.0min | ETA: 4.1min | dense p(3,3) R=1.5
+     1.5   -11.7444    +9.8398
+  [PROGRESS] 129/216 (60%) | Elapsed: 6.0min | ETA: 4.1min | dense p(3,3) R=2.0
+  [PROGRESS] 130/216 (60%) | Elapsed: 6.1min | ETA: 4.0min | dense p(3,3) R=2.0
+     2.0    -8.7621    +6.9232
+  [PROGRESS] 131/216 (61%) | Elapsed: 6.1min | ETA: 4.0min | dense p(3,3) R=2.5
+  [PROGRESS] 132/216 (61%) | Elapsed: 6.2min | ETA: 3.9min | dense p(3,3) R=2.5
+     2.5    -5.9946    +4.0025
+  [PROGRESS] 133/216 (62%) | Elapsed: 6.2min | ETA: 3.9min | dense p(3,3) R=3.0
+  [PROGRESS] 134/216 (62%) | Elapsed: 6.3min | ETA: 3.8min | dense p(3,3) R=3.0
+     3.0    -3.4343    +1.3509
+  [PROGRESS] 135/216 (62%) | Elapsed: 6.3min | ETA: 3.8min | dense p(3,3) R=3.5
+  [PROGRESS] 136/216 (63%) | Elapsed: 6.3min | ETA: 3.7min | dense p(3,3) R=3.5
+     3.5    -1.0940    -0.8922
+  [PROGRESS] 137/216 (63%) | Elapsed: 6.4min | ETA: 3.7min | dense p(3,3) R=4.0
+  [PROGRESS] 138/216 (64%) | Elapsed: 6.4min | ETA: 3.6min | dense p(3,3) R=4.0
+     4.0    +0.8415    -2.8292
+  [PROGRESS] 139/216 (64%) | Elapsed: 6.5min | ETA: 3.6min | dense p(3,3) R=4.5
+  [PROGRESS] 140/216 (65%) | Elapsed: 6.5min | ETA: 3.5min | dense p(3,3) R=4.5
+     4.5    +2.3336    -4.4751
+  [PROGRESS] 141/216 (65%) | Elapsed: 6.6min | ETA: 3.5min | dense p(3,3) R=5.0
+  [PROGRESS] 142/216 (66%) | Elapsed: 6.6min | ETA: 3.4min | dense p(3,3) R=5.0
+     5.0    +3.5540    -5.6980
+  [PROGRESS] 143/216 (66%) | Elapsed: 6.7min | ETA: 3.4min | dense p(3,3) R=5.5
+  [PROGRESS] 144/216 (67%) | Elapsed: 6.7min | ETA: 3.4min | dense p(3,3) R=5.5
+     5.5    +4.5560    -6.5239
+  [PROGRESS] 145/216 (67%) | Elapsed: 6.8min | ETA: 3.3min | dense p(3,3) R=6.0
+  [PROGRESS] 146/216 (68%) | Elapsed: 6.8min | ETA: 3.3min | dense p(3,3) R=6.0
+     6.0    +5.2444    -7.1374
+  [PROGRESS] 147/216 (68%) | Elapsed: 6.8min | ETA: 3.2min | dense p(3,3) R=6.5
+  [PROGRESS] 148/216 (69%) | Elapsed: 6.9min | ETA: 3.2min | dense p(3,3) R=6.5
+     6.5    +5.6974    -7.5545
+  [PROGRESS] 149/216 (69%) | Elapsed: 6.9min | ETA: 3.1min | dense p(3,3) R=7.0
+  [PROGRESS] 150/216 (69%) | Elapsed: 7.0min | ETA: 3.1min | dense p(3,3) R=7.0
+     7.0    +6.1300    -7.6534
+  [PROGRESS] 151/216 (70%) | Elapsed: 7.0min | ETA: 3.0min | dense p(3,3) R=7.5
+  [PROGRESS] 152/216 (70%) | Elapsed: 7.1min | ETA: 3.0min | dense p(3,3) R=7.5
+     7.5    +6.5606    -7.4985
+  [PROGRESS] 153/216 (71%) | Elapsed: 7.1min | ETA: 2.9min | dense p(3,3) R=8.0
+  [PROGRESS] 154/216 (71%) | Elapsed: 7.1min | ETA: 2.9min | dense p(3,3) R=8.0
+     8.0    +6.9057    -7.2385
+  [PROGRESS] 155/216 (72%) | Elapsed: 7.2min | ETA: 2.8min | dense p(3,3) R=8.5
+  [PROGRESS] 156/216 (72%) | Elapsed: 7.2min | ETA: 2.8min | dense p(3,3) R=8.5
+     8.5    +7.2749    -6.8130
+  [PROGRESS] 157/216 (73%) | Elapsed: 7.3min | ETA: 2.7min | dense p(3,3) R=9.0
+  [PROGRESS] 158/216 (73%) | Elapsed: 7.3min | ETA: 2.7min | dense p(3,3) R=9.0
+     9.0    +7.8505    -6.0732
+  [PROGRESS] 159/216 (74%) | Elapsed: 7.4min | ETA: 2.6min | dense p(3,3) R=9.5
+  [PROGRESS] 160/216 (74%) | Elapsed: 7.4min | ETA: 2.6min | dense p(3,3) R=9.5
+     9.5    +8.5843    -5.0823
+  [PROGRESS] 161/216 (75%) | Elapsed: 7.5min | ETA: 2.5min | dense p(3,3) R=10.0
+  [PROGRESS] 162/216 (75%) | Elapsed: 7.5min | ETA: 2.5min | dense p(3,3) R=10.0
+    10.0    +9.3954    -3.9138
+  [PROGRESS] 163/216 (75%) | Elapsed: 7.5min | ETA: 2.5min | dense p(3,3) R=10.5
+  [PROGRESS] 164/216 (76%) | Elapsed: 7.6min | ETA: 2.4min | dense p(3,3) R=10.5
+    10.5   +10.4027    -2.4111
+  [PROGRESS] 165/216 (76%) | Elapsed: 7.6min | ETA: 2.4min | dense p(3,3) R=11.0
+  [PROGRESS] 166/216 (77%) | Elapsed: 7.7min | ETA: 2.3min | dense p(3,3) R=11.0
+    11.0   +11.7223    -0.3842
+  [PROGRESS] 167/216 (77%) | Elapsed: 7.7min | ETA: 2.3min | dense p(3,3) R=11.5
+  [PROGRESS] 168/216 (78%) | Elapsed: 7.8min | ETA: 2.2min | dense p(3,3) R=11.5
+    11.5   +13.2252    +2.1528
+  [PROGRESS] 169/216 (78%) | Elapsed: 7.8min | ETA: 2.2min | dense p(3,3) R=12.0
+  [PROGRESS] 170/216 (79%) | Elapsed: 7.8min | ETA: 2.1min | dense p(3,3) R=12.0
+    12.0   +14.8116    +5.2678
+
+  --- Dense scan: mode 1(s) + 3(p) mixed ---
+       R     dE(+-)     dE(++)
+  [PROGRESS] 171/216 (79%) | Elapsed: 7.9min | ETA: 2.1min | dense mixed R=1.0
+  [PROGRESS] 172/216 (80%) | Elapsed: 7.9min | ETA: 2.0min | dense mixed R=1.0
+     1.0   +26.1324   +20.7848
+  [PROGRESS] 173/216 (80%) | Elapsed: 8.0min | ETA: 2.0min | dense mixed R=1.5
+  [PROGRESS] 174/216 (81%) | Elapsed: 8.0min | ETA: 1.9min | dense mixed R=1.5
+     1.5   +27.3891   +19.5046
+  [PROGRESS] 175/216 (81%) | Elapsed: 8.1min | ETA: 1.9min | dense mixed R=2.0
+  [PROGRESS] 176/216 (81%) | Elapsed: 8.1min | ETA: 1.8min | dense mixed R=2.0
+     2.0   +28.5269   +18.2676
+  [PROGRESS] 177/216 (82%) | Elapsed: 8.2min | ETA: 1.8min | dense mixed R=2.5
+  [PROGRESS] 178/216 (82%) | Elapsed: 8.2min | ETA: 1.7min | dense mixed R=2.5
+     2.5   +29.4650   +17.0589
+  [PROGRESS] 179/216 (83%) | Elapsed: 8.2min | ETA: 1.7min | dense mixed R=3.0
+  [PROGRESS] 180/216 (83%) | Elapsed: 8.3min | ETA: 1.7min | dense mixed R=3.0
+     3.0   +30.2385   +15.9743
+  [PROGRESS] 181/216 (84%) | Elapsed: 8.3min | ETA: 1.6min | dense mixed R=3.5
+  [PROGRESS] 182/216 (84%) | Elapsed: 8.4min | ETA: 1.6min | dense mixed R=3.5
+     3.5   +30.8450   +15.0571
+  [PROGRESS] 183/216 (85%) | Elapsed: 8.4min | ETA: 1.5min | dense mixed R=4.0
+  [PROGRESS] 184/216 (85%) | Elapsed: 8.5min | ETA: 1.5min | dense mixed R=4.0
+     4.0   +31.1620   +14.2323
+  [PROGRESS] 185/216 (86%) | Elapsed: 8.5min | ETA: 1.4min | dense mixed R=4.5
+  [PROGRESS] 186/216 (86%) | Elapsed: 8.6min | ETA: 1.4min | dense mixed R=4.5
+     4.5   +31.1306   +13.4911
+  [PROGRESS] 187/216 (87%) | Elapsed: 8.6min | ETA: 1.3min | dense mixed R=5.0
+  [PROGRESS] 188/216 (87%) | Elapsed: 8.6min | ETA: 1.3min | dense mixed R=5.0
+     5.0   +30.8006   +12.9231
+  [PROGRESS] 189/216 (88%) | Elapsed: 8.7min | ETA: 1.2min | dense mixed R=5.5
+  [PROGRESS] 190/216 (88%) | Elapsed: 8.7min | ETA: 1.2min | dense mixed R=5.5
+     5.5   +30.1537   +12.5372
+  [PROGRESS] 191/216 (88%) | Elapsed: 8.8min | ETA: 1.1min | dense mixed R=6.0
+  [PROGRESS] 192/216 (89%) | Elapsed: 8.8min | ETA: 1.1min | dense mixed R=6.0
+     6.0   +29.0873   +12.2578
+  [PROGRESS] 193/216 (89%) | Elapsed: 8.9min | ETA: 1.1min | dense mixed R=6.5
+  [PROGRESS] 194/216 (90%) | Elapsed: 8.9min | ETA: 1.0min | dense mixed R=6.5
+     6.5   +27.6083   +12.1074
+  [PROGRESS] 195/216 (90%) | Elapsed: 9.0min | ETA: 1.0min | dense mixed R=7.0
+  [PROGRESS] 196/216 (91%) | Elapsed: 9.0min | ETA: 0.9min | dense mixed R=7.0
+     7.0   +25.8358   +12.1863
+  [PROGRESS] 197/216 (91%) | Elapsed: 9.0min | ETA: 0.9min | dense mixed R=7.5
+  [PROGRESS] 198/216 (92%) | Elapsed: 9.1min | ETA: 0.8min | dense mixed R=7.5
+     7.5   +23.8088   +12.4920
+  [PROGRESS] 199/216 (92%) | Elapsed: 9.1min | ETA: 0.8min | dense mixed R=8.0
+  [PROGRESS] 200/216 (93%) | Elapsed: 9.2min | ETA: 0.7min | dense mixed R=8.0
+     8.0   +21.5249   +12.9734
+  [PROGRESS] 201/216 (93%) | Elapsed: 9.2min | ETA: 0.7min | dense mixed R=8.5
+  [PROGRESS] 202/216 (94%) | Elapsed: 9.3min | ETA: 0.6min | dense mixed R=8.5
+     8.5   +19.1068   +13.6894
+  [PROGRESS] 203/216 (94%) | Elapsed: 9.3min | ETA: 0.6min | dense mixed R=9.0
+  [PROGRESS] 204/216 (94%) | Elapsed: 9.4min | ETA: 0.6min | dense mixed R=9.0
+     9.0   +16.7313   +14.7402
+  [PROGRESS] 205/216 (95%) | Elapsed: 9.4min | ETA: 0.5min | dense mixed R=9.5
+  [PROGRESS] 206/216 (95%) | Elapsed: 9.4min | ETA: 0.5min | dense mixed R=9.5
+     9.5   +14.4434   +16.1006
+  [PROGRESS] 207/216 (96%) | Elapsed: 9.5min | ETA: 0.4min | dense mixed R=10.0
+  [PROGRESS] 208/216 (96%) | Elapsed: 9.5min | ETA: 0.4min | dense mixed R=10.0
+    10.0   +12.2559   +17.7230
+  [PROGRESS] 209/216 (97%) | Elapsed: 9.6min | ETA: 0.3min | dense mixed R=10.5
+  [PROGRESS] 210/216 (97%) | Elapsed: 9.6min | ETA: 0.3min | dense mixed R=10.5
+    10.5   +10.2845   +19.6596
+  [PROGRESS] 211/216 (98%) | Elapsed: 9.7min | ETA: 0.2min | dense mixed R=11.0
+  [PROGRESS] 212/216 (98%) | Elapsed: 9.7min | ETA: 0.2min | dense mixed R=11.0
+    11.0    +8.6385   +21.9521
+  [PROGRESS] 213/216 (99%) | Elapsed: 9.8min | ETA: 0.1min | dense mixed R=11.5
+  [PROGRESS] 214/216 (99%) | Elapsed: 9.8min | ETA: 0.1min | dense mixed R=11.5
+    11.5    +7.2849   +24.4844
+  [PROGRESS] 215/216 (100%) | Elapsed: 9.8min | ETA: 0.0min | dense mixed R=12.0
+  [PROGRESS] 216/216 (100%) | Elapsed: 9.9min | ETA: 0.0min | dense mixed R=12.0
+    12.0    +6.1974   +27.1379
+
+================================================================================
+  DONE — Total time: 9.9 minutes
+================================================================================
+
+  Results saved to calculations/breather_3d_results.json
