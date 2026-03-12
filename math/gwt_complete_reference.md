@@ -492,9 +492,9 @@ Ratio: Delta_m^2_31 / Delta_m^2_21 = 33.69
 | State | Formula | Mass |
 |-------|---------|------|
 | nu_3 | M_eff | 51.2 meV |
-| nu_2 | sqrt(m_1^2 + Delta_m^2_21) | 13.6 meV |
+| nu_2 | sqrt(m_1^2 + Delta_m^2_21) | 13.2 meV |
 | nu_1 | M_eff / sqrt(N_eff) | 10.0 meV |
-| Sum | | 74.8 meV (< 120 meV cosmological bound) |
+| Sum | | 74.4 meV (< 120 meV cosmological bound) |
 
 ---
 
