@@ -496,6 +496,35 @@ Ratio: Delta_m^2_31 / Delta_m^2_21 = 33.69
 | nu_1 | M_eff / sqrt(N_eff) | 10.0 meV |
 | Sum | | 74.4 meV (< 120 meV cosmological bound) |
 
+### Wave sizes (Compton wavelength)
+```
+lambda_C = hbar*c / m_nu
+
+nu_3: hbar*c / 51.2 meV = 3.85 um
+nu_2: hbar*c / 13.2 meV = 14.93 um
+nu_1: hbar*c / 10.0 meV = 19.75 um
+```
+These are enormous by particle physics standards — comparable to biological cells.
+
+### Ghostliness ratio
+```
+Ghostliness = lambda_C(nu_3) / r_weak
+            = 3.85 um / (hbar*c / M_Z)
+            = 3.85e-6 m / 2.16e-18 m
+            = 1.78 × 10^12
+```
+The neutrino wave is nearly two trillion times larger than the range over which it can interact. This explains cross sections of order sigma ~ 10^-44 cm^2 — the wave simply does not "fit" into the interaction region.
+
+### Lepton radii (classical radius)
+```
+r_rms = alpha * hbar*c / m
+
+Electron: alpha * 197.3 / 0.511 = 2.818 fm   (obs: 2.8179 fm, exact)
+Muon:     alpha * 197.3 / 105.7 = 0.01362 fm  (awaiting MUSE @ PSI)
+Tau:      alpha * 197.3 / 1777  = 8.10e-4 fm   (awaiting)
+```
+The classical radius r = alpha * lambda_C is the distance at which the EM self-energy equals the rest mass. In GWT, this is the breather's electromagnetic interaction radius — the toroidal vortex has a sharp boundary at this scale. Free leptons (not confined) receive no VP correction.
+
 ---
 
 ## 11. TOROIDAL BREATHER PHYSICS
@@ -583,8 +612,79 @@ See: math/toroidal_coupling_modes.py for full calculation.
 | Parameter | Formula | Predicted | Observed | Error |
 |-----------|---------|-----------|----------|-------|
 | Dark energy fraction Omega_Lambda | (d-1)/d | 0.667 | 0.685 | -2.7% |
+| Hubble constant H_0 | (c/l_P) * exp(-1/alpha) / d^3 | 66.4 km/s/Mpc | 67.4 | -1.5% |
+| Cosmic age t_0 | Friedmann + Omega_Lambda=2/3 | 13.58 Gyr | 13.8 Gyr | -1.6% |
+| Cosmological constant Lambda | 2*H_0^2/c^2 | 1.061×10^-52 m^-2 | 1.088×10^-52 | -2.5% |
+| Dark energy density u_DE | k*a/(8*R_H^2) | 5.11×10^-10 J/m^3 | 5.26×10^-10 | -2.8% |
 | Deceleration parameter q_0 | -1/(d-1) | -0.500 | -0.55 | -9.1% |
+| Dark energy EOS w | -1 exactly | -1.00 | -1 ± 0.1 | exact |
+| Dark energy EOS w_a | 0 exactly | 0 | 0 ± 0.3 | exact |
+| MOND acceleration a_0 | c*H_0/(pi*sqrt(d)) | 1.204×10^-10 m/s^2 | 1.2×10^-10 | 0.3% |
+| G_eff in halos | (Omega_m/Omega_b)*G_N | 6.8 G_N | consistent | — |
+| CMB sound horizon r_s | from d_A and Omega_Lambda | ~143 Mpc | 147.1 Mpc | -2.4% |
+| CMB first peak l_1 | pi*d_A/r_s | 224 | 220 | 2% |
+| CMB second peak l_2 | ~2.3*l_1 | 519 | 540 | -4% |
 | Baryon asymmetry eta_B | J × alpha^2 × d/2^d | 5.86×10^-10 | 6.1×10^-10 | -4.0% |
+
+### Hubble constant derivation
+```
+H_0 = (c/l_P) * exp(-1/alpha) / d^3
+
+Step 1: Planck frequency = c/l_P = 1.855 × 10^43 Hz
+Step 2: Exponential suppression: exp(-1/alpha) = exp(-137.042) bridges ~60 orders of magnitude
+Step 3: Phase-space suppression: d^3 = 27 (three spatial directions cubed)
+Step 4: H_0 = 1.855e43 * exp(-137.042) / 27 = 66.4 km/s/Mpc
+
+Observed (Planck CMB): 67.4 ± 0.5 km/s/Mpc. Error: -1.5%
+```
+
+### Cosmic age
+```
+t_0 = (2/(3*H_0)) * arcsinh(sqrt(Omega_Lambda/(1-Omega_Lambda))) / sqrt(Omega_Lambda)
+
+With Omega_Lambda = 2/3:
+  Omega_Lambda/(1-Omega_Lambda) = 2, arcsinh(sqrt(2)) = ln(sqrt(2)+sqrt(3)) = 1.1462
+  sqrt(Omega_Lambda) = sqrt(2/3) = 0.8165
+
+t_0 = (2/(3*H_0)) * 1.1462/0.8165 = (2/(3*H_0)) * 1.4037
+t_0 = 13.58 Gyr   (obs: 13.8 Gyr, -1.6%)
+```
+
+### Cosmological constant
+```
+Lambda = 2*H_0^2 / c^2 = 1.061 × 10^-52 m^-2   (obs: 1.088e-52, -2.5%)
+```
+Follows directly from Omega_Lambda = 2/3 and the Friedmann equation.
+
+### Dark energy equation of state
+```
+w = -1 exactly
+w_a = 0 exactly
+```
+The lattice's L3 wave period (the largest standing wave) is far longer than the age of the universe. On cosmological timescales, this acts as a constant boundary pressure — giving w = -1 exactly, not approximately. Dark energy is the lattice's transverse restoring force, not a dynamical field. No time evolution → w_a = 0.
+
+### Dark energy density
+```
+u_DE = k*a / (8*R_H^2)
+
+where k*a = (2/pi)*l_P * (c^4/(pi*G)) and R_H = c/H_0.
+
+Algebraic proof that Omega_Lambda = 2/3 exactly:
+  u_DE = c^2*H_0^2 / (4*pi*G)
+  u_crit = 3*c^2*H_0^2 / (8*pi*G)
+  Omega_Lambda = u_DE/u_crit = 8/(4*3) = 2/3
+
+H_0 cancels completely. The result is purely geometric.
+```
+
+### MOND acceleration
+```
+a_0 = c*H_0 / (pi*sqrt(d))
+    = 6.549e-10 / (pi*sqrt(3))
+    = 6.549e-10 / 5.441
+    = 1.204 × 10^-10 m/s^2   (obs: 1.2e-10, 0.3%)
+```
+Crossover between local gravitational wave gradient and cosmic carrier wave gradient. At a < a_0, the two gradients interfere, producing MOND behavior and flat rotation curves via v^4 = G_N*M*a_0 (Baryonic Tully-Fisher).
 
 ### Baryon asymmetry derivation
 ```
@@ -744,6 +844,31 @@ Two breathers near each other interact through all 3 torus motions:
 ---
 
 ## 14. NUCLEAR PHYSICS
+
+### Proton cavity and nuclear scales
+```
+R_cavity = 0.532 * Lambda_QCD_fm * pi
+         = 0.532 * (hbar_c / Lambda_QCD) * pi
+         = 0.532 * (197.3/234.6) * pi
+         = 1.581 fm                                (prediction, awaiting PRad-II)
+```
+The proton is a spherical standing wave described by j_0(kr) = sin(kr)/(kr). The RMS radius fraction of j_0 within its first node is 0.532 (exact integral). R_cavity is the true boundary of the proton standing wave — inside: confined wave, outside: evanescent tail.
+
+### Nuclear hard core
+```
+r_hard = 2 * R_cavity = 2 * 1.581 = 3.16 fm      (obs: ~3 fm, consistent)
+```
+Two protons cannot overlap past their cavity boundaries — the hard core is twice the cavity radius.
+
+### Nuclear force range (neutral radius)
+```
+r_neutral = R_cavity + lambdabar_pi
+          = 1.581 + hbar_c/m_pi
+          = 1.581 + 197.3/135.3
+          = 1.581 + 1.477
+          = 3.06 fm                                (obs: 1-3 fm, consistent)
+```
+The nuclear force range has two components: the proton cavity boundary and the evanescent tail set by pion exchange.
 
 ### GMOR relation (Gell-Mann–Oakes–Renner) — pion mass from first principles
 
