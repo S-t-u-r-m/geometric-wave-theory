@@ -25,6 +25,7 @@
   .slider-row .val { width:160px; text-align:right; color:#ffcc44; font-family:monospace; }
   .note { color:#888; font-size:13px; padding:5px 0; }
   .eq { background:#1a1a3a; padding:10px; border-radius:4px; font-family:monospace; margin:8px 0; color:#88ff88; }
+  .mono { font-family: monospace; background: rgba(136,204,255,0.08); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.92em; }
   .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
   @media(max-width:800px) { .two-col { grid-template-columns:1fr; } }
   .stage { display:flex; align-items:stretch; margin:4px 0; }
@@ -59,7 +60,7 @@
 <div class="two-col">
   <div class="panel">
     <h2>Black Hole Evaporation</h2>
-    <p class="note">Hawking evaporation time: t = 5120π G²M³ / (ℏc⁴)</p>
+    <p class="note">Hawking evaporation time: <span class="mono">t = 5120π G²M³ / (ℏc⁴)</span></p>
 
     <div class="slider-row">
       <label>BH mass (solar masses):</label>
@@ -71,11 +72,11 @@
 
     <table>
       <tr><th>Black Hole Type</th><th>Mass</th><th>Evaporation Time</th></tr>
-      <tr><td>Stellar</td><td>10 M☉</td><td id="tStellar"></td></tr>
-      <tr><td>Intermediate</td><td>10⁴ M☉</td><td id="tInter"></td></tr>
-      <tr><td>Supermassive (Milky Way)</td><td>4×10⁶ M☉</td><td id="tMW"></td></tr>
-      <tr><td>Ultra-massive</td><td>10¹⁰ M☉</td><td id="tUltra"></td></tr>
-      <tr><td>Largest possible</td><td>10¹² M☉</td><td id="tMax"></td></tr>
+      <tr><td>Stellar</td><td class="mono">10 M☉</td><td class="mono" id="tStellar"></td></tr>
+      <tr><td>Intermediate</td><td class="mono">10⁴ M☉</td><td class="mono" id="tInter"></td></tr>
+      <tr><td>Supermassive (Milky Way)</td><td class="mono">4×10⁶ M☉</td><td class="mono" id="tMW"></td></tr>
+      <tr><td>Ultra-massive</td><td class="mono">10¹⁰ M☉</td><td class="mono" id="tUltra"></td></tr>
+      <tr><td>Largest possible</td><td class="mono">10¹² M☉</td><td class="mono" id="tMax"></td></tr>
     </table>
   </div>
 
@@ -87,10 +88,10 @@
 
     <table>
       <tr><th>Process</th><th>Converts</th><th>Timescale</th></tr>
-      <tr><td>Fusion (stars)</td><td>H → He → ... → Fe</td><td>~10¹⁴ yr</td></tr>
-      <tr><td>BH capture</td><td>All matter → BH mass</td><td>~10⁴⁰ yr</td></tr>
-      <tr><td>Hawking radiation</td><td>BH mass → photons</td><td>~10¹⁰⁰ yr</td></tr>
-      <tr><td>Redshift</td><td>Photon energy → ~0</td><td>~10¹⁵⁰ yr</td></tr>
+      <tr><td>Fusion (stars)</td><td>H → He → ... → Fe</td><td class="mono">~10¹⁴ yr</td></tr>
+      <tr><td>BH capture</td><td>All matter → BH mass</td><td class="mono">~10⁴⁰ yr</td></tr>
+      <tr><td>Hawking radiation</td><td>BH mass → photons</td><td class="mono">~10¹⁰⁰ yr</td></tr>
+      <tr><td>Redshift</td><td>Photon energy → ~0</td><td class="mono">~10¹⁵⁰ yr</td></tr>
     </table>
   </div>
 </div>
@@ -140,11 +141,12 @@ V_max ≈ 2.53×10⁸ J per node
       </div>
       <p>Every node sits at the cosine barrier peak — maximally unstable.
       Zero-point fluctuation energy:</p>
+
       <div class="eq">
 E_ZPF = ½ ℏω_max = ½ ℏ(πc/a)
 E_ZPF = ½ × E_Planck = 9.78×10⁸ J
       </div>
-      <p class="highlight">E_ZPF > V_max → zero-point energy EXCEEDS barrier height!</p>
+      <p class="highlight"><span class="mono">E_ZPF &gt; V_max</span> → zero-point energy EXCEEDS barrier height!</p>
       <p>The barrier cannot hold. Re-ignition is not just probable — it is <span class="highlight">guaranteed</span>
       by the uncertainty principle. The lattice MUST release.</p>
     </div>
@@ -168,7 +170,7 @@ E_ZPF = ½ × E_Planck = 9.78×10⁸ J
       <td>Ordinary matter</td>
       <td>Standing waves</td>
       <td class="speculative">No</td>
-      <td>v_g → 0 at Planck compression. Waves can't exist.</td>
+      <td><span class="mono">v_g → 0</span> at Planck compression. Waves can't exist.</td>
     </tr>
     <tr>
       <td>Radiation</td>

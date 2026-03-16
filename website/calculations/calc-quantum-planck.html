@@ -158,7 +158,7 @@
         <section id="dictionary">
           <h2>&sect;1 &mdash; The QM &harr; Wave Dictionary</h2>
 
-          <p>Set lattice-Planck units: a = 1 (lattice spacing), k = 1 (spring constant), &eta; = 1 (inertia). Then c = 1 and &#8463; = &pi;/2. Every quantum concept translates to a wave concept:</p>
+          <p>Set lattice-Planck units: <span class="mono">a = 1</span> (lattice spacing), k = 1 (spring constant), &eta; = 1 (inertia). Then c = 1 and &#8463; = &pi;/2. Every quantum concept translates to a wave concept:</p>
 
           <table class="dict-table">
             <thead>
@@ -171,12 +171,12 @@
                 <td class="planck">&pi;/2</td>
               </tr>
               <tr>
-                <td>Wave function &psi;</td>
+                <td class="mono">Wave function &psi;</td>
                 <td class="formula">Lattice displacement field &phi;(x,t)</td>
                 <td class="planck">Dimensionless amplitude</td>
               </tr>
               <tr>
-                <td>|&psi;|&sup2; (probability)</td>
+                <td class="mono">|&psi;|&sup2; (probability)</td>
                 <td class="formula">Wave intensity = energy density</td>
                 <td class="planck">&phi;&sup2;(x)</td>
               </tr>
@@ -186,7 +186,7 @@
                 <td class="planck">&phi; = &phi;<sub>1</sub> + &phi;<sub>2</sub></td>
               </tr>
               <tr>
-                <td>Quantized energy E = n&#8463;&omega;</td>
+                <td class="mono">Quantized energy E = n&#8463;&omega;</td>
                 <td class="formula">Standing wave boundary conditions</td>
                 <td class="planck">E<sub>n</sub> = n&pi;&omega;/2</td>
               </tr>
@@ -236,7 +236,7 @@
                 <td class="planck">E<sub>0</sub> = &pi;&omega;/4 per mode</td>
               </tr>
               <tr>
-                <td>Commutator [x, p] = i&#8463;</td>
+                <td class="mono">Commutator [x, p] = i&#8463;</td>
                 <td class="formula">Discrete lattice shift &harr; phase rotation</td>
                 <td class="planck">[x, p] = i&pi;/2</td>
               </tr>
@@ -267,7 +267,7 @@
           </div>
           <div class="calc-step">
             <div class="calc-num">2</div>
-            <div><strong>Multiply by &#8463;:</strong> &Delta;x &middot; (&#8463;&Delta;k) &ge; &#8463;/2 &rarr; &Delta;x &middot; &Delta;p &ge; &pi;/4</div>
+            <div><strong class="mono">Multiply by &#8463;:</strong> &Delta;x &middot; (&#8463;&Delta;k) &ge; &#8463;/2 &rarr; &Delta;x &middot; &Delta;p &ge; &pi;/4</div>
           </div>
           <div class="calc-step">
             <div class="calc-num">3</div>
@@ -355,22 +355,22 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>n</strong> (principal)</td>
+                <td class="mono"><strong>n</strong> (principal)</td>
                 <td class="formula">Radial mode count: n nodes in radial direction</td>
                 <td class="planck">Inner BC at r = r<sub>p</sub>, outer BC at r &rarr; &infin;</td>
               </tr>
               <tr>
-                <td><strong>l</strong> (orbital)</td>
+                <td class="mono"><strong>l</strong> (orbital)</td>
                 <td class="formula">Angular mode type: l nodal planes through origin</td>
                 <td class="planck">Spherical harmonic Y<sub>l</sub><sup>m</sup> = angular standing wave</td>
               </tr>
               <tr>
-                <td><strong>m<sub>l</sub></strong> (magnetic)</td>
+                <td class="mono"><strong class="mono">m<sub>l</sub></strong> (magnetic)</td>
                 <td class="formula">Orientation of angular pattern relative to z-axis</td>
                 <td class="planck">&minus;l &le; m &le; +l: (2l+1) orientations</td>
               </tr>
               <tr>
-                <td><strong>s</strong> (spin)</td>
+                <td class="mono"><strong>s</strong> (spin)</td>
                 <td class="formula">Internal yin/yang state: &plusmn; polarization</td>
                 <td class="planck">s = &plusmn;1 (binary), always exactly 2 states</td>
               </tr>
@@ -386,7 +386,7 @@
         <section id="spin">
           <h2>&sect;5 &mdash; Spin = Internal Binary State</h2>
 
-          <p>Each lattice node has a binary internal degree of freedom: it can be displaced in the positive or negative direction along the bond. This is the <strong>yin/yang state</strong> &mdash; the origin of spin.</p>
+          <p>Each lattice node has a binary internal degree of freedom: it can be displaced in the positive or negative direction along the bond. This is the <strong class="mono">yin/yang state</strong> &mdash; the origin of spin.</p>
 
           <div class="equation-box" style="text-align:center; font-size:1.1rem;">
             <span class="eq-label">Spin in Planck Units</span>
@@ -503,26 +503,26 @@
               <tr>
                 <td>Bohr radius a<sub>0</sub></td>
                 <td class="formula">1/(2d &middot; &pi;<sup>2d&minus;1</sup> &middot; &alpha;<sup>d&sup2;+d+1</sup>)</td>
-                <td>1/(6&pi;<sup>5</sup>&alpha;<sup>13</sup>)</td>
-                <td>0.529 &Aring;</td>
+                <td class="mono">1/(6&pi;<sup>5</sup>&alpha;<sup>13</sup>)</td>
+                <td class="mono">0.529 &Aring;</td>
               </tr>
               <tr>
-                <td>Ground state E<sub>1</sub></td>
+                <td class="mono">Ground state E<sub>1</sub></td>
                 <td class="formula">&minus;d &middot; &pi;<sup>2d&minus;1</sup> &middot; &alpha;<sup>d(d+1)+2</sup> &middot; E<sub>Pl</sub></td>
-                <td>&minus;3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td>
-                <td>&minus;13.61 eV</td>
+                <td class="mono">&minus;3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td>
+                <td class="mono">&minus;13.61 eV</td>
               </tr>
               <tr>
                 <td>Rydberg energy</td>
                 <td class="formula">d &middot; &pi;<sup>2d&minus;1</sup> &middot; &alpha;<sup>d(d+1)+2</sup> &middot; E<sub>Pl</sub></td>
-                <td>3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td>
-                <td>13.61 eV</td>
+                <td class="mono">3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td>
+                <td class="mono">13.61 eV</td>
               </tr>
               <tr>
                 <td>Energy levels E<sub>n</sub></td>
                 <td class="formula">E<sub>1</sub>/n&sup2;</td>
-                <td>&minus;3&pi;<sup>5</sup>&alpha;<sup>14</sup>/n&sup2;</td>
-                <td>&minus;13.61/n&sup2; eV</td>
+                <td class="mono">&minus;3&pi;<sup>5</sup>&alpha;<sup>14</sup>/n&sup2;</td>
+                <td class="mono">&minus;13.61/n&sup2; eV</td>
               </tr>
               <tr>
                 <td>He screening constant</td>
@@ -531,22 +531,22 @@
                 <td>5/16</td>
               </tr>
               <tr>
-                <td>H<sub>2</sub> bond energy</td>
+                <td class="mono">H<sub>2</sub> bond energy</td>
                 <td class="formula">Weinbaum (HL + ionic + Wang)</td>
                 <td>variational</td>
-                <td>4.02 eV (&minus;15%)</td>
+                <td class="mono">4.02 eV (&minus;15%)</td>
               </tr>
               <tr>
-                <td>a<sub>0</sub>/r<sub>p</sub> ratio</td>
+                <td class="mono">a<sub>0</sub>/r<sub>p</sub> ratio</td>
                 <td class="formula">1/(2d &middot; &alpha;<sup>d&sup2;+d+1</sup> &middot; &pi;<sup>2d&minus;1</sup>) &times; d&pi;<sup>2d</sup>/2</td>
-                <td>6&pi;<sup>5</sup>/(4&alpha;) = 62,923</td>
+                <td class="mono">6&pi;<sup>5</sup>/(4&alpha;) = 62,923</td>
                 <td>62,920</td>
               </tr>
             </tbody>
           </table>
 
           <div class="calc-result">
-            <strong>The &alpha; exponents decoded:</strong> The Bohr radius involves &alpha;<sup>13</sup> where 13 = d&sup2; + d + 1 = 9 + 3 + 1. The ground-state energy involves &alpha;<sup>14</sup> where 14 = d(d+1) + 2 = 12 + 2. Every exponent is a polynomial in d. The hydrogen atom is pure lattice geometry.
+            <strong class="mono">The &alpha; exponents decoded:</strong> The Bohr radius involves &alpha;<sup>13</sup> where 13 = d&sup2; + d + 1 = 9 + 3 + 1. The ground-state energy involves &alpha;<sup>14</sup> where 14 = d(d+1) + 2 = 12 + 2. Every exponent is a polynomial in d. The hydrogen atom is pure lattice geometry.
           </div>
         </section>
 
@@ -600,10 +600,10 @@
               <tr><th>Quantity</th><th>SI Expression</th><th>Planck Value</th></tr>
             </thead>
             <tbody>
-              <tr><td>Action quantum &#8463;</td><td class="formula">1.055 &times; 10<sup>&minus;34</sup> J&middot;s</td><td class="formula">&pi;/2</td></tr>
-              <tr><td>Spin quantum &#8463;/2</td><td class="formula">5.27 &times; 10<sup>&minus;35</sup> J&middot;s</td><td class="formula">&pi;/4</td></tr>
-              <tr><td>Minimum uncertainty &#8463;/2</td><td class="formula">5.27 &times; 10<sup>&minus;35</sup></td><td class="formula">&pi;/4</td></tr>
-              <tr><td>Fine structure &alpha;</td><td class="formula">1/137.042</td><td class="formula">d&sup2;/(2<sup>d+1</sup> &middot; 120<sup>1/4</sup> &middot; &pi;<sup>11/4</sup>)</td></tr>
+              <tr><td class="mono">Action quantum &#8463;</td><td class="formula">1.055 &times; 10<sup>&minus;34</sup> J&middot;s</td><td class="formula">&pi;/2</td></tr>
+              <tr><td class="mono">Spin quantum &#8463;/2</td><td class="formula">5.27 &times; 10<sup>&minus;35</sup> J&middot;s</td><td class="formula">&pi;/4</td></tr>
+              <tr><td class="mono">Minimum uncertainty &#8463;/2</td><td class="formula">5.27 &times; 10<sup>&minus;35</sup></td><td class="formula">&pi;/4</td></tr>
+              <tr><td class="mono">Fine structure &alpha;</td><td class="formula">1/137.042</td><td class="formula">d&sup2;/(2<sup>d+1</sup> &middot; 120<sup>1/4</sup> &middot; &pi;<sup>11/4</sup>)</td></tr>
               <tr><td>Electron mass m<sub>e</sub></td><td class="formula">9.109 &times; 10<sup>&minus;31</sup> kg</td><td class="formula">&pi;&sup2;/(d&minus;1) = &pi;&sup2;/2</td></tr>
               <tr><td>Bohr radius a<sub>0</sub></td><td class="formula">5.29 &times; 10<sup>&minus;11</sup> m</td><td class="formula">1/(6&pi;<sup>5</sup>&alpha;<sup>13</sup>)</td></tr>
               <tr><td>Rydberg energy</td><td class="formula">13.606 eV</td><td class="formula">3&pi;<sup>5</sup>&alpha;<sup>14</sup> E<sub>Pl</sub></td></tr>
@@ -619,9 +619,9 @@
             <h4>The Punchline</h4>
             <p>Every quantum mechanical constant, equation, and &ldquo;postulate&rdquo; reduces to classical wave mechanics on a 3D discrete lattice. The only inputs are:</p>
             <ul>
-              <li><strong>d = 3</strong> spatial dimensions</li>
-              <li><strong>&pi;</strong> = ratio of circumference to diameter (wave geometry)</li>
-              <li><strong>a = 1</strong> lattice spacing (sets the scale)</li>
+              <li><strong class="mono">d = 3</strong> spatial dimensions</li>
+              <li><strong class="mono">&pi;</strong> = ratio of circumference to diameter (wave geometry)</li>
+              <li><strong class="mono">a = 1</strong> lattice spacing (sets the scale)</li>
             </ul>
             <p style="margin-bottom:0;">Quantum mechanics is not a separate theory of physics. It is the name humans gave to classical wave mechanics when they discovered it without knowing the medium existed.</p>
           </div>

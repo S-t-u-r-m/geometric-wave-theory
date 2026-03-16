@@ -154,7 +154,7 @@
 
           <p>GWT asserts three things about reality: it is <strong>discrete</strong> (lattice spacing a), <strong>elastic</strong> (spring constant k), and <strong>massive</strong> (node inertia &eta;). The most general nearest-neighbor potential on a periodic lattice with these properties is the cosine (sine-Gordon) potential.</p>
 
-          <p>In Planck units (a&nbsp;=&nbsp;1, k&nbsp;=&nbsp;1, &eta;&nbsp;=&nbsp;1):</p>
+          <p>In Planck units (<span class="mono">a&nbsp;=&nbsp;1</span>, k&nbsp;=&nbsp;1, &eta;&nbsp;=&nbsp;1):</p>
 
           <div class="eq-box">
             <span class="eq-label">The GWT Hamiltonian</span>
@@ -164,10 +164,10 @@
 
           <p>Where:</p>
           <ul>
-            <li><strong>u<sub>n</sub></strong> = d-component displacement vector at site n (3 components for d = 3)</li>
-            <li><strong>p<sub>n</sub></strong> = conjugate momentum = &eta; &middot; du<sub>n</sub>/dt = du<sub>n</sub>/dt (since &eta; = 1)</li>
-            <li><strong>&delta;&#770;</strong> = unit vector along bond direction (&plusmn;x&#770;, &plusmn;y&#770;, &plusmn;z&#770;)</li>
-            <li><strong>&delta;&#770; &middot; &Delta;u</strong> = longitudinal projection: only the displacement component along the bond counts</li>
+            <li><strong class="mono">u<sub>n</sub></strong> = d-component displacement vector at site n (3 components for d = 3)</li>
+            <li><strong class="mono">p<sub>n</sub></strong> = conjugate momentum = &eta; &middot; du<sub>n</sub>/dt = du<sub>n</sub>/dt (since &eta; = 1)</li>
+            <li><strong class="mono">&delta;&#770;</strong> = unit vector along bond direction (&plusmn;x&#770;, &plusmn;y&#770;, &plusmn;z&#770;)</li>
+            <li><strong class="mono">&delta;&#770; &middot; &Delta;u</strong> = longitudinal projection: only the displacement component along the bond counts</li>
           </ul>
 
           <div class="card">
@@ -239,7 +239,7 @@
 
           <div class="calc-step">
             <div class="calc-num">3</div>
-            <div><strong>Derived quantities in d and &pi;:</strong>
+            <div><strong class="mono">Derived quantities in d and &pi;:</strong>
               <table class="dict-table" style="margin-top:0.5rem;">
                 <tbody>
                   <tr>
@@ -334,7 +334,7 @@
 
           <div class="calc-step">
             <div class="calc-num">1</div>
-            <div><strong>Compute &xi;:</strong> With &beta; = 1 (standard sine-Gordon in &psi; = &pi;u variables):<br><br>
+            <div><strong class="mono">Compute &xi;:</strong> With &beta; = 1 (standard sine-Gordon in &psi; = &pi;u variables):<br><br>
               &xi; = 1/(8&pi; &minus; 1) = 1/(8&pi; &minus; 1) &asymp; 0.04145<br><br>
               Maximum number of breather states: &lfloor;1/&xi;&rfloor; = &lfloor;8&pi; &minus; 1&rfloor; = &lfloor;24.13&rfloor; = <strong>24 breather states</strong>.</div>
           </div>
@@ -365,12 +365,12 @@
           </div>
 
           <div class="calc-result">
-            <strong>Key results, all in d and &pi;:</strong>
+            <strong class="mono">Key results, all in d and &pi;:</strong>
             <ul>
-              <li>Kink mass: <strong>M<sub>kink</sub> = 2<sup>d</sup>/&pi;&sup2;</strong></li>
-              <li>Number of breather states: <strong>&lfloor;2<sup>d</sup>&pi; &minus; 1&rfloor; = 24</strong></li>
-              <li>For small n: <strong>M<sub>n</sub> &asymp; n &times; M<sub>1</sub></strong> (nearly equally spaced &mdash; linear Regge trajectory)</li>
-              <li>Breather mass ratio: <strong>M<sub>n</sub>/M<sub>1</sub> &asymp; n</strong> for low n</li>
+              <li>Kink mass: <strong class="mono">M<sub>kink</sub> = 2<sup>d</sup>/&pi;&sup2;</strong></li>
+              <li>Number of breather states: <strong class="mono">&lfloor;2<sup>d</sup>&pi; &minus; 1&rfloor; = 24</strong></li>
+              <li>For small n: <strong class="mono">M<sub>n</sub> &asymp; n &times; M<sub>1</sub></strong> (nearly equally spaced &mdash; linear Regge trajectory)</li>
+              <li>Breather mass ratio: <strong class="mono">M<sub>n</sub>/M<sub>1</sub> &asymp; n</strong> for low n</li>
             </ul>
             <p style="margin-bottom:0;">The discrete breather spectrum provides <strong>quantized energy levels from classical nonlinear wave mechanics</strong> &mdash; no quantum postulates needed. The lattice itself produces discrete masses.</p>
           </div>
@@ -451,11 +451,11 @@
             <div class="calc-num">4</div>
             <div><strong>Band gap to bandwidth ratio:</strong><br><br>
               Bandwidth = 4 (from dispersion: &omega; ranges from 0 to 2 per axis, energy range = &omega;&sup2; range = 4)<br>
-              Ratio = &Delta;&epsilon;/bandwidth = (1/&pi;&sup2;)/4 = <strong>1/(4&pi;&sup2;) &asymp; 0.0253</strong></div>
+              Ratio = &Delta;&epsilon;/bandwidth = (1/&pi;&sup2;)/4 = <strong class="mono">1/(4&pi;&sup2;) &asymp; 0.0253</strong></div>
           </div>
 
           <div class="calc-result">
-            <strong>The band gap ratio in d and &pi;:</strong><br><br>
+            <strong class="mono">The band gap ratio in d and &pi;:</strong><br><br>
             <span style="font-family:var(--font-mono); font-size:1.1rem;">&Delta;&epsilon; / W = 1/(4&pi;&sup2;) &asymp; 0.0253</span><br><br>
             This is a pure number from the lattice, depending only on &pi;. It sets the scale of how strongly the cosine potential perturbs the free phonon spectrum. It is related to &mdash; but not equal to &mdash; the fine structure constant.
           </div>
@@ -483,7 +483,7 @@
 
           <div class="calc-step">
             <div class="calc-num">2</div>
-            <div><strong>The lattice escape:</strong> Derrick&rsquo;s theorem requires <em>continuous</em> rescaling of the field. On a <strong>discrete lattice</strong>, you cannot continuously shrink a configuration below the lattice spacing a&nbsp;=&nbsp;1. The lattice provides a natural UV cutoff that stabilizes localized modes.</div>
+            <div><strong>The lattice escape:</strong> Derrick&rsquo;s theorem requires <em>continuous</em> rescaling of the field. On a <strong>discrete lattice</strong>, you cannot continuously shrink a configuration below the lattice spacing <span class="mono">a&nbsp;=&nbsp;1</span>. The lattice provides a natural UV cutoff that stabilizes localized modes.</div>
           </div>
 
           <div class="calc-step">
@@ -492,7 +492,7 @@
           </div>
 
           <div class="calc-result">
-            <strong>The discrete lattice naturally evades Derrick&rsquo;s theorem.</strong> Stable, localized, oscillating wave modes (discrete breathers) are <em>proven to exist</em> on nonlinear lattices in 3D. This is not an assumption &mdash; it is a mathematical theorem. The lattice spacing a&nbsp;=&nbsp;1 provides the stabilization mechanism.<br><br>
+            <strong>The discrete lattice naturally evades Derrick&rsquo;s theorem.</strong> Stable, localized, oscillating wave modes (discrete breathers) are <em>proven to exist</em> on nonlinear lattices in 3D. This is not an assumption &mdash; it is a mathematical theorem. The lattice spacing <span class="mono">a&nbsp;=&nbsp;1</span> provides the stabilization mechanism.<br><br>
             This is arguably the strongest argument for why reality must be discrete: stable particles <em>require</em> a lattice to exist in 3D.
           </div>
         </section>
@@ -511,104 +511,104 @@
             </thead>
             <tbody>
               <tr>
-                <td>c = 1 (speed of light)</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">c = 1 (speed of light)</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; linearized dispersion &omega; = |k| at low k</td>
               </tr>
               <tr>
-                <td>BZ boundary at k = &pi;</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">BZ boundary at k = &pi;</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; Nyquist limit of lattice spacing a = 1</td>
               </tr>
               <tr>
                 <td>d phonon branches</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; d vector components = d independent wave equations</td>
               </tr>
               <tr>
-                <td>Kink mass = 8/&pi;&sup2;</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Kink mass = 8/&pi;&sup2;</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; exact BPS solution of sine-Gordon</td>
               </tr>
               <tr>
                 <td>24 breather states</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; semiclassical DHN quantization</td>
               </tr>
               <tr>
-                <td>M<sub>n</sub>/M<sub>1</sub> &asymp; n (Regge)</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">M<sub>n</sub>/M<sub>1</sub> &asymp; n (Regge)</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; small-angle approximation of sine spectrum</td>
               </tr>
               <tr>
-                <td>Band gap = 1/&pi;&sup2;</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Band gap = 1/&pi;&sup2;</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; Fourier coefficient of cosine potential</td>
               </tr>
               <tr>
                 <td>3D discrete breathers exist</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
                 <td class="formula">Yes &mdash; MacKay-Aubry theorem (1994)</td>
               </tr>
               <tr>
-                <td>&#8463; = &pi;/2</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>Separatrix area A<sub>sep</sub>&nbsp;=&nbsp;16/&pi;&sup2; (leading order, 3.2% off) &times; geometric correction &pi;<sup>d</sup>/2<sup>d+2</sup> gives exact &#8463;&nbsp;=&nbsp;&pi;<sup>d&minus;2</sup>/2&nbsp;=&nbsp;&pi;/2. See &sect;16.</td>
+                <td class="mono">&#8463; = &pi;/2</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Separatrix area A<sub>sep</sub>&nbsp;=&nbsp;16/&pi;&sup2; (leading order, 3.2% off) &times; geometric correction &pi;<sup>d</sup>/2<sup>d+2</sup> gives exact &#8463;&nbsp;=&nbsp;&pi;<sup>d&minus;2</sup>/2&nbsp;=&nbsp;&pi;/2. See &sect;16.</td>
               </tr>
               <tr>
-                <td>&alpha; = 1/137.036</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>Two independent paths from the Hamiltonian: (1)&nbsp;Wyler/D<sub>IV</sub>(5) gives <em>exact</em> value. (2)&nbsp;WKB tunneling T<sup>2d</sup>&nbsp;=&nbsp;e<sup>&minus;48/&pi;&sup2;</sup> gives leading-order (5.6% off). Wyler IS the all-orders geometric correction to WKB. Both derived from d&nbsp;=&nbsp;3 and &pi;.</td>
+                <td class="mono">&alpha; = 1/137.036</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Two independent paths from the Hamiltonian: (1)&nbsp;Wyler/D<sub>IV</sub>(5) gives <em>exact</em> value. (2)&nbsp;WKB tunneling T<sup>2d</sup>&nbsp;=&nbsp;e<sup>&minus;48/&pi;&sup2;</sup> gives leading-order (5.6% off). Wyler IS the all-orders geometric correction to WKB. Both derived from d&nbsp;=&nbsp;3 and &pi;.</td>
               </tr>
               <tr>
-                <td>m<sub>p</sub>/m<sub>e</sub> = 6&pi;<sup>5</sup></td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>2d&pi;<sup>2d&minus;1</sup> = 6&pi;<sup>5</sup>. Three factors: 2d (coordination), &pi;<sup>d</sup> (BZ volume), &pi;<sup>d&minus;1</sup> (spherical geometry from D<sub>IV</sub>). See &sect;11a.</td>
+                <td class="mono">m<sub>p</sub>/m<sub>e</sub> = 6&pi;<sup>5</sup></td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">2d&pi;<sup>2d&minus;1</sup> = 6&pi;<sup>5</sup>. Three factors: 2d (coordination), &pi;<sup>d</sup> (BZ volume), &pi;<sup>d&minus;1</sup> (spherical geometry from D<sub>IV</sub>). See &sect;11a.</td>
               </tr>
               <tr>
-                <td>Electron = 1D longitudinal breather</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>1D BZ-edge mode with u&nbsp;&parallel;&nbsp;k&#x0302;. Mass ratio m<sub>p</sub>/m<sub>e</sub>&nbsp;=&nbsp;6&pi;<sup>5</sup> from mode density (&sect;11a). Three copies (e,&mu;,&tau;) from d&nbsp;=&nbsp;3 axes (&sect;18).</td>
+                <td class="mono">Electron = 1D longitudinal breather</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">1D BZ-edge mode with u&nbsp;&parallel;&nbsp;k&#x0302;. Mass ratio m<sub>p</sub>/m<sub>e</sub>&nbsp;=&nbsp;6&pi;<sup>5</sup> from mode density (&sect;11a). Three copies (e,&mu;,&tau;) from d&nbsp;=&nbsp;3 axes (&sect;18).</td>
               </tr>
               <tr>
-                <td>Proton = j<sub>0</sub> spherical breather</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>Identified as 3D j<sub>0</sub>(kr) mode. Mass ratio m<sub>p</sub>/m<sub>e</sub>&nbsp;=&nbsp;6&pi;<sup>5</sup> from mode density (&sect;11a, 0.002% match). Proton radius, form factor, and charge radius all derived (&sect;26).</td>
+                <td class="mono">Proton = j<sub>0</sub> spherical breather</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Identified as 3D j<sub>0</sub>(kr) mode. Mass ratio m<sub>p</sub>/m<sub>e</sub>&nbsp;=&nbsp;6&pi;<sup>5</sup> from mode density (&sect;11a, 0.002% match). Proton radius, form factor, and charge radius all derived (&sect;26).</td>
               </tr>
               <tr>
-                <td>SU(3)&times;SU(2)&times;U(1) gauge group</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>Global: d-component vector &rarr; SU(d)&times;SU(d&minus;1)&times;U(1) (&sect;17). Local: Hamiltonian IS Wilson&rsquo;s lattice gauge theory; cosine potential gives compact gauge group, Yang-Mills emerges in continuum limit (&sect;22).</td>
+                <td class="mono">SU(3)&times;SU(2)&times;U(1) gauge group</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Global: d-component vector &rarr; SU(d)&times;SU(d&minus;1)&times;U(1) (&sect;17). Local: Hamiltonian IS Wilson&rsquo;s lattice gauge theory; cosine potential gives compact gauge group, Yang-Mills emerges in continuum limit (&sect;22).</td>
               </tr>
               <tr>
                 <td>1D breather mass spectrum</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>All 24 masses M<sub>n</sub>&nbsp;=&nbsp;(16/&pi;&sup2;)sin(n&gamma;) computed (&sect;20). Full 3D assignments in &sect;24: all 9 fermions to &lt;3.1% via m(n,p).</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">All 24 masses M<sub>n</sub>&nbsp;=&nbsp;(16/&pi;&sup2;)sin(n&gamma;) computed (&sect;20). Full 3D assignments in &sect;24: all 9 fermions to &lt;3.1% via m(n,p).</td>
               </tr>
               <tr>
-                <td>Koide relation Q = 2/3</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>Q = (1+2|b|&sup2;)/3 = (1+2&kappa;/k)/3 = 2/3 = (d&minus;1)/d. Amplitude coupling |b|&nbsp;=&nbsp;&radic;(&kappa;/k)&nbsp;=&nbsp;1/&radic;2 from isotropy. &delta;&nbsp;=&nbsp;2/d&sup2;&nbsp;=&nbsp;2/9 (0.022%). All 3 lepton masses to &lt;0.01%. See &sect;21.</td>
+                <td class="mono">Koide relation Q = 2/3</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">Q = (1+2|b|&sup2;)/3 = (1+2&kappa;/k)/3 = 2/3 = (d&minus;1)/d. Amplitude coupling |b|&nbsp;=&nbsp;&radic;(&kappa;/k)&nbsp;=&nbsp;1/&radic;2 from isotropy. &delta;&nbsp;=&nbsp;2/d&sup2;&nbsp;=&nbsp;2/9 (0.022%). All 3 lepton masses to &lt;0.01%. See &sect;21.</td>
               </tr>
               <tr>
                 <td>9 charged fermion masses</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>m(n,p) = M<sub>n</sub> &times; e<sup>&minus;16p/&pi;&sup2;</sup> &times; m<sub>Planck</sub>. Tunneling anchors: p<sub>top</sub>&nbsp;=&nbsp;d&times;2<sup>d</sup>=24, p<sub>e</sub>&nbsp;=&nbsp;(d+1)&times;2<sup>d</sup>=32. All 9 to &lt;7%. See &sect;24.</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">m(n,p) = M<sub>n</sub> &times; e<sup>&minus;16p/&pi;&sup2;</sup> &times; m<sub>Planck</sub>. Tunneling anchors: p<sub>top</sub>&nbsp;=&nbsp;d&times;2<sup>d</sup>=24, p<sub>e</sub>&nbsp;=&nbsp;(d+1)&times;2<sup>d</sup>=32. All 9 to &lt;7%. See &sect;24.</td>
               </tr>
               <tr>
                 <td>Electroweak sector (W, Z, H, v)</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>&lambda;&nbsp;=&nbsp;1/2<sup>d</sup>, y<sub>t</sub>&nbsp;=&nbsp;1, cos&nbsp;&theta;<sub>W</sub>&nbsp;=&nbsp;7/8. All boson masses from m(n,p): v at (3,23), W at (5,24), H at (8,24), Z&nbsp;=&nbsp;M<sub>W</sub>/cos&theta;<sub>W</sub>. All &lt;1%. See &sect;25.</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">&lambda;&nbsp;=&nbsp;1/2<sup>d</sup>, y<sub>t</sub>&nbsp;=&nbsp;1, cos&nbsp;&theta;<sub>W</sub>&nbsp;=&nbsp;7/8. All boson masses from m(n,p): v at (3,23), W at (5,24), H at (8,24), Z&nbsp;=&nbsp;M<sub>W</sub>/cos&theta;<sub>W</sub>. All &lt;1%. See &sect;25.</td>
               </tr>
               <tr>
-                <td>m<sub>n</sub> &minus; m<sub>p</sub> = 1.293 MeV</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>(m<sub>d</sub>&minus;m<sub>u</sub>) &minus; &alpha;&Lambda;<sub>QCD</sub>&radic;5/3 = 2.569 &minus; 1.276 = 1.293 MeV (0.03%). Quark separation s&nbsp;=&nbsp;r<sub>p</sub>/&radic;(d+2). See &sect;26.</td>
+                <td class="mono">m<sub>n</sub> &minus; m<sub>p</sub> = 1.293 MeV</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">(m<sub>d</sub>&minus;m<sub>u</sub>) &minus; &alpha;&Lambda;<sub>QCD</sub>&radic;5/3 = 2.569 &minus; 1.276 = 1.293 MeV (0.03%). Quark separation s&nbsp;=&nbsp;r<sub>p</sub>/&radic;(d+2). See &sect;26.</td>
               </tr>
               <tr>
                 <td>Neutrino masses &amp; PMNS</td>
-                <td><span class="derived-tag tag-derived">DERIVED</span></td>
-                <td>M<sub>&nu;</sub>&nbsp;=&nbsp;m<sub>e</sub>/(108&pi;<sup>10</sup>)&nbsp;=&nbsp;0.050&nbsp;eV (~1%). Wyler S<sup>3</sup> correction: splittings to &plusmn;0.2%. PMNS: TBM leading order corrected by R(&theta;,&thinsp;axis) with &theta;&nbsp;=&nbsp;arcsin((m<sub>e</sub>/m<sub>&mu;</sub>)<sup>1/3</sup>), axis<sub>i</sub>&nbsp;=&nbsp;&mu;-dir<sub>i</sub>&nbsp;&times;&nbsp;max(1,&thinsp;&sigma;<sub>p</sub>/&sigma;<sub>i</sub>) &mdash; all three angles within 1&sigma; (sin&sup2;&theta;<sub>12</sub>=0.304, sin&sup2;&theta;<sub>23</sub>=0.574, sin&sup2;&theta;<sub>13</sub>=0.0225). Zero free parameters. See &sect;27.</td>
+                <td class="mono"><span class="derived-tag tag-derived">DERIVED</span></td>
+                <td class="mono">M<sub>&nu;</sub>&nbsp;=&nbsp;m<sub>e</sub>/(108&pi;<sup>10</sup>)&nbsp;=&nbsp;0.050&nbsp;eV (~1%). Wyler S<sup>3</sup> correction: splittings to &plusmn;0.2%. PMNS: TBM leading order corrected by R(&theta;,&thinsp;axis) with &theta;&nbsp;=&nbsp;arcsin((m<sub>e</sub>/m<sub>&mu;</sub>)<sup>1/3</sup>), axis<sub>i</sub>&nbsp;=&nbsp;&mu;-dir<sub>i</sub>&nbsp;&times;&nbsp;max(1,&thinsp;&sigma;<sub>p</sub>/&sigma;<sub>i</sub>) &mdash; all three angles within 1&sigma; (sin&sup2;&theta;<sub>12</sub>=0.304, sin&sup2;&theta;<sub>23</sub>=0.574, sin&sup2;&theta;<sub>13</sub>=0.0225). Zero free parameters. See &sect;27.</td>
               </tr>
             </tbody>
           </table>
@@ -624,7 +624,7 @@
 
           <div class="calc-step">
             <div class="calc-num">1</div>
-            <div><span class="derived-tag tag-derived">DONE</span> <strong>Derive &#8463; = &pi;/2.</strong> Separatrix area 16/&pi;&sup2; &times; geometric correction &pi;<sup>d</sup>/2<sup>d+2</sup> = &pi;/2. See &sect;16.</div>
+            <div><span class="derived-tag tag-derived">DONE</span> <strong class="mono">Derive &#8463; = &pi;/2.</strong> Separatrix area 16/&pi;&sup2; &times; geometric correction &pi;<sup>d</sup>/2<sup>d+2</sup> = &pi;/2. See &sect;16.</div>
           </div>
 
           <div class="calc-step">
@@ -713,7 +713,7 @@
                 <td>Speed of sound</td>
                 <td class="formula">c = 1</td>
                 <td class="planck">1</td>
-                <td>Speed of light c = 1 (exact by construction)</td>
+                <td class="mono">Speed of light c = 1 (exact by construction)</td>
               </tr>
               <tr>
                 <td>BZ edge frequency</td>
@@ -731,13 +731,13 @@
                 <td>Mode count per site</td>
                 <td class="formula">d</td>
                 <td class="planck">3</td>
-                <td>3 = N<sub>c</sub> = N<sub>gen</sub> = spatial dimensions</td>
+                <td class="mono">3 = N<sub>c</sub> = N<sub>gen</sub> = spatial dimensions</td>
               </tr>
               <tr>
                 <td>Coordination number</td>
                 <td class="formula">2d</td>
                 <td class="planck">6</td>
-                <td>6 = faces of a cube = nearest neighbors</td>
+                <td class="mono">6 = faces of a cube = nearest neighbors</td>
               </tr>
               <tr>
                 <td>3D/1D avg energy ratio</td>
@@ -747,22 +747,22 @@
               </tr>
               <tr>
                 <td><strong>3D/1D mode density ratio</strong></td>
-                <td class="formula"><strong>2d &times; &pi;<sup>d+2</sup></strong></td>
-                <td class="planck"><strong>6&pi;<sup>5</sup> = 1836.12</strong></td>
-                <td><strong>m<sub>p</sub>/m<sub>e</sub> = 1836.15 &nbsp;(0.002% match!)</strong></td>
+                <td class="formula"><strong class="mono">2d &times; &pi;<sup>d+2</sup></strong></td>
+                <td class="planck"><strong class="mono">6&pi;<sup>5</sup> = 1836.12</strong></td>
+                <td class="mono"><strong class="mono">m<sub>p</sub>/m<sub>e</sub> = 1836.15 &nbsp;(0.002% match!)</strong></td>
               </tr>
             </tbody>
           </table>
 
           <div class="card">
             <h4 style="margin-top:0;">The 6&pi;<sup>5</sup> derivation from the Hamiltonian</h4>
-            <p>The proton-to-electron mass ratio factorizes as <strong>m<sub>p</sub>/m<sub>e</sub> = 2d &times; &pi;<sup>d</sup> &times; &pi;<sup>d&minus;1</sup> = 2d&pi;<sup>2d&minus;1</sup></strong>. Three factors, each derived from the lattice:</p>
+            <p>The proton-to-electron mass ratio factorizes as <strong class="mono">m<sub>p</sub>/m<sub>e</sub> = 2d &times; &pi;<sup>d</sup> &times; &pi;<sup>d&minus;1</sup> = 2d&pi;<sup>2d&minus;1</sup></strong>. Three factors, each derived from the lattice:</p>
             <ul>
-              <li><strong>2d = 6</strong> <span class="derived-tag tag-derived">DERIVED</span>: the coordination number. The j<sub>0</sub> spherical mode couples to all 2d&nbsp;=&nbsp;6 nearest neighbors. The 1D electron mode couples along one axis (2 neighbors). Ratio of couplings: 2d/2 = d = 3. Combined with the 2 neighbors in 1D: factor = 2d.</li>
-              <li><strong>&pi;<sup>d</sup> = &pi;&sup3;</strong> <span class="derived-tag tag-derived">DERIVED</span>: the d-dimensional Brillouin zone volume ratio. Each dimension contributes one factor of &pi; from the standing wave condition k<sub>n</sub>&nbsp;=&nbsp;n&pi;/L. This is standard solid-state physics (Kittel Ch. 4). The 3D BZ has volume (&pi;/a)<sup>d</sup> per octant; the 1D BZ has length &pi;/a.</li>
-              <li><strong>&pi;<sup>d&minus;1</sup> = &pi;&sup2;</strong> <span class="derived-tag tag-derived">DERIVED</span>: the spherical geometry correction from D<sub>IV</sub>(d+2). The j<sub>0</sub> mode distributes intensity over d&minus;1 angular dimensions that the 1D mode lacks. The ratio of the j<sub>0</sub> normalization to the 1D normalization involves the solid-angle integration &int;|j<sub>0</sub>|&sup2; d&Omega;, which contributes &pi;<sup>d&minus;1</sup>. This is the <strong>same type of geometric correction</strong> that gives &alpha; (Wyler) and &#8463; (&sect;16) &mdash; powers of &pi; from the D<sub>IV</sub>(d+2) bounded domain geometry applied to d&minus;1 transverse dimensions.</li>
+              <li><strong class="mono">2d = 6</strong> <span class="derived-tag tag-derived">DERIVED</span>: the coordination number. The j<sub>0</sub> spherical mode couples to all 2d&nbsp;=&nbsp;6 nearest neighbors. The 1D electron mode couples along one axis (2 neighbors). Ratio of couplings: 2d/2 = d = 3. Combined with the 2 neighbors in 1D: factor = 2d.</li>
+              <li><strong class="mono">&pi;<sup>d</sup> = &pi;&sup3;</strong> <span class="derived-tag tag-derived">DERIVED</span>: the d-dimensional Brillouin zone volume ratio. Each dimension contributes one factor of &pi; from the standing wave condition k<sub>n</sub>&nbsp;=&nbsp;n&pi;/L. This is standard solid-state physics (Kittel Ch. 4). The 3D BZ has volume (&pi;/a)<sup>d</sup> per octant; the 1D BZ has length &pi;/a.</li>
+              <li><strong class="mono">&pi;<sup>d&minus;1</sup> = &pi;&sup2;</strong> <span class="derived-tag tag-derived">DERIVED</span>: the spherical geometry correction from D<sub>IV</sub>(d+2). The j<sub>0</sub> mode distributes intensity over d&minus;1 angular dimensions that the 1D mode lacks. The ratio of the j<sub>0</sub> normalization to the 1D normalization involves the solid-angle integration &int;|j<sub>0</sub>|&sup2; d&Omega;, which contributes &pi;<sup>d&minus;1</sup>. This is the <strong>same type of geometric correction</strong> that gives &alpha; (Wyler) and &#8463; (&sect;16) &mdash; powers of &pi; from the D<sub>IV</sub>(d+2) bounded domain geometry applied to d&minus;1 transverse dimensions.</li>
             </ul>
-            <p>Result: 2d &times; &pi;<sup>d</sup> &times; &pi;<sup>d&minus;1</sup> = 2d&pi;<sup>2d&minus;1</sup> = 6&pi;<sup>5</sup> = <strong>1836.12</strong>.</p>
+            <p>Result: 2d &times; &pi;<sup>d</sup> &times; &pi;<sup>d&minus;1</sup> = 2d&pi;<sup>2d&minus;1</sup> = 6&pi;<sup>5</sup> = <strong class="mono">1836.12</strong>.</p>
             <p style="margin-bottom:0;">For general d: m<sub>3D</sub>/m<sub>1D</sub> = 2d&pi;<sup>2d&minus;1</sup>. The exponent 2d&minus;1 = d + (d&minus;1): <strong>d</strong> from the BZ volume (momentum space) and <strong>d&minus;1</strong> from the angular geometry (position space). This is a prediction from the Hamiltonian&rsquo;s dispersion relation and the D<sub>IV</sub> geometry, not numerology.</p>
           </div>
 
@@ -811,14 +811,14 @@
                 <td><strong>Number of breather states</strong></td>
                 <td class="formula">&lfloor;2<sup>d</sup>&pi; &minus; 1&rfloor;</td>
                 <td class="planck"><strong>24</strong></td>
-                <td><strong>24 = SM fermion flavors (6 quarks &times; 3 colors + 6 leptons)?</strong><br>
-                    <strong>24 = dimension of Leech lattice minimal vectors?</strong></td>
+                <td><strong class="mono">24 = SM fermion flavors (6 quarks &times; 3 colors + 6 leptons)?</strong><br>
+                    <strong class="mono">24 = dimension of Leech lattice minimal vectors?</strong></td>
               </tr>
               <tr>
                 <td>Kink-to-breather ratio</td>
                 <td class="formula">M<sub>kink</sub>/M<sub>1</sub> = 1/sin(&gamma;)</td>
                 <td class="planck">15.37</td>
-                <td>&asymp; 16 &minus; 2/&pi; (clean d, &pi; expression)</td>
+                <td class="mono">&asymp; 16 &minus; 2/&pi; (clean d, &pi; expression)</td>
               </tr>
               <tr>
                 <td>Coupling parameter</td>
@@ -827,22 +827,22 @@
                 <td>&mdash;</td>
               </tr>
               <tr>
-                <td>M<sub>2</sub>/M<sub>1</sub></td>
+                <td class="mono">M<sub>2</sub>/M<sub>1</sub></td>
                 <td class="formula">2 cos(&gamma;) = 2 &minus; &gamma;&sup2;</td>
                 <td class="planck">1.996</td>
-                <td>&asymp; 2 (nearly integer)</td>
+                <td class="mono">&asymp; 2 (nearly integer)</td>
               </tr>
               <tr>
-                <td>M<sub>3</sub>/M<sub>1</sub></td>
+                <td class="mono">M<sub>3</sub>/M<sub>1</sub></td>
                 <td class="formula">sin(3&gamma;)/sin(&gamma;)</td>
                 <td class="planck">2.983</td>
-                <td>&asymp; 3 (nearly integer)</td>
+                <td class="mono">&asymp; 3 (nearly integer)</td>
               </tr>
               <tr>
-                <td>M<sub>9</sub>/M<sub>1</sub></td>
+                <td class="mono">M<sub>9</sub>/M<sub>1</sub></td>
                 <td class="formula">sin(9&gamma;)/sin(&gamma;)</td>
                 <td class="planck">8.498</td>
-                <td>&asymp; 9 &minus; 0.5 (deviating from integer)</td>
+                <td class="mono">&asymp; 9 &minus; 0.5 (deviating from integer)</td>
               </tr>
             </tbody>
           </table>
@@ -864,16 +864,16 @@
                 <td>T&sup2; (intensity transmission per axis)</td>
                 <td class="formula">e<sup>&minus;2<sup>d+1</sup>/&pi;&sup2;</sup></td>
                 <td class="planck">0.1975</td>
-                <td>&alpha;<sup>1/d</sup> = 0.1939 &nbsp;(1.9% off). Also near sin&sup2;&theta;<sub>W</sub> = 0.231 (17% off)</td>
+                <td class="mono">&alpha;<sup>1/d</sup> = 0.1939 &nbsp;(1.9% off). Also near sin&sup2;&theta;<sub>W</sub> = 0.231 (17% off)</td>
               </tr>
               <tr>
-                <td><strong>T<sup>2d</sup> = T<sup>6</sup></strong></td>
-                <td class="formula"><strong>e<sup>&minus;2d &times; 2<sup>d</sup>/&pi;&sup2;</sup> = e<sup>&minus;48/&pi;&sup2;</sup></strong></td>
-                <td class="planck"><strong>0.00771</strong></td>
-                <td><strong>&alpha; = 0.00730 &nbsp;(5.6% off)</strong></td>
+                <td class="mono"><strong class="mono">T<sup>2d</sup> = T<sup>6</sup></strong></td>
+                <td class="formula"><strong class="mono">e<sup>&minus;2d &times; 2<sup>d</sup>/&pi;&sup2;</sup> = e<sup>&minus;48/&pi;&sup2;</sup></strong></td>
+                <td class="planck"><strong class="mono">0.00771</strong></td>
+                <td class="mono"><strong class="mono">&alpha; = 0.00730 &nbsp;(5.6% off)</strong></td>
               </tr>
               <tr>
-                <td>T<sup>12</sup></td>
+                <td class="mono">T<sup>12</sup></td>
                 <td class="formula">e<sup>&minus;96/&pi;&sup2;</sup></td>
                 <td class="planck">5.94 &times; 10<sup>&minus;5</sup></td>
                 <td>&mdash;</td>
@@ -882,7 +882,7 @@
                 <td>Exact exponent for &alpha;</td>
                 <td class="formula">x = &pi;&sup2; ln(137)/8</td>
                 <td class="planck">6.070</td>
-                <td>&asymp; 2d + 0.07 (tantalizingly close to 2d = 6)</td>
+                <td class="mono">&asymp; 2d + 0.07 (tantalizingly close to 2d = 6)</td>
               </tr>
             </tbody>
           </table>
@@ -890,7 +890,7 @@
           <div class="calc-result">
             <strong>The most striking tunneling result:</strong> the tunneling amplitude through all 2d&nbsp;=&nbsp;6 bonds simultaneously gives:<br><br>
             <span style="font-family:var(--font-mono); font-size:1.1rem;">T<sup>2d</sup> = e<sup>&minus;48/&pi;&sup2;</sup> = 1/129.7 &nbsp;&nbsp;&nbsp; vs. &nbsp;&nbsp;&nbsp; &alpha; = 1/137.04</span><br><br>
-            This is 5.6% off. The exponent needed for exact &alpha; is 6.070 &times; 8/&pi;&sup2; = 48.56/&pi;&sup2; instead of 48/&pi;&sup2;. The discrepancy is <strong>0.56/48 = 1.2%</strong> in the exponent. This could be a correction from the discrete lattice (the continuum sine-Gordon instanton action differs from the discrete lattice action by O(a&sup2;) corrections) or it could mean the tunneling interpretation is wrong.<br><br>
+            This is 5.6% off. The exponent needed for exact &alpha; is 6.070 &times; 8/&pi;&sup2; = 48.56/&pi;&sup2; instead of 48/&pi;&sup2;. The discrepancy is <strong class="mono">0.56/48 = 1.2%</strong> in the exponent. This could be a correction from the discrete lattice (the continuum sine-Gordon instanton action differs from the discrete lattice action by O(a&sup2;) corrections) or it could mean the tunneling interpretation is wrong.<br><br>
             <strong>Either way, the lattice naturally produces a number within 6% of &alpha; from pure geometry.</strong>
           </div>
 
@@ -908,10 +908,10 @@
                 <td>&mdash;</td>
               </tr>
               <tr>
-                <td>Gap/bandwidth ratio</td>
+                <td class="mono">Gap/bandwidth ratio</td>
                 <td class="formula">1/(4&pi;&sup2;)</td>
                 <td class="planck">0.02533</td>
-                <td>&asymp; 3.47 &times; &alpha; (not clean)</td>
+                <td class="mono">&asymp; 3.47 &times; &alpha; (not clean)</td>
               </tr>
               <tr>
                 <td>Effective mass at gap</td>
@@ -930,58 +930,58 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>6&pi;<sup>5</sup> &times; T<sup>2d</sup></strong></td>
+                <td class="mono"><strong class="mono">6&pi;<sup>5</sup> &times; T<sup>2d</sup></strong></td>
                 <td class="formula">2d&pi;<sup>d+2</sup> &times; e<sup>&minus;48/&pi;&sup2;</sup></td>
-                <td class="planck"><strong>14.15</strong></td>
+                <td class="planck"><strong class="mono">14.15</strong></td>
                 <td>&mdash; (not an obvious match)</td>
               </tr>
               <tr>
-                <td>6&pi;<sup>5</sup> &times; &alpha;</td>
+                <td class="mono">6&pi;<sup>5</sup> &times; &alpha;</td>
                 <td class="formula">2d&pi;<sup>d+2</sup> / 137.042</td>
                 <td class="planck">13.40</td>
-                <td>If T<sup>6</sup> = &alpha;, this would give ~13.4</td>
+                <td class="mono">If T<sup>6</sup> = &alpha;, this would give ~13.4</td>
               </tr>
               <tr>
-                <td>M<sub>kink</sub> &times; 6&pi;<sup>5</sup></td>
+                <td class="mono">M<sub>kink</sub> &times; 6&pi;<sup>5</sup></td>
                 <td class="formula">(2<sup>d</sup>/&pi;&sup2;) &times; 2d&pi;<sup>d+2</sup> = 2<sup>d+1</sup>d&pi;<sup>d</sup></td>
                 <td class="planck">2<sup>4</sup>&times;3&times;&pi;&sup3; = 48&pi;&sup3; = 1489</td>
                 <td>&mdash;</td>
               </tr>
               <tr>
-                <td><strong>24 breathers &times; M<sub>1</sub></strong></td>
+                <td class="mono"><strong class="mono">24 breathers &times; M<sub>1</sub></strong></td>
                 <td class="formula">total breather mass</td>
                 <td class="planck">2.147 (Planck units)</td>
                 <td>&mdash;</td>
               </tr>
               <tr>
-                <td><strong>M<sub>kink</sub>/M<sub>1</sub> &minus; 1</strong></td>
+                <td class="mono"><strong class="mono">M<sub>kink</sub>/M<sub>1</sub> &minus; 1</strong></td>
                 <td class="formula">1/sin(&gamma;) &minus; 1</td>
                 <td class="planck">14.37</td>
                 <td>&mdash;</td>
               </tr>
               <tr>
-                <td><strong>N<sub>breathers</sub> / 2d</strong></td>
+                <td><strong class="mono">N<sub>breathers</sub> / 2d</strong></td>
                 <td class="formula">&lfloor;2<sup>d</sup>&pi;&minus;1&rfloor; / 2d</td>
                 <td class="planck"><strong>4</strong></td>
-                <td><strong>4 = 2<sup>d&minus;1</sup> = number of spinor components in d+1 spacetime</strong></td>
+                <td class="mono"><strong class="mono">4 = 2<sup>d&minus;1</sup> = number of spinor components in d+1 spacetime</strong></td>
               </tr>
               <tr>
-                <td><strong>N<sub>breathers</sub> / d</strong></td>
+                <td><strong class="mono">N<sub>breathers</sub> / d</strong></td>
                 <td class="formula">&lfloor;2<sup>d</sup>&pi;&minus;1&rfloor; / d</td>
                 <td class="planck"><strong>8</strong></td>
-                <td><strong>8 = d&sup2;&minus;1 = number of gluons</strong></td>
+                <td class="mono"><strong class="mono">8 = d&sup2;&minus;1 = number of gluons</strong></td>
               </tr>
               <tr>
-                <td><strong>N<sub>breathers</sub> / (d&sup2;&minus;1)</strong></td>
+                <td><strong class="mono">N<sub>breathers</sub> / (d&sup2;&minus;1)</strong></td>
                 <td class="formula">&lfloor;2<sup>d</sup>&pi;&minus;1&rfloor; / (d&sup2;&minus;1)</td>
                 <td class="planck"><strong>3</strong></td>
-                <td><strong>3 = d = generations</strong></td>
+                <td class="mono"><strong class="mono">3 = d = generations</strong></td>
               </tr>
             </tbody>
           </table>
 
           <div class="calc-result">
-            <strong>The 24 factorizes as: 24 = d &times; (d&sup2;&minus;1) = 3 &times; 8.</strong><br><br>
+            <strong class="mono">The 24 factorizes as: 24 = d &times; (d&sup2;&minus;1) = 3 &times; 8.</strong><br><br>
             The Hamiltonian gives exactly &lfloor;8&pi;&minus;1&rfloor; = 24 breather states. This factorizes as d&nbsp;&times;&nbsp;(d&sup2;&minus;1)&nbsp;=&nbsp;3&nbsp;&times;&nbsp;8. In the Standard Model, 3&nbsp;&times;&nbsp;8 = generations&nbsp;&times;&nbsp;gluons. Is the breather spectrum telling us:<br>
             <ul>
               <li><strong>8 &ldquo;types&rdquo;</strong> of breather (matching the 8 generators of SU(3))?</li>
@@ -1004,14 +1004,14 @@
             <div class="calc-num">1</div>
             <div><strong>Path 1 &mdash; WKB tunneling (leading order).</strong> The cosine barrier has WKB tunneling action S&nbsp;=&nbsp;8/&pi;&sup2; per barrier (= kink mass, &sect;5). A wave coupled to all d&nbsp;=&nbsp;3 spatial axes passes through 2d&nbsp;=&nbsp;6 barriers. Each barrier attenuates intensity by T&sup2;&nbsp;=&nbsp;e<sup>&minus;16/&pi;&sup2;</sup>. Total attenuation:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">&alpha;<sub>WKB</sub> = T<sup>2d</sup> = e<sup>&minus;48/&pi;&sup2;</sup> = 1/129.7</span><br><br>
-              This is <strong>5.6% from &alpha; = 1/137.036</strong>. The physics is right &mdash; &alpha; IS wave attenuation through d-dimensional barriers. The WKB approximation is just missing the geometric correction.</div>
+              This is <strong class="mono">5.6% from &alpha; = 1/137.036</strong>. The physics is right &mdash; &alpha; IS wave attenuation through d-dimensional barriers. The WKB approximation is just missing the geometric correction.</div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">2</div>
             <div><strong>Path 2 &mdash; Wyler exact (all orders).</strong> The same 3D lattice has d+2&nbsp;=&nbsp;5 degrees of freedom (d displacements + 2 from the quadratic wave equation). The configuration space of wave modes on this lattice is the bounded symmetric domain D<sub>IV</sub>(5). Wyler&rsquo;s theorem (1969) gives the unique coupling constant for this domain:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">&alpha;<sub>Wyler</sub> = d&sup2; / [2<sup>d+1</sup> &middot; (d+2)!<sup>1/(d+1)</sup> &middot; &pi;<sup>(d&sup2;+d&minus;1)/(d+1)</sup>] = 1/137.036</span><br><br>
-              This is exact to <strong>0.0001%</strong>. Every factor is derived from d&nbsp;=&nbsp;3 and &pi; (see <a href="calc-planck-reduction.html#wyler">&sect;9 of the Planck Reduction page</a>).</div>
+              This is exact to <strong class="mono">0.0001%</strong>. Every factor is derived from d&nbsp;=&nbsp;3 and &pi; (see <a href="calc-planck-reduction.html#wyler">&sect;9 of the Planck Reduction page</a>).</div>
           </div>
 
           <div class="calc-step">
@@ -1027,12 +1027,12 @@
                 </tbody>
               </table><br>
               The ratio between them:<br><br>
-              <span style="font-family:var(--font-mono);">R = &alpha;<sub>Wyler</sub> / &alpha;<sub>WKB</sub> = (1/137.036) / (1/129.7) = 129.7/137.036 = <strong>0.9465</strong></span><br><br>
-              In the exponent: ln(1/&alpha;)&nbsp;=&nbsp;4.920 vs. 48/&pi;&sup2;&nbsp;=&nbsp;4.863. The correction is <strong>1.17%</strong> &mdash; this is the contribution of the D<sub>IV</sub>(5) bounded domain geometry that goes beyond the simple per-bond WKB picture.</div>
+              <span style="font-family:var(--font-mono);">R = &alpha;<sub>Wyler</sub> / &alpha;<sub>WKB</sub> = (1/137.036) / (1/129.7) = 129.7/137.036 = <strong class="mono">0.9465</strong></span><br><br>
+              In the exponent: ln(1/&alpha;)&nbsp;=&nbsp;4.920 vs. 48/&pi;&sup2;&nbsp;=&nbsp;4.863. The correction is <strong class="mono">1.17%</strong> &mdash; this is the contribution of the D<sub>IV</sub>(5) bounded domain geometry that goes beyond the simple per-bond WKB picture.</div>
           </div>
 
           <div class="calc-result">
-            <strong>&alpha; is fully derived from the Hamiltonian.</strong><br><br>
+            <strong class="mono">&alpha; is fully derived from the Hamiltonian.</strong><br><br>
             <strong>Physical picture (WKB):</strong> &alpha; is the fraction of wave intensity that transmits through all 2d cosine barriers of a lattice node. Each axis contributes one factor of T&sup2;&nbsp;=&nbsp;e<sup>&minus;16/&pi;&sup2;</sup>. Product over d axes gives &alpha;&nbsp;&asymp;&nbsp;(T&sup2;)<sup>d</sup>.<br><br>
             <strong>Exact value (Wyler):</strong> The D<sub>IV</sub>(5) symmetric space captures the full geometry of the d+2 DOF configuration space, including inter-axis correlations that the simple per-bond WKB misses. This provides the 1.17% geometric correction to the leading-order tunneling result.<br><br>
             <span style="font-family:var(--font-mono); font-size:1.15rem; color:var(--accent-green);">&alpha; = d&sup2; / [2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>(d&sup2;+d&minus;1)/(d+1)</sup>] = 1/137.036</span><br><br>
@@ -1056,44 +1056,44 @@
               <tr style="background:rgba(0,255,136,0.04);">
                 <td>3D/1D mode density ratio</td>
                 <td class="formula">6&pi;<sup>5</sup> = 1836.12</td>
-                <td>m<sub>p</sub>/m<sub>e</sub> = 1836.15</td>
-                <td><strong style="color:var(--accent-green);">0.002%</strong></td>
+                <td class="mono">m<sub>p</sub>/m<sub>e</sub> = 1836.15</td>
+                <td class="mono"><strong style="color:var(--accent-green);" class="mono">0.002%</strong></td>
               </tr>
               <tr style="background:rgba(0,255,136,0.04);">
                 <td>Breather state count</td>
                 <td class="formula">&lfloor;8&pi;&minus;1&rfloor; = 24</td>
-                <td>SM fermion count = 24</td>
-                <td><strong style="color:var(--accent-green);">exact</strong></td>
+                <td class="mono">SM fermion count = 24</td>
+                <td class="mono"><strong style="color:var(--accent-green);">exact</strong></td>
               </tr>
               <tr style="background:rgba(0,255,136,0.04);">
                 <td>24 / d</td>
                 <td class="formula">8</td>
-                <td>d&sup2;&minus;1 = gluons = 8</td>
-                <td><strong style="color:var(--accent-green);">exact</strong></td>
+                <td class="mono">d&sup2;&minus;1 = gluons = 8</td>
+                <td class="mono"><strong style="color:var(--accent-green);">exact</strong></td>
               </tr>
               <tr style="background:rgba(0,255,136,0.04);">
-                <td>T<sup>2d</sup> (WKB leading order)</td>
+                <td class="mono">T<sup>2d</sup> (WKB leading order)</td>
                 <td class="formula">e<sup>&minus;48/&pi;&sup2;</sup> = 1/129.7</td>
-                <td>&alpha; = 1/137.04</td>
-                <td><strong style="color:var(--accent-green);">WKB &plusmn;5.6%</strong></td>
+                <td class="mono">&alpha; = 1/137.04</td>
+                <td class="mono"><strong style="color:var(--accent-green);" class="mono">WKB &plusmn;5.6%</strong></td>
               </tr>
               <tr style="background:rgba(0,255,136,0.04);">
-                <td>&alpha; (Wyler exact)</td>
+                <td class="mono">&alpha; (Wyler exact)</td>
                 <td class="formula">d&sup2;/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>&hellip;</sup>]</td>
-                <td>&alpha; = 1/137.04</td>
-                <td><strong style="color:var(--accent-green);">0.0001%</strong></td>
+                <td class="mono">&alpha; = 1/137.04</td>
+                <td class="mono"><strong style="color:var(--accent-green);" class="mono">0.0001%</strong></td>
               </tr>
               <tr style="background:rgba(234,179,8,0.04);">
                 <td>T&sup2; (single-axis attenuation)</td>
                 <td class="formula">e<sup>&minus;16/&pi;&sup2;</sup> = 0.198</td>
-                <td>sin&sup2;&theta;<sub>W</sub> = 0.231</td>
-                <td><strong style="color:#eab308;">17%</strong></td>
+                <td class="mono">sin&sup2;&theta;<sub>W</sub> = 0.231</td>
+                <td class="mono"><strong style="color:#eab308;">17%</strong></td>
               </tr>
               <tr>
                 <td>Breather mass ratios</td>
                 <td class="formula">M<sub>n</sub>/M<sub>1</sub> &asymp; n</td>
                 <td>Regge trajectories (hadrons)</td>
-                <td><strong style="color:var(--accent-green);">qualitative</strong></td>
+                <td class="mono"><strong style="color:var(--accent-green);">qualitative</strong></td>
               </tr>
               <tr>
                 <td>Kink mass</td>
@@ -1114,10 +1114,10 @@
             <h4 style="margin-top:0; color:var(--accent-green);">The verdict so far</h4>
             <p>From a single equation with zero free parameters, the Hamiltonian produces:</p>
             <ul>
-              <li><strong>6&pi;<sup>5</sup> = 1836.12</strong> &mdash; matching the most important mass ratio in physics to 0.002%</li>
+              <li><strong class="mono">6&pi;<sup>5</sup> = 1836.12</strong> &mdash; matching the most important mass ratio in physics to 0.002%</li>
               <li><strong>24 breather states</strong> &mdash; matching the fermion count of the Standard Model</li>
-              <li><strong>24 = 3 &times; 8</strong> &mdash; matching generations &times; gluons</li>
-              <li><strong>&alpha; = 1/137.036 exact</strong> &mdash; via Wyler (D<sub>IV</sub>(5) geometry), confirmed by WKB tunneling to 5.6%</li>
+              <li><strong class="mono">24 = 3 &times; 8</strong> &mdash; matching generations &times; gluons</li>
+              <li><strong class="mono">&alpha; = 1/137.036 exact</strong> &mdash; via Wyler (D<sub>IV</sub>(5) geometry), confirmed by WKB tunneling to 5.6%</li>
               <li><strong>Regge trajectories</strong> &mdash; the breather spectrum qualitatively matches hadron spectroscopy</li>
             </ul>
             <p>T&sup2;&nbsp;=&nbsp;&alpha;<sup>1/d</sup> (per-axis attenuation) does not independently match sin&sup2;&theta;<sub>W</sub>. The band gap ratio 1/(4&pi;&sup2;) does not match a known constant.</p>
@@ -1155,10 +1155,10 @@
 
           <div class="calc-step">
             <div class="calc-num">2</div>
-            <div><strong>T&sup2; = &alpha;<sup>1/d</sup> &mdash; the per-axis decomposition.</strong> If each of the d&nbsp;=&nbsp;3 spatial axes independently attenuates wave intensity by a factor T&sup2;, then the total attenuation for a wave coupled to all three axes is:<br><br>
+            <div><strong class="mono">T&sup2; = &alpha;<sup>1/d</sup> &mdash; the per-axis decomposition.</strong> If each of the d&nbsp;=&nbsp;3 spatial axes independently attenuates wave intensity by a factor T&sup2;, then the total attenuation for a wave coupled to all three axes is:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">&alpha; = (T&sup2;)<sup>d</sup> = T<sup>2d</sup> = e<sup>&minus;2d &times; 8/&pi;&sup2;</sup> = e<sup>&minus;48/&pi;&sup2;</sup></span><br><br>
               <strong>Each spatial dimension contributes one factor of T&sup2;.</strong> The fine structure constant is the product of d independent attenuation factors &mdash; one per axis.<br><br>
-              Numerically: T&sup2; = 0.1975, and &alpha;<sup>1/3</sup> = (1/137.042)<sup>1/3</sup> = 0.1939. These agree to <strong>1.9%</strong>.</div>
+              Numerically: T&sup2; = 0.1975, and &alpha;<sup>1/3</sup> = (1/137.042)<sup>1/3</sup> = 0.1939. These agree to <strong class="mono">1.9%</strong>.</div>
           </div>
 
           <div class="calc-step">
@@ -1229,13 +1229,13 @@
             <div class="calc-num">4</div>
             <div><strong>The Peierls-Nabarro correction.</strong> The standard lattice correction to the kink energy is the Peierls-Nabarro (PN) barrier &mdash; the energy difference between a kink centered on a site vs. between sites. For the discrete sine-Gordon, this is known to be:<br><br>
               <span style="font-family:var(--font-mono);">&Delta;E<sub>PN</sub>/E<sub>kink</sub> &sim; A &times; exp(&minus;&pi;&sup2; w/a)</span><br><br>
-              For GWT with w&nbsp;=&nbsp;a&nbsp;=&nbsp;1: &Delta;E<sub>PN</sub>/E<sub>kink</sub>&nbsp;&sim;&nbsp;A&times;e<sup>&minus;&pi;&sup2;</sup>&nbsp;&asymp;&nbsp;5.7&times;10<sup>&minus;5</sup>&times;A.<br><br>
+              For GWT with w&nbsp;=&nbsp;<span class="mono">a&nbsp;=&nbsp;1</span>: &Delta;E<sub>PN</sub>/E<sub>kink</sub>&nbsp;&sim;&nbsp;A&times;e<sup>&minus;&pi;&sup2;</sup>&nbsp;&asymp;&nbsp;5.7&times;10<sup>&minus;5</sup>&times;A.<br><br>
               Even with a generous prefactor A&nbsp;=&nbsp;10, this is a 0.06% correction &mdash; far too small to explain the 1.2% gap in the exponent.</div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">5</div>
-            <div><strong>Where the 1.2% must come from.</strong> Since discrete lattice corrections are too small, the correction to S<sub>eff</sub>&nbsp;=&nbsp;48/&pi;&sup2; must arise from physics beyond the 1D tunneling picture. Three candidates:<br><br>
+            <div><strong class="mono">Where the 1.2% must come from.</strong> Since discrete lattice corrections are too small, the correction to S<sub>eff</sub>&nbsp;=&nbsp;48/&pi;&sup2; must arise from physics beyond the 1D tunneling picture. Three candidates:<br><br>
               <ul>
                 <li><strong>One-loop (semiclassical) prefactor.</strong> The WKB amplitude is not just e<sup>&minus;S</sup> but (det&prime;)&times;e<sup>&minus;S</sup>, where det&prime; involves the ratio of determinants around the instanton vs. the trivial vacuum. For sine-Gordon, this prefactor is known and involves &pi; and the coupling constant. It would modify the effective action by a factor of order &gamma;&nbsp;=&nbsp;&pi;/(16&pi;&minus;2).</li>
                 <li><strong>3D geometric factor.</strong> The factorization &alpha;&nbsp;=&nbsp;(T&sup2;)<sup>d</sup> assumes d independent tunneling channels. If the channels are not independent (the wave must tunnel through all d barriers <em>simultaneously</em>, not sequentially), a correlator from the 3D geometry could modify the effective action.</li>
@@ -1248,7 +1248,7 @@
           <div class="calc-result">
             <strong>Result: The gap is resolved by Wyler, not by discrete corrections.</strong><br><br>
             The Peierls-Nabarro correction is &sim;10<sup>&minus;4</sup>, far too small. The WKB action S&nbsp;=&nbsp;8/&pi;&sup2; is exact for the cosine barrier on both the continuum and discrete lattice.<br><br>
-            The 1.17% correction comes from the <strong>D<sub>IV</sub>(5) bounded symmetric domain geometry</strong> (&sect;12) &mdash; the Wyler formula captures inter-axis correlations that the simple per-bond WKB factorization misses. This is now <strong>fully resolved</strong>:<br><br>
+            The 1.17% correction comes from the <strong class="mono">D<sub>IV</sub>(5) bounded symmetric domain geometry</strong> (&sect;12) &mdash; the Wyler formula captures inter-axis correlations that the simple per-bond WKB factorization misses. This is now <strong>fully resolved</strong>:<br><br>
             <span style="font-family:var(--font-mono);">WKB (leading order): &alpha; &asymp; e<sup>&minus;48/&pi;&sup2;</sup> = 1/129.7 &nbsp;&mdash;&nbsp; 5.6% off</span><br>
             <span style="font-family:var(--font-mono);">Wyler (all orders): &alpha; = d&sup2;/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>&hellip;</sup>] = 1/137.036 &nbsp;&mdash;&nbsp; exact</span><br><br>
             <strong>Both derived from the same Hamiltonian.</strong> The physical picture (wave attenuation through d barriers) is given by WKB. The exact numerical value is given by Wyler. Together: &alpha; is solved.
@@ -1269,7 +1269,7 @@
             <div class="calc-num">1</div>
             <div><strong>The separatrix area &mdash; the Hamiltonian&rsquo;s natural action scale.</strong> The cosine potential V(u)&nbsp;=&nbsp;(1/&pi;&sup2;)(1&minus;cos(&pi;u)) has maximum energy V<sub>max</sub>&nbsp;=&nbsp;2/&pi;&sup2; at u&nbsp;=&nbsp;1. The separatrix orbit (maximum oscillation inside the well) encloses an area in phase space:<br><br>
               <span style="font-family:var(--font-mono);">p = &radic;(2(E&minus;V)) = (2/&pi;)|cos(&pi;u/2)|</span> at E = V<sub>max</sub><br><br>
-              <span style="font-family:var(--font-mono);">A<sub>sep</sub> = &oint; p du = 2&int;<sub>&minus;1</sub><sup>1</sup> (2/&pi;)cos(&pi;u/2) du = (4/&pi;) &times; (4/&pi;) = <strong>16/&pi;&sup2;</strong></span><br><br>
+              <span style="font-family:var(--font-mono);">A<sub>sep</sub> = &oint; p du = 2&int;<sub>&minus;1</sub><sup>1</sup> (2/&pi;)cos(&pi;u/2) du = (4/&pi;) &times; (4/&pi;) = <strong class="mono">16/&pi;&sup2;</strong></span><br><br>
               This is the total phase-space volume of one cosine well. It equals <strong>twice the kink mass</strong>: A<sub>sep</sub>&nbsp;=&nbsp;2M<sub>kink</sub>&nbsp;=&nbsp;2&nbsp;&times;&nbsp;8/&pi;&sup2;.</div>
           </div>
 
@@ -1278,17 +1278,17 @@
             <div><strong>Leading-order action quantum.</strong> The separatrix area sets the scale for the action quantum. In semiclassical quantization, h&nbsp;=&nbsp;A<sub>sep</sub>&nbsp;/&nbsp;N<sub>states</sub> where N<sub>states</sub> is the number of quantum states in the well.<br><br>
               The single cosine well is extremely shallow &mdash; A<sub>sep</sub>&nbsp;=&nbsp;16/&pi;&sup2;&nbsp;&asymp;&nbsp;1.62. This is too small to hold even one harmonic quantum (which would need A&nbsp;=&nbsp;2&pi;&#8463;&nbsp;&asymp;&nbsp;9.87). So the leading-order result is:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">&#8463;<sub>WKB</sub> &sim; A<sub>sep</sub> = 16/&pi;&sup2; &asymp; 1.621</span><br><br>
-              Compare to &#8463;&nbsp;=&nbsp;&pi;/2&nbsp;&asymp;&nbsp;1.571. The WKB result is <strong>3.2% off</strong> &mdash; the same pattern as the tunneling-alpha connection (5.6% off).</div>
+              Compare to &#8463;&nbsp;=&nbsp;&pi;/2&nbsp;&asymp;&nbsp;1.571. The WKB result is <strong class="mono">3.2% off</strong> &mdash; the same pattern as the tunneling-alpha connection (5.6% off).</div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div><strong>The geometric correction factor.</strong> Just as the Wyler D<sub>IV</sub>(5) geometry corrected the WKB tunneling for &alpha; (&sect;12), the same bounded-domain structure corrects the leading-order action. The correction factor is:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">R = &#8463; / A<sub>sep</sub> = (&pi;/2) / (16/&pi;&sup2;) = &pi;&sup3;/32 = &pi;<sup>d</sup>/2<sup>d+2</sup></span><br><br>
-              This is a <strong>clean function of d and &pi;</strong>:<br>
+              This is a <strong class="mono">clean function of d and &pi;</strong>:<br>
               <ul>
-                <li><strong>&pi;<sup>d</sup></strong> = the d-dimensional angular volume factor (same factor appearing in the BZ volume and solid-angle integrations)</li>
-                <li><strong>2<sup>d+2</sup></strong> = 4&nbsp;&times;&nbsp;2<sup>d</sup> = 4 &times; the number of kink mass units in the separatrix. The factor 4 = 2&sup2; captures the two-fold symmetry (±momentum) in each of the two phase-space dimensions.</li>
+                <li><strong class="mono">&pi;<sup>d</sup></strong> = the d-dimensional angular volume factor (same factor appearing in the BZ volume and solid-angle integrations)</li>
+                <li><strong class="mono">2<sup>d+2</sup></strong> = 4&nbsp;&times;&nbsp;2<sup>d</sup> = 4 &times; the number of kink mass units in the separatrix. The factor 4 = 2&sup2; captures the two-fold symmetry (±momentum) in each of the two phase-space dimensions.</li>
               </ul>
               For d&nbsp;=&nbsp;3: R = &pi;&sup3;/32 = 0.9694. The correction is 3.1%, matching the pattern of Wyler corrections.</div>
           </div>
@@ -1301,12 +1301,12 @@
                   <tr><th>Step</th><th>Formula</th><th>Value</th><th>Source</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Separatrix area</td><td class="formula">A<sub>sep</sub> = 2<sup>d+1</sup>/&pi;&sup2;</td><td>16/&pi;&sup2; = 1.621</td><td>Exact, from cosine potential (&sect;5)</td></tr>
-                  <tr><td>Geometric correction</td><td class="formula">R = &pi;<sup>d</sup>/2<sup>d+2</sup></td><td>&pi;&sup3;/32 = 0.969</td><td>D<sub>IV</sub>(d+2) bounded domain geometry</td></tr>
-                  <tr><td><strong>Action quantum</strong></td><td class="formula"><strong>&#8463; = A<sub>sep</sub> &times; R</strong></td><td><strong>&pi;/2 = 1.571</strong></td><td>Hamiltonian &times; geometry</td></tr>
+                  <tr><td>Separatrix area</td><td class="formula">A<sub>sep</sub> = 2<sup>d+1</sup>/&pi;&sup2;</td><td class="mono">16/&pi;&sup2; = 1.621</td><td>Exact, from cosine potential (&sect;5)</td></tr>
+                  <tr><td>Geometric correction</td><td class="formula">R = &pi;<sup>d</sup>/2<sup>d+2</sup></td><td class="mono">&pi;&sup3;/32 = 0.969</td><td>D<sub>IV</sub>(d+2) bounded domain geometry</td></tr>
+                  <tr><td><strong>Action quantum</strong></td><td class="formula"><strong class="mono">&#8463; = A<sub>sep</sub> &times; R</strong></td><td class="mono"><strong class="mono">&pi;/2 = 1.571</strong></td><td>Hamiltonian &times; geometry</td></tr>
                 </tbody>
               </table><br>
-              Check: (2<sup>d+1</sup>/&pi;&sup2;) &times; (&pi;<sup>d</sup>/2<sup>d+2</sup>) = &pi;<sup>d&minus;2</sup>/2 = &pi;<sup>1</sup>/2 = <strong>&pi;/2</strong> &nbsp;&#10003;</div>
+              Check: (2<sup>d+1</sup>/&pi;&sup2;) &times; (&pi;<sup>d</sup>/2<sup>d+2</sup>) = &pi;<sup>d&minus;2</sup>/2 = &pi;<sup>1</sup>/2 = <strong class="mono">&pi;/2</strong> &nbsp;&#10003;</div>
           </div>
 
           <div class="calc-step">
@@ -1324,15 +1324,15 @@
                   <tr><th>Constant</th><th>WKB (leading order)</th><th>Exact (Wyler-corrected)</th><th>WKB Error</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>&alpha;</td><td class="formula">e<sup>&minus;48/&pi;&sup2;</sup> = 1/129.7</td><td>d&sup2;/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>&hellip;</sup>] = 1/137.036</td><td>5.6%</td></tr>
-                  <tr><td>&#8463;</td><td class="formula">16/&pi;&sup2; = 1.621</td><td>A<sub>sep</sub> &times; &pi;<sup>d</sup>/2<sup>d+2</sup> = &pi;/2 = 1.571</td><td>3.2%</td></tr>
+                  <tr><td>&alpha;</td><td class="formula">e<sup>&minus;48/&pi;&sup2;</sup> = 1/129.7</td><td class="mono">d&sup2;/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>&hellip;</sup>] = 1/137.036</td><td class="mono">5.6%</td></tr>
+                  <tr><td>&#8463;</td><td class="formula">16/&pi;&sup2; = 1.621</td><td class="mono">A<sub>sep</sub> &times; &pi;<sup>d</sup>/2<sup>d+2</sup> = &pi;/2 = 1.571</td><td class="mono">3.2%</td></tr>
                 </tbody>
               </table><br>
               The Hamiltonian gives the leading-order physics. The D<sub>IV</sub>(5) geometric correction gives the exact value. Same pattern, same origin.</div>
           </div>
 
           <div class="calc-result">
-            <strong>&#8463; = &pi;/2 is derived from the Hamiltonian.</strong><br><br>
+            <strong class="mono">&#8463; = &pi;/2 is derived from the Hamiltonian.</strong><br><br>
             The cosine potential&rsquo;s separatrix area A<sub>sep</sub>&nbsp;=&nbsp;16/&pi;&sup2; gives the leading-order action quantum (3.2% off). The D<sub>IV</sub>(5) geometric correction R&nbsp;=&nbsp;&pi;<sup>d</sup>/2<sup>d+2</sup> gives the exact result:<br><br>
             <span style="font-family:var(--font-mono); font-size:1.15rem; color:var(--accent-green);">&#8463; = (2<sup>d+1</sup>/&pi;&sup2;) &times; (&pi;<sup>d</sup>/2<sup>d+2</sup>) = &pi;<sup>d&minus;2</sup>/2 = &pi;/2</span><br><br>
             In wave mechanics: <strong>the action quantum is the phase-space area of one cosine well, corrected by the d-dimensional angular geometry.</strong> Planck&rsquo;s constant is not a fundamental mystery &mdash; it is determined by the cosine potential and the dimensionality of space.
@@ -1351,7 +1351,7 @@
 
           <div class="calc-step">
             <div class="calc-num">1</div>
-            <div><strong>The Hamiltonian has a d-component displacement vector.</strong> The field u<sub>n</sub> at each lattice site is a vector in &Ropf;<sup>d</sup>. In the Fourier representation (wave modes), each mode Q<sub>k</sub> is a <em>complex</em> d-component vector in &Copf;<sup>d</sup>. The symmetry group of d complex components is <strong>U(d) = SU(d)&nbsp;&times;&nbsp;U(1)</strong>.</div>
+            <div><strong>The Hamiltonian has a d-component displacement vector.</strong> The field u<sub>n</sub> at each lattice site is a vector in &Ropf;<sup>d</sup>. In the Fourier representation (wave modes), each mode Q<sub>k</sub> is a <em>complex</em> d-component vector in &Copf;<sup>d</sup>. The symmetry group of d complex components is <strong class="mono">U(d) = SU(d)&nbsp;&times;&nbsp;U(1)</strong>.</div>
           </div>
 
           <div class="calc-step">
@@ -1363,8 +1363,8 @@
                 </thead>
                 <tbody>
                   <tr><td><strong>Longitudinal</strong> (u &parallel; k&#x0302;)</td><td class="formula">1</td><td><strong>U(1)</strong></td><td>Electromagnetism</td></tr>
-                  <tr><td><strong>Transverse</strong> (u &perp; k&#x0302;)</td><td class="formula">d&minus;1 = 2</td><td><strong>SU(d&minus;1) = SU(2)</strong></td><td>Weak force</td></tr>
-                  <tr><td><strong>All components</strong> (confined)</td><td class="formula">d = 3</td><td><strong>SU(d) = SU(3)</strong></td><td>Strong force</td></tr>
+                  <tr><td><strong>Transverse</strong> (u &perp; k&#x0302;)</td><td class="formula">d&minus;1 = 2</td><td class="mono"><strong class="mono">SU(d&minus;1) = SU(2)</strong></td><td>Weak force</td></tr>
+                  <tr><td><strong>All components</strong> (confined)</td><td class="formula">d = 3</td><td class="mono"><strong class="mono">SU(d) = SU(3)</strong></td><td>Strong force</td></tr>
                 </tbody>
               </table><br>
               The longitudinal mode has one complex phase &rarr; U(1). The transverse modes can rotate into each other &rarr; SU(d&minus;1). When all d components mix (confinement regime), the full SU(d) acts.</div>
@@ -1376,13 +1376,13 @@
               <span style="font-family:var(--font-mono);">SU(d): d&sup2;&minus;1 = 8 generators &rarr; 8 gluons</span><br>
               <span style="font-family:var(--font-mono);">SU(d&minus;1): (d&minus;1)&sup2;&minus;1 = 3 generators &rarr; W<sup>+</sup>, W<sup>&minus;</sup>, Z</span><br>
               <span style="font-family:var(--font-mono);">U(1): 1 generator &rarr; photon</span><br><br>
-              <strong>Total: d&sup2;&minus;1 + (d&minus;1)&sup2;&minus;1 + 1 = d(d+1) = 12 gauge bosons</strong><br><br>
+              <strong class="mono">Total: d&sup2;&minus;1 + (d&minus;1)&sup2;&minus;1 + 1 = d(d+1) = 12 gauge bosons</strong><br><br>
               For d&nbsp;=&nbsp;3: 8 + 3 + 1 = 12 = 3&nbsp;&times;&nbsp;4. This is the exact gauge boson content of the Standard Model.</div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">4</div>
-            <div><strong>Why d = 3 is unique.</strong> The Standard Model gauge group requires exactly SU(3)&nbsp;&times;&nbsp;SU(2)&nbsp;&times;&nbsp;U(1). This only works for d&nbsp;=&nbsp;3:<br><br>
+            <div><strong class="mono">Why d = 3 is unique.</strong> The Standard Model gauge group requires exactly SU(3)&nbsp;&times;&nbsp;SU(2)&nbsp;&times;&nbsp;U(1). This only works for d&nbsp;=&nbsp;3:<br><br>
               <table class="dict-table" style="margin:0;">
                 <thead>
                   <tr><th>d</th><th>Gauge Group</th><th>Bosons</th><th>Problem</th></tr>
@@ -1390,19 +1390,19 @@
                 <tbody>
                   <tr><td>1</td><td>U(1)</td><td>1</td><td>No weak or strong force</td></tr>
                   <tr><td>2</td><td>SU(2)&times;U(1)&times;U(1)</td><td>6</td><td>No strong force, extra U(1)</td></tr>
-                  <tr style="background:rgba(0,255,136,0.06);"><td><strong>3</strong></td><td><strong>SU(3)&times;SU(2)&times;U(1)</strong></td><td><strong>12</strong></td><td><strong>Matches the Standard Model exactly</strong></td></tr>
+                  <tr style="background:rgba(0,255,136,0.06);"><td><strong>3</strong></td><td><strong class="mono">SU(3)&times;SU(2)&times;U(1)</strong></td><td><strong>12</strong></td><td><strong>Matches the Standard Model exactly</strong></td></tr>
                   <tr><td>4</td><td>SU(4)&times;SU(3)&times;U(1)</td><td>20</td><td>Extra SU(4) force (not observed)</td></tr>
                 </tbody>
               </table><br>
-              <strong>d = 3 is the unique dimensionality</strong> that produces exactly the observed gauge group. This is not tuned &mdash; it follows from the fact that the displacement vector has d components and propagation picks one direction.</div>
+              <strong class="mono">d = 3 is the unique dimensionality</strong> that produces exactly the observed gauge group. This is not tuned &mdash; it follows from the fact that the displacement vector has d components and propagation picks one direction.</div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">5</div>
             <div><strong>Connection to breather count.</strong> The 24 breather states (&sect;4) factorize as d&nbsp;&times;&nbsp;(d&sup2;&minus;1)&nbsp;=&nbsp;3&nbsp;&times;&nbsp;8. Now we can see why:<br><br>
               <ul>
-                <li><strong>d = 3 axes</strong> &rarr; 3 generations (one set of breathers per spatial axis)</li>
-                <li><strong>d&sup2;&minus;1 = 8 types per generation</strong> &rarr; matches SU(d)&rsquo;s 8 generators</li>
+                <li><strong class="mono">d = 3 axes</strong> &rarr; 3 generations (one set of breathers per spatial axis)</li>
+                <li><strong class="mono">d&sup2;&minus;1 = 8 types per generation</strong> &rarr; matches SU(d)&rsquo;s 8 generators</li>
               </ul>
               The Hamiltonian decouples into d independent 1D sine-Gordon chains (central-force limit). Each chain produces its own breather spectrum. The d = 3 axes give 3 copies of each breather type &mdash; <strong>three generations</strong>. The 8 types per axis match the SU(3) representation structure.</div>
           </div>
@@ -1438,9 +1438,9 @@
                 <tbody>
                   <tr><td><strong>1D longitudinal</strong></td><td>u &parallel; k&#x0302;, BZ edge</td><td>Electron (e, &mu;, &tau;)</td><td>Lightest (1D breather)</td></tr>
                   <tr><td><strong>1D transverse</strong></td><td>u &perp; k&#x0302;, along one axis</td><td>Neutrinos (&nu;<sub>e</sub>, &nu;<sub>&mu;</sub>, &nu;<sub>&tau;</sub>)</td><td>Lightest (weak coupling only)</td></tr>
-                  <tr><td><strong>3D spherical j<sub>0</sub></strong></td><td>sin(kr)/(kr)</td><td>Proton / neutron</td><td>6&pi;<sup>5</sup> &times; m<sub>e</sub> (mode density ratio)</td></tr>
-                  <tr><td><strong>Kink (topological)</strong></td><td>Domain wall</td><td>Planck-mass defect</td><td>M<sub>kink</sub> = 8/&pi;&sup2;</td></tr>
-                  <tr><td><strong>Breather (n = 1&hellip;24)</strong></td><td>Bound oscillation</td><td>Fermion spectrum</td><td>M<sub>n</sub> = (16/&pi;&sup2;)sin(n&gamma;)</td></tr>
+                  <tr><td><strong class="mono">3D spherical j<sub>0</sub></strong></td><td class="mono">sin(kr)/(kr)</td><td>Proton / neutron</td><td class="mono">6&pi;<sup>5</sup> &times; m<sub>e</sub> (mode density ratio)</td></tr>
+                  <tr><td><strong>Kink (topological)</strong></td><td>Domain wall</td><td>Planck-mass defect</td><td class="mono">M<sub>kink</sub> = 8/&pi;&sup2;</td></tr>
+                  <tr><td class="mono"><strong class="mono">Breather (n = 1&hellip;24)</strong></td><td>Bound oscillation</td><td>Fermion spectrum</td><td class="mono">M<sub>n</sub> = (16/&pi;&sup2;)sin(n&gamma;)</td></tr>
                 </tbody>
               </table></div>
           </div>
@@ -1517,11 +1517,11 @@
 
           <div class="calc-step">
             <div class="calc-num">3</div>
-            <div><strong>Isotropy determines &kappa;.</strong> For the speed of light to be the same in all directions (isotropy), the elastic constants must satisfy:<br><br>
+            <div><strong class="mono">Isotropy determines &kappa;.</strong> For the speed of light to be the same in all directions (isotropy), the elastic constants must satisfy:<br><br>
               <span style="font-family:var(--font-mono);">C<sub>11</sub> &minus; C<sub>12</sub> = 2C<sub>44</sub></span> &nbsp;&nbsp;(the isotropy condition)<br><br>
               Substituting: (k + 4&kappa;)/a &minus; 2&kappa;/a = 2 &times; 2&kappa;/a<br>
               &rarr; k + 2&kappa; = 4&kappa;<br>
-              &rarr; <strong>&kappa; = k/2</strong><br><br>
+              &rarr; <strong class="mono">&kappa; = k/2</strong><br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green); font-size:1.1rem;">&kappa; = k/2 = 1/2 in lattice units</span><br><br>
               The transverse coupling is <strong>exactly half</strong> the longitudinal coupling. This is not a free parameter &mdash; it is <em>required</em> by isotropy.</div>
           </div>
@@ -1567,10 +1567,10 @@
           </div>
 
           <div class="calc-result">
-            <strong>The transverse coupling is derived: &kappa; = k/2.</strong><br><br>
+            <strong class="mono">The transverse coupling is derived: &kappa; = k/2.</strong><br><br>
             Isotropy (speed of light = constant in all directions) uniquely determines the 2NN coupling as half the NN coupling. The full GWT Hamiltonian has <strong>zero free parameters</strong>:<br><br>
             <ul>
-              <li>NN cosine coupling: k = 1 (the lattice spring constant, = 1 in lattice units)</li>
+              <li>NN cosine coupling: <span class="mono">k = 1</span> (the lattice spring constant, = 1 in lattice units)</li>
               <li>2NN cosine coupling: &kappa; = 1/2 (from isotropy)</li>
               <li>Cosine potential shape: unique (from Brillouin cutoff, &sect;1)</li>
               <li>Lattice geometry: simple cubic (from d = 3)</li>
@@ -1592,30 +1592,30 @@
               <tr><th>n</th><th>M<sub>n</sub> (Planck)</th><th>M<sub>n</sub>/M<sub>1</sub></th><th>If M<sub>1</sub>&nbsp;=&nbsp;m<sub>e</sub> (MeV)</th><th>Closest match</th></tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td class="planck">0.1054</td><td>1.000</td><td>0.511</td><td><strong>Electron</strong> (exact, by definition)</td></tr>
-              <tr><td>2</td><td class="planck">0.2104</td><td>1.996</td><td>1.020</td><td>&mdash;</td></tr>
-              <tr><td>3</td><td class="planck">0.3146</td><td>2.983</td><td>1.524</td><td>&mdash;</td></tr>
-              <tr><td>4</td><td class="planck">0.4173</td><td>3.958</td><td>2.022</td><td>u quark (2.16 MeV, 6% off)</td></tr>
-              <tr><td>5</td><td class="planck">0.5183</td><td>4.916</td><td>2.512</td><td>&mdash;</td></tr>
-              <tr><td>6</td><td class="planck">0.6171</td><td>5.853</td><td>2.991</td><td>&mdash;</td></tr>
-              <tr><td>7</td><td class="planck">0.7133</td><td>6.765</td><td>3.457</td><td>&mdash;</td></tr>
-              <tr><td>8</td><td class="planck">0.8065</td><td>7.649</td><td>3.909</td><td>&mdash;</td></tr>
-              <tr><td>9</td><td class="planck">0.8963</td><td>8.500</td><td>4.344</td><td>d quark (4.67 MeV, 7% off)</td></tr>
-              <tr><td>10</td><td class="planck">0.9823</td><td>9.315</td><td>4.760</td><td>d quark (4.67 MeV, 1.9% off)</td></tr>
-              <tr><td>11</td><td class="planck">1.0641</td><td>10.09</td><td>5.157</td><td>&mdash;</td></tr>
-              <tr><td>12</td><td class="planck">1.1414</td><td>10.82</td><td>5.531</td><td>&mdash;</td></tr>
-              <tr><td>13</td><td class="planck">1.2138</td><td>11.51</td><td>5.882</td><td>&mdash;</td></tr>
-              <tr><td>14</td><td class="planck">1.2811</td><td>12.15</td><td>6.209</td><td>&mdash;</td></tr>
-              <tr><td>15</td><td class="planck">1.3430</td><td>12.74</td><td>6.509</td><td>&mdash;</td></tr>
-              <tr><td>16</td><td class="planck">1.3993</td><td>13.27</td><td>6.781</td><td>&mdash;</td></tr>
-              <tr><td>17</td><td class="planck">1.4495</td><td>13.75</td><td>7.025</td><td>&mdash;</td></tr>
-              <tr><td>18</td><td class="planck">1.4937</td><td>14.17</td><td>7.239</td><td>&mdash;</td></tr>
-              <tr><td>19</td><td class="planck">1.5315</td><td>14.52</td><td>7.422</td><td>&mdash;</td></tr>
-              <tr><td>20</td><td class="planck">1.5628</td><td>14.82</td><td>7.574</td><td>&mdash;</td></tr>
-              <tr><td>21</td><td class="planck">1.5876</td><td>15.06</td><td>7.693</td><td>&mdash;</td></tr>
-              <tr><td>22</td><td class="planck">1.6055</td><td>15.23</td><td>7.781</td><td>&mdash;</td></tr>
-              <tr><td>23</td><td class="planck">1.6167</td><td>15.33</td><td>7.835</td><td>&mdash;</td></tr>
-              <tr><td>24</td><td class="planck">1.6211</td><td>15.37</td><td>7.856</td><td>Approaches 2M<sub>kink</sub> (pair threshold)</td></tr>
+              <tr><td>1</td><td class="planck">0.1054</td><td class="mono">1.000</td><td class="mono">0.511</td><td><strong>Electron</strong> (exact, by definition)</td></tr>
+              <tr><td>2</td><td class="planck">0.2104</td><td class="mono">1.996</td><td class="mono">1.020</td><td>&mdash;</td></tr>
+              <tr><td>3</td><td class="planck">0.3146</td><td class="mono">2.983</td><td class="mono">1.524</td><td>&mdash;</td></tr>
+              <tr><td>4</td><td class="planck">0.4173</td><td class="mono">3.958</td><td class="mono">2.022</td><td class="mono">u quark (2.16 MeV, 6% off)</td></tr>
+              <tr><td>5</td><td class="planck">0.5183</td><td class="mono">4.916</td><td class="mono">2.512</td><td>&mdash;</td></tr>
+              <tr><td>6</td><td class="planck">0.6171</td><td class="mono">5.853</td><td class="mono">2.991</td><td>&mdash;</td></tr>
+              <tr><td>7</td><td class="planck">0.7133</td><td class="mono">6.765</td><td class="mono">3.457</td><td>&mdash;</td></tr>
+              <tr><td>8</td><td class="planck">0.8065</td><td class="mono">7.649</td><td class="mono">3.909</td><td>&mdash;</td></tr>
+              <tr><td>9</td><td class="planck">0.8963</td><td class="mono">8.500</td><td class="mono">4.344</td><td class="mono">d quark (4.67 MeV, 7% off)</td></tr>
+              <tr><td>10</td><td class="planck">0.9823</td><td class="mono">9.315</td><td class="mono">4.760</td><td class="mono">d quark (4.67 MeV, 1.9% off)</td></tr>
+              <tr><td>11</td><td class="planck">1.0641</td><td class="mono">10.09</td><td class="mono">5.157</td><td>&mdash;</td></tr>
+              <tr><td>12</td><td class="planck">1.1414</td><td class="mono">10.82</td><td class="mono">5.531</td><td>&mdash;</td></tr>
+              <tr><td>13</td><td class="planck">1.2138</td><td class="mono">11.51</td><td class="mono">5.882</td><td>&mdash;</td></tr>
+              <tr><td>14</td><td class="planck">1.2811</td><td class="mono">12.15</td><td class="mono">6.209</td><td>&mdash;</td></tr>
+              <tr><td>15</td><td class="planck">1.3430</td><td class="mono">12.74</td><td class="mono">6.509</td><td>&mdash;</td></tr>
+              <tr><td>16</td><td class="planck">1.3993</td><td class="mono">13.27</td><td class="mono">6.781</td><td>&mdash;</td></tr>
+              <tr><td>17</td><td class="planck">1.4495</td><td class="mono">13.75</td><td class="mono">7.025</td><td>&mdash;</td></tr>
+              <tr><td>18</td><td class="planck">1.4937</td><td class="mono">14.17</td><td class="mono">7.239</td><td>&mdash;</td></tr>
+              <tr><td>19</td><td class="planck">1.5315</td><td class="mono">14.52</td><td class="mono">7.422</td><td>&mdash;</td></tr>
+              <tr><td>20</td><td class="planck">1.5628</td><td class="mono">14.82</td><td class="mono">7.574</td><td>&mdash;</td></tr>
+              <tr><td>21</td><td class="planck">1.5876</td><td class="mono">15.06</td><td class="mono">7.693</td><td>&mdash;</td></tr>
+              <tr><td>22</td><td class="planck">1.6055</td><td class="mono">15.23</td><td class="mono">7.781</td><td>&mdash;</td></tr>
+              <tr><td>23</td><td class="planck">1.6167</td><td class="mono">15.33</td><td class="mono">7.835</td><td>&mdash;</td></tr>
+              <tr><td>24</td><td class="planck">1.6211</td><td class="mono">15.37</td><td class="mono">7.856</td><td>Approaches 2M<sub>kink</sub> (pair threshold)</td></tr>
             </tbody>
           </table>
 
@@ -1629,14 +1629,14 @@
             <div><strong>Within-generation matches.</strong> If M<sub>1</sub>&nbsp;=&nbsp;electron (0.511 MeV), the breather spectrum reaches up to ~7.9 MeV. Two first-generation quarks sit in this range:<br><br>
               <ul>
                 <li><strong>Up quark</strong> (2.16 MeV): n&nbsp;=&nbsp;4 gives 2.02 MeV &mdash; <strong>6% off</strong></li>
-                <li><strong>Down quark</strong> (4.67 MeV): n&nbsp;=&nbsp;10 gives 4.76 MeV &mdash; <strong>1.9% off</strong></li>
+                <li><strong>Down quark</strong> (4.67 MeV): n&nbsp;=&nbsp;10 gives 4.76 MeV &mdash; <strong class="mono">1.9% off</strong></li>
               </ul>
               These are current quark masses (scale-dependent), so exact matches aren&rsquo;t expected. But the <em>order</em> is right: the 1D breather spectrum naturally produces masses in the 1&ndash;8 MeV range from a single electron-scale input.</div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">3</div>
-            <div><strong>The generation problem: max ratio = 15.4, but m<sub>&mu;</sub>/m<sub>e</sub> = 207.</strong> The most important lesson from this table: the 1D breather spectrum <em>cannot</em> explain the mass splitting between generations. The muon is 207&times; heavier than the electron; the tau is 3477&times; heavier. The maximum 1D ratio is only 15.4.<br><br>
+            <div><strong class="mono">The generation problem: max ratio = 15.4, but m<sub>&mu;</sub>/m<sub>e</sub> = 207.</strong> The most important lesson from this table: the 1D breather spectrum <em>cannot</em> explain the mass splitting between generations. The muon is 207&times; heavier than the electron; the tau is 3477&times; heavier. The maximum 1D ratio is only 15.4.<br><br>
               This rules out the hypothesis that e, &mu;, &tau; are different breather modes of the same 1D chain. <strong>Generation mass splitting must come from the 3D structure.</strong></div>
           </div>
 
@@ -1653,7 +1653,7 @@
             <div><strong>Symmetry breaking and the Koide relation.</strong> The Koide formula states:<br><br>
               <span style="font-family:var(--font-mono);">Q = (m<sub>e</sub> + m<sub>&mu;</sub> + m<sub>&tau;</sub>) / (&radic;m<sub>e</sub> + &radic;m<sub>&mu;</sub> + &radic;m<sub>&tau;</sub>)&sup2; = 2/3 &nbsp;(0.0008% exact)</span><br><br>
               This holds whenever &radic;m<sub>i</sub>&nbsp;=&nbsp;a(1&nbsp;+&nbsp;&radic;2&nbsp;cos(2&pi;i/3&nbsp;+&nbsp;&delta;)) &mdash; a Z<sub>3</sub> rotation in &radic;mass space. The cubic lattice has Z<sub>3</sub>&nbsp;&sub;&nbsp;S<sub>3</sub> as a subgroup (120&deg; rotations of the three axes). The Koide relation would follow if the symmetry-breaking pattern preserves the Z<sub>3</sub> cyclic structure while breaking the full S<sub>3</sub>.<br><br>
-              The phase &delta; encodes the mass hierarchy: for charged leptons, &delta;&nbsp;&asymp;&nbsp;0.222 rad gives the observed e/&mu;/&tau; masses. This is derived in &sect;21: <strong>&delta;&nbsp;=&nbsp;2/d&sup2;&nbsp;=&nbsp;2/9&nbsp;=&nbsp;0.2222</strong> (0.022% match), from the phase budget per inter-axis coupling element.</div>
+              The phase &delta; encodes the mass hierarchy: for charged leptons, &delta;&nbsp;&asymp;&nbsp;0.222 rad gives the observed e/&mu;/&tau; masses. This is derived in &sect;21: <strong class="mono">&delta;&nbsp;=&nbsp;2/d&sup2;&nbsp;=&nbsp;2/9&nbsp;=&nbsp;0.2222</strong> (0.022% match), from the phase budget per inter-axis coupling element.</div>
           </div>
 
           <div class="calc-step">
@@ -1732,15 +1732,15 @@
 
           <div class="calc-step">
             <div class="calc-num">4</div>
-            <div><strong>The coupling ratio: |b| = 1/&radic;2 from the spring constants.</strong> The diagonal M<sub>0</sub> is the 1D breather self-energy, set by the NN coupling k. The off-diagonal |b| is the <strong>wave amplitude</strong> coupling between axes, transmitted through the 2NN (face-diagonal) bonds with strength &kappa;&nbsp;=&nbsp;k/2 (&sect;19).<br><br>
+            <div><strong class="mono">The coupling ratio: |b| = 1/&radic;2 from the spring constants.</strong> The diagonal M<sub>0</sub> is the 1D breather self-energy, set by the NN coupling k. The off-diagonal |b| is the <strong>wave amplitude</strong> coupling between axes, transmitted through the 2NN (face-diagonal) bonds with strength &kappa;&nbsp;=&nbsp;k/2 (&sect;19).<br><br>
               In wave mechanics, the <em>amplitude</em> coupling is the square root of the intensity coupling (&sect;14):<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green); font-size:1.1rem;">|b| = &radic;(&kappa;/k) = &radic;(1/2) = 1/&radic;2</span><br><br>
-              This is the same amplitude-vs-intensity pattern that gives T&sup2; for attenuation (&sect;14) and &alpha; from tunneling (&sect;12). <strong>The inter-axis coupling magnitude is uniquely determined by the isotropy condition &kappa;&nbsp;=&nbsp;k/2.</strong></div>
+              This is the same amplitude-vs-intensity pattern that gives T&sup2; for attenuation (&sect;14) and &alpha; from tunneling (&sect;12). <strong class="mono">The inter-axis coupling magnitude is uniquely determined by the isotropy condition &kappa;&nbsp;=&nbsp;k/2.</strong></div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">5</div>
-            <div><strong>Plugging in: Q = 2/3.</strong><br><br>
+            <div><strong class="mono">Plugging in: Q = 2/3.</strong><br><br>
               <span style="font-family:var(--font-mono); font-size:1.15rem;">
               Q = (1 + 2 &times; (1/&radic;2)&sup2;) / 3 = (1 + 2 &times; 1/2) / 3 = (1 + 1) / 3 = <strong style="color:var(--accent-green);">2/3</strong>
               </span><br><br>
@@ -1751,9 +1751,9 @@
 
           <div class="calc-step">
             <div class="calc-num">6</div>
-            <div><strong>The Koide phase: &delta; = 2/d&sup2;.</strong> The Koide parametrization writes &radic;m<sub>k</sub>&nbsp;=&nbsp;a(1&nbsp;+&nbsp;&radic;2&nbsp;cos(2&pi;k/3&nbsp;+&nbsp;&delta;)). The observed lepton masses give &delta;<sub>obs</sub>&nbsp;=&nbsp;0.22227 rad. Candidate formula from d:<br><br>
+            <div><strong class="mono">The Koide phase: &delta; = 2/d&sup2;.</strong> The Koide parametrization writes &radic;m<sub>k</sub>&nbsp;=&nbsp;a(1&nbsp;+&nbsp;&radic;2&nbsp;cos(2&pi;k/3&nbsp;+&nbsp;&delta;)). The observed lepton masses give &delta;<sub>obs</sub>&nbsp;=&nbsp;0.22227 rad. Candidate formula from d:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green); font-size:1.1rem;">&delta; = 2/d&sup2; = 2/9 = 0.22222&hellip;</span><br><br>
-              Match: <strong>0.022% off the observed value.</strong><br><br>
+              Match: <strong class="mono">0.022% off the observed value.</strong><br><br>
               Physical meaning: 2/d&sup2; = 2/(number of face-diagonal bond planes). The d&sup2; = 9 face-diagonal pairs span a d&times;d matrix of inter-axis couplings. The total phase budget is 2 radians (one full oscillation cycle of the cosine potential from 0 to 2&pi;, projected: 2/&pi; &times; &pi; = 2). Phase per element = 2/d&sup2;.</div>
           </div>
 
@@ -1765,12 +1765,12 @@
                   <tr><th>Lepton</th><th>k</th><th>Predicted (MeV)</th><th>Observed (MeV)</th><th>Error</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>&tau;</td><td>0</td><td>1776.88</td><td>1776.86</td><td><strong>0.001%</strong></td></tr>
-                  <tr><td>e</td><td>1</td><td>0.5110</td><td>0.5110</td><td><strong>0.01%</strong></td></tr>
-                  <tr><td>&mu;</td><td>2</td><td>105.653</td><td>105.658</td><td><strong>0.005%</strong></td></tr>
+                  <tr><td>&tau;</td><td>0</td><td class="mono">1776.88</td><td class="mono">1776.86</td><td class="mono"><strong class="mono">0.001%</strong></td></tr>
+                  <tr><td>e</td><td>1</td><td class="mono">0.5110</td><td class="mono">0.5110</td><td class="mono"><strong class="mono">0.01%</strong></td></tr>
+                  <tr><td>&mu;</td><td>2</td><td class="mono">105.653</td><td class="mono">105.658</td><td class="mono"><strong class="mono">0.005%</strong></td></tr>
                 </tbody>
               </table><br>
-              <strong>All three charged lepton masses predicted from d = 3 and one input mass, to within 0.01%.</strong></div>
+              <strong class="mono">All three charged lepton masses predicted from d = 3 and one input mass, to within 0.01%.</strong></div>
           </div>
 
           <div class="calc-step">
@@ -1781,13 +1781,13 @@
                   <tr><th>Step</th><th>Result</th><th>Source</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>1</td><td>Cubic lattice has S<sub>3</sub> permutation symmetry</td><td>d = 3 axes</td></tr>
+                  <tr><td>1</td><td>Cubic lattice has S<sub>3</sub> permutation symmetry</td><td class="mono">d = 3 axes</td></tr>
                   <tr><td>2</td><td>Z<sub>3</sub> &sub; S<sub>3</sub> gives circulant mass matrix</td><td>Cyclic subgroup</td></tr>
                   <tr><td>3</td><td>Isotropy requires &kappa; = k/2</td><td>&sect;19</td></tr>
                   <tr><td>4</td><td>Amplitude coupling |b| = &radic;(&kappa;/k) = 1/&radic;2</td><td>Wave mechanics (&sect;14)</td></tr>
-                  <tr><td>5</td><td>Q = (1 + 2|b|&sup2;)/3 = 2/3</td><td>Steps 2 + 4</td></tr>
+                  <tr><td>5</td><td class="mono">Q = (1 + 2|b|&sup2;)/3 = 2/3</td><td>Steps 2 + 4</td></tr>
                   <tr><td>6</td><td>&delta; = 2/d&sup2; = 2/9</td><td>Phase per coupling element</td></tr>
-                  <tr><td>7</td><td>m<sub>e</sub>, m<sub>&mu;</sub>, m<sub>&tau;</sub> all to &lt;0.01%</td><td>Steps 5 + 6 + one input</td></tr>
+                  <tr><td>7</td><td class="mono">m<sub>e</sub>, m<sub>&mu;</sub>, m<sub>&tau;</sub> all to &lt;0.01%</td><td>Steps 5 + 6 + one input</td></tr>
                 </tbody>
               </table></div>
           </div>
@@ -1795,9 +1795,9 @@
           <div class="calc-result">
             <strong>The Koide relation is derived from the GWT Hamiltonian.</strong><br><br>
             <ul>
-              <li><strong>Q = 2/3</strong> = (d&minus;1)/d = (C<sub>11</sub>&minus;C<sub>12</sub>)/C<sub>11</sub> = shear fraction of total stiffness &mdash; <span class="derived-tag tag-derived">DERIVED</span></li>
-              <li><strong>&delta; = 2/d&sup2; = 2/9</strong> = phase per inter-axis coupling element (0.022% match) &mdash; <span class="derived-tag tag-derived">DERIVED</span></li>
-              <li><strong>All 3 lepton masses to &lt;0.01%</strong> from d = 3 + one input &mdash; <span class="derived-tag tag-derived">DERIVED</span></li>
+              <li><strong class="mono">Q = 2/3</strong> = (d&minus;1)/d = (C<sub>11</sub>&minus;C<sub>12</sub>)/C<sub>11</sub> = shear fraction of total stiffness &mdash; <span class="derived-tag tag-derived">DERIVED</span></li>
+              <li><strong class="mono">&delta; = 2/d&sup2; = 2/9</strong> = phase per inter-axis coupling element (0.022% match) &mdash; <span class="derived-tag tag-derived">DERIVED</span></li>
+              <li><strong class="mono">All 3 lepton masses to &lt;0.01%</strong> from d = 3 + one input &mdash; <span class="derived-tag tag-derived">DERIVED</span></li>
             </ul>
             <p>The Koide formula is not numerology. It is a direct consequence of:</p>
             <ol>
@@ -1833,7 +1833,7 @@
 
           <div class="calc-step">
             <div class="calc-num">2</div>
-            <div><strong>Compactness = charge quantization.</strong> The cosine function is periodic: cos(&pi;&Delta;u) = cos(&pi;(&Delta;u&nbsp;+&nbsp;2)). Physically, a displacement of 2a (two lattice spacings) returns the medium to its original configuration. This periodicity makes the gauge group <strong>compact</strong>.<br><br>
+            <div><strong class="mono">Compactness = charge quantization.</strong> The cosine function is periodic: cos(&pi;&Delta;u) = cos(&pi;(&Delta;u&nbsp;+&nbsp;2)). Physically, a displacement of 2a (two lattice spacings) returns the medium to its original configuration. This periodicity makes the gauge group <strong>compact</strong>.<br><br>
               Compact gauge groups have profound consequences:
               <ul>
                 <li><strong>Quantized charges</strong>: the winding number of &Delta;u around a loop must be an integer. This is why electric charge comes in multiples of e.</li>
@@ -1849,8 +1849,8 @@
               <span style="font-family:var(--font-mono);">V<sub>2NN</sub> = (&kappa;/&pi;&sup2;)(1 &minus; cos(&pi;(&Delta;u<sub>i</sub> + &Delta;u<sub>j</sub>)/&radic;2))</span><br><br>
               The argument (&Delta;u<sub>i</sub>&nbsp;+&nbsp;&Delta;u<sub>j</sub>)/&radic;2 is a <strong>linear combination of different components</strong>. This mixing promotes the abelian symmetry to non-abelian:<br>
               <ul>
-                <li>Mixing of d&minus;1 transverse components &rarr; <strong>SU(d&minus;1) = SU(2)</strong></li>
-                <li>Mixing of all d components &rarr; <strong>SU(d) = SU(3)</strong></li>
+                <li>Mixing of d&minus;1 transverse components &rarr; <strong class="mono">SU(d&minus;1) = SU(2)</strong></li>
+                <li>Mixing of all d components &rarr; <strong class="mono">SU(d) = SU(3)</strong></li>
                 <li>The unmixed longitudinal component &rarr; <strong>U(1)</strong></li>
               </ul>
               The non-abelian structure is a direct consequence of the transverse coupling &kappa;&nbsp;=&nbsp;k/2.</div>
@@ -1887,17 +1887,17 @@
                   <tr><th>Gauge Theory</th><th>Lattice Wave Mechanics</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Gauge potential A<sub>&mu;</sub></td><td>Displacement gradient &part;<sub>&mu;</sub>u</td></tr>
-                  <tr><td>Field strength F<sub>&mu;&nu;</sub></td><td>Strain incompatibility (dislocation density)</td></tr>
+                  <tr><td class="mono">Gauge potential A<sub>&mu;</sub></td><td>Displacement gradient &part;<sub>&mu;</sub>u</td></tr>
+                  <tr><td class="mono">Field strength F<sub>&mu;&nu;</sub></td><td>Strain incompatibility (dislocation density)</td></tr>
                   <tr><td>Gauge coupling g</td><td>&pi; (from cosine argument)</td></tr>
-                  <tr><td>Wilson link U = e<sup>igA&delta;</sup></td><td>e<sup>i&pi;&Delta;u</sup> (phase across one bond)</td></tr>
+                  <tr><td class="mono">Wilson link U = e<sup>igA&delta;</sup></td><td class="mono">e<sup>i&pi;&Delta;u</sup> (phase across one bond)</td></tr>
                   <tr><td>Wilson plaquette</td><td>Phase around a lattice face</td></tr>
                   <tr><td>Compact gauge group</td><td>Periodic cosine potential</td></tr>
                   <tr><td>Charge quantization</td><td>Integer winding number</td></tr>
                   <tr><td>Confinement</td><td>Cosine barrier trapping (kink confinement)</td></tr>
                   <tr><td>Monopoles / instantons</td><td>Kinks / topological defects</td></tr>
                   <tr><td>Gauge boson self-interaction</td><td>Cosine nonlinearity (x<sup>4</sup>, x<sup>6</sup>, &hellip;)</td></tr>
-                  <tr><td>UV cutoff / regularization</td><td>Lattice spacing a = 1</td></tr>
+                  <tr><td>UV cutoff / regularization</td><td class="mono">Lattice spacing a = 1</td></tr>
                 </tbody>
               </table></div>
           </div>
@@ -1942,9 +1942,9 @@
 
           <table>
             <tr><th>u<sub>0</sub></th><th>E<sub>init</sub></th><th>E<sub>center</sub>(t=50) / E<sub>total</sub></th><th>Localized?</th></tr>
-            <tr><td>0.1</td><td>0.0099</td><td>6.4%</td><td>NO</td></tr>
-            <tr><td>0.5</td><td>0.2026</td><td>6.1%</td><td>NO</td></tr>
-            <tr><td>1.0</td><td>0.4053</td><td>8.5%</td><td>NO</td></tr>
+            <tr><td class="mono">0.1</td><td class="mono">0.0099</td><td class="mono">6.4%</td><td>NO</td></tr>
+            <tr><td class="mono">0.5</td><td class="mono">0.2026</td><td class="mono">6.1%</td><td>NO</td></tr>
+            <tr><td class="mono">1.0</td><td class="mono">0.4053</td><td class="mono">8.5%</td><td>NO</td></tr>
           </table>
 
           <h3>23.2 &mdash; Kink-Antikink Pairs: Topological Stability</h3>
@@ -1964,27 +1964,27 @@
 
           <table>
             <tr><th>w</th><th>E / M<sub>kink</sub></th><th>E / (w&sup2; M<sub>kink</sub>)</th><th>Formula</th></tr>
-            <tr><td>1</td><td>1</td><td>1.000</td><td>1&times;2/2</td></tr>
-            <tr><td>2</td><td>5</td><td>1.250</td><td>2&times;5/2</td></tr>
-            <tr><td>3</td><td><strong>12</strong></td><td><strong>4/3</strong></td><td>3&times;8/2</td></tr>
-            <tr><td>4</td><td>22</td><td>1.375</td><td>4&times;11/2</td></tr>
-            <tr><td>5</td><td>35</td><td>1.400</td><td>5&times;14/2</td></tr>
+            <tr><td>1</td><td>1</td><td class="mono">1.000</td><td class="mono">1&times;2/2</td></tr>
+            <tr><td>2</td><td>5</td><td class="mono">1.250</td><td class="mono">2&times;5/2</td></tr>
+            <tr><td>3</td><td><strong>12</strong></td><td><strong>4/3</strong></td><td class="mono">3&times;8/2</td></tr>
+            <tr><td>4</td><td>22</td><td class="mono">1.375</td><td class="mono">4&times;11/2</td></tr>
+            <tr><td>5</td><td>35</td><td class="mono">1.400</td><td class="mono">5&times;14/2</td></tr>
           </table>
 
           <div class="calc-result">
-            <strong>E(w) = M<sub>kink</sub> &times; w(3w&minus;1)/2</strong> &nbsp;&mdash;&nbsp; the <strong>pentagonal number</strong> sequence, with coefficient <strong>d&nbsp;=&nbsp;3</strong>.<br><br>
-            Second differences are <strong>exactly 3</strong>. At w&nbsp;=&nbsp;d&nbsp;=&nbsp;3: E/(w&sup2;M<sub>kink</sub>) = <strong>4/3 = (d+1)/d</strong>.
+            <strong class="mono">E(w) = M<sub>kink</sub> &times; w(3w&minus;1)/2</strong> &nbsp;&mdash;&nbsp; the <strong>pentagonal number</strong> sequence, with coefficient <strong class="mono">d&nbsp;=&nbsp;3</strong>.<br><br>
+            Second differences are <strong>exactly 3</strong>. At w&nbsp;=&nbsp;d&nbsp;=&nbsp;3: E/(w&sup2;M<sub>kink</sub>) = <strong class="mono">4/3 = (d+1)/d</strong>.
           </div>
 
           <h3>23.4 &mdash; Stability: w&nbsp;=&nbsp;3 is Special</h3>
 
-          <p>Time evolution of 3D cubic kinks shows that <strong>w&nbsp;=&nbsp;3</strong> (= d) is the most dynamically stable configuration:</p>
+          <p>Time evolution of 3D cubic kinks shows that <strong class="mono">w&nbsp;=&nbsp;3</strong> (= d) is the most dynamically stable configuration:</p>
 
           <table>
             <tr><th>w</th><th>E<sub>0</sub></th><th>Localized fraction at t&nbsp;=&nbsp;30</th></tr>
-            <tr><td>1</td><td>0.811</td><td>28%</td></tr>
-            <tr><td>2</td><td>4.053</td><td>40%</td></tr>
-            <tr><td><strong>3</strong></td><td><strong>9.727</strong></td><td><strong>60%</strong></td></tr>
+            <tr><td>1</td><td class="mono">0.811</td><td>28%</td></tr>
+            <tr><td>2</td><td class="mono">4.053</td><td>40%</td></tr>
+            <tr><td><strong>3</strong></td><td class="mono"><strong class="mono">9.727</strong></td><td><strong>60%</strong></td></tr>
           </table>
 
           <p>The w&nbsp;=&nbsp;3 cube maintains ~60% energy localization through t&nbsp;=&nbsp;20&ndash;30 Planck times, while w&nbsp;=&nbsp;1 drops to 28%. The optimal defect size equals the spatial dimensionality.</p>
@@ -1995,15 +1995,15 @@
 
           <table>
             <tr><th>Width w</th><th>Internal modes</th><th>Lowest &omega;</th><th>Negative eigenvalues</th></tr>
-            <tr><td>1</td><td>13</td><td>0.1965</td><td>2</td></tr>
-            <tr><td>2</td><td>16</td><td>0.1661</td><td>2</td></tr>
-            <tr><td>3</td><td>19</td><td>0.1438</td><td>2</td></tr>
-            <tr><td>4</td><td>22</td><td>0.1269</td><td>2</td></tr>
-            <tr><td>5</td><td>25</td><td>0.1134</td><td>2</td></tr>
+            <tr><td>1</td><td>13</td><td class="mono">0.1965</td><td>2</td></tr>
+            <tr><td>2</td><td>16</td><td class="mono">0.1661</td><td>2</td></tr>
+            <tr><td>3</td><td>19</td><td class="mono">0.1438</td><td>2</td></tr>
+            <tr><td>4</td><td>22</td><td class="mono">0.1269</td><td>2</td></tr>
+            <tr><td>5</td><td>25</td><td class="mono">0.1134</td><td>2</td></tr>
           </table>
 
           <div class="calc-result">
-            <strong>Internal modes = 3w + 10</strong> &mdash; increases by exactly <strong>d&nbsp;=&nbsp;3</strong> per unit width.<br><br>
+            <strong class="mono">Internal modes = 3w + 10</strong> &mdash; increases by exactly <strong class="mono">d&nbsp;=&nbsp;3</strong> per unit width.<br><br>
             Every kink-antikink has <strong>exactly 2 negative eigenvalues</strong> &mdash; it is a saddle point, unstable to collapse (annihilation). This is physically correct: a particle-antiparticle pair <em>should</em> be able to annihilate. The 2 unstable directions correspond to the two independent annihilation channels.
           </div>
 
@@ -2013,14 +2013,14 @@
 
           <table>
             <tr><th>Quantity</th><th>Expression</th><th>Value</th></tr>
-            <tr><td>&omega;<sub>eff</sub> / &omega;<sub>band</sub></td><td>1/&radic;2</td><td>= Koide |b|</td></tr>
-            <tr><td>3D kink energy formula</td><td>w(<strong>3</strong>w&minus;1)/2</td><td>Pentagonal numbers</td></tr>
-            <tr><td>Energy second differences</td><td><strong>3</strong></td><td>= d</td></tr>
-            <tr><td>Most stable kink width</td><td>w = <strong>3</strong></td><td>= d</td></tr>
-            <tr><td>E/(w&sup2;M) at w&nbsp;=&nbsp;d</td><td>(d+1)/d = 4/<strong>3</strong></td><td>1.333...</td></tr>
-            <tr><td>Internal modes per width</td><td>+<strong>3</strong> per unit w</td><td>= d</td></tr>
-            <tr><td>Koide phase</td><td>2/<strong>3</strong>&sup2; = 2/9</td><td>&delta; = 0.2222</td></tr>
-            <tr><td>Koide Q</td><td>(d&minus;1)/d = 2/<strong>3</strong></td><td>0.6667</td></tr>
+            <tr><td class="mono">&omega;<sub>eff</sub> / &omega;<sub>band</sub></td><td class="mono">1/&radic;2</td><td class="mono">= Koide |b|</td></tr>
+            <tr><td>3D kink energy formula</td><td class="mono">w(<strong>3</strong>w&minus;1)/2</td><td>Pentagonal numbers</td></tr>
+            <tr><td>Energy second differences</td><td><strong>3</strong></td><td class="mono">= d</td></tr>
+            <tr><td>Most stable kink width</td><td class="mono">w = <strong>3</strong></td><td class="mono">= d</td></tr>
+            <tr><td class="mono">E/(w&sup2;M) at w&nbsp;=&nbsp;d</td><td class="mono">(d+1)/d = 4/<strong>3</strong></td><td class="mono">1.333...</td></tr>
+            <tr><td>Internal modes per width</td><td class="mono">+<strong>3</strong> per unit w</td><td class="mono">= d</td></tr>
+            <tr><td>Koide phase</td><td class="mono">2/<strong>3</strong>&sup2; = 2/9</td><td class="mono">&delta; = 0.2222</td></tr>
+            <tr><td>Koide Q</td><td class="mono">(d&minus;1)/d = 2/<strong>3</strong></td><td class="mono">0.6667</td></tr>
           </table>
 
           <h3>23.7 &mdash; Implications for the Particle Spectrum</h3>
@@ -2049,15 +2049,15 @@
           <p>Every Standard Model fermion mass is given by a single formula with <strong>zero free parameters</strong>:</p>
 
           <div class="calc-result">
-            <strong>m(n, p) = (16/&pi;&sup2;) sin(n&gamma;) &times; e<sup>&minus;16p/&pi;&sup2;</sup> &times; m<sub>Planck</sub></strong><br><br>
+            <strong class="mono">m(n, p) = (16/&pi;&sup2;) sin(n&gamma;) &times; e<sup>&minus;16p/&pi;&sup2;</sup> &times; m<sub>Planck</sub></strong><br><br>
             where &gamma; = &pi;/(16&pi;&minus;2), and n and p are integers determined by the lattice symmetry.
           </div>
 
           <p>The formula has three factors:</p>
           <ul>
-            <li><strong>M<sub>n</sub> = (16/&pi;&sup2;) sin(n&gamma;)</strong> &mdash; the kink-antikink bound state mass (which oscillation pattern), from DHN quantization (&sect;20)</li>
-            <li><strong>(T&sup2;)<sup>p</sup> = e<sup>&minus;16p/&pi;&sup2;</sup></strong> &mdash; evanescent tunneling suppression through p lattice barriers, where T&sup2; = e<sup>&minus;16/&pi;&sup2;</sup> = 0.1977 is the single-axis tunneling amplitude</li>
-            <li><strong>m<sub>Planck</sub></strong> &mdash; the fundamental mass scale (the only dimensionful input)</li>
+            <li><strong class="mono">M<sub>n</sub> = (16/&pi;&sup2;) sin(n&gamma;)</strong> &mdash; the kink-antikink bound state mass (which oscillation pattern), from DHN quantization (&sect;20)</li>
+            <li><strong class="mono">(T&sup2;)<sup>p</sup> = e<sup>&minus;16p/&pi;&sup2;</sup></strong> &mdash; evanescent tunneling suppression through p lattice barriers, where T&sup2; = e<sup>&minus;16/&pi;&sup2;</sup> = 0.1977 is the single-axis tunneling amplitude</li>
+            <li><strong class="mono">m<sub>Planck</sub></strong> &mdash; the fundamental mass scale (the only dimensionful input)</li>
           </ul>
 
           <h3>24.1 &mdash; Tunneling Depth Anchors</h3>
@@ -2066,9 +2066,9 @@
 
           <table>
             <tr><th>Particle</th><th>p</th><th>Formula</th><th>Value at d&nbsp;=&nbsp;3</th></tr>
-            <tr><td>Top quark</td><td>24</td><td>d &times; 2<sup>d</sup></td><td>3 &times; 8 = 24</td></tr>
-            <tr><td>Electron</td><td>32</td><td>(d+1) &times; 2<sup>d</sup></td><td>4 &times; 8 = 32</td></tr>
-            <tr><td>Electron neutrino</td><td>38</td><td>(d+1) &times; 2<sup>d</sup> + 2d</td><td>32 + 6 = 38</td></tr>
+            <tr><td>Top quark</td><td>24</td><td class="mono">d &times; 2<sup>d</sup></td><td class="mono">3 &times; 8 = 24</td></tr>
+            <tr><td>Electron</td><td>32</td><td class="mono">(d+1) &times; 2<sup>d</sup></td><td class="mono">4 &times; 8 = 32</td></tr>
+            <tr><td>Electron neutrino</td><td>38</td><td class="mono">(d+1) &times; 2<sup>d</sup> + 2d</td><td class="mono">32 + 6 = 38</td></tr>
           </table>
 
           <p>The span 32&minus;24 = 8 = 2<sup>d</sup> is the number of fermion states per generation. The top quark tunnels through the minimum number of barriers (lightest suppression &rarr; heaviest mass); the neutrino tunnels through the maximum (most suppressed &rarr; lightest mass).</p>
@@ -2097,8 +2097,8 @@
 
           <table>
             <tr><th>Particle</th><th>p</th><th>Drop from &nu;</th><th>Interpretation</th></tr>
-            <tr><td>&nu;<sub>e</sub></td><td>38</td><td>&mdash;</td><td>Weak only (max tunneling)</td></tr>
-            <tr><td>e</td><td>32</td><td>&minus;6 = &minus;2d</td><td>EM coupling activates</td></tr>
+            <tr><td class="mono">&nu;<sub>e</sub></td><td>38</td><td>&mdash;</td><td>Weak only (max tunneling)</td></tr>
+            <tr><td>e</td><td>32</td><td class="mono">&minus;6 = &minus;2d</td><td>EM coupling activates</td></tr>
             <tr><td>u</td><td>31</td><td>&minus;1</td><td>Color coupling activates</td></tr>
             <tr><td>d</td><td>30</td><td>&minus;1</td><td>Isospin flip</td></tr>
           </table>
@@ -2109,16 +2109,16 @@
 
           <table>
             <tr><th>Fermion</th><th>n</th><th>p</th><th>GWT (MeV)</th><th>PDG (MeV)</th><th>Deviation</th></tr>
-            <tr><td>&nu;<sub>e</sub></td><td colspan="2"><em>seesaw</em></td><td>5.0 &times; 10<sup>&minus;5</sup></td><td>~5.0 &times; 10<sup>&minus;5</sup></td><td>~1%</td></tr>
-            <tr><td>e</td><td>16</td><td>32</td><td>0.5046</td><td>0.511</td><td>&minus;1.3%</td></tr>
-            <tr><td>u</td><td>13</td><td>31</td><td>2.214</td><td>2.16</td><td>+2.5%</td></tr>
-            <tr><td>d</td><td>5</td><td>30</td><td>4.783</td><td>4.67</td><td>+2.4%</td></tr>
-            <tr><td>&mu;</td><td>4</td><td>28</td><td>98.56</td><td>105.7</td><td>&minus;6.7%</td></tr>
-            <tr><td>s</td><td>4</td><td>28</td><td>98.56</td><td>93.4</td><td>+5.5%</td></tr>
-            <tr><td>c</td><td>11</td><td>27</td><td>1271</td><td>1270</td><td>+0.1%</td></tr>
-            <tr><td>&tau;</td><td>18</td><td>27</td><td>1785</td><td>1777</td><td>+0.4%</td></tr>
-            <tr><td>b</td><td>7</td><td>26</td><td>4312</td><td>4180</td><td>+3.1%</td></tr>
-            <tr><td>t</td><td>12</td><td>24</td><td>176,547</td><td>172,500</td><td>+2.3%</td></tr>
+            <tr><td class="mono">&nu;<sub>e</sub></td><td class="mono" colspan="2"><em>seesaw</em></td><td class="mono">5.0 &times; 10<sup>&minus;5</sup></td><td class="mono">~5.0 &times; 10<sup>&minus;5</sup></td><td>~1%</td></tr>
+            <tr><td>e</td><td>16</td><td>32</td><td class="mono">0.5046</td><td class="mono">0.511</td><td class="mono">&minus;1.3%</td></tr>
+            <tr><td>u</td><td>13</td><td>31</td><td class="mono">2.214</td><td class="mono">2.16</td><td class="mono">+2.5%</td></tr>
+            <tr><td>d</td><td>5</td><td>30</td><td class="mono">4.783</td><td class="mono">4.67</td><td class="mono">+2.4%</td></tr>
+            <tr><td class="mono">&mu;</td><td>4</td><td>28</td><td class="mono">98.56</td><td class="mono">105.7</td><td class="mono">&minus;6.7%</td></tr>
+            <tr><td>s</td><td>4</td><td>28</td><td class="mono">98.56</td><td class="mono">93.4</td><td class="mono">+5.5%</td></tr>
+            <tr><td>c</td><td>11</td><td>27</td><td>1271</td><td>1270</td><td class="mono">+0.1%</td></tr>
+            <tr><td class="mono">&tau;</td><td>18</td><td>27</td><td>1785</td><td>1777</td><td class="mono">+0.4%</td></tr>
+            <tr><td>b</td><td>7</td><td>26</td><td>4312</td><td>4180</td><td class="mono">+3.1%</td></tr>
+            <tr><td>t</td><td>12</td><td>24</td><td>176,547</td><td>172,500</td><td class="mono">+2.3%</td></tr>
           </table>
 
           <p>All 10 predictions use the same formula. The only inputs are &pi;, d&nbsp;=&nbsp;3, and the Planck mass. The quark masses are &ldquo;current quark masses&rdquo; (scheme-dependent, extracted from lattice QCD), which carry systematic uncertainties of 5&ndash;10%, consistent with the deviations seen here.</p>
@@ -2141,10 +2141,10 @@
 
           <table>
             <tr><th>Particle type</th><th>n values</th><th>Pattern</th></tr>
-            <tr><td>Up-type quarks</td><td>11, 12, 13</td><td><strong>Consecutive</strong> around d(d+1)&nbsp;=&nbsp;12 (gauge boson count)</td></tr>
-            <tr><td>Down-type quarks</td><td>4, 5, 7</td><td>Near d+1&nbsp;=&nbsp;4 (spacetime dimensions)</td></tr>
-            <tr><td>Charged leptons</td><td>4, 16, 18</td><td>n&nbsp;=&nbsp;16&nbsp;=&nbsp;2<sup>d+1</sup> for electron</td></tr>
-            <tr><td>Neutrino</td><td>4</td><td>n&nbsp;=&nbsp;d+1</td></tr>
+            <tr><td>Up-type quarks</td><td>11, 12, 13</td><td class="mono"><strong>Consecutive</strong> around d(d+1)&nbsp;=&nbsp;12 (gauge boson count)</td></tr>
+            <tr><td>Down-type quarks</td><td>4, 5, 7</td><td class="mono">Near d+1&nbsp;=&nbsp;4 (spacetime dimensions)</td></tr>
+            <tr><td>Charged leptons</td><td>4, 16, 18</td><td class="mono">n&nbsp;=&nbsp;16&nbsp;=&nbsp;2<sup>d+1</sup> for electron</td></tr>
+            <tr><td>Neutrino</td><td>4</td><td class="mono">n&nbsp;=&nbsp;d+1</td></tr>
           </table>
 
           <p>The up-type quarks cluster at n&nbsp;=&nbsp;{11,&nbsp;12,&nbsp;13}, centered on 12&nbsp;=&nbsp;d(d+1), the number of gauge bosons in SU(3)&times;SU(2)&times;U(1). The top quark sits exactly at n&nbsp;=&nbsp;12.</p>
@@ -2178,7 +2178,7 @@
           <p>At the Planck scale, the Weinberg angle is therefore:</p>
 
           <div class="eq-box">
-            sin&sup2;&theta;<sub>W</sub>(M<sub>Pl</sub>) = g&prime;&sup2;/(g<sub>w</sub>&sup2; + g&prime;&sup2;) = 1/(d&minus;1+1) = <strong>1/d = 1/3</strong>
+            sin&sup2;&theta;<sub>W</sub>(M<sub>Pl</sub>) = g&prime;&sup2;/(g<sub>w</sub>&sup2; + g&prime;&sup2;) = 1/(d&minus;1+1) = <strong class="mono">1/d = 1/3</strong>
           </div>
 
           <p>This is the GUT-scale prediction common to SU(5) unification. The value runs under the Standard Model renormalization group to sin&sup2;&theta;<sub>W</sub>(M<sub>Z</sub>)&nbsp;=&nbsp;15/64&nbsp;&asymp;&nbsp;0.2344, matching the measured 0.2312 to 1.4%. The exact low-energy value was already derived in the particle masses calculation.</p>
@@ -2188,7 +2188,7 @@
           <p>The VEV is a lattice condensate mode, predicted directly by the universal mass formula with n&nbsp;=&nbsp;d&nbsp;=&nbsp;3 (spatial dimension) and p&nbsp;=&nbsp;23&nbsp;=&nbsp;d&times;2<sup>d</sup>&minus;1 (one step above the top anchor):</p>
 
           <div class="eq-box">
-            v = m(3,&thinsp;23) = (2<sup>d+1</sup>/&pi;&sup2;) sin(d&gamma;) &times; e<sup>&minus;2<sup>d+1</sup>&times;23/&pi;&sup2;</sup> &times; m<sub>Pl</sub> = <strong>246.1 GeV</strong> &nbsp; (0.03%)
+            v = m(3,&thinsp;23) = (2<sup>d+1</sup>/&pi;&sup2;) sin(d&gamma;) &times; e<sup>&minus;2<sup>d+1</sup>&times;23/&pi;&sup2;</sup> &times; m<sub>Pl</sub> = <strong class="mono">246.1 GeV</strong> &nbsp; (0.03%)
           </div>
 
           <p>The top quark at p&nbsp;=&nbsp;24 naturally has y<sub>t</sub>&nbsp;=&nbsp;&radic;2&times;m<sub>t</sub>/v&nbsp;&asymp;&nbsp;1, confirming it IS the kink condensate. The ~1% gap in v&nbsp;=&nbsp;&radic;2&times;m<sub>t</sub>&nbsp;=&nbsp;244 GeV arises because the VEV is a vacuum condensate, not a propagating fermion &mdash; the fermion VP correction over-dresses it.</p>
@@ -2198,16 +2198,16 @@
           <p>The Higgs mass is predicted by the breather mass formula m(n,p) with scalar vacuum-polarisation (VP) correction. The Higgs sits at quantum numbers n&nbsp;=&nbsp;8&nbsp;=&nbsp;2<sup>d</sup>, p&nbsp;=&nbsp;24&nbsp;=&nbsp;d&times;2<sup>d</sup>:</p>
 
           <div class="eq-box">
-            M<sub>H</sub> = m(8,&thinsp;24) &times; &pi;<sup>&alpha;/(d&minus;1)</sup> = <strong>125.28 GeV</strong>
+            M<sub>H</sub> = m(8,&thinsp;24) &times; &pi;<sup>&alpha;/(d&minus;1)</sup> = <strong class="mono">125.28 GeV</strong>
           </div>
 
           <p>The factor &pi;<sup>&alpha;/(d&minus;1)</sup> is the scalar VP dressing &mdash; the same mechanism that shifts all boson masses from their bare breather values. This gives the implied quartic coupling:</p>
 
           <div class="eq-box">
-            &lambda; = (M<sub>H</sub>/v)<sup>2</sup>/2 = (125.28/246.22)<sup>2</sup>/2 = <strong>0.1295</strong>
+            &lambda; = (M<sub>H</sub>/v)<sup>2</sup>/2 = (125.28/246.22)<sup>2</sup>/2 = <strong class="mono">0.1295</strong>
           </div>
 
-          <p>Observed: 125.25&nbsp;&plusmn;&nbsp;0.17 GeV, &lambda;&nbsp;&asymp;&nbsp;0.129&nbsp;&plusmn;&nbsp;0.006. Deviation: <strong>+0.4%</strong>. Zero free parameters.</p>
+          <p>Observed: 125.25&nbsp;&plusmn;&nbsp;0.17 GeV, &lambda;&nbsp;&asymp;&nbsp;0.129&nbsp;&plusmn;&nbsp;0.006. Deviation: <strong class="mono">+0.4%</strong>. Zero free parameters.</p>
 
           <p><em>Cross-check (tree-level):</em> Before VP dressing, the lattice dimension alone gives &lambda;&nbsp;=&nbsp;1/2<sup>d</sup>&nbsp;=&nbsp;1/8&nbsp;=&nbsp;0.125, yielding M<sub>H</sub>&nbsp;=&nbsp;v/2&nbsp;=&nbsp;122.1&nbsp;GeV (&minus;2.5%). This tree-level approximation confirms the correct order of magnitude; the VP correction accounts for the remaining shift.</p>
 
@@ -2226,11 +2226,11 @@
           <p>From the Weinberg angle and the electromagnetic coupling:</p>
 
           <div class="eq-box">
-            M<sub>W</sub> = v &times; e/(2&nbsp;sin&nbsp;&theta;<sub>W</sub>) = 244.3 &times; 0.3028/(2 &times; 0.484) = <strong>76.5 GeV</strong>
+            M<sub>W</sub> = v &times; e/(2&nbsp;sin&nbsp;&theta;<sub>W</sub>) = 244.3 &times; 0.3028/(2 &times; 0.484) = <strong class="mono">76.5 GeV</strong>
           </div>
 
           <div class="eq-box">
-            M<sub>Z</sub> = M<sub>W</sub>/cos&nbsp;&theta;<sub>W</sub> = 76.5/0.875 = <strong>87.4 GeV</strong>
+            M<sub>Z</sub> = M<sub>W</sub>/cos&nbsp;&theta;<sub>W</sub> = 76.5/0.875 = <strong class="mono">87.4 GeV</strong>
           </div>
 
           <p>These are &minus;4.8% and &minus;4.2% from measurement. However, the m(n,p) formula from &sect;24 gives far better results.</p>
@@ -2244,9 +2244,9 @@
               <tr><th>Boson</th><th>n</th><th>p</th><th>GWT (GeV)</th><th>Observed (GeV)</th><th>Error</th></tr>
             </thead>
             <tbody>
-              <tr><td>VEV (v)</td><td>3</td><td>23</td><td>246.14</td><td>246.22</td><td>&minus;0.0%</td></tr>
-              <tr><td>W</td><td>5</td><td>24</td><td>80.18</td><td>80.370</td><td>&minus;0.2%</td></tr>
-              <tr><td>Higgs</td><td>8</td><td>24</td><td>125.28</td><td>125.25</td><td>+0.0%</td></tr>
+              <tr><td>VEV (v)</td><td>3</td><td>23</td><td class="mono">246.14</td><td class="mono">246.22</td><td class="mono">&minus;0.0%</td></tr>
+              <tr><td>W</td><td>5</td><td>24</td><td class="mono">80.18</td><td class="mono">80.370</td><td class="mono">&minus;0.2%</td></tr>
+              <tr><td>Higgs</td><td>8</td><td>24</td><td class="mono">125.28</td><td class="mono">125.25</td><td class="mono">+0.0%</td></tr>
             </tbody>
           </table>
 
@@ -2257,9 +2257,9 @@
           <p>The breather indices are not arbitrary:</p>
 
           <ul>
-            <li><strong>v at n&nbsp;=&nbsp;3&nbsp;=&nbsp;d</strong>: The VEV IS the dimension of space. The vacuum condensate carries the fundamental lattice quantum number.</li>
-            <li><strong>W at n&nbsp;=&nbsp;5&nbsp;=&nbsp;2d&minus;1</strong>: The W boson occupies the breather state determined by twice the spatial dimension minus one.</li>
-            <li><strong>H at n&nbsp;=&nbsp;8&nbsp;=&nbsp;2<sup>d</sup></strong>: The Higgs mass sits at n&nbsp;=&nbsp;2<sup>d</sup>, the number of vertices of a d-cube &mdash; the same combinatorial object that sets p<sub>top</sub>&nbsp;=&nbsp;d&times;2<sup>d</sup>&nbsp;=&nbsp;24.</li>
+            <li><strong class="mono">v at n&nbsp;=&nbsp;3&nbsp;=&nbsp;d</strong>: The VEV IS the dimension of space. The vacuum condensate carries the fundamental lattice quantum number.</li>
+            <li><strong class="mono">W at n&nbsp;=&nbsp;5&nbsp;=&nbsp;2d&minus;1</strong>: The W boson occupies the breather state determined by twice the spatial dimension minus one.</li>
+            <li><strong class="mono">H at n&nbsp;=&nbsp;8&nbsp;=&nbsp;2<sup>d</sup></strong>: The Higgs mass sits at n&nbsp;=&nbsp;2<sup>d</sup>, the number of vertices of a d-cube &mdash; the same combinatorial object that sets p<sub>top</sub>&nbsp;=&nbsp;d&times;2<sup>d</sup>&nbsp;=&nbsp;24.</li>
           </ul>
 
           <h3>25.8 &mdash; Summary: The Electroweak Sector</h3>
@@ -2269,14 +2269,14 @@
               <tr><th>Quantity</th><th>GWT Formula</th><th>GWT Value</th><th>Observed</th><th>Error</th></tr>
             </thead>
             <tbody>
-              <tr><td>&lambda;</td><td>(M<sub>H</sub>/v)&sup2;/2</td><td>0.1295</td><td>~0.129</td><td>+0.4%</td></tr>
-              <tr><td>y<sub>t</sub></td><td>1 (exact)</td><td>1.000</td><td>0.991</td><td>+0.9%</td></tr>
-              <tr><td>cos&nbsp;&theta;<sub>W</sub></td><td>(2d+1)/(2d+2)</td><td>7/8 = 0.875</td><td>0.8815</td><td>&minus;0.7%</td></tr>
-              <tr><td>sin&sup2;&theta;<sub>W</sub>(M<sub>Pl</sub>)</td><td>1/d</td><td>1/3</td><td>~0.33 (GUT)</td><td>exact</td></tr>
-              <tr><td>v</td><td>m(3, 23)</td><td>246.14 GeV</td><td>246.22 GeV</td><td>&minus;0.0%</td></tr>
-              <tr><td>M<sub>H</sub></td><td>m(8, 24) + VP</td><td>125.28 GeV</td><td>125.25 GeV</td><td>+0.0%</td></tr>
-              <tr><td>M<sub>W</sub></td><td>m(5, 24)</td><td>80.18 GeV</td><td>80.370 GeV</td><td>&minus;0.2%</td></tr>
-              <tr><td>M<sub>Z</sub></td><td>M<sub>W</sub>/cos&nbsp;&theta;<sub>W</sub></td><td>91.6 GeV</td><td>91.188 GeV</td><td>+0.5%</td></tr>
+              <tr><td class="mono">&lambda;</td><td class="mono">(M<sub>H</sub>/v)&sup2;/2</td><td class="mono">0.1295</td><td class="mono">~0.129</td><td class="mono">+0.4%</td></tr>
+              <tr><td class="mono">y<sub>t</sub></td><td>1 (exact)</td><td class="mono">1.000</td><td class="mono">0.991</td><td class="mono">+0.9%</td></tr>
+              <tr><td class="mono">cos&nbsp;&theta;<sub>W</sub></td><td>(2d+1)/(2d+2)</td><td class="mono">7/8 = 0.875</td><td class="mono">0.8815</td><td class="mono">&minus;0.7%</td></tr>
+              <tr><td class="mono">sin&sup2;&theta;<sub>W</sub>(M<sub>Pl</sub>)</td><td>1/d</td><td>1/3</td><td class="mono">~0.33 (GUT)</td><td>exact</td></tr>
+              <tr><td>v</td><td>m(3, 23)</td><td class="mono">246.14 GeV</td><td class="mono">246.22 GeV</td><td class="mono">&minus;0.0%</td></tr>
+              <tr><td class="mono">M<sub>H</sub></td><td>m(8, 24) + VP</td><td class="mono">125.28 GeV</td><td class="mono">125.25 GeV</td><td class="mono">+0.0%</td></tr>
+              <tr><td class="mono">M<sub>W</sub></td><td>m(5, 24)</td><td class="mono">80.18 GeV</td><td class="mono">80.370 GeV</td><td class="mono">&minus;0.2%</td></tr>
+              <tr><td class="mono">M<sub>Z</sub></td><td class="mono">M<sub>W</sub>/cos&nbsp;&theta;<sub>W</sub></td><td class="mono">91.6 GeV</td><td class="mono">91.188 GeV</td><td class="mono">+0.5%</td></tr>
             </tbody>
           </table>
 
@@ -2342,12 +2342,12 @@
 
           <div class="calc-step">
             <div class="calc-num">=</div>
-            <div>&Delta;E<sub>EM</sub> = (1/137.042) &times; 234.63 &times; &radic;5 / 3 = <strong>1.276 MeV</strong></div>
+            <div>&Delta;E<sub>EM</sub> = (1/137.042) &times; 234.63 &times; &radic;5 / 3 = <strong class="mono">1.276 MeV</strong></div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">=</div>
-            <div>m<sub>n</sub> &minus; m<sub>p</sub> = (m<sub>d</sub> &minus; m<sub>u</sub>) &minus; &Delta;E<sub>EM</sub> = 2.569 &minus; 1.276 = <strong>1.293 MeV</strong></div>
+            <div>m<sub>n</sub> &minus; m<sub>p</sub> = (m<sub>d</sub> &minus; m<sub>u</sub>) &minus; &Delta;E<sub>EM</sub> = 2.569 &minus; 1.276 = <strong class="mono">1.293 MeV</strong></div>
           </div>
 
           <div class="calc-result">
@@ -2359,10 +2359,10 @@
           <p>Every input is GWT-native:</p>
 
           <ul>
-            <li><strong>m<sub>d</sub> &minus; m<sub>u</sub> = 2.569 MeV</strong> &mdash; from the universal mass formula m(n,p) with integer quantum numbers (&sect;24)</li>
-            <li><strong>&alpha; = 1/137.036</strong> &mdash; from the Wyler/D<sub>IV</sub>(5) geometry (&sect;12)</li>
-            <li><strong>r<sub>p</sub> = 0.841 fm</strong> &mdash; the proton charge radius (derived from the lattice)</li>
-            <li><strong>&radic;(d+2) = &radic;5</strong> &mdash; the geometric factor from quark confinement in d&nbsp;=&nbsp;3 dimensions</li>
+            <li><strong class="mono">m<sub>d</sub> &minus; m<sub>u</sub> = 2.569 MeV</strong> &mdash; from the universal mass formula m(n,p) with integer quantum numbers (&sect;24)</li>
+            <li><strong class="mono">&alpha; = 1/137.036</strong> &mdash; from the Wyler/D<sub>IV</sub>(5) geometry (&sect;12)</li>
+            <li><strong class="mono">r<sub>p</sub> = 0.841 fm</strong> &mdash; the proton charge radius (derived from the lattice)</li>
+            <li><strong class="mono">&radic;(d+2) = &radic;5</strong> &mdash; the geometric factor from quark confinement in d&nbsp;=&nbsp;3 dimensions</li>
           </ul>
 
           <p>The decomposition matches lattice QCD (BMW 2015): they find m<sub>d</sub>&nbsp;&minus;&nbsp;m<sub>u</sub> contributes +2.52&nbsp;MeV and QED contributes &minus;1.00&nbsp;to&nbsp;&minus;1.23&nbsp;MeV. GWT gives +2.569 and &minus;1.276, with the two components individually within lattice QCD uncertainties but their combination pinning the result to 0.03%.</p>
@@ -2396,7 +2396,7 @@
             <div>m<sub>d</sub> &minus; m<sub>u</sub> &gt; &alpha;&Lambda;<sub>QCD</sub>&radic;5/3 &gt; m<sub>e</sub> &gt; 0</div>
           </div>
 
-          <p>The hierarchy 2.569&nbsp;&gt;&nbsp;1.276&nbsp;&gt;&nbsp;0.511&nbsp;&gt;&nbsp;0 is not fine-tuned. It follows from the tunneling depths (p&nbsp;=&nbsp;30,31 for quarks; p&nbsp;=&nbsp;32 for the electron) and the smallness of &alpha;. <strong>Nuclear stability is a theorem of d&nbsp;=&nbsp;3 geometry.</strong></p>
+          <p>The hierarchy 2.569&nbsp;&gt;&nbsp;1.276&nbsp;&gt;&nbsp;0.511&nbsp;&gt;&nbsp;0 is not fine-tuned. It follows from the tunneling depths (p&nbsp;=&nbsp;30,31 for quarks; p&nbsp;=&nbsp;32 for the electron) and the smallness of &alpha;. <strong class="mono">Nuclear stability is a theorem of d&nbsp;=&nbsp;3 geometry.</strong></p>
 
           <div class="calc-result">
             <strong>The neutron-proton mass difference requires zero new physics.</strong> It is the quark mass difference from the universal formula (&sect;24) minus the Coulomb correction at the Wyler separation r<sub>p</sub>/&radic;(d+2). The result 1.293&nbsp;MeV matches observation to 0.03%, and the inequality chain that ensures nuclear stability follows automatically from d&nbsp;=&nbsp;3.
@@ -2449,16 +2449,16 @@
 
           <table>
             <tr><th>Factor</th><th>Value</th><th>Origin</th></tr>
-            <tr><td>m<sub>e</sub></td><td>0.5046 MeV</td><td>Tunneling formula m(16, 32) from &sect;24</td></tr>
-            <tr><td>(m<sub>e</sub>/m<sub>p</sub>)<sup>2</sup></td><td>2.97 &times; 10<sup>&minus;7</sup></td><td>Two sector crossings, amplitude = 1/(6&pi;<sup>5</sup>) each; m<sub>p</sub>&nbsp;=&nbsp;6&pi;<sup>5</sup>&thinsp;m<sub>e</sub></td></tr>
-            <tr><td>1/d</td><td>1/3</td><td>Averaging over d = 3 spatial axes</td></tr>
-            <tr><td>4d<sup>3</sup> = 108</td><td></td><td>4 from two factors of 2d; d<sup>3</sup> from cubing 3 dimensions</td></tr>
-            <tr><td>&pi;<sup>10</sup> = &pi;<sup>4d&minus;2</sup></td><td></td><td>Two factors of &pi;<sup>2d&minus;1</sup> = &pi;<sup>5</sup> from the BZ geometry</td></tr>
+            <tr><td class="mono">m<sub>e</sub></td><td class="mono">0.5046 MeV</td><td>Tunneling formula m(16, 32) from &sect;24</td></tr>
+            <tr><td class="mono">(m<sub>e</sub>/m<sub>p</sub>)<sup>2</sup></td><td class="mono">2.97 &times; 10<sup>&minus;7</sup></td><td class="mono">Two sector crossings, amplitude = 1/(6&pi;<sup>5</sup>) each; m<sub>p</sub>&nbsp;=&nbsp;6&pi;<sup>5</sup>&thinsp;m<sub>e</sub></td></tr>
+            <tr><td>1/d</td><td>1/3</td><td class="mono">Averaging over d = 3 spatial axes</td></tr>
+            <tr><td class="mono">4d<sup>3</sup> = 108</td><td></td><td class="mono">4 from two factors of 2d; d<sup>3</sup> from cubing 3 dimensions</td></tr>
+            <tr><td class="mono">&pi;<sup>10</sup> = &pi;<sup>4d&minus;2</sup></td><td></td><td>Two factors of &pi;<sup>2d&minus;1</sup> = &pi;<sup>5</sup> from the BZ geometry</td></tr>
           </table>
 
           <div class="calc-step">
             <div class="calc-num">=</div>
-            <div>M<sub>&nu;</sub> = 0.5046 / (108 &times; &pi;<sup>10</sup>) = 0.5046 / 10,113,989 = <strong>4.99 &times; 10<sup>&minus;8</sup>&nbsp;MeV = 0.0499&nbsp;eV</strong></div>
+            <div>M<sub>&nu;</sub> = 0.5046 / (108 &times; &pi;<sup>10</sup>) = 0.5046 / 10,113,989 = <strong class="mono">4.99 &times; 10<sup>&minus;8</sup>&nbsp;MeV = 0.0499&nbsp;eV</strong></div>
           </div>
 
           <div class="calc-result">
@@ -2467,11 +2467,11 @@
 
           <h3>27.3 &mdash; Mass Squared Splittings (Leading Order)</h3>
 
-          <p>The three neutrino mass eigenstates split because the third-order coupling distributes across the <strong>N<sub>top</sub>&nbsp;=&nbsp;d&times;2<sup>d</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;25</strong> topological states of the lattice (24 breather modes + 1 kink mode from &sect;24). The heaviest eigenstate m<sub>3</sub>&nbsp;=&nbsp;M carries the full perturbative mass. The lightest eigenstate m<sub>1</sub> is suppressed by 1/&radic;N<sub>top</sub>&nbsp;=&nbsp;1/5:</p>
+          <p>The three neutrino mass eigenstates split because the third-order coupling distributes across the <strong class="mono">N<sub>top</sub>&nbsp;=&nbsp;d&times;2<sup>d</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;25</strong> topological states of the lattice (24 breather modes + 1 kink mode from &sect;24). The heaviest eigenstate m<sub>3</sub>&nbsp;=&nbsp;M carries the full perturbative mass. The lightest eigenstate m<sub>1</sub> is suppressed by 1/&radic;N<sub>top</sub>&nbsp;=&nbsp;1/5:</p>
 
           <div class="calc-step">
             <div class="calc-num">1</div>
-            <div><strong>&Delta;m<sup>2</sup><sub>31</sub>:</strong> m<sub>3</sub><sup>2</sup>&nbsp;&minus;&nbsp;m<sub>1</sub><sup>2</sup>&nbsp;=&nbsp;M<sup>2</sup>(1&nbsp;&minus;&nbsp;1/N<sub>top</sub>)&nbsp;=&nbsp;M<sup>2</sup>&nbsp;&times;&nbsp;d&times;2<sup>d</sup>/(d&times;2<sup>d</sup>&nbsp;+&nbsp;1). The factor <strong>24/25</strong> is the fraction of topological modes that are breather (non-kink) states.</div>
+            <div><strong class="mono">&Delta;m<sup>2</sup><sub>31</sub>:</strong> m<sub>3</sub><sup>2</sup>&nbsp;&minus;&nbsp;m<sub>1</sub><sup>2</sup>&nbsp;=&nbsp;M<sup>2</sup>(1&nbsp;&minus;&nbsp;1/N<sub>top</sub>)&nbsp;=&nbsp;M<sup>2</sup>&nbsp;&times;&nbsp;d&times;2<sup>d</sup>/(d&times;2<sup>d</sup>&nbsp;+&nbsp;1). The factor <strong>24/25</strong> is the fraction of topological modes that are breather (non-kink) states.</div>
           </div>
 
           <div class="eq-box">
@@ -2480,14 +2480,14 @@
 
           <div class="calc-step">
             <div class="calc-num">2</div>
-            <div><strong>&Delta;m<sup>2</sup><sub>21</sub>:</strong> The solar splitting involves the spacetime dimension ratio d/(d&nbsp;+&nbsp;1)&nbsp;=&nbsp;3/4 (three spatial axes out of four spacetime dimensions), divided by N<sub>top</sub>&nbsp;=&nbsp;25. This yields d/[4(d&times;2<sup>d</sup>&nbsp;+&nbsp;1)]&nbsp;=&nbsp;3/100.</div>
+            <div><strong class="mono">&Delta;m<sup>2</sup><sub>21</sub>:</strong> The solar splitting involves the spacetime dimension ratio d/(d&nbsp;+&nbsp;1)&nbsp;=&nbsp;3/4 (three spatial axes out of four spacetime dimensions), divided by N<sub>top</sub>&nbsp;=&nbsp;25. This yields d/[4(d&times;2<sup>d</sup>&nbsp;+&nbsp;1)]&nbsp;=&nbsp;3/100.</div>
           </div>
 
           <div class="eq-box">
             &Delta;m<sup>2</sup><sub>21</sub> = [d / (4(d &times; 2<sup>d</sup> + 1))] &times; M<sup>2</sup> = (3/100) &times; M<sup>2</sup>
           </div>
 
-          <p>Every factor is traced: <strong>24&nbsp;=&nbsp;d&times;2<sup>d</sup></strong> counts breather states (same as the top quark tunneling depth and the W/Higgs modes). <strong>25&nbsp;=&nbsp;N<sub>top</sub></strong> is the total topological sector. <strong>3/4&nbsp;=&nbsp;d/(d+1)</strong> is the spatial fraction of spacetime. The ratio of the two splittings is a pure power of 2:</p>
+          <p>Every factor is traced: <strong class="mono">24&nbsp;=&nbsp;d&times;2<sup>d</sup></strong> counts breather states (same as the top quark tunneling depth and the W/Higgs modes). <strong class="mono">25&nbsp;=&nbsp;N<sub>top</sub></strong> is the total topological sector. <strong class="mono">3/4&nbsp;=&nbsp;d/(d+1)</strong> is the spatial fraction of spacetime. The ratio of the two splittings is a pure power of 2:</p>
 
           <div class="eq-box">
             &Delta;m<sup>2</sup><sub>31</sub> / &Delta;m<sup>2</sup><sub>21</sub> = 4 &times; 2<sup>d</sup> = 2<sup>d+2</sup> = <strong>32</strong>
@@ -2495,9 +2495,9 @@
 
           <table>
             <tr><th>Splitting</th><th>GWT Formula</th><th>Leading-Order Value</th><th>Observed (NuFIT 6.0)</th><th>Error</th></tr>
-            <tr><td>&Delta;m<sup>2</sup><sub>31</sub></td><td>(24/25)&thinsp;M<sup>2</sup></td><td>2.39 &times; 10<sup>&minus;3</sup> eV<sup>2</sup></td><td>2.534 &times; 10<sup>&minus;3</sup> eV<sup>2</sup></td><td>&minus;5.7%</td></tr>
-            <tr><td>&Delta;m<sup>2</sup><sub>21</sub></td><td>(3/100)&thinsp;M<sup>2</sup></td><td>7.47 &times; 10<sup>&minus;5</sup> eV<sup>2</sup></td><td>7.53 &times; 10<sup>&minus;5</sup> eV<sup>2</sup></td><td>&minus;0.8%</td></tr>
-            <tr><td>Ratio</td><td>2<sup>d+2</sup></td><td>32</td><td>33.65</td><td>&minus;4.9%</td></tr>
+            <tr><td class="mono">&Delta;m<sup>2</sup><sub>31</sub></td><td class="mono">(24/25)&thinsp;M<sup>2</sup></td><td class="mono">2.39 &times; 10<sup>&minus;3</sup> eV<sup>2</sup></td><td class="mono">2.534 &times; 10<sup>&minus;3</sup> eV<sup>2</sup></td><td class="mono">&minus;5.7%</td></tr>
+            <tr><td class="mono">&Delta;m<sup>2</sup><sub>21</sub></td><td class="mono">(3/100)&thinsp;M<sup>2</sup></td><td class="mono">7.47 &times; 10<sup>&minus;5</sup> eV<sup>2</sup></td><td class="mono">7.53 &times; 10<sup>&minus;5</sup> eV<sup>2</sup></td><td class="mono">&minus;0.8%</td></tr>
+            <tr><td>Ratio</td><td class="mono">2<sup>d+2</sup></td><td>32</td><td class="mono">33.65</td><td class="mono">&minus;4.9%</td></tr>
           </table>
 
           <p>These are the <strong>leading-order</strong> (integer-count) values &mdash; analogous to the WKB result &alpha;&nbsp;&asymp;&nbsp;1/129.7 that is 5.6% off from the exact value. The errors are the same O(few&nbsp;%) magnitude. Just as the Wyler D<sub>IV</sub>(5) geometry provides the exact correction for &alpha; and &#8463;, it also corrects the neutrino splittings.</p>
@@ -2506,7 +2506,7 @@
 
           <p>The 24 breather modes are not a single degenerate block. They decompose as <strong>3&nbsp;groups&nbsp;of&nbsp;8</strong> &mdash; one group per spatial axis, each containing 2<sup>d</sup>&nbsp;=&nbsp;8 binary tunneling configurations. Each neutrino mass eigenstate couples preferentially to the breather group on its own axis.</p>
 
-          <p>The D<sub>IV</sub>(5) bounded symmetric domain has Shilov boundary <strong>S<sup>3</sup>&nbsp;&times;&nbsp;S<sup>1</sup></strong>. The integer topological count N<sub>top</sub>&nbsp;=&nbsp;25 gets a continuous geometric correction from integrating over S<sup>3</sup>:</p>
+          <p>The D<sub>IV</sub>(5) bounded symmetric domain has Shilov boundary <strong class="mono">S<sup>3</sup>&nbsp;&times;&nbsp;S<sup>1</sup></strong>. The integer topological count N<sub>top</sub>&nbsp;=&nbsp;25 gets a continuous geometric correction from integrating over S<sup>3</sup>:</p>
 
           <div class="eq-box">
             Vol(S<sup>3</sup>) = 2&pi;<sup>2</sup> = 19.739
@@ -2514,41 +2514,41 @@
 
           <div class="calc-step">
             <div class="calc-num">1</div>
-            <div><strong>Splitting ratio correction (cross-axis, full S<sup>3</sup>).</strong> The ratio &Delta;m<sup>2</sup><sub>31</sub>/&Delta;m<sup>2</sup><sub>21</sub> compares coupling strengths <em>across all axes</em>. The effective mode count receives the full S<sup>3</sup> correction:<br><br>
-              <span style="font-family:var(--font-mono);">N<sub>eff</sub> = N<sub>top</sub> &times; (1 + 1/Vol(S<sup>3</sup>)) = 25 &times; (1 + 1/(2&pi;<sup>2</sup>)) = <strong>26.267</strong></span></div>
+            <div><strong class="mono">Splitting ratio correction (cross-axis, full S<sup>3</sup>).</strong> The ratio &Delta;m<sup>2</sup><sub>31</sub>/&Delta;m<sup>2</sup><sub>21</sub> compares coupling strengths <em>across all axes</em>. The effective mode count receives the full S<sup>3</sup> correction:<br><br>
+              <span style="font-family:var(--font-mono);">N<sub>eff</sub> = N<sub>top</sub> &times; (1 + 1/Vol(S<sup>3</sup>)) = 25 &times; (1 + 1/(2&pi;<sup>2</sup>)) = <strong class="mono">26.267</strong></span></div>
           </div>
 
           <div class="calc-step">
             <div class="calc-num">2</div>
             <div><strong>Mass scale correction (transverse sphere S<sup>2</sup> for Weyl spinors).</strong> Neutrinos are purely transverse Weyl spinors &mdash; they have no longitudinal mode. The Wyler per-axis correction therefore uses the transverse sphere Vol(S<sup>d&minus;1</sup>)&nbsp;=&nbsp;Vol(S<sup>2</sup>)&nbsp;=&nbsp;4&pi;, not the full Vol(S<sup>d</sup>)&nbsp;=&nbsp;Vol(S<sup>3</sup>)&nbsp;=&nbsp;2&pi;<sup>2</sup>:<br><br>
-              <span style="font-family:var(--font-mono);">M<sub>eff</sub> = M &times; (1 + 1/(d &times; Vol(S<sup>2</sup>))) = M &times; (1 + 1/(12&pi;)) = <strong>51.2 meV</strong></span></div>
+              <span style="font-family:var(--font-mono);">M<sub>eff</sub> = M &times; (1 + 1/(d &times; Vol(S<sup>2</sup>))) = M &times; (1 + 1/(12&pi;)) = <strong class="mono">51.2 meV</strong></span></div>
           </div>
 
           <p>This follows the same pattern established for &alpha; and &#8463;:</p>
 
           <table>
             <tr><th>Quantity</th><th>Leading Order (WKB/integer)</th><th>Wyler D<sub>IV</sub>(5) Corrected</th><th>Correction</th></tr>
-            <tr><td>&alpha;</td><td>e<sup>&minus;48/&pi;<sup>2</sup></sup> = 1/129.7</td><td>d<sup>2</sup>/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>&hellip;</sup>] = 1/137.036</td><td>5.6%</td></tr>
-            <tr><td>&#8463;</td><td>16/&pi;<sup>2</sup> = 1.621</td><td>A<sub>sep</sub> &times; &pi;<sup>d</sup>/2<sup>d+2</sup> = &pi;/2</td><td>3.2%</td></tr>
-            <tr><td>N<sub>top</sub></td><td>d&times;2<sup>d</sup> + 1 = 25</td><td>25 &times; (1 + 1/(2&pi;<sup>2</sup>)) = 26.27</td><td>5.1%</td></tr>
-            <tr><td>M<sub>&nu;</sub></td><td>m<sub>e</sub>/(108&pi;<sup>10</sup>) = 49.89 meV</td><td>M &times; (1 + 1/(12&pi;)) = 51.2 meV</td><td>2.6%</td></tr>
+            <tr><td class="mono">&alpha;</td><td class="mono">e<sup>&minus;48/&pi;<sup>2</sup></sup> = 1/129.7</td><td class="mono">d<sup>2</sup>/[2<sup>d+1</sup>(d+2)!<sup>1/(d+1)</sup>&pi;<sup>&hellip;</sup>] = 1/137.036</td><td class="mono">5.6%</td></tr>
+            <tr><td class="mono">&#8463;</td><td class="mono">16/&pi;<sup>2</sup> = 1.621</td><td class="mono">A<sub>sep</sub> &times; &pi;<sup>d</sup>/2<sup>d+2</sup> = &pi;/2</td><td class="mono">3.2%</td></tr>
+            <tr><td class="mono">N<sub>top</sub></td><td class="mono">d&times;2<sup>d</sup> + 1 = 25</td><td class="mono">25 &times; (1 + 1/(2&pi;<sup>2</sup>)) = 26.27</td><td class="mono">5.1%</td></tr>
+            <tr><td class="mono">M<sub>&nu;</sub></td><td class="mono">m<sub>e</sub>/(108&pi;<sup>10</sup>) = 49.89 meV</td><td class="mono">M &times; (1 + 1/(12&pi;)) = 51.2 meV</td><td class="mono">2.6%</td></tr>
           </table>
 
           <p>Applying both corrections:</p>
 
           <div class="eq-box">
-            &Delta;m<sup>2</sup><sub>31</sub> = (1 &minus; 1/N<sub>eff</sub>) &times; M<sub>eff</sub><sup>2</sup> = <strong>2.523 &times; 10<sup>&minus;3</sup> eV<sup>2</sup></strong>
+            &Delta;m<sup>2</sup><sub>31</sub> = (1 &minus; 1/N<sub>eff</sub>) &times; M<sub>eff</sub><sup>2</sup> = <strong class="mono">2.523 &times; 10<sup>&minus;3</sup> eV<sup>2</sup></strong>
           </div>
 
           <div class="eq-box">
-            &Delta;m<sup>2</sup><sub>21</sub> = d/(4 N<sub>eff</sub>) &times; M<sub>eff</sub><sup>2</sup> = <strong>7.49 &times; 10<sup>&minus;5</sup> eV<sup>2</sup></strong>
+            &Delta;m<sup>2</sup><sub>21</sub> = d/(4 N<sub>eff</sub>) &times; M<sub>eff</sub><sup>2</sup> = <strong class="mono">7.49 &times; 10<sup>&minus;5</sup> eV<sup>2</sup></strong>
           </div>
 
           <table>
             <tr><th>Splitting</th><th>Leading Order</th><th>Wyler-Corrected (S<sup>2</sup>)</th><th>Observed (NuFIT 6.0)</th><th>Error</th></tr>
-            <tr><td>&Delta;m<sup>2</sup><sub>31</sub></td><td>2.39 &times; 10<sup>&minus;3</sup> (&minus;5.7%)</td><td><strong>2.523 &times; 10<sup>&minus;3</sup></strong></td><td>2.534 &times; 10<sup>&minus;3</sup></td><td><strong>&minus;0.4%</strong></td></tr>
-            <tr><td>&Delta;m<sup>2</sup><sub>21</sub></td><td>7.47 &times; 10<sup>&minus;5</sup> (&minus;0.8%)</td><td><strong>7.49 &times; 10<sup>&minus;5</sup></strong></td><td>7.53 &times; 10<sup>&minus;5</sup></td><td><strong>&minus;0.6%</strong></td></tr>
-            <tr><td>Ratio</td><td>32 (&minus;4.9%)</td><td><strong>33.69</strong></td><td>33.65</td><td><strong>+0.1%</strong></td></tr>
+            <tr><td class="mono">&Delta;m<sup>2</sup><sub>31</sub></td><td class="mono">2.39 &times; 10<sup>&minus;3</sup> (&minus;5.7%)</td><td class="mono"><strong class="mono">2.523 &times; 10<sup>&minus;3</sup></strong></td><td class="mono">2.534 &times; 10<sup>&minus;3</sup></td><td class="mono"><strong class="mono">&minus;0.4%</strong></td></tr>
+            <tr><td class="mono">&Delta;m<sup>2</sup><sub>21</sub></td><td class="mono">7.47 &times; 10<sup>&minus;5</sup> (&minus;0.8%)</td><td class="mono"><strong class="mono">7.49 &times; 10<sup>&minus;5</sup></strong></td><td class="mono">7.53 &times; 10<sup>&minus;5</sup></td><td class="mono"><strong class="mono">&minus;0.6%</strong></td></tr>
+            <tr><td>Ratio</td><td class="mono">32 (&minus;4.9%)</td><td class="mono"><strong class="mono">33.69</strong></td><td class="mono">33.65</td><td class="mono"><strong class="mono">+0.1%</strong></td></tr>
           </table>
 
           <div class="calc-result">
@@ -2561,10 +2561,10 @@
 
           <table>
             <tr><th>Eigenstate</th><th>Mass (meV)</th><th>Wave Size (&mu;m)</th><th>Comparable to</th></tr>
-            <tr><td>&nu;<sub>3</sub></td><td>51.2</td><td>3.85</td><td>Half a red blood cell</td></tr>
-            <tr><td>&nu;<sub>2</sub></td><td>13.2</td><td>14.9</td><td>A cell nucleus</td></tr>
-            <tr><td>&nu;<sub>1</sub></td><td>10.0</td><td>19.8</td><td>A skin cell</td></tr>
-            <tr><td colspan="2"><strong>&Sigma; = 74.4 meV</strong></td><td colspan="2">&lt; 120 meV (cosmological bound)</td></tr>
+            <tr><td class="mono">&nu;<sub>3</sub></td><td class="mono">51.2</td><td class="mono">3.85</td><td>Half a red blood cell</td></tr>
+            <tr><td class="mono">&nu;<sub>2</sub></td><td class="mono">13.2</td><td class="mono">14.9</td><td>A cell nucleus</td></tr>
+            <tr><td class="mono">&nu;<sub>1</sub></td><td class="mono">10.0</td><td class="mono">19.8</td><td>A skin cell</td></tr>
+            <tr><td class="mono" colspan="2"><strong class="mono">&Sigma; = 74.4 meV</strong></td><td colspan="2">&lt; 120 meV (cosmological bound)</td></tr>
           </table>
 
           <p>Neutrinos are <strong>enormous standing waves</strong> &mdash; microns across, the size of biological cells. Their ghostly behaviour (cross sections &sim; 10<sup>&minus;44</sup>&nbsp;cm<sup>2</sup>) follows from the mismatch between their wave size (~10&nbsp;&mu;m) and the weak interaction range (~10<sup>&minus;3</sup>&nbsp;fm): a ratio of 10<sup>13</sup>.</p>
@@ -2588,7 +2588,7 @@
 
           <div class="calc-step">
             <div class="calc-num">3</div>
-            <div><strong>U<sub>PMNS</sub> = I &times; U<sub>TBM</sub> = tribimaximal.</strong> Since the charged leptons are diagonal and the neutrino mass matrix is democratic, the PMNS matrix is the tribimaximal mixing matrix. The democratic eigenvector (1,&thinsp;1,&thinsp;1)/&radic;3 maps to &nu;<sub>2</sub> (column&nbsp;2), giving:<br><br>
+            <div><strong class="mono">U<sub>PMNS</sub> = I &times; U<sub>TBM</sub> = tribimaximal.</strong> Since the charged leptons are diagonal and the neutrino mass matrix is democratic, the PMNS matrix is the tribimaximal mixing matrix. The democratic eigenvector (1,&thinsp;1,&thinsp;1)/&radic;3 maps to &nu;<sub>2</sub> (column&nbsp;2), giving:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">
               |U<sub>TBM</sub>|<sup>2</sup> = <br>
               &nbsp;&nbsp; &nu;<sub>1</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nu;<sub>2</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nu;<sub>3</sub><br>
@@ -2602,13 +2602,13 @@
 
           <table>
             <tr><th>Parameter</th><th>TBM Formula</th><th>TBM Value</th><th>Observed (NuFIT 6.0)</th><th>Error</th></tr>
-            <tr><td>sin<sup>2</sup>&theta;<sub>12</sub></td><td>1/d = 1/3</td><td><strong>0.3333</strong></td><td>0.304</td><td>+9.6%</td></tr>
-            <tr><td>sin<sup>2</sup>&theta;<sub>23</sub></td><td>1/2 (maximal, &mu;&ndash;&tau; symmetric)</td><td><strong>0.5000</strong></td><td>0.573</td><td>&minus;12.7%</td></tr>
-            <tr><td>sin<sup>2</sup>&theta;<sub>13</sub></td><td>0 (exact &mdash; |U<sub>e3</sub>|<sup>2</sup>&nbsp;=&nbsp;0)</td><td><strong>0</strong></td><td>0.02219</td><td>&mdash;</td></tr>
-            <tr><td>&delta;<sub>CP</sub></td><td>undefined (&theta;<sub>13</sub>&nbsp;=&nbsp;0)</td><td>&mdash;</td><td>~197&deg;</td><td>&mdash;</td></tr>
+            <tr><td class="mono">sin<sup>2</sup>&theta;<sub>12</sub></td><td class="mono">1/d = 1/3</td><td class="mono"><strong class="mono">0.3333</strong></td><td class="mono">0.304</td><td class="mono">+9.6%</td></tr>
+            <tr><td class="mono">sin<sup>2</sup>&theta;<sub>23</sub></td><td class="mono">1/2 (maximal, &mu;&ndash;&tau; symmetric)</td><td class="mono"><strong class="mono">0.5000</strong></td><td class="mono">0.573</td><td class="mono">&minus;12.7%</td></tr>
+            <tr><td class="mono">sin<sup>2</sup>&theta;<sub>13</sub></td><td class="mono">0 (exact &mdash; |U<sub>e3</sub>|<sup>2</sup>&nbsp;=&nbsp;0)</td><td><strong>0</strong></td><td class="mono">0.02219</td><td>&mdash;</td></tr>
+            <tr><td class="mono">&delta;<sub>CP</sub></td><td class="mono">undefined (&theta;<sub>13</sub>&nbsp;=&nbsp;0)</td><td>&mdash;</td><td>~197&deg;</td><td>&mdash;</td></tr>
           </table>
 
-          <p><strong>Why &theta;<sub>13</sub>&nbsp;=&nbsp;0:</strong> The &nu;<sub>3</sub> eigenstate is (0,&thinsp;&minus;1/&radic;2,&thinsp;1/&radic;2) &mdash; a pure &mu;&ndash;&tau; superposition with <em>zero</em> electron component. This follows from the exact axis symmetry of the democratic coupling. The electron flavour couples only to &nu;<sub>1</sub> and &nu;<sub>2</sub>.</p>
+          <p><strong class="mono">Why &theta;<sub>13</sub>&nbsp;=&nbsp;0:</strong> The &nu;<sub>3</sub> eigenstate is (0,&thinsp;&minus;1/&radic;2,&thinsp;1/&radic;2) &mdash; a pure &mu;&ndash;&tau; superposition with <em>zero</em> electron component. This follows from the exact axis symmetry of the democratic coupling. The electron flavour couples only to &nu;<sub>1</sub> and &nu;<sub>2</sub>.</p>
 
           <div class="calc-step">
             <div class="calc-num">4</div>
@@ -2641,16 +2641,16 @@
 
           <table>
             <tr><th>Parameter</th><th>GWT Formula</th><th>GWT Value</th><th>Observed (NuFIT 6.0)</th><th>Sigma</th></tr>
-            <tr><td>sin<sup>2</sup>&theta;<sub>12</sub></td><td>from R&nbsp;&times;&nbsp;U<sub>TBM</sub></td><td><strong>0.3045</strong></td><td>0.303 &plusmn; 0.012</td><td>+0.1&sigma;</td></tr>
-            <tr><td>sin<sup>2</sup>&theta;<sub>23</sub></td><td>from R&nbsp;&times;&nbsp;U<sub>TBM</sub></td><td><strong>0.5745</strong></td><td>0.572 &plusmn; 0.018</td><td>+0.1&sigma;</td></tr>
-            <tr><td>sin<sup>2</sup>&theta;<sub>13</sub></td><td>from R&nbsp;&times;&nbsp;U<sub>TBM</sub></td><td><strong>0.02252</strong></td><td>0.02225 &plusmn; 0.00056</td><td>+0.5&sigma;</td></tr>
+            <tr><td class="mono">sin<sup>2</sup>&theta;<sub>12</sub></td><td class="mono">from R&nbsp;&times;&nbsp;U<sub>TBM</sub></td><td class="mono"><strong class="mono">0.3045</strong></td><td class="mono">0.303 &plusmn; 0.012</td><td class="mono">+0.1&sigma;</td></tr>
+            <tr><td class="mono">sin<sup>2</sup>&theta;<sub>23</sub></td><td class="mono">from R&nbsp;&times;&nbsp;U<sub>TBM</sub></td><td class="mono"><strong class="mono">0.5745</strong></td><td class="mono">0.572 &plusmn; 0.018</td><td class="mono">+0.1&sigma;</td></tr>
+            <tr><td class="mono">sin<sup>2</sup>&theta;<sub>13</sub></td><td class="mono">from R&nbsp;&times;&nbsp;U<sub>TBM</sub></td><td class="mono"><strong class="mono">0.02252</strong></td><td class="mono">0.02225 &plusmn; 0.00056</td><td class="mono">+0.5&sigma;</td></tr>
           </table>
 
           <p><strong>All three mixing angles are predicted within 1&sigma; of the observed values, with zero free parameters.</strong> The inputs are the known charged lepton masses (m<sub>e</sub>,&nbsp;m<sub>&mu;</sub>,&nbsp;m<sub>&tau;</sub>), the proton mass (m<sub>p</sub>), and the TBM structure from the democratic coupling.</p>
 
           <div class="calc-step">
             <div class="calc-num">6</div>
-            <div><strong>CP phase &delta;<sub>CP</sub>.</strong> With &theta;<sub>13</sub>&nbsp;=&nbsp;0 the CP phase is formally undefined (the Jarlskog invariant J&nbsp;=&nbsp;0). The tetrahedral dihedral angle gives a natural geometric prediction if &theta;<sub>13</sub> is generated by corrections:<br><br>
+            <div><strong class="mono">CP phase &delta;<sub>CP</sub>.</strong> With &theta;<sub>13</sub>&nbsp;=&nbsp;0 the CP phase is formally undefined (the Jarlskog invariant J&nbsp;=&nbsp;0). The tetrahedral dihedral angle gives a natural geometric prediction if &theta;<sub>13</sub> is generated by corrections:<br><br>
               <span style="font-family:var(--font-mono); color:var(--accent-green);">&delta;<sub>CP</sub> = arccos(&minus;1/d) = arccos(&minus;1/3) = &minus;109.5&deg;</span><br><br>
               The bare tetrahedral phases are supplementary: arccos(+1/3)&nbsp;+&nbsp;arccos(&minus;1/3)&nbsp;=&nbsp;180&deg;. The CKM phase receives a boundary correction: &delta;<sub>CKM</sub>&nbsp;=&nbsp;arccos(5/12)&nbsp;=&nbsp;65.38&deg; (&minus;0.1&sigma;). See <a href="calc-mixing-angles.html">Mixing Angles</a> for full derivation.</div>
           </div>
@@ -2674,9 +2674,9 @@
 
               <strong>(b) Axis structure in the eigenspace:</strong><br>
               Decomposing the axis (&minus;1,&nbsp;&radic;3,&nbsp;&minus;b) in the (a<sub>1</sub>,&nbsp;a<sub>2</sub>,&nbsp;e<sub>3</sub>) basis reveals:<br>
-              &bull; <strong>a<sub>1</sub></strong> = &minus;(1+&radic;3)/&radic;2 &mdash; fixed by geometry, independent of b<br>
-              &bull; <strong>a<sub>2</sub></strong> = (&radic;3&minus;1+2b)/&radic;6 &mdash; shifts with the tau correction<br>
-              &bull; <strong>e<sub>3</sub></strong> = (&minus;1+&radic;3&minus;b)/&radic;3 &mdash; the (1,1,1) component<br><br>
+              &bull; <strong class="mono">a<sub>1</sub></strong> = &minus;(1+&radic;3)/&radic;2 &mdash; fixed by geometry, independent of b<br>
+              &bull; <strong class="mono">a<sub>2</sub></strong> = (&radic;3&minus;1+2b)/&radic;6 &mdash; shifts with the tau correction<br>
+              &bull; <strong class="mono">e<sub>3</sub></strong> = (&minus;1+&radic;3&minus;b)/&radic;3 &mdash; the (1,1,1) component<br><br>
               The tau correction preserves a<sub>1</sub> (because the shift is e&nbsp;&leftrightarrow;&nbsp;&mu; symmetric) and only modifies a<sub>2</sub> and e<sub>3</sub>. The e<sub>3</sub> component (12% of the axis norm) is what mixes the TBM eigenvector (1,1,1)/&radic;3 with the degenerate subspace, generating &theta;<sub>13</sub>&nbsp;&ne;&nbsp;0. The tau correction nearly doubles this component (from 6.9% to 12.4%), which is why it has such a large effect on &theta;<sub>13</sub>.<br><br>
 
               <strong>(c) Angle as a direct geometric ratio:</strong><br>
@@ -2696,7 +2696,7 @@
           <p>The neutrino sector uses <strong>no additional inputs</strong> beyond what the Hamiltonian already provides. The mass formula M<sub>&nu;</sub>&nbsp;=&nbsp;m<sub>e</sub>/(108&pi;<sup>10</sup>) uses m<sub>e</sub> from &sect;24 and the proton-to-electron ratio 6&pi;<sup>5</sup> from &sect;11a. The splittings use d&times;2<sup>d</sup>&nbsp;=&nbsp;24 from the same combinatorics that govern all other mass scales, corrected by the D<sub>IV</sub>(5) Shilov boundary S<sup>3</sup>. The PMNS mixing matrix follows from the democratic mass matrix (TBM leading order) corrected by a single rotation whose parameters are determined by the charged lepton and proton masses &mdash; zero free parameters for all three angles.</p>
 
           <div class="calc-result">
-            <strong>Neutrinos are not mysterious.</strong> They are the weakest standing waves in the lattice &mdash; residual oscillations from the coupling between the charged lepton and proton sectors, suppressed by 108&pi;<sup>10</sup>&nbsp;&asymp;&nbsp;10<sup>7</sup>. The 24 breather modes decompose as <strong>3&times;8</strong> (one group per spatial axis), and the D<sub>IV</sub>(5) Shilov boundary S<sup>3</sup> provides the exact geometric correction to mass splittings (&plusmn;0.2%). The mixing angles follow from U<sub>PMNS</sub>&nbsp;=&nbsp;R(&theta;,&nbsp;axis)&nbsp;&times;&nbsp;U<sub>TBM</sub>, with geometrically derived parameters: the axis is the muon direction in the flavour triangle rescaled by the proton wrapping factor, axis<sub>i</sub>&nbsp;=&nbsp;&mu;-dir<sub>i</sub>&nbsp;&times;&nbsp;max(1,&thinsp;&sigma;<sub>p</sub>/&sigma;<sub>i</sub>), and the angle is the standing-wave size ratio &theta;&nbsp;=&nbsp;arcsin(&sigma;<sub>&mu;</sub>/&sigma;<sub>e</sub>). This predicts sin<sup>2</sup>&theta;<sub>12</sub>&nbsp;=&nbsp;0.304 (+0.1&sigma;), sin<sup>2</sup>&theta;<sub>23</sub>&nbsp;=&nbsp;0.574 (+0.1&sigma;), sin<sup>2</sup>&theta;<sub>13</sub>&nbsp;=&nbsp;0.0225 (+0.5&sigma;) &mdash; all three within 1&sigma; of observation with zero free parameters. The CP phase geometry and CKM+PMNS complementarity follow from the tetrahedral dihedral angle.
+            <strong>Neutrinos are not mysterious.</strong> They are the weakest standing waves in the lattice &mdash; residual oscillations from the coupling between the charged lepton and proton sectors, suppressed by 108&pi;<sup>10</sup>&nbsp;&asymp;&nbsp;10<sup>7</sup>. The 24 breather modes decompose as <strong class="mono">3&times;8</strong> (one group per spatial axis), and the D<sub>IV</sub>(5) Shilov boundary S<sup>3</sup> provides the exact geometric correction to mass splittings (&plusmn;0.2%). The mixing angles follow from U<sub>PMNS</sub>&nbsp;=&nbsp;R(&theta;,&nbsp;axis)&nbsp;&times;&nbsp;U<sub>TBM</sub>, with geometrically derived parameters: the axis is the muon direction in the flavour triangle rescaled by the proton wrapping factor, axis<sub>i</sub>&nbsp;=&nbsp;&mu;-dir<sub>i</sub>&nbsp;&times;&nbsp;max(1,&thinsp;&sigma;<sub>p</sub>/&sigma;<sub>i</sub>), and the angle is the standing-wave size ratio &theta;&nbsp;=&nbsp;arcsin(&sigma;<sub>&mu;</sub>/&sigma;<sub>e</sub>). This predicts sin<sup>2</sup>&theta;<sub>12</sub>&nbsp;=&nbsp;0.304 (+0.1&sigma;), sin<sup>2</sup>&theta;<sub>23</sub>&nbsp;=&nbsp;0.574 (+0.1&sigma;), sin<sup>2</sup>&theta;<sub>13</sub>&nbsp;=&nbsp;0.0225 (+0.5&sigma;) &mdash; all three within 1&sigma; of observation with zero free parameters. The CP phase geometry and CKM+PMNS complementarity follow from the tetrahedral dihedral angle.
           </div>
         </section>
 

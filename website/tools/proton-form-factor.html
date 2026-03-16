@@ -41,6 +41,7 @@ tr:hover td { background: #13132a; }
 .tab-bar { display: flex; gap: 8px; margin: 12px 0; }
 .tab { padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.88em; background: #1a1a3a; color: #888; border: 1px solid #223; }
 .tab.active { background: #00d4ff22; color: #00d4ff; border-color: #00d4ff55; }
+.mono { font-family: monospace; background: rgba(0,212,255,0.08); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.92em; }
 </style>
 </head>
 <body>
@@ -50,7 +51,7 @@ tr:hover td { background: #13132a; }
 <div class="subtitle">
   Comparison of the <b style="color:#00ff88">j₀ standing wave model</b> (Geometric Wave Theory) vs
   the <b style="color:#ff8844">standard dipole</b> parametrization against electron-proton elastic scattering data.
-  The proton is modeled as ψ(r) = A·sin(πr/R<sub>c</sub>)/r — the fundamental j₀ mode in a spherical cavity.
+  The proton is modeled as <span class="mono">ψ(r) = A·sin(πr/R<sub>c</sub>)/r</span> — the fundamental j₀ mode in a spherical cavity.
 </div>
 
 <!-- Controls -->
@@ -119,23 +120,23 @@ tr:hover td { background: #13132a; }
 <!-- Notes -->
 <div class="note">
   <p><span class="hi">Why the j₀ model?</span> The proton is a j₀ standing wave:
-  ψ(r) = A·sin(πr/R<sub>c</sub>)/r with ψ(R<sub>c</sub>) = 0 (cavity boundary condition).
-  The charge density ρ(r) ∝ |ψ(r)|² = sin²(πr/R<sub>c</sub>)/r² gives an
-  <em>exact, parameter-free</em> form factor from the single value R<sub>c</sub> = 1.581 fm.</p>
+  <span class="mono">ψ(r) = A·sin(πr/R<sub>c</sub>)/r</span> with <span class="mono">ψ(R<sub>c</sub>) = 0</span> (cavity boundary condition).
+  The charge density <span class="mono">ρ(r) ∝ |ψ(r)|² = sin²(πr/R<sub>c</sub>)/r²</span> gives an
+  <em>exact, parameter-free</em> form factor from the single value <span class="mono">R<sub>c</sub> = 1.581 fm</span>.</p>
   <br>
   <p><span class="hi2">Why the dipole fails at high Q²?</span>
   The dipole corresponds to an exponential charge distribution with no edge —
-  ρ<sup>dip</sup>(r) ∝ r·e<sup>−r/r₀</sup>. The j₀ wave has a <em>hard boundary</em> at R<sub>c</sub>:
-  no charge exists beyond 1.581 fm. At Q² ≫ 1/(R<sub>c</sub>²·(ħc)²) the
+  <span class="mono">ρ<sup>dip</sup>(r) ∝ r·e<sup>−r/r₀</sup></span>. The j₀ wave has a <em>hard boundary</em> at <span class="mono">R<sub>c</sub></span>:
+  no charge exists beyond 1.581 fm. At <span class="mono">Q² ≫ 1/(R<sub>c</sub>²·(ħc)²)</span> the
   wave model predicts a faster fall-off and characteristic oscillations.
-  At intermediate Q² (0.2–2 GeV²) the j₀ falls more steeply than the dipole —
+  At intermediate <span class="mono">Q²</span> (0.2–2 GeV²) the j₀ falls more steeply than the dipole —
   testable with precision e-p scattering in this range.</p>
   <br>
   <p><span class="hi3">Proton radius puzzle resolved:</span>
-  The measured r<sub>p</sub> depends on Q² because <em>both</em> particles are waves.
-  High-Q² electrons carry more lattice pressure → inflate apparent boundary → larger r<sub>p</sub>.
-  Low-Q² electrons sample the geometric r<sub>rms</sub> = 0.841 fm (muonic H value).
-  The j₀ model predicts r<sub>rms</sub> = 0.841 fm with zero free parameters.</p>
+  The measured <span class="mono">r<sub>p</sub></span> depends on <span class="mono">Q²</span> because <em>both</em> particles are waves.
+  High-<span class="mono">Q²</span> electrons carry more lattice pressure → inflate apparent boundary → larger <span class="mono">r<sub>p</sub></span>.
+  Low-<span class="mono">Q²</span> electrons sample the geometric <span class="mono">r<sub>rms</sub> = 0.841 fm</span> (muonic H value).
+  The j₀ model predicts <span class="mono">r<sub>rms</sub> = 0.841 fm</span> with zero free parameters.</p>
 </div>
 
 <!-- Data tab -->
@@ -150,7 +151,7 @@ tr:hover td { background: #13132a; }
   <canvas id="rhoChart" height="280"></canvas>
 </div>
 <div style="font-size:0.82em;color:#555;margin-top:6px;text-align:center">
-  Note: Dipole ρ<sup>dip</sup>(r) ∝ r·e<sup>−r/r₀</sup> extends to ∞; j₀ ρ(r) ∝ sin²(πr/R<sub>c</sub>)/r² cuts off at R<sub>c</sub>.
+  Note: Dipole <span class="mono">ρ<sup>dip</sup>(r) ∝ r·e<sup>−r/r₀</sup></span> extends to ∞; j₀ <span class="mono">ρ(r) ∝ sin²(πr/R<sub>c</sub>)/r²</span> cuts off at <span class="mono">R<sub>c</sub></span>.
 </div>
 
 </div><!-- container -->

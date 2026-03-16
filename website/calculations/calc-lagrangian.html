@@ -298,14 +298,14 @@
           <div class="calc-step">
             <div class="calc-num">1</div>
             <div>
-              <strong>Compute c<sup>4</sup>/(16&pi;G) from known constants</strong><br>
+              <strong class="mono">Compute c<sup>4</sup>/(16&pi;G) from known constants</strong><br>
               <span style="color:var(--text-secondary);">
                 c = 2.998 &times; 10<sup>8</sup> m/s<br>
                 G = 6.674 &times; 10<sup>&minus;11</sup> m&sup3;/(kg&middot;s&sup2;)<br><br>
                 c<sup>4</sup> = (2.998 &times; 10<sup>8</sup>)<sup>4</sup> = 8.077 &times; 10<sup>33</sup> m<sup>4</sup>/s<sup>4</sup><br>
                 16&pi;G = 16 &times; 3.14159 &times; 6.674 &times; 10<sup>&minus;11</sup> = 3.353 &times; 10<sup>&minus;9</sup> m&sup3;/(kg&middot;s&sup2;)<br><br>
                 c<sup>4</sup>/(16&pi;G) = 8.077 &times; 10<sup>33</sup> / 3.353 &times; 10<sup>&minus;9</sup><br>
-                <strong style="color:var(--accent-green);">c<sup>4</sup>/(16&pi;G) = 2.409 &times; 10<sup>42</sup> kg/(m&middot;s&sup2;)</strong>
+                <strong style="color:var(--accent-green);" class="mono">c<sup>4</sup>/(16&pi;G) = 2.409 &times; 10<sup>42</sup> kg/(m&middot;s&sup2;)</strong>
               </span>
             </div>
           </div>
@@ -319,7 +319,7 @@
                 a = 1.616 &times; 10<sup>&minus;35</sup> m<br><br>
                 ka = 4.77 &times; 10<sup>78</sup> &times; 1.616 &times; 10<sup>&minus;35</sup> = 7.708 &times; 10<sup>43</sup> N<br>
                 ka/32 = 7.708 &times; 10<sup>43</sup> / 32<br>
-                <strong style="color:var(--accent-green);">ka/32 = 2.409 &times; 10<sup>42</sup> N = 2.409 &times; 10<sup>42</sup> kg/(m&middot;s&sup2;)</strong>
+                <strong style="color:var(--accent-green);" class="mono">ka/32 = 2.409 &times; 10<sup>42</sup> N = 2.409 &times; 10<sup>42</sup> kg/(m&middot;s&sup2;)</strong>
               </span>
             </div>
           </div>
@@ -339,7 +339,7 @@
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div>
-              <strong>Algebraic proof (using G = 2c<sup>4</sup>/(&pi;ka))</strong><br>
+              <strong class="mono">Algebraic proof (using G = 2c<sup>4</sup>/(&pi;ka))</strong><br>
               <span style="color:var(--text-secondary);">
                 From the master equation G = 2c<sup>4</sup>/(&pi;ka), solve for ka:<br>
                 ka = 2c<sup>4</sup>/(&pi;G)<br><br>
@@ -403,7 +403,7 @@
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div>
-              <strong>The coupling constant &mu;<sub>0</sub></strong><br>
+              <strong class="mono">The coupling constant &mu;<sub>0</sub></strong><br>
               <span style="color:var(--text-secondary);">
                 &mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup> H/m (magnetic permeability of free space)<br>
                 &epsilon;<sub>0</sub> = 1/(&mu;<sub>0</sub>c&sup2;) = 8.854 &times; 10<sup>&minus;12</sup> F/m (electric permittivity)<br><br>
@@ -540,7 +540,7 @@
           <div class="calc-step">
             <div class="calc-num">2</div>
             <div>
-              <strong>Symmetry breaking = choosing a well</strong><br>
+              <strong class="mono">Symmetry breaking = choosing a well</strong><br>
               <span style="color:var(--text-secondary);">
                 The double well has minima at &theta;<sub>0</sub> = &plusmn;&radic;(k<sub>2</sub>/k<sub>4</sub>).<br><br>
                 The lattice &ldquo;chooses&rdquo; one well: this is <strong>electroweak symmetry breaking</strong>.<br>
@@ -555,7 +555,7 @@
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div>
-              <strong>The Higgs field = collective yin&ndash;yang amplitude</strong><br>
+              <strong class="mono">The Higgs field = collective yin&ndash;yang amplitude</strong><br>
               <span style="color:var(--text-secondary);">
                 The Higgs boson is the excitation <em>about</em> the chosen minimum:<br>
                 &theta;(x) = v + h(x)<br><br>
@@ -583,14 +583,14 @@
           <div class="calc-step">
             <div class="calc-num">5</div>
             <div>
-              <strong>Barrier height: V<sub>max</sub></strong><br>
+              <strong class="mono">Barrier height: V<sub>max</sub></strong><br>
               <span style="color:var(--text-secondary);">
                 V<sub>max</sub> = 2ka&sup2;/&pi;&sup2; (at x = a, the peak of the cosine)<br><br>
                 Numerically:<br>
                 V<sub>max</sub> = 2 &times; 4.77 &times; 10<sup>78</sup> &times; (1.616 &times; 10<sup>&minus;35</sup>)&sup2; / &pi;&sup2;<br>
                 V<sub>max</sub> = 2 &times; 4.77 &times; 10<sup>78</sup> &times; 2.611 &times; 10<sup>&minus;70</sup> / 9.8696<br>
                 V<sub>max</sub> = 2 &times; 1.246 &times; 10<sup>9</sup> / 9.8696<br>
-                <strong style="color:var(--accent-green);">V<sub>max</sub> = 2.524 &times; 10<sup>8</sup> J &asymp; 0.13 E<sub>Planck</sub> per node</strong><br><br>
+                <strong style="color:var(--accent-green);" class="mono">V<sub>max</sub> = 2.524 &times; 10<sup>8</sup> J &asymp; 0.13 E<sub>Planck</sub> per node</strong><br><br>
                 Check: E<sub>Planck</sub> = &radic;(&hbar;c<sup>5</sup>/G) = 1.956 &times; 10<sup>9</sup> J<br>
                 V<sub>max</sub>/E<sub>Planck</sub> = 2.524 &times; 10<sup>8</sup> / 1.956 &times; 10<sup>9</sup> = 0.129 = 4/&pi;&sup3; &nbsp; &#10003;
               </span>
@@ -646,10 +646,10 @@
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div>
-              <strong>sin&sup2;&theta;<sub>W</sub>(GUT) from DOF counting</strong><br>
+              <strong class="mono">sin&sup2;&theta;<sub>W</sub>(GUT) from DOF counting</strong><br>
               <span style="color:var(--text-secondary);">
                 At the unification scale, all couplings are equal. The hypercharge fraction is the ratio of spatial DOF to total DOF:<br><br>
-                sin&sup2;&theta;<sub>W</sub>(GUT) = 3 / 8 = <strong style="color:var(--accent-green);">0.375</strong><br><br>
+                sin&sup2;&theta;<sub>W</sub>(GUT) = 3 / 8 = <strong style="color:var(--accent-green);" class="mono">0.375</strong><br><br>
                 This is the same prediction as SU(5) grand unification &mdash; derived here from lattice geometry, not from group embedding.
               </span>
             </div>
@@ -731,7 +731,7 @@
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div>
-              <strong>Fermion masses: all derived from {&alpha;, m<sub>Planck</sub>, 6&pi;<sup>5</sup>}</strong><br>
+              <strong class="mono">Fermion masses: all derived from {&alpha;, m<sub>Planck</sub>, 6&pi;<sup>5</sup>}</strong><br>
               <span style="color:var(--text-secondary);">
                 The proton mass sets the scale:<br>
                 m<sub>p</sub> = 4&Lambda;<sub>QCD</sub> (virial theorem in d=3, &sect;5 mass gap derivation)<br><br>
@@ -762,7 +762,7 @@
                 &alpha;<sup>8</sup> = 8.041 &times; 10<sup>&minus;18</sup><br><br>
                 v = (5/2) &times; 1.221 &times; 10<sup>19</sup> &times; 8.041 &times; 10<sup>&minus;18</sup><br>
                 v = 2.5 &times; 9.814 &times; 10<sup>1</sup><br>
-                <strong style="color:var(--accent-green);">v = 245.4 GeV</strong>
+                <strong style="color:var(--accent-green);" class="mono">v = 245.4 GeV</strong>
               </span>
             </div>
           </div>
@@ -782,12 +782,12 @@
           <div class="calc-step">
             <div class="calc-num">5</div>
             <div>
-              <strong>Higgs quartic coupling &lambda;</strong><br>
+              <strong class="mono">Higgs quartic coupling &lambda;</strong><br>
               <span style="color:var(--text-secondary);">
                 <em>Primary (breather spectrum + scalar VP):</em><br>
                 M<sub>H</sub> = m(8,&thinsp;24) &times; &pi;<sup>&alpha;/(d&minus;1)</sup> = 125.28 GeV<br>
                 &lambda; = (M<sub>H</sub>/v)&sup2;/2 = (125.28/246.22)&sup2;/2<br>
-                <strong style="color:var(--accent-green);">&lambda; = 0.1295 &nbsp;(0.4% error)</strong><br><br>
+                <strong style="color:var(--accent-green);" class="mono">&lambda; = 0.1295 &nbsp;(0.4% error)</strong><br><br>
                 <em>Cross-check (tree-level):</em> &lambda; = 1/2<sup>d</sup> = 1/8 = 0.125 &nbsp;(3.1% error, before VP dressing)
               </span>
             </div>
@@ -870,13 +870,13 @@
           <div class="calc-step">
             <div class="calc-num">3</div>
             <div>
-              <strong>LHC scale: E = 13 TeV = 2.08 &times; 10<sup>&minus;6</sup> J</strong><br>
+              <strong class="mono">LHC scale: E = 13 TeV = 2.08 &times; 10<sup>&minus;6</sup> J</strong><br>
               <span style="color:var(--text-secondary);">
                 qa = Ea/(&hbar;c) = 2.08 &times; 10<sup>&minus;6</sup> &times; 1.616 &times; 10<sup>&minus;35</sup> / (1.055 &times; 10<sup>&minus;34</sup> &times; 2.998 &times; 10<sup>8</sup>)<br>
                 qa = 3.36 &times; 10<sup>&minus;41</sup> / 3.163 &times; 10<sup>&minus;26</sup><br>
                 qa = 1.06 &times; 10<sup>&minus;15</sup><br><br>
                 (qa)&sup2;/12 = (1.06 &times; 10<sup>&minus;15</sup>)&sup2; / 12<br>
-                <strong style="color:var(--accent-green);">&Delta;&omega;/&omega; &asymp; 10<sup>&minus;31</sup></strong><br><br>
+                <strong style="color:var(--accent-green);" class="mono">&Delta;&omega;/&omega; &asymp; 10<sup>&minus;31</sup></strong><br><br>
                 Completely unobservable at the LHC. The continuum limit is perfect at TeV energies.
               </span>
             </div>
@@ -885,13 +885,13 @@
           <div class="calc-step">
             <div class="calc-num">4</div>
             <div>
-              <strong>Cosmic ray scale: E = 10<sup>20</sup> eV = 1.6 &times; 10<sup>1</sup> J</strong><br>
+              <strong class="mono">Cosmic ray scale: E = 10<sup>20</sup> eV = 1.6 &times; 10<sup>1</sup> J</strong><br>
               <span style="color:var(--text-secondary);">
                 qa = Ea/(&hbar;c) = 16 &times; 1.616 &times; 10<sup>&minus;35</sup> / 3.163 &times; 10<sup>&minus;26</sup><br>
                 qa = 2.584 &times; 10<sup>&minus;34</sup> / 3.163 &times; 10<sup>&minus;26</sup><br>
                 qa = 8.17 &times; 10<sup>&minus;9</sup><br><br>
                 (qa)&sup2;/12 = (8.17 &times; 10<sup>&minus;9</sup>)&sup2; / 12<br>
-                <strong style="color:var(--accent-green);">&Delta;&omega;/&omega; &asymp; 5.6 &times; 10<sup>&minus;18</sup></strong><br><br>
+                <strong style="color:var(--accent-green);" class="mono">&Delta;&omega;/&omega; &asymp; 5.6 &times; 10<sup>&minus;18</sup></strong><br><br>
                 Marginally detectable with future cosmic ray observatories. The GZK cutoff may encode lattice effects.
               </span>
             </div>
@@ -900,7 +900,7 @@
           <div class="calc-step">
             <div class="calc-num">5</div>
             <div>
-              <strong>Planck scale: E = E<sub>Planck</sub> = 1.956 &times; 10<sup>9</sup> J</strong><br>
+              <strong class="mono">Planck scale: E = E<sub>Planck</sub> = 1.956 &times; 10<sup>9</sup> J</strong><br>
               <span style="color:var(--text-secondary);">
                 qa = &pi; (at the Brillouin zone boundary)<br><br>
                 (qa)&sup2;/12 = &pi;&sup2;/12 = 0.822<br>
@@ -1042,7 +1042,7 @@
                 For an electron:<br>
                 &omega;<sub>0</sub> = (9.109 &times; 10<sup>&minus;31</sup>) &times; (2.998 &times; 10<sup>8</sup>)&sup2; / (1.055 &times; 10<sup>&minus;34</sup>)<br>
                 &omega;<sub>0</sub> = 8.187 &times; 10<sup>&minus;14</sup> / 1.055 &times; 10<sup>&minus;34</sup><br>
-                <strong style="color:var(--accent-green);">&omega;<sub>0</sub> = 7.763 &times; 10<sup>20</sup> s<sup>&minus;1</sup></strong><br><br>
+                <strong style="color:var(--accent-green);" class="mono">&omega;<sub>0</sub> = 7.763 &times; 10<sup>20</sup> s<sup>&minus;1</sup></strong><br><br>
                 This is the electron&rsquo;s de Broglie frequency &mdash; the rate at which the standing wave oscillates.
               </span>
             </div>
@@ -1059,7 +1059,7 @@
                 Substituting into the wave equation and dropping &part;&sup2;&phi;/&part;t&sup2; &laquo; &omega;<sub>0</sub> &part;&phi;/&part;t:<br><br>
                 &minus;2i&omega;<sub>0</sub> &part;&phi;/&part;t = c&sup2; &nabla;&sup2;&phi;<br><br>
                 Multiply both sides by &minus;&hbar;/(2&omega;<sub>0</sub>) = &minus;&hbar;&sup2;/(2mc&sup2;):<br><br>
-                <strong style="color:var(--accent-green);">i&hbar; &part;&phi;/&part;t = &minus;(&hbar;&sup2;/2m) &nabla;&sup2;&phi;</strong>
+                <strong style="color:var(--accent-green);" class="mono">i&hbar; &part;&phi;/&part;t = &minus;(&hbar;&sup2;/2m) &nabla;&sup2;&phi;</strong>
               </span>
             </div>
           </div>
@@ -1071,7 +1071,7 @@
               <span style="color:var(--text-secondary);">
                 An external potential V(x) shifts the local rest frequency: &omega;<sub>0</sub> &rarr; &omega;<sub>0</sub> + V/&hbar;<br>
                 This adds a V&phi; term to the right side:<br><br>
-                <strong style="color:var(--accent-green);">i&hbar; &part;&phi;/&part;t = &minus;(&hbar;&sup2;/2m) &nabla;&sup2;&phi; + V&phi;</strong><br><br>
+                <strong style="color:var(--accent-green);" class="mono">i&hbar; &part;&phi;/&part;t = &minus;(&hbar;&sup2;/2m) &nabla;&sup2;&phi; + V&phi;</strong><br><br>
                 This is the time-dependent <strong>Schr&ouml;dinger equation</strong>.<br>
                 It is not a postulate &mdash; it is the non-relativistic limit of a classical wave on the lattice.
               </span>
@@ -1081,9 +1081,9 @@
           <div class="calc-result">
             <strong>All four equations of motion recovered:</strong><br>
             <span style="color:var(--text-secondary);">
-              &bull; <strong>Vary g<sub>&mu;&nu;</sub>:</strong> R<sub>&mu;&nu;</sub> &minus; &frac12;g<sub>&mu;&nu;</sub>R = (8&pi;G/c<sup>4</sup>)T<sub>&mu;&nu;</sub> (Einstein)<br>
-              &bull; <strong>Vary A<sub>&mu;</sub>:</strong> &part;<sub>&mu;</sub>F<sup>&mu;&nu;</sup> = &mu;<sub>0</sub>J<sup>&nu;</sup> (Maxwell)<br>
-              &bull; <strong>Vary &psi;&#x0305;:</strong> (i&gamma;<sup>&mu;</sup>D<sub>&mu;</sub> &minus; m)&psi; = 0 (Dirac)<br>
+              &bull; <strong class="mono">Vary g<sub>&mu;&nu;</sub>:</strong> R<sub>&mu;&nu;</sub> &minus; &frac12;g<sub>&mu;&nu;</sub>R = (8&pi;G/c<sup>4</sup>)T<sub>&mu;&nu;</sub> (Einstein)<br>
+              &bull; <strong class="mono">Vary A<sub>&mu;</sub>:</strong> &part;<sub>&mu;</sub>F<sup>&mu;&nu;</sup> = &mu;<sub>0</sub>J<sup>&nu;</sup> (Maxwell)<br>
+              &bull; <strong class="mono">Vary &psi;&#x0305;:</strong> (i&gamma;<sup>&mu;</sup>D<sub>&mu;</sub> &minus; m)&psi; = 0 (Dirac)<br>
               &bull; <strong>NR limit:</strong> i&hbar;&part;&phi;/&part;t = &minus;(&hbar;&sup2;/2m)&nabla;&sup2;&phi; + V&phi; (Schr&ouml;dinger)<br><br>
               Every equation of fundamental physics is a special case of wave mechanics on the elastic lattice.
             </span>
@@ -1113,49 +1113,49 @@
                 <td><span class="badge badge-green">exact</span></td>
               </tr>
               <tr>
-                <td>&alpha;<sub>EM</sub></td>
+                <td class="mono">&alpha;<sub>EM</sub></td>
                 <td class="mono">D<sub>IV</sub>(5)/16&pi;&sup3;</td>
                 <td class="mono">1/137.042</td>
                 <td class="mono">1/137.036</td>
                 <td><span class="badge badge-green">0.004%</span></td>
               </tr>
               <tr>
-                <td>&alpha;<sub>s</sub>(M<sub>Z</sub>)</td>
-                <td class="mono">Gibbs overshoot</td>
+                <td class="mono">&alpha;<sub>s</sub>(M<sub>Z</sub>)</td>
+                <td>Gibbs overshoot</td>
                 <td class="mono">0.1179</td>
                 <td class="mono">0.1180</td>
                 <td><span class="badge badge-green">0.08%</span></td>
               </tr>
               <tr>
-                <td>sin&sup2;&theta;<sub>W</sub>(M<sub>Z</sub>)</td>
+                <td class="mono">sin&sup2;&theta;<sub>W</sub>(M<sub>Z</sub>)</td>
                 <td class="mono">15/64</td>
                 <td class="mono">0.2344</td>
                 <td class="mono">0.2312</td>
                 <td><span class="badge badge-green">1.4%</span></td>
               </tr>
               <tr>
-                <td>m<sub>e</sub></td>
+                <td class="mono">m<sub>e</sub></td>
                 <td class="mono">m<sub>p</sub>/(6&pi;<sup>5</sup>)</td>
                 <td class="mono">0.5110 MeV</td>
                 <td class="mono">0.5110 MeV</td>
                 <td><span class="badge badge-green">0.002%</span></td>
               </tr>
               <tr>
-                <td>m<sub>&mu;</sub>/m<sub>e</sub></td>
-                <td class="mono">Koide extended</td>
+                <td class="mono">m<sub>&mu;</sub>/m<sub>e</sub></td>
+                <td>Koide extended</td>
                 <td class="mono">206.77</td>
                 <td class="mono">206.768</td>
                 <td><span class="badge badge-green">0.005%</span></td>
               </tr>
               <tr>
-                <td>m<sub>p</sub></td>
+                <td class="mono">m<sub>p</sub></td>
                 <td class="mono">4&Lambda;<sub>QCD</sub></td>
                 <td class="mono">938.3 MeV</td>
                 <td class="mono">938.3 MeV</td>
                 <td><span class="badge badge-green">exact</span></td>
               </tr>
               <tr>
-                <td>r<sub>p</sub></td>
+                <td class="mono">r<sub>p</sub></td>
                 <td class="mono">j<sub>0</sub> cavity</td>
                 <td class="mono">0.841 fm</td>
                 <td class="mono">0.841 fm</td>
@@ -1169,49 +1169,49 @@
                 <td><span class="badge badge-green">0.3%</span></td>
               </tr>
               <tr>
-                <td>&lambda; (Higgs quartic)</td>
+                <td class="mono">&lambda; (Higgs quartic)</td>
                 <td class="mono">m(8,24)+VP &rarr; (M<sub>H</sub>/v)&sup2;/2</td>
                 <td class="mono">0.1295</td>
                 <td class="mono">0.129</td>
                 <td><span class="badge badge-green">0.4%</span></td>
               </tr>
               <tr>
-                <td>f<sub>&pi;</sub></td>
+                <td class="mono">f<sub>&pi;</sub></td>
                 <td class="mono">pion decay from &alpha;<sub>s</sub></td>
                 <td class="mono">93.8 MeV</td>
                 <td class="mono">92.1 MeV</td>
                 <td><span class="badge badge-green">1.9%</span></td>
               </tr>
               <tr>
-                <td>&Delta;m&sup2;<sub>31</sub> (neutrino)</td>
+                <td class="mono">&Delta;m&sup2;<sub>31</sub> (neutrino)</td>
                 <td class="mono">m<sub>e</sub>&sup3;/(N<sub>c</sub>m<sub>p</sub>&sup2;)</td>
                 <td class="mono">2.523 &times; 10<sup>&minus;3</sup> eV&sup2;</td>
                 <td class="mono">2.534 &times; 10<sup>&minus;3</sup> eV&sup2;</td>
                 <td><span class="badge badge-green">0.4%</span></td>
               </tr>
               <tr>
-                <td>H<sub>0</sub></td>
-                <td class="mono">lattice growth</td>
+                <td class="mono">H<sub>0</sub></td>
+                <td>lattice growth</td>
                 <td class="mono">66.4 km/s/Mpc</td>
                 <td class="mono">67.4 km/s/Mpc</td>
                 <td><span class="badge badge-green">1.5%</span></td>
               </tr>
               <tr>
-                <td>&Omega;<sub>&Lambda;</sub></td>
+                <td class="mono">&Omega;<sub>&Lambda;</sub></td>
                 <td class="mono">(d&minus;1)/d = 2/3</td>
                 <td class="mono">0.667</td>
                 <td class="mono">0.685</td>
                 <td><span class="badge badge-green">2.7%</span></td>
               </tr>
               <tr>
-                <td>SU(3) &times; SU(2) &times; U(1)</td>
+                <td class="mono">SU(3) &times; SU(2) &times; U(1)</td>
                 <td class="mono">DOF: 3 + 2 + 1</td>
-                <td class="mono">exact match</td>
-                <td class="mono">exact match</td>
+                <td>exact match</td>
+                <td>exact match</td>
                 <td><span class="badge badge-green">exact</span></td>
               </tr>
               <tr>
-                <td>N<sub>gen</sub> = 3</td>
+                <td class="mono">N<sub>gen</sub> = 3</td>
                 <td class="mono">d = 3 spatial</td>
                 <td class="mono">3</td>
                 <td class="mono">3</td>

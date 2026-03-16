@@ -77,6 +77,7 @@ button:disabled { background: #30363d; color: var(--muted); cursor: not-allowed;
   display: flex; justify-content: space-between; align-items: center;
 }
 #status-bar .highlight { color: var(--blue); }
+.mono { font-family: monospace; background: rgba(88,166,255,0.08); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.92em; }
 </style>
 </head>
 <body>
@@ -85,7 +86,7 @@ button:disabled { background: #30363d; color: var(--muted); cursor: not-allowed;
 <h1>Lattice Cosmology Simulator</h1>
 <p class="subtitle">
   Geometric Wave Theory — Dynamic dark energy from net-neutral lattice restoring pressure.<br>
-  As the universe expands the lattice gas thins (k&nbsp;∝&nbsp;R<sup>-α</sup>) and voids open,
+  As the universe expands the lattice gas thins (<span class="mono">k&nbsp;∝&nbsp;R<sup>-α</sup></span>) and voids open,
   creating a competition that determines the equation of state and a <em>measurable lattice property</em>.
 </p>
 
@@ -109,7 +110,7 @@ button:disabled { background: #30363d; color: var(--muted); cursor: not-allowed;
     <div class="ctrl">
       <div class="ctrl-row"><span>α (dilution exponent)</span><span class="ctrl-val" id="v_alpha">0.00</span></div>
       <input type="range" id="s_alpha" min="0" max="0.25" step="0.005" value="0.00">
-      <div class="hint">k(R) = k₀·R<sup>-α</sup> &nbsp;→&nbsp; G(R) = G₀·R<sup>α</sup></div>
+      <div class="hint"><span class="mono">k(R) = k₀·R<sup>-α</sup></span> &nbsp;→&nbsp; <span class="mono">G(R) = G₀·R<sup>α</sup></span></div>
     </div>
     <div class="ctrl">
       <div class="ctrl-row"><span>Void growth rate k<sub>v</sub></span><span class="ctrl-val" id="v_kv">3.0</span></div>
@@ -127,13 +128,13 @@ button:disabled { background: #30363d; color: var(--muted); cursor: not-allowed;
 
   <div class="panel">
     <h3>Key Observables</h3>
-    <div class="metric"><span class="lbl">Transition z<sub>acc</sub> (target 0.67)</span><span class="val" id="m_ztrans">—</span></div>
+    <div class="metric"><span class="lbl">Transition <span class="mono">z<sub>acc</sub></span> (target 0.67)</span><span class="val" id="m_ztrans">—</span></div>
     <div class="metric"><span class="lbl">Age of universe (target 13.8 Gyr)</span><span class="val" id="m_age">—</span></div>
-    <div class="metric"><span class="lbl">w₀ today (DESI: −0.7 to −1.3)</span><span class="val" id="m_w0">—</span></div>
-    <div class="metric"><span class="lbl">w<sub>a</sub> CPL drift</span><span class="val" id="m_wa">—</span></div>
-    <div class="metric"><span class="lbl">Ω<sub>DE</sub> today</span><span class="val" id="m_OmDE">—</span></div>
-    <div class="metric"><span class="lbl">Ġ/G today (bound &lt;10⁻¹²/yr)</span><span class="val" id="m_Gdot">—</span></div>
-    <div class="metric"><span class="lbl">ΔG/G at z=1 (BBN-safe &lt;4%)</span><span class="val" id="m_DG">—</span></div>
+    <div class="metric"><span class="lbl"><span class="mono">w₀</span> today (DESI: −0.7 to −1.3)</span><span class="val" id="m_w0">—</span></div>
+    <div class="metric"><span class="lbl"><span class="mono">w<sub>a</sub></span> CPL drift</span><span class="val" id="m_wa">—</span></div>
+    <div class="metric"><span class="lbl"><span class="mono">Ω<sub>DE</sub></span> today</span><span class="val" id="m_OmDE">—</span></div>
+    <div class="metric"><span class="lbl"><span class="mono">Ġ/G</span> today (bound &lt;10⁻¹²/yr)</span><span class="val" id="m_Gdot">—</span></div>
+    <div class="metric"><span class="lbl"><span class="mono">ΔG/G</span> at z=1 (BBN-safe &lt;4%)</span><span class="val" id="m_DG">—</span></div>
   </div>
 
   <div class="panel">
@@ -158,23 +159,23 @@ button:disabled { background: #30363d; color: var(--muted); cursor: not-allowed;
 
 <div id="plots">
   <div class="plot-panel">
-    <div class="plot-title">Hubble parameter E(z) = H(z)/H₀</div>
+    <div class="plot-title">Hubble parameter <span class="mono">E(z) = H(z)/H₀</span></div>
     <canvas id="ch_H" height="200"></canvas>
   </div>
   <div class="plot-panel">
-    <div class="plot-title">Equation of state w(z)</div>
+    <div class="plot-title">Equation of state <span class="mono">w(z)</span></div>
     <canvas id="ch_w" height="200"></canvas>
-    <div class="obs-band">DESI 2024 preferred: w₀ ≈ −0.83, w<sub>a</sub> ≈ −0.75 (depends on SN catalog)</div>
+    <div class="obs-band">DESI 2024 preferred: <span class="mono">w₀ ≈ −0.83</span>, <span class="mono">w<sub>a</sub> ≈ −0.75</span> (depends on SN catalog)</div>
   </div>
   <div class="plot-panel">
-    <div class="plot-title">Deceleration parameter q(z) — acceleration when q &lt; 0</div>
+    <div class="plot-title">Deceleration parameter <span class="mono">q(z)</span> — acceleration when <span class="mono">q &lt; 0</span></div>
     <canvas id="ch_q" height="200"></canvas>
-    <div class="obs-band">Transition z<sub>acc</sub> ≈ 0.67 observed (dashed line)</div>
+    <div class="obs-band">Transition <span class="mono">z<sub>acc</sub> ≈ 0.67</span> observed (dashed line)</div>
   </div>
   <div class="plot-panel">
-    <div class="plot-title">Gravitational constant G(z)/G₀</div>
+    <div class="plot-title">Gravitational constant <span class="mono">G(z)/G₀</span></div>
     <canvas id="ch_G" height="200"></canvas>
-    <div class="obs-band">Observational bounds: |ΔG/G| &lt; 4% over cosmic history</div>
+    <div class="obs-band">Observational bounds: <span class="mono">|ΔG/G| &lt; 4%</span> over cosmic history</div>
   </div>
 </div><!-- end plots -->
 </div><!-- end layout -->

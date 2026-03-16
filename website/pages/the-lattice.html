@@ -28,16 +28,16 @@
         <!-- THE MEDIUM -->
         <section id="medium">
           <h2>The Medium</h2>
-          <p>Space is not empty. It is an elastic three-dimensional lattice — an enormous network of nodes connected by bonds, each with spring constant k and separation a. This lattice is the medium through which all waves propagate.</p>
+          <p>Space is not empty. It is an elastic three-dimensional lattice — an enormous network of nodes connected by bonds, each with spring constant <span class="mono">k</span> and separation <span class="mono">a</span>. This lattice is the medium through which all waves propagate.</p>
 
           <div class="card">
             <h4>Key Properties</h4>
             <ul style="color:var(--text-secondary);">
-              <li><strong>Discrete:</strong> Nodes are separated by a&nbsp;=&nbsp;1.616&times;10<sup>&minus;35</sup>&nbsp;m (the Planck length). Below this scale, there is no space.</li>
-              <li><strong>Elastic:</strong> Each bond obeys Hooke's law with k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m. Displacements are restorative.</li>
-              <li><strong>Inertial:</strong> Each node resists displacement with inertial response &eta;&nbsp;=&nbsp;1.385&times;10<sup>&minus;8</sup>&nbsp;kg.</li>
-              <li><strong>Three-dimensional:</strong> N<sub>c</sub>&nbsp;=&nbsp;3 independent oscillation directions.</li>
-              <li><strong>Not detectable as mass:</strong> &eta; is an inertial property (like &epsilon;<sub>0</sub>), not a gravitating mass. Only disturbances (particles) gravitate.</li>
+              <li><strong>Discrete:</strong> Nodes are separated by <span class="mono">a&nbsp;=&nbsp;1.616&times;10<sup>&minus;35</sup>&nbsp;m</span> (the Planck length). Below this scale, there is no space.</li>
+              <li><strong>Elastic:</strong> Each bond obeys Hooke's law with <span class="mono">k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m</span>. Displacements are restorative.</li>
+              <li><strong>Inertial:</strong> Each node resists displacement with inertial response <span class="mono">&eta;&nbsp;=&nbsp;1.385&times;10<sup>&minus;8</sup>&nbsp;kg</span>.</li>
+              <li><strong>Three-dimensional:</strong> <span class="mono">N<sub>c</sub>&nbsp;=&nbsp;3</span> independent oscillation directions.</li>
+              <li><strong>Not detectable as mass:</strong> <span class="mono">&eta;</span> is an inertial property (like <span class="mono">&epsilon;<sub>0</sub></span>), not a gravitating mass. Only disturbances (particles) gravitate.</li>
             </ul>
           </div>
 
@@ -50,7 +50,7 @@
         <!-- THE POTENTIAL -->
         <section id="potential">
           <h2>The Potential V(x)</h2>
-          <p>The energy stored when a lattice node is displaced by x from equilibrium:</p>
+          <p>The energy stored when a lattice node is displaced by <span class="mono">x</span> from equilibrium:</p>
 
           <div class="equation-box">
             <span class="eq-label">Lattice Potential (uniquely derived)</span>
@@ -66,7 +66,7 @@
             </div>
             <div class="step">
               <div class="step-num">2</div>
-              <div class="step-content">The Brillouin zone cutoff at &pi;/a kills all harmonics n&nbsp;&ge;&nbsp;2 &rarr; only the fundamental survives</div>
+              <div class="step-content">The Brillouin zone cutoff at <span class="mono">&pi;/a</span> kills all harmonics <span class="mono">n&nbsp;&ge;&nbsp;2</span> &rarr; only the fundamental survives</div>
             </div>
             <div class="step">
               <div class="step-num">3</div>
@@ -78,7 +78,7 @@
             <h4>Key Quantities</h4>
             <table>
               <tbody>
-                <tr><td>Barrier height V<sub>max</sub></td><td class="mono">2ka&sup2;/&pi;&sup2; = 4/&pi;&sup3; E<sub>Planck</sub> &asymp; 0.13 E<sub>P</sub></td></tr>
+                <tr><td>Barrier height <span class="mono">V<sub>max</sub></span></td><td class="mono">2ka&sup2;/&pi;&sup2; = 4/&pi;&sup3; E<sub>Planck</sub> &asymp; 0.13 E<sub>P</sub></td></tr>
                 <tr><td>Barrier energy per node</td><td class="mono">&asymp; 2.5&times;10<sup>8</sup> J</td></tr>
                 <tr><td>Kink soliton mass</td><td class="mono">16/&pi;<sup>4</sup> m<sub>Planck</sub> &asymp; 0.164 m<sub>P</sub></td></tr>
               </tbody>
@@ -92,7 +92,7 @@
         <!-- CONSTANT EQUIVALENCE -->
         <section id="equivalence">
           <h2>Constant Equivalence</h2>
-          <p>The lattice constants {k, a, &eta;} and the Planck constants {c, &#8463;, G} are the <strong>same information</strong> expressed in different language:</p>
+          <p>The lattice constants <span class="mono">{k, a, &eta;}</span> and the Planck constants <span class="mono">{c, &#8463;, G}</span> are the <strong>same information</strong> expressed in different language:</p>
 
           <div class="equation-box">
             <span class="eq-label">Lattice &rarr; Planck</span>
@@ -106,12 +106,12 @@
 
           <div class="card">
             <h4>In Planck Units</h4>
-            <p>Setting c&nbsp;=&nbsp;&#8463;&nbsp;=&nbsp;G&nbsp;=&nbsp;1 (Planck units):</p>
+            <p>Setting <span class="mono">c&nbsp;=&nbsp;&#8463;&nbsp;=&nbsp;G&nbsp;=&nbsp;1</span> (Planck units):</p>
             <div class="equation-box" style="text-align:center; border-left-color: var(--accent-purple);">
               k = &eta; = 2/&pi; &nbsp;&nbsp;&nbsp;&nbsp; a = 1
             </div>
-            <p>The lattice is <strong>perfectly impedance-matched</strong> — stiffness equals inertia. The factor 2/&pi; is the average of |sin(x)| over a full cycle: a wave mechanics signature.</p>
-            <p style="margin-bottom:0;">This means {c, &#8463;, G} tells you <em>what</em> the constants are; {k, a, &eta;} tells you <em>why</em> they exist.</p>
+            <p>The lattice is <strong>perfectly impedance-matched</strong> — stiffness equals inertia. The factor <span class="mono">2/&pi;</span> is the average of <span class="mono">|sin(x)|</span> over a full cycle: a wave mechanics signature.</p>
+            <p style="margin-bottom:0;">This means <span class="mono">{c, &#8463;, G}</span> tells you <em>what</em> the constants are; <span class="mono">{k, a, &eta;}</span> tells you <em>why</em> they exist.</p>
           </div>
         </section>
 
@@ -120,7 +120,7 @@
         <!-- HOOKE'S LAW -->
         <section id="hooke">
           <h2>Hooke's Law — Completed</h2>
-          <p>In 1660, Robert Hooke discovered F&nbsp;=&nbsp;&minus;kx: the restoring force of a spring is proportional to displacement. But Hooke never explained <em>why</em> springs exist or what happens in three dimensions.</p>
+          <p>In 1660, Robert Hooke discovered <span class="mono">F&nbsp;=&nbsp;&minus;kx</span>: the restoring force of a spring is proportional to displacement. But Hooke never explained <em>why</em> springs exist or what happens in three dimensions.</p>
 
           <h3>The Missing 2/3</h3>
           <p>In a 3D elastic medium, displacement along one direction produces:</p>
@@ -145,7 +145,7 @@
             </table>
           </div>
 
-          <p>Hooke's law in 1D captures only the 1/3 longitudinal response. The other <strong>2/3 — the transverse restoring force — is dark energy</strong>. The &ldquo;missing 2/3&rdquo; was hidden inside Hooke's law for 366 years.</p>
+          <p>Hooke's law in 1D captures only the <span class="mono">1/3</span> longitudinal response. The other <strong><span class="mono">2/3</span> — the transverse restoring force — is dark energy</strong>. The &ldquo;missing 2/3&rdquo; was hidden inside Hooke's law for 366 years.</p>
 
           <div class="equation-box">
             <span class="eq-label">Hooke's Law Completed (3D)</span>
@@ -155,11 +155,11 @@
           </div>
 
           <h3>The Fundamental Spring</h3>
-          <p>Every spring you've ever seen — a car suspension, a slinky, a rubber band — is made of atoms. Those atoms are standing waves. Those standing waves exist in the elastic lattice. The lattice has spring constant k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m.</p>
+          <p>Every spring you've ever seen — a car suspension, a slinky, a rubber band — is made of atoms. Those atoms are standing waves. Those standing waves exist in the elastic lattice. The lattice has spring constant <span class="mono">k&nbsp;=&nbsp;4.77&times;10<sup>78</sup>&nbsp;N/m</span>.</p>
           <p><strong>This is the first spring.</strong> All other springs in nature are emergent echoes of this one Planck-scale bond.</p>
 
           <h3>Nested Well Suppression</h3>
-          <p>Every mass has a crossover radius where its gravity (1/3 longitudinal) yields to the surrounding dark energy (2/3 transverse):</p>
+          <p>Every mass has a crossover radius where its gravity (<span class="mono">1/3</span> longitudinal) yields to the surrounding dark energy (<span class="mono">2/3</span> transverse):</p>
 
           <div class="equation-box">
             r<sub>cross</sub> = (GM / H<sub>0</sub>&sup2;)<sup>1/3</sup>

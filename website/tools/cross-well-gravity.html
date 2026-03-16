@@ -127,6 +127,7 @@
     color: #7eb8ff;
     border-bottom-color: #2a2a8a;
   }
+  .mono { font-family: 'Consolas', monospace; background: rgba(126,184,255,0.08); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.92em; }
   .warning {
     background: #3a2a1a;
     border: 1px solid #6a4a2a;
@@ -156,7 +157,7 @@
 <div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;margin:-20px -20px 20px;font-family:'Segoe UI',sans-serif;font-size:0.85rem;display:flex;align-items:center;gap:1rem;"><a href="../index.html" style="color:#58a6ff;text-decoration:none;">&larr; GWT Home</a><span style="color:#30363d;">|</span><a href="../pages/multi-well.html" style="color:#8b949e;text-decoration:none;">Multi-Well Cosmology</a></div>
 
 <h1>Cross-Well Gravity &amp; Soliton Mass Calculator</h1>
-<p class="subtitle">Geometric Wave Theory — Multi-Well Cosmology from V(x) = (ka²/π²)[1 − cos(πx/a)]</p>
+<p class="subtitle">Geometric Wave Theory — Multi-Well Cosmology from <span class="mono">V(x) = (ka²/π²)[1 − cos(πx/a)]</span></p>
 
 <div class="grid">
 
@@ -249,7 +250,7 @@
     <canvas id="decayCanvas" height="250"></canvas>
     <p class="note">
       Gravitational compression amplitude as it crosses from well 0 through
-      the domain wall into well 1. Exponential decay with depth δ = a/π.
+      the domain wall into well 1. Exponential decay with depth <span class="mono">δ = a/π</span>.
     </p>
   </div>
 
@@ -383,9 +384,9 @@
       Diffusion rate: Γ = T × (c/a) ≈ 0.043 × 1.86×10⁴³ s⁻¹ ≈ 8.0 × 10⁴¹ s⁻¹
     </div>
     <p class="note">
-      The diffusion rate Γ tells us how quickly gravitational information crosses one barrier.
-      At ~10⁴¹ crossings per second, cross-well gravity reaches steady state in ~10⁻⁴² seconds.
-      Over cosmic time (4.35 × 10¹⁷ s), the gravitational coupling is fully equilibrated.
+      The diffusion rate <span class="mono">Γ</span> tells us how quickly gravitational information crosses one barrier.
+      At <span class="mono">~10⁴¹</span> crossings per second, cross-well gravity reaches steady state in <span class="mono">~10⁻⁴²</span> seconds.
+      Over cosmic time (<span class="mono">4.35 × 10¹⁷ s</span>), the gravitational coupling is fully equilibrated.
     </p>
   </div>
 

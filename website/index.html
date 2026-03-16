@@ -34,14 +34,14 @@
           <div class="card" style="max-width:750px; margin:0 auto;">
             <p>Space is not empty — it's an elastic medium, like an extraordinarily stiff three-dimensional lattice. Everything you see — electrons, protons, light, gravity — is a <strong>wave</strong> in this medium.</p>
             <p>This isn't an analogy. The mathematics of elastic wave mechanics directly produces every equation in physics: quantum mechanics, electromagnetism, general relativity, the Standard Model, and cosmology.</p>
-            <p style="margin-bottom:0;">The medium has three properties: how stiff it is (<strong>k</strong>), how dense it is (<strong>&eta;</strong>), and how far apart its nodes are (<strong>a</strong>). But none of these are free choices — in Planck units, a&nbsp;=&nbsp;1 and k&nbsp;=&nbsp;&eta;&nbsp;=&nbsp;2/&pi;. The only inputs are the integer <strong>3</strong> (spatial dimensions) and <strong>&pi;</strong> (the geometry of periodicity). Everything else — every particle mass, every force, every constant — follows.</p>
+            <p style="margin-bottom:0;">The medium has three properties: how stiff it is (<strong class="mono">k</strong>), how dense it is (<strong class="mono">&eta;</strong>), and how far apart its nodes are (<strong class="mono">a</strong>). But none of these are free choices — in Planck units, <span class="mono">a&nbsp;=&nbsp;1</span> and <span class="mono">k&nbsp;=&nbsp;&eta;&nbsp;=&nbsp;2/&pi;</span>. The only inputs are the integer <strong class="mono">3</strong> (spatial dimensions) and <strong class="mono">&pi;</strong> (the geometry of periodicity). Everything else — every particle mass, every force, every constant — follows.</p>
           </div>
         </section>
 
         <!-- The Lagrangian -->
         <section>
           <h2 style="text-align:center; margin-top:0;">The Lagrangian</h2>
-          <p style="text-align:center; max-width:650px; margin:0 auto 1.5rem;">In Planck units (a&nbsp;=&nbsp;1), the entire framework is defined by a single equation:</p>
+          <p style="text-align:center; max-width:650px; margin:0 auto 1.5rem;">In Planck units (<span class="mono">a&nbsp;=&nbsp;1</span>), the entire framework is defined by a single equation:</p>
 
           <div class="equation-box" style="text-align:center; border-left-color: var(--accent-green); font-size:1.2rem;">
             <span class="eq-label">The GWT Lagrangian</span>
@@ -49,21 +49,21 @@
           </div>
 
           <div class="card" style="max-width:750px; margin:1.5rem auto;">
-            <p style="margin-bottom:0.5rem;"><strong>&phi;<sub>i</sub></strong> = displacement at lattice site i (dimensionless in Planck units)</p>
-            <p style="margin-bottom:0.5rem;"><strong>&Sigma;<sub>&lang;i,j&rang;</sub></strong> = sum over nearest neighbors on a d-dimensional cubic lattice (d&nbsp;=&nbsp;3)</p>
-            <p style="margin-bottom:0.5rem;"><strong>(&phi;<sub>i</sub>&nbsp;&minus;&nbsp;&phi;<sub>j</sub>)&sup2;</strong> = elastic energy between neighbors (spring-like interaction)</p>
-            <p style="margin-bottom:0.5rem;"><strong>(1/&pi;&sup2;)(1&nbsp;&minus;&nbsp;cos(&pi;&phi;))</strong> = on-site cosine potential (sine-Gordon). The only periodic potential that is harmonic for small displacements and supports topological kink solutions.</p>
-            <p style="margin-bottom:0;">This is a <strong>zero-parameter</strong> Lagrangian. The lattice spacing is 1 (Planck length), the potential depth 1/&pi;&sup2; is fixed by topological quantization, and d&nbsp;=&nbsp;3 is the number of spatial dimensions. The only inputs are <strong>3</strong> and <strong>&pi;</strong> — nothing is adjustable.</p>
+            <p style="margin-bottom:0.5rem;"><strong class="mono">&phi;<sub>i</sub></strong> = displacement at lattice site i (dimensionless in Planck units)</p>
+            <p style="margin-bottom:0.5rem;"><strong class="mono">&Sigma;<sub>&lang;i,j&rang;</sub></strong> = sum over nearest neighbors on a d-dimensional cubic lattice (d&nbsp;=&nbsp;3)</p>
+            <p style="margin-bottom:0.5rem;"><strong class="mono">(&phi;<sub>i</sub>&nbsp;&minus;&nbsp;&phi;<sub>j</sub>)&sup2;</strong> = elastic energy between neighbors (spring-like interaction)</p>
+            <p style="margin-bottom:0.5rem;"><strong class="mono">(1/&pi;&sup2;)(1&nbsp;&minus;&nbsp;cos(&pi;&phi;))</strong> = on-site cosine potential (sine-Gordon). The only periodic potential that is harmonic for small displacements and supports topological kink solutions.</p>
+            <p style="margin-bottom:0;">This is a <strong>zero-parameter</strong> Lagrangian. The lattice spacing is 1 (Planck length), the potential depth <span class="mono">1/&pi;&sup2;</span> is fixed by topological quantization, and <span class="mono">d&nbsp;=&nbsp;3</span> is the number of spatial dimensions. The only inputs are <strong class="mono">3</strong> and <strong class="mono">&pi;</strong> — nothing is adjustable.</p>
           </div>
 
           <div class="card" style="max-width:750px; margin:1rem auto; border-left: 3px solid var(--accent-blue);">
             <p style="margin-bottom:0.5rem;"><strong>How predictions are derived:</strong></p>
             <p style="margin-bottom:0.5rem;">The Lagrangian defines the system. Predictions come from <em>solving</em> it — using exact analytic solutions where they exist, symmetry analysis, and numerical simulation where closed-form solutions aren't available. No free parameters enter at any step, but the mathematical steps are non-trivial:</p>
             <ul style="margin-bottom:0;">
-              <li><strong>Exact solutions</strong> &mdash; The sine-Gordon equation is exactly solvable. It produces <em>kinks</em> (topological solitons &rarr; fermions, M<sub>kink</sub>&nbsp;=&nbsp;8/&pi;&sup2;), <em>breathers</em> (bound pairs &rarr; particle masses, M<sub>n</sub>&nbsp;=&nbsp;(16/&pi;&sup2;)sin(n&gamma;)), and <em>tunneling amplitudes</em> (T&sup2;&nbsp;=&nbsp;e<sup>&minus;16/&pi;&sup2;</sup> &rarr; generation structure). These are textbook results from the DHN quantization of sine-Gordon.</li>
-              <li><strong>Symmetry analysis</strong> &mdash; The d-dimensional cubic lattice has specific geometric symmetries. A 3-component displacement vector on a cubic lattice decomposes as SU(3)&times;SU(2)&times;U(1). The fine structure constant &alpha; comes from the Wyler formula applied to the bounded symmetric domain D<sub>IV</sub>(d+2) — a geometric object determined by d&nbsp;=&nbsp;3.</li>
-              <li><strong>Numerical simulation</strong> &mdash; Some quantities (like the confinement energy ratio E<sub>ratio</sub>&nbsp;=&nbsp;1.126 used to derive m<sub>e</sub>) require simulating the 3D Lagrangian on a lattice. The simulation has zero tunable physics parameters — only numerical settings (grid size, timestep) that converge to a definite answer.</li>
-              <li><strong>Linearized waves</strong> &mdash; Small-amplitude solutions are phonons, which propagate at c&nbsp;=&nbsp;1. These become photons.</li>
+              <li><strong>Exact solutions</strong> &mdash; The sine-Gordon equation is exactly solvable. It produces <em>kinks</em> (topological solitons &rarr; fermions, <span class="mono">M<sub>kink</sub>&nbsp;=&nbsp;8/&pi;&sup2;</span>), <em>breathers</em> (bound pairs &rarr; particle masses, <span class="mono">M<sub>n</sub>&nbsp;=&nbsp;(16/&pi;&sup2;)sin(n&gamma;)</span>), and <em>tunneling amplitudes</em> (<span class="mono">T&sup2;&nbsp;=&nbsp;e<sup>&minus;16/&pi;&sup2;</sup></span> &rarr; generation structure). These are textbook results from the DHN quantization of sine-Gordon.</li>
+              <li><strong>Symmetry analysis</strong> &mdash; The <span class="mono">d</span>-dimensional cubic lattice has specific geometric symmetries. A 3-component displacement vector on a cubic lattice decomposes as <span class="mono">SU(3)&times;SU(2)&times;U(1)</span>. The fine structure constant <span class="mono">&alpha;</span> comes from the Wyler formula applied to the bounded symmetric domain <span class="mono">D<sub>IV</sub>(d+2)</span> — a geometric object determined by <span class="mono">d&nbsp;=&nbsp;3</span>.</li>
+              <li><strong>Numerical simulation</strong> &mdash; Some quantities (like the confinement energy ratio <span class="mono">E<sub>ratio</sub>&nbsp;=&nbsp;1.126</span> used to derive <span class="mono">m<sub>e</sub></span>) require simulating the 3D Lagrangian on a lattice. The simulation has zero tunable physics parameters — only numerical settings (grid size, timestep) that converge to a definite answer.</li>
+              <li><strong>Linearized waves</strong> &mdash; Small-amplitude solutions are phonons, which propagate at <span class="mono">c&nbsp;=&nbsp;1</span>. These become photons.</li>
             </ul>
           </div>
         </section>
@@ -71,43 +71,43 @@
         <!-- The Three Constants -->
         <section>
           <h2 style="text-align:center; margin-top:0;">Three Constants, All From 3 and &pi;</h2>
-          <p style="text-align:center; max-width:700px; margin:0 auto 1rem;">The lattice has three mechanical properties — but they aren't free parameters. In Planck units, a&nbsp;=&nbsp;1 (the lattice defines the Planck length) and k&nbsp;=&nbsp;&eta;&nbsp;=&nbsp;2/&pi; (fixed by the sine-Gordon potential). The only true inputs are <strong>d&nbsp;=&nbsp;3</strong> spatial dimensions and <strong>&pi;</strong>:</p>
+          <p style="text-align:center; max-width:700px; margin:0 auto 1rem;">The lattice has three mechanical properties — but they aren't free parameters. In Planck units, <span class="mono">a&nbsp;=&nbsp;1</span> (the lattice defines the Planck length) and <span class="mono">k&nbsp;=&nbsp;&eta;&nbsp;=&nbsp;2/&pi;</span> (fixed by the sine-Gordon potential). The only true inputs are <strong class="mono">d&nbsp;=&nbsp;3</strong> spatial dimensions and <strong class="mono">&pi;</strong>:</p>
 
           <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
             <div class="variable-card">
               <div class="var-symbol">k &nbsp;<span style="font-size:0.6em; color:var(--text-muted);">[stiffness]</span></div>
               <div class="var-value" style="font-size:0.95rem;">Planck: 2/&pi; &nbsp;&nbsp; SI: 4.77 &times; 10<sup>78</sup> N/m</div>
               <div class="var-name">Bond Stiffness (force per displacement)</div>
-              <div class="var-desc">The spring constant of each bond between lattice nodes. This is a <strong>force</strong> — how hard the medium pushes back when stretched. Derived from k&nbsp;=&nbsp;2&#8463;c/(&pi;a&sup3;). Appears in: &#8463;&nbsp;=&nbsp;&pi;ka&sup3;/(2c), G&nbsp;=&nbsp;2c&sup4;/(&pi;ka).</div>
+              <div class="var-desc">The spring constant of each bond between lattice nodes. This is a <strong>force</strong> — how hard the medium pushes back when stretched. Derived from <span class="mono">k&nbsp;=&nbsp;2&#8463;c/(&pi;a&sup3;)</span>. Appears in: <span class="mono">&#8463;&nbsp;=&nbsp;&pi;ka&sup3;/(2c)</span>, <span class="mono">G&nbsp;=&nbsp;2c&sup4;/(&pi;ka)</span>.</div>
             </div>
 
             <div class="variable-card">
               <div class="var-symbol">&eta; &nbsp;<span style="font-size:0.6em; color:var(--text-muted);">[inertia]</span></div>
               <div class="var-value" style="font-size:0.95rem;">Planck: 2/&pi; &nbsp;&nbsp; SI: 1.385 &times; 10<sup>&minus;8</sup> kg</div>
               <div class="var-name">Node Inertia (mass per node)</div>
-              <div class="var-desc">How the medium resists being accelerated. This is an <strong>inertia</strong> — the mass density at each lattice site. Derived from &eta;&nbsp;=&nbsp;2&#8463;/(&pi;ac). Like &epsilon;<sub>0</sub> in electromagnetism: an intrinsic property of the medium, not a detectable mass.</div>
+              <div class="var-desc">How the medium resists being accelerated. This is an <strong>inertia</strong> — the mass density at each lattice site. Derived from <span class="mono">&eta;&nbsp;=&nbsp;2&#8463;/(&pi;ac)</span>. Like <span class="mono">&epsilon;<sub>0</sub></span> in electromagnetism: an intrinsic property of the medium, not a detectable mass.</div>
             </div>
 
             <div class="variable-card">
               <div class="var-symbol">a &nbsp;<span style="font-size:0.6em; color:var(--text-muted);">[spacing]</span></div>
               <div class="var-value" style="font-size:0.95rem;">Planck: 1 &nbsp;&nbsp; SI: 1.616 &times; 10<sup>&minus;35</sup> m</div>
               <div class="var-name">Lattice Spacing (distance between nodes)</div>
-              <div class="var-desc">The distance between adjacent nodes. Equal to the Planck length l<sub>P</sub>&nbsp;=&nbsp;&radic;(&#8463;G/c&sup3;). This is the smallest meaningful distance — there is no space between sites to measure.</div>
+              <div class="var-desc">The distance between adjacent nodes. Equal to the Planck length <span class="mono">l<sub>P</sub>&nbsp;=&nbsp;&radic;(&#8463;G/c&sup3;)</span>. This is the smallest meaningful distance — there is no space between sites to measure.</div>
             </div>
           </div>
 
           <div class="card" style="max-width:750px; margin:1.5rem auto; border-left: 3px solid var(--accent-green);">
             <h4 style="margin-top:0; color:var(--accent-green);">Why k = &eta; = 2/&pi; (same value, different physics)</h4>
-            <p style="margin-bottom:0.5rem;"><strong>k</strong> and <strong>&eta;</strong> measure completely different things. k is a <em>stiffness</em> (newtons per meter). &eta; is a <em>mass</em> (kilograms). They have different SI units and different physical meanings.</p>
-            <p style="margin-bottom:0.5rem;">But in Planck units, they must be equal: <strong>k&nbsp;=&nbsp;&eta;</strong>. Why? Because the wave speed is c&nbsp;=&nbsp;a&radic;(k/&eta;). If k&nbsp;&ne;&nbsp;&eta;, the speed of light wouldn't equal 1 in natural units. The medium must be <em>impedance-matched</em> — stiffness and inertia in perfect balance — for waves to propagate without distortion.</p>
-            <p style="margin-bottom:0;">The value <strong>2/&pi;</strong> is not chosen. It is &lang;|sin(x)|&rang; — the average of |sin(x)| over a full cycle. This is the only value consistent with the sine-Gordon cosine potential having period 2 and matching harmonic behavior at small amplitudes. Geometry fixes the number.</p>
+            <p style="margin-bottom:0.5rem;"><strong class="mono">k</strong> and <strong class="mono">&eta;</strong> measure completely different things. <span class="mono">k</span> is a <em>stiffness</em> (newtons per meter). <span class="mono">&eta;</span> is a <em>mass</em> (kilograms). They have different SI units and different physical meanings.</p>
+            <p style="margin-bottom:0.5rem;">But in Planck units, they must be equal: <strong class="mono">k&nbsp;=&nbsp;&eta;</strong>. Why? Because the wave speed is <span class="mono">c&nbsp;=&nbsp;a&radic;(k/&eta;)</span>. If <span class="mono">k&nbsp;&ne;&nbsp;&eta;</span>, the speed of light wouldn't equal 1 in natural units. The medium must be <em>impedance-matched</em> — stiffness and inertia in perfect balance — for waves to propagate without distortion.</p>
+            <p style="margin-bottom:0;">The value <strong class="mono">2/&pi;</strong> is not chosen. It is <span class="mono">&lang;|sin(x)|&rang;</span> — the average of <span class="mono">|sin(x)|</span> over a full cycle. This is the only value consistent with the sine-Gordon cosine potential having period 2 and matching harmonic behavior at small amplitudes. Geometry fixes the number.</p>
           </div>
         </section>
 
         <!-- Master Equations -->
         <section>
           <h2 style="text-align:center; margin-top:0;">From Three Constants, All of Physics</h2>
-          <p style="text-align:center; max-width:650px; margin:0 auto 1.5rem;">The three fundamental constants of physics are not inputs — they are outputs of a lattice with d&nbsp;=&nbsp;3 and coupling 2/&pi;:</p>
+          <p style="text-align:center; max-width:650px; margin:0 auto 1.5rem;">The three fundamental constants of physics are not inputs — they are outputs of a lattice with <span class="mono">d&nbsp;=&nbsp;3</span> and coupling <span class="mono">2/&pi;</span>:</p>
 
           <div class="equation-box">
             <span class="eq-label">The Master Equations</span>
@@ -116,7 +116,7 @@
             G &nbsp;= 2c<sup>4</sup> / (&pi; k a) = 1 &nbsp;&rarr;&nbsp; gravitational constant (inverse lattice stiffness)
           </div>
 
-          <p style="text-align:center; max-width:650px; margin:0 auto;">{c,&nbsp;&#8463;,&nbsp;G} tells you <em>what</em> the constants are. {k,&nbsp;a,&nbsp;&eta;} tells you <em>why</em> they exist. And 3 and &pi; tell you <strong>there was never a choice</strong>.</p>
+          <p style="text-align:center; max-width:650px; margin:0 auto;"><span class="mono">{c,&nbsp;&#8463;,&nbsp;G}</span> tells you <em>what</em> the constants are. <span class="mono">{k,&nbsp;a,&nbsp;&eta;}</span> tells you <em>why</em> they exist. And 3 and &pi; tell you <strong>there was never a choice</strong>.</p>
 
           <div style="text-align:center; margin:2rem 0;">
             <a href="pages/core-derivations.html" class="btn btn-primary">Explore the Derivations &rarr;</a>
@@ -192,7 +192,7 @@
               <tr>
                 <td><strong>Proton</strong></td>
                 <td class="mono">Spherical j&#8320;</td>
-                <td>Fundamental spherical standing wave (r<sub>p</sub>&nbsp;=&nbsp;0.8411&nbsp;fm, 0.04%)</td>
+                <td>Fundamental spherical standing wave (<span class="mono">r<sub>p</sub>&nbsp;=&nbsp;0.8411&nbsp;fm</span>, 0.04%)</td>
               </tr>
               <tr>
                 <td><strong>Photon</strong></td>
@@ -202,7 +202,7 @@
               <tr>
                 <td><strong>Neutrino</strong></td>
                 <td class="mono">1D weak mode</td>
-                <td>Macroscopic wave (&#955;<sub>C</sub>&nbsp;~&nbsp;4&ndash;20&nbsp;&mu;m)</td>
+                <td>Macroscopic wave (<span class="mono">&#955;<sub>C</sub>&nbsp;~&nbsp;4&ndash;20&nbsp;&mu;m</span>)</td>
               </tr>
             </tbody>
           </table>
@@ -225,7 +225,7 @@
                 <td>Fourier's theorem — narrow wave has broad frequency</td>
               </tr>
               <tr>
-                <td>Probability = |&psi;|&sup2;</td>
+                <td>Probability = <span class="mono">|&psi;|&sup2;</span></td>
                 <td>Wave intensity (how loud the disturbance is)</td>
               </tr>
               <tr>
@@ -260,61 +260,61 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>&alpha; (fine structure)</strong></td>
+                <td><strong class="mono">&alpha;</strong> (fine structure)</td>
                 <td class="mono">1/137.042</td>
                 <td class="mono">1/137.036</td>
                 <td><span class="badge badge-green">0.005%</span></td>
               </tr>
               <tr>
-                <td><strong>m<sub>&mu;</sub>/m<sub>e</sub></strong></td>
+                <td><strong class="mono">m<sub>&mu;</sub>/m<sub>e</sub></strong></td>
                 <td class="mono">206.77</td>
                 <td class="mono">206.768</td>
                 <td><span class="badge badge-green">0.005%</span></td>
               </tr>
               <tr>
-                <td><strong>m<sub>p</sub>/m<sub>e</sub></strong></td>
+                <td><strong class="mono">m<sub>p</sub>/m<sub>e</sub></strong></td>
                 <td class="mono">6&pi;<sup>5</sup> = 1836.12</td>
                 <td class="mono">1836.15</td>
                 <td><span class="badge badge-green">0.002%</span></td>
               </tr>
               <tr>
-                <td><strong>&alpha;<sub>s</sub>(M<sub>Z</sub>)</strong></td>
+                <td><strong class="mono">&alpha;<sub>s</sub>(M<sub>Z</sub>)</strong></td>
                 <td class="mono">0.1179</td>
                 <td class="mono">0.1180</td>
                 <td><span class="badge badge-green">0.08%</span></td>
               </tr>
               <tr>
-                <td><strong>Proton radius r<sub>p</sub></strong></td>
+                <td>Proton radius <strong class="mono">r<sub>p</sub></strong></td>
                 <td class="mono">0.8411 fm</td>
                 <td class="mono">0.8414 fm</td>
                 <td><span class="badge badge-green">0.04%</span></td>
               </tr>
               <tr>
-                <td><strong>Hubble constant H<sub>0</sub></strong></td>
+                <td>Hubble constant <strong class="mono">H<sub>0</sub></strong></td>
                 <td class="mono">66.8 km/s/Mpc</td>
                 <td class="mono">67.4</td>
                 <td><span class="badge badge-green">0.9%</span></td>
               </tr>
               <tr>
-                <td><strong>sin&sup2;&theta;<sub>W</sub></strong></td>
+                <td><strong class="mono">sin&sup2;&theta;<sub>W</sub></strong></td>
                 <td class="mono">15/64 = 0.234</td>
                 <td class="mono">0.2312</td>
                 <td><span class="badge badge-yellow">1.4%</span></td>
               </tr>
               <tr>
-                <td><strong>&Omega;<sub>&Lambda;</sub> (dark energy)</strong></td>
+                <td><strong class="mono">&Omega;<sub>&Lambda;</sub></strong> (dark energy)</td>
                 <td class="mono">2/3 = 0.667</td>
                 <td class="mono">0.685</td>
                 <td><span class="badge badge-yellow">2.7%</span></td>
               </tr>
               <tr>
-                <td><strong>MOND a<sub>0</sub></strong></td>
+                <td>MOND <strong class="mono">a<sub>0</sub></strong></td>
                 <td class="mono">1.204&times;10<sup>&minus;10</sup></td>
                 <td class="mono">1.2&times;10<sup>&minus;10</sup></td>
                 <td><span class="badge badge-green">0.3%</span></td>
               </tr>
               <tr>
-                <td><strong>&Delta;m&sup2;<sub>31</sub> (neutrino)</strong></td>
+                <td><strong class="mono">&Delta;m&sup2;<sub>31</sub></strong> (neutrino)</td>
                 <td class="mono">2.523&times;10<sup>&minus;3</sup></td>
                 <td class="mono">2.534&times;10<sup>&minus;3</sup></td>
                 <td><span class="badge badge-green">0.4%</span></td>
