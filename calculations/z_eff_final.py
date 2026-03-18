@@ -60,47 +60,49 @@ def screening(config, n, is_pd, val_l):
             S += n_ch * w_pi
 
         elif ll == 2:
-            # d-core: Oh t2g/eg split
+            # d-core: Oh t2g/eg split with v19-matched anti-screening
             dc = count
-            ang_frac = 1.0 if delta_n <= 1 else 1.0 / d
 
             if val_l == 1:
-                # d -> p: Oh ALLOWED (both t2g and eg couple to T1u)
-                S_angular = n_ch * w_pi
+                # d -> p: Oh ALLOWED — screens at w_pi per channel
+                S += n_ch * w_pi
             else:
                 # d -> s/d: Oh FORBIDDEN → anti-screening
-                # t2g: 3 channels, anti-screen at w_delta/(d+1)
-                # eg: depends on filling
-                t2g_ch = min(min(dc, 6), 3)
-                eg_ch = min(max(dc - 6, 0), 2)
-                S_angular = d * w_delta / (d + 1)  # t2g contribution
-                if dc > 5:
-                    t2g_paired = min(dc - 5, d)
-                    if t2g_paired == d:
-                        eg_occ = min(dc - 5, 5)
-                        eg_paired = max(0, dc - 8)
-                        eg_unp = eg_occ - eg_paired - d + (d if dc <= 8 else 0)
-                        if eg_unp < 0: eg_unp = 0
-                        S_angular += eg_ch * w_delta / d
+                # Use v19's exact t2g/eg formula for precision:
+                # t2g (3 channels): w_delta/(d+1) per channel
+                # eg paired: w_delta*d per channel (restores coupling)
+                # eg unpaired: w_delta/d per channel
+                t2g_paired = max(dc - 5, 0) if dc > 5 else 0
+                t2g_paired = min(t2g_paired, d)
+                S_anti = d * w_delta / (d + 1)  # 3 t2g channels
+                if t2g_paired == d:  # t2g full
+                    eg_total = dc - 5
+                    eg_paired = max(0, dc - 8)
+                    eg_unp = eg_total - eg_paired
+                    S_anti += eg_unp * w_delta / d
+                    S_anti += eg_paired * w_delta * d
 
-            S_radial = n_ch * w_pi
-            S += S_radial * (1 - ang_frac) + S_angular * ang_frac
+                # Depth blend: deep d10 weakens anti-screening
+                if delta_n >= 2 and dc == 10:
+                    S_normal = n_ch * w_pi
+                    S += S_normal + (S_anti - S_normal) / d
+                else:
+                    S += S_anti
 
         elif ll == 3:
-            # f-core: T1u component of f couples to p-valence
-            ang_frac = 1.0 if delta_n <= 1 else d / (d + delta_n)
-
+            # f-core: Oh decomposition A2u + T1u + T2u
             if val_l == 1:
-                # f -> p: Oh ALLOWED (f's T1u component)
+                # f -> p: Oh ALLOWED (f's T1u component screens p)
+                # T1u: 3 channels screen at w_pi
+                # A2u + T2u: 4 channels anti-screen at w_delta/d
                 f_T1u_ch = min(count, 3)
                 f_other = n_ch - f_T1u_ch
-                S_angular = f_T1u_ch * w_pi + f_other * w_delta / d
+                S += f_T1u_ch * w_pi + f_other * w_delta / d
             else:
-                # f -> s/d: Oh FORBIDDEN → anti-screening
-                S_angular = n_ch * w_delta / d
-
-            S_radial = n_ch * w_pi
-            S += S_radial * (1 - ang_frac) + S_angular * ang_frac
+                # f -> s/d: Oh FORBIDDEN → pure anti-screening
+                # NO depth blending — f angular structure persists
+                # (v19 uses flat w_delta/d for all f→s,d)
+                S += n_ch * w_delta / d
 
     return S
 
