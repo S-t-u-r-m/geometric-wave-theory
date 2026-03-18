@@ -72,20 +72,26 @@ def screening(config, n, is_pd, val_l):
                 # t2g (3 channels): w_delta/(d+1) per channel
                 # eg paired: w_delta*d per channel (restores coupling)
                 # eg unpaired: w_delta/d per channel
-                # t2g: d=3 channels (6 electrons max)
-                # eg: 5-d=2 channels (4 electrons max)
-                S_anti = d * w_delta / (d + 1)  # t2g: 3 ch at w_delta/(d+1)
-                if dc > 5:
-                    # eg is occupied
-                    eg_electrons = dc - 2*d  # electrons beyond t2g (max 4)
-                    eg_electrons = max(eg_electrons, 0)
-                    n_eg_ch = 5 - d  # = 2 eg channels
-                    # Paired eg: electrons beyond 2 (one per channel)
-                    eg_paired = max(0, eg_electrons - n_eg_ch)
-                    eg_unp = min(eg_electrons, n_eg_ch) - eg_paired
-                    if eg_unp < 0: eg_unp = 0
-                    S_anti += eg_unp * w_delta / d
-                    S_anti += eg_paired * w_delta * d
+                # Exact v19 d_screen_t2g logic:
+                # t2g: d channels, w_t2g = w_delta = -0.5
+                # eg: 2 channels, w_eg = w_delta/d = -1/6
+                # Pairing reduces t2g: paired t2g at w_t2g/(d+1)
+                # Paired eg restores: at w_eg * d (= w_delta/d * d = w_delta)
+                w_t2g = w_delta       # -0.5
+                w_eg = w_delta / d    # -1/6
+                n_t2g = d             # 3
+                n_eg = 2
+
+                if dc <= n_t2g:
+                    S_anti = dc * w_t2g
+                elif dc <= 5:
+                    S_anti = n_t2g * w_t2g + (dc - n_t2g) * w_eg
+                elif dc <= 5 + n_t2g:
+                    np_ = dc - 5  # paired t2g electrons
+                    S_anti = (n_t2g - np_) * w_t2g + np_ * w_t2g/(d+1) + n_eg * w_eg
+                else:
+                    nep = dc - 5 - n_t2g  # paired eg electrons
+                    S_anti = n_t2g * w_t2g/(d+1) + (n_eg - nep) * w_eg + nep * w_eg * d
 
                 # Depth blend: deep d10 weakens anti-screening
                 if delta_n >= 2 and dc == 10:
