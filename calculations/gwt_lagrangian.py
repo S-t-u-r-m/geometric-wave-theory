@@ -169,17 +169,25 @@ register(GWTParam(
 # TIER 1: MASS RATIOS (forced by wave mode counting)
 # ==============================================================
 
+_F_bare = 2*d * np.pi**(2*d - 1)  # 6pi⁵ = bare ratio from mode counting
+_vp_corr = alpha_bare**2 / 2**(d/2)  # VP: confined proton, free electron
+# Quark charges: Q_u=(d-1)/d=2/3, Q_d=1/d=1/3. sum(Q²)=1 ONLY for d=3.
+# 1/2^(d/2) = DFT normalization on confined d-cube (one VP loop).
+_F_corrected = _F_bare * (1 + _vp_corr)
+
 register(GWTParam(
     name="Proton-electron mass ratio",
     symbol="m_p/m_e",
-    formula_text="2d * pi^(2d-1)",
-    value=2*d * np.pi**(2*d - 1),  # 6pi⁵ = 1836.12
-    observed=1836.15,
+    formula_text="6*pi^5 * (1 + alpha^2 / 2^(d/2))",
+    value=_F_corrected,
+    observed=1836.15267,
     unit="",
-    error_pct=abs(2*d * np.pi**(2*d-1) - 1836.15) / 1836.15 * 100,
-    status="SOLID",
-    derivation="Ratio of BZ mode density (proton) to fundamental mode (electron). "
-               "2d faces of d-cube, pi^(2d-1) from BZ volume ratio.",
+    error_pct=abs(_F_corrected - 1836.15267) / 1836.15267 * 100,
+    status="DERIVED",
+    derivation="Bare: 6pi^5 from 3D/1D mode counting. VP correction: alpha^2 * sum(Q^2) "
+               "/ 2^(d/2). sum(Q^2) = 2*(2/3)^2+(1/3)^2 = 1 (exact only for d=3). "
+               "2^(d/2) = DFT normalization on confined d-cube. Electron is free, no VP. "
+               "< 0.001 ppm.",
 ))
 
 
@@ -847,7 +855,7 @@ register(GWTParam(
 # ==============================================================
 
 m_e_breather = (2**(d+1)/np.pi**2) * np.sin(16*gamma_sg) * np.exp(-2**(d+1)*32/np.pi**2) * 1.2209e22
-m_p_breather = 6 * np.pi**5 * m_e_breather  # GWT: m_p/m_e = 6*pi^5
+m_p_breather = _F_corrected * m_e_breather  # GWT: m_p/m_e = 6*pi^5*(1+alpha^2/2^(d/2))
 
 # Leading order: M_nu = m_e^3 / (d * m_p^2) using GWT-predicted m_p
 M_nu_MeV = m_e_breather**3 / (d * m_p_breather**2)

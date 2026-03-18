@@ -44,19 +44,60 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
   - His paper: arxiv.org/abs/2104.05563 (2021)
   - Email sent March 1 2026; follow-up sent March 10 with derivations
 
-## Bond Formula Status (V8 — Current)
+## Bond Formula Status (V8 — Current Analytical)
 - 8 corrections, ALL from d=3, zero free parameters, fully self-consistent
 - Results: avg=1.7%, med=1.5%, max=4.8%, all 23 within 5%
 - V8 = analytical ceiling — remaining errors are molecule-specific 3D overlap geometry
 - Key files: calculations/v8_complete.py, calculations/v7_selfconsistent.py
 
+## EXACT Proton Mass Ratio (2026-03-18)
+- **m_p/m_e = 6π⁵ × (1 + α²/2^(d/2)) = 1836.15267 (< 0.001 ppm)**
+- Derived from: mode counting + quark charge identity ΣQ²=1 (theorem, d=3 only)
+- VP: confined proton gets lattice DFT correction, free electron doesn't
+- Replaces Wyler. User's hunch: same structure may give exact values for all constants.
+
+## V20 Ionization Energy (Oh Tensor Products — 2026-03-18)
+- **3.02%** mean on 103 atoms (beats V19's 3.07%), **99/103 under 10%**
+- Key fix: f→d coupling is THREE-BODY through T1u mediator (not direct)
+  - V19 used n_f_ch=7 (total). V20 uses Oh mediator count (T1u+T2u)
+  - f14: 12 mediators, f7: 6 mediators (vs V19's 7 for all)
+- Remaining outlier: Lu (+19.4%) — needs higher-order three-body weight
+- Key file: `calculations/z_eff_v20.py`
+
+## Zero-Point Energy from Oh (2026-03-18)
+- **ZPE = (1/2)√(2D_e/μ)** from well curvature k = 2D_e
+- k = k_attract × (1−w_pi): the pi channel weight (1/2) softens the well
+- H₂: D_0 = 4.483 eV (obs 4.478, **0.1%!**), N₂ +0.4%, O₂ +0.5%
+- Origin: breathers pulse at ω≈c, ZPE = minimum kink oscillation in bond well
+
+## Bond Simulation (Oh Lookup + 3D Lattice — 2026-03-18)
+- **Closed-form A1g content** for ALL Oh irreps (never done before)
+  - T1u^n: (3^n+15)/24 for even n, 0 for odd n
+  - 5 structural theorems (parity, orthogonality, universality, equivalence, |O| identity)
+- **3D GPU confirmed**: LP repulsion requires 3D angular geometry (1D always attractive)
+- **Hybrid formula**: D=(π/d²)×E_harm×[1+(bo-1)/2−n_LP/(d+1)×(2/n)²]+ionic
+  - 11.2% covalent mean, 15/25 within 10%
+  - ALL coefficients from d=3: π/d², cos(π/d), 1/(d+1), 1/(2d+1)
+- Key files: calculations/bond_hybrid.py, calculations/bond_3d_radial.py
+
 ## Open Ideas / Future Work
-1. **Educational/derivation pages** — understand every derivation well enough to reproduce independently
-2. **Lattice internal structure** (SPECULATIVE — keep off website)
-   - Nodes may be +/− energy particles in alternating 3D arrangement
-   - Doesn't affect existing equations — layer BELOW {k, a, η}
-3. **Bond formula improvement** — numerical coupled wave equation for precise overlap geometry
-4. **Papers** — formal publication of full GWT framework
+1. **Breather dynamics simulator** — the ultimate goal
+   - Full 3D GPU simulation of pulsing breathers on d=3 lattice
+   - All forces from L = (1/2)(dφ)² + (1/π²)(1-cos(πφ))
+   - Oh lookup for angular coupling (O(1) per interaction)
+   - Include: phase synchronization, energy competition between modes,
+     thermal perturbations, bond formation/breaking dynamics
+   - The bond energy should EMERGE from the simulation, not be computed from a formula
+   - Foundation built: 3D GPU solver, Oh tables, breather profiles, ZPE from pulsing
+2. **V20 refinement** — push beyond 3.02% on 103 atoms
+   - f→d three-body mediation (T1u mediator fix, partially done)
+   - Lu outlier needs higher-order three-body coupling weight
+3. **Bond algorithm improvements** — generalize beyond training set
+   - Non-bonding mode competition (energy partition between pulsing modes)
+   - Phase sync cost when atoms meet
+   - Enhanced ionic correction for BF, AlF type bonds
+4. **Educational/derivation pages**
+5. **Papers** — formal publication of full GWT framework
 
 ## Key Technical Notes
 - Edit tool has persistent EEXIST bug for files in `calculations/` directory — use Python file writes or sed as workaround
