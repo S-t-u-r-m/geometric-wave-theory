@@ -16,10 +16,13 @@ COUPLING:
   alpha     = exp(-(2/d!) * (2^(2d+1)/pi^2 + ln(2d)))    = 1/137.042
 
 MASSES:
-  F         = 2d * pi^(2d-1)                              = 1836.12
-  m_e       = F * alpha^((d+1)!/2) * m_Planck             = 0.511 MeV
-  m_p       = F^2 * alpha^((d+1)!/2) * m_Planck           = 938.3 MeV
-  m_p/m_e   = F = 2d * pi^(2d-1)                          = 1836.12
+  F_bare    = 2d * pi^(2d-1)                              = 1836.118
+  F         = F_bare * (1 + alpha^2/2^(d/2))              = 1836.153 (< 0.001 ppm)
+              VP correction: sum(Q^2)=1 for d=3 (quark charge theorem)
+              Confined proton: DFT norm 1/2^(d/2). Free electron: no VP.
+  m_e       = F_bare * alpha^((d+1)!/2) * m_Planck        = 0.511 MeV
+  m_p       = F * m_e                                      = 938.3 MeV
+  m_p/m_e   = F = 6*pi^5 * (1 + alpha^2/(2*sqrt(2)))     = 1836.153
 
 BREATHERS:
   m(n,p)    = (2^(d+1)/pi^2) * sin(n*g) * exp(-2^(d+1)*p/pi^2) * m_Pl
@@ -235,18 +238,33 @@ Their energy ratio = how many more ways a 3D wave stores energy on the lattice.
 ```
 VP = alpha^2 * sum(Q_i^2) / 2^(d/2)
 ```
-The proton is a confined torus with 3 quark sub-circulations:
-  Q_up = (d-1)/d = 2/3   (flow across 2 axes)
-  Q_down = 1/d = 1/3     (flow along 1 axis)
-  Proton (uud): sum(Q^2) = 2*(2/3)^2 + (1/3)^2 = 1
+The proton is a toroidal vortex (see Section 11) that decomposes into d=3
+sub-circulations — one per lattice axis. Each sub-circulation IS a quark:
+```
+  Along 1 axis:   1/d of the flow = charge 1/d = 1/3     (down quark)
+  Across d-1 axes: (d-1)/d of flow = charge (d-1)/d = 2/3 (up quark)
+```
+This is the same 1/3 vs 2/3 split as gravity vs dark energy (Section 2).
+The charges are not assigned — they ARE the flow fractions of the torus.
+
+The proton (uud) has: Q_u = (d-1)/d, Q_u = (d-1)/d, Q_d = 1/d.
+The VP self-energy is proportional to the sum of squared charges:
+```
+  sum(Q^2) = 2*((d-1)/d)^2 + (1/d)^2
+           = (2(d-1)^2 + 1) / d^2
+           = (2d^2 - 4d + 3) / d^2
+```
 
 **Critical identity: sum(Q²) = 1 is true ONLY for d=3.**
 ```
-General: 2*((d-1)/d)^2 + (1/d)^2 = (2d^2 - 4d + 3) / d^2
-  d=1: 1    d=2: 3/4    d=3: 1    d=4: 19/16    d=5: 33/25
+  Setting 2d^2 - 4d + 3 = d^2:  →  d^2 - 4d + 3 = 0  →  d = 1 or d = 3
+
+  d=1: 1/1 = 1      d=2: 3/4     d=3: 9/9 = 1     d=4: 19/16    d=5: 33/25
 ```
-The equation 2d²−4d+3 = d² has solutions d=1 and d=3 only.
-This is why the VP coefficient is exactly α² — no fractional charge factor.
+This is a THEOREM: the quadratic d²−4d+3 = (d−1)(d−3) = 0 has roots 1 and 3.
+At d=3, the quark charges conspire so that the total squared charge = 1 exactly.
+This is why the VP coefficient is simply α² — no fractional charge factor.
+In any other dimension, the mass ratio formula would need an additional ΣQ² ≠ 1 factor.
 
 **Step 3 — Lattice confinement normalization:**
 ```
