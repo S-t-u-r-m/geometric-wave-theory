@@ -112,13 +112,31 @@ papers/                  Write-ups for publication
 website/                 Public-facing presentation
 ```
 
+## Cite This Work
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19079880.svg)](https://zenodo.org/records/19079880)
+
+```bibtex
+@software{wollenberg2026gwt,
+  author       = {Wollenberg, Jonathan},
+  title        = {Geometric Wave Theory},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19079880},
+  url          = {https://zenodo.org/records/19079880}
+}
+```
+
 ## License
 
 CC BY-SA 4.0 — Share and build on this work with attribution.
 
-## Contact
+## Author
 
-Jonathan Wollenberg
+**Jonathan Wollenberg**
+- ORCID: [0009-0009-5872-9076](https://orcid.org/0009-0009-5872-9076)
+- GitHub: [S-t-u-r-m](https://github.com/S-t-u-r-m)
+- Zenodo: [10.5281/zenodo.19079880](https://zenodo.org/records/19079880)
 
 ## Acknowledgments
 
