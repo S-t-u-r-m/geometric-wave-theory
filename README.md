@@ -85,6 +85,10 @@ The N-body problem for breather modes on the d=3 lattice is **exactly tractable*
 
 This reduces the N-body wave equation to a finite sum of group-theory table lookups.
 
+## Why This Approach
+
+Unlike string theory or loop quantum gravity, Geometric Wave Theory requires no extra dimensions, no supersymmetry, and no exotic mechanisms. Spacetime remains strictly 3-dimensional. Gravity emerges naturally as the longitudinal (1/3) component of Hooke's law on the lattice, while the transverse (2/3) component accounts for dark energy. Singularities and infinite densities are impossible on the discrete Planck-scale lattice; even the densest objects remain finite, well-behaved wave configurations. Black holes, in this framework, are comparatively ordinary — large, stable multi-breather states governed by the same mechanical rules as atoms and particles.
+
 ## Source of Truth
 
 All formulas, derivations, and predictions are documented in:
