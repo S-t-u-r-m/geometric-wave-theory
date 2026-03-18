@@ -72,13 +72,18 @@ def screening(config, n, is_pd, val_l):
                 # t2g (3 channels): w_delta/(d+1) per channel
                 # eg paired: w_delta*d per channel (restores coupling)
                 # eg unpaired: w_delta/d per channel
-                t2g_paired = max(dc - 5, 0) if dc > 5 else 0
-                t2g_paired = min(t2g_paired, d)
-                S_anti = d * w_delta / (d + 1)  # 3 t2g channels
-                if t2g_paired == d:  # t2g full
-                    eg_total = dc - 5
-                    eg_paired = max(0, dc - 8)
-                    eg_unp = eg_total - eg_paired
+                # t2g: d=3 channels (6 electrons max)
+                # eg: 5-d=2 channels (4 electrons max)
+                S_anti = d * w_delta / (d + 1)  # t2g: 3 ch at w_delta/(d+1)
+                if dc > 5:
+                    # eg is occupied
+                    eg_electrons = dc - 2*d  # electrons beyond t2g (max 4)
+                    eg_electrons = max(eg_electrons, 0)
+                    n_eg_ch = 5 - d  # = 2 eg channels
+                    # Paired eg: electrons beyond 2 (one per channel)
+                    eg_paired = max(0, eg_electrons - n_eg_ch)
+                    eg_unp = min(eg_electrons, n_eg_ch) - eg_paired
+                    if eg_unp < 0: eg_unp = 0
                     S_anti += eg_unp * w_delta / d
                     S_anti += eg_paired * w_delta * d
 
