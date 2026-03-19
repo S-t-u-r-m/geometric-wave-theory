@@ -1321,6 +1321,45 @@ on the d=3 cubic lattice. The bond formula IS the Oh tensor product decompositio
 
 **Comparison with V8:** V8 remains the analytical ceiling at 1.7% mean error with 8 corrections. This Oh-derived formula uses fewer corrections (LP + radical + ionic) at 8.4% mean error, but with complete group-theory derivation — every coefficient from d=3 geometry, zero fitting.
 
+### Bond VP correction — the missing 8 channels (2026-03-19, TODO)
+
+The current bond formula captures the A1g channel (sigma bond) and partially accounts
+for Eg+T2g channels (pi bonds, LP). But the UNIVERSAL VP LAW revealed that ALL 9
+channels of T1u ⊗ T1u contribute to any interaction on the lattice:
+
+```
+T1u ⊗ T1u = A1g(1) + Eg(2) + T1g(3) + T2g(3)
+             σ bond    π/LP    rotation   π/LP
+```
+
+For fundamental constants: the 8 non-A1g channels create the VP correction
+(alpha^2 × 8/denominator). For BONDS: the same 8 channels create a correction
+to the bond energy. The bond VP should follow the same structure:
+
+```
+D_bond = D_bare × (1 ± coupling^2 × 8/denominator)
+```
+
+where "coupling" is the bond coupling strength (not alpha_EM) and "denominator"
+depends on the bond geometry (confined vs free, symmetric vs asymmetric).
+
+**Why clean bonds work but complex ones don't:**
+- Clean bonds (H₂, N₂): symmetric mode occupancy → the 8-channel corrections
+  cancel by symmetry → bare formula is sufficient
+- Complex bonds (CO, C=O, interhalogens): asymmetric occupancy → the 8 channels
+  DON'T cancel → corrections are needed
+
+**Why V8's 8 corrections work:**
+V8 has exactly 8 empirical corrections. There are 8 non-A1g channels in T1u ⊗ T1u.
+This is likely not a coincidence — each V8 correction may correspond to one Oh channel.
+Mapping V8's corrections to specific Oh channels would unify the analytical formula
+with the group theory.
+
+**Next step:** Apply the VP law structure systematically to all 25 bonds,
+or build the dynamics simulator where all 9 channels are computed automatically.
+The simulator would naturally capture every channel without needing to enumerate
+corrections by hand.
+
 ### Three toroidal coupling modes in bonding
 Two breathers near each other interact through all 3 torus motions:
 
