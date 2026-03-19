@@ -212,6 +212,8 @@ The proton-electron mass ratio m_p/m_e = 6 pi^5 (1 + alpha^2/2^(d/2)) is a close
 
 No observed values are used as inputs. No parameters are fitted. The result matches the most precisely measured value in physics to better than 1 part per billion.
 
+The residual 0.0006 ppm is consistent with fourth-order vacuum polarization ($\alpha^4/2^{d/2} \approx 0.001$ ppm), which would represent the next term in the perturbation series. At fourth order, $T_{1u}^{\otimes 4}$ has $A_{1g}$ content = 4, so such a correction exists in principle. We do not include it here because its geometric projection factor has not yet been derived from first principles, and we prefer a complete derivation at $\alpha^2$ over an incomplete one at $\alpha^4$.
+
 ---
 
 ## 10. Conclusion
