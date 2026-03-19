@@ -14,7 +14,7 @@ L = (1/2)(dphi)^2 + (1/pi^2)(1 - cos(pi * phi))
 
 produces:
 
-- **Proton-electron mass ratio**: 6π⁵ × (1 + α²/2^(d/2)) = 1836.15267 (**< 0.001 ppm**)
+- **Proton-electron mass ratio**: 6π⁵(1 + α²/2√2) = 1836.15267 (**< 0.001 ppm**)
 - **Fine structure constant**: bare 1/137.042, dressed 1/137.036 (**0.66 ppm**)
 - **Strong coupling**: α_s = 0.11794 (**0.030%**)
 - **Electron g-2**: α/(2π) × (1 - α/5 - α²/7) = 0.00115965182 (**0.32 ppm**)
@@ -40,7 +40,7 @@ V = (1/pi^2)(1 - cos(pi*phi))        Expand: phi^4 nonlinearity
 
 | Constant | Formula | Precision | Denominator |
 |----------|---------|-----------|-------------|
-| m_p/m_e  | 6π⁵(1+α²/2^(d/2)) | **< 0.001 ppm** | 2^(d/2) (confined, DFT on cube) |
+| m_p/m_e  | 6π⁵(1 + α²/2√2) | **< 0.001 ppm** | 2√2 (confined, DFT on cube) |
 | 1/α      | bare × (1-α²×8/9) | **0.66 ppm** | d² (coupling dimensions) |
 | α_s      | bare × (1+α_s²×8/3) | **0.030%** | d (color channels) |
 | g-2      | α/(2π)(1-α/5-α²/7) | **0.32 ppm** | (2d-1), (2d+1) (directional modes) |
@@ -64,7 +64,7 @@ The cosine potential `(1/pi^2)(1 - cos(pi*phi))` has exactly **24 bound breather
 ### Fundamental Constants
 | Quantity | Formula | Predicted | Observed | Error |
 |----------|---------|-----------|----------|-------|
-| m_p/m_e | 6π⁵(1+α²/2^(d/2)) | 1836.15267 | 1836.15267 | < 0.001 ppm |
+| m_p/m_e | 6π⁵(1 + α²/2√2) | 1836.15267 | 1836.15267 | < 0.001 ppm |
 | 1/α (dressed) | bare × (1-α²×8/9) | 137.0359 | 137.0360 | 0.66 ppm |
 | α_s (dressed) | bare × (1+α_s²×8/3) | 0.11794 | 0.11790 | 0.030% |
 | g-2 | α/(2π)(1-α/5-α²/7) | 0.00115965182 | 0.00115965218 | 0.32 ppm |
