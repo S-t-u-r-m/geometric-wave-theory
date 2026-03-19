@@ -34,13 +34,11 @@ This Lagrangian supports two classes of localized solutions:
 - **Kinks**: topological solitons with mass M_kink = 8/pi^2 (in Planck units)
 - **Breathers**: bound oscillations in the kink potential, with frequencies omega_n = cos(n gamma) where gamma = pi/(2^(d+1) pi - 2)
 
-The fine structure constant alpha emerges as the tunneling rate through the cosine potential barriers:
+The fine structure constant $\alpha$ emerges as the tunneling rate through the cosine potential barriers:
 
-```
-alpha = exp(-(2/d!) (2^(2d+1)/pi^2 + ln(2d)))
-```
+$$\alpha = \exp\!\left(-\frac{2}{d!}\left(\frac{2^{2d+1}}{\pi^2} + \ln 2d\right)\right)$$
 
-For d=3: alpha = 1/137.042 (the bare lattice coupling, 0.005% from measured).
+For d=3: $\alpha$ = 1/137.042 (the bare lattice coupling, 0.005% from measured).
 
 ---
 
@@ -67,9 +65,8 @@ The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 v
 **1D mode density (electron):** A transverse breather oscillates along a single axis. It has exactly one mode — one direction of oscillation.
 
 **Ratio:** The proton stores more energy than the electron simply because it has more modes available. Their mass ratio equals the ratio of mode counts:
-```
-m_p / m_e = 2d pi^(2d-1) / 1 = 6 pi^5 = 1836.118
-```
+
+$$\frac{m_p}{m_e} = \frac{2d \cdot \pi^{2d-1}}{1} = 6\pi^5 = 1836.118$$
 
 This is exact for a non-interacting wave on the lattice. The 0.002% residual comes from the self-interaction of the proton's constituent quarks through the electromagnetic field.
 
@@ -100,11 +97,8 @@ d^2 - 4d + 3 = 0
 The proton's quarks are confined within the cavity, so the VP loop is a discrete sum over the 2^d = 8 cube vertices. The DFT normalization gives a factor 1/sqrt(2^d) = 1/2^(d/2). The electron is a free wave on the lattice and receives no confined VP correction.
 
 **Result:**
-```
-m_p / m_e = 6 pi^5 (1 + alpha^2 sum(Q^2) / 2^(d/2))
-          = 6 pi^5 (1 + alpha^2 / 2^(d/2))
-          = 1836.15267
-```
+
+$$\frac{m_p}{m_e} = 6\pi^5 \left(1 + \frac{\alpha^2 \sum Q_i^2}{2^{d/2}}\right) = 6\pi^5 \left(1 + \frac{\alpha^2}{2^{3/2}}\right) = 1836.15267$$
 
 Observed (CODATA 2018): 1836.15267343(11). Error: < 0.001 ppm.
 
@@ -146,11 +140,7 @@ The anomalous magnetic moment follows from the same T1u x T1u decomposition. The
 
 The surviving terms give:
 
-```
-a_e = alpha/(2 pi) x (1 - alpha/(2d-1) - alpha^2/(2d+1))
-    = alpha/(2 pi) x (1 - alpha/5 - alpha^2/7)
-    = 0.00115965182
-```
+$$a_e = \frac{\alpha}{2\pi}\left(1 - \frac{\alpha}{2d-1} - \frac{\alpha^2}{2d+1}\right) = \frac{\alpha}{2\pi}\left(1 - \frac{\alpha}{5} - \frac{\alpha^2}{7}\right) = 0.00115965182$$
 
 Observed: 0.00115965218. Error: -0.32 ppm.
 
@@ -186,10 +176,7 @@ The factor (|A_4|-1)/d = 11/3 counts the non-trivial gauge exchange paths (12-1=
 
 The gravitational fine structure constant is:
 
-```
-alpha_G = G_N m_p^2 / (hbar c) = F^4 x alpha^24 = (6 pi^5)^4 x alpha^24
-        = 5.903 x 10^-39
-```
+$$\alpha_G = \frac{G_N m_p^2}{\hbar c} = F^4 \alpha^{24} = (6\pi^5)^4 \alpha^{24} = 5.903 \times 10^{-39}$$
 
 Observed: 5.906 x 10^-39. Error: -0.05%.
 
