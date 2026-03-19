@@ -113,27 +113,28 @@ March 19, 2026
 
 \subsection{Abstract}\label{abstract}
 
-We derive the proton-electron mass ratio from the geometry of a d=3
-cubic lattice with zero free parameters. The bare ratio 2d pi\^{}(2d-1)
-= 6 pi\^{}5 = 1836.118 arises from mode counting: the proton is a 3D
-spherical standing wave (j\_0) while the electron is a 1D transverse
-wave, and their energy ratio equals the ratio of mode densities on the
-lattice. The residual 0.002\% gap to the observed value 1836.15267 is
-closed by a vacuum polarization correction
-alpha\textsuperscript{2/2}(d/2), derived from the quark charge identity
-sum(Q\_i\^{}2) = 1 (a theorem holding only for d=3) and DFT
-normalization on the cube. The result m\_p/m\_e = 6 pi\^{}5 (1 +
-alpha\textsuperscript{2/2}(d/2)) = 1836.15267 matches the CODATA 2018
-value to better than 0.001 ppm. The same mechanism --- second-order
-perturbation theory of the phi\^{}4 nonlinearity on the lattice ---
-independently gives the dressed fine structure constant 1/alpha =
-137.036 (0.66 ppm), the strong coupling alpha\_s = 0.11794 (0.030\%),
-the electron anomalous magnetic moment a\_e = 0.00115965182 (0.32 ppm),
-and the proton magnetic moment mu\_p = 2.7937 mu\_N (0.03\%). All five
-results use the same T1u tensor product decomposition on the octahedral
-group Oh, differing only in the geometric projection factor. No observed
-values are used as inputs; every quantity is a closed-form expression in
-d, pi, and elementary functions.
+We derive the proton-electron mass ratio from the geometry of a \(d=3\)
+cubic lattice with zero free parameters. The bare ratio
+\(2d\,\pi^{2d-1} = 6\pi^5 = 1836.118\) arises from mode counting: the
+proton is a 3D spherical standing wave (\(j_0\)) while the electron is a
+1D transverse wave, and their energy ratio equals the ratio of mode
+densities on the lattice. The residual 0.002\% gap to the observed value
+1836.15267 is closed by a vacuum polarization correction
+\(\alpha^2/2^{d/2}\), derived from the quark charge identity
+\(\sum Q_i^2 = 1\) (a theorem holding only for \(d=3\)) and DFT
+normalization on the cube. The result
+\(m_p/m_e = 6\pi^5(1 + \alpha^2/2^{d/2}) = 1836.15267\) matches the
+CODATA 2018 value to better than 0.001 ppm. The same mechanism ---
+second-order perturbation theory of the \(\phi^4\) nonlinearity on the
+lattice --- independently gives the dressed fine structure constant
+\(1/\alpha = 137.036\) (0.66 ppm), the strong coupling
+\(\alpha_s = 0.11794\) (0.030\%), the electron anomalous magnetic moment
+\(a_e = 0.00115965182\) (0.32 ppm), and the proton magnetic moment
+\(\mu_p = 2.7937\,\mu_N\) (0.03\%). All five results use the same
+\(T_{1u} \otimes T_{1u}\) tensor product decomposition on the octahedral
+group \(O_h\), differing only in the geometric projection factor. No
+observed values are used as inputs; every quantity is a closed-form
+expression in \(d\), \(\pi\), and elementary functions.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -307,20 +308,27 @@ Observed (CODATA 2018): 1836.15267343(11). Error: \textless{} 0.001 ppm.
 \subsection{5. The Universal VP Law}\label{the-universal-vp-law}
 
 The mass ratio correction is one instance of a universal mechanism. The
-cosine potential V = (1/pi\^{}2)(1 - cos(pi phi)) contains a phi\^{}4
-nonlinearity that scatters any T1u mode (the vector representation of
-Oh) into the product T1u x T1u:
+cosine potential is not perfectly linear --- it has a nonlinear term
+(phi\^{}4) that causes waves to scatter. When a wave bounces off this
+nonlinearity, it splits into multiple channels, the way white light
+splits into colors through a prism. On the d=3 cubic lattice, a vector
+wave (T1u) splits into exactly 9 channels:
 
 \begin{verbatim}
 T1u x T1u = A1g(1) + Eg(2) + T1g(3) + T2g(3)
 \end{verbatim}
 
-Total dimension: d\^{}2 = 9 independent channels. The A1g component is
-the secular term --- it has the same symmetry as the original wave, so
-it doesn't create a correction (it's already part of the bare value).
-The remaining d\^{}2 - 1 = 8 channels (Eg, T1g, T2g) represent NEW modes
-created by the scattering. These feed back into the original wave as a
-second-order correction:
+These 9 channels correspond to the 9 ways two arrows in 3D can combine:
+- \textbf{A1g (1 channel)}: scalar --- the two arrows point the same way
+(dot product) - \textbf{T1g (3 channels)}: rotation --- the two arrows
+twist around each other (cross product) - \textbf{Eg + T2g (5
+channels)}: shape --- the two arrows stretch space in 5 independent
+patterns (like the 5 d-orbitals in chemistry)
+
+The A1g channel has the same symmetry as the original wave, so it
+doesn't create a correction --- it's already part of the bare value. The
+remaining 8 channels represent NEW modes created by the scattering.
+These feed back into the original wave as a second-order correction:
 
 \begin{verbatim}
 quantity_dressed = quantity_bare x (1 +/- alpha^2 x (d^2-1) / denominator)
@@ -383,8 +391,14 @@ The surviving terms give:
 
 Observed: 0.00115965218. Error: -0.32 ppm.
 
-The denominators (2d-1) = 5 and (2d+1) = 7 are the directional symmetric
-modes and exchange paths on the cube, respectively.
+\textbf{Where the denominators come from:} When two vectors combine in
+3D, they can make three kinds of objects: a scalar (1 way --- the dot
+product), a rotation (3 ways --- the cross product), or a shape (5 ways
+--- symmetric stretches like the five d-orbitals in chemistry). The 5
+shapes come from a 3×3 symmetric matrix (6 entries) minus 1 for the
+trace, giving 2d-1 = 5. The denominator (2d+1) = 7 counts the total
+exchange paths on the cube: d² - d + 1 = 7 independent ways two lattice
+modes can interact, including both shapes and the scalar.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
