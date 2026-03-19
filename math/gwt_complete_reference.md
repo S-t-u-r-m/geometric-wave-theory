@@ -202,6 +202,27 @@ alpha = d^2 / [2^(d+1) * (d+2)!^(1/(d+1)) * pi^((d^2+d-1)/(d+1))]
 ```
 Wyler computes the same geometry from a different direction (domain volume vs tunneling rate). His result includes virtual pair loops, giving the dressed value.
 
+**RUNNING TO M_Z: Discrete lattice thresholds (0.61%)**
+
+On a discrete lattice, alpha does not run continuously. It steps at each breather
+threshold (fermion mass). The running coefficient 1/(3*pi) IS the lattice expression
+1/(d*pi) — derived, not assumed. d=3 spatial dimensions, pi = cosine potential period.
+
+Hadronic VP is enhanced by (d²-1)/d = 8/3 because quarks carry color. Same Oh fraction
+as the alpha_s dressing. Leptons (free, no color) get no enhancement.
+```
+1/alpha(M_Z) = 1/alpha(0) - delta_lep - delta_had
+             = 137.036 - 2.418 - 7.495
+             = 127.1
+Observed: 127.9. Error: -0.61%.
+
+delta_lep = sum_leptons Q^2 * ln(M_Z/m_f) / (d*pi)           [free VP]
+delta_had = sum_quarks N_c*Q^2 * ln(M_Z/m_f) / (d*pi) * (d²-1)/d  [confined VP]
+```
+The 0.61% residual comes from non-perturbative hadronic effects (resonances, pion loops)
+not captured by the naive quark thresholds. In standard physics, this piece is measured
+(not calculated). The lattice prediction should improve with a full breather spectrum treatment.
+
 **CROSS-CHECK 2: GUT running from alpha_s = 1 at confinement -> 1/137.0 (0.03%)**
 
 ### Strong coupling alpha_s (formal derivation from the Lagrangian)
