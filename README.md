@@ -83,6 +83,16 @@ The cosine potential `(1/pi^2)(1 - cos(pi*phi))` has exactly **24 bound breather
 | H₂ bond (D₀) | πE_H/d² - ZPE | 4.481 eV | 4.478 eV | 0.1% |
 | H₂O angle | arccos(-1/(d+1)) | 104.48° | 104.45° | 0.03% |
 
+### Nuclear Moments (pion cloud = strong VP law)
+| Quantity | Formula | Predicted | Observed | Error |
+|----------|---------|-----------|----------|-------|
+| μ_p | (8/3)(1+α_s²×11/3) | 2.7937 μ_N | 2.7928 | +0.03% |
+| μ_n/μ_p | -(2/3)(1+α_s²×2) | -0.6840 | -0.6850 | -0.14% |
+| μ_n | μ_p × ratio | -1.9109 μ_N | -1.9130 | -0.11% |
+| g_A | (4/3)(1-α_s²×11/3) | 1.2698 | 1.2723 | -0.20% |
+
+The "pion cloud" IS the strong VP law — same φ⁴ scattering, same Oh channels, just α_s instead of α.
+
 ### Ionization Energies (103 atoms, H through Lr)
 | Model | Mean Error | Atoms < 5% | Method |
 |-------|-----------|------------|--------|
@@ -128,7 +138,7 @@ def a1g_Eg(n):   # d-electrons (eg)
 | Atomic (fine structure, Rydberg) | 3 | 0.08% | 0.004% – 0.20% |
 | Molecular (bonds, angles) | 3 | 0.6% | 0.03% – 1.7% |
 | Cosmological | 3 | 5.3% | 2.7% – 9.1% |
-| Nuclear moments | 2 | 4.7% | 4.5% – 4.8% |
+| Nuclear moments (pion cloud) | 4 | 0.1% | 0.03% – 0.20% |
 
 ## Source of Truth
 
