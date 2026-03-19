@@ -74,6 +74,15 @@ V_0 = 1.0 / np.pi**2                        # potential depth (Planck units)
 M_kink = 2**d / np.pi**2                    # kink mass = 8/pi^2 = 0.811 m_Planck
 T_squared = np.exp(-2**(d+1) / np.pi**2)    # single-barrier tunneling = exp(-16/pi^2) = 0.1977
 N_breathers = int(np.floor(2**d * np.pi - 1))  # = 24 = |O| (rotation group of d-cube)
+# WHY 24: orbit-stabilizer theorem on the cube:
+#   6 faces × 4 rotations/face = 24 = |O|
+#   8 vertices × 3 rotations/vertex = 24 = |O|
+#   12 edges × 2 rotations/edge = 24 = |O|
+# Each breather = one orientation of a standing wave on the cube.
+# The three geometric elements appear in different physics:
+#   Faces (2d=6): mass ratio (6*pi^5)
+#   Edges (2d(d-1)=12): gauge exponent (alpha^12)
+#   Vertices (2^d=8): VP normalization (1/2^(d/2))
 
 # ==============================================================
 # PARAMETER REGISTRY

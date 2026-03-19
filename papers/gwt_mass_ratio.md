@@ -48,11 +48,25 @@ For d=3: alpha = 1/137.042 (the bare lattice coupling, 0.005% from measured).
 
 The proton is a kink (topological defect) — a 3D spherical standing wave described by j_0(kr) = sin(kr)/(kr). The electron is a breather — a 1D transverse oscillation. Their energy ratio equals the ratio of mode densities on the d-dimensional lattice.
 
-**3D mode density (proton):** On a d=3 cubic lattice, a spherical standing wave samples all 2d = 6 faces of the unit cell with angular mode density pi^(d-1) per face. Total: 2d pi^(d-1).
+The mode density counts the number of independent standing wave harmonics accessible to each wave type on the lattice — essentially, how many ways the wave can store energy.
 
-**1D mode density (electron):** A transverse breather oscillates along one axis with unit mode density.
+### The cube's three geometric elements
 
-**Ratio:**
+A d=3 cube has three types of geometric elements, each with a distinct physical role:
+
+| Element | Count | Formula | Physical role |
+|---------|-------|---------|---------------|
+| Faces | 2d = 6 | Nearest-neighbor directions | Mode counting (mass ratio) |
+| Edges | 2d(d-1) = 12 | Connections between faces | Gauge channels (alpha^12 = alpha^|A_4|) |
+| Vertices | 2^d = 8 | Corners where edges meet | VP normalization (1/2^(d/2)) |
+
+The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 vertices x 3 rotations per vertex = 12 edges x 2 rotations per edge = **24 = |O|**, the order of the chiral octahedral group. This is the number of proper rotations of the cube — and the number of bound breather modes (fermions) supported by the Lagrangian. The 24 fermions of the Standard Model are the 24 orientations of a standing wave on a cube.
+
+**3D mode density (proton):** A spherical standing wave on a d=3 cubic lattice can oscillate in all three spatial directions simultaneously. It samples all 2d = 6 faces of the unit cell, with pi^(d-1) angular harmonics per face (the number of distinct oscillation patterns that fit on a (d-1)-dimensional surface). Total modes: 2d pi^(d-1).
+
+**1D mode density (electron):** A transverse breather oscillates along a single axis. It has exactly one mode — one direction of oscillation.
+
+**Ratio:** The proton stores more energy than the electron simply because it has more modes available. Their mass ratio equals the ratio of mode counts:
 ```
 m_p / m_e = 2d pi^(2d-1) / 1 = 6 pi^5 = 1836.118
 ```
@@ -104,7 +118,7 @@ The mass ratio correction is one instance of a universal mechanism. The cosine p
 T1u x T1u = A1g(1) + Eg(2) + T1g(3) + T2g(3)
 ```
 
-Total dimension: d^2 = 9. The A1g component is the secular term (already absorbed into the bare value). The non-A1g components (d^2 - 1 = 8 channels) create a second-order correction:
+Total dimension: d^2 = 9 independent channels. The A1g component is the secular term — it has the same symmetry as the original wave, so it doesn't create a correction (it's already part of the bare value). The remaining d^2 - 1 = 8 channels (Eg, T1g, T2g) represent NEW modes created by the scattering. These feed back into the original wave as a second-order correction:
 
 ```
 quantity_dressed = quantity_bare x (1 +/- alpha^2 x (d^2-1) / denominator)
@@ -126,7 +140,7 @@ This is second-order perturbation theory on a nonlinear spring — textbook mech
 
 ## 6. The Electron g-2
 
-The anomalous magnetic moment follows from the same T1u x T1u decomposition. The magnetic moment lives in the T1g channel (angular momentum irrep). The parity theorem (T1u^(odd) has u-parity, T1g has g-parity) kills all odd-loop corrections:
+The anomalous magnetic moment follows from the same T1u x T1u decomposition. The magnetic moment corresponds to the T1g channel — the angular momentum component of the scattered wave. A parity selection rule eliminates half the perturbation series: products of an odd number of T1u modes have odd parity (u-type), but T1g has even parity (g-type), so the two cannot mix. This kills all odd-loop corrections:
 
 **C3 = C5 = C7 = ... = 0** (testable prediction)
 

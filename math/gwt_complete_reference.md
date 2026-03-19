@@ -70,6 +70,31 @@ L = sum_<i,j> [ (1/2)(phi_i - phi_j)^2 + (1/pi^2)(1 - cos(pi * phi_i)) ]
 | Breather count | N = floor(2^d * pi - 1) | 24 | Number of bound sine-Gordon breather modes |
 | Coupling parameter | gamma = pi/(16*pi - 2) | 0.0644 | Sine-Gordon coupling in breather spectrum |
 
+### Why 24 breathers — the cube's geometry
+
+The number 24 = |O| (the chiral octahedral group) is not arbitrary. It follows from the
+orbit-stabilizer theorem applied to the cube's three geometric elements:
+
+```
+6 faces    × 4 rotations per face   = 24 = |O|
+8 vertices × 3 rotations per vertex = 24 = |O|
+12 edges   × 2 rotations per edge   = 24 = |O|
+```
+
+Each breather mode = one orientation of a standing wave on the cube. The 24 fermions of
+the Standard Model are the 24 proper rotations of the d=3 unit cell.
+
+These same three elements each appear in different physics:
+
+| Element | Count | Formula | Physical role |
+|---------|-------|---------|---------------|
+| Faces | 2d = 6 | Nearest-neighbor directions | Mode counting → mass ratio (6π⁵) |
+| Edges | 2d(d-1) = 12 | Connections between faces | Gauge channels → α^12 = α^|A₄| |
+| Vertices | 2^d = 8 | Corners where edges meet | VP normalization → 1/2^(d/2) |
+
+The mass ratio uses faces. The coupling exponent uses edges. The VP correction uses vertices.
+Three projections of one geometric object — the d=3 cube.
+
 ### Lattice constants (Planck units → SI)
 | Constant | Formula | Planck units | SI | How derived |
 |----------|---------|-------------|-----|-------------|
