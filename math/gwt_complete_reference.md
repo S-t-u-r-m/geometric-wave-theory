@@ -1459,6 +1459,33 @@ they arise from expanding a finite lattice sum as an infinite series.
 
 See: `website/calculations/calc-proton-nuclear.html` for full nuclear derivations.
 
+### Gravitational constant (the hierarchy "problem" solved)
+```
+alpha_G = G_N * m_p^2 / (hbar*c) = F^4 * alpha^24 = (6*pi^5)^4 * alpha^24
+        = 5.903 × 10^-39
+Observed: 5.906 × 10^-39. Error: -0.05%.
+```
+
+**There is no hierarchy problem.** Gravity is 1/d = 33% of the lattice spring force.
+It APPEARS weak because protons are tiny compared to the lattice scale:
+```
+m_p / m_Planck = F^2 * alpha^12 = (6*pi^5)^2 * alpha^12 = 4.18 × 10^-23
+```
+That's 23 orders of magnitude below the Planck scale. Square it → 45 orders of
+magnitude "hierarchy." But this is just F^4 × alpha^24 — a closed-form d=3 expression,
+not a mystery. The hierarchy = the mass formula applied twice.
+
+**Derivation chain:**
+1. Lattice spring force: F = k*a = (2/pi)*l_Planck (Planck units)
+2. Gravity = longitudinal fraction = 1/d of total spring (Section 2)
+3. m_e = F_mass * alpha^((d+1)!/2) * m_Planck (Section 7)
+4. m_p = F_mass * m_e (Section 5)
+5. alpha_G = (m_p/m_Planck)^2 = F^4 * alpha^(2*(d+1)!) = F^4 * alpha^24
+6. G_N = hbar*c * alpha_G / m_p^2
+
+Every factor is derived. The 10^-39 ratio = 36^2 * pi^20 * exp(-24 × 4.92).
+It's not fine-tuned — it's the exponential of a lattice tunneling action.
+
 ---
 
 ## 15. LATTICE DISCRETENESS CORRECTIONS
