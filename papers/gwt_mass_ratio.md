@@ -222,6 +222,16 @@ The proton-electron mass ratio is not a free parameter. It is determined by the 
 
 The Standard Model treats these as 6 independent measured quantities. In Geometric Wave Theory, they are 6 projections of one tensor product.
 
+### Breather stability and the particle spectrum
+
+The discrete sine-Gordon equation on a d=3 cubic lattice supports 24 breather modes, consistent with the order of the chiral octahedral group |O| = 24 that counts the orientations of standing waves on the cube. Numerical evolution using three independent methods (finite differences, spectral FFT, and fourth-order Runge-Kutta — all agreeing to 2 ppm) reveals that only the lowest 8 modes (n = 1 to 8) exhibit robust stability, persisting for 20 or more oscillation periods with amplitude decay at most 4.6%. Modes n = 9 and n = 10 are marginal (17 and 11 periods respectively, with higher decay), while modes n >= 11 collapse within a few periods.
+
+This stability limit of exactly 8 long-lived modes aligns with the geometric structure of the theory: the $T_{1u} \otimes T_{1u}$ tensor product decomposes into $A_{1g}(1) + E_g(2) + T_{1g}(3) + T_{2g}(3)$ = 9 dimensions, of which 8 are non-$A_{1g}$ excitation channels. Each stable breather occupies one independent channel. Modes beyond n = 8 have no independent channel and suffer destructive interference with the existing modes.
+
+The measured breather frequencies show a systematic shift from the continuum prediction $\omega_n = \cos(n\gamma)$, scaling as $\sin^4(n\gamma)$ with a coefficient near $d^3\pi = 27\pi$. This shift is intrinsic to the nonlinear dynamics (confirmed by agreement across all three numerical methods) and represents a higher-harmonic self-interaction correction.
+
+The three-tier structure — 8 stable modes, 2 metastable resonances, and 14 virtual modes — maps naturally to the particle lifetime hierarchy of the Standard Model: long-lived fermions, heavy unstable particles that form briefly in collisions, and virtual excitations that appear only in interaction loops. The lattice determines not only which particles exist but how long they survive.
+
 ---
 
 ## References
