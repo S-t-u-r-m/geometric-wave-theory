@@ -48,7 +48,7 @@ For d=3: $\alpha$ = 1/137.042 (the bare lattice coupling, 0.005% from measured).
 
 The sine-Gordon Lagrangian supports two classes of localized solutions: kinks (topological) and breathers (oscillatory). We must show that the LOWEST-ENERGY representatives are the spherical kink ($j_0$) and the 1D transverse breather, rather than assuming these identities.
 
-**Kink ground state = $j_0$ (by symmetry).** A kink connects two adjacent minima of the cosine potential ($\phi = 0 \to \phi = 2$). In d=3, this topological defect occupies a 3D region. The energy of any kink configuration is $E = \int [(\nabla\phi)^2/2 + V(\phi)]\,d^3x$. The potential term $V(\phi)$ is fixed by the topological boundary condition (the field must traverse from one minimum to the next). The gradient term $(\nabla\phi)^2$ is minimized when the field changes as smoothly as possible — which means spherical symmetry. Any non-spherical kink has higher gradient energy. On the d=3 cubic lattice, the ground state inherits the full $O_h$ symmetry of the lattice, and the unique $O_h$-symmetric scalar function that decreases radially is the $A_{1g}$ representation: $j_0(kr) = \sin(kr)/(kr)$. This is not an assumption — it follows from the variational principle applied to the Lagrangian.
+**Kink ground state = $j_0$ (by symmetry).** A kink connects two adjacent minima of the cosine potential ($\phi = 0 \to \phi = 2$). In d=3, this topological defect occupies a 3D region. The energy of any kink configuration is $E = \int [(\nabla\phi)^2/2 + V(\phi)]\,d^3x$. The potential term $V(\phi)$ is fixed by the topological boundary condition (the field must traverse from one minimum to the next). The gradient term $(\nabla\phi)^2$ is minimized when the field changes as smoothly as possible — which means spherical symmetry. Any non-spherical kink has higher gradient energy. On the d=3 cubic lattice, the ground state inherits the full $O_h$ symmetry of the lattice, and the unique $O_h$-symmetric scalar function that decreases radially is the $A_{1g}$ representation: $j_0(kr) = \sin(kr)/(kr)$ (the spherical Bessel function of order zero). This is not an assumption — it follows from the variational principle applied to the Lagrangian.
 
 **Breather ground state = n=1 mode (by Pöschl-Teller eigenvalue).** Linearizing the sine-Gordon equation around the kink background yields the Pöschl-Teller potential $U(r) = -2/(\pi^2 \cosh^2(r))$ with dimensionless depth parameter $s = (-1+\sqrt{1+8/\pi^2})/2 = 0.1728$. Since $s < 1$, this well supports exactly ONE linear bound state: the n=1 breather at $\omega_1 = \cos(\gamma)$, confirmed by simulation to 13 ppm. Higher modes (n=2-24) exist as NONLINEAR bound states of the full cosine potential, but n=1 is the unique linear ground state. The 1D transverse character follows because the Pöschl-Teller bound state is localized along one axis of the kink's potential well.
 
@@ -88,7 +88,7 @@ The sine-Gordon field on a d=3 lattice has a periodic potential, so the field sp
 
 $$E_{\text{sphere}} = 4\pi a^2 M_{\text{kink}}, \qquad E_{\text{torus}} = 2\pi a^2 M_{\text{kink}}$$
 
-The torus has **half** the energy of the sphere — a factor of $(d-1)$ lower. Higher-genus surfaces (knots, double tori) have more surface area and therefore higher energy. The simple torus (genus 1) is the unique minimum-energy topological defect with unit winding number.
+The torus has **half** the surface energy of the sphere ($2\pi a^2$ vs $4\pi a^2$), a factor of $1/2$ lower. Higher-genus surfaces (knots, double tori) have more surface area and therefore higher energy. The simple torus (genus 1) is the unique minimum-energy topological defect with unit winding number.
 
 **Stability on the discrete lattice:** In the continuum, Derrick's theorem forbids stable static solutions for a scalar field in $d \geq 2$ — everything either shrinks or expands. On the discrete lattice, this theorem does not apply: the lattice spacing $a$ sets a minimum size (the torus cannot shrink below one lattice unit), and the integer winding number prevents continuous unwinding. The energy barrier to unwind is $M_{\text{kink}} \times 2\pi a$, providing topological protection.
 
@@ -433,7 +433,7 @@ All results can be reproduced with the following Python script (5 lines):
 from math import factorial, pi, exp, sqrt
 
 d = 3
-alpha = exp(-(2/factorial(d)) * (2**(2*d+1)/pi**2 + log(2*d)))
+alpha = exp(-(2/factorial(d)) * (2**(2*d+1)/pi**2 + log(2*d)))  # log = natural log
 F = 2*d * pi**(2*d-1)                    # 6*pi^5 = 1836.118
 vp = alpha**2 / 2**(d/2)                 # 1.88e-5
 ratio = F * (1 + vp)                      # 1836.15267
