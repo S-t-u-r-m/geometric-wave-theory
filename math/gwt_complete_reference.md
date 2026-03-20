@@ -1868,6 +1868,49 @@ T1u x T1u = 9 dimensions = 1 base + 8 excitations.
 Each non-A1g channel (Eg, T1g, T2g) supports one stable breather.
 8 channels, 8 modes. The particle count is determined by Oh symmetry.
 
+**Particle lifetime hierarchy from Oh (three tiers):**
+
+The lattice doesn't just determine which particles exist — it determines their
+STABILITY. The 24 mathematical breather modes fall into three tiers:
+
+| Tier | Modes | Oh status | Physics | Lifetime |
+|------|-------|-----------|---------|----------|
+| Stable | n=1-8 | One per non-A1g channel | Long-lived particles | Infinite (conserved) |
+| Metastable | n=9-10 | No independent channel, slow interference | Resonances, heavy unstable particles | Finite (decay) |
+| Virtual | n=11-24 | Immediate destructive interference | Virtual particles in loops | Zero (never free) |
+
+**Stable (n=1-8):** Each mode occupies its own Oh channel. No other mode competes
+for that channel, so the excitation persists indefinitely. These are the proton,
+neutron, electron, and other long-lived fermions. The lattice PROTECTS them
+through symmetry — they can't decay because there's no lower-energy state
+in their channel.
+
+**Metastable (n=9-10):** These modes don't have their own channel. They must
+share with the 8 stable modes, causing slow destructive interference. The mode
+survives for 10-17 oscillation periods before radiating away. In particle physics:
+these are heavy unstable particles (top quark, heavy bosons) that exist briefly
+in collisions then decay. Their lifetime is set by the interference rate.
+Mode 9: 17 periods, -6.3% amplitude decay per measurement window.
+Mode 10: 11 periods, -5.5% decay. These could map to superheavy elements
+or exotic particles that form in extreme conditions but slowly decay.
+
+**Virtual (n=11-24):** These modes collapse immediately (0 periods survived).
+They cannot exist as free particles. However, they DO exist as virtual
+excitations inside interaction loops — the same way virtual particles
+appear in Feynman diagrams. The VP corrections we computed (alpha^2 * Oh_fraction)
+involve these virtual modes running in loops and modifying the properties
+of the stable modes.
+
+**The hierarchy is computable:**
+- Stable: decay rate = 0 (protected by Oh channel exclusivity)
+- Metastable: decay rate ~ exp(-n_periods) ~ exp(-C/eps^4) per oscillation
+- Virtual: decay rate = infinity (immediate, only exists off-shell)
+
+This three-tier structure emerges purely from the nonlinear sine-Gordon equation
+on the Oh-symmetric lattice. No particle identities are assumed. The stable
+particles, the resonances, and the virtual modes are all consequences of
+how many independent channels the cube provides.
+
 ### 3D cubic confinement (from simulation)
 ```
 Confinement radius: L = 2^d - 1 = 7 lattice sites
