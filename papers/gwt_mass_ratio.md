@@ -447,7 +447,7 @@ The $\varepsilon^4$ scaling is consistent with fourth-order nonlinearity in the 
 All results can be reproduced with the following Python script (5 lines):
 
 ```python
-from math import factorial, pi, exp, sqrt
+from math import factorial, pi, exp, log
 
 d = 3
 alpha = exp(-(2/factorial(d)) * (2**(2*d+1)/pi**2 + log(2*d)))  # log = natural log
