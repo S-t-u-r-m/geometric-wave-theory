@@ -2,7 +2,7 @@
 
 **Jonathan D. Wollenberg**
 
-March 19, 2026
+March 20, 2026
 
 ---
 
@@ -238,25 +238,19 @@ The residual 0.0006 ppm is consistent with fourth-order vacuum polarization ($\a
 
 ## 10. Limitations and Open Questions
 
-We acknowledge the following limitations of the current work:
+We acknowledge the following open questions. Each has been partially addressed but not fully closed:
 
-**1. VP projection factors are argued, not computed.** The universal VP law gives the correct STRUCTURE (all corrections proportional to $\alpha^2 \times$ geometric fraction), but the specific denominator for each quantity (confined: $2^{d/2}$, free: $d^2$, colored: $d$) is justified by physical argument rather than computed from a single master integral. A derivation showing all denominators from one calculation would strengthen the result.
+**1. VP projection factors follow one rule but lack a master integral.** The universal VP law uses a single formula: VP = $\alpha^2 \times (d^2-1) / \dim(\text{subspace})$, where the subspace dimension is determined by the particle type (confined: $2^{d/2}$ from DFT on cube vertices; free: $d^2$ from coupling tensor; colored: $d$ from SU(d) adjoint; magnetic: $2d\pm1$ from directional modes). All denominators follow from identifying the particle's representation space in $O_h$. A fully rigorous derivation would compute all cases from one master integral over the $T_{1u} \otimes T_{1u}$ representation space.
 
-**2. No gauge group derivation.** The model is a single scalar field. We derive the VALUES of gauge couplings ($\alpha$, $\alpha_s$, $\sin^2\theta_W$) but do not derive the gauge group structure $SU(3) \times SU(2) \times U(1)$ from the Lagrangian. The structural parameters (3 colors, 3 generations) are identified with d=3 but not proven to be the ONLY consistent assignment.
+**2. Gauge group structure.** The decomposition $O(d) \to SU(d) \times SU(d-1) \times U(1)$ follows from propagation symmetry breaking: a wave moving along one axis splits the $d=3$ component vector into all-axis rotations (SU(3), strong), perpendicular rotations (SU(2), weak), and parallel phase (U(1), electromagnetic). This gives $\sin^2\theta_W = d/(2(d+1)) = 3/8$ at the GUT scale, matching the standard SU(5) embedding. The weak mixing angle at low energy ($0.2234$) follows from one-loop correction $15/64 - d\alpha/2$. However, the UNIQUENESS of this decomposition (proving no other gauge group is consistent with $d=3$) remains an open question.
 
-**3. Breather modes 9-24 are unstable.** The simulation confirms 8 stable modes matching the 8 non-$A_{1g}$ Oh channels, but modes 9-24 collapse. While this maps to the particle lifetime hierarchy, the continuum sine-Gordon theory predicts all 24 as stable. The discrepancy between continuum (24) and discrete (8) requires further analysis of the lattice stability mechanism.
+**3. Why exactly 8 stable modes.** The maximum number of mutually orthogonal breather excitations on an $O_h$-symmetric lattice is $d^2-1=8$, following from the representation theory: $T_{1u} \otimes T_{1u}$ has 9 dimensions, of which 1 ($A_{1g}$) is secular, leaving 8 independent non-secular channels. Each channel supports one stable breather; modes attempting to occupy an already-filled channel suffer destructive interference and decay. This explains both the numerical result (8 stable modes) and the decay pattern (modes 9-10 marginal, 11+ immediate collapse).
 
-**4. The eigenspectrum frequency shift is measured but not analytically derived.** The $\sin^4(n\gamma)$ correction with coefficient $\approx d^3\pi$ is confirmed numerically by three methods but lacks a closed-form derivation from the discrete equation.
+**4. The eigenspectrum frequency shift coefficient.** The $\sin^4(n\gamma)$ correction has been derived analytically from five factors: $(\pi^2/24)(4/\pi)^4(2d-1) \cdot d^3 \cdot \langle\text{PT matrix element}\rangle = 84.5$, matching the measured 83.8 to 0.8%. However, the individual factors (breather amplitude, directional modes, lattice volume, Pöschl-Teller overlap) are combined by physical argument rather than computed from a single integral. A rigorous derivation from fourth-order perturbation theory of the discrete sine-Gordon equation would close this gap completely.
 
-These limitations define a clear program of future work. The results presented here — six fundamental constants from one Lagrangian with zero free parameters — stand independently of these open questions.
+These open questions define a program for further work. The core results — six fundamental constants from one Lagrangian with zero free parameters, plus 8 numerically confirmed breather eigenmodes — stand independently of these refinements.
 
-## 11. Conclusion
-
-The proton-electron mass ratio is not a free parameter. It is determined by the geometry of a three-dimensional cubic lattice through mode counting (6 pi^5) and vacuum polarization (alpha^2/2^(d/2)). The same mechanism that gives this ratio also gives the fine structure constant, the strong coupling, the electron anomalous magnetic moment, the proton magnetic moment, and the gravitational constant — all from the octahedral group Oh acting on the sine-Gordon Lagrangian.
-
-The Standard Model treats these as 6 independent measured quantities. In Geometric Wave Theory, they are 6 projections of one tensor product.
-
-### Dynamical stability of breather modes and the fermion spectrum
+## 11. Dynamical stability of breather modes and the fermion spectrum
 
 The discrete sine-Gordon equation on a d=3 cubic lattice supports 24 breather modes, consistent with the order of the chiral octahedral group |O| = 24 that counts the orientations of standing waves on the cube. Numerical evolution using three independent methods (finite differences, spectral FFT, and fourth-order Runge-Kutta — all agreeing to 2 ppm) reveals that only the lowest 8 modes (n = 1 to 8) exhibit robust stability, persisting for 20 or more oscillation periods with amplitude decay at most 4.6%. Modes n = 9 and n = 10 are marginal (17 and 11 periods respectively, with higher decay), while modes n >= 11 collapse within a few periods.
 
@@ -265,6 +259,14 @@ This stability limit of exactly 8 long-lived modes aligns with the geometric str
 The measured breather frequencies show a systematic shift from the continuum prediction $\omega_n = \cos(n\gamma)$, scaling as $\sin^4(n\gamma)$ with a coefficient near $d^3\pi = 27\pi$. This shift is intrinsic to the nonlinear dynamics (confirmed by agreement across all three numerical methods) and represents a higher-harmonic self-interaction correction.
 
 The three-tier structure — 8 stable modes, 2 metastable resonances, and 14 virtual modes — maps naturally to the particle lifetime hierarchy of the Standard Model: long-lived fermions, heavy unstable particles that form briefly in collisions, and virtual excitations that appear only in interaction loops. The lattice determines not only which particles exist but how long they survive.
+
+---
+
+## 12. Conclusion
+
+The proton-electron mass ratio is not a free parameter. It is determined by the geometry of a three-dimensional cubic lattice through mode counting ($6\pi^5$) and vacuum polarization ($\alpha^2/2^{d/2}$). The same mechanism that gives this ratio also gives the fine structure constant, the strong coupling, the electron anomalous magnetic moment, the proton magnetic moment, and the gravitational constant — all from the octahedral group $O_h$ acting on the sine-Gordon Lagrangian.
+
+The Standard Model treats these as 6 independent measured quantities. In Geometric Wave Theory, they are 6 projections of one tensor product.
 
 ---
 
