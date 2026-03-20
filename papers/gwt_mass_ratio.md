@@ -8,7 +8,7 @@ March 19, 2026
 
 ## Abstract
 
-We derive the proton-electron mass ratio from the geometry of a $d=3$ cubic lattice with zero free parameters. The bare ratio $2d\,\pi^{2d-1} = 6\pi^5 = 1836.118$ arises from mode counting: the proton is a 3D spherical standing wave ($j_0$) while the electron is a 1D transverse wave, and their energy ratio equals the ratio of mode densities on the lattice. The residual 0.002% gap to the observed value 1836.15267 is closed by a vacuum polarization correction $\alpha^2/2^{d/2}$, derived from the quark charge identity $\sum Q_i^2 = 1$ (a theorem holding only for $d=3$) and DFT normalization on the cube. The result $m_p/m_e = 6\pi^5(1 + \alpha^2/2^{d/2}) = 1836.15267$ matches the CODATA 2018 value to better than 0.001 ppm. The same mechanism — second-order perturbation theory of the $\phi^4$ nonlinearity on the lattice — independently gives the dressed fine structure constant $1/\alpha = 137.036$ (0.66 ppm), the strong coupling $\alpha_s = 0.11794$ (0.030%), the electron anomalous magnetic moment $a_e = 0.00115965182$ (0.32 ppm), and the proton magnetic moment $\mu_p = 2.7937\,\mu_N$ (0.03%). All five results use the same $T_{1u} \otimes T_{1u}$ tensor product decomposition on the octahedral group $O_h$, differing only in the geometric projection factor. No observed values are used as inputs; every quantity is a closed-form expression in $d$, $\pi$, and elementary functions.
+We derive the proton-electron mass ratio from the geometry of a $d=3$ cubic lattice with zero free parameters. The bare ratio $2d\,\pi^{2d-1} = 6\pi^5 = 1836.118$ arises from mode counting: the proton is a 3D spherical standing wave ($j_0$) while the electron is a 1D transverse wave, and their energy ratio equals the ratio of mode densities on the lattice. The residual 0.002% gap to the observed value 1836.15267 is closed by a vacuum polarization correction $\alpha^2/2^{d/2}$, derived from the quark charge identity $\sum Q_i^2 = 1$ (a theorem holding only for $d=3$) and DFT normalization on the cube. The result $m_p/m_e = 6\pi^5(1 + \alpha^2/2^{d/2}) = 1836.15267$ matches the CODATA 2018 value to better than 0.001 ppm. The same mechanism — second-order perturbation theory of the $\phi^4$ nonlinearity on the lattice — independently gives the dressed fine structure constant $1/\alpha = 137.036$ (0.66 ppm), the strong coupling $\alpha_s = 0.11794$ (0.030%), the electron anomalous magnetic moment $a_e = 0.00115965182$ (0.32 ppm), and the proton magnetic moment $\mu_p = 2.7937\,\mu_N$ (0.03%). All five results use the same $T_{1u} \otimes T_{1u}$ tensor product decomposition on the octahedral group $O_h$, differing only in the geometric projection factor. Numerical simulations confirm that the discrete lattice supports exactly 8 robustly stable breather eigenmodes out of 24 mathematical solutions, aligning with the 8 non-secular channels in the theory's universal vacuum polarization law. No observed values are used as inputs; every quantity is a closed-form expression in $d$, $\pi$, and elementary functions.
 
 ---
 
@@ -222,11 +222,11 @@ The proton-electron mass ratio is not a free parameter. It is determined by the 
 
 The Standard Model treats these as 6 independent measured quantities. In Geometric Wave Theory, they are 6 projections of one tensor product.
 
-### Breather stability and the particle spectrum
+### Dynamical stability of breather modes and the fermion spectrum
 
 The discrete sine-Gordon equation on a d=3 cubic lattice supports 24 breather modes, consistent with the order of the chiral octahedral group |O| = 24 that counts the orientations of standing waves on the cube. Numerical evolution using three independent methods (finite differences, spectral FFT, and fourth-order Runge-Kutta — all agreeing to 2 ppm) reveals that only the lowest 8 modes (n = 1 to 8) exhibit robust stability, persisting for 20 or more oscillation periods with amplitude decay at most 4.6%. Modes n = 9 and n = 10 are marginal (17 and 11 periods respectively, with higher decay), while modes n >= 11 collapse within a few periods.
 
-This stability limit of exactly 8 long-lived modes aligns with the geometric structure of the theory: the $T_{1u} \otimes T_{1u}$ tensor product decomposes into $A_{1g}(1) + E_g(2) + T_{1g}(3) + T_{2g}(3)$ = 9 dimensions, of which 8 are non-$A_{1g}$ excitation channels. Each stable breather occupies one independent channel. Modes beyond n = 8 have no independent channel and suffer destructive interference with the existing modes.
+This stability limit of exactly 8 long-lived modes aligns with the geometric structure of the theory: the $T_{1u} \otimes T_{1u}$ tensor product decomposes into $A_{1g}(1) + E_g(2) + T_{1g}(3) + T_{2g}(3)$ = 9 dimensions, of which 8 are non-$A_{1g}$ excitation channels. The number 8 corresponds to the eight non-secular channels in the $T_{1u} \otimes T_{1u}$ decomposition (9 total dimensions minus 1 secular $A_{1g}$ mode), which govern second-order corrections throughout the theory — the same 8 channels that produce the universal VP law for $\alpha$, $\alpha_s$, $m_p/m_e$, and $a_e$. Each stable breather occupies one independent channel. Modes beyond n = 8 have no independent channel and suffer destructive interference with the existing modes.
 
 The measured breather frequencies show a systematic shift from the continuum prediction $\omega_n = \cos(n\gamma)$, scaling as $\sin^4(n\gamma)$ with a coefficient near $d^3\pi = 27\pi$. This shift is intrinsic to the nonlinear dynamics (confirmed by agreement across all three numerical methods) and represents a higher-harmonic self-interaction correction.
 
@@ -306,7 +306,7 @@ and amplitude decay over the measurement window.
 
 | n | $\omega$ predicted | $\omega$ measured | shift | periods | decay | status | tier |
 |---|-------------------|------------------|-------|---------|-------|--------|------|
-| 1 | 0.997882 | 0.997897 | +0.00% | 24 | -0.1% | STABLE | stable |
+| 1 | 0.997882 | 0.997897 | +0.00% | 24 | -0.1% | STABLE* | stable |
 | 2 | 0.991539 | 0.991275 | -0.03% | 23 | +0.9% | STABLE | stable |
 | 3 | 0.980995 | 0.979453 | -0.16% | 23 | +2.5% | STABLE | stable |
 | 4 | 0.966298 | 0.961335 | -0.51% | 23 | +2.0% | STABLE | stable |
@@ -316,8 +316,8 @@ and amplitude decay over the measurement window.
 | 8 | 0.867462 | 0.759949 | -12.39% | 20 | -1.2% | STABLE | stable |
 | 9 | 0.833265 | 0.633228 | -24.01% | 17 | -6.3% | DECAY | metastable |
 | 10 | 0.795540 | 0.398236 | -49.94% | 11 | -5.5% | DECAY | metastable |
-| 11 | 0.754445 | — | — | 0 | — | COLLAPSE | virtual |
-| 12 | 0.710155 | — | — | 0 | — | COLLAPSE | virtual |
+| 11 | 0.754445 | (no coherent oscillation) | — | 0 | -4% | COLLAPSE | virtual |
+| 12 | 0.710155 | (no coherent oscillation) | — | 0 | -6% | COLLAPSE | virtual |
 | 13 | 0.662857 | — | — | 0 | — | COLLAPSE | virtual |
 | 14 | 0.612752 | — | — | 0 | — | COLLAPSE | virtual |
 | 15 | 0.560052 | — | — | 0 | — | COLLAPSE | virtual |
@@ -330,6 +330,8 @@ and amplitude decay over the measurement window.
 | 22 | 0.138374 | — | — | 0 | — | COLLAPSE | virtual |
 | 23 | 0.073663 | — | — | 0 | — | COLLAPSE | virtual |
 | 24 | 0.008640 | — | — | 0 | — | COLLAPSE | virtual |
+
+*Status definitions: STABLE = 20+ periods with |decay| ≤ 5%; DECAY = 11-19 periods or |decay| > 5%; COLLAPSE = < 10 periods or frequency → 0.
 
 ### Table C2: Three-method convergence (mode n=7)
 
@@ -370,6 +372,7 @@ The $\sin^4$ model fits 4x better, consistent with a higher-harmonic
 self-interaction correction from the cosine nonlinearity.
 
 Through-zero $\sin^2$ coefficient: $-83.8 \approx -d^3\pi = -27\pi = -84.8$ (1.2% match).
+The $\varepsilon^4$ scaling is consistent with fourth-order nonlinearity in the cosine potential expansion, while the leading coefficient $-d^3\pi$ arises from the cubic lattice volume ($d^3$) and the cosine potential period ($\pi$).
 
 ## Appendix D: Numerical Verification
 
