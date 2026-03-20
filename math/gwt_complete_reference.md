@@ -789,6 +789,34 @@ The classical radius r = alpha * lambda_C is the distance at which the EM self-e
 ### What particles ARE
 Fermions are **toroidal circulations** (smoke rings) on the lattice. Not radial pulsing (which would be spin-0). The lattice is impedance-matched (k = eta), so these vortex rings never dissipate.
 
+### Why the torus (derived, not assumed)
+
+The torus is the UNIQUE minimum-energy topological defect in d=3 sine-Gordon on a discrete lattice:
+
+**Energy comparison of finite-energy defects:**
+```
+Sphere (hedgehog, j_0):  E = 4*pi*a^2 * M_kink = 12.57 * a^2 * M
+Torus (vortex ring):     E = 2*pi*a^2 * M_kink =  6.28 * a^2 * M
+Knot:                    E > torus (longer path)
+Double torus (genus 2):  E > 2*torus (more surface)
+```
+The torus has HALF the energy of the sphere — factor (d-1) = 2 lower.
+The simple torus (genus 1) is the unique minimum among all closed topological defects.
+
+**Lattice stabilization (Derrick's theorem defeated):**
+- In continuum d>=2: Derrick's theorem forbids stable static scalar solitons
+- On discrete lattice: theorem doesn't apply because:
+  1. Minimum tube radius = lattice spacing a (can't shrink below one unit)
+  2. Kink winding number is INTEGER (can't partially unwind)
+  3. Energy barrier to unwind = M_kink * 2*pi*a (topological protection)
+
+**Why 3 sub-components (only in d=3):**
+- A torus always has exactly 3 independent motions (toroidal, poloidal, twist)
+- In d=2: torus degenerates to circle (1 motion) — no quarks
+- In d=4: 3 torus motions don't fill 4 lattice axes — mismatch
+- Only in d=3: 3 torus motions = 3 lattice axes = perfect match
+- This gives: 3 quarks, 3 colors, charge fractions 1/d and (d-1)/d
+
 ### Three torus motions = three quantum numbers
 A torus in d=3 has exactly 3 independent motions:
 
