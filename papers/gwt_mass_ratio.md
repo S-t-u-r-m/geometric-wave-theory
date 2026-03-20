@@ -1,6 +1,7 @@
 # The Proton-Electron Mass Ratio from Lattice Geometry
 
 **Jonathan D. Wollenberg**
+ORCID: [0009-0009-5872-9076](https://orcid.org/0009-0009-5872-9076)
 
 March 20, 2026
 
