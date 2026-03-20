@@ -298,8 +298,10 @@ These replace both Wyler-type volume integrals and Hamiltonian eigenvalue comput
 
 ## Appendix B: Glossary of Symbols and Terms
 
-| Symbol / Term | Plain English |
-|---------------|---------------|
+**Constants and quantities:**
+
+| Symbol | Plain English |
+|--------|---------------|
 | $d$ | Number of spatial dimensions (always 3) |
 | $\alpha$ | Fine structure constant — how strongly light interacts with matter (~1/137) |
 | $\alpha_s$ | Strong coupling constant — how strongly quarks interact (~0.118) |
@@ -312,22 +314,37 @@ These replace both Wyler-type volume integrals and Hamiltonian eigenvalue comput
 | $\alpha_G$ | Gravitational fine structure constant — how strongly gravity couples (very tiny) |
 | $G_N$ | Newton's gravitational constant |
 | $\hbar$ | Reduced Planck constant (quantum of action) |
+
+**Wave solutions:**
+
+| Symbol | Plain English |
+|--------|---------------|
 | $j_0$ | Simplest spherical standing wave: $j_0(r) = \sin(r)/r$ — a 3D pulse |
-| $\sum Q_i^2$ | Sum of squared quark charges: $2 \times (2/3)^2 + (1/3)^2 = 1$ |
 | $\phi$ | The wave field (displacement of the lattice from equilibrium) |
 | $\phi^4$ | The nonlinear term in the cosine potential (what makes the spring imperfect) |
-| VP | Vacuum polarization — the lattice "ringing back" when a wave passes through |
-| DFT | Discrete Fourier Transform — counting wave modes on a finite lattice |
+| $\sum Q_i^2$ | Sum of squared quark charges: $2 \times (2/3)^2 + (1/3)^2 = 1$ |
+| Kink | Topological soliton — a twist in the lattice that can't be unwound (= proton) |
+| Breather | Bound oscillation in a kink's potential well (= electron) |
+
+**Group theory (Oh):**
+
+| Symbol | Plain English |
+|--------|---------------|
 | Oh | Octahedral group — the 48-element symmetry group of the cube |
 | $\lvert O \rvert$ = 24 | Chiral octahedral group — the 24 rotations of the cube (no reflections) |
 | $\lvert A_4 \rvert$ = 12 | Alternating group — the 12 even permutations of 4 objects |
-| T1u | Vector representation of Oh — a wave that points in a direction (like p-orbitals) |
-| A1g | Scalar representation of Oh — a wave with no direction (like s-orbitals) |
+| T1u | Vector representation — a wave that points in a direction (like p-orbitals) |
+| A1g | Scalar representation — a wave with no direction (like s-orbitals) |
 | T1g | Rotation representation — angular momentum (like the magnetic moment) |
 | Eg, T2g | Shape representations — symmetric stretches (like the 5 d-orbitals) |
-| Kink | Topological soliton — a twist in the lattice that can't be unwound (= proton) |
-| Breather | Bound oscillation in a kink's potential well (= electron) |
-| Parity | Whether a wave is symmetric (g = even) or antisymmetric (u = odd) under reflection |
+| Parity | Whether a wave is symmetric (g = even) or antisymmetric (u = odd) |
+
+**Technical terms:**
+
+| Term | Plain English |
+|------|---------------|
+| VP | Vacuum polarization — the lattice "ringing back" when a wave passes through |
+| DFT | Discrete Fourier Transform — counting wave modes on a finite lattice |
 | Secular term | The part of a correction that has the same form as the original — already counted |
 | Mode counting | Counting independent standing wave patterns that fit in a given geometry |
 | Pion cloud | Virtual quark-antiquark pairs around the proton — the strong VP correction |
