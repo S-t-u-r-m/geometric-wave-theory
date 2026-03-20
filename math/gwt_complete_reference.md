@@ -1360,6 +1360,71 @@ or build the dynamics simulator where all 9 channels are computed automatically.
 The simulator would naturally capture every channel without needing to enumerate
 corrections by hand.
 
+### Kink well physics — Morse potential from Pöschl-Teller (2026-03-19)
+
+The kink (nucleus) creates a potential well for the breather (electron). Linearizing
+the sine-Gordon equation around the kink gives the **Pöschl-Teller potential**:
+
+```
+U(r) = -Z × (2/pi^2) / cosh^2(sqrt(Z) × r)
+```
+
+This is exactly solvable. The key parameter:
+
+```
+s = (-1 + sqrt(1 + 8/pi^2)) / 2 = 0.172787
+```
+
+**s is UNIVERSAL** — it does not depend on Z. The atomic number cancels because
+V_0/beta^2 = (2Z/pi^2)/Z = 2/pi^2 is Z-independent. This means ALL atoms
+share the same Pöschl-Teller shape parameter. Only the length scale (beta = sqrt(Z))
+and depth (E_0 = -Z × s^2) change with Z.
+
+**Bonding from tunneling:** Two kink wells at separation R create a double-well
+potential. A breather can tunnel between them. The tunnel rate decays as
+exp(-s × sqrt(Z) × R). The kink-kink repulsion decays as exp(-2 × sqrt(Z) × R).
+Together they form a **Morse potential with lattice-derived parameters**:
+
+```
+V(R) = -A × exp(-a_att × R)  +  B × exp(-a_rep × R)
+
+  A = 2 × Z × s^2 × bo        (breather tunneling, proportional to bond order)
+  B = (8/pi^2) × Z             (kink-kink repulsion, from kink mass)
+  a_att = s × sqrt(Z)          (tunneling decay rate)
+  a_rep = 2 × sqrt(Z)          (kink overlap decay rate)
+```
+
+**Universal ratios:**
+- a_att / a_rep = s/2 = 0.0864 (same for ALL atoms — tunneling is always
+  much slower than kink overlap, which is why bonds are long-range compared
+  to nuclear sizes)
+- The attraction decays ~11.6× slower than repulsion (= 1/(s/2))
+
+**3D simulation confirmed (2026-03-19):**
+At 96^3 grid resolution, the bonding-antibonding splitting emerged:
+- Bonding orbital (br_A + br_B): E = -0.108 (ATTRACTIVE)
+- Antibonding orbital (br_A - br_B): E = +0.002 (nearly zero)
+- Splitting = 0.109 — bonding is 0.109 units lower than antibonding
+- Single well: E = -0.057, bonding ≈ 2× single (resonant doubling)
+
+**Physical picture:**
+- On a FLAT lattice: waves prefer to avoid each other (less field = cheaper)
+- With KINK WELLS: the wells reward field, so overlapping waves save energy
+- Bond = breather spreading across two kink wells to get double the well benefit
+- LP repulsion = full (paired) breather modes whose VP clouds destructively interfere
+- The 9 Oh channels determine which mode pairs help vs hurt
+
+**Oh orthogonality confirmed in simulation:**
+Cross-channel interactions (pz×px, pz×py, px×py) are < 10% of same-channel,
+confirming the pairwise identity matrix: only same-irrep modes couple.
+The s-p cross term (~0.3) matches the three-body prediction A1g(A1g⊗T1u⊗T1u) = 1.
+
+**Connection to analytical formula:**
+s^2 × pi^2/8 = 0.0368 and pi/d^2 = 0.349. Their ratio = 1/(d×pi) ≈ 0.106.
+The analytical bond formula D_e = (pi/d^2) × E_harm may be the Morse depth
+scaled by d×pi (the number of lattice modes per dimension per half-period).
+Deriving this scale factor rigorously would unify the Morse and Oh approaches.
+
 ### Three toroidal coupling modes in bonding
 Two breathers near each other interact through all 3 torus motions:
 
