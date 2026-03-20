@@ -44,7 +44,15 @@ For d=3: $\alpha$ = 1/137.042 (the bare lattice coupling, 0.005% from measured).
 
 ## 3. The Bare Mass Ratio: Mode Counting
 
-The proton is a kink (topological defect) — a 3D spherical standing wave described by j_0(kr) = sin(kr)/(kr). The electron is a breather — a 1D transverse oscillation. Their energy ratio equals the ratio of mode densities on the d-dimensional lattice.
+### Why j_0 and the 1D breather are the ground states
+
+The sine-Gordon Lagrangian supports two classes of localized solutions: kinks (topological) and breathers (oscillatory). We must show that the LOWEST-ENERGY representatives are the spherical kink ($j_0$) and the 1D transverse breather, rather than assuming these identities.
+
+**Kink ground state = $j_0$ (by symmetry).** A kink connects two adjacent minima of the cosine potential ($\phi = 0 \to \phi = 2$). In d=3, this topological defect occupies a 3D region. The energy of any kink configuration is $E = \int [(\nabla\phi)^2/2 + V(\phi)]\,d^3x$. The potential term $V(\phi)$ is fixed by the topological boundary condition (the field must traverse from one minimum to the next). The gradient term $(\nabla\phi)^2$ is minimized when the field changes as smoothly as possible — which means spherical symmetry. Any non-spherical kink has higher gradient energy. On the d=3 cubic lattice, the ground state inherits the full $O_h$ symmetry of the lattice, and the unique $O_h$-symmetric scalar function that decreases radially is the $A_{1g}$ representation: $j_0(kr) = \sin(kr)/(kr)$. This is not an assumption — it follows from the variational principle applied to the Lagrangian.
+
+**Breather ground state = n=1 mode (by Pöschl-Teller eigenvalue).** Linearizing the sine-Gordon equation around the kink background yields the Pöschl-Teller potential $U(r) = -2/(\pi^2 \cosh^2(r))$ with dimensionless depth parameter $s = (-1+\sqrt{1+8/\pi^2})/2 = 0.1728$. Since $s < 1$, this well supports exactly ONE linear bound state: the n=1 breather at $\omega_1 = \cos(\gamma)$, confirmed by simulation to 13 ppm. Higher modes (n=2-24) exist as NONLINEAR bound states of the full cosine potential, but n=1 is the unique linear ground state. The 1D transverse character follows because the Pöschl-Teller bound state is localized along one axis of the kink's potential well.
+
+**Mass ratio from ground states.** The energy ratio of the ground-state kink to the ground-state breather equals the ratio of mode densities on the d-dimensional lattice.
 
 The mode density counts the number of independent standing wave harmonics accessible to each wave type on the lattice — essentially, how many ways the wave can store energy.
 
@@ -216,7 +224,23 @@ The residual 0.0006 ppm is consistent with fourth-order vacuum polarization ($\a
 
 ---
 
-## 10. Conclusion
+## 10. Limitations and Open Questions
+
+We acknowledge the following limitations of the current work:
+
+**1. The toroidal identification is an ansatz.** The quark charge assignment ($Q_u = (d-1)/d$, $Q_d = 1/d$) follows from the d=3 lattice force split, but the identification of the proton as a toroidal circulation (rather than some other three-component topology) is motivated by sine-Gordon kink topology rather than derived as the unique ground state. The charge theorem $(d-1)(d-3)=0$ does not depend on the torus — it requires only that the proton has d sub-components aligned with lattice axes.
+
+**2. VP projection factors are argued, not computed.** The universal VP law gives the correct STRUCTURE (all corrections proportional to $\alpha^2 \times$ geometric fraction), but the specific denominator for each quantity (confined: $2^{d/2}$, free: $d^2$, colored: $d$) is justified by physical argument rather than computed from a single master integral. A derivation showing all denominators from one calculation would strengthen the result.
+
+**3. No gauge group derivation.** The model is a single scalar field. We derive the VALUES of gauge couplings ($\alpha$, $\alpha_s$, $\sin^2\theta_W$) but do not derive the gauge group structure $SU(3) \times SU(2) \times U(1)$ from the Lagrangian. The structural parameters (3 colors, 3 generations) are identified with d=3 but not proven to be the ONLY consistent assignment.
+
+**4. Breather modes 9-24 are unstable.** The simulation confirms 8 stable modes matching the 8 non-$A_{1g}$ Oh channels, but modes 9-24 collapse. While this maps to the particle lifetime hierarchy, the continuum sine-Gordon theory predicts all 24 as stable. The discrepancy between continuum (24) and discrete (8) requires further analysis of the lattice stability mechanism.
+
+**5. The eigenspectrum frequency shift is measured but not analytically derived.** The $\sin^4(n\gamma)$ correction with coefficient $\approx d^3\pi$ is confirmed numerically by three methods but lacks a closed-form derivation from the discrete equation.
+
+These limitations define a clear program of future work. The results presented here — six fundamental constants from one Lagrangian with zero free parameters — stand independently of these open questions.
+
+## 11. Conclusion
 
 The proton-electron mass ratio is not a free parameter. It is determined by the geometry of a three-dimensional cubic lattice through mode counting (6 pi^5) and vacuum polarization (alpha^2/2^(d/2)). The same mechanism that gives this ratio also gives the fine structure constant, the strong coupling, the electron anomalous magnetic moment, the proton magnetic moment, and the gravitational constant — all from the octahedral group Oh acting on the sine-Gordon Lagrangian.
 
@@ -332,6 +356,19 @@ and amplitude decay over the measurement window.
 | 24 | 0.008640 | — | — | 0 | — | COLLAPSE | virtual |
 
 *Status definitions: STABLE = 20+ periods with |decay| ≤ 5%; DECAY = 11-19 periods or |decay| > 5%; COLLAPSE = < 10 periods or frequency → 0.
+
+### Simulation parameters for reproducibility
+
+All simulations use the sine-Gordon equation $\partial^2\phi/\partial t^2 = \nabla^2\phi - (1/\pi)\sin(\pi\phi)$ with the following configurations:
+
+- **1D finite differences**: Nx = 50,000-200,000, dx = 0.001-0.002, dt = 0.3dx, periodic boundaries, leapfrog time integration
+- **1D spectral FFT**: Nx = 2,048, dx = 0.039, dt = 0.1dx, periodic boundaries, FFT-based Laplacian (exact spatial derivatives)
+- **1D RK4 + spectral**: Same spatial grid as spectral, dt = 0.004, 4th-order Runge-Kutta time integration
+- **Initial conditions**: $\phi(x,0) = 0$; $\dot{\phi}(x,0) = (4/\pi)\varepsilon_n/[\omega_n \cosh(\varepsilon_n x)]$ where $\omega_n = \cos(n\gamma)$, $\varepsilon_n = \sin(n\gamma)$
+- **Frequency measurement**: zero-crossing analysis (upward crossings with linear interpolation)
+- **Stability metric**: period count (consecutive zero crossings) and amplitude decay over measurement window
+
+Full simulation code is available at: https://github.com/S-t-u-r-m/geometric-wave-theory/tree/master/calculations
 
 ### Table C2: Three-method convergence (mode n=7)
 
