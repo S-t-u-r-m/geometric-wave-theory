@@ -252,7 +252,7 @@ These open questions define a program for further work. The core results — six
 
 ## 11. Dynamical stability of breather modes and the fermion spectrum
 
-Simulations used Nx = 50,000–200,000, dx = 0.001–0.002, dt = 0.3dx, with zero-crossing frequency extraction and amplitude tracking (see Appendix C for full parameters).
+Simulations used Nx = 50,000–200,000, dx = 0.001–0.002, dt = 0.3dx, with zero-crossing frequency extraction and amplitude tracking (see Appendix C for full parameters). The transverse breather modes are studied along one axis with periodic transverse boundaries, as the lowest-energy excitations are quasi-1D due to the Pöschl-Teller potential localizing along a single direction.
 
 The discrete sine-Gordon equation on a d=3 cubic lattice supports 24 breather modes, consistent with the order of the chiral octahedral group |O| = 24 that counts the orientations of standing waves on the cube. Numerical evolution using three independent methods (finite differences, spectral FFT, and fourth-order Runge-Kutta — all agreeing to 2 ppm) reveals that only the lowest 8 modes (n = 1 to 8) exhibit robust stability, persisting for 20 or more oscillation periods with amplitude decay at most 4.6%. Modes n = 9 and n = 10 are marginal (17 and 11 periods respectively, with higher decay), while modes n >= 11 collapse within a few periods.
 
@@ -338,7 +338,7 @@ These replace both Wyler-type volume integrals and Hamiltonian eigenvalue comput
 ### Table C1: Stability of all 24 breather modes
 
 Each mode initialized with the exact sine-Gordon breather profile at frequency
-$\omega_n = \cos(n\gamma)$ and evolved along one axis of the d=3 lattice with periodic transverse boundary conditions, yielding effective 1D dynamics for transverse breather modes (Nx = 100,000, dx = 0.002).
+$\omega_n = \cos(n\gamma)$ and evolved along one axis of the d=3 lattice with periodic transverse boundary conditions, yielding effective 1D dynamics for transverse breather modes (Nx = 100,000, dx = 0.002). Transverse directions are periodic with large extent to minimize boundary effects on the transverse breather.
 Frequency measured by zero-crossing analysis. Stability assessed by period count
 and amplitude decay over the measurement window.
 
@@ -422,7 +422,7 @@ Residual sum of squares: $\sin^2$ fit = 695, $\sin^4$ fit = 173.
 The $\sin^4$ model fits 4x better, consistent with a higher-harmonic
 self-interaction correction from the cosine nonlinearity.
 
-The leading coefficient of the $\sin^4(n\gamma)$ term is $-83.8$, within 1.2% of the geometric prediction $-d^3\pi = -27\pi = -84.8$.
+The leading coefficient of the $\sin^4(n\gamma)$ term is $-83.8$, within 1.2% of the geometric prediction $-d^3\pi = -27\pi = -84.8$ from the cubic lattice volume ($d^3$) and cosine potential period ($\pi$).
 The $\varepsilon^4$ scaling is consistent with fourth-order nonlinearity in the cosine potential expansion on the lattice, while the leading coefficient $-d^3\pi$ arises from the cubic lattice volume ($d^3$) and the cosine potential period ($\pi$).
 
 ## Appendix D: Numerical Verification
