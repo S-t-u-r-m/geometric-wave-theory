@@ -1367,11 +1367,44 @@ are the 8 non-A1g channel contributions, each with a coefficient derived from d=
 The 1.7% residual comes from the corrections being applied as multiplicative
 factors rather than as the full channel-by-channel interference calculation.
 
+**Inter-cluster coupling hierarchy (quantified from Oh):**
+
+The three correction clusters (Eg, T1g, T2g) couple to each other with strengths
+determined by the Oh tensor product. Same-type channels pair; cross-type is zero
+at pairwise order but nonzero at three-body:
+
+```
+WITHIN clusters (pairwise, corrections MULTIPLY):
+  Eg  × Eg  : A1g = 1, fraction = 1/4  = 25.0%  (LP effects interact strongly)
+  T1g × T1g : A1g = 1, fraction = 1/9  = 11.1%  (symmetry effects interact)
+  T2g × T2g : A1g = 1, fraction = 1/9  = 11.1%  (enhancement effects interact)
+
+BETWEEN clusters (pairwise = ZERO by orthogonality):
+  Eg × T1g  : A1g = 0  (LP independent of radical)
+  Eg × T2g  : A1g = 0  (LP independent of ionic)
+  T1g × T2g : A1g = 0  (radical independent of ionic)
+
+THREE-BODY (all three clusters interact):
+  Eg × T1g × T2g : A1g = 1, fraction = 1/18 = 5.6%
+  This exists! Bonds with LP + radical + ionic get an extra ~5.6% correction.
+```
+
+Eg self-coupling (1/4) is 2.25× stronger than T1g or T2g (1/9). This is why
+LP effects dominate bonding corrections — the shape channel couples more tightly.
+
+The hierarchy converges as 1/d² per order:
+  Self-coupling: ~10-25% (dominant)
+  Three-body:    ~5.6%   (intermediate)
+  Four-body:     ~2-3%   (small)
+Same convergence as the VP law, g-2 series, and mass ratio corrections.
+
 **Unification:**
 The analytical bond formula, V8's 8 corrections, and the Oh tensor product are
 THREE NOTATIONS for the same physics. The bond energy is determined by 9 channels
 of T1u ⊗ T1u acting on two kink wells (Morse potential). The A1g channel gives the
-base coupling. The 8 non-A1g channels give the corrections.
+base coupling. The 8 non-A1g channels give the corrections, organized into three
+clusters (Eg, T1g, T2g) that multiply within and add between, with a 5.6% three-body
+coupling when all three clusters are active.
 
 ### Kink well physics — Morse potential from Pöschl-Teller (2026-03-19)
 
