@@ -1,0 +1,43 @@
+IONIZATION ENERGY FROM HESSIAN EIGENVALUES
+======================================================================
+Started: 2026-03-21 17:09:00
+s = 0.17278701, V_0 = 2/pi^2 = 0.20264237
+E_H = 13.6045 eV, alpha = 0.00729701
+
+PERIOD 1-2 ATOMS
+-----------------------------------------------------------------
+   Z Sym   IE_obs    IE_hess      err  n_bound
+--------------------------------------------------
+   1   H   13.598   0.405163    (cal)        2
+     Scale: 33.5618 eV per lattice unit
+   2  He   24.587      1.464   -94.0%        2
+   3  Li    5.392      2.232   -58.6%        1
+   4  Be    9.323      8.748    -6.2%        1
+   5   B    8.298      3.360   -59.5%        1
+   6   C   11.260      3.431   -69.5%        1
+   7   N   14.534      5.513   -62.1%        1
+   8   O   13.618      8.209   -39.7%        1
+   9   F   17.423     10.844   -37.8%        1
+  10  Ne   21.565     13.171   -38.9%        1
+  11  Na    5.139      9.088   +76.8%        1
+  12  Mg    7.646      6.428   -15.9%        1
+  13  Al    5.986      0.083   -98.6%        2
+  18  Ar   15.760      5.176   -67.2%        1
+  30  Zn    9.394      9.896    +5.3%        1
+  46  Pd    8.337      4.756   -43.0%        1
+  48  Cd    8.994      9.796    +8.9%        1
+
+ANALYSIS
+-----------------------------------------------------------------
+
+The Hessian method computes bound state energies EXACTLY for a given potential.
+The key physics is in HOW the screening potential is built:
+  - Nuclear well: kink with depth ~ Z
+  - Inner electrons: breathers that partially fill the well
+  - The screening fraction per electron determines the IE
+
+The current V20 model uses algebraic alpha exponents for Z_eff.
+The Hessian method replaces this with exact eigenvalues.
+The screening MODEL determines the quality of the result.
+
+Completed: 2026-03-21 17:09:00

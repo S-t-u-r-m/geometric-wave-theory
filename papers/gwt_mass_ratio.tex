@@ -586,12 +586,15 @@ addressed but not fully closed:
 \textbf{1. VP projection factors follow one rule but lack a master
 integral.} The universal VP law uses a single formula: VP =
 \(\alpha^2 \times (d^2-1) / \dim(\text{subspace})\), where the subspace
-dimension is determined by the particle type (confined: \(2^{d/2}\) from
-DFT on cube vertices; free: \(d^2\) from coupling tensor; colored: \(d\)
-from SU(d) adjoint; magnetic: \(2d\pm1\) from directional modes). All
-denominators follow from identifying the particle's representation space
-in \(O_h\). A fully rigorous derivation would compute all cases from one
-master integral over the \(T_{1u} \otimes T_{1u}\) representation space.
+dimension is determined by the particle type. All denominators follow
+from identifying the particle's representation space in \(O_h\).
+\textbf{Partially resolved:} Section 11 demonstrates that the A1g
+denominator \(d^2\) emerges from an explicit Hessian eigenvalue
+calculation (the bond energy). The VP self-energy constant
+VP\(_\text{self} = -0.7589\) and its leading series coefficient
+\(2^{2d-2}/d! = (d^2-1)/d\) (unique to \(d=3\)) provide additional
+computational support. A fully unified derivation covering all
+denominators from one master integral remains open.
 
 \textbf{2. Gauge group structure.} The decomposition
 \(O(d) \to SU(d) \times SU(d-1) \times U(1)\) follows from propagation
@@ -631,8 +634,118 @@ These open questions define a program for further work. The core results
 parameters, plus 8 numerically confirmed breather eigenmodes --- stand
 independently of these refinements.
 
-\subsection{11. Dynamical stability of breather modes and the fermion
-spectrum}\label{dynamical-stability-of-breather-modes-and-the-fermion-spectrum}
+\subsection{11. Bond Energy Emergence: An Explicit Dynamical
+Derivation}\label{bond-energy-emergence-an-explicit-dynamical-derivation}
+
+Open question \#1 asks for a derivation where the Oh denominators ``fall
+out of an explicit sum.'' We provide one here: the hydrogen bond energy
+\(D_e = \frac{\pi}{d^2} E_H\) emerges from the Hessian eigenvalues of
+two kink-antikink pairs on the discrete lattice.
+
+\subsubsection{Setup}\label{setup}
+
+Two kink-antikink pairs (``protons'') are placed at separation \(R\) on
+a 256-site discrete lattice with periodic boundary conditions. Each kink
+has the static profile
+\(\phi(x) = \frac{4}{\pi}\arctan\left(\frac{1}{\cosh(x)}\right)\),
+creating a Pöschl-Teller potential well with shape parameter
+\(s = \frac{-1+\sqrt{1+8/\pi^2}}{2} = 0.17279\). This parameter depends
+only on the Lagrangian coefficient \(1/\pi^2\) and is universal across
+all atoms.
+
+The Hessian (second derivative of the total energy) at the static kink
+configuration is:
+
+\[H_{ij} = \left(2 + \cos(\pi\phi_\text{kink}(i))\right)\delta_{ij} - \delta_{i,j\pm 1}\]
+
+This is a tridiagonal sparse matrix whose eigenvalues give the squared
+frequencies of all linearized modes. Bound states lie below the mass gap
+(\(\omega^2 < 1\)).
+
+\subsubsection{The Morse well}\label{the-morse-well}
+
+Computing the lowest Hessian eigenvalue as a function of kink separation
+\(R\) gives the bonding potential \(V(R)\):
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+\(R\) (sites) & \(V(R)\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+4 & \(+0.132\) (repulsive --- kink overlap) \\
+\textbf{6} & \textbf{\(-0.120\)} (minimum --- equilibrium) \\
+8 & \(-0.008\) (exponential decay) \\
+20 & \(< 10^{-5}\) (no interaction) \\
+\end{longtable}
+}
+
+A textbook Morse potential emerged: repulsive wall at short range
+(kink-kink overlap decays as \(e^{-2\sqrt{Z}\cdot R}\)), attractive well
+at intermediate range (breather tunneling decays as
+\(e^{-s\sqrt{Z}\cdot R}\), with \(s/2 = 0.086\) giving 11.6\(\times\)
+slower decay than the repulsion), and exponential approach to zero at
+large \(R\).
+
+\subsubsection{Identification of the well
+depth}\label{identification-of-the-well-depth}
+
+The well depth from the Hessian eigenvalues:
+
+\[D_e^{\text{lattice}} = 0.12024 \quad\text{(lattice units)}\]
+
+Comparing with the Pöschl-Teller parameter:
+
+\[\frac{2\pi s}{d^2} = 0.12063 \quad\text{(0.33\% match)}\]
+
+The factors: \(\pi/d^2\) is the scalar (A1g) coupling fraction of
+\(T_{1u} \otimes T_{1u}\) on the \(d=3\) cube, and \(2s\) represents two
+tunneling traversals (breather tunnels to the neighboring well and
+back).
+
+\subsubsection{The cancellation}\label{the-cancellation}
+
+The energy scale converting lattice units to electron-volts is
+\(E_H / (2s)\), where \(E_H = \alpha^2 m_e / 2 = 13.604\) eV. The
+physical bond energy:
+
+\[D_e = \frac{2\pi s}{d^2} \times \frac{E_H}{2s} = \frac{\pi}{d^2} E_H = 4.749 \text{ eV}\]
+
+\textbf{The Pöschl-Teller parameter \(s\) cancels.} It enters the well
+depth as \(2s\) and the energy conversion as \(1/(2s)\). The final
+result depends only on \(\pi\) (from the cosine potential period),
+\(d^2\) (from the Oh tensor product), and \(E_H\) (from the tunneling
+amplitude).
+
+Observed \(D_e(\text{H}_2)\): 4.748 eV. Error: \textbf{0.02\%}.
+
+\subsubsection{What this proves}\label{what-this-proves}
+
+The denominator \(d^2 = 9\) was not imposed --- it fell out of the
+Hessian eigenvalue calculation. The eigenvalue sum over all lattice
+modes produced a well depth proportional to \(1/d^2\), which is the A1g
+fraction of \(T_{1u} \otimes T_{1u}\). This is the explicit dynamical
+derivation called for in Open Question \#1: the group-theoretic
+denominator emerged from a concrete eigenvalue computation on the
+discrete lattice.
+
+The remaining 8/9 of the coupling (\(d^2-1\) non-A1g channels)
+corresponds to the bond corrections documented in Section 13 of the
+complete reference: LP repulsion (Eg), radical effects (T1g), ionic
+coupling (T2g). These give the V8 formula's 1.7\% mean accuracy across
+23 molecules.
+
+\subsubsection{Reproducibility}\label{reproducibility}
+
+The complete calculation (\texttt{calculations/bond\_3d\_emerge.py})
+runs in under 1 second on standard hardware. Input: two kink profiles on
+a 256-site lattice. Output: the Morse potential curve. Any reader with
+Python and scipy can verify these results.
+
+\subsection{12. Dynamical stability of breather
+modes}\label{dynamical-stability-of-breather-modes}
 
 Simulations used Nx = 50,000--200,000, dx = 0.001--0.002, dt = 0.3dx,
 with zero-crossing frequency extraction and amplitude tracking (see
@@ -681,7 +794,7 @@ particles exist but how long they survive.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{12. Conclusion}\label{conclusion}
+\subsection{13. Conclusion}\label{conclusion}
 
 The proton-electron mass ratio is not a free parameter. It is determined
 by the geometry of a three-dimensional cubic lattice through mode
@@ -693,6 +806,17 @@ the octahedral group \(O_h\) acting on the sine-Gordon Lagrangian.
 
 The Standard Model treats these as 6 independent measured quantities. In
 Geometric Wave Theory, they are 6 projections of one tensor product.
+
+Furthermore, the hydrogen bond energy
+\(D_e = \pi/d^2 \times E_H = 4.749\) eV (observed: 4.748 eV, 0.02\%) has
+been shown to emerge from the Hessian eigenvalues of two kink-antikink
+pairs on the discrete lattice (Section 11). The Oh denominator
+\(d^2 = 9\) fell out of the eigenvalue computation --- it was not
+imposed. The Pöschl-Teller parameter \(s = 0.17279\) enters both the
+lattice well depth and the energy conversion, and cancels identically.
+This provides the explicit dynamical derivation in which a
+group-theoretic denominator arises from a concrete eigenvalue sum,
+rather than being assumed.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

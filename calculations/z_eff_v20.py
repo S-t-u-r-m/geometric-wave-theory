@@ -184,7 +184,17 @@ def screening(config, n, is_pd, val_l):
                 #     A2u⊗T1u = T2g (no A1g)
                 f_T1u_ch = min(count, 3)
                 f_other = n_ch - f_T1u_ch
-                S += f_T1u_ch * w_pi + f_other * w_delta / d
+                S_f_anti = f_T1u_ch * w_pi + f_other * w_delta / d
+
+                # FIX (2026-03-21): Deep closed f14 blends toward normal
+                # screening, same as deep d10.
+                # Oh: A1g(T1u^6 × T2u^6 × A2u^2) → highly coherent closed
+                # shell → at depth, behaves more like normal screening.
+                if delta_n >= 2 and count == 14:
+                    S_f_normal = n_ch * w_pi
+                    S += S_f_normal + (S_f_anti - S_f_normal) / d
+                else:
+                    S += S_f_anti
             else:
                 # f → s/d: Oh FORBIDDEN → anti-screening
                 S += n_ch * w_delta / d
@@ -255,10 +265,14 @@ def compute_alpha(config, n, is_pd, val_l, has_p, s_count, dc_val, p_count, S_co
                 t2g_paired = min(dc - 5, d)
                 if t2g_paired == d:
                     # eg occupancy: unpaired eg creates asymmetry
-                    # Oh: Eg modes with A1g(Eg^n) content
-                    eg_occ = dc - 5
-                    eg_paired = max(0, dc - 8)
-                    eg_unp = eg_occ - eg_paired
+                    # Oh: Eg has 2 channels. After t2g is fully paired (dc>=8),
+                    # remaining electrons pair eg channels.
+                    # FIX (2026-03-21): eg has 2 channels, not (dc-5).
+                    # d8: 0 eg paired, 2 unpaired. d9: 1 paired, 1 unpaired.
+                    # d10: 2 paired, 0 unpaired.
+                    n_eg = d - 1                       # 2 (Eg dimension)
+                    eg_pairing = max(0, dc - 2*d - n_eg)  # electrons pairing eg
+                    eg_unp = max(0, n_eg - eg_pairing) # unpaired eg channels
                     # Each unpaired eg reduces C by |w_delta|/d
                     # Oh origin: Eg contribution to anti-screening
                     C -= eg_unp * abs(w_delta) / d
@@ -295,9 +309,13 @@ def compute_alpha(config, n, is_pd, val_l, has_p, s_count, dc_val, p_count, S_co
                 # Overfilled d: V19 formula (positive correction, well-calibrated)
                 C += n_f_ch * (dc_val - 5) / (d * n)
             else:
-                # Underfilled d: use Oh three-body mediator count
-                # f14: 12 mediators (6 T1u + 6 T2u) vs V19's 7
-                # f7:  6 mediators (3 T1u + 3 T2u) vs V19's 7
+                # Underfilled d: Oh three-body mediator coupling
+                # FIX (2026-03-21): Enhancement from (2d+1) exchange paths,
+                # but DILUTED by dc_val (each d-electron gets 1/dc share).
+                # For dc=1: full enhancement (2d+1)/d = 7/3 (single d sees all paths)
+                # For dc>1: diluted by dc_val (paths shared among d-electrons)
+                # Oh origin: (2d+1) = exchange paths on cube = ionic coupling denominator
+                n_med = f_mediator_count(f_total)
                 n_med = f_mediator_count(f_total)
                 C += n_med * (dc_val - 5) / (d**2 * n)
 

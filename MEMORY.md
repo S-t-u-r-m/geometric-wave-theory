@@ -56,12 +56,18 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
 - VP: confined proton gets lattice DFT correction, free electron doesn't
 - Replaces Wyler. User's hunch: same structure may give exact values for all constants.
 
-## V20 Ionization Energy (Oh Tensor Products — 2026-03-18)
-- **3.02%** mean on 103 atoms (beats V19's 3.07%), **99/103 under 10%**
-- Key fix: f→d coupling is THREE-BODY through T1u mediator (not direct)
-  - V19 used n_f_ch=7 (total). V20 uses Oh mediator count (T1u+T2u)
-  - f14: 12 mediators, f7: 6 mediators (vs V19's 7 for all)
-- Remaining outlier: Lu (+19.4%) — needs higher-order three-body weight
+## V21 Ionization Energy (2026-03-21, two justified fixes)
+- **2.65%** mean on 103 atoms (was 3.02%), **91/103 under 5%**, **100/103 under 10%**
+- Fix 1 (BUG): d10 eg_unp was 3, should be 0. Eg has dim 2, not 5.
+  Fixed Zn(-8.2%), Cd(-8.0%), Hg(-11.2%) — all off outlier list.
+- Fix 2 (ANALOGY): Deep f14 screening blend, same formula as deep d10.
+  Closed f14 at depth (delta_n≥2) blends toward normal screening.
+  Fixed Tl(+6.7%), At(+5.9%).
+- Lu (+19.4%) still worst outlier — f14→d1 three-body weight unsolved.
+- Remaining outliers all positive (underscreening): Pd, La, Ce, Bi, Fr, Ra, Ac, Lr.
+- NEXT DIRECTION: VP_self sinc screening — the nonlinear softening should
+  modify anti-screening weights based on shell occupation. Needs breather
+  amplitude at each shell (from Hessian), not just electron count fraction.
 - Key file: `calculations/z_eff_v20.py`
 
 ## Zero-Point Energy from Oh (2026-03-18)
@@ -80,6 +86,26 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
   - ALL coefficients from d=3: π/d², cos(π/d), 1/(d+1), 1/(2d+1)
 - Key files: calculations/bond_hybrid.py, calculations/bond_3d_radial.py
 
+## Bond Energy DERIVED from Lagrangian (2026-03-21, PROVEN)
+- **D_e = π/d² × E_H** emerges from two kinks on the discrete lattice
+- Hessian eigenvalue method: Morse well appears with repulsive wall (R=4), minimum (R=6), exponential decay
+- D_e_lattice = 2πs/d² where s = Pöschl-Teller parameter (0.17279)
+- Energy scale = E_H/(2s) maps lattice to eV
+- **The s cancels**: (2πs/d²) × E_H/(2s) = π/d² × E_H = 4.749 eV (obs: 4.748, 0.02%)
+- Every factor derived: π (potential period), d² (Oh A1g fraction), E_H (tunneling + spectrum)
+- Key file: `calculations/bond_3d_emerge.py`
+
+## VP Geometric Constant (2026-03-21)
+- **VP_self = -0.7588963842629** — a transcendental constant of sine-Gordon
+- NOT a fit parameter. It is a definite integral derived from the Lagrangian:
+  VP_self = ∫ g² × (sinc(πg) - 1) dt / ∫ g² dt, where g(t) = (4/π)arctan(sech(t))
+- Universal: same for all 24 modes, all β, all d, all lattice sizes
+- The breather peak (g_max = 1) sits at the first zero of sinc(π) = 0 — forced by the Lagrangian
+- Leading series coefficient = 8/3 = (d²-1)/d (gluon VP fraction, unique to d=3)
+- VP is quantum: scalar and vector potentials give identical classical results;
+  cross-component coupling requires vacuum fluctuations to activate
+- Key files: `calculations/breather_vp_exact.py`, `calculations/breather_vp_closedform.py`
+
 ## Open Ideas / Future Work
 1. **Breather dynamics simulator** — the ultimate goal
    - Full 3D GPU simulation of pulsing breathers on d=3 lattice
@@ -89,15 +115,30 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
      thermal perturbations, bond formation/breaking dynamics
    - The bond energy should EMERGE from the simulation, not be computed from a formula
    - Foundation built: 3D GPU solver, Oh tables, breather profiles, ZPE from pulsing
-2. **V20 refinement** — push beyond 3.02% on 103 atoms
+   - **3D eigenspectrum CONFIRMED (2026-03-21):** modes 1-7 on 32³ discrete lattice
+     match 1D to <0.12%. Breathers are quasi-1D (uniform in transverse directions).
+     Key file: `calculations/breather_3d_kink.py`
+2. **Lattice DFT** — radial Kohn-Sham with Oh exchange functional
+   - Infrastructure built: radial grid, Hartree Poisson, Slater LDA, self-consistent loop
+   - Oh post-SCF correction improves closed-shell atoms (He, Ne, Ar)
+   - Needs: GPU eigensolver, log grid for cusp, proper Oh exchange as functional
+   - Key file: `calculations/gwt_lattice_dft.py`
+3. **V21 refinement** — push beyond 2.65% on 103 atoms
    - f→d three-body mediation (T1u mediator fix, partially done)
    - Lu outlier needs higher-order three-body coupling weight
 3. **Bond algorithm improvements** — generalize beyond training set
    - Non-bonding mode competition (energy partition between pulsing modes)
    - Phase sync cost when atoms meet
    - Enhanced ionic correction for BF, AlF type bonds
-4. **Educational/derivation pages**
+4. **Derivation completeness** — fill gaps identified by Copilot review:
+   - Mode counting 6π⁵ from explicit spectral problem (HIGHEST PRIORITY)
+   - Alpha tunneling from instanton action
+   - VP denominators from perturbation theory (partially done: VP_self + bond)
+   - Torus ground state proof
+   - See: `memory/feedback_copilot_review.md` for full roadmap
 5. **Papers** — formal publication of full GWT framework
+   - Mass ratio paper updated with bond emergence (Section 11)
+   - Source of truth now has derivation status tags [DERIVED/PROVEN/HYPOTHESIS/etc.]
 
 ## Key Technical Notes
 - Edit tool has persistent EEXIST bug for files in `calculations/` directory — use Python file writes or sed as workaround

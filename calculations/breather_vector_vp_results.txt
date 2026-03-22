@@ -1,0 +1,53 @@
+VECTOR FIELD BREATHER — VP FROM DYNAMICS
+======================================================================
+Started: 2026-03-21 13:41:06
+gamma = 0.0650898425
+
+PART 1: SINGLE VECTOR BREATHER (T1u modes)
+------------------------------------------------------------
+Lattice: 32^3 = 32,768 sites x 3 components = 98,304 DOF
+n=1 breather: omega = 0.997882, eps = 0.065044
+Breather width: 15.4 sites
+
+  T1u_x: omega=0.997885 (shift +0.00%), dE=-0.57%, leakage=0.0%, (5s)
+  T1u_y: omega=0.997885 (shift +0.00%), dE=-0.57%, leakage=0.0%, (5s)
+  T1u_z: omega=0.997885 (shift +0.00%), dE=-0.57%, leakage=0.0%, (5s)
+
+PART 2: TWO-BREATHER INTERACTIONS
+------------------------------------------------------------
+Test: do parallel (x,x) and orthogonal (x,y) breathers interact differently?
+The difference IS the VP — the Oh channel decomposition.
+
+Single breather (T1u_x): E = 84.390703 +/- 1.168921
+
+   R   E_parallel      E_ortho        V_par       V_orth    ratio  VP_frac
+------------------------------------------------------------------------------
+   4     1.134897   167.664969  -167.646510    -1.116438   0.0067   0.9933
+   6     2.503404   166.261269  -166.278003    -2.520138   0.0152   0.9848
+   8     4.328987   164.303042  -164.452420    -4.478364   0.0272   0.9728
+  10     6.528275   161.798130  -162.253132    -6.983276   0.0430   0.9570
+  12     9.003320   158.757807  -159.778086   -10.023600   0.0627   0.9373
+  14    11.647422   155.197542  -157.133985   -13.583864   0.0864   0.9136
+  16    14.351173   151.137787  -154.430234   -17.643619   0.1142   0.8858
+  20    19.520867   141.630726  -149.260540   -27.150680   0.1819   0.8181
+  24    23.787420   130.523042  -144.993986   -38.258365   0.2639   0.7361
+
+PART 3: Oh CHANNEL ANALYSIS
+------------------------------------------------------------
+
+GWT predictions for T1u x T1u coupling:
+  Parallel (x,x): all 9 channels active
+  Orthogonal (x,y): 3/9 channels active (Eg_xy + T1g_xy + T2g_xy)
+  Predicted ratio V_ort/V_par = 3/9 = 0.3333 (if nonlinear coupling works)
+  Predicted ratio V_ort/V_par = 0.0 (if only linear/scalar coupling)
+
+Measured average V_ort/V_par = 0.0890
+  If ≈ 0.33: VP channels active, T1u⊗T1u confirmed
+  If ≈ 0.00: scalar limit, no cross-component coupling
+  If ≈ 1.00: fully isotropic, no Oh structure
+
+VP fraction (1 - V_ort/V_par) = 0.9110
+  GWT prediction: (d^2-1)/d^2 = 8/9 = 0.8889
+
+Completed: 2026-03-21 13:42:53
+Total time: 0.0 min

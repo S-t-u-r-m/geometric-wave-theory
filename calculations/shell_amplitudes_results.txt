@@ -1,0 +1,103 @@
+SHELL BREATHER AMPLITUDES FROM KINK PROFILE
+======================================================================
+
+KINK PROFILE AT SHELL RADII
+-------------------------------------------------------
+
+Z = 1:
+  Kink width = 1/sqrt(Z) = 1.0000 lattice units
+  n=1: r_Bohr=137.0, phi=0.000000, sinc=1.000000
+  n=2: r_Bohr=548.2, phi=0.000000, sinc=1.000000
+  n=3: r_Bohr=1233.4, phi=0.000000, sinc=1.000000
+  n=4: r_Bohr=2192.7, phi=0.000000, sinc=1.000000
+  n=5: r_Bohr=3426.1, phi=0.000000, sinc=1.000000
+  n=6: r_Bohr=4933.5, phi=0.000000, sinc=1.000000
+
+Z = 10:
+  Kink width = 1/sqrt(Z) = 0.3162 lattice units
+  n=1: r_Bohr=13.7, phi=0.000000, sinc=1.000000
+  n=2: r_Bohr=54.8, phi=0.000000, sinc=1.000000
+  n=3: r_Bohr=123.3, phi=0.000000, sinc=1.000000
+  n=4: r_Bohr=219.3, phi=0.000000, sinc=1.000000
+  n=5: r_Bohr=342.6, phi=0.000000, sinc=1.000000
+  n=6: r_Bohr=493.4, phi=0.000000, sinc=1.000000
+
+Z = 30:
+  Kink width = 1/sqrt(Z) = 0.1826 lattice units
+  n=1: r_Bohr=4.6, phi=0.000000, sinc=1.000000
+  n=2: r_Bohr=18.3, phi=0.000000, sinc=1.000000
+  n=3: r_Bohr=41.1, phi=0.000000, sinc=1.000000
+  n=4: r_Bohr=73.1, phi=0.000000, sinc=1.000000
+  n=5: r_Bohr=114.2, phi=0.000000, sinc=1.000000
+  n=6: r_Bohr=164.5, phi=0.000000, sinc=1.000000
+
+Z = 80:
+  Kink width = 1/sqrt(Z) = 0.1118 lattice units
+  n=1: r_Bohr=1.7, phi=0.000001, sinc=1.000000
+  n=2: r_Bohr=6.9, phi=0.000000, sinc=1.000000
+  n=3: r_Bohr=15.4, phi=0.000000, sinc=1.000000
+  n=4: r_Bohr=27.4, phi=0.000000, sinc=1.000000
+  n=5: r_Bohr=42.8, phi=0.000000, sinc=1.000000
+  n=6: r_Bohr=61.7, phi=0.000000, sinc=1.000000
+
+CONCLUSION: The shell radii (in Bohr) are MUCH larger than the
+kink width (in Planck). The kink profile is essentially zero at
+all electron shell positions. The sinc factor is ~1 everywhere.
+
+This means the VP sinc correction to screening is NEGLIGIBLE
+when using physical shell radii. The correction would only matter
+if shells were within ~1/sqrt(Z) of the nucleus, which they aren't.
+
+ALTERNATIVE INTERPRETATION
+-------------------------------------------------------
+
+Maybe the sinc factor doesn't use the SPATIAL position of the shell
+but the FIELD AMPLITUDE of the breather mode itself.
+
+Each electron in a filled shell contributes to the total breather
+field phi at the nucleus. The more electrons, the larger the total
+phi, and the stronger the sinc softening.
+
+For a shell with occupation f (0 to 1):
+  phi_total = f × phi_max = f × 1.0
+  sinc_factor = |sinc(pi × f)|
+
+But this is what we tried before (too aggressive).
+The issue: phi_max = 1 assumes ALL electrons contribute at the
+nucleus. In reality, higher shells (larger n) have smaller
+amplitude at the nucleus (the wavefunction is spread out).
+
+NUCLEAR CONTACT DENSITY approach:
+  phi_eff(shell n, l) = (Z_eff/n)^(3/2) for s-electrons (l=0)
+  phi_eff = 0 for l > 0 (p, d, f don't reach nucleus)
+
+Only s-electrons contribute to phi at the nucleus!
+The sinc softening is from the s-electron density.
+
+FIELD-SPACE INTERPRETATION:
+  cos(pi*phi) at the kink profile:
+    phi = 0.00: cos(pi*phi) = +1.0000  screening
+    phi = 0.25: cos(pi*phi) = +0.7071  screening
+    phi = 0.50: cos(pi*phi) = +0.0000  screening
+    phi = 0.75: cos(pi*phi) = -0.7071  ANTI-screening
+    phi = 1.00: cos(pi*phi) = -1.0000  ANTI-screening
+    phi = 1.25: cos(pi*phi) = -0.7071  ANTI-screening
+    phi = 1.50: cos(pi*phi) = -0.0000  ANTI-screening
+    phi = 1.75: cos(pi*phi) = +0.7071  screening
+    phi = 2.00: cos(pi*phi) = +1.0000  screening
+
+The kink profile goes from phi=0 (far) to phi~1-2 (center).
+At phi=0.5: coupling switches from screening to anti-screening.
+The Oh weights (w_pi=+0.5, w_delta=-0.5) encode this transition.
+
+The VP_self sinc correction is about the SECOND-ORDER effect:
+how the phi^4 nonlinearity modifies the coupling STRENGTH, not sign.
+This is an order alpha^2 ~ 5e-5 correction — too small for 5-20% errors.
+
+FINAL ASSESSMENT:
+The remaining V21 outliers (Lu, Pd, La, Ce) are NOT from missing VP.
+They are from structural issues in the Oh CHANNEL COUNTING:
+  - Lu: f14->d1 three-body weight (unknown Oh fraction)
+  - Pd: d10 ionizing d-electron (unique case)
+  - La/Ce: f0/f1+d1 transition coupling
+These need the multi-electron Hessian (exact eigenvalues) to resolve.
