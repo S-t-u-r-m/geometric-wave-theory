@@ -56,8 +56,10 @@ LEPTONS:
   (Full parametrization below uses theta_0, M — equivalent but more detailed)
 
 MESONS:
-  m_pi      = m_p * (d+1)/d^3 = m_p * 4/27              = 139.0 MeV    [DERIVED: axial * A1g fraction]
+  m_pi      = m_p * (d+1)/d^3 = m_p * 4/27              = 139.0 MeV    [DERIVED: axial * A1g fraction, 0.4%]
   f_pi      = m_pi * 2/d                                 = 92.7 MeV     [DERIVED: 0.3%]
+  m_rho     = m_p * 8/pi^2 = m_p * M_kink               = 760.5 MeV    [DERIVED: full kink mass scale, 1.9%]
+  m_rho/m_pi = 54/pi^2 = 2*d^3/pi^2                     = 5.471        [DERIVED: 1.5%]
 
 GENERATIONS (Koide parametrization):
   sqrt(m_n) = M * (1 + sqrt(2) * cos(theta_0 + 2n*pi/d))               [HYPOTHESIS]
@@ -2189,6 +2191,46 @@ g_piNN = g_A * m_N / f_pi = (4/3) * 938.3 / 92.7 = 13.5  (obs: 13.1, +3.4%)
 This is simpler and more accurate than the GMOR route below.
 Zero free parameters. All factors from d=3 Oh geometry.
 
+### Rho meson mass — from the kink mass scale [DERIVED, 1.9%]
+
+The rho is a VECTOR meson (J^P = 1^-). Unlike the pion (Goldstone boson,
+only a fraction of the proton energy), the rho carries the full topological
+energy of one kink:
+
+```
+m_rho = m_p * M_kink = m_p * 8/pi^2 = 760.5 MeV    (obs: 775.3, -1.9%)
+```
+
+Physical meaning: the pion is a kink-antikink pair coupled through the
+AXIAL channel (fraction 4/27 of proton mass). The rho is coupled at the
+FULL kink mass scale (8/pi^2 = 0.811 of proton mass). The rho is heavy
+because it is NOT a Goldstone boson — it feels the full sine-Gordon barrier.
+
+With strong VP dressing: m_rho * (1 + alpha_s^2 * 8/3) = 786.9 MeV (+1.5%).
+The observed 775.3 MeV lies between bare (-1.9%) and dressed (+1.5%),
+suggesting partial VP dressing. Exact dressing factor is an open question.
+
+Rho-to-pion mass ratio:
+```
+m_rho/m_pi = (8/pi^2) / (4/27) = 54/pi^2 = 5.471   (obs: 5.555, -1.5%)
+           = 2*d^3 / pi^2
+```
+
+### Connection to the bond model
+
+The Morse well from the bond emergence (Section 11) has two channels:
+  - Attractive (long range, decay rate s) = PION exchange
+  - Repulsive (short range, decay rate 2) = RHO exchange
+
+In the one-boson-exchange model of nuclear physics, the nuclear force is:
+  V(r) = -g_pi * exp(-m_pi * r)/r + g_rho * exp(-m_rho * r)/r
+
+The lattice Morse well:
+  V(R) = -A * exp(-s*R) + B * exp(-2*R)
+
+The pion and rho are the two force carriers that create the bond.
+The bond energy D_e = pi/d^2 * E_Ry emerges from their competition.
+
 ### GMOR relation (Gell-Mann–Oakes–Renner) — pion mass (alternative route)
 
 The pion mass can also be derived through the GMOR relation, with all inputs from GWT geometry:
@@ -2284,6 +2326,17 @@ The (d+2)/(2d) = 5/6 factor is the Fermi gas average-to-maximum ratio in d=3.
 Shell closures: 2, 8, 20, 28, 50, 82, 126
 ```
 From standing-wave shells in a spherical cavity with spin-orbit coupling. The same j_0 breather physics that gives the proton radius also gives the nuclear shell structure.
+
+### Neutron-proton mass difference [5.4%]
+```
+m_n - m_p = m_e * (d^2-1)/d = m_e * 8/3 = 1.363 MeV   (obs: 1.293, +5.4%)
+```
+The mass difference = electron mass times the gluon VP fraction (d^2-1)/d = 8/3.
+Physical meaning: the n-p mass difference comes from the electromagnetic
+self-energy asymmetry between uud (sum Q^2 = 1) and udd (sum Q^2 = 2/3).
+The difference in VP corrections = alpha^2 * 1/d * F * m_e = tiny (0.006 MeV),
+but the QUARK mass difference m_d - m_u scales as m_e * (d^2-1)/d because
+the down-up splitting comes from the gluon VP channel.
 
 ### Magnetic moment ratio
 ```
