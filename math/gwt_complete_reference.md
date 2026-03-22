@@ -2211,11 +2211,16 @@ The factors:
   1/d^2   = 1/9 = A1g scalar fraction of T1u*T1u (same as bond, alpha VP)
   Product = (d+1)/d^3 = 4/27
 
-The pion decay constant follows immediately:
+The pion decay constant [DERIVED, 0.3%]:
 ```
-f_pi = m_pi * 2/d = 139.0 * 2/3 = 92.7 MeV          (obs: 92.4, +0.3%)
+f_pi = m_pi * (d-1)/d = 139.0 * 2/3 = 92.7 MeV      (obs: 92.4, +0.3%)
      = m_p * 2(d+1)/d^4 = m_p * 8/81
 ```
+The factor (d-1)/d = 2/3 is the TRANSVERSE FRACTION — the fraction of the pion
+mass accessible to weak decay. The weak force = SU(d-1) = SU(2) operates on
+(d-1) = 2 transverse axes. The 1/d = 1/3 longitudinal axis (EM/gravity) does
+not participate in weak decay. At d=3: (d-1)/d = 2/d (since d-1 = 2).
+Same geometric fraction as gravity/EM split, quark charges, Koide, instanton.
 
 Goldberger-Treiman check:
 ```
