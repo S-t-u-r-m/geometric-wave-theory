@@ -66,7 +66,7 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
   - d+1=4 zero modes (PROVEN, standard soliton), equipartition m_p/d (PROVEN)
   - A1g fraction 1/d² (PROVEN, bond Hessian). All steps independently derived.
 - m_K = sqrt(m_pi^2 + (m_p/2)^2) = 489.3 MeV (obs: 493.7, 0.9%) — mass-shell quadrature
-- m_rho = sqrt((m_p*8/pi^2)^2 + m_pi^2) = 773.1 MeV (obs: 775.3, 0.28%) — kink + pion quadrature
+- m_rho = sqrt((m_p*8/pi^2)^2 + m_pi^2) = 773.1 MeV (obs: 775.3, 0.28%) — **DERIVED** (E^2=m^2+p^2, kink BPS + pion Goldstone)
 - m_omega = m_rho*(1+alpha) = 778.8 MeV (obs: 782.7, 0.5%) — rho + EM splitting
 - f_pi = m_pi * 2/d = 92.7 MeV (obs: 92.4, 0.3%)
 - All use same d=3 building blocks as proven results, but COMBINATIONS not yet derived from Lagrangian

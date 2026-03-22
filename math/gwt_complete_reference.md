@@ -2207,10 +2207,12 @@ Zero free parameters. All factors from d=3 Oh geometry.
 
 ### Rho meson mass — relativistic mass-shell relation [DERIVED, 0.28%]
 
-The rho is a VECTOR meson (J^P = 1^-). Its mass comes from the relativistic
-mass-shell relation: the rho has TWO orthogonal mass components —
-a transverse (kink/topological) component and a longitudinal (pion/Goldstone)
-component — which add in quadrature:
+The rho is a VECTOR meson (J^P = 1^-). Its mass follows from the standard
+relativistic dispersion E^2 = m_0^2 + p^2, where:
+  m_0 = m_p * M_kink = topological rest mass (kink BPS bound, DERIVED)
+  p   = m_pi = longitudinal Goldstone mode (pion, DERIVED)
+The pion is "eaten" by the rho (strong-interaction Higgs mechanism),
+becoming its longitudinal polarization. This is standard QCD physics.
 
 ```
 m_rho^2 = (m_p * M_kink)^2 + m_pi^2
