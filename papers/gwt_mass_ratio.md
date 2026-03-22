@@ -41,7 +41,9 @@ $$\alpha = (2d)^{-2/d!} \cdot \exp\!\left(-2d \cdot M_{\text{kink}} \cdot \frac{
 
 For d=3: $\alpha$ = 1/137.042 (the bare lattice coupling, 0.005% from measured).
 
-**Derivation of $\alpha$:** The instanton wraps all $2d = 6$ faces of the d-cube, with classical action $S_{\text{cl}} = 2d \cdot M_{\text{kink}} = 48/\pi^2$. Only the $(d^2-1)/d^2 = 8/9$ non-$A_{1g}$ channels of $T_{1u} \otimes T_{1u}$ contribute to tunneling — the $A_{1g}$ channel is the secular (already-present) coupling. The entropy prefactor $(2d)^{-2/d!} = 6^{-1/3}$ accounts for distributing the amplitude over $2d$ face directions with $d!$ permutation symmetry. The key identity $2^{d+1}/(d \cdot d!) = (d^2-1)/d^2$ holds **only at d=3** (both sides equal 8/9), connecting the instanton structure to the Oh channel decomposition.
+**Derivation of $\alpha$:** The instanton wraps all $2d = 6$ faces of the d-cube, with classical action $S_{\text{cl}} = 2d \cdot M_{\text{kink}} = 48/\pi^2$. Only the $(d^2-1)/d^2 = 8/9$ non-$A_{1g}$ channels of $T_{1u} \otimes T_{1u}$ contribute to tunneling — the $A_{1g}$ channel is the secular (already-present) coupling. This gives the effective barrier action $S_{\text{eff}} = 48 \times 8/(9\pi^2) = 4.323$. The key identity $2^{d+1}/(d \cdot d!) = (d^2-1)/d^2$ holds **only at d=3** (both sides equal 8/9), connecting the instanton structure to the Oh channel decomposition.
+
+The prefactor $(2d)^{-2/d!} = 6^{-1/3} = 0.550$ has a clear group-theoretic structure: $(2d)$ counts face orientations, $d!/2 = |A_d|$ counts even permutations of axes that leave the instanton invariant. The exponent $-2/d! = -1/|A_d|$ reflects one power of $(2d)$ per equivalence class of permutations. This is consistent with the Coleman instanton calculus (where the prefactor arises from zero-mode integration and the symmetry factor $1/n!$), but a complete path-integral derivation starting from the lattice partition function has not yet been performed. We note this as the one remaining open step in the $\alpha$ derivation.
 
 ---
 
@@ -73,11 +75,11 @@ A d=3 cube has three types of geometric elements, each with a distinct physical 
 
 The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 vertices x 3 rotations per vertex = 12 edges x 2 rotations per edge = **24 = |O|**, the order of the chiral octahedral group. This is the number of proper rotations of the cube — and the number of bound breather modes supported by the Lagrangian (§12). The coincidence with the 24 chiral fermion states of the Standard Model (6 quarks + 6 leptons, each with 2 helicities, in one generation — or equivalently 12 particles + 12 antiparticles) suggests a combinatorial correspondence between lattice orientations and fermion degrees of freedom. We note, however, that the SM fermion spectrum is richer (three generations, color multiplicity, Dirac vs. Majorana structure) and the precise mapping remains an open question.
 
-**Phase space derivation:** The bare mass ratio equals the product of two geometric quantities of the irreducible Brillouin zone $[0,\pi]^d$:
+**Phase space derivation:** Define the irreducible Brillouin zone $M = [0,\pi]^d$ (the half-BZ, where modes at $-k$ are identified with $+k$ by symmetry). The bare mass ratio is the volume of the product space $M \times \partial M$:
 
-$$F = \text{Surface}([0,\pi]^d) \times \text{Volume}([0,\pi]^d) = (2d \cdot \pi^{d-1}) \times \pi^d = 2d\,\pi^{2d-1}$$
+$$F = \int_{M \times \partial M} d\mu = \text{Vol}(M) \times \text{Area}(\partial M) = \pi^d \times 2d\,\pi^{d-1} = 2d\,\pi^{2d-1}$$
 
-This identity holds for all $d$ and encodes a precise physical decomposition:
+This is a $(2d-1)$-dimensional integral with unit integrand, not a spectral sum. The integrand is 1 because each on-shell configuration contributes exactly one mass gap unit of energy ($\omega_{\text{gap}} = 1 = m_e$). The dimension $2d-1 = d$ (momenta) + $(d-1)$ (transverse positions) matches the on-shell constraint ($2d$ total phase-space dimensions minus 1 mass shell). The product structure $M \times \partial M$ encodes a precise physical decomposition:
 
 **Proton (kink = topological defect):** The kink wraps one spatial direction of the d-torus. Its mass = the number of on-shell modes it excites, each contributing one mass gap unit ($\omega_{\text{gap}} = 1 = m_e$):
 
