@@ -24,7 +24,7 @@ The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted b
 | Quantity | Formula | Predicted | Observed | Error | $\alpha$ used |
 |----------|---------|-----------|----------|-------|--------------|
 | $m_p/m_e$ | $6\pi^5(1+\alpha^2/2^{d/2})$ | 1836.15267 | 1836.15267 | 0.002 ppm | bare |
-| $1/\alpha_{\text{bare}}$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.004% (bare) | — |
+| $1/\alpha_{\text{bare}}$ | Instanton formula (§2) | 137.042 | 137.036 | 0.004% | — |
 | $1/\alpha_{\text{dressed}}$ | $1/\alpha_{\text{bare}} \times (1 - \alpha^2 \cdot 8/9)$ | 137.036 | 137.036 | 0.66 ppm | bare$\to$dressed |
 | $\alpha_s$ | $[d^2/(2^d\pi^2)](1+\alpha_s^2 \cdot 8/3)$ | 0.11794 | 0.11790 | 0.030% | bare |
 | $a_e$ | $(\alpha/2\pi)(1-\alpha/5-\alpha^2/7)$ | 0.001159652 | 0.001159652 | 0.32 ppm | bare |
