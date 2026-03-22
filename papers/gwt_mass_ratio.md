@@ -9,7 +9,7 @@ March 21, 2026 (v2: complete derivations of all factors)
 
 ## Abstract
 
-We derive the proton-electron mass ratio from the geometry of a $d=3$ cubic lattice with zero free parameters. The bare ratio $2d\,\pi^{2d-1} = 6\pi^5 = 1836.118$ arises from phase-space counting: the proton is the $A_{1g}$ ground state of the kink Hamiltonian on the d-cube (proven by Perron-Frobenius to be unique), while the electron is a 1D transverse breather confined to one lattice site, and their mass ratio equals the on-shell phase-space ratio $\text{Surface} \times \text{Volume}$ of the irreducible Brillouin zone $[0,\pi]^d$. The residual 0.002% gap to the observed value 1836.15267 is closed by a vacuum polarization correction $\alpha^2/2^{d/2}$, derived from the quark charge identity $\sum Q_i^2 = 1$ (a theorem holding only for $d=3$) and DFT normalization on the cube. The result $m_p/m_e = 6\pi^5(1 + \alpha^2/2^{d/2}) = 1836.15267$ matches the CODATA 2018 value to better than 0.001 ppm. The same mechanism — second-order perturbation theory of the $\phi^4$ nonlinearity on the lattice — independently gives the dressed fine structure constant $1/\alpha = 137.036$ (0.66 ppm), the strong coupling $\alpha_s = 0.11794$ (0.030%), the electron anomalous magnetic moment $a_e = 0.00115965182$ (0.32 ppm), and the proton magnetic moment $\mu_p = 2.7937\,\mu_N$ (0.03%). All five results use the same $T_{1u} \otimes T_{1u}$ tensor product decomposition on the octahedral group $O_h$, differing only in the geometric projection factor. Numerical simulations confirm that exactly 8 of the 24 possible breather modes are robustly stable, aligning with the 8 non-secular channels in the universal vacuum polarization law. No observed values are used as inputs; every quantity is a closed-form expression in $d$, $\pi$, and elementary functions.
+We derive the proton-electron mass ratio from the geometry of a $d=3$ cubic lattice with zero free parameters. The bare ratio $2d\,\pi^{2d-1} = 6\pi^5 = 1836.118$ arises from phase-space counting: the proton is the $A_{1g}$ ground state of the kink Hamiltonian on the d-cube (proven by Perron-Frobenius to be unique), while the electron is a 1D transverse breather confined to one lattice site, and their mass ratio equals the on-shell phase-space ratio $\text{Surface} \times \text{Volume}$ of the irreducible Brillouin zone $[0,\pi]^d$. The residual 0.0019% gap to the observed value 1836.15267 is closed by a vacuum polarization correction $\alpha^2/2^{d/2}$, derived from the quark charge identity $\sum Q_i^2 = 1$ (a theorem holding only for $d=3$) and DFT normalization on the cube. The result $m_p/m_e = 6\pi^5(1 + \alpha^2/2^{d/2}) = 1836.15267$ matches the CODATA 2018 value to $\sim$0.002 ppm (2 ppb). The same mechanism — second-order perturbation theory of the $\phi^4$ nonlinearity on the lattice — independently gives the dressed fine structure constant $1/\alpha = 137.036$ (0.66 ppm), the strong coupling $\alpha_s = 0.11794$ (0.030%), the electron anomalous magnetic moment $a_e = 0.00115965182$ (0.32 ppm), and the proton magnetic moment $\mu_p = 2.7937\,\mu_N$ (0.03%). All five results use the same $T_{1u} \otimes T_{1u}$ tensor product decomposition on the octahedral group $O_h$, differing only in the geometric projection factor. Numerical simulations confirm that exactly 8 of the 24 possible breather modes are robustly stable, aligning with the 8 non-secular channels in the universal vacuum polarization law. No observed values are used as inputs; every quantity is a closed-form expression in $d$, $\pi$, and elementary functions.
 
 ---
 
@@ -23,8 +23,8 @@ The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted b
 
 | Quantity | Formula | Predicted | Observed | Error | $\alpha$ used |
 |----------|---------|-----------|----------|-------|--------------|
-| $m_p/m_e$ | $6\pi^5(1+\alpha^2/2^{d/2})$ | 1836.15267 | 1836.15267 | < 0.001 ppm | bare |
-| $1/\alpha_{\text{bare}}$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.005% | — |
+| $m_p/m_e$ | $6\pi^5(1+\alpha^2/2^{d/2})$ | 1836.15267 | 1836.15267 | 0.002 ppm | bare |
+| $1/\alpha_{\text{bare}}$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.004% (bare) | — |
 | $1/\alpha_{\text{dressed}}$ | $1/\alpha_{\text{bare}} \times (1 - \alpha^2 \cdot 8/9)$ | 137.036 | 137.036 | 0.66 ppm | bare$\to$dressed |
 | $\alpha_s$ | $[d^2/(2^d\pi^2)](1+\alpha_s^2 \cdot 8/3)$ | 0.11794 | 0.11790 | 0.030% | bare |
 | $a_e$ | $(\alpha/2\pi)(1-\alpha/5-\alpha^2/7)$ | 0.001159652 | 0.001159652 | 0.32 ppm | bare |
@@ -209,7 +209,7 @@ The proton's quarks are confined within the cavity, so the VP loop is a discrete
 
 $$\frac{m_p}{m_e} = 6\pi^5 \left(1 + \frac{\alpha^2 \sum Q_i^2}{2^{d/2}}\right) = 6\pi^5 \left(1 + \frac{\alpha^2}{2^{3/2}}\right) = 1836.15267$$
 
-Observed (CODATA 2018): 1836.15267343(11). Error: < 0.001 ppm.
+Observed (CODATA 2018): 1836.15267343(11). Error: 0.002 ppm.
 
 ---
 
@@ -236,7 +236,7 @@ The denominator depends on how the mode couples to the 8 non-$A_{1g}$ channels. 
 
 | Quantity | Denominator | Value | Derivation source | Error |
 |----------|-------------|-------|-------------------|-------|
-| m_p/m_e | $2^{d/2}$ | $2\sqrt{2}$ | DFT norm on $2^d$ cube vertices + $\sum Q^2 = 1$ | < 0.001 ppm |
+| m_p/m_e | $2^{d/2}$ | $2\sqrt{2}$ | DFT norm on $2^d$ cube vertices + $\sum Q^2 = 1$ | 0.002 ppm |
 | $1/\alpha$ | $d^2$ | 9 | Bond Hessian eigenvalues: $1/d^2$ = $A_{1g}$ fraction of $T_{1u} \otimes T_{1u}$ | 0.66 ppm |
 | $\alpha_s$ | $d$ | 3 | VP_self sinc series: $2^{2d-2}/d! = (d^2-1)/d$ (unique to $d=3$) | 0.030% |
 | g-2 | $(2d\!-\!1), (2d\!+\!1)$ | 5, 7 | Magnetic channel fractions | 0.32 ppm |
@@ -307,7 +307,7 @@ We have derived six fundamental constants from one Lagrangian on a d=3 cubic lat
 
 | Constant | Precision |
 |----------|-----------|
-| m_p/m_e | < 0.001 ppm |
+| m_p/m_e | 0.002 ppm |
 | 1/alpha | 0.66 ppm |
 | alpha_s | 0.030% |
 | a_e (g-2) | 0.32 ppm |
@@ -324,7 +324,7 @@ The proton-electron mass ratio m_p/m_e = 6 pi^5 (1 + alpha^2/2^(d/2)) is a close
 - 2^(d/2) from DFT normalization on the 2^d = 8 cube vertices (Perron-Frobenius guarantees the A1g torus is the ground state)
 - sum(Q^2) = 1 from the quark charge identity (d-1)(d-3) = 0
 
-No observed values are used as inputs. No parameters are fitted. The result matches the most precisely measured value in physics to better than 1 part per billion.
+No observed values are used as inputs. No parameters are fitted. The result matches the most precisely measured value in physics to $\sim$2 parts per billion.
 
 The residual 0.0006 ppm is consistent with fourth-order vacuum polarization ($\alpha^4/2^{d/2} \approx 0.001$ ppm), which would represent the next term in the perturbation series. At fourth order, $T_{1u}^{\otimes 4}$ has $A_{1g}$ content = 4, so such a correction exists in principle. We do not include it here because its geometric projection factor has not yet been derived from first principles, and we prefer a complete derivation at $\alpha^2$ over an incomplete one at $\alpha^4$.
 
