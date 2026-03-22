@@ -33,6 +33,40 @@ The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted b
 
 All quantities are closed-form expressions in $d=3$, $\pi$, and elementary functions. No observed values used as inputs. All formulas use bare lattice couplings (see §9).
 
+### No-Fit Statement
+
+**Inputs (fixed by construction, not chosen to match data):**
+- Dimension: $d = 3$
+- Geometry: cubic lattice, irreducible Brillouin zone $M = [0,\pi]^d$
+- Potential: $V(\phi) = (1/\pi^2)[1 - \cos(\pi\phi)]$ (topologically quantized)
+- Symmetry group: $O_h$ (48 elements), chiral $O$ of order 24
+- Mathematical constants only: $\pi$, integers, factorials, exp, ln
+
+**Derived quantities (no experimental fitting):**
+- $\alpha_{\text{bare}}$ from instanton action on the d-cube (§2)
+- $F = 2d\,\pi^{2d-1}$ from phase-space integral on $M \times \partial M$ (§3)
+- VP denominators $d$, $d^2$, $2^{d/2}$ from Oh decomposition and DFT (§5, §11)
+- Torus ground state from Perron-Frobenius theorem (§4)
+
+**Outputs (compared to observation for validation only):**
+- $m_p/m_e$, $1/\alpha$, $\alpha_s$, $a_e$, $\mu_p$, $\alpha_G$, $D_e$ — see Key Results table above
+
+No observed constants or empirical coefficients enter any derivation at any stage. The chain is: $d = 3$ → Lagrangian → geometry → closed-form predictions → comparison with experiment.
+
+### Why $d = 3$ is unique (dimensionality null test)
+
+The framework collapses for $d \neq 3$. Three independent d=3 identities fail simultaneously:
+
+| Identity | $d=2$ | $d=3$ | $d=4$ |
+|----------|-------|-------|-------|
+| $\sum Q_i^2 = 1$ (quark charges) | 3/4 | **1** | 19/16 |
+| $2^{2d-2}/d! = (d^2-1)/d$ (VP leading coeff) | 2.0 vs 1.5 | **8/3 = 8/3** | 2.67 vs 3.75 |
+| $2^{d+1}/(d \cdot d!) = (d^2-1)/d^2$ (instanton) | 2.0 vs 0.75 | **8/9 = 8/9** | 0.33 vs 0.94 |
+
+At $d=2$: $\alpha = 1/17.6$ (too strong for chemistry), $\sum Q^2 \neq 1$ (VP doesn't simplify), no stable torus ($d=2$ torus degenerates to circle). At $d=4$: $\alpha = 1/24753$ (too weak for bound states), breather count $= \lfloor 2^4\pi - 1 \rfloor = 49 \neq 24$.
+
+The three identities are algebraically independent — they involve different combinations of $2^d$, $d!$, and $d^2$. Their simultaneous validity at $d=3$ is not a choice but a mathematical fact: $(d-1)(d-3) = 0$, $2^{d+1} \cdot d = d! \cdot (d^2-1)$, and $2^{2d-2}/d! = (d^2-1)/d$ each single out $d=3$ (the first also admits $d=1$, trivially). This is the strongest evidence that the results are geometric consequences of three-dimensionality, not artifacts of parameter fitting.
+
 ---
 
 ## 2. The Lagrangian
@@ -398,6 +432,8 @@ The proton-electron mass ratio is not a free parameter. It is determined by the 
 The Standard Model treats these as 6 independent measured quantities. In Geometric Wave Theory, they are 6 projections of one tensor product.
 
 Furthermore, the hydrogen bond energy $D_e = \pi/d^2 \times E_H = 4.749$ eV (observed: 4.748 eV, 0.02%) has been shown to emerge from the Hessian eigenvalues of two kink-antikink pairs on the discrete lattice (Section 11). The Oh denominator $d^2 = 9$ fell out of the eigenvalue computation — it was not imposed. The Pöschl-Teller parameter $s = 0.17279$ enters both the lattice well depth and the energy conversion, and cancels identically. This provides the explicit dynamical derivation in which a group-theoretic denominator arises from a concrete eigenvalue sum, rather than being assumed.
+
+**AI assistance.** Derivation development and proof verification were assisted by AI tools (Claude, M365 Copilot). All final formulas are validated with explicit calculations (Appendix D) and reproducible code. Open steps (e.g., the instanton prefactor derivation from the discrete lattice path integral) are clearly marked. The AI did not choose the Lagrangian, the dimension, or any physical identification — these are the author's framework.
 
 ---
 
