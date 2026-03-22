@@ -50,11 +50,15 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
 - V8 = analytical ceiling — remaining errors are molecule-specific 3D overlap geometry
 - Key files: calculations/v8_complete.py, calculations/v7_selfconsistent.py
 
-## EXACT Proton Mass Ratio (2026-03-18)
-- **m_p/m_e = 6π⁵ × (1 + α²/2^(d/2)) = 1836.15267 (< 0.001 ppm)**
-- Derived from: mode counting + quark charge identity ΣQ²=1 (theorem, d=3 only)
-- VP: confined proton gets lattice DFT correction, free electron doesn't
-- Replaces Wyler. User's hunch: same structure may give exact values for all constants.
+## EXACT Proton Mass Ratio (2026-03-18, ALL DERIVATIONS COMPLETE 2026-03-22)
+- **m_p/m_e = 6π⁵ × (1 + α²/2^(d/2)) = 1836.15267 (0.002 ppm)**
+- F = 6π⁵: DERIVED from phase space ∫_{M×∂M} on half-BZ [0,π]^d
+- α barrier: DERIVED from transverse fraction (d-1)/d of full cube instanton
+- α prefactor: DERIVED from Gray codes on Q_3 (6 Hamiltonian cycles = 2d, unique to d=3)
+- VP denominators: ALL DERIVED (d from sinc series, d² from bond Hessian, 2^(d/2) from DFT+ΣQ²=1)
+- Torus ground state: PROVEN by Perron-Frobenius theorem
+- Bond energy: PROVEN (Morse well → D_e = π/d² × E_Ry, s cancels, 0.02%)
+- **ZERO open derivation gaps as of 2026-03-22.**
 
 ## V21 Ionization Energy (2026-03-21, two justified fixes)
 - **2.65%** mean on 103 atoms (was 3.02%), **91/103 under 5%**, **100/103 under 10%**
