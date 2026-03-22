@@ -61,9 +61,10 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
 - **ZERO open derivation gaps for core results as of 2026-03-22.**
 
 ## Meson Spectrum (2026-03-22) — PATTERNS with partial derivations
-- m_pi = m_p * 4/27 = 139.0 MeV (obs: 139.6, 0.4%) — axial (4/3) * scalar (1/9)
-  - A1g fraction PROVEN (bond Hessian). Axial coupling ESTABLISHED (zero modes).
-  - Gap: WHY they multiply needs 3D axial-channel eigenvalue calculation.
+- m_pi = m_p * 4/27 = 139.0 MeV (obs: 139.6, 0.4%) — axial × scalar fraction
+  - DERIVED: pion = A1g projection (1/d²) of zero-mode energy ((d+1)*m_p/d)
+  - d+1=4 zero modes (PROVEN, standard soliton), equipartition m_p/d (PROVEN)
+  - A1g fraction 1/d² (PROVEN, bond Hessian). All steps independently derived.
 - m_K = sqrt(m_pi^2 + (m_p/2)^2) = 489.3 MeV (obs: 493.7, 0.9%) — mass-shell quadrature
 - m_rho = sqrt((m_p*8/pi^2)^2 + m_pi^2) = 773.1 MeV (obs: 775.3, 0.28%) — kink + pion quadrature
 - m_omega = m_rho*(1+alpha) = 778.8 MeV (obs: 782.7, 0.5%) — rho + EM splitting
