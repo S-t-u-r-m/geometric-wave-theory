@@ -55,6 +55,8 @@ The sine-Gordon Lagrangian supports two classes of localized solutions: kinks (t
 
 **Breather ground state = n=1 mode (by Pöschl-Teller eigenvalue).** Linearizing the sine-Gordon equation around the kink background yields the Pöschl-Teller potential $U(r) = -2/(\pi^2 \cosh^2(r))$ with dimensionless depth parameter $s = (-1+\sqrt{1+8/\pi^2})/2 = 0.1728$. Since $s < 1$, this well supports exactly ONE linear bound state: the n=1 breather at $\omega_1 = \cos(\gamma)$, confirmed by simulation to 13 ppm. Higher modes (n=2-24) exist as NONLINEAR bound states of the full cosine potential, but n=1 is the unique linear ground state. The 1D transverse character follows because the Pöschl-Teller bound state is localized along one axis of the kink's potential well.
 
+**Note on sine-Gordon vs. $\phi^4$:** In the continuum sine-Gordon equation, the kink potential is reflectionless and supports no discrete internal modes — only a zero mode (translation) and a continuum above the mass gap. The Pöschl-Teller well with discrete bound states is characteristic of the $\phi^4$ kink. Our lattice equation interpolates between these limits: the cosine potential $V = (1/\pi^2)(1-\cos(\pi\phi))$ is the full sine-Gordon, but on a **discrete** lattice the integrability of the continuum sine-Gordon is broken. The lattice spacing introduces an effective cutoff that modifies the kink's spectral structure, producing a shallow Pöschl-Teller-like well with $s = 0.1728 < 1$. This is confirmed by the Hessian eigenvalue computation (§11): the linearized spectrum around the kink on the discrete lattice has exactly the structure described above. The discrete sine-Gordon is not integrable and should not be confused with its continuum limit.
+
 **Mass ratio from ground states.** The energy ratio of the ground-state kink to the ground-state breather equals the ratio of mode densities on the d-dimensional lattice.
 
 The mode density counts the number of independent standing wave harmonics accessible to each wave type on the lattice — essentially, how many ways the wave can store energy.
@@ -69,7 +71,7 @@ A d=3 cube has three types of geometric elements, each with a distinct physical 
 | Edges | 2d(d-1) = 12 | Connections between faces | Gauge channels (alpha^12 = alpha^|A_4|) |
 | Vertices | 2^d = 8 | Corners where edges meet | VP normalization (1/2^(d/2)) |
 
-The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 vertices x 3 rotations per vertex = 12 edges x 2 rotations per edge = **24 = |O|**, the order of the chiral octahedral group. This is the number of proper rotations of the cube — and the number of bound breather modes (fermions) supported by the Lagrangian. The 24 fermions of the Standard Model are the 24 orientations of a standing wave on a cube.
+The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 vertices x 3 rotations per vertex = 12 edges x 2 rotations per edge = **24 = |O|**, the order of the chiral octahedral group. This is the number of proper rotations of the cube — and the number of bound breather modes supported by the Lagrangian (§12). The coincidence with the 24 chiral fermion states of the Standard Model (6 quarks + 6 leptons, each with 2 helicities, in one generation — or equivalently 12 particles + 12 antiparticles) suggests a combinatorial correspondence between lattice orientations and fermion degrees of freedom. We note, however, that the SM fermion spectrum is richer (three generations, color multiplicity, Dirac vs. Majorana structure) and the precise mapping remains an open question.
 
 **Phase space derivation:** The bare mass ratio equals the product of two geometric quantities of the irreducible Brillouin zone $[0,\pi]^d$:
 
@@ -271,6 +273,8 @@ No observed values are used as inputs. No parameters are fitted. The result matc
 
 The residual 0.0006 ppm is consistent with fourth-order vacuum polarization ($\alpha^4/2^{d/2} \approx 0.001$ ppm), which would represent the next term in the perturbation series. At fourth order, $T_{1u}^{\otimes 4}$ has $A_{1g}$ content = 4, so such a correction exists in principle. We do not include it here because its geometric projection factor has not yet been derived from first principles, and we prefer a complete derivation at $\alpha^2$ over an incomplete one at $\alpha^4$.
 
+**Relation to the Standard Model.** GWT is not presented as a replacement for QCD or QED, but as an effective lattice theory that captures the same low-energy physics through analytic identities rather than numerical simulation. The $O_h$ tensor product decomposition plays the role that Feynman diagrams play in perturbative QFT: it organizes the corrections by symmetry channel. Where GWT predictions overlap with SM calculations (e.g., $\alpha_s$, $g-2$), they agree to the precision quoted. Where they diverge (e.g., the claim that $\alpha$ is computable rather than a free parameter), the divergence is the content of the theory — it is a prediction, not an inconsistency. The lattice Lagrangian should be understood as a coarse-grained description at the Planck scale; the SM gauge groups $SU(3) \times SU(2) \times U(1)$ emerge from the propagation symmetry breaking of $O(d)$ on the lattice, but this identification has not yet been proven unique (see Limitation #2).
+
 ---
 
 ## 10. Limitations and Open Questions
@@ -293,7 +297,9 @@ Open question #1 asks for a derivation where the Oh denominators "fall out of an
 
 ### Setup
 
-Two kink-antikink pairs ("protons") are placed at separation $R$ on a 256-site discrete lattice with periodic boundary conditions. Each kink has the static profile $\phi(x) = \frac{4}{\pi}\arctan\left(\frac{1}{\cosh(x)}\right)$, creating a Pöschl-Teller potential well with shape parameter $s = \frac{-1+\sqrt{1+8/\pi^2}}{2} = 0.17279$. This parameter depends only on the Lagrangian coefficient $1/\pi^2$ and is universal across all atoms.
+**Physical identification:** In this model, kink-antikink pairs represent nuclei (the kink is a topological defect = baryon, the antikink is its boundary). The breather bound states within the kink well represent electrons — they are the oscillatory modes trapped by the nuclear potential. The bond forms when a breather (electron) tunnels between two neighboring kink wells, creating a shared bound state. This is the lattice analog of the LCAO molecular orbital picture, where the electron wavefunction is shared between two atomic potentials.
+
+Two kink-antikink pairs are placed at separation $R$ on a 256-site discrete lattice with periodic boundary conditions. Each kink has the static profile $\phi(x) = \frac{4}{\pi}\arctan\left(\frac{1}{\cosh(x)}\right)$, creating a Pöschl-Teller potential well with shape parameter $s = \frac{-1+\sqrt{1+8/\pi^2}}{2} = 0.17279$. This parameter depends only on the Lagrangian coefficient $1/\pi^2$ and is universal across all atoms.
 
 The Hessian (second derivative of the total energy) at the static kink configuration is:
 
@@ -328,7 +334,7 @@ The factors: $\pi/d^2$ is the scalar (A1g) coupling fraction of $T_{1u} \otimes 
 
 ### The cancellation
 
-The energy scale converting lattice units to electron-volts is $E_H / (2s)$, where $E_H = \alpha^2 m_e / 2 = 13.604$ eV. The physical bond energy:
+The energy scale converting lattice units to electron-volts is $E_H / (2s)$, where $E_H = \alpha^2 m_e / 2 = 13.604$ eV is the Hartree energy (itself derived from $\alpha$ and $m_e$, both lattice quantities). This conversion factor has a clear physical meaning: $2s$ is the dimensionless tunneling depth of the breather in the Pöschl-Teller well (set by the Lagrangian), and $E_H$ is the atomic energy scale (set by the coupling constant). Their ratio maps the lattice eigenvalue to a physical energy. The physical bond energy:
 
 $$D_e = \frac{2\pi s}{d^2} \times \frac{E_H}{2s} = \frac{\pi}{d^2} E_H = 4.749 \text{ eV}$$
 
