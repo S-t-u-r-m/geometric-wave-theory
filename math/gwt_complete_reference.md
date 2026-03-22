@@ -2164,10 +2164,20 @@ r_neutral = R_cavity + lambdabar_pi
 ```
 The nuclear force range has two components: the proton cavity boundary and the evanescent tail set by pion exchange.
 
-### Pion mass — DIRECT formula [DERIVED, 0.4%]
+### Pion mass — DIRECT formula [PARTIALLY DERIVED, 0.4%]
 
-The simplest derivation: the pion (kink-antikink pair) has mass set by the
-axial coupling times the scalar fraction:
+The pion (kink-antikink pair) has mass set by the axial coupling times the
+scalar fraction. Both factors are independently proven but WHY they multiply
+(rather than combine differently) needs a 3D axial-channel eigenvalue calculation:
+
+Derivation chain:
+  Step 1: Pion = A1g channel of T1u x T1u (kink x antikink) — PROVEN (group theory)
+  Step 2: A1g fraction = 1/d^2 = 1/9 — PROVEN (fell out of bond Hessian, Section 11)
+  Step 3: Axial coupling = (d+1)/d = 4/3 from d+1 kink zero modes — ESTABLISHED
+          (d translational + 1 internal phase mode, standard soliton physics)
+  Step 4: Product = (1/d^2) * (d+1)/d = (d+1)/d^3 = 4/27 — algebra
+  Remaining gap: the multiplication rule (Step 2 * Step 3) needs justification
+  from the 3D kink-antikink axial channel eigenvalue spectrum.
 
 ```
 m_pi = m_p * (d+1)/d^3 = m_p * 4/27 = 139.0 MeV    (obs: 139.57, -0.4%)

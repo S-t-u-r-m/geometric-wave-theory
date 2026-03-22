@@ -58,7 +58,23 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
 - VP denominators: ALL DERIVED (d from sinc series, d² from bond Hessian, 2^(d/2) from DFT+ΣQ²=1)
 - Torus ground state: PROVEN by Perron-Frobenius theorem
 - Bond energy: PROVEN (Morse well → D_e = π/d² × E_Ry, s cancels, 0.02%)
-- **ZERO open derivation gaps as of 2026-03-22.**
+- **ZERO open derivation gaps for core results as of 2026-03-22.**
+
+## Meson Spectrum (2026-03-22) — PATTERNS with partial derivations
+- m_pi = m_p * 4/27 = 139.0 MeV (obs: 139.6, 0.4%) — axial (4/3) * scalar (1/9)
+  - A1g fraction PROVEN (bond Hessian). Axial coupling ESTABLISHED (zero modes).
+  - Gap: WHY they multiply needs 3D axial-channel eigenvalue calculation.
+- m_K = sqrt(m_pi^2 + (m_p/2)^2) = 489.3 MeV (obs: 493.7, 0.9%) — mass-shell quadrature
+- m_rho = sqrt((m_p*8/pi^2)^2 + m_pi^2) = 773.1 MeV (obs: 775.3, 0.28%) — kink + pion quadrature
+- m_omega = m_rho*(1+alpha) = 778.8 MeV (obs: 782.7, 0.5%) — rho + EM splitting
+- f_pi = m_pi * 2/d = 92.7 MeV (obs: 92.4, 0.3%)
+- All use same d=3 building blocks as proven results, but COMBINATIONS not yet derived from Lagrangian
+
+## Lepton Masses (2026-03-22) — PATTERNS, need Lagrangian derivation
+- m_mu/m_e = d/(2*alpha) = 205.6 (obs: 206.8, 0.6%) — 3-axis EM coupling
+- Koide = (d-1)/d = 2/3 (obs: 0.666661, 0.0009%) — transverse fraction
+- m_tau from Koide = 1777.1 MeV (obs: 1776.9, 0.015%)
+- n-p mass diff = m_e * 8/3 = 1.363 MeV (obs: 1.293, 5.4%) — missing EM correction
 
 ## V21 Ionization Energy (2026-03-21, two justified fixes)
 - **2.65%** mean on 103 atoms (was 3.02%), **91/103 under 5%**, **100/103 under 10%**
