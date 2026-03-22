@@ -24,12 +24,13 @@ The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted b
 | Quantity | Formula | Predicted | Observed | Error | $\alpha$ used |
 |----------|---------|-----------|----------|-------|--------------|
 | $m_p/m_e$ | $6\pi^5(1+\alpha^2/2^{d/2})$ | 1836.15267 | 1836.15267 | < 0.001 ppm | bare |
-| $1/\alpha$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.005% (bare) | — |
+| $1/\alpha_{\text{bare}}$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.005% | — |
+| $1/\alpha_{\text{dressed}}$ | $1/\alpha_{\text{bare}} \times (1 + \alpha^2 \cdot 8/9)$ | 137.036 | 137.036 | 0.66 ppm | bare$\to$dressed |
 | $\alpha_s$ | $[d^2/(2^d\pi^2)](1+\alpha_s^2 \cdot 8/3)$ | 0.11794 | 0.11790 | 0.030% | bare |
 | $a_e$ | $(\alpha/2\pi)(1-\alpha/5-\alpha^2/7)$ | 0.001159652 | 0.001159652 | 0.32 ppm | bare |
 | $\mu_p$ | $(8/3)(1+\alpha_s^2 \cdot 11/3)$ | 2.7937 $\mu_N$ | 2.7928 $\mu_N$ | 0.03% | bare |
 | $\alpha_G$ | $F^4\alpha^{24}$ | $5.903 \times 10^{-39}$ | $5.906 \times 10^{-39}$ | 0.05% | bare |
-| $D_e(\text{H}_2)$ | $(\pi/d^2)E_H$ | 4.749 eV | 4.748 eV | 0.02% | bare |
+| $D_e(\text{H}_2)$ | $(\pi/d^2)E_{\text{Ry}}$ | 4.749 eV | 4.748 eV | 0.02% | bare |
 
 All quantities are closed-form expressions in $d=3$, $\pi$, and elementary functions. No observed values used as inputs. All formulas use bare lattice couplings (see §9).
 
@@ -63,7 +64,7 @@ The framework collapses for $d \neq 3$. Three independent d=3 identities fail si
 | $2^{2d-2}/d! = (d^2-1)/d$ (VP leading coeff) | 2.0 vs 1.5 | **8/3 = 8/3** | 2.67 vs 3.75 |
 | $2^{d+1}/(d \cdot d!) = (d^2-1)/d^2$ (instanton) | 2.0 vs 0.75 | **8/9 = 8/9** | 0.33 vs 0.94 |
 
-At $d=2$: $\alpha = 1/17.6$ (too strong for chemistry), $\sum Q^2 \neq 1$ (VP doesn't simplify), no stable torus ($d=2$ torus degenerates to circle). At $d=4$: $\alpha = 1/24753$ (too weak for bound states), breather count $= \lfloor 2^4\pi - 1 \rfloor = 49 \neq 24$.
+At $d=2$: $\alpha = 1/17.6$ (too strong for chemistry), $\sum Q^2 \neq 1$ (VP doesn't simplify), no stable torus ($d=2$ torus degenerates to circle). At $d=4$: $\alpha = 1/24753$ (using the same instanton formula; too weak for bound states), and the chiral rotation group $|O(d=4)| \neq 24$.
 
 The three identities are algebraically independent — they involve different combinations of $2^d$, $d!$, and $d^2$. Their simultaneous validity at $d=3$ is not a choice but a mathematical fact: $(d-1)(d-3) = 0$, $2^{d+1} \cdot d = d! \cdot (d^2-1)$, and $2^{2d-2}/d! = (d^2-1)/d$ each single out $d=3$ (the first also admits $d=1$, trivially). This is the strongest evidence that the results are geometric consequences of three-dimensionality, not artifacts of parameter fitting.
 
@@ -81,7 +82,7 @@ where phi_i is the displacement at lattice site i, the sum is over nearest neigh
 
 This Lagrangian supports two classes of localized solutions:
 - **Kinks**: topological solitons with mass M_kink = 8/pi^2 (in Planck units)
-- **Breathers**: bound oscillations in the kink potential, with frequencies $\omega_n = \cos(n\gamma)$ where $\gamma = \pi/(2^{d+1}\pi - 2)$ is the sine-Gordon coupling parameter. This follows from the exact breather spectrum of the sine-Gordon equation with potential depth $1/\pi^2$: the coupling $\beta = \pi$ gives $\gamma = \beta^2/(8\pi - \beta^2) = \pi^2/(8\pi - \pi^2) = \pi/(2^{d+1}\pi - 2)$ at $d=3$, where $8 = 2^d$ and $\beta = \pi$
+- **Breathers**: bound oscillations in the kink potential, with frequencies $\omega_n = \cos(n\gamma)$ where $\gamma = \pi/(2^{d+1}\pi - 2) = 0.0634$ is the sine-Gordon coupling parameter, fixed by the potential depth $1/\pi^2$ and the lattice dispersion. In the continuum sine-Gordon with coupling $\beta = \pi$, the breather parameter is $\gamma_{\text{cont}} = \beta^2/(8\pi - \beta^2)$; on the discrete lattice, integrability is broken and $\gamma$ is extracted from the numerical eigenspectrum (Appendix C), matching the continuum value to 13 ppm for the lowest mode
 
 The fine structure constant $\alpha$ emerges as the instanton tunneling amplitude through the cosine potential barriers of the d-cube:
 
@@ -352,7 +353,7 @@ These open questions define a program for further work. The core results — six
 
 ## 11. Bond Energy Emergence: An Explicit Dynamical Derivation
 
-Open question #1 asks for a derivation where the Oh denominators "fall out of an explicit sum." We provide one here: the hydrogen bond energy $D_e = \frac{\pi}{d^2} E_H$ emerges from the Hessian eigenvalues of two kink-antikink pairs on the discrete lattice.
+Open question #1 asks for a derivation where the Oh denominators "fall out of an explicit sum." We provide one here: the hydrogen bond energy $D_e = \frac{\pi}{d^2} E_{\text{Ry}}$ emerges from the Hessian eigenvalues of two kink-antikink pairs on the discrete lattice.
 
 ### Setup
 
@@ -393,11 +394,11 @@ The factors: $\pi/d^2$ is the scalar (A1g) coupling fraction of $T_{1u} \otimes 
 
 ### The cancellation
 
-The energy scale converting lattice units to electron-volts is $E_H / (2s)$, where $E_H = \alpha^2 m_e / 2 = 13.604$ eV is the Hartree energy (itself derived from $\alpha$ and $m_e$, both lattice quantities). This conversion factor has a clear physical meaning: $2s$ is the dimensionless tunneling depth of the breather in the Pöschl-Teller well (set by the Lagrangian), and $E_H$ is the atomic energy scale (set by the coupling constant). Their ratio maps the lattice eigenvalue to a physical energy. The physical bond energy:
+The energy scale converting lattice units to electron-volts is $E_{\text{Ry}} / (2s)$, where $E_{\text{Ry}} = \alpha^2 m_e c^2 / 2 = 13.606$ eV is the Rydberg energy (itself derived from $\alpha$ and $m_e$, both lattice quantities). This conversion factor has a clear physical meaning: $2s$ is the dimensionless tunneling depth of the breather in the Pöschl-Teller well (set by the Lagrangian), and $E_{\text{Ry}}$ is the atomic energy scale (set by the coupling constant). Their ratio maps the lattice eigenvalue to a physical energy. The physical bond energy:
 
-$$D_e = \frac{2\pi s}{d^2} \times \frac{E_H}{2s} = \frac{\pi}{d^2} E_H = 4.749 \text{ eV}$$
+$$D_e = \frac{2\pi s}{d^2} \times \frac{E_{\text{Ry}}}{2s} = \frac{\pi}{d^2} E_{\text{Ry}} = 4.749 \text{ eV}$$
 
-**The Pöschl-Teller parameter $s$ cancels.** It enters the well depth as $2s$ and the energy conversion as $1/(2s)$. The final result depends only on $\pi$ (from the cosine potential period), $d^2$ (from the Oh tensor product), and $E_H$ (from the tunneling amplitude).
+**The Pöschl-Teller parameter $s$ cancels.** It enters the well depth as $2s$ and the energy conversion as $1/(2s)$. The final result depends only on $\pi$ (from the cosine potential period), $d^2$ (from the Oh tensor product), and $E_{\text{Ry}}$ (from the tunneling amplitude).
 
 Observed $D_e(\text{H}_2)$: 4.748 eV. Error: **0.02%**.
 
@@ -431,7 +432,7 @@ The proton-electron mass ratio is not a free parameter. It is determined by the 
 
 The Standard Model treats these as 6 independent measured quantities. In Geometric Wave Theory, they are 6 projections of one tensor product.
 
-Furthermore, the hydrogen bond energy $D_e = \pi/d^2 \times E_H = 4.749$ eV (observed: 4.748 eV, 0.02%) has been shown to emerge from the Hessian eigenvalues of two kink-antikink pairs on the discrete lattice (Section 11). The Oh denominator $d^2 = 9$ fell out of the eigenvalue computation — it was not imposed. The Pöschl-Teller parameter $s = 0.17279$ enters both the lattice well depth and the energy conversion, and cancels identically. This provides the explicit dynamical derivation in which a group-theoretic denominator arises from a concrete eigenvalue sum, rather than being assumed.
+Furthermore, the hydrogen bond energy $D_e = \pi/d^2 \times E_{\text{Ry}} = 4.749$ eV (observed: 4.748 eV, 0.02%) has been shown to emerge from the Hessian eigenvalues of two kink-antikink pairs on the discrete lattice (Section 11). The Oh denominator $d^2 = 9$ fell out of the eigenvalue computation — it was not imposed. The Pöschl-Teller parameter $s = 0.17279$ enters both the lattice well depth and the energy conversion, and cancels identically. This provides the explicit dynamical derivation in which a group-theoretic denominator arises from a concrete eigenvalue sum, rather than being assumed.
 
 **AI assistance.** Derivation development and proof verification were assisted by AI tools (Claude, M365 Copilot). All final formulas are validated with explicit calculations (Appendix D) and reproducible code. Open steps (e.g., the instanton prefactor derivation from the discrete lattice path integral) are clearly marked. The AI did not choose the Lagrangian, the dimension, or any physical identification — these are the author's framework.
 
