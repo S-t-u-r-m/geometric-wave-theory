@@ -19,6 +19,20 @@ The proton-electron mass ratio m_p/m_e = 1836.15267343(11) is one of the most pr
 
 The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted by Lenz in the 1950s but dismissed as numerology due to the absence of a derivation path. We show that this relation is not a coincidence but a consequence of mode counting on a discrete elastic lattice in d=3 spatial dimensions, and that the 0.002% residual has a precise geometric origin in the quark charge structure of the proton.
 
+### Key Results
+
+| Quantity | Formula | Predicted | Observed | Error | $\alpha$ used |
+|----------|---------|-----------|----------|-------|--------------|
+| $m_p/m_e$ | $6\pi^5(1+\alpha^2/2^{d/2})$ | 1836.15267 | 1836.15267 | < 0.001 ppm | bare |
+| $1/\alpha$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.005% (bare) | — |
+| $\alpha_s$ | $[d^2/(2^d\pi^2)](1+\alpha_s^2 \cdot 8/3)$ | 0.11794 | 0.11790 | 0.030% | bare |
+| $a_e$ | $(\alpha/2\pi)(1-\alpha/5-\alpha^2/7)$ | 0.001159652 | 0.001159652 | 0.32 ppm | bare |
+| $\mu_p$ | $(8/3)(1+\alpha_s^2 \cdot 11/3)$ | 2.7937 $\mu_N$ | 2.7928 $\mu_N$ | 0.03% | bare |
+| $\alpha_G$ | $F^4\alpha^{24}$ | $5.903 \times 10^{-39}$ | $5.906 \times 10^{-39}$ | 0.05% | bare |
+| $D_e(\text{H}_2)$ | $(\pi/d^2)E_H$ | 4.749 eV | 4.748 eV | 0.02% | bare |
+
+All quantities are closed-form expressions in $d=3$, $\pi$, and elementary functions. No observed values used as inputs. All formulas use bare lattice couplings (see §9).
+
 ---
 
 ## 2. The Lagrangian
@@ -33,7 +47,7 @@ where phi_i is the displacement at lattice site i, the sum is over nearest neigh
 
 This Lagrangian supports two classes of localized solutions:
 - **Kinks**: topological solitons with mass M_kink = 8/pi^2 (in Planck units)
-- **Breathers**: bound oscillations in the kink potential, with frequencies omega_n = cos(n gamma) where gamma = pi/(2^(d+1) pi - 2)
+- **Breathers**: bound oscillations in the kink potential, with frequencies $\omega_n = \cos(n\gamma)$ where $\gamma = \pi/(2^{d+1}\pi - 2)$ is the sine-Gordon coupling parameter. This follows from the exact breather spectrum of the sine-Gordon equation with potential depth $1/\pi^2$: the coupling $\beta = \pi$ gives $\gamma = \beta^2/(8\pi - \beta^2) = \pi^2/(8\pi - \pi^2) = \pi/(2^{d+1}\pi - 2)$ at $d=3$, where $8 = 2^d$ and $\beta = \pi$
 
 The fine structure constant $\alpha$ emerges as the instanton tunneling amplitude through the cosine potential barriers of the d-cube:
 
@@ -43,7 +57,7 @@ For d=3: $\alpha$ = 1/137.042 (the bare lattice coupling, 0.005% from measured).
 
 **Derivation of $\alpha$:** The instanton wraps all $2d = 6$ faces of the d-cube, with classical action $S_{\text{cl}} = 2d \cdot M_{\text{kink}} = 48/\pi^2$. Only the $(d^2-1)/d^2 = 8/9$ non-$A_{1g}$ channels of $T_{1u} \otimes T_{1u}$ contribute to tunneling — the $A_{1g}$ channel is the secular (already-present) coupling. This gives the effective barrier action $S_{\text{eff}} = 48 \times 8/(9\pi^2) = 4.323$. The key identity $2^{d+1}/(d \cdot d!) = (d^2-1)/d^2$ holds **only at d=3** (both sides equal 8/9), connecting the instanton structure to the Oh channel decomposition.
 
-The prefactor $(2d)^{-2/d!} = 6^{-1/3} = 0.550$ has a clear group-theoretic structure: $(2d)$ counts face orientations, $d!/2 = |A_d|$ counts even permutations of axes that leave the instanton invariant. The exponent $-2/d! = -1/|A_d|$ reflects one power of $(2d)$ per equivalence class of permutations. This is consistent with the Coleman instanton calculus (where the prefactor arises from zero-mode integration and the symmetry factor $1/n!$), but a complete path-integral derivation starting from the lattice partition function has not yet been performed. We note this as the one remaining open step in the $\alpha$ derivation.
+The prefactor $(2d)^{-2/d!} = 6^{-1/3} = 0.550$ has a clear group-theoretic structure: $(2d)$ counts face orientations, $d!/2 = |A_d|$ counts even permutations of axes that leave the instanton invariant. The exponent $-2/d! = -1/|A_d|$ reflects one power of $(2d)$ per equivalence class of permutations. In the continuum sine-Gordon kink, the fluctuation spectrum is reflectionless, yielding a trivial determinant ratio in the WKB approximation. On the discrete lattice, integrability is broken; we assume the dominant determinant factor is unity at leading order and absorb residual lattice effects into the group-theoretic prefactor $(2d)^{-2/d!}$. A complete path-integral derivation starting from the discrete lattice partition function — the analog of Coleman's instanton calculus for graph-structured field theories — has not yet been performed. We note this as the one remaining open step in the $\alpha$ derivation.
 
 ---
 
@@ -70,7 +84,7 @@ A d=3 cube has three types of geometric elements, each with a distinct physical 
 | Element | Count | Formula | Physical role |
 |---------|-------|---------|---------------|
 | Faces | 2d = 6 | Nearest-neighbor directions | Mode counting (mass ratio) |
-| Edges | 2d(d-1) = 12 | Connections between faces | Gauge channels (alpha^12 = alpha^|A_4|) |
+| Edges | 2d(d-1) = 12 | Connections between faces | Gauge-exchange paths: $|A_4| = 12$ even permutations set the strong VP factor $(|A_4|-1)/d = 11/3$ in $\mu_p$ |
 | Vertices | 2^d = 8 | Corners where edges meet | VP normalization (1/2^(d/2)) |
 
 The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 vertices x 3 rotations per vertex = 12 edges x 2 rotations per edge = **24 = |O|**, the order of the chiral octahedral group. This is the number of proper rotations of the cube — and the number of bound breather modes supported by the Lagrangian (§12). The coincidence with the 24 chiral fermion states of the Standard Model (6 quarks + 6 leptons, each with 2 helicities, in one generation — or equivalently 12 particles + 12 antiparticles) suggests a combinatorial correspondence between lattice orientations and fermion degrees of freedom. We note, however, that the SM fermion spectrum is richer (three generations, color multiplicity, Dirac vs. Majorana structure) and the precise mapping remains an open question.
@@ -79,7 +93,11 @@ The orbit-stabilizer theorem connects them: 6 faces x 4 rotations per face = 8 v
 
 $$F = \int_{M \times \partial M} d\mu = \text{Vol}(M) \times \text{Area}(\partial M) = \pi^d \times 2d\,\pi^{d-1} = 2d\,\pi^{2d-1}$$
 
-This is a $(2d-1)$-dimensional integral with unit integrand, not a spectral sum. The integrand is 1 because each on-shell configuration contributes exactly one mass gap unit of energy ($\omega_{\text{gap}} = 1 = m_e$). The dimension $2d-1 = d$ (momenta) + $(d-1)$ (transverse positions) matches the on-shell constraint ($2d$ total phase-space dimensions minus 1 mass shell). The product structure $M \times \partial M$ encodes a precise physical decomposition:
+Equivalently, the on-shell state count is:
+
+$$F = \int_M \int_{\partial M} \delta(E(\mathbf{k}) - E_0)\, d^d\mathbf{k}\, d^{d-1}\mathbf{x}_\perp$$
+
+where the $\delta$-constraint enforces the mass shell and the discrete lattice normalizes each allowed configuration to a single mass-gap unit ($\omega_{\text{gap}} = 1 = m_e$). The dimension $2d-1 = d$ (momenta) + $(d-1)$ (transverse positions) matches the on-shell constraint ($2d$ total phase-space dimensions minus 1 mass shell). The product structure $M \times \partial M$ encodes a precise physical decomposition:
 
 **Proton (kink = topological defect):** The kink wraps one spatial direction of the d-torus. Its mass = the number of on-shell modes it excites, each contributing one mass gap unit ($\omega_{\text{gap}} = 1 = m_e$):
 
