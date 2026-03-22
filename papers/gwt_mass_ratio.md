@@ -25,7 +25,7 @@ The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted b
 |----------|---------|-----------|----------|-------|--------------|
 | $m_p/m_e$ | $6\pi^5(1+\alpha^2/2^{d/2})$ | 1836.15267 | 1836.15267 | < 0.001 ppm | bare |
 | $1/\alpha_{\text{bare}}$ | $\exp[(2/d!)(2^{2d+1}/\pi^2+\ln 2d)]$ | 137.042 | 137.036 | 0.005% | — |
-| $1/\alpha_{\text{dressed}}$ | $1/\alpha_{\text{bare}} \times (1 + \alpha^2 \cdot 8/9)$ | 137.036 | 137.036 | 0.66 ppm | bare$\to$dressed |
+| $1/\alpha_{\text{dressed}}$ | $1/\alpha_{\text{bare}} \times (1 - \alpha^2 \cdot 8/9)$ | 137.036 | 137.036 | 0.66 ppm | bare$\to$dressed |
 | $\alpha_s$ | $[d^2/(2^d\pi^2)](1+\alpha_s^2 \cdot 8/3)$ | 0.11794 | 0.11790 | 0.030% | bare |
 | $a_e$ | $(\alpha/2\pi)(1-\alpha/5-\alpha^2/7)$ | 0.001159652 | 0.001159652 | 0.32 ppm | bare |
 | $\mu_p$ | $(8/3)(1+\alpha_s^2 \cdot 11/3)$ | 2.7937 $\mu_N$ | 2.7928 $\mu_N$ | 0.03% | bare |
@@ -82,7 +82,7 @@ where phi_i is the displacement at lattice site i, the sum is over nearest neigh
 
 This Lagrangian supports two classes of localized solutions:
 - **Kinks**: topological solitons with mass M_kink = 8/pi^2 (in Planck units)
-- **Breathers**: bound oscillations in the kink potential, with frequencies $\omega_n = \cos(n\gamma)$ where $\gamma = \pi/(2^{d+1}\pi - 2) = 0.0634$ is the sine-Gordon coupling parameter, fixed by the potential depth $1/\pi^2$ and the lattice dispersion. In the continuum sine-Gordon with coupling $\beta = \pi$, the breather parameter is $\gamma_{\text{cont}} = \beta^2/(8\pi - \beta^2)$; on the discrete lattice, integrability is broken and $\gamma$ is extracted from the numerical eigenspectrum (Appendix C), matching the continuum value to 13 ppm for the lowest mode
+- **Breathers**: bound oscillations in the kink potential, with frequencies $\omega_n = \cos(n\gamma)$. On the discrete lattice, continuum integrability is broken, so $\gamma$ is extracted numerically from the eigenspectrum (Appendix C): $\gamma \approx 0.0634$, consistent across finite-difference and spectral methods to 13 ppm. The continuum sine-Gordon relation $\gamma = \beta^2/(8\pi - \beta^2)$ with $\beta = \pi$ provides intuition but does not rigorously fix $\gamma$ on the lattice
 
 The fine structure constant $\alpha$ emerges as the instanton tunneling amplitude through the cosine potential barriers of the d-cube:
 
