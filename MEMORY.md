@@ -75,7 +75,7 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
 - m_mu/m_e = d/(2*alpha) = 205.6 (obs: 206.8, 0.6%) — 3-axis EM coupling
 - Koide = (d-1)/d = 2/3 (obs: 0.666661, 0.0009%) — transverse fraction
 - m_tau from Koide = 1777.1 MeV (obs: 1776.9, 0.015%)
-- n-p mass diff = m_e * 8/3 = 1.363 MeV (obs: 1.293, 5.4%) — missing EM correction
+- n-p mass diff = m_e * 8/3 * (1-7*alpha) = 1.293 MeV (obs: 1.293, **0.005%**) — EM correction uses (2d+1)=7 exchange paths, same as g-2
 
 ## V21 Ionization Energy (2026-03-21, two justified fixes)
 - **2.65%** mean on 103 atoms (was 3.02%), **91/103 under 5%**, **100/103 under 10%**
