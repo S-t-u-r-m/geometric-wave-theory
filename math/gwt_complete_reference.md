@@ -1835,20 +1835,44 @@ elif het pp triple (σ+2π, no π*):  c = 2/11  (triple-bond)
 else:                               c = 1/7   (default)
 ```
 
-**Results (V8, 23 diatomic molecules):**
+**Results — TWO bond models (important distinction):**
+
+**Model A: Phase-based (V6/V8) — uses observed bond length R as input:**
+The formula D = (pi/d) * E_scale * |sin(R/n^b)| uses observed R to compute
+the standing wave phase. This is NOT a pure prediction — it requires one
+measured input per molecule.
 ```
-avg = 1.7%, med = 1.5%, max = 4.8% (Cl2)
-Within 2%: 12/23, within 5%: 23/23, within 10%: 23/23
+V6 (obs Z_eff + obs R): avg = 14.4%, med = 4.1%  (24 molecules)
+V8 (+ 8 corrections):   avg = 1.7%, med = 1.5%   (23 molecules)
 ```
+Note: V8's 1.7% uses observed Clementi-Raimondi Z_eff AND observed R.
+
+**Model B: Coupling-based (Oh formula) — true zero-parameter prediction:**
+The formula D = (pi/d^2) * E_harm * coupling uses ONLY GWT-derived quantities.
+No observed R, no observed Z_eff. Every coefficient from d=3 geometry.
+```
+Oh base formula:        avg = 11.5%, med = 6.8%   (25 molecules)
+V10 (+ 3 meson corr):  avg = 7.5%, med = 5.1%    (25 molecules)
+```
+V10 corrections from meson/lepton derivations (2026-03-22):
+  1. Generation factor d/(d-1) = 3/2 for period-3 LP repulsion
+  2. Axial coupling g_A = (d+1)/d = 4/3 for ionic enhancement
+  3. s-block node reduction 2/d = 2/3 for n>=2 s-orbital overlap
+
+**Honest comparison:** V8's 1.7% is impressive but uses observed R.
+V10's 7.5% is the true zero-parameter result — comparable to
+Hartree-Fock accuracy (~5-10%) for bond energies.
 
 **Progression:**
-| Version | Inputs | avg | max | w5 |
-|---------|--------|-----|-----|----|
-| V6 | Clementi-Raimondi Z_eff + obs E_H | 2.5% | 6.3% | 21/23 |
-| V7 | GWT Z_eff + GWT E_H (self-consistent) | 2.5% | 6.3% | 22/23 |
-| V8 | + triple ionic + period-3 boost | 1.7% | 4.8% | 23/23 |
+| Version | Inputs | avg | max | w5 | Zero-param? |
+|---------|--------|-----|-----|----|-------------|
+| V6 | obs Z_eff + obs R | 14.4% | 65% | 15/24 | No (uses R) |
+| V8 | + 8 corrections | 1.7% | 4.8% | 23/23 | No (uses R) |
+| Oh base | GWT IE + Oh weights | 11.5% | 74% | 11/25 | **Yes** |
+| V10 | + meson corrections | 7.5% | 74% | 12/25 | **Yes** |
 
-**V8 = analytical ceiling.** Tested and ruled out: Z_eff power corrections, exchange coupling (7 models), breather-breather interactions, phase shifts, breather size scaling. Remaining errors are molecule-specific 3D wavefunction overlap geometry — no universal analytical correction can improve further.
+The V10 corrections use the SAME d/(d-1) and (d+1)/d factors derived
+for mesons and leptons — the particle spectrum feeds back into chemistry.
 
 ### Bond energy from Oh lookup + 3D lattice (2026-03-18)
 ```
@@ -1936,7 +1960,7 @@ From charge transfer channels: (2d+1) = 7 exchange paths on the cubic lattice.
 **Summary:** Every coefficient traces back to T1u ⊗ T1u = A1g(1) + Eg(2) + T1g(3) + T2g(3)
 on the d=3 cubic lattice. The bond formula IS the Oh tensor product decomposition.
 
-**Comparison with V8:** V8 remains the analytical ceiling at 1.7% mean error with 8 corrections. This Oh-derived formula uses fewer corrections (LP + radical + ionic) at 8.4% mean error, but with complete group-theory derivation — every coefficient from d=3 geometry, zero fitting.
+**Comparison with V8:** V8 achieves 1.7% mean error but uses observed bond lengths R as input (not a pure prediction). This Oh-derived formula at 7.5% (V10) uses NO observed inputs — every coefficient from d=3 geometry, zero fitting. V10 is the true zero-parameter result.
 
 ### V8 = Oh tensor product: 8 corrections = 8 non-A1g channels (2026-03-19, PROVEN)
 
@@ -1979,10 +2003,11 @@ cancel by symmetry: Eg has no shape mismatch, T1g has no radical or parity issue
 T2g has no ionic contribution. The bare A1g formula suffices.
 
 **Why V8 gets 1.7%:**
-V8 IS the Oh tensor product written in chemistry notation. Its 8 corrections
-are the 8 non-A1g channel contributions, each with a coefficient derived from d=3.
-The 1.7% residual comes from the corrections being applied as multiplicative
-factors rather than as the full channel-by-channel interference calculation.
+V8 uses the phase-based formula D = (pi/d) * E_scale * |sin(R/n^b)| with observed
+bond length R and observed Clementi-Raimondi Z_eff. Its 8 corrections map onto the
+8 non-A1g channels, each with d=3 coefficients. The 1.7% accuracy comes partly from
+using observed R as input — without R, the base formula gives 14.4% (V6).
+The true zero-parameter model (V10, coupling-based) achieves 7.5%.
 
 **Inter-cluster coupling hierarchy (quantified from Oh):**
 
@@ -2940,7 +2965,7 @@ The "mysterious 3s" in physics (3 generations, 3 colors, 3 quarks, 1/3 charges) 
 | PMNS matrix | 3 | 1.3% | 0.9% – 1.9% |
 | Neutrino masses | 3 | 2.3% | 0.1% – 2.4% |
 | Cosmological | 3 | 5.3% | 2.7% – 9.1% |
-| Molecular (H2, H2O, V8 bond avg) | 3 | 0.6% | 0.009% – 1.7% |
+| Molecular (H2 0.02%, V10 bond avg 7.5%) | 3 | 2.5% | 0.02% – 7.5% |
 | Fundamental constants (VP law) | 6 | 0.13% | <0.001 ppm – 0.61% |
 | Atomic (fine structure, Rydberg, 21cm) | 3 | 0.08% | 0.004% – 0.20% |
 | Nuclear moments (mu_p, g_A) | 2 | 4.7% | 4.5% – 4.8% |
