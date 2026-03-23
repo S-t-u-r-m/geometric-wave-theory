@@ -2315,20 +2315,23 @@ Same pattern as rho: orthogonal components in quadrature.
   Rho: kink (topological) + pion (chiral) -> vector meson
   Kaon: strange (generation 2) + pion (chiral) -> strange meson
 
-### Omega meson — rho + EM splitting [DERIVED, 0.50%]
+### Omega meson — rho + EM splitting [DERIVED, 0.02%]
 
 The omega is the rho's isoscalar partner:
   Rho (I=1): (uu_bar - dd_bar)/sqrt(2) — antisymmetric flavor
   Omega (I=0): (uu_bar + dd_bar)/sqrt(2) — symmetric flavor
 
-The mass difference is an electromagnetic self-energy effect:
+The mass difference is an electromagnetic self-energy effect through (2d-1) = 5
+shape channels (Eg + T2g of T1u*T1u):
 ```
-m_omega = m_rho * (1 + alpha) = 773.1 * 1.00730 = 778.8 MeV  (obs: 782.7, -0.50%)
+m_omega = m_rho * (1 + alpha*(2d-1)/d) = 773.1 * (1 + 5*alpha/3) = 782.5 MeV
+                                                          (obs: 782.7, -0.02%)
 ```
 
-The factor alpha = one EM scattering event. The symmetric flavor combination
-(omega) has slightly higher EM self-energy than the antisymmetric (rho)
-because all quark charges add coherently.
+The factor (2d-1)/d = 5/3: the omega-rho EM splitting goes through the 5
+symmetric shape channels (same (2d-1) = 5 as the first g-2 correction
+denominator alpha/(2d-1) = alpha/5). The omega (symmetric flavor) couples
+to the shape channels that the rho (antisymmetric) does not access.
 
 ### Complete meson spectrum — the mass-shell pattern
 
