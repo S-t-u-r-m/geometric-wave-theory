@@ -50,14 +50,17 @@ BREATHERS:
   g         = pi / (2^(d+1)*pi - 2)                                      [DERIVED: exact SG]
 
 LEPTONS:
-  m_mu/m_e  = d/(2*alpha)                                = 205.6        [DERIVED: 3-axis EM coupling]
-  Koide     = (d-1)/d                                    = 2/3          [STRUCTURAL: transverse fraction]
-  m_tau     = from Koide + m_mu (constrained)            = 1777.1 MeV   [DERIVED: 0.015%]
+  m_mu/m_e  = d/((d-1)*alpha)                            = 205.6        [DERIVED: unified generation factor * EM scale]
+  Koide     = (d-1)/d                                    = 2/3          [DERIVED: cube C3 symmetry + cosine identities]
+  m_tau     = from Koide + m_mu (constrained)            = 1777.0 MeV   [DERIVED: 0.006%]
   (Full parametrization below uses theta_0, M — equivalent but more detailed)
+
+BARYONS:
+  m_n - m_p = m_e * (d^2-1)/d * (1 - alpha*(2d+1))      = 1.293 MeV    [DERIVED: QCD-EM, 0.005%]
 
 MESONS:
   m_pi      = m_p * (d+1)/d^3 = m_p * 4/27              = 139.0 MeV    [DERIVED: axial * A1g fraction, 0.4%]
-  f_pi      = m_pi * 2/d                                 = 92.7 MeV     [DERIVED: 0.3%]
+  f_pi      = m_pi * (d-1)/d                              = 92.7 MeV     [DERIVED: transverse/weak fraction, 0.3%]
   m_K       = sqrt(m_pi^2 + (m_p/(d-1))^2)                = 489.3 MeV    [DERIVED: mass-shell pion+strange, 0.89%]
   m_rho     = m_p * sqrt((8/pi^2)^2 + (4/27)^2)          = 773.1 MeV    [DERIVED: mass-shell kink+pion, 0.28%]
   m_omega   = m_rho * (1 + alpha*(2d-1)/d)                = 782.5 MeV    [DERIVED: rho + 5/3 shape channels, 0.02%]
