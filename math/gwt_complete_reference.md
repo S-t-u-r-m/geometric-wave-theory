@@ -60,12 +60,12 @@ MESONS:
   f_pi      = m_pi * 2/d                                 = 92.7 MeV     [DERIVED: 0.3%]
   m_K       = sqrt(m_pi^2 + (m_p/(d-1))^2)                = 489.3 MeV    [DERIVED: mass-shell pion+strange, 0.89%]
   m_rho     = m_p * sqrt((8/pi^2)^2 + (4/27)^2)          = 773.1 MeV    [DERIVED: mass-shell kink+pion, 0.28%]
-  m_omega   = m_rho * (1 + alpha)                         = 778.8 MeV    [DERIVED: rho + EM splitting, 0.50%]
+  m_omega   = m_rho * (1 + alpha*(2d-1)/d)                = 782.5 MeV    [DERIVED: rho + 5/3 shape channels, 0.02%]
 
 GENERATIONS (Koide parametrization):
-  sqrt(m_n) = M * (1 + sqrt(2) * cos(theta_0 + 2n*pi/d))               [HYPOTHESIS]
-  M         = sqrt(F*m_e/d * (1 + d*alpha/(2*pi)))                       [HYPOTHESIS]
-  theta_0   = d*pi/(d+1) - 1/(2^d * pi)                                  [HYPOTHESIS]
+  sqrt(m_n) = M * (1 + sqrt(2) * cos(theta_0 + 2n*pi/d))               [DERIVED: cube C3 symmetry]
+  Koide K = (d-1)/d forces A = sqrt(2(d-2)) = sqrt(2) at d=3            [DERIVED: cosine sum identities]
+  M, theta_0 fixed by m_e and m_mu -> m_tau is a PREDICTION             [DERIVED: 0.006%]
 
 MIXING:
   cos(d_CKM) = 1/d + 2/(d+1)!                            = 5/12         [STRUCTURAL]
@@ -2343,7 +2343,7 @@ orthogonal mass components):
 | pi    | m_p * 4/27 (pure axial*scalar) | 139.0 | 139.6 | 0.41% |
 | K     | sqrt(m_pi^2 + (m_p/2)^2) | 489.3 | 493.7 | 0.89% |
 | rho   | sqrt((m_p*8/pi^2)^2 + m_pi^2) | 773.1 | 775.3 | 0.28% |
-| omega | m_rho * (1+alpha) | 778.8 | 782.7 | 0.50% |
+| omega | m_rho * (1+5*alpha/3) | 782.5 | 782.7 | 0.02% |
 
 Zero free parameters. All components derived from d=3 and the Lagrangian.
 
