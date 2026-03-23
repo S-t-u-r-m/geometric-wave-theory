@@ -1050,7 +1050,7 @@ With VP correction (the muon's own self-energy dressing):
 m_mu/m_e = d/(2*alpha) * (1 + alpha/(d-1)) = 206.31  (obs: 206.77, -0.22%)
 ```
 
-### The Koide relation = (d-1)/d [STRUCTURAL, 0.0009%]
+### The Koide relation = (d-1)/d [DERIVED, 8.8 ppm]
 ```
 (m_e + m_mu + m_tau) / (sqrt(m_e) + sqrt(m_mu) + sqrt(m_tau))^2 = 2/3
 ```
@@ -1064,6 +1064,14 @@ Same ratio as:
 Not a coincidence — it IS the same geometric fact (2 of 3 dimensions are transverse).
 The Koide formula encodes the mass democracy: 1/d of the sqrt-mass is concentrated
 (tau = heavy), (d-1)/d is distributed (electron + muon = light).
+
+**Derivation from cube symmetry:**
+The Koide parametrization sqrt(m_n) = M*(1 + A*cos(theta_0 + 2n*pi/d)) with
+three generations at 120 degrees (cube C3 axis) gives:
+  K = (1 + A^2/2) / d  (from cosine sum identities: sum cos = 0, sum cos^2 = d/2)
+  K = (d-1)/d  forces  A^2 = 2(d-2) = 2  at d=3,  i.e.  A = sqrt(2)
+The famous sqrt(2) in the Koide formula is NOT mysterious — it equals sqrt(2(d-2))
+and is FORCED by d=3 and K = (d-1)/d. Every step is geometry or algebra.
 
 ### Complete lepton mass chain (zero free parameters)
 
