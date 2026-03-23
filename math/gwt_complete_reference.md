@@ -1786,8 +1786,8 @@ D_e = (pi/d) × sum[E_scale × |sin(phase)|] + D_ionic
 **All coefficients from d=3:**
 | Coefficient | Formula | Value | Meaning |
 |-------------|---------|-------|---------|
-| C_bond | pi/d | pi/3 | Bond coupling constant |
-| f_pi | d^2/(d^2+1) | 9/10 | Pi-bond screening fraction |
+| C_bond | pi/d^2 | pi/9 | Bond coupling constant (= pi/d in V8 formula with 1/d inside sin(phase) averaging; pre-averaged = pi/d^2, proven from Hessian eigenvalues Section 11) |
+| f_pi | d^2/(d^2+1) | 9/10 | Pi-bond screening fraction (see note below) |
 | alpha_bond | 1 - f_pi/d | 7/10 | Effective bond overlap |
 | beta_bond | (1+f_pi)/2 | 19/20 | Overlap averaging factor |
 | f_anti | 2d/(2d-1) | 6/5 | Antibonding enhancement |
@@ -1795,6 +1795,27 @@ D_e = (pi/d) × sum[E_scale × |sin(phase)|] + D_ionic
 | c_ionic_enhanced | d/(2d+1) | 3/7 | Enhanced ionic (highly asymmetric bonds) |
 | c_ionic_pp_triple | 2/(d^2+d-1) | 2/11 | Triple-bond ionic (het pp sigma+2pi) |
 | period3_boost | (d^2+2)/(d^2+1) | 11/10 | Period-3 ionic enhancement |
+
+**Why bond f_pi (9/10) differs from meson f_pi (2/3) — DERIVED:**
+
+The bond and meson sectors use different f_pi values because they involve different types of excitations:
+
+| Sector | Particle type | f_pi | Formula | Why |
+|--------|--------------|------|---------|-----|
+| Mesons | Kinks (STATIC topological defects) | 2/3 | (d-1)/d | d spatial modes, no time. Kinks don't oscillate. Transverse = (d-1)/d |
+| Bonds | Breathers (OSCILLATING modes) | 9/10 | d^2/(d^2+1) | d^2 spatial coupling tensor + 1 temporal mode = d^2+1 total. Breathers oscillate in time, adding +1 DOF |
+
+The key difference is **one degree of freedom: time**.
+- Kinks are static (phi(x) = profile, no time dependence) -> d spatial modes -> f = (d-1)/d
+- Breathers oscillate (phi(x,t) = A*cos(wt)*f(x), time-dependent) -> d^2 spatial + 1 temporal -> f = d^2/(d^2+1)
+- The d^2 (instead of d) comes from the COUPLING TENSOR: two d-dimensional breathers have d x d = d^2 spatial coupling components
+- The +1 is the oscillation frequency (temporal DOF of the breather)
+
+Both values satisfy LP_I x f_pi = 1/d:
+- Bond: (d^2+1)/d^3 x d^2/(d^2+1) = 1/d (verified: 10/27 x 9/10 = 1/3)
+- Meson: would give LP_I = d/((d-1)*d) = 1/(d-1) = 1/2 (too strong for atomic bonds)
+
+This distinction is physically necessary: using meson f_pi = 2/3 for bonds drives F2 coupling to zero (LP repulsion overwhelms sigma bonding). The breather temporal DOF softens the LP repulsion to the correct level.
 
 **Eight corrections (all from d=3 geometry):**
 1. **3D parity node counting**: S /= n_lobes^(1 + (-1)^(rn+1)/d^rn) when has_nodes AND phase > pi
