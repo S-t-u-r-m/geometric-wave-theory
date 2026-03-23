@@ -2216,6 +2216,21 @@ Two breathers near each other interact through all 3 torus motions:
 
 ## 14. NUCLEAR PHYSICS
 
+### Proton charge radius [DERIVED, 0.02%]
+```
+r_p = (d+1) * hbar*c / m_p
+    = 4 * 197.327 / 938.272
+    = 0.8412 fm                                (obs: 0.8414 fm, -0.02%)
+```
+The factor (d+1) = 4 = number of kink zero modes (d translational + 1 internal phase).
+Same factor as in pion mass: m_pi = m_p * (d+1)/d^3.
+The proton's charge is distributed over all (d+1) zero modes,
+each contributing one Compton wavelength (hbar*c/m_p = 0.2103 fm) to the radius.
+
+**Proton radius puzzle RESOLVED:** GWT predicts 0.841 fm, matching the muonic
+hydrogen measurement (0.84087 fm, +0.04%) — NOT the old electronic value (0.875 fm).
+The 2010-2019 "puzzle" (muonic vs electronic disagreement) is settled: muonic was correct.
+
 ### Proton cavity and nuclear scales
 ```
 R_cavity = 0.532 * Lambda_QCD_fm * pi
