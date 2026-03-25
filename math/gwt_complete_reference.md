@@ -186,6 +186,33 @@ On a d-dimensional isotropic lattice, a radial displacement between two nodes cr
 
 **Why gravity is weak**: It's 1/3 of the total force, and the 1/3 mostly cancels at distance. The residual falls as 1/r^2 — not because of a special law, but because that's how solid angles work in 3D.
 
+### 1D energy principle
+
+Energy is fundamentally 1D — an oscillation in one cosine well. All 3D structure
+(torus, quarks, confinement) is the lattice's RESPONSE to this 1D oscillation.
+
+Evidence:
+- Breathers are quasi-1D on 32³ lattice (modes 1-7 match 1D to <0.12%)
+- Bond f_pi: breathers have d²+1 modes (d² spatial + 1 temporal oscillation);
+  kinks have only d modes (no temporal DOF because they're static topology)
+- VP_self = -0.7589 is universal — depends only on 1D breather profile sech²
+
+The particle spectrum factors as: mass = f(1D mode) × g(Oh lattice response).
+This is already what GWT computes: m_pi = (zero-mode energy) × (A1g fraction).
+
+### Force channel separation at atomic scale [TESTED, CONFIRMED]
+
+The 1/d longitudinal (gravity) channel does NOT contribute to atomic bonding.
+Tested: adding any fraction of the gravity channel to C_bond = pi/d² makes
+the bond model WORSE (7.5% → 32.1% at full strength, monotonic increase).
+
+The two channels operate at DIFFERENT scales:
+- Transverse (d-1)/d: EM coupling alpha → bonds at eV scale
+- Longitudinal 1/d: gravitational coupling alpha_G → bonds at Planck scale
+
+Same Oh fractions, same T1u⊗T1u decomposition, but different force carriers.
+The 4/27 = m_pi/m_p connection applies to NUCLEAR bonding (MeV), not atomic.
+
 ---
 
 ## 3. STRUCTURAL PARAMETERS — Forced by d = 3
