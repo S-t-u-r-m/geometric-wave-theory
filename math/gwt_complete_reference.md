@@ -2575,8 +2575,17 @@ orthogonal mass components):
 | K     | sqrt(m_pi^2 + (m_p/2)^2) | 489.3 | 493.7 | 0.89% |
 | rho   | sqrt((m_p*8/pi^2)^2 + m_pi^2) | 773.1 | 775.3 | 0.28% |
 | omega | m_rho * (1+5*alpha/3) | 782.5 | 782.7 | 0.02% |
+| eta   | (d+1) * m_pi = 4*m_pi | 556.0 | 547.9 | 1.5% (dressed: 0.3%) |
+| eta'  | (2d+1) * m_pi = 7*m_pi | 973.0 | 957.8 | 1.6% |
+| Delta | m_p * g_A * (1-alpha_s^2*g_A) | 1229 | 1232 | 0.2% |
 
 Zero free parameters. All components derived from d=3 and the Lagrangian.
+
+**Eta and eta-prime — zero-mode and exchange-path counting:**
+  m_eta = (d+1) * m_pi: the eta couples to ALL (d+1)=4 zero modes.
+  The pion couples to only 1 (A1g). Ratio = (d+1) = 4.
+  m_eta' = (2d+1) * m_pi: the eta-prime couples to all (2d+1)=7 exchange paths.
+  Same 7 as in g-2, n-p mass diff, sin^2(theta_W) running, ionic bonds.
 
 ### Connection to the bond model
 
