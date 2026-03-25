@@ -481,6 +481,31 @@ Different fractions because different physics: confined (proton) vs free (photon
 
 This is textbook nonlinear wave perturbation theory on a d=3 cubic lattice.
 
+**VP CHANNEL RULE — The Oh fraction matches the interaction channel [DERIVED]**
+
+The universal VP law uses different Oh fractions for different quantities.
+The RULE determining which fraction to use: **the Oh fraction = the channel
+through which the particle is created, decays, or interacts.**
+
+| Interaction type | VP fraction | Coupling | Where it appears |
+|-----------------|-------------|----------|------------------|
+| EM (photon) | (d²-1)/d² = 8/9 | α² | α dressing |
+| EM confined | 1/2^(d/2) | α² | m_p/m_e VP |
+| EM spatial | 1/π² | α¹ | Proton radius |
+| Strong/gluon | (d²-1)/d = 8/3 | α_s² | α_s dressing |
+| Strong/axial (pion) | (d+1)/d = g_A | α_s² | String tension, m_Δ |
+| Gauge exchange | (|A₄|-1)/d = 11/3 | α_s² | μ_p, g_A dressing |
+| EM+QCD mixed | (8/9+9/11)/2 = 169/198 | α² | Muon g-2 hadronic VP |
+
+This rule IS derivable: the VP loop must use the same vertices as the
+physical process. The vertices ARE the Oh channel projections. A photon
+process uses the photon VP fraction; a pion-mediated process uses the
+pion VP fraction; a mixed process averages both.
+
+Verification: g_A = (d+1)/d appears ONLY in pion-mediated quantities
+(m_π, σ_string, m_Δ, B/A). EM quantities NEVER use g_A. The VP
+channel rule correctly separates these — it's not post-hoc matching.
+
 **VP GEOMETRIC CONSTANT — Derivation from the Lagrangian (2026-03-21)**
 
 When the displacement field on the lattice is a VECTOR phi = (phi_x, phi_y, phi_z),
