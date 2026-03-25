@@ -191,11 +191,18 @@ On a d-dimensional isotropic lattice, a radial displacement between two nodes cr
 Energy is fundamentally 1D — confined in one cosine well. All 3D structure
 (torus, quarks, confinement) is the lattice's RESPONSE to this confined energy.
 
-**Physical picture:** Energy is like a fluid trapped in the cosine potential well.
-It pushes against the walls in all directions but can't escape — every direction
-has another well. The pressure of this trapped fluid against the d=3 lattice walls
-IS the 3D particle structure. The well shape (cosine) determines how the pressure
-distributes; the Oh symmetry of the lattice determines the response pattern.
+**Physical picture:** Energy is structureless compressible pressure (like a gas)
+trapped in a perfectly geometric container (the d=3 cosine lattice). The energy
+has no intrinsic structure — it just pushes. ALL structure comes from the
+container geometry (Oh symmetry, T1u⊗T1u channels, 8 modes, 24 orientations).
+The container shapes the structureless pressure into particles.
+
+The gas pushes on all walls but can't escape — every direction has another well.
+The cosine potential sets a maximum energy density of 2/pi^2 per site. Below
+this: the gas sloshes (breather = electron). At this limit: the gas punches
+through to the next cell (kink = proton, a topological phase transition).
+The container geometry determines what the deformation looks like
+(torus, A1g ground state by Perron-Frobenius).
 
 What this means for particles:
 - **Mass** = how much fluid is trapped = how much pressure it exerts
