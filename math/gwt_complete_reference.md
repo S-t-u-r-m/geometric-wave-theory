@@ -188,8 +188,25 @@ On a d-dimensional isotropic lattice, a radial displacement between two nodes cr
 
 ### 1D energy principle
 
-Energy is fundamentally 1D — an oscillation in one cosine well. All 3D structure
-(torus, quarks, confinement) is the lattice's RESPONSE to this 1D oscillation.
+Energy is fundamentally 1D — confined in one cosine well. All 3D structure
+(torus, quarks, confinement) is the lattice's RESPONSE to this confined energy.
+
+**Physical picture:** Energy is like a fluid trapped in the cosine potential well.
+It pushes against the walls in all directions but can't escape — every direction
+has another well. The pressure of this trapped fluid against the d=3 lattice walls
+IS the 3D particle structure. The well shape (cosine) determines how the pressure
+distributes; the Oh symmetry of the lattice determines the response pattern.
+
+What this means for particles:
+- **Mass** = how much fluid is trapped = how much pressure it exerts
+- **Kink (proton)** = fluid has pushed over the hill permanently (topological, static)
+- **Breather (electron)** = fluid sloshes back and forth in the well (oscillatory)
+- **Photon** = the pressure wave propagating through the lattice, no trapped fluid (massless)
+- **Torus** = the fluid's equilibrium pressure pattern (A1g = uniform, minimum stress)
+- **Quarks** = the fluid pushes on 3 walls (3 axes), each wall gets a fraction of pressure
+- **Confinement** = can't remove fluid from one wall only — pressure fills the whole well
+- **Generations** = fluid restricted to fewer walls → higher pressure per wall → heavier
+- **E = mc²** = trapped fluid energy (ℏω) relates to lattice propagation speed (c)
 
 Evidence:
 - Breathers are quasi-1D on 32³ lattice (modes 1-7 match 1D to <0.12%)
@@ -199,6 +216,11 @@ Evidence:
 
 The particle spectrum factors as: mass = f(1D mode) × g(Oh lattice response).
 This is already what GWT computes: m_pi = (zero-mode energy) × (A1g fraction).
+
+**Why d=3:** A 1D trapped fluid on a lattice needs d=3 for stability.
+In d≤2: Derrick's theorem — the fluid radiates away, no stable trapping.
+In d≥4: coupling too weak (alpha = 1/24753), fluid barely interacts with lattice.
+Only d=3 gives stable trapping with the right interaction strength.
 
 ### Force channel separation at atomic scale [TESTED, CONFIRMED]
 
