@@ -2987,8 +2987,12 @@ reduces to alpha_s^2 × (|A_4|-1)/d = alpha_s^2 × 11/3. One line of algebra.
 ```
 sigma = pi^2 * m_pi^2 = pi^2 * (m_p * 4/27)^2
 
-sqrt(sigma) = pi * m_pi = 436.7 MeV        (obs: 440 MeV, -0.8%)
-sigma = 0.1907 GeV^2                        (obs: 0.194 GeV^2, -1.7%)
+sqrt(sigma) = pi * m_pi = 436.7 MeV          (obs: 440 MeV, -0.8%)
+sigma_bare = 0.1907 GeV^2                    (obs: 0.194 GeV^2, -1.7%)
+
+sigma_dressed = sigma_bare * (1 + alpha_s^2 * (d+1)/d)
+             = pi^2 * m_pi^2 * (1 + alpha_s^2 * g_A)
+             = 0.1940 GeV^2                  (obs: 0.194 GeV^2, +0.00%)
 ```
 
 **Physical meaning:**
