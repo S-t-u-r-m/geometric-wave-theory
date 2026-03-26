@@ -1,0 +1,101 @@
+CHANNEL INDEPENDENCE TEST
+======================================================================
+Started: 2026-03-25 20:06:37
+
+REFERENCE CONFIGURATIONS
+-------------------------------------------------------
+Single proton (bare): E0 = 0.12538659
+Single proton (3 modes): E0 = 0.00140983
+Single proton (7 modes): E0 = -0.01636977
+
+Test separation: R = 10
+
+CHANNEL 1 — GEOMETRIC (bare kinks at R=10):
+  V_geom = -0.00472930
+
+CHANNEL 2 — OCCUPANCY (1 modes per well):
+  V_occ = +0.03618822, V_geom = -0.00472930, difference = +0.04091752
+CHANNEL 2 — OCCUPANCY (3 modes per well):
+  V_occ = -0.07878135, V_geom = -0.00472930, difference = -0.07405205
+CHANNEL 2 — OCCUPANCY (5 modes per well):
+  V_occ = +0.04159458, V_geom = -0.00472930, difference = +0.04632388
+CHANNEL 2 — OCCUPANCY (7 modes per well):
+  V_occ = +0.06893730, V_geom = -0.00472930, difference = +0.07366660
+
+CHANNEL 3 — ASYMMETRY (delta_V = ±0.1):
+  V_asym = -0.05247438, V_sym = -0.00472930, ionic_shift = -0.04774508
+CHANNEL 3 — ASYMMETRY (delta_V = ±0.3):
+  V_asym = -0.15350970, V_sym = -0.00472930, ionic_shift = -0.14878040
+CHANNEL 3 — ASYMMETRY (delta_V = ±0.5):
+  V_asym = -0.23998363, V_sym = -0.00472930, ionic_shift = -0.23525433
+CHANNEL 3 — ASYMMETRY (delta_V = ±1.0):
+  V_asym = +0.00818591, V_sym = -0.00472930, ionic_shift = +0.01291521
+
+INDEPENDENCE TEST — FACTORIAL DESIGN
+-------------------------------------------------------
+Compare: V(all three) vs V(geom) + V(occ) + V(asym)
+
+  V(geometric only):          -0.00472930
+  V(geometric + occupancy):   -0.07878135
+  V(geometric + asymmetry):   -0.15350970
+  V(ALL THREE):               +0.00975697
+  V(additive prediction):     -0.22756174
+  Non-additive residual:      +0.23731872 (+2432.3%)
+
+  → Channels are COUPLED (2432% non-additive)
+
+R-DEPENDENCE OF CHANNEL COUPLING
+-------------------------------------------------------
+Does the coupling between channels change with separation?
+
+   R       V_geom      V_g+occ     V_g+asym        V_all        V_add   nonadd%
+---------------------------------------------------------------------------
+   6  -0.18594951  -0.11251444  -0.18953794  -0.05234854  -0.11610288    +121.8%
+   8  -0.03319068  +0.04674428  -0.12277480  -0.02358048  -0.04283983     +81.7%
+  10  -0.00472930  -0.07878135  -0.15350970  +0.00975697  -0.22756174   +2432.3%
+  12  -0.00071408  +0.03453694  -0.19102916  -0.06103948  -0.15577815    +155.2%
+  14  -0.00011029  +0.12370765  -0.22317107  -0.02288248  -0.09935313    +334.2%
+  16  -0.00001721  -0.05319633  -0.24446628  +0.05848901  -0.29764540    +608.9%
+  20  -0.00000043  +0.04394561  -0.21602746  -0.05361042  -0.17208142    +221.0%
+  30  -0.00000000  -0.04841665  -0.20213523  -0.04757633  -0.25055188    +426.6%
+
+ASYMMETRIC OCCUPANCY — IONIC-COVALENT COUPLING
+-------------------------------------------------------
+What happens when one well has more modes than the other?
+This is the analog of ionic bonding: one atom has more electrons.
+
+R = 10
+ n_A  n_B         V(R)       vs_sym                 note
+----------------------------------------------------------
+    0   0  -0.00472930  +0.07405205            symmetric
+    1   1  +0.03618822  +0.11496957            symmetric
+    2   2  +0.03353985  +0.11232120            symmetric
+    3   3  -0.07878135  -0.00000000            REFERENCE
+    4   4  +0.00225272  +0.08103406            symmetric
+    5   5  +0.04159458  +0.12037593            symmetric
+    7   7  +0.06893730  +0.14771865            symmetric
+    1   3  +0.02784407  +0.10662542             asym 1-3
+    2   4  -0.06566166  +0.01311968             asym 2-4
+    3   5  +0.05459457  +0.13337592             asym 3-5
+    1   5  +0.01077168  +0.08955303             asym 1-5
+    0   3  -0.06181353  +0.01696781             asym 0-3
+    0   7  -0.07087823  +0.00790311             asym 0-7
+    3   1  +0.02784407  +0.10662542             asym 3-1
+    5   1  +0.01077168  +0.08955303             asym 5-1
+    7   0  -0.07087823  +0.00790311             asym 7-0
+
+SUMMARY
+======================================================================
+
+Three bond channels tested for independence:
+  1. GEOMETRIC (kink overlap at distance R)
+  2. OCCUPANCY (breather modes in each well)
+  3. ASYMMETRY (different well depths / IE)
+
+KEY QUESTION: V(all three) = sum of individual channels?
+
+If YES → can model each channel separately (V8 approach is valid)
+If NO → must model them as a coupled system
+        (explains why V8 needs molecule-specific corrections)
+
+Completed: 2026-03-25 20:06:38

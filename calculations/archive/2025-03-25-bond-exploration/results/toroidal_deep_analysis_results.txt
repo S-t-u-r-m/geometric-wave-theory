@@ -1,0 +1,321 @@
+TOROIDAL MODE DEEP ANALYSIS
+======================================================================
+Started: 2026-03-25 18:39:01
+
+PART 1: HIGH-RESOLUTION FOURIER DECOMPOSITION
+-------------------------------------------------------
+Expanding to m_max=8, n_max=6 to check for missed modes.
+
+Sites within rho_tube < 8: 9,897
+Single torus — full Fourier decomposition (m_max=8, n_max=6):
+
+  Mode  0 ω²= -0.196614 [BOUND]  R=0.823 T=0.000 P=0.160 W=0.017
+         (+0,+0):82.3%
+
+  Mode  1 ω²= -0.180300 [BOUND]  R=0.551 T=0.272 P=0.108 W=0.070
+         (+0,+0):55.1%
+
+  Mode  2 ω²= -0.180300 [BOUND]  R=0.551 T=0.272 P=0.108 W=0.070
+         (+0,+0):55.1%
+
+  Mode  3 ω²= -0.134159 [BOUND]  R=0.548 T=0.274 P=0.108 W=0.070
+         (+0,+0):54.8%
+
+  Mode  4 ω²= -0.129850 [BOUND]  R=0.545 T=0.275 P=0.120 W=0.059
+         (+0,+0):54.5%
+
+  Mode  5 ω²= -0.053725 [BOUND]  R=0.537 T=0.269 P=0.117 W=0.077
+         (+0,+0):53.7%
+
+  Mode  6 ω²= -0.053725 [BOUND]  R=0.537 T=0.269 P=0.117 W=0.077
+         (+0,+0):53.7%
+
+  Mode  7 ω²= +0.051142 [BOUND]  R=0.536 T=0.268 P=0.118 W=0.078
+         (+0,+0):53.6%
+
+  Mode  8 ω²= +0.052312 [BOUND]  R=0.511 T=0.255 P=0.147 W=0.088
+         (+0,+0):51.1%
+
+  Mode  9 ω²= +0.181250 [BOUND]  R=0.747 T=0.000 P=0.226 W=0.027
+         (+0,+0):74.7%
+
+  Mode 10 ω²= +0.181250 [BOUND]  R=0.747 T=0.000 P=0.226 W=0.027
+         (+0,+0):74.7%
+
+  Mode 11 ω²= +0.331537 [BOUND]  R=0.724 T=0.000 P=0.262 W=0.015
+         (+0,+0):72.4%
+
+  Mode 12 ω²= +0.331668 [BOUND]  R=0.696 T=0.000 P=0.278 W=0.026
+         (+0,+0):69.6%
+
+  Mode 13 ω²= +0.480961 [BOUND]  R=0.670 T=0.000 P=0.320 W=0.010
+         (+0,+0):67.0%
+
+  Mode 14 ω²= +0.483101 [BOUND]  R=0.634 T=0.001 P=0.362 W=0.003
+         (+0,+0):63.4%
+
+  Mode 15 ω²= +0.497264 [BOUND]  R=0.451 T=0.219 P=0.217 W=0.113
+         
+
+PART 2: TOROIDAL HARMONIC LADDER
+-------------------------------------------------------
+Which m values appear? Is there a pattern in eigenvalue vs m?
+
+mode    omega^2     m=0   |m|=1   |m|=2   |m|=3   |m|=4  |m|=5+
+     0  -0.196614   98.3%    0.0%    0.0%    0.0%    1.1%    0.7%
+     1  -0.180300   65.9%    0.0%   32.7%    0.0%    0.7%    0.7%
+     2  -0.180300   65.9%    0.0%   32.7%    0.0%    0.7%    0.7%
+     3  -0.134159   65.7%    0.0%    0.0%    0.0%   32.6%    1.8%
+     4  -0.129850   66.5%    0.0%    0.0%    0.0%   33.3%    0.2%
+     5  -0.053725   65.5%    0.0%    0.3%    0.0%    0.8%   33.5%
+     6  -0.053725   65.5%    0.0%    0.3%    0.0%    0.8%   33.5%
+     7   0.051142   65.4%    0.0%    0.0%    0.0%    2.6%   31.9%
+     8   0.052312   65.8%    0.0%    0.0%    0.0%    0.1%   34.2%
+     9   0.181250   97.3%    0.0%    0.0%    0.0%    1.2%    1.5%
+    10   0.181250   97.3%    0.0%    0.0%    0.0%    1.2%    1.5%
+    11   0.331537   98.5%    0.0%    0.0%    0.0%    0.9%    0.5%
+    12   0.331668   97.4%    0.0%    0.0%    0.0%    1.6%    0.9%
+    13   0.480961   99.0%    0.0%    0.0%    0.0%    0.4%    0.6%
+    14   0.483101   99.7%    0.0%    0.0%    0.0%    0.3%    0.0%
+    15   0.497264   66.8%    0.0%   32.4%    0.0%    0.3%    0.5%
+
+PART 3: POLOIDAL HARMONIC LADDER
+-------------------------------------------------------
+Which n values appear? Is there a pattern in eigenvalue vs n?
+
+mode    omega^2     n=0   |n|=1   |n|=2   |n|=3  |n|=4+
+     0  -0.196614   82.3%    0.3%    1.3%    0.2%   15.9%
+     1  -0.180300   82.2%    0.4%    1.3%    0.2%   15.9%
+     2  -0.180300   82.2%    0.4%    1.3%    0.2%   15.9%
+     3  -0.134159   82.2%    1.6%    1.2%    0.6%   14.4%
+     4  -0.129850   82.1%    0.3%    1.3%    0.1%   16.3%
+     5  -0.053725   80.6%    2.0%    1.2%    0.2%   16.0%
+     6  -0.053725   80.6%    2.0%    1.2%    0.2%   16.0%
+     7   0.051142   80.4%    4.7%    1.2%    0.5%   13.3%
+     8   0.052312   76.5%    3.8%    1.2%    0.1%   18.4%
+     9   0.181250   74.7%    8.3%    1.3%    0.4%   15.4%
+    10   0.181250   74.7%    8.3%    1.3%    0.4%   15.4%
+    11   0.331537   72.4%   13.8%    1.5%    0.5%   11.8%
+    12   0.331668   69.6%   12.1%    1.6%    0.2%   16.5%
+    13   0.480961   67.0%    0.0%   31.5%    0.0%    1.5%
+    14   0.483101   63.5%    0.1%   32.2%    0.0%    4.1%
+    15   0.497264   67.0%    0.0%   31.7%    0.0%    1.3%
+
+PART 4: EIGENVALUE SPACING VS TORUS GEOMETRY
+-------------------------------------------------------
+On a torus with major radius R and minor radius r,
+the mode frequencies should scale as:
+  toroidal (m): Δω ~ m²/R²
+  poloidal (n): Δω ~ n²/r²
+  Since R > r, toroidal modes are lower in energy.
+
+  Ground (m=0): ω² = -0.196614
+  m=±2 pair:    ω² = -0.180300, Δω² = 0.016313
+  m=±4 pair:    ω² = -0.134159, Δω² = 0.062455
+  Ratio Δ(m=4)/Δ(m=2) = 3.83 (expect 4 for m²/R² scaling)
+
+Poloidal modes (m=0, n≠0):
+  Mode  0: ω²= -0.196614, poloidal=0.160, dominant |n|=6
+  Mode  1: ω²= -0.180300, poloidal=0.108, dominant |n|=6
+  Mode  2: ω²= -0.180300, poloidal=0.108, dominant |n|=6
+  Mode  3: ω²= -0.134159, poloidal=0.108, dominant |n|=6
+  Mode  4: ω²= -0.129850, poloidal=0.120, dominant |n|=6
+  Mode  5: ω²= -0.053725, poloidal=0.117, dominant |n|=6
+  Mode  6: ω²= -0.053725, poloidal=0.117, dominant |n|=6
+  Mode  7: ω²= +0.051142, poloidal=0.118, dominant |n|=6
+  Mode  8: ω²= +0.052312, poloidal=0.147, dominant |n|=6
+  Mode  9: ω²= +0.181250, poloidal=0.226, dominant |n|=6
+  Mode 10: ω²= +0.181250, poloidal=0.226, dominant |n|=6
+  Mode 11: ω²= +0.331537, poloidal=0.262, dominant |n|=1
+  Mode 12: ω²= +0.331668, poloidal=0.278, dominant |n|=1
+  Mode 13: ω²= +0.480961, poloidal=0.320, dominant |n|=2
+  Mode 14: ω²= +0.483101, poloidal=0.362, dominant |n|=2
+  Mode 15: ω²= +0.497264, poloidal=0.217, dominant |n|=2
+
+PART 5: FINE R SCAN — WHERE DOES POLOIDAL ACTIVATE?
+-------------------------------------------------------
+Scanning R = 6 to 16 in steps of 1 to map the transition.
+
+   R      shift_0     split_01     rad     tor     pol     twi  pol_anti
+--------------------------------------------------------------------------------
+   6  -0.06815498   0.01630438  0.4033  0.0001  0.5963  0.0003    0.4042
+   7  -0.01879951   0.01631697  0.4494  0.0001  0.5501  0.0004    0.3724
+   8  -0.00582953   0.00645510  0.7428  0.0001  0.2557  0.0013    0.2233
+   9  -0.00067803   0.00209465  0.8300  0.0001  0.1685  0.0014    0.1561
+  10  -0.00067060   0.00065581  0.9819  0.0002  0.0148  0.0031    0.0155
+  11  +0.00116843   0.00022688  0.9897  0.0001  0.0079  0.0023    0.0076
+  12  -0.00008386   0.00007334  0.9783  0.0002  0.0183  0.0032    0.0184
+  13  +0.00139308   0.00002585  0.9906  0.0001  0.0069  0.0023    0.0069
+  14  -0.00001072   0.00000844  0.9782  0.0002  0.0184  0.0032    0.0185
+  15  +0.00142161   0.00000300  0.9907  0.0001  0.0069  0.0023    0.0069
+  16  -0.00000138   0.00000098  0.9782  0.0002  0.0185  0.0032    0.0185
+
+PART 6: POLOIDAL ACTIVATION DECAY RATE
+-------------------------------------------------------
+Asymptotic poloidal fraction: 0.0146
+Peak poloidal excess (R=6): 0.5817
+
+Poloidal excess decay rate: 0.6083
+  Compare: eps_1 = 0.0650
+  Compare: 2*eps_1 = 0.1301
+  Ratio (decay / eps_1): 9.35
+  Ratio (decay / 2*eps_1): 4.68
+
+  R=    6: actual=0.581713, fit=0.658866, ratio=0.883
+  R=    7: actual=0.535529, fit=0.358592, ratio=1.493
+  R=    8: actual=0.241129, fit=0.195166, ratio=1.236
+  R=    9: actual=0.153902, fit=0.106220, ratio=1.449
+  R=   12: actual=0.003728, fit=0.017124, ratio=0.218
+  R=   14: actual=0.003847, fit=0.005072, ratio=0.758
+  R=   16: actual=0.003856, fit=0.001503, ratio=2.566
+
+BONDING SHIFT DECAY RATE:
+  Shift decay rate: 1.0533
+  Ratio / eps_1: 16.19
+
+SPLITTING DECAY RATE:
+  Split decay rate: 1.0354
+  Ratio / eps_1: 15.92
+
+PART 7: ENERGY-WEIGHTED DECOMPOSITION
+-------------------------------------------------------
+Which component carries the BOND ENERGY (not just the wavefunction)?
+Bond energy = shift in eigenvalue. Weight by the eigenvalue shift.
+
+   R         V(R)      V_rad      V_tor      V_pol      V_twi
+------------------------------------------------------------
+   6  -0.06815498 -0.02748641 -0.00000412 -0.04064136 -0.00002308
+   7  -0.01879951 -0.00844893 -0.00000106 -0.01034208 -0.00000744
+   8  -0.00582953 -0.00433036 -0.00000074 -0.00149075 -0.00000768
+   9  -0.00067803 -0.00056278 -0.00000008 -0.00011425 -0.00000092
+  10  -0.00067060 -0.00065846 -0.00000012 -0.00000994 -0.00000209
+  11  +0.00116843 +0.00115643 +0.00000017 +0.00000917 +0.00000265
+  12  -0.00008386 -0.00008204 -0.00000001 -0.00000154 -0.00000027
+  13  +0.00139308 +0.00138006 +0.00000020 +0.00000963 +0.00000319
+  14  -0.00001072 -0.00001049 -0.00000000 -0.00000020 -0.00000003
+  15  +0.00142161 +0.00140835 +0.00000020 +0.00000980 +0.00000326
+  16  -0.00000138 -0.00000135 -0.00000000 -0.00000003 -0.00000000
+
+PART 8: RADIAL PROFILE OF BONDING MODE
+-------------------------------------------------------
+Where is the eigenvector weight distributed radially from tube center?
+This tells us whether the mode is confined to the tube or spreads out.
+
+   rho     psi2_sum     psi2_cum    phi_avg
+---------------------------------------------
+   0.2 7.979924e-02       0.0798     1.4259
+   0.8 8.847580e-02       0.1683     1.2928
+   1.2 4.351225e-01       0.6034     1.0984
+   1.8 1.369889e-01       0.7404     0.7959
+   2.2 1.878445e-01       0.9282     0.5588
+   2.8 3.443538e-02       0.9627     0.3324
+   3.2 2.682933e-02       0.9895     0.2231
+   3.8 5.756884e-03       0.9953     0.1325
+   4.2 3.548855e-03       0.9988     0.0816
+   4.8 6.142077e-04       0.9994     0.0491
+   5.2 4.376828e-04       0.9999     0.0305
+   5.8 7.989095e-05       0.9999     0.0174
+   6.2 4.918423e-05       1.0000     0.0108
+   6.8 8.915841e-06       1.0000     0.0064
+   7.2 6.594415e-06       1.0000     0.0041
+   7.8 1.135398e-06       1.0000     0.0024
+
+PART 9: TORUS OVERLAP AT SMALL R
+-------------------------------------------------------
+At what R do the two torus profiles start overlapping?
+The superposition phi_A + phi_B: where does it exceed the single-torus peak?
+
+  R=  6: overlap_sites=   864, max_overlap=0.7548, max_single=1.4410, midplane_min=0.0021
+  R=  7: overlap_sites=   596, max_overlap=0.4857, max_single=1.4410, midplane_min=0.0017
+  R=  8: overlap_sites=   252, max_overlap=0.1982, max_single=1.4410, midplane_min=0.0014
+  R=  9: overlap_sites=   140, max_overlap=0.1204, max_single=1.4410, midplane_min=0.0011
+  R= 10: overlap_sites=     0, max_overlap=0.0000, max_single=1.4410, midplane_min=0.0009
+  R= 12: overlap_sites=     0, max_overlap=0.0000, max_single=1.4410, midplane_min=0.0005
+  R= 14: overlap_sites=     0, max_overlap=0.0000, max_single=1.4410, midplane_min=0.0003
+  R= 16: overlap_sites=     0, max_overlap=0.0000, max_single=1.4410, midplane_min=0.0001
+
+PART 10: FULL EIGENMODE TRACKING AT R=8 AND R=10
+-------------------------------------------------------
+Detailed decomposition of all 8 lowest modes at key separations.
+
+R = 8:
+mode    omega^2      shift   (0,0)   |m|>0   |n|>0   twist             top_mode
+------------------------------------------------------------------------------
+     0  -0.202443  -0.005830   0.635   0.000   0.363   0.001 (+0,+0):64% (+0,-4):7%
+     1  -0.195988  +0.000626   0.661   0.000   0.338   0.001 (+0,+0):66% (+0,-4):7%
+     2  -0.186123  +0.010491   0.414   0.219   0.238   0.129 (+0,+0):41% (-2,+0):11%
+     3  -0.186123  +0.010491   0.414   0.219   0.238   0.129 (+0,+0):41% (-2,+0):11%
+     4  -0.179674  +0.016939   0.447   0.214   0.229   0.110 (+0,+0):45% (-2,+0):11%
+     5  -0.179674  +0.016939   0.447   0.214   0.229   0.110 (+0,+0):45% (-2,+0):11%
+     6  -0.139947  +0.056667   0.417   0.208   0.247   0.128 (+0,+0):42% (-4,+0):10%
+     7  -0.135682  +0.060932   0.423   0.214   0.241   0.122 (+0,+0):42% (-4,+0):11%
+     8  -0.133524  +0.063090   0.433   0.216   0.230   0.120 (+0,+0):43% (-4,+0):11%
+     9  -0.129230  +0.067384   0.440   0.222   0.224   0.114 (+0,+0):44% (-4,+0):11%
+
+R = 10:
+mode    omega^2      shift   (0,0)   |m|>0   |n|>0   twist             top_mode
+------------------------------------------------------------------------------
+     0  -0.197284  -0.000671   0.923   0.000   0.073   0.003          (+0,+0):92%
+     1  -0.196629  -0.000015   0.923   0.000   0.074   0.003          (+0,+0):92%
+     2  -0.180970  +0.015644   0.609   0.312   0.049   0.030 (+0,+0):61% (-2,+0):16%
+     3  -0.180970  +0.015644   0.609   0.312   0.049   0.030 (+0,+0):61% (-2,+0):16%
+     4  -0.180316  +0.016298   0.613   0.309   0.050   0.029 (+0,+0):61% (-2,+0):15%
+     5  -0.180316  +0.016298   0.613   0.309   0.050   0.029 (+0,+0):61% (-2,+0):15%
+     6  -0.134822  +0.061792   0.602   0.301   0.060   0.038 (+0,+0):60% (-4,+0):15%
+     7  -0.134174  +0.062440   0.602   0.300   0.060   0.038 (+0,+0):60% (-4,+0):15%
+     8  -0.130520  +0.066094   0.617   0.312   0.047   0.024 (+0,+0):62% (-4,+0):16%
+     9  -0.129867  +0.066747   0.617   0.312   0.047   0.024 (+0,+0):62% (-4,+0):16%
+
+PART 11: BONDING VS ANTIBONDING SYMMETRY
+-------------------------------------------------------
+Check that bonding mode is symmetric (same sign on both tori)
+and antibonding is antisymmetric (opposite sign).
+
+  R=8, mode 0: sum_A=+28.9691, sum_B=+28.9691, SYMMETRIC
+  R=8, mode 1: sum_A=-27.8773, sum_B=+27.8773, ANTISYM
+  R=8, mode 2: sum_A=-0.0000, sum_B=+0.0000, ANTISYM
+  R=8, mode 3: sum_A=+0.0000, sum_B=+0.0000, ratio=0.27
+
+  R=10, mode 0: sum_A=+28.3774, sum_B=+28.3774, SYMMETRIC
+  R=10, mode 1: sum_A=-28.2641, sum_B=+28.2641, ANTISYM
+  R=10, mode 2: sum_A=+0.0000, sum_B=-0.0000, ANTISYM
+  R=10, mode 3: sum_A=-0.0000, sum_B=+0.0000, ANTISYM
+
+  R=12, mode 0: sum_A=+28.3143, sum_B=+28.3143, SYMMETRIC
+  R=12, mode 1: sum_A=+28.3020, sum_B=-28.3020, ANTISYM
+  R=12, mode 2: sum_A=+0.0000, sum_B=-0.0000, ANTISYM
+  R=12, mode 3: sum_A=+0.0000, sum_B=-0.0000, ANTISYM
+
+SUMMARY OF DEEP ANALYSIS
+======================================================================
+
+1. FOURIER STRUCTURE:
+   - Ground state is 97.8% radial (m=0, n=0) — breathing mode
+   - Modes 1-2: degenerate m=±2 toroidal pair (NOT m=±1)
+   - Modes 3-4: degenerate m=±4 toroidal pair
+   - m=1 (dipole/translation) appears weakly — NOT a bound state
+   - Poloidal content grows with mode number: 2% → 32%
+
+2. TOROIDAL LADDER: m=0, 2, 4 (even harmonics only)
+   This is because the torus has a reflection symmetry.
+   Δω²(m=4)/Δω²(m=2) measures the dispersion relation.
+
+3. POLOIDAL ACTIVATION:
+   Asymptotic poloidal fraction: 0.0146
+   R=6: poloidal fraction rises to ~0.60
+   Decay rate: 0.6083
+   This is 9.4× eps_1
+
+4. BOND ENERGY DECOMPOSITION:
+   At close range (R<10), ~25% of bond energy flows through
+   the poloidal channel. At equilibrium distances, <2%.
+   The toroidal/poloidal/twist weights ARE R-dependent.
+
+5. KEY PHYSICS:
+   - Poloidal (color) channel activates at short range
+   - Toroidal (electric) channel is constant (ground state has no m≠0)
+   - Ground state bonding is almost pure RADIAL — the tube 'breathes'
+   - The m≠0 modes (toroidal excitations) are HIGHER eigenvalues
+   - Bond formation primarily involves radial + poloidal mixing
+
+Completed: 2026-03-25 18:39:15

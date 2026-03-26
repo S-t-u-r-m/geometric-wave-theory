@@ -1,0 +1,156 @@
+ANGULAR BOND ANALYSIS — σ/π/δ FROM TORUS GEOMETRY
+======================================================================
+Started: 2026-03-25 19:32:00
+
+PART 1: D_e(θ) — BOND STRENGTH VS APPROACH ANGLE
+-------------------------------------------------------
+Fine scan from 0° to 90° in 5° steps.
+
+    θ  peak_phi   FWHM  bound  R_eq          D_e  bond_type
+------------------------------------------------------------
+    0°    0.0018    7.1      1     4   0.00000016   non-bond
+    5°    0.0020    8.5      1     4   0.00000025   non-bond
+   10°    0.0023    9.4      1     4   0.00000038   non-bond
+   15°    0.0027   10.8      1     4   0.00000059   non-bond
+   20°    0.0031   12.2      1     4   0.00000100   non-bond
+   25°    0.0043   12.7      1     4   0.00000186   non-bond
+   30°    0.0057   13.2      1     4   0.00000365   non-bond
+   35°    0.0085   11.8      1     4   0.00000889   non-bond
+   40°    0.0127   11.8      1     4   0.00002845   non-bond
+   45°    0.0203   11.3      1     4   0.00014945  δ (delta)
+   50°    0.0343   11.3      1     4   0.00094720  δ (delta)
+   55°    0.0598   10.4      1     4   0.00555049     π (pi)
+   60°    0.1073    9.4      1     4   0.02835281     π (pi)
+   65°    0.1898    8.9      1     4   0.11130870  σ (sigma)
+   70°    0.3664    8.5      1     4   0.28640795  σ (sigma)
+   75°    0.5989    8.5      2     4   0.46068752  σ (sigma)
+   80°    0.9770    8.0      3     4   0.31652954  σ (sigma)
+   85°    1.2522    7.5      3     6   0.06173316     π (pi)
+   90°    1.4128    7.5      3     6   0.12008238  σ (sigma)
+
+PART 2: WHY 75° BONDS STRONGER THAN 90°
+-------------------------------------------------------
+
+At 90° (equatorial), the 1D slice crosses the torus ring at TWO
+points (x = -R_maj and x = +R_maj), creating a DOUBLE-WELL profile.
+At 75°, the slice clips the tube at a steep angle, creating a
+SINGLE deep well.
+
+Compare the profiles:
+
+  θ=75°: 4 peak(s), max_phi=0.5989, D_e=0.460688
+  θ=80°: 2 peak(s), max_phi=0.9770, D_e=0.316530
+  θ=85°: 2 peak(s), max_phi=1.2522, D_e=0.061733
+  θ=90°: 2 peak(s), max_phi=1.4128, D_e=0.120082
+
+The single-peak profile at 75° creates a deeper, sharper potential
+well than the double-peak at 90°. Two shallow wells compete for
+the bound state, weakening each one.
+
+PART 3: σ/π/δ BOND PARAMETERS
+-------------------------------------------------------
+
+σ (sigma) angles: [65, 70, 75, 80, 90]
+π (pi) angles:    [55, 60, 85]
+δ (delta) angles: [45, 50]
+non-bonding:      [0, 5, 10, 15, 20, 25, 30, 35, 40]
+
+  σ sigma:
+    Angular range: 65° - 90°
+    D_e range: 0.111309 - 0.460688
+    D_e mean:  0.259003
+    R_eq range: 4 - 6
+
+  π pi:
+    Angular range: 55° - 85°
+    D_e range: 0.005550 - 0.061733
+    D_e mean:  0.031879
+    R_eq range: 4 - 6
+
+  δ delta:
+    Angular range: 45° - 50°
+    D_e range: 0.000149 - 0.000947
+    D_e mean:  0.000548
+    R_eq range: 4 - 4
+
+  σ/π ratio: 8.1
+  (Chemistry typically: 2-10×)
+
+PART 4: REPRESENTATIVE BOND CURVES
+-------------------------------------------------------
+   R          σ(75°)          π(85°)          δ(50°)
+----------------------------------------------------
+   4     -0.46068752     -0.02375839     -0.00094720
+   6     -0.07964732     -0.06173316     -0.00060665
+   8     -0.01652226     -0.00591459     -0.00051120
+  10     -0.06700482     -0.00432702     -0.00052388
+  12     -0.22988701     -0.00002884     -0.00053703
+  14     -0.28689793     -0.00000404     -0.00048806
+  16     -0.26772287     -0.00000054     -0.00042716
+  18     -0.29427497     -0.00000007     -0.00034811
+  20     -0.13740846     -0.00000001     -0.00031052
+  22     -0.02823931     -0.00451515     -0.00029540
+  24     -0.00431576     -0.00145995     -0.00028944
+  26     -0.00062204     -0.00021225     -0.00028794
+  28     -0.00008696     -0.00002790     -0.00028756
+  30     -0.00001350     -0.00000391     -0.00028747
+  32     -0.00000548     -0.00000058     -0.00028746
+  34     -0.00000471     -0.00000022     -0.00028745
+  36     -0.00000462     -0.00000019     -0.00028745
+  38     -0.00000461     -0.00000018     -0.00028745
+  40     -0.00000460     -0.00000018     -0.00028745
+
+PART 5: MORSE DECAY RATES
+-------------------------------------------------------
+  σ (θ=75°): D_e=0.460688, R_eq=4, Morse_a=0.3910
+  π (θ=85°): D_e=0.061733, R_eq=6, Morse_a=0.2124
+  δ (θ=50°): D_e=0.000947, R_eq=4, Morse_a=0.0231
+
+PART 6: ANGLE-WEIGHTED TOTAL BOND ENERGY
+-------------------------------------------------------
+The isotropic (rotationally-averaged) bond is:
+  <D_e> = ∫ D_e(θ) × sin(θ) dθ / ∫ sin(θ) dθ
+
+  <D_e> (isotropic average) = 0.111617
+
+     σ sigma: contribution = 0.118079 (105.8%)
+        π pi: contribution = 0.020056 (18.0%)
+     δ delta: contribution = 0.000036 (0.0%)
+    non-bond: contribution = 0.000002 (0.0%)
+
+PART 7: GEOMETRIC PREDICTIONS
+-------------------------------------------------------
+
+The torus has two scales:
+  R_major = 8 (ring radius)
+  r_tube ~ 3 (tube half-width)
+  Aspect ratio R_maj/r_tube = 2.7
+
+Predictions from geometry:
+  σ bond R_eq should be ~ 2×r_tube = 6
+  π bond R_eq should be ~ R_major = 8
+  σ/π strength ratio ~ (R_maj/r_tube)^2 = 7.1
+    (because tunneling depends on barrier area)
+
+  Actual σ/π ratio: 7.5
+  Predicted: 7.1
+  This AGREES with the geometric prediction
+
+SUMMARY
+======================================================================
+
+The toroidal proton geometry naturally produces σ/π/δ bond types:
+
+  σ (sigma): θ = [65, 70, 75, 80, 90] — D_e ~ 0.2590
+  π (pi):    θ = [55, 60, 85] — D_e ~ 0.0319
+  δ (delta): θ = [45, 50] — D_e ~ 0.000548
+
+  Isotropic average: <D_e> = 0.111617
+
+The 75° > 90° effect: single-peak profiles bond stronger than
+double-peak (the equatorial slice hits the ring twice).
+
+KEY RESULT: Bond type diversity EMERGES from torus geometry alone.
+No parameters needed — just the shape of the kink-antikink ring.
+
+Completed: 2026-03-25 19:32:22

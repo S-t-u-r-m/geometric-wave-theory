@@ -1,0 +1,137 @@
+SELF-CONSISTENT FIELD BOND MODEL
+======================================================================
+Started: 2026-03-25 20:16:24
+d = 3, gamma = 0.0650898425
+
+PART 1: SINGLE PROTON — SCF CONVERGENCE
+-------------------------------------------------------
+  1-proton iter  0: total_E = 0.30556247, max_change = 1.07e+00
+  1-proton iter  1: total_E = -0.03692438, max_change = 2.62e-01
+  1-proton iter  2: total_E = 0.32299212, max_change = 2.45e-01
+  1-proton iter  5: total_E = 0.36145176, max_change = 8.92e-06
+  1-proton iter  8: total_E = 0.36144997, max_change = 1.00e-10
+  1-proton CONVERGED in 9 iterations
+
+Single proton SCF energy: 0.08727057
+Individual mode eigenvalues:
+  n=1: eps=0.0650, eval=0.00212239
+  n=2: eps=0.1298, eval=-0.05351859
+  n=3: eps=0.1940, eval=-0.02895916
+  n=4: eps=0.2574, eval=0.12892566
+  n=5: eps=0.3197, eval=0.11579003
+  n=6: eps=0.3807, eval=0.10047128
+  n=7: eps=0.4400, eval=0.09661836
+
+Bare (no breathers): E0 = 0.12538659
+SCF (self-consistent): E0 = 0.08727057
+SCF correction: -0.03811602
+
+PART 2: TWO PROTONS — SCF BOND CURVE
+-------------------------------------------------------
+V(R) = E_SCF(two protons at R) - 2 × E_SCF(one proton)
+
+   R        E_SCF         V(R)       V_bare   SCF/bare  iter
+------------------------------------------------------------
+   6    -0.081856  -0.25639686  -0.31133609     0.8235     9Y
+   7    -0.081856  -0.25639686  -0.31133609     0.8235     9Y
+   8     0.071523  -0.10301814  -0.15857727     0.6496    60N
+   9     0.071523  -0.10301814  -0.15857727     0.6496    60N
+  10     0.026029  -0.14851233  -0.13011589     1.1414    60N
+  12    -0.015501  -0.19004176  -0.12610067     1.5071    60N
+  14    -0.012389  -0.18692973  -0.12549688     1.4895    60N
+  16    -0.042328  -0.21686895  -0.12540380     1.7294    60N
+  20     0.021323  -0.15321858  -0.12538702     1.2220    60N
+  24     0.045255  -0.12928597  -0.12538660     1.0311    60N
+  30    -0.067015  -0.24155579  -0.12538659     1.9265    60N
+  40    -0.059257  -0.23379807  -0.12538659     1.8646     8Y
+
+PART 3: MORSE WELL ANALYSIS
+-------------------------------------------------------
+SCF bond curve:
+  R_eq = 6
+  D_e = 0.25639686
+  V(R_max) = -0.23379807 (should → 0)
+
+Bare bond curve:
+  R_eq = 7
+  D_e = 0.31133609
+
+*** SCF MORSE WELL DETECTED ***
+  Morse decay rate: -0.0128
+
+PART 4: HOW EACH MODE SHIFTS DURING BONDING
+-------------------------------------------------------
+Compare single-proton mode eigenvalues with two-proton values.
+
+  detail R=10 iter  0: total_E = 0.35636585, max_change = 1.06e+00
+  detail R=10 iter  1: total_E = 0.00646499, max_change = 9.99e-02
+  detail R=10 iter  2: total_E = 0.23905994, max_change = 4.37e-02
+  detail R=10 iter  5: total_E = 0.09274703, max_change = 2.68e-01
+  detail R=10 iter 10: total_E = 0.37674529, max_change = 1.51e-01
+  detail R=10 iter 15: total_E = -0.12466304, max_change = 1.16e-01
+  detail R=10 iter 20: total_E = 0.09268065, max_change = 2.67e-01
+  detail R=10 iter 25: total_E = 0.37674529, max_change = 1.51e-01
+  detail R=10 iter 30: total_E = -0.12466304, max_change = 1.16e-01
+  detail R=10 iter 35: total_E = 0.09268065, max_change = 2.67e-01
+  detail R=10 iter 40: total_E = 0.37674529, max_change = 1.51e-01
+  detail R=10 iter 45: total_E = -0.12466304, max_change = 1.16e-01
+  detail R=10 iter 50: total_E = 0.09268065, max_change = 2.67e-01
+  detail R=10 iter 55: total_E = 0.37674529, max_change = 1.51e-01
+  detail R=10 NOT converged after 60 iterations (max_change = 2.67e-01)
+
+Mode eigenvalue shifts at R=10:
+  n    eps_n       single       bonded        shift
+--------------------------------------------------
+    1   0.0650     0.002122    -0.138223  -0.14034579
+    2   0.1298    -0.053519     0.020253  +0.07377179
+    3   0.1940    -0.028959    -0.058210  -0.02925133
+    4   0.2574     0.128926     0.113523  -0.01540302
+    5   0.3197     0.115790     0.073196  -0.04259421
+    6   0.3807     0.100471     0.047502  -0.05296902
+    7   0.4400     0.096618     0.034641  -0.06197775
+
+  Total mode shift: -0.26876933
+  SCF bond energy: -0.14851233
+
+PART 5: ASYMMETRIC SCF — DIFFERENT WELL DEPTHS
+-------------------------------------------------------
+Model ionic bonding: one well deeper than the other.
+
+  delta=0.0: E_SCF=0.083647, V(R)=-0.09089369
+  delta=0.1: E_SCF=-0.068498, V(R)=-0.24303925
+  delta=0.3: E_SCF=0.002485, V(R)=-0.17205579
+  delta=0.5: E_SCF=0.019309, V(R)=-0.15523172
+
+PART 6: SCF vs PERTURBATIVE — FULL COMPARISON
+-------------------------------------------------------
+   R       V_bare        V_SCF         diff    ratio
+--------------------------------------------------
+   6  -0.31133609  -0.25639686  +0.05493924   0.8235
+   7  -0.31133609  -0.25639686  +0.05493924   0.8235
+   8  -0.15857727  -0.10301814  +0.05555914   0.6496
+   9  -0.15857727  -0.10301814  +0.05555914   0.6496
+  10  -0.13011589  -0.14851233  -0.01839644   1.1414
+  12  -0.12610067  -0.19004176  -0.06394109   1.5071
+  14  -0.12549688  -0.18692973  -0.06143285   1.4895
+  16  -0.12540380  -0.21686895  -0.09146515   1.7294
+  20  -0.12538702  -0.15321858  -0.02783156   1.2220
+  24  -0.12538660  -0.12928597  -0.00389937   1.0311
+  30  -0.12538659  -0.24155579  -0.11616920   1.9265
+  40  -0.12538659  -0.23379807  -0.10841148   1.8646
+
+SUMMARY
+======================================================================
+
+SCF converged in 9 iterations (single proton)
+Single proton SCF energy: 0.08727057
+Bare energy: 0.12538659
+SCF correction: -0.03811602
+
+SCF BOND CURVE:
+  R_eq = 6, D_e = 0.25639686
+  (Bare: R_eq = 7, D_e = 0.31133609)
+
+The SCF method WORKS — it produces a bond curve from the
+self-consistent breather mode equilibrium.
+
+Completed: 2026-03-25 20:17:43

@@ -1,0 +1,138 @@
+ANGULAR D_e(θ) → Oh IRREP DECOMPOSITION
+======================================================================
+Started: 2026-03-25 19:42:29
+
+Computing D_e(θ) with fine angular resolution...
+Done.
+
+PART 1: LEGENDRE POLYNOMIAL DECOMPOSITION
+-------------------------------------------------------
+D_e(θ) = Σ_l a_l × P_l(cos θ)
+
+  l            a_l    a_l/a_0        Oh irrep
+---------------------------------------------
+    0     0.03614808    +1.0000             A1g
+    1     0.03391388    +0.9382     (forbidden)
+    2    -0.06240095    -1.7263              Eg
+    3    -0.09595378    -2.6545       (T1g+T2g)
+    4     0.01499228    +0.4147      A1g+Eg+T2g
+    5     0.12420764    +3.4361       (T1g+T2g)
+    6     0.06311381    +1.7460  A1g+Eg+T1g+T2g
+    7    -0.09489834    -2.6253   (A2g+T1g+T2g)
+    8    -0.12458648    -3.4466  A1g+Eg+T2g+...
+    9     0.02223297    +0.6151           (...)
+   10     0.13791938    +3.8154      A1g+Eg+...
+
+Fit quality:
+  RMS residual: 0.063805
+  RMS D_e: 0.120384
+  Fit quality: 47.0%
+
+PART 2: Oh IRREP CONTENT
+-------------------------------------------------------
+
+On the sphere with Oh symmetry, the angular function D_e(θ,φ)
+decomposes into irreps. For axial symmetry (m=0 only):
+
+  A1g content: l=0, 4, 6, 8, 10, ...
+  Eg content:  l=2, 4, 6, 8, 10, ...
+  T2g content: l=4, 6, 8, ...
+  T1g content: l=6, 8, ...
+
+Leading contributions:
+  A1g (l=0):  0.03614808 — isotropic bond strength
+  Eg  (l=2):  -0.06240095 — quadrupolar anisotropy
+  l=4:        0.01499228 — A1g + Eg + T2g mix
+  l=6:        0.06311381 — A1g + Eg + T1g + T2g mix
+
+PART 3: COMPARISON WITH V8 BOND MODEL
+-------------------------------------------------------
+
+V8 constants from Oh group theory:
+  C_BOND = π/d² = 0.349066
+  W_PI   = cos(π/d) = 0.500000  (π bond / σ bond ratio)
+  LP_I   = (d²+1)/d³ = 0.370370
+  F_RAD  = (2d-1)/(2d) = 0.833333
+
+From angular decomposition:
+  A1g (isotropic):   0.036148
+  Eg (quadrupolar):  -0.062401
+  |Eg/A1g| ratio:    1.7263
+  V8 W_PI = cos(π/d): 0.5000
+
+Angular-integrated bond strengths:
+  σ region (θ≥65°): 0.063779 (88.2%)
+  π region (45-65°): 0.003601 (5.0%)
+  δ region (30-45°): 0.000002 (0.0%)
+  Total: 0.072296
+
+  π/σ ratio from simulation: 0.0565
+  V8 W_PI = cos(π/d):        0.5000
+  Match: 88.7% error
+
+PART 4: DOES THE A1g FRACTION MATCH C_BOND = π/d²?
+-------------------------------------------------------
+
+  a_0 / ∫D_e sinθ dθ = 0.500000
+  C_BOND = π/d² = 0.349066
+  π/d² / (a_0/∫) = 0.6981
+
+  a_0 / D_e_max = 0.078466
+  C_BOND = 0.349066
+
+  Oh prediction: A1g fraction of T1u⊗T1u = 1/d² = 0.111111
+  C_BOND = π/d² = π × (1/d²) = π × A1g_fraction
+  The π factor comes from the potential periodicity!
+
+PART 5: BOND TYPE ↔ Oh IRREP MAPPING
+-------------------------------------------------------
+
+Hypothesis:
+  σ bond → A1g channel (isotropic, strongest)
+  π bond → Eg or T2g channel (quadrupolar, weaker)
+  δ bond → higher-l channels (octupolar, weakest)
+
+In V8:
+  coupling = σ_eff + π_eff × W_PI
+         = A1g_part + T2g_part × cos(π/d)
+
+From our simulation:
+  Isotropic (A1g) strength:    a_0 = 0.036148
+  Quadrupolar (Eg) strength:  |a_2| = 0.062401
+  Octupolar (l=3) strength:   |a_3| = 0.095954
+  l=4 strength:               |a_4| = 0.014992
+
+Single bond (θ=75°): D_e = 0.460688
+Adding π channel (θ=60°): D_e = 0.028353
+Double/single ratio: 1.0615
+V8 prediction (1+W_PI): 1.5000
+Match: 29.2%
+
+Triple/single ratio: 1.1231
+V8 prediction (1+2×W_PI): 2.0000
+Match: 43.8%
+
+SUMMARY
+======================================================================
+
+Legendre decomposition of D_e(θ) from torus simulation:
+  l=0: a_l = +0.036148 (a_l/a_0 = +1.0000)
+  l=1: a_l = +0.033914 (a_l/a_0 = +0.9382)
+  l=2: a_l = -0.062401 (a_l/a_0 = -1.7263)
+  l=3: a_l = -0.095954 (a_l/a_0 = -2.6545)
+  l=4: a_l = +0.014992 (a_l/a_0 = +0.4147)
+  l=5: a_l = +0.124208 (a_l/a_0 = +3.4361)
+  l=6: a_l = +0.063114 (a_l/a_0 = +1.7460)
+
+KEY COMPARISONS WITH V8:
+  π/σ angular integral ratio: 0.0565 vs V8 W_PI = 0.5000
+  Error: 88.7%
+
+  The isotropic component a_0 captures the σ-bond strength.
+  The l=2 (Eg) component captures the π-bond anisotropy.
+  Higher l encode δ bonds and LP repulsion geometry.
+
+  π/σ ratio does not match — the angular regions may need
+  different boundaries, or the mapping is more subtle.
+
+Completed: 2026-03-25 19:43:08
