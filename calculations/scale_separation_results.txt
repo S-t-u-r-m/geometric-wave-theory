@@ -1,0 +1,22 @@
+SCALE SEPARATION DISCOVERY (2026-03-27)
+========================================
+
+The 3D torus ZPE bond and the V8 chemical bond are DIFFERENT FORCES:
+
+1. NUCLEAR (this session): torus-torus vacuum ZPE
+   V ~ exp(-1.13 * gap_Planck)
+   Range: ~10 Planck lengths
+   This is QCD confinement at the lattice scale
+
+2. CHEMICAL (V8 formula): breather tunneling between kink wells
+   D_e = pi/d^2 * E_harm
+   Range: ~1 Angstrom = ~10^25 Planck lengths
+   This is electron sharing (covalent bond)
+
+Both from the same Lagrangian, different scales.
+The proton radius = 5.2e19 Planck lengths.
+Our R_maj=6 simulation is a toy torus.
+
+r_tube=3 is the minimum stable poloidal winding.
+This is set by the kink width (~3 sites) needing to fit
+around the tube circumference (2*pi*r_tube = 18.8 sites).
