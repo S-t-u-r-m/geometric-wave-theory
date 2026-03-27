@@ -2459,6 +2459,13 @@ can sustain coherent inter-torus coupling over exactly |Oh|/2 sites --
 one site per independent Oh mode. Beyond this, there aren't enough
 modes to maintain the collective vacuum response.
 
+**Breather stability = coherence zone:** The eigsh timing is a STABILITY MAP.
+Fast convergence = stable coherent modes. Slow = approaching stability edge.
+Hung = beyond the boundary. Breathers (particles) exist where the lattice
+maintains coherent oscillations within the |Oh|/2 = 24 site range. Outside
+this range, modes decohere into the vacuum. The particle spectrum, bond
+range, and breather stability are all the same 24-channel structure.
+
 **WARNING: Do not attempt eigsh at gap > 24 for bond calculations.
 The eigenvalue splitting falls below the coherence threshold and
 the Lanczos iteration will not converge. This is a PHYSICAL limit,
