@@ -114,6 +114,13 @@ ELECTRON g-2:
               NOT a loop expansion — an Oh CHANNEL decomposition.
               Beats 4-loop QED (46.6 ppm) and Pade (46.8 ppm) with 3 terms.
 
+MUON g-2:
+  a_mu      = a_e + alpha^2/(2*pi) * (m_mu/m_pi)^2 * d/(d-1) * 169/198  [PARTIALLY DERIVED: leading hadronic]
+              169/198 = (d^2+d+1)^2 / (2*d^2*(d^2+d-1))  = mixed EM+QCD Oh fraction
+              Leading hadronic VP term only. Missing: NLO hadronic, light-by-light, electroweak.
+              Status: ~50 ppm accuracy (incomplete). Each sub-leading term = higher Oh product.
+              The 0.08 ppm previously claimed was incorrect (wrong calculation).
+
 BOND ENERGY:
   D_e       = pi/d^2 * E_H                               = 4.749 eV     [PROVEN: Hessian eigenvalues]
               A1g fraction 1/d^2 emerged from lattice dynamics.
