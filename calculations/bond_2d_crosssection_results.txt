@@ -1,0 +1,25 @@
+2D CROSS-SECTION BONDING — CORRECT POLOIDAL WINDING TOPOLOGY
+============================================================
+
+Single torus (2 tube cross-sections at x=+-R_maj):
+  Surface modes: ev = 0.054 x2 (peak at r=4, extends outward)
+  Kink modes:    ev = 0.544 x2 (peak at r=0, localized at kink)
+
+Two-torus eigenvalues (EVEN R only, no lattice frustration):
+  R  gap       ev0       ev1       ev2       ev3       ev4       ev5
+16    0  +0.0543  +0.0543  +0.0543  +0.5435  +0.5436  +0.5438
+18    2  +0.0469  +0.0543  +0.0543  +0.3945  +0.5436  +0.5436
+20    4  +0.0534  +0.0543  +0.0543  +0.4380  +0.5436  +0.5436
+22    6  +0.0542  +0.0543  +0.0543  +0.3270  +0.5436  +0.5436
+24    8  +0.0543  +0.0543  +0.0543  +0.1862  +0.5433  +0.5436
+26   10  +0.0535  +0.0543  +0.0543  +0.0552  +0.5373  +0.5436
+28   12  +0.0542  +0.0543  +0.0543  +0.0545  +0.5421  +0.5436
+30   14  +0.0543  +0.0543  +0.0543  +0.0544  +0.5432  +0.5436
+
+KEY FINDINGS:
+1. Zero tachyons at all R (correct topology)
+2. Bond = kink-to-kink tunnel coupling of INNER tubes
+3. ev3 migrates from surface (0.054) to kink (0.544) cluster
+4. Maximum kink splitting 0.217 at R=22 (gap=6)
+5. Surface modes barely interact (point away from partner)
+6. Odd-R has lattice commensurability artifact
