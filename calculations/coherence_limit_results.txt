@@ -1,0 +1,8 @@
+BOND COHERENCE LIMIT = |Oh|/2 = 24 (2026-03-27)
+
+Eigsh times: gap=22 (1139s peak), gap=24 (120s clean), gap=26 (HUNG)
+24 = |Oh|/2 = number of breather modes = coherence length
+Collective enhancement: 646x (breaks down beyond gap=24)
+
+The bond range IS the harmonic range.
+The particle spectrum and the bond range are the same number.
