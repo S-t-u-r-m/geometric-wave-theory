@@ -1,0 +1,21 @@
+TWO-TORUS BONDING — DAMPED TIME EVOLUTION
+======================================================================
+Started: 2026-03-27 08:05:48
+
+Lattice: 64^3 = 262,144 sites
+Torus: R_major = 8, r_tube = 3
+dt = 0.15, damping = 0.01
+
+SINGLE TORUS — DAMPED EVOLUTION TO EQUILIBRIUM
+-------------------------------------------------------
+Evolving for 2000 steps with dt=0.15, damping=0.01
+  step     0: KE=714.04, PE=14732.92, TE=15446.95, winding=0.989
+  step   500: KE=27.52, PE=6567.69, TE=6595.21, winding=0.941
+  step  1000: KE=0.14, PE=6529.72, TE=6529.86, winding=0.929
+  step  1500: KE=0.00, PE=6529.43, TE=6529.43, winding=0.930
+  step  1999: KE=0.00, PE=6529.43, TE=6529.43, winding=0.930
+  Evolution time: 1.1s
+
+Settled field range: [-0.0000, 2.0000]
+Winding number: 0.930 (should be ≈ 1.0)
+Computing eigenvalues...
