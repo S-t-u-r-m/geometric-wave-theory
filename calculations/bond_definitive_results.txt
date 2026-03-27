@@ -16,3 +16,15 @@ N-scaling test:
 
 R_maj-independence at large gap: V(gap=14) same for R_maj=6 and R_maj=8.
 The bond depends on TUBE geometry (r_tube), not RING size (R_maj).
+BOND DECAY RATE IDENTIFIED (2026-03-27)
+a = kappa_surface * 2d/(2d-1) = 0.9920 * 6/5 = 1.1904 (0.06% match to measured 1.1911)
+
+From N=128 data (5 clean points, gap=12 to 20):
+  gap=12: V=-7.87e-02
+  gap=14: V=-1.85e-03
+  gap=16: V=-1.94e-04
+  gap=18: V=-2.79e-05
+  gap=20: V=-4.30e-06
+
+N-independent: N=64 and N=96 give identical V to 5 digits.
+Physical: surface mode tunneling * lattice coordination 2d/(2d-1).
