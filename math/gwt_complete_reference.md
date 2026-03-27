@@ -2169,21 +2169,28 @@ The true zero-parameter model (V10, coupling-based) achieves 7.5%.
 
 Every V8 constant now has a physical origin in the kink-antikink Hessian + 3D lattice:
 
-**The kink well (kink_width=3) has exactly 3 bound states:**
+**The kink well (kink_width=3) has 3 eigenvalues below the mass gap:**
 ```
-Mode 0: omega^2 = -0.372, binding = 1.372, width = 15.4, decay = 1.092
-Mode 1: omega^2 = +0.125, binding = 0.875, width = 7.7,  decay = 0.899
-Mode 2: omega^2 = +0.938, binding = 0.062, width = 5.2,  decay = 0.215
+Mode 0: omega^2 = -0.372  TACHYON (kink-antikink instability, NOT a breather)
+Mode 1: omega^2 = +0.125  PHYSICAL BOUND STATE (shape oscillation) — the SIGMA bond
+Mode 2: omega^2 = +0.938  PHYSICAL BOUND STATE (breathing) — the PI bond candidate
 ```
+Mode 0 is negative because the kink-antikink pair is topologically unstable in 1D.
+In the 3D torus, topology prevents annihilation and mode 0 is stabilized.
+The PHYSICAL bond modes are 1 and 2 (positive omega^2).
+
+**Mode 1→2 bond ratio: V_2/V_1 = 0.589 at R_eq=7** (compare cos(pi/d) = 0.500, 18% off)
+This is the pi/sigma ratio from the LONGITUDINAL Hessian. The 3D transverse factor
+cos(pi/d) may combine with this to give the full W_PI.
 
 **Derivation chain for each constant:**
 
 | Constant | Value | Physical Origin | Status |
 |----------|-------|-----------------|--------|
-| C_BOND = pi/d^2 | 0.349 | Mode 0 eigenvalue splitting at R_eq | DERIVED (bond_3d_emerge.py) |
-| W_PI = cos(pi/d) | 0.500 | 3D transverse tunnel ratio: same mode, perpendicular direction | DERIVED (lattice Fourier) |
-| F_RAD = (2d-1)/(2d) | 5/6 | Decay rate ratio: mode 1 / mode 0 = 0.899/1.092 = 0.824 (1.2%) | DERIVED (bare_hessian_multimode.py) |
-| LP_I = (d^2+1)/d^3 | 10/27 | Modes 1-2 fill the kink well, reducing bonding channel | DERIVED |
+| C_BOND = pi/d^2 | 0.349 | Mode 1 (sigma) eigenvalue splitting at R_eq | DERIVED (bond_3d_emerge.py) |
+| W_PI = cos(pi/d) | 0.500 | 3D transverse tunnel ratio (or V_2/V_1 = 0.589 longitudinal) | PARTIALLY DERIVED |
+| F_RAD = (2d-1)/(2d) | 5/6 | Decay rate ratio: mode 1 / mode 0 (but mode 0 is tachyon — needs recheck) | NEEDS REVISION |
+| LP_I = (d^2+1)/d^3 | 10/27 | Mode 2 well filling, reducing bonding channel | DERIVED |
 | C_IONIC = 1/(2d+1) | 1/7 | 1 exchange path out of 2d+1 on the d-cube | DERIVED (exchange path counting) |
 | C_IONIC_ENH = d/(2d+1) | 3/7 | d face-adjacent paths activate for strong asymmetry | DERIVED |
 | LP_P3 = d/(d-1) | 3/2 | Period-3 LP enhancement from extended shell | DERIVED |
