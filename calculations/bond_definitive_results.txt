@@ -28,3 +28,12 @@ From N=128 data (5 clean points, gap=12 to 20):
 
 N-independent: N=64 and N=96 give identical V to 5 digits.
 Physical: surface mode tunneling * lattice coordination 2d/(2d-1).
+
+r_tube SCAN: decay rate NOT universal
+  r=2: a=0.96, tachyon (tube too small)
+  r=3: a=1.13, matches 6/5*ks to 0.06% (COINCIDENCE)
+  r=4: a=1.61, much larger
+  r=5: periodic image issues
+  
+The 6/5 ratio was specific to r_tube=3, not a universal law.
+a(r_tube) varies — need Lagrangian to fix r_tube for the proton.
