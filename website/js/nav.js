@@ -168,7 +168,7 @@
     // Header
     const header = document.createElement('div');
     header.className = 'nav-header';
-    header.innerHTML = `<a href="${resolve('/index.html')}">Geometric Wave Theory<span class="nav-subtitle">200 predictions &middot; 0 free parameters</span></a>`;
+    header.innerHTML = `<a href="${resolve('/index.html')}">Geometric Wave Theory<span class="nav-subtitle">212 predictions &middot; 0 free parameters</span></a>`;
     sidebar.appendChild(header);
 
     // Body
