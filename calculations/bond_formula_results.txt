@@ -1,0 +1,12 @@
+BOND FORMULA: V(gap) = -A * exp(-2*kappa_kink*gap)
+kappa_kink = sqrt(1 - omega^2_kink) = 0.676
+omega^2_kink = 0.544 (kink bound mode of poloidal torus)
+Casimir round-trip: factor of 2 in exponent (there and back)
+
+R_maj=6 data (clean, no periodic image artifact):
+  gap=12: V=-0.079 (well bottom)
+  gap=14: V=-0.002
+  gap=16: V=-0.0002
+  Measured kappa=1.30, predicted 2*0.676=1.35 (4% match)
+
+R_maj=8 was contaminated: V(gap=12)=V(gap=20) from periodic images.
