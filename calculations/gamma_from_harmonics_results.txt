@@ -1,0 +1,16 @@
+GAMMA DERIVED FROM VACUUM HARMONICS (2026-03-27)
+
+gamma = (4*pi/|Oh|) * (2d/(2d-1)) = pi/(d^2+1)
+
+|Oh|/2 = 24 vacuum harmonic modes
+Harmonic spacing = 2*pi/24 = pi/12
+Lattice coordination = 2d/(2d-1) = 6/5
+gamma = (pi/12) * (6/5) = pi/10 = pi/(d^2+1)
+
+New d=3 identity: 8d(d^2+1) = (2d-1)*2^d*d!
+  d=2: 80 vs 24 (no)
+  d=3: 240 vs 240 (YES)
+  d=4: 544 vs 2688 (no)
+
+The particle spectrum IS the vacuum resonance structure.
+The lattice IS its harmonics.
