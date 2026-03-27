@@ -1,0 +1,122 @@
+TORUS CONFINEMENT TEST — DOES THE TACHYON STABILIZE?
+======================================================================
+Started: 2026-03-26 23:57:26
+
+Lattice: 64^3 = 262,144 sites
+Torus: R_major = 8, kink_width = 3
+
+PART 1: SINGLE TORUS EIGENSPECTRUM
+-------------------------------------------------------
+Torus profile: phi_max = 1.4410
+Sites with phi > 0.1: 2,388
+
+Building 3D Hessian...
+  Built in 0.26s
+Finding eigenvalues on GPU...
+  Eigsh completed in 2.17s
+
+==================================================
+*** 7 NEGATIVE EIGENVALUE(S) FOUND ***
+*** THE TACHYON PERSISTS EVEN ON THE TORUS ***
+==================================================
+
+Eigenvalues below mass gap: 40
+Negative eigenvalues: 7
+
+3D mass gap: omega^2 = 1 (phonon band: [1, 13])
+
+ idx      omega^2      omega    binding       type
+--------------------------------------------------
+    0    -0.196614   0.443412  +1.196614    TACHYON
+    1    -0.180300   0.424618  +1.180300    TACHYON
+    2    -0.180300   0.424618  +1.180300    TACHYON
+    3    -0.134159   0.366277  +1.134159    TACHYON
+    4    -0.129850   0.360348  +1.129850    TACHYON
+    5    -0.053725   0.231785  +1.053725    TACHYON
+    6    -0.053725   0.231785  +1.053725    TACHYON
+    7    +0.051142   0.226145  +0.948858      BOUND
+    8    +0.052312   0.228719  +0.947688      BOUND
+    9    +0.181250   0.425735  +0.818750      BOUND
+   10    +0.181250   0.425735  +0.818750      BOUND
+   11    +0.331537   0.575792  +0.668463      BOUND
+   12    +0.331668   0.575906  +0.668332      BOUND
+   13    +0.480961   0.693513  +0.519039      BOUND
+   14    +0.483101   0.695055  +0.516899      BOUND
+   15    +0.497264   0.705170  +0.502736      BOUND
+   16    +0.497264   0.705170  +0.502736      BOUND
+   17    +0.499700   0.706895  +0.500300      BOUND
+   18    +0.499700   0.706895  +0.500300      BOUND
+   19    +0.500820   0.707687  +0.499180      BOUND
+   20    +0.500820   0.707687  +0.499180      BOUND
+   21    +0.543279   0.737075  +0.456721      BOUND
+   22    +0.545773   0.738764  +0.454227      BOUND
+   23    +0.547653   0.740036  +0.452347      BOUND
+   24    +0.559894   0.748261  +0.440106      BOUND
+   25    +0.623620   0.789696  +0.376380      BOUND
+   26    +0.623620   0.789696  +0.376380      BOUND
+   27    +0.635816   0.797380  +0.364184      BOUND
+   28    +0.635816   0.797380  +0.364184      BOUND
+   29    +0.680986   0.825219  +0.319014      BOUND
+   30    +0.684373   0.827268  +0.315627      BOUND
+   31    +0.728541   0.853546  +0.271459      BOUND
+   32    +0.729711   0.854231  +0.270289      BOUND
+   33    +0.744437   0.862808  +0.255563      BOUND
+   34    +0.748481   0.865148  +0.251519      BOUND
+   35    +0.859142   0.926899  +0.140858      BOUND
+   36    +0.859142   0.926899  +0.140858      BOUND
+   37    +0.874709   0.935259  +0.125291      BOUND
+   38    +0.874709   0.935259  +0.125291      BOUND
+   39    +0.885522   0.941022  +0.114478      BOUND
+
+PART 2: 1D vs 3D COMPARISON
+-------------------------------------------------------
+
+1D kink-antikink (from bond_eigenvalue_flow.py):
+  mode 0: omega^2 = -0.372  TACHYON
+  mode 1: omega^2 = +0.125  BOUND
+  mode 2: omega^2 = +0.938  BOUND
+
+3D torus (this calculation):
+  Lowest: omega^2 = -0.196614  TACHYON
+  Second: omega^2 = -0.180300
+  Third:  omega^2 = -0.180300
+
+The tachyon PERSISTS on the torus.
+Possible reasons:
+  - The torus R_maj is too small (kink can still reach antikink)
+  - The kink_width is too large relative to R_maj
+  - The topology doesn't help for this potential shape
+  - The 3D model needs a different kink profile
+
+PART 3: DEGENERACY PATTERN
+-------------------------------------------------------
+Group eigenvalues by near-degeneracy (within 0.001):
+
+  Group 0: avg=-0.196614, degeneracy=1, [TACHYON]
+  Group 1: avg=-0.180300, degeneracy=2, [TACHYON]
+  Group 2: avg=-0.134159, degeneracy=1, [TACHYON]
+  Group 3: avg=-0.129850, degeneracy=1, [TACHYON]
+  Group 4: avg=-0.053725, degeneracy=2, [TACHYON]
+  Group 5: avg=+0.051142, degeneracy=1, [BOUND]
+  Group 6: avg=+0.052312, degeneracy=1, [BOUND]
+  Group 7: avg=+0.181250, degeneracy=2, [BOUND]
+  Group 8: avg=+0.331602, degeneracy=2, [BOUND]
+  Group 9: avg=+0.480961, degeneracy=1, [BOUND]
+  Group 10: avg=+0.483101, degeneracy=1, [BOUND]
+  Group 11: avg=+0.497264, degeneracy=2, [BOUND]
+  Group 12: avg=+0.499700, degeneracy=2, [BOUND]
+  Group 13: avg=+0.500820, degeneracy=2, [BOUND]
+  Group 14: avg=+0.543279, degeneracy=1, [BOUND]
+
+SUMMARY
+======================================================================
+
+3D Torus (N=64, R_maj=8, kw=3):
+  Negative eigenvalues: 7
+  Below mass gap: 40
+  Lowest eigenvalue: -0.19661385
+
+RESULT: TACHYON PERSISTS ON TORUS
+  Further investigation needed.
+
+Completed: 2026-03-26 23:57:28
