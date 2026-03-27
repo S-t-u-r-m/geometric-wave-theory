@@ -1,0 +1,4 @@
+3D ZPE BONDING — Morse well from toroidal quantum vacuum
+R=30: V=-0.002, R=28: V=-0.022 (well bottom), R=26: V=+0.081 (repulsive wall)
+2D was repulsive (surface/kink tradeoff). 3D toroidal modes break this.
+Bond = quantum vacuum (ZPE), not classical energy.
