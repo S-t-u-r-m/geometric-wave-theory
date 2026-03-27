@@ -62,6 +62,27 @@ PROTON STRUCTURE:
                26/(27*pi^2) = toroidal, 1/pi^2 = spherical measurement convention
                The 27/26 sphere-torus correction CONFIRMS toroidal proton structure
 
+MUON RADIUS:
+  r_mu      = point-like (< 10^-20 fm)                                   [DERIVED: no topological zero modes]
+  Reason: muon is a 1D breather (generation excitation of electron).
+  Only 3D topological objects (kink-antikink tori) have measurable radii.
+  Supporting evidence: muon mass works without corrections (0.6%).
+  Experimental bounds: R_mu < 0.0005 fm (from g-2), < 0.02 fm (colliders).
+  GWT prediction is 17 orders of magnitude below current experimental reach.
+  TESTABLE: MUSE at PSI (~2027) will confirm r_p(mu-p) = r_p(e-p) = 0.841 fm.
+  See: papers/gwt_muse_prediction.md (prediction timestamped March 26, 2026)
+
+CORRECTION HIERARCHY (dimensional classification):
+  1D breathers (electron, muon, tau): no lattice distortion → no corrections
+    - All lepton masses derived from bare formulas (no 1-alpha/pi^2 terms)
+    - Point-like: no measurable charge radius
+    - Evidence: m_mu/m_e = d/((d-1)*alpha) at 0.6% with no correction
+  3D torus (proton, neutron): wraps all 3 dimensions → local lattice distortion
+    - Effective c reduced inside torus → correction terms needed
+    - r_p requires (1 - alpha*26/(27*pi^2)) toroidal self-energy correction
+    - Same correction explains VP dressing of mass ratio
+    - Evidence: r_p formula needs correction for 0.02% vs 2.7% bare
+
 BARYONS:
   m_n - m_p = m_e * (d^2-1)/d * (1 - alpha*(2d+1))      = 1.293 MeV    [DERIVED: QCD-EM, 0.005%]
 
