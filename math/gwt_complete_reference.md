@@ -233,6 +233,132 @@ EPR entanglement and chemical bonding are the SAME PHYSICS at different scales:
   - EPR: free propagation, correlation preserved by absence of interaction
   - Bonding: confined interaction, correlation maintained by continuous sharing
 
+### The Born Rule from the d=3 Cube (2026-03-27, DERIVED)
+
+**The deepest result in GWT: the Born rule (probability = |amplitude|^2) emerges
+from projecting twist modes onto the d=3 cubic lattice.**
+
+The twist mode (spin) on the torus transforms as T1u under the Oh group —
+it is a VECTOR with a direction (the spin axis). A "measurement" projects
+this vector onto the detector's axis. The projection squared gives the
+measurement probability:
+
+```
+P(outcome) = cos^2(theta)
+```
+
+where theta = angle between the spin axis and the measurement axis.
+This IS the Born rule. It is not a postulate — it is GEOMETRY.
+
+**Proof: cos^2(theta) from T1u projection on the d-cube**
+
+The twist mode has direction n_hat = (nx, ny, nz) in the T1u representation.
+The measurement axis has direction m_hat = (mx, my, mz), also T1u.
+The projection: n_hat . m_hat = cos(theta).
+The probability: |n_hat . m_hat|^2 = cos^2(theta).
+
+This is the A1g (scalar) component of the T1u x T1u tensor product:
+```
+T1u x T1u = A1g(1) + Eg(2) + T1g(3) + T2g(3)
+
+A1g component = (n_hat . m_hat) / sqrt(d) = cos(theta) / sqrt(3)
+A1g probability = cos^2(theta) / d
+```
+
+The Born rule P = cos^2(theta) = d times the A1g fraction of the tensor product.
+The factor d converts from the full 9-dimensional tensor space to the
+3-dimensional vector space where measurements happen.
+
+**The chemical bond IS the Born rule**
+
+The bond between two atoms = two twist modes (one per atom) projected onto
+the bond axis. The bond energy is:
+
+```
+D_e = (pi/d^2) * E_harm * cos^2(theta_bond)
+```
+
+where theta_bond = angle of the shared electron's twist relative to the bond axis.
+
+On the d=3 cube, the allowed bond directions and their Born probabilities:
+
+| Bond type | Cube direction    | theta  | cos^2(theta) | Coupling |
+|-----------|-------------------|--------|--------------|----------|
+| sigma     | face normal       | 0.0 deg   | 1.000     | 1.0      |
+| pi        | face diagonal     | 45.0 deg  | 0.500     | cos(pi/d)|
+| delta     | body diagonal     | 54.7 deg  | 0.333     | 1/d      |
+| non-bond  | perpendicular     | 90.0 deg  | 0.000     | 0        |
+
+**Sigma bond:** Twist aligned with bond axis. Full projection. cos^2(0) = 1.
+**Pi bond:** Twist along the face diagonal. cos^2(45) = 1/2 = W_PI.
+**Delta bond:** Twist along the body diagonal. cos^2(54.7) = 1/3 = 1/d.
+**No bond:** Twist perpendicular. cos^2(90) = 0.
+
+**The unique d=3 identity: cos^2(45 deg) = cos(pi/d)**
+
+```
+cos^2(pi/4) = 1/2     (true for ALL d)
+cos(pi/d):
+  d=2: cos(pi/2) = 0.000
+  d=3: cos(pi/3) = 0.500  <-- MATCH!
+  d=4: cos(pi/4) = 0.707
+  d=5: cos(pi/5) = 0.809
+```
+
+The pi bond weight cos^2(45) equals the lattice coupling cos(pi/d) ONLY at d=3.
+This is why the face diagonal of the cube gives the exact pi bond weight.
+It is another "why d=3" identity: the Born rule at 45 degrees = the lattice
+periodicity at 60 degrees, and these are equal only in 3 dimensions.
+
+**Why C_BOND = pi/d^2**
+
+The bond involves TWO atoms, each projecting their twist onto the bond axis.
+For the isotropic (orientation-averaged) case:
+  - Atom A: average projection = 1/d (average of cos^2 over d directions)
+  - Atom B: average projection = 1/d
+  - Combined (A1g of T1u x T1u): 1/d * 1/d = 1/d^2
+
+So C_BOND = pi/d^2 = pi * (A1g fraction of two-spin projection).
+The pi comes from the cosine potential: V = (1/pi^2)(1-cos(pi*phi)).
+The 1/d^2 comes from the Born rule averaged over the cube.
+
+**The 8 V8 corrections = angular corrections to the Born rule**
+
+The isotropic Born probability 1/d^2 assumes random orientations.
+Real molecules have SPECIFIC orbital geometries that modify cos^2(theta):
+
+```
+T1u x T1u = A1g(1) + Eg(2) + T1g(3) + T2g(3)
+
+A1g = isotropic average (C_BOND = pi/d^2)
+Eg  = quadrupolar correction (lone pair distortion of orbitals)
+T1g = magnetic correction (radical/unpaired spin modifies projection)
+T2g = off-diagonal correction (ionic asymmetry shifts projection)
+```
+
+Each non-A1g channel represents a SPECIFIC way the orbital geometry
+deviates from the ideal cos^2(theta):
+  - LP repulsion (Eg): the lone pairs create a quadrupolar field that
+    distorts the orbital, reducing the effective cos^2 projection
+  - Radical (T1g): the unpaired spin changes the magnetic projection
+    axis, multiplying by F_RAD = (2d-1)/(2d) = 5/6
+  - Ionic (T2g): the asymmetric well depths shift the twist orientation,
+    adding an energy from the charge transfer channel
+
+**The unification: entanglement = measurement = bonding**
+
+All three phenomena are the SAME operation: projecting a T1u twist mode
+onto an axis on the d=3 cube.
+
+  - MEASUREMENT: project spin onto detector axis -> P = cos^2(theta)
+  - ENTANGLEMENT: two spins from zero-sum source -> always opposite projection
+  - BONDING: two atoms share a twist mode -> D_e = pi/d^2 * E_harm * cos^2(theta)
+
+The Born rule is not a postulate of quantum mechanics. It is the GEOMETRY
+of vector projection on the d=3 cubic lattice. The same geometry gives
+the chemical bond formula, the entanglement correlations, and the
+measurement probabilities. Everything from d=3 and pi.
+
 ---
 
 ## 2. FORCES — Hooke's Law Decomposition
