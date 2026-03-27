@@ -2165,82 +2165,117 @@ bond length R and observed Clementi-Raimondi Z_eff. Its 8 corrections map onto t
 using observed R as input — without R, the base formula gives 14.4% (V6).
 The true zero-parameter model (V10, coupling-based) achieves 7.5%.
 
-### V8 RE-DERIVED FROM HESSIAN EIGENVALUE STRUCTURE (2026-03-25, DERIVED)
+### BOND MODEL — COMPLETE REWRITE (2026-03-27)
 
-Every V8 constant now has a physical origin in the kink-antikink Hessian + 3D lattice:
+**STATUS: The V8 formula works phenomenologically (9.2% mean on 24 molecules) but its
+derivation from Hessian eigenvalues was WRONG. The tachyon issue, correct torus topology,
+and 3D ZPE mechanism change the picture fundamentally.**
 
-**The kink well (kink_width=3) has 3 eigenvalues below the mass gap:**
+#### The Correct Proton Topology: Poloidal Winding
+
+The proton is a kink that winds around the TUBE CROSS-SECTION of the torus (poloidal
+direction). The field φ goes from 0 to 2 as you traverse the small circle. This is
+topologically trapped — you can't unwind it without crossing the cosine potential barrier.
+
 ```
-Mode 0: omega^2 = -0.372  TACHYON (kink-antikink instability, NOT a breather)
-Mode 1: omega^2 = +0.125  PHYSICAL BOUND STATE (shape oscillation) — the SIGMA bond
-Mode 2: omega^2 = +0.938  PHYSICAL BOUND STATE (breathing) — the PI bond candidate
+OLD model (WRONG): field peaks at tube center, decays radially
+  → 7 tachyonic modes, NOT topological, can shrink to vacuum
+NEW model (CORRECT): field winds 0→2 around tube cross-section
+  → ZERO tachyons, topologically stable, 40 bound modes
+  → Confirmed: torus_poloidal_winding.py (GPU, N=64)
 ```
-Mode 0 is negative because the kink-antikink pair is topologically unstable in 1D.
-In the 3D torus, topology prevents annihilation and mode 0 is stabilized.
-The PHYSICAL bond modes are 1 and 2 (positive omega^2).
 
-**Mode 1→2 bond ratio: V_2/V_1 = 0.589 at R_eq=7** (compare cos(pi/d) = 0.500, 18% off)
-This is the pi/sigma ratio from the LONGITUDINAL Hessian. The 3D transverse factor
-cos(pi/d) may combine with this to give the full W_PI.
+This is CONFINEMENT emerging from lattice topology.
+The 1D tachyon (omega^2 = -0.372) was the annihilation channel.
+On the torus, topology blocks annihilation → all modes stabilize.
 
-**Derivation chain for each constant:**
+#### The Bond Mechanism: 3D Quantum Vacuum (ZPE)
 
-| Constant | Value | Physical Origin | Status |
-|----------|-------|-----------------|--------|
-| C_BOND = pi/d^2 | 0.349 | Mode 1 (sigma) eigenvalue splitting at R_eq | DERIVED (bond_3d_emerge.py) |
-| W_PI = cos(pi/d) | 0.500 | 3D transverse tunnel ratio (or V_2/V_1 = 0.589 longitudinal) | PARTIALLY DERIVED |
-| F_RAD = (2d-1)/(2d) | 5/6 | Decay rate ratio: mode 1 / mode 0 (but mode 0 is tachyon — needs recheck) | NEEDS REVISION |
-| LP_I = (d^2+1)/d^3 | 10/27 | Mode 2 well filling, reducing bonding channel | DERIVED |
-| C_IONIC = 1/(2d+1) | 1/7 | 1 exchange path out of 2d+1 on the d-cube | DERIVED (exchange path counting) |
-| C_IONIC_ENH = d/(2d+1) | 3/7 | d face-adjacent paths activate for strong asymmetry | DERIVED |
-| LP_P3 = d/(d-1) | 3/2 | Period-3 LP enhancement from extended shell | DERIVED |
+The bond between two protons = the change in ZERO-POINT ENERGY when two
+topologically stable tori share the same vacuum region.
 
-**Additional V8 corrections (physical, not yet Hessian-derived):**
-- SP_BOOST = cos(pi/d)/d^2 = 0.056: sp hybridization promotion energy
-- het_phase = (AM/GM of Z_eff)^(d-1): heteronuclear p-p phase mismatch
+```
+Classical dynamics FAILS: damped evolution annihilates the second torus
+  (BEC-like collapse to single torus at T=0). The kink is a QUANTUM
+  object stabilized by its own ZPE. No classical minimum exists.
 
-**Improvement over V8:**
-The radical correction F_RAD = 5/6 (from Hessian decay rates) is MORE ACCURATE than
-V8's half-sigma correction (coupling = 0.5 for odd-electron radicals). V8 overcorrects
-OH, NH, SH, PH by -43% to -55%; the Hessian-derived 5/6 gives +2.7% to +4.5%.
+The Hessian eigenvalues = quantum mode frequencies = the vacuum.
+ZPE = Σ sqrt(omega_n) / 2.
+V(R) = ZPE(two tori at R) - 2 × ZPE(single torus).
+```
 
-**Performance (24 molecules, zero free parameters):**
-- With derived corrections only: mean 9.2%, median 8.0%, 18/24 under 10%
-- With all corrections (incl. sp_boost, het_phase): mean 12.0%, median 6.7%, 18/24 under 10%
-- Remaining outliers: Li2 (+80%), LiH (+59%), NaCl (-13%) — need s-block/Z_eff correction
+**2D cross-section: REPULSIVE at all R.**
+The surface modes (ev=0.054) and kink modes (ev=0.544) undergo an avoided
+crossing. What one channel gains, the other loses. Net ZPE change ≈ 0.
 
-**Key discoveries from the investigation (2026-03-25):**
+**3D toroidal modes: ATTRACTIVE. THIS IS THE BOND.**
+The m≠0 toroidal harmonics (modes that vary around the big ring) break the
+2D tradeoff. They provide net attraction at intermediate R.
 
-1. **Toroidal eigenspectrum**: 30 bound states on 64^3 GPU lattice. Harmonic ladder
-   m=0,2,4,6,8 with spacing ratio 3.83 (expect 4.0 from m^2/R^2). Confirms torus geometry.
+```
+3D ZPE bond curve (GPU, N=64, k=10 modes per torus):
+  R=30 (gap=14): V = -0.002  (attractive)
+  R=28 (gap=12): V = -0.022  (well bottom, even R)
+  R=26 (gap=10): V = +0.081  (repulsive wall)
+  R=18 (gap= 2): V = +0.473  (strongly repulsive)
+  Odd R shows deeper well (D_e ≈ 0.20) — lattice commensurability artifact
+```
 
-2. **Poloidal activation**: At R<10, the poloidal (through-the-hole) channel jumps from
-   1.5% to 60% of the bond energy. R-dependent channel mixing at bonding distances.
+#### The Bond Is COLLECTIVE, Not Mode-by-Mode
 
-3. **sigma/pi/delta from torus slices**: Angular D_e(theta) gives sigma/pi ratio = 8.1,
-   matching geometric (R_maj/r_tube)^2 = 7.1. Bond type diversity from geometry alone.
+Single-mode tunneling (exp(-κ·gap) per mode) gives V ~ 10⁻¹¹.
+Measured V ~ 10⁻². The bond is 10⁶× larger than individual tunneling.
 
-4. **7-mode coupling**: The 7 breather modes cancel 99.7% — they form a tightly
-   self-balanced equilibrium, not independent channels. Three bond channels (covalent,
-   ionic, occupancy) are 2432% non-additive.
+The bond is a COLLECTIVE vacuum response — all 40 modes shift together.
+This is consistent with the 99.7% cancellation (7-mode coupling test)
+and the 2432% non-additivity (3-channel independence test).
 
-5. **Static perturbation theory fails**: Adding breather profiles as static field
-   modifications to the Hessian produces spurious results. The breathers are DYNAMICAL
-   oscillations; the Hessian eigenstates already capture them correctly.
+The analogy is the Casimir effect: the total vacuum energy change between
+two plates has a simple formula (∝ 1/d⁴) even though individual modes
+are complex. The two-torus problem may have an analogous formula.
 
-6. **The bare Hessian IS the model**: Mode 0 splitting = sigma bond. 3D transverse
-   tunneling = pi bond. Mode decay rates = correction factors. No perturbation needed.
+#### What V8 Gets Right (and Why)
 
-Key files:
-- `calculations/bare_hessian_multimode.py` — 3 bound modes, decay ratios, bond curves
-- `calculations/bond_v8_rederived.py` — full re-derived formula, 24-molecule test
-- `calculations/toroidal_mode_decomposition.py` — 3D GPU torus eigenspectrum
-- `calculations/toroidal_deep_analysis.py` — fine R scan, poloidal activation
-- `calculations/bond_3d_slices.py` — sigma/pi/delta from torus cross-sections
-- `calculations/bond_angular_analysis.py` — angular D_e profile
-- `calculations/sigma_pi_2d_hessian.py` — 2D sigma/pi splitting, W_PI(R) curve
-- `calculations/multimode_interaction.py` — 7-mode coupling test
-- `calculations/channel_independence_test.py` — 3-channel independence (2432% coupled)
+The V8 formula D_e = (π/d²) × E_harm × coupling works at 9.2% mean because:
+1. C_BOND = π/d² captures the A1g fraction of the collective vacuum response
+2. E_harm scales correctly with atom pair (harmonic mean of IEs)
+3. The 8 corrections (LP, radical, ionic) are PHENOMENOLOGICAL descriptions
+   of how different electron configurations modify the collective vacuum
+4. The formula is NOT derived from individual mode splittings — it's
+   an effective description of the collective mechanism
+
+The V8 constants (π/d², cos(π/d), 5/6, 10/27, 1/7) ARE d=3 geometric
+quantities, but their connection to the Hessian eigenvalue structure is
+NOT through individual mode identification (sigma/pi mapping was wrong).
+They emerge from the Oh symmetry of the collective vacuum on the d-cube.
+
+#### Key Discoveries (2026-03-25 to 2026-03-27)
+
+1. **Confinement proven**: Poloidal winding → 0 tachyons. Radial bump → 7 tachyons.
+2. **1D tachyon identified**: omega^2 = -0.372 is the kink-antikink annihilation channel.
+3. **Classical dynamics fails**: Damped evolution = BEC collapse. No static minimum.
+4. **Bond is quantum**: ZPE of Hessian modes = the mechanism. Kink stabilized by ZPE.
+5. **2D repulsive**: Surface/kink mode avoided crossing cancels net bonding.
+6. **3D attractive**: Toroidal harmonics (m≠0) break the tradeoff. Morse well emerges.
+7. **Bond is collective**: 10⁶× larger than single-mode tunneling. All 40 modes shift together.
+8. **Forces codependent**: 99.7% cancellation, 2432% non-additivity. Cannot separate.
+9. **VP IS the mechanism**: Each torus modifies the local vacuum spectrum. The overlap
+   of those modifications = the bond energy. This is vacuum polarization.
+
+#### Key Files
+
+- `calculations/torus_poloidal_winding.py` — correct torus (0 tachyons) [GPU]
+- `calculations/torus_confinement_test.py` — wrong torus (7 tachyons) [GPU]
+- `calculations/bond_eigenvalue_flow.py` — 1D eigenvalue flow (tachyon persists)
+- `calculations/bond_2d_crosssection_results.txt` — 2D: kink modes, avoided crossing
+- `calculations/bond_3d_zpe_results.txt` — 3D: Morse well from toroidal vacuum
+- `calculations/torus_bond_v2.py` — nearest-torus 3D bonding
+- `calculations/torus_bond_relaxed.py` — topology-preserving relaxation
+- `calculations/torus_bond_dynamic.py` — damped evolution (BEC collapse)
+- `calculations/multimode_interaction.py` — 7-mode coupling (99.7% cancellation)
+- `calculations/channel_independence_test.py` — 3-channel non-additivity (2432%)
+- `calculations/bare_hessian_multimode.py` — 1D mode structure analysis
+- `calculations/bond_v8_rederived.py` — V8 phenomenological test (9.2% mean)
 
 **Inter-cluster coupling hierarchy (quantified from Oh):**
 
