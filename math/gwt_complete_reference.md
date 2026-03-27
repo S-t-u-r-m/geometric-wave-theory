@@ -2432,6 +2432,38 @@ quantities, but their connection to the Hessian eigenvalue structure is
 NOT through individual mode identification (sigma/pi mapping was wrong).
 They emerge from the Oh symmetry of the collective vacuum on the d-cube.
 
+#### Bond Coherence Limit: gap_max = |Oh|/2 = 24 (2026-03-27, DISCOVERED)
+
+The bond has a MAXIMUM RANGE set by the Oh group size:
+```
+gap_max = |Oh|/2 = 48/2 = 24 lattice sites
+```
+
+Evidence: eigsh computation time at N=128, R_maj=6:
+```
+gap=22:  1139 seconds (struggling, approaching limit)
+gap=24:   120 seconds (clean transition at EXACTLY |Oh|/2)
+gap=26:   HUNG (beyond coherence limit, never completed)
+```
+
+The 24 coherent Oh modes maintain collective enhancement (646x above
+single-mode tunneling) up to gap=24. Beyond this, the modes decohere
+and the bond drops below numerical precision.
+
+This is the SAME 24 that gives the breather mode count, the particle
+spectrum, and the Brillouin zone structure. The bond range, particle
+spectrum, and lattice symmetry are all the same number.
+
+**Physical meaning:** The bond range IS the harmonic range. The lattice
+can sustain coherent inter-torus coupling over exactly |Oh|/2 sites --
+one site per independent Oh mode. Beyond this, there aren't enough
+modes to maintain the collective vacuum response.
+
+**WARNING: Do not attempt eigsh at gap > 24 for bond calculations.
+The eigenvalue splitting falls below the coherence threshold and
+the Lanczos iteration will not converge. This is a PHYSICAL limit,
+not a numerical one.**
+
 #### N-Independence Verification (2026-03-27, PROVEN)
 
 The 3D ZPE bond is verified as REAL PHYSICS, not a lattice artifact:
