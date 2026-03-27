@@ -185,6 +185,54 @@ Three projections of one geometric object — the d=3 cube.
 
 **Key result: k = eta.** The lattice is perfectly impedance-matched. No wave reflection. Waves propagate without loss. This is WHY the speed of light is universal — it's a property of the medium, not a postulate.
 
+### Entanglement: Balanced Displacements of the Lattice
+
+Particles are not objects IN space — they are displacements OF space (the lattice
+medium). The lattice at equilibrium has phi = 0 everywhere, with zero-point energy
+at every site. Particles are deviations from this equilibrium.
+
+**Entangled particle creation:**
+The lattice cannot create net displacement from nothing (conservation). When a pair
+is created from a symmetric source:
+  - A +phi disturbance propagates one way (particle)
+  - A -phi disturbance propagates the other way (antiparticle)
+  - Total displacement = 0 at all times (conservation)
+
+The two waves are ALWAYS opposite because they're two halves of a zero-sum
+displacement. Not because one communicates with the other, but because the
+SOURCE was at equilibrium and conservation requires the sum to stay there.
+
+For spin (the twist mode on the torus): a zero-twist state splits into clockwise
++ counterclockwise. Measuring one reveals which way it twisted — the other MUST
+have twisted the opposite way. The correlation was set at creation, not at measurement.
+
+**Why Bell inequalities are violated:**
+The lattice has local coupling (nearest-neighbor), but waves are NONLOCAL — a
+breather extends over ~15 sites. The phase correlation between two entangled waves
+is maintained by the wave equation, which preserves coherence exactly. The cos^2(theta)
+correlation strength (which violates Bell) comes from projecting the twist mode onto
+a measurement axis, which follows the same geometry as quantum mechanics because the
+lattice has rotational symmetry (Oh -> continuous at long wavelength).
+
+**Decoherence:**
+The "fragility" of entanglement = the perfect displacement balance getting disrupted
+by other activity in the lattice (thermal noise, other particles). The two waves
+stop being exact opposites when the medium between them is disturbed.
+
+**Connection to bonding:**
+Bonding IS entanglement in the confined regime. The bonding electron (breather)
+is a balanced displacement shared between two kink wells:
+  - Bonding state: both wells displaced in phase (constructive, lower energy)
+  - Antibonding state: wells displaced out of phase (destructive, higher energy)
+  - Bond energy D_e = splitting between these two entangled states
+  - The Oh irrep corrections = coherence quality of the shared displacement
+  - A1g = perfectly coherent sharing = maximum bond
+  - S-block (5/9 reduction): isotropic sharing = less efficient along bond axis
+
+EPR entanglement and chemical bonding are the SAME PHYSICS at different scales:
+  - EPR: free propagation, correlation preserved by absence of interaction
+  - Bonding: confined interaction, correlation maintained by continuous sharing
+
 ---
 
 ## 2. FORCES — Hooke's Law Decomposition
