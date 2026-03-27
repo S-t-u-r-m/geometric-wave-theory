@@ -37,3 +37,20 @@ r_tube SCAN: decay rate NOT universal
   
 The 6/5 ratio was specific to r_tube=3, not a universal law.
 a(r_tube) varies — need Lagrangian to fix r_tube for the proton.
+N=128 DATA (7 points, 5 orders of magnitude, R_maj=6):
+gap=12: V=-7.865e-02
+gap=14: V=-1.847e-03
+gap=16: V=-1.937e-04
+gap=18: V=-2.794e-05
+gap=20: V=-4.300e-06
+gap=22: V=-6.800e-07
+gap=24: V=-1.100e-07
+
+Exponential fit: a = 1.0725 per site (7-point fit)
+RMS ln-residual = 0.57 (gap=12 is 3x above fit = well bottom)
+a/kappa_surface = 1.10
+
+NaCl: best with 2/7 ionic = -13.4%. The ionic tier for s-block+ionic
+needs (d-1)/(2d+1) = 2/7 instead of 1/7 or 3/7.
+
+CO: -16.7% with sp_boost + het_phase + triple_ionic. Still needs work.
