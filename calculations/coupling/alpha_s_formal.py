@@ -122,21 +122,24 @@ print(f"    These are the same: 4/pi = 2k = 2*(2/pi)")
 # STEP 5: Bare -> Dressed (one gluon self-loop)
 # =================================================================
 print(f"""
-STEP 5: DRESSING (one gluon self-loop)
+STEP 5: DRESSING (universal VP law)
 
-  Gluons carry color (SU(d) charge). Unlike photons, they self-interact.
-  One self-loop adds:
+  Same mechanism as alpha_EM and m_p/m_e dressing:
+  phi^4 nonlinearity scatters T1u into T1u x T1u = 9 channels.
+  8 non-A1g channels create the correction. For gluons (colored),
+  normalization is per color channel (d), not per coupling dimension (d^2):
 
-    alpha_s_dressed = alpha_s_bare * (1 + alpha_s_bare / pi)
+    alpha_s_dressed = alpha_s_bare * (1 + alpha_s_bare^2 * (d^2-1)/d)
+                    = alpha_s_bare * (1 + alpha_s_bare^2 * 8/3)
 
-  The /pi is the BZ normalization: one loop integrates over [0, pi].
-  Same pattern as alpha_EM: bare 1/137.042, dressed 1/137.036.
+  The (d^2-1)/d = 8/3 is the gluon VP fraction from the VP_self sinc series:
+  leading coefficient 2^(2d-2)/d! = (d^2-1)/d, unique identity at d=3.
 """)
 
-alpha_s_dressed = alpha_s_bare * (1 + alpha_s_bare / pi)
+alpha_s_dressed = alpha_s_bare * (1 + alpha_s_bare**2 * (d**2 - 1) / d)
 obs = 0.1179
 
-print(f"  alpha_s_dressed = {alpha_s_bare:.5f} * (1 + {alpha_s_bare/pi:.5f})")
+print(f"  alpha_s_dressed = {alpha_s_bare:.5f} * (1 + {alpha_s_bare**2 * (d**2-1)/d:.5f})")
 print(f"                  = {alpha_s_dressed:.5f}")
 print(f"  Observed:         {obs}")
 print(f"  Error:            {(alpha_s_dressed - obs)/obs*100:+.2f}%")
@@ -264,9 +267,9 @@ print(f"""
 
 # Final line
 print("=" * 65)
-print(f"  alpha_s(M_Z) = d^2/(2^d * pi^2) * (1 + d^2/(2^d*pi^3))")
-print(f"              = 9/(8*pi^2) * (1 + 9/(8*pi^3))")
-print(f"              = {d**2/(2**d*pi**2) * (1 + d**2/(2**d*pi**3)):.5f}")
+print(f"  alpha_s(M_Z) = d^2/(2^d * pi^2) * (1 + alpha_s^2 * (d^2-1)/d)")
+print(f"              = 9/(8*pi^2) * (1 + alpha_s^2 * 8/3)")
+print(f"              = {alpha_s_dressed:.5f}")
 print(f"  Observed:     {obs}")
 print(f"  From d={d}, pi, and 2. Nothing else.")
 print("=" * 65)

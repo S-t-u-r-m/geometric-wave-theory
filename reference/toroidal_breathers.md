@@ -129,7 +129,7 @@ These are Fourier duals — same answer from two directions.
 - Same formula, derived two independent ways = strong confirmation
 - Could strengthen the bonding derivation by providing real-space coupling geometry
 
-See: math/toroidal_exploration.py for full numerical verification.
+See: calculations/archive/toroidal_exploration.py for full numerical verification.
 
 ### Quarks as Sub-Circulations
 A toroidal vortex in 3D must navigate 3 axes. The circulation decomposes into
@@ -304,7 +304,7 @@ This reproduces all three masses to < 0.01% with just M and theta_0.
   d       = 3
 ```
 
-See: math/koide_final.py for full derivation.
+See: calculations/masses/koide_final.py for full derivation.
 
 ### Key Takeaway
 There aren't 24 different things. There's one thing doing 24 different tricks.

@@ -11,7 +11,9 @@ Key question: what is delta = 3*pi/4 - theta_0 in terms of d, pi?
 import numpy as np
 
 d = 3
-alpha = 1 / (4 * np.pi * d * (2*d - 1))  # GWT alpha = 1/(60*pi)
+alpha_se = 1 / (4 * np.pi * d * (2*d - 1))  # self-energy coupling = 1/(60*pi)
+# Note: this is NOT the fine structure constant alpha = 1/137.
+# It is the self-energy coupling from the lattice: 4d(2d-1) = 60 = |A_5| at d=3.
 
 # Observed masses (MeV) - PDG 2024
 m_e_obs   = 0.51099895
@@ -49,18 +51,18 @@ print("=" * 65)
 candidates = {
     "1/(8*pi) = 1/(2^d * pi)":         1/(8*np.pi),
     "1/30 = 1/(2d(2d-1))":             1/30,
-    "alpha":                             alpha,
-    "2*alpha":                           2*alpha,
+    "alpha_se":                             alpha_se,
+    "2*alpha_se":                           2*alpha_se,
     "1/(6*pi^2) = 1/(2d*pi^2)":        1/(6*np.pi**2),
     "1/(4*pi*d) = 1/(12*pi)":          1/(4*np.pi*d),
     "1/(4*pi*(d+1)) = 1/(16*pi)":      1/(4*np.pi*(d+1)),
     "pi/(2^(2d)) = pi/64":             np.pi/64,
-    "1/(2^d * pi) + alpha":            1/(8*np.pi) + alpha,
+    "1/(2^d * pi) + alpha_se":            1/(8*np.pi) + alpha_se,
     "1/(2*(2d-1)*pi) = 1/(10*pi)":     1/(10*np.pi),
-    "alpha*pi^2 * d":                   alpha*np.pi**2*d,
+    "alpha_se*pi^2 * d":                   alpha_se*np.pi**2*d,
     "1/(d^d * pi/(d-1))":              (d-1)/(d**d * np.pi),
     "1/(2*d*pi*(d-1)) = 1/(12*pi)":    1/(2*d*np.pi*(d-1)),
-    "sqrt(alpha)":                      np.sqrt(alpha),
+    "sqrt(alpha_se)":                      np.sqrt(alpha_se),
     "1/(2^d * pi + d)":                1/(2**d * np.pi + d),
     "1/(4*d*(d+1)) = 1/48":            1/(4*d*(d+1)),
     "(d-1)/(d*(d+1)*pi) = 2/(12*pi)":  (d-1)/(d*(d+1)*np.pi),
@@ -401,12 +403,12 @@ print("\n\n" + "=" * 65)
 print("COMPARISON: Previous vs New theta_0")
 print("=" * 65)
 
-# Previous: cos(theta_0) = -(d-1)/d - 2*alpha
-theta_prev_cos = -(d-1)/d - 2*alpha
+# Previous: cos(theta_0) = -(d-1)/d - 2*alpha_se
+theta_prev_cos = -(d-1)/d - 2*alpha_se
 theta_prev = np.arccos(theta_prev_cos)
 delta_prev = 3*np.pi/4 - theta_prev
 
-print(f"  Previous: cos(theta_0) = -2/3 - 2*alpha")
+print(f"  Previous: cos(theta_0) = -2/3 - 2*alpha_se")
 print(f"    theta_0 = {theta_prev:.8f}")
 print(f"    delta = {delta_prev:.8f} vs exact {delta_exact:.8f}")
 print(f"    delta error: {abs(delta_prev - delta_exact)/delta_exact*100:.2f}%")

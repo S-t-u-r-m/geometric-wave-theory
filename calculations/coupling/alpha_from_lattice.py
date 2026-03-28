@@ -10,12 +10,23 @@ The Lagrangian:
 Alpha = the coupling amplitude between localized modes (breathers) and
 propagating modes (photons/phonons) on this lattice.
 
-Physical picture:
-  - In continuous 1D sine-Gordon, breathers DON'T radiate (integrability).
-  - On a DISCRETE d-dimensional lattice, integrability is broken.
-  - The breather "leaks" energy into radiation at a rate = alpha.
-  - This rate is determined by TUNNELING through the cosine potential barriers.
-  - Alpha is a property of the LATTICE, not any specific breather.
+CANONICAL FORMULA (source of truth):
+  alpha = exp(-(2/d!) * (2^(2d+1)/pi^2 + ln(2d)))
+        = (Gray codes on d bits)^(-1/d) * exp(-2^d * M_kink * (d-1)/d)
+        = 6^(-1/3) * exp(-8 * (8/pi^2) * 2/3)
+        = 1/137.042
+
+Physical picture (updated 2026-03-22):
+  - The instanton wraps 2d = 6 faces of the d-cube (not 2^d vertices)
+  - Channel selection: (d^2-1)/d^2 = 8/9 non-A1g fraction (Oh decomposition)
+  - Prefactor: 6 Gray codes on 3 bits = 2d Hamiltonian cycles on Q_d
+  - Key identity: 2^(d+1)/(d*d!) = (d^2-1)/d^2 = 8/9 only at d=3
+
+NOTE: This file's computation uses (d+1)/N_gauge for the channel factor,
+which equals 2/d! at d=3 (both = 1/3), giving the correct numerical result.
+The physical narrative below (2^d vertex tunneling + gauge division) predates
+the source of truth's derivation (2d face instanton + Oh channel selection +
+Gray code prefactor). The algebra is equivalent at d=3 only.
 """
 
 import numpy as np

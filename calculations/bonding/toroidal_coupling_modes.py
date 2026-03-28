@@ -326,24 +326,24 @@ print("=" * 65)
 
 print(f"""
   The V8 bond formula has 6 parameters, all from d=3:
-    C = pi/d         (coupling coefficient)
-    f_pi = d^2/(d^2+1) = 9/10  (pi-bond fraction)
-    alpha = 1 - f_pi/d = 7/10  (node disruption)
-    beta = (1+f_pi)/2 = 19/20  (phase averaging)
+    C_BOND = pi/d^2    (coupling coefficient = A1g fraction of T1u x T1u)
+    W_PI = cos(pi/d) = 1/2  (pi-bond weight from cube geometry)
+    F_RAD = (2d-1)/(2d) = 5/6  (radical factor from symmetric T1u x T1u)
+    LP_I = (d^2+1)/d^3 = 10/27  (lone pair repulsion)
     f_anti = 2d/(2d-1) = 6/5   (antibonding enhancement)
     c_ionic = 1/(2d+1) = 1/7   (ionic coefficient)
 
   Which parameters correspond to which coupling mode?
 
   TOROIDAL MODE (dominant, ~83%):
-    -> C = pi/d: the coupling coefficient IS the toroidal overlap
-       pi = circumference factor, d = dimension projection
-    -> f_pi = 9/10: the pi-bond coupling IS transverse (toroidal)
-       It's the fraction of the coupling that is transverse circulation
+    -> C_BOND = pi/d^2: the coupling IS the A1g scalar channel
+       pi = cosine potential period, 1/d^2 = A1g fraction of T1u x T1u
+    -> W_PI = cos(pi/d) = 1/2: the pi-bond weight IS the perpendicular
+       projection on the d=3 cube (face diagonal angle = 60 degrees)
 
   POLOIDAL MODE (~17%):
-    -> alpha = 7/10: the node disruption factor involves poloidal flow
-       The poloidal flow THROUGH the hole disrupts the node at the center
+    -> F_RAD = 5/6: radical reduction from symmetric part of T1u x T1u
+       (Eg+T2g = 5 directional dims out of 6 symmetric dims)
     -> f_anti = 6/5: antibonding enhancement is a POLOIDAL effect
        When flows oppose, the through-hole component amplifies
        because counter-flows through the same hole enhance the gradient
@@ -391,13 +391,13 @@ print("=" * 65)
 E_H = 13.6057  # eV
 R_H2 = 1.401   # Bohr radii
 phase_H2 = 2 * R_H2  # radians
-C_bond = pi / d
+C_bond = pi / d**2  # A1g fraction of T1u x T1u
 D_H2_sigma = C_bond * E_H * np.abs(np.sin(phase_H2))  # sigma = toroidal
 
 # For N2 (sigma + 2 pi bonds):
-# sigma + 2*f_pi*pi = toroidal + 2*(9/10)*toroidal_perp
-# Total: 1 + 2*(9/10) = 2.8 effective bonds
-# Toroidal fraction: 1/2.8 = 36% sigma, 64% pi
+# sigma + 2*W_PI*pi = toroidal + 2*(1/2)*toroidal_perp
+# Total: 1 + 2*(1/2) = 2.0 effective bonds
+# Toroidal fraction: 1/2 = 50% sigma, 50% pi
 
 # For O2 with antibonding:
 # f_anti = 6/5 means antibonding costs 20% more than bonding
@@ -462,7 +462,7 @@ print(f"""
        I = integral(v1(r) . v2(r) d^3r)
      This depends on the relative orientation and distance.
      For a sigma bond, the angular part averages to ~1.
-     For pi bonds, it averages to f_pi = 9/10.
+     For pi bonds, projection gives W_PI = cos(pi/d) = 1/2.
      Higher-order angular corrections are molecule-specific.
 
   3. TWIST PAIRING CORRECTION:
@@ -536,8 +536,8 @@ print(f"""
 
   | Mode      | Weight              | Bond formula parameter | Role              |
   |-----------|---------------------|------------------------|-------------------|
-  | Toroidal  | ~83% (pi^2/(pi^2+2))| C = pi/d, f_pi = 9/10 | Bond energy       |
-  | Poloidal  | ~17% (2/(pi^2+2))  | alpha = 7/10, f_anti = 6/5 | Distance, angle|
+  | Toroidal  | ~83% (pi^2/(pi^2+2))| C=pi/d^2, W_PI=1/2    | Bond energy       |
+  | Poloidal  | ~17% (2/(pi^2+2))  | F_RAD=5/6, f_anti=6/5 | Distance, angle   |
   | Twist     | ~1% (alpha*kappa/k) | Pauli exclusion        | Spin pairing      |
 
   KEY RESULTS:

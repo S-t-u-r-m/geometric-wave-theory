@@ -126,9 +126,11 @@ Observed: 0.685. Within 2.7%, and the small difference is understood.
 
 **The Hubble constant** (how fast the universe is expanding) also falls out:
 
-> H₀ = Planck frequency × exp(−1/α) / 27 = **66.4 km/s/Mpc**
+> H₀(bare) = Planck frequency × exp(−1/α) / 27 = **64.5 km/s/Mpc**
 
-Observed: 67.4. Within 1.5%.
+The CMB sees this through the torus correction (27/26): **67.0 km/s/Mpc** (obs: 67.4, -0.6%).
+The distance ladder sees it through the MOND transition ((3/2)^(1/3)): **73.8 km/s/Mpc** (obs: 73.0, +1.1%).
+The "Hubble tension" between 67 and 73 is not a contradiction — it's a GWT prediction.
 
 ---
 
