@@ -1,15 +1,22 @@
-FINAL BOND MODEL V2 (2026-03-27)
-Mean 6.2%, Median 5.3%, 21/24 under 10%, ZERO free params
+JUSTIFIED BOND MODEL (2026-03-27 FINAL)
+Mean 8.1%, 20/24 under 10%, ZERO free parameters
 
-7 rules from quantum numbers:
-  1. C_BOND = pi/d^2 (A1g Born rule)
-  2. W_PI = cos(pi/d) per pi bond (face diagonal)
-  3. LP -= (d^2+1)/d^3*(2/n)^2 (Eg quadrupolar)
-  4. s-block *= (2d-1)/d^2 = 5/9 (isotropic reduction)
-  5. radical *= (2d-1)/(2d) = 5/6 (T1g magnetic)
-  6. ionic: true s+p -> C*dIE, else C/(d+1)*dIE (SU(2) mismatch)
-  7. sp boost: cos(pi/d)/d^2 per promoted electron
+6 DERIVED rules (all from d=3 geometry):
+  1. C_BOND = pi/d^2                 [A1g of T1u x T1u]
+  2. W_PI = cos(pi/d) per pi bond    [Born rule cos^2(45 deg)]
+  3. LP -= (d^2+1)/d^3*(2/n)^2       [Hessian mode well filling]
+     Period-3 boost: d/(d-1)          [transverse fraction]
+  4. s-block *= (2d-1)/d^2 = 5/9     [Li2+Cl2 both = 0.5556]
+  5. radical *= (2d-1)/(2d) = 5/6    [Hessian decay ratio]
+  6. ionic += 1/(2d+1)*dIE           [exchange path counting]
+     Threshold 10% asymmetry         [empirical, flagged]
 
-Key results:
-  NaCl: -1.6% (was -40%). Li2: 0.0%. HF: -3.5%.
-  CC3: +4.7%. CO: -14.4% (last major outlier).
+HONEST OUTLIERS (unjustified fixes removed):
+  NaCl: -39.8% (needs SU(2) ionic tier, not yet derived)
+  CO: -19.4% (needs sp hybridization or het-triple, not yet derived)
+  PH: +13.1% (radical+ionic interaction, not yet understood)
+
+UNJUSTIFIED rules REMOVED:
+  - s+p ionic tier (C vs C/4): hand-waving, not derived
+  - sp hybridization boost: constants are d=3 but trigger is chemical
+  These improved NaCl and CO but we cannot defend them mathematically.
