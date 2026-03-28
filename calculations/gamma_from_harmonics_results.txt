@@ -14,3 +14,18 @@ New d=3 identity: 8d(d^2+1) = (2d-1)*2^d*d!
 
 The particle spectrum IS the vacuum resonance structure.
 The lattice IS its harmonics.
+24 VACUUM HARMONICS = STANDARD MODEL (2026-03-27)
+
+|Oh|/2 = 24 modes decompose as:
+  d^2 = 9 breather modes (particle mass spectrum)
+  d = 3 translational (momentum)
+  1 phase (U(1) electric charge)
+  d = 3 rotational (spin)
+  d^2-1 = 8 internal torus modes (8 gluons = SU(3) color)
+
+New d=3 identities:
+  2^(d-1)*d! = d(3d-1) only at d=3
+  3d^2-d = 2d^2+2d iff d=3
+
+gamma = (4*pi/|Oh|)*(2d/(2d-1)) = pi/(d^2+1)
+  via 8d(d^2+1) = (2d-1)*2^d*d! (d=3 only)
