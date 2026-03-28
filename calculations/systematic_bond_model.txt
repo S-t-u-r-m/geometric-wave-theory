@@ -1,14 +1,15 @@
-FINAL BOND MODEL (2026-03-27)
-Mean 6.6%, 21/24 under 10%, ZERO free parameters
+FINAL BOND MODEL V2 (2026-03-27)
+Mean 6.2%, Median 5.3%, 21/24 under 10%, ZERO free params
 
 7 rules from quantum numbers:
-  1. C_BOND = pi/d^2
-  2. W_PI = cos(pi/d) per pi bond
-  3. LP -= (d^2+1)/d^3*(2/n)^2
-  4. s-block *= (2d-1)/d^2 = 5/9
-  5. radical *= (2d-1)/(2d) = 5/6
-  6a. TRUE s-block+p-block: D_ion = C_BOND*dIE (SU(2) channel)
-  6b. Other ionic: D_ion = C_BOND/(d+1)*dIE (U(1) only)
+  1. C_BOND = pi/d^2 (A1g Born rule)
+  2. W_PI = cos(pi/d) per pi bond (face diagonal)
+  3. LP -= (d^2+1)/d^3*(2/n)^2 (Eg quadrupolar)
+  4. s-block *= (2d-1)/d^2 = 5/9 (isotropic reduction)
+  5. radical *= (2d-1)/(2d) = 5/6 (T1g magnetic)
+  6. ionic: true s+p -> C*dIE, else C/(d+1)*dIE (SU(2) mismatch)
+  7. sp boost: cos(pi/d)/d^2 per promoted electron
 
-NaCl: -1.6% (was -40%). LiH: -8.9%. HF: -3.5%.
-Outlier: CO -20.5%.
+Key results:
+  NaCl: -1.6% (was -40%). Li2: 0.0%. HF: -3.5%.
+  CC3: +4.7%. CO: -14.4% (last major outlier).
