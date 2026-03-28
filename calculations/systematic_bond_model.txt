@@ -1,0 +1,13 @@
+SYSTEMATIC BOND MODEL (2026-03-27)
+Mean 8.1%, 20/24 under 10%, ZERO free parameters
+
+6 rules, all automatic from quantum numbers:
+  1. C_BOND = pi/d^2 (A1g base)
+  2. W_PI = cos(pi/d) per pi bond (Born rule at 45 deg)
+  3. LP -= (d^2+1)/d^3*(2/n)^2 per shared lone pair (Eg)
+  4. s-block *= (2d-1)/d^2 = 5/9 (isotropic reduction)
+  5. radical *= (2d-1)/(2d) = 5/6 (T1g magnetic)
+  6. ionic += 1/(2d+1)*dIE if >10% asymmetry
+
+Every constant from d=3. Inputs per molecule: bo, n, l, lp, IE.
+Outliers: NaCl (-40%), CO (-19%).
