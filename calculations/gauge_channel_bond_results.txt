@@ -1,0 +1,15 @@
+GAUGE CHANNEL BOND MODEL (2026-03-27)
+
+D_e = (pi/d^2)*E_harm*cos^2(theta) + dIE^2/((2d+1)*E_harm)
+    = covalent (Born rule)          + ionic (gauge channels)
+
+The ionic term: dIE^2/((2d+1)*Eh) = Born probability of charge transfer
+  dIE^2/Eh = energy-weighted transfer probability
+  1/(2d+1) = exchange path normalization (7 paths on d-cube)
+
+Performance: mean 8.7%, median 6.5%, 19/24 under 10%
+  Li2: 0.0% (5/9 factor)  LiH: 12.9%  NaCl: -38.1% (still outlier)
+
+The covalent part comes from U(1) phase coupling (photon exchange).
+The ionic part comes from SU(2)+U(1) gauge channels activating
+for asymmetric wells (charge transfer).
