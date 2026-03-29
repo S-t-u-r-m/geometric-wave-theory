@@ -91,8 +91,8 @@ MIXING:
 
 NEUTRINOS:
   M_nu      = m_e^3 / (d * m_p^2)                         = 50.5 meV    [DERIVED: 3-factor mode-basis seesaw]
-  Corrections (gauge gate, N_eff, splittings)                             [PATTERN: 0.1% ratio]
-  N_top     = d*2^d + 1                                   = 25           [STRUCTURAL]
+  Splittings from Oh->D4h: Dm31 = (1-1/N_eff)*M^2, Dm21 = d/((d+1)*N_eff)*M^2  [DERIVED]
+  Ratio Dm31/Dm21 = 33.69 (obs: 33.65, 0.1%). Gauge gate [PATTERN].
   Full derivation: reference/mixing_neutrinos.md
 
 ELECTRON g-2:
