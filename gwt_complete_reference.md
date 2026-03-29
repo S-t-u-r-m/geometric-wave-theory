@@ -61,29 +61,15 @@ PROTON STRUCTURE:
   r_p(bare)  = (d+1) * hbar*c / m_p                      = 0.8412 fm    [DERIVED: zero-mode count, 0.02%]
   r_p(dress) = (d+1)*(1-alpha*(d^3-1)/(d^3*pi^2))*hbar*c/m_p = 0.84064 fm [DERIVED: toroidal self-energy]
   r_p(meas)  = (d+1)*(1-alpha/pi^2)*hbar*c/m_p            = 0.84062 fm   [sphere projection, 0.0001%]
-               26/(27*pi^2) = toroidal, 1/pi^2 = spherical measurement convention
-               The 27/26 sphere-torus correction CONFIRMS toroidal proton structure
 
 MUON RADIUS:
   r_mu      = point-like (< 10^-20 fm)                                   [DERIVED: no topological zero modes]
-  Reason: muon is a 1D breather (generation excitation of electron).
-  Only 3D topological objects (kink-antikink tori) have measurable radii.
-  Supporting evidence: muon mass works without corrections (0.6%).
-  Experimental bounds: R_mu < 0.0005 fm (from g-2), < 0.02 fm (colliders).
-  GWT prediction is 17 orders of magnitude below current experimental reach.
-  TESTABLE: MUSE at PSI (~2027) will confirm r_p(mu-p) = r_p(e-p) = 0.841 fm.
-  See: papers/gwt_muse_prediction.md (prediction timestamped March 26, 2026)
+              TESTABLE: MUSE at PSI (~2027). See papers/gwt_muse_prediction.md
 
-CORRECTION HIERARCHY (dimensional classification):
-  1D breathers (electron, muon, tau): no lattice distortion → no corrections
-    - All lepton masses derived from bare formulas (no 1-alpha/pi^2 terms)
-    - Point-like: no measurable charge radius
-    - Evidence: m_mu/m_e = d/((d-1)*alpha) at 0.6% with no correction
-  3D torus (proton, neutron): wraps all 3 dimensions → local lattice distortion
-    - Effective c reduced inside torus → correction terms needed
-    - r_p requires (1 - alpha*26/(27*pi^2)) toroidal self-energy correction
-    - Same correction explains VP dressing of mass ratio
-    - Evidence: r_p formula needs correction for 0.02% vs 2.7% bare
+CORRECTION HIERARCHY:
+  1D breathers (e, mu, tau): no VP corrections (point-like, free on lattice)
+  3D torus (p, n): VP corrections needed (toroidal self-energy)
+  Full discussion: reference/nuclear.md, reference/mass_ratios.md
 
 BARYONS:
   m_n - m_p = m_e * (d^2-1)/d * (1 - alpha*(2d+1))      = 1.293 MeV    [DERIVED: QCD-EM, 0.005%]
@@ -104,36 +90,27 @@ MIXING:
   cos(d_CKM) = 1/d + 2/(d+1)!                            = 5/12         [STRUCTURAL]
 
 NEUTRINOS:
-  M_nu      = m_e^3 / (d * m_p^2)                         = 50.5 meV    [DERIVED: 3-factor seesaw, e_L created not pre-existing]
-              3 factors of m_e/m_p: coupling(1) + chirality flip(2) + e_L creation(3). / d axes.
-              Standard seesaw: m_D^2/M_R = 278 eV (too high). GWT: extra factor from topology.
+  M_nu      = m_e^3 / (d * m_p^2)                         = 50.5 meV    [DERIVED: 3-factor mode-basis seesaw]
   Corrections (gauge gate, N_eff, splittings)                             [PATTERN: 0.1% ratio]
   N_top     = d*2^d + 1                                   = 25           [STRUCTURAL]
   Full derivation: reference/mixing_neutrinos.md
 
 ELECTRON g-2:
   a_e       = (alpha/(2*pi)) * (1 - alpha/(2d-1) - alpha^2/(2d+1))       [DERIVED: Oh channel decomposition]
-            = (alpha/(2*pi)) * (1 - alpha/5 - alpha^2/7)
             = 0.00115965182                              (obs: 0.00115965218, -0.31 ppm)
-              1/(2d-1) = 1/5: Eg+T2g shape modes (magnetic screening)
-              1/(2d+1) = 1/7: exchange paths on d-cube
-              NOT a loop expansion — an Oh CHANNEL decomposition.
-              Beats 4-loop QED (46.6 ppm) and Pade (46.8 ppm) with 3 terms.
 
 MUON g-2:
   a_mu      = a_e + alpha^2/(2*pi) * (m_mu/m_pi)^2 * d/(d-1) * F_Oh * F_D4h  [DERIVED]
-              F_Oh  = 169/198, F_D4h = 1 + alpha*11/10  (D4h subgroup restriction)
-              = 0.00116591962      (obs: 0.00116592061, -0.85 ppm, 2.5x better than SM)
-              Full derivation: reference/nuclear.md (D4h character table + branching)
+              F_Oh = 169/198, F_D4h = 1 + alpha*11/10. Result: -0.85 ppm (2.5x better than SM)
+              Full derivation + D4h table: reference/nuclear.md
 
 BOND ENERGY:
   D_e       = pi/d^2 * E_H                               = 4.749 eV     [PROVEN: Hessian eigenvalues]
-              A1g fraction 1/d^2 emerged from lattice dynamics.
-              Poeschl-Teller s enters and cancels. (Section 11 of paper.)
+              Full derivation: reference/bonding.md
 
 VP SELF-ENERGY CONSTANT:
   VP_self   = -0.7588963842629                                            [DERIVED: definite integral]
-              Leading series coefficient = 8/3 = (d^2-1)/d               [DERIVED: unique to d=3]
+              Full derivation: reference/coupling_constants.md
 
 WHY 12:
   alpha^12  = alpha^((d+1)!/2)  =  alpha^|A_4|                           [STRUCTURAL]
