@@ -21,18 +21,42 @@
 
 ---
 
-### Hubble constant — three values from one formula
+### What expansion IS in GWT
 
-The Hubble constant H_0 is the expansion rate of the lattice. The base formula is:
+Cosmological expansion is the lattice GROWING — new sites being created. It is
+not a wave propagating through the lattice (that would be a photon). It is the
+fabric itself adding new nodes.
+
+The expansion may happen instantaneously or at some speed — this is an open
+question (see `reference/foundation.md`, "Speed of Light as a Measurement Limit").
+What we OBSERVE is the rate at which free quantities (photon wavelengths,
+intergalactic distances) grow relative to bound quantities (atomic transitions,
+rulers). The bound quantities are set by alpha (a dimensionless ratio that
+doesn't change when the lattice grows). The mismatch IS the redshift.
+
+### Hubble constant — the observed expansion rate
+
 ```
 H_0(bare) = (c/l_P) * exp(-1/alpha) / d^3
 
-  c/l_P = Planck frequency = 1.855 × 10^43 Hz
-  exp(-1/alpha) = exp(-137.042) bridges ~60 orders of magnitude
-  d^3 = 27: total orientations on the d-cube
+  c/l_P = detection rate — our instruments sample at the Planck frequency
+  exp(-1/alpha) = probability of lattice site creation per sampling
+  d^3 = 27: phase space volume (expansion into d^3 spatial directions)
 
   H_0(bare) = 64.5 km/s/Mpc
 ```
+
+**Why exp(-1/alpha):** Each lattice site has a probability per Planck time of
+spawning a new site. The spawning requires a topological shift (phi: 0 → 2)
+to propagate to a neighbor through the cosine potential barrier. Alpha = the
+tunneling rate per barrier per channel. The expansion wave must traverse the
+full coherence length of 1/alpha ≈ 137 effective barriers. Total tunneling
+probability: exp(-1/alpha).
+
+**Why c appears:** The c in c/l_P is the rate at which our c-limited instruments
+detect the expansion, not necessarily the speed at which expansion propagates.
+If the lattice restructures faster than c, we would still measure H_0 at the
+same value because our detectors cannot respond faster than c.
 
 This is the pure lattice expansion rate. No observer sees this directly because
 all observers are made of matter (kinks = tori) that interacts with the lattice.

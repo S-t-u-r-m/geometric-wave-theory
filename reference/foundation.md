@@ -365,3 +365,126 @@ d^2 - 1 = 8                          [SU(3) generators = gluon count]
 ```
 
 ---
+
+### The Speed of Light as a Measurement Limit (2026-03-28)
+
+**c is a property of the lattice, not a constraint on the lattice.**
+
+The speed of light c = a√(k/η) is the propagation speed of WAVES on the lattice.
+It emerges from the impedance matching k = η = 2/π. Everything that IS a wave
+on the lattice (photons, electrons, all matter) propagates at or below c.
+
+But the lattice itself is not a wave on the lattice. When the lattice restructures
+— expansion, gravitational effects, topological changes — it is not constrained
+by its own wave speed. The lattice defines c; c does not define the lattice.
+
+**What this means for observation:**
+
+All measurement devices are made of matter (waves on the lattice). All detectors
+operate at c. Therefore all observations are filtered through c regardless of
+how fast the underlying lattice phenomenon occurs.
+
+```
+What we observe:           limited to c (our equipment's response speed)
+What actually happens:     unknown — could be c, faster, or instantaneous
+The distinction:           not measurable with matter-based instruments
+```
+
+**Why we can observe expansion and gravitational waves at all:**
+
+If the lattice changes and EVERYTHING on it changes proportionally, we would
+detect nothing. We detect changes because of the mismatch between:
+
+```
+FREE quantities:   scale with the lattice (photon wavelengths, distances)
+BOUND quantities:  set by alpha (atomic transitions, bond lengths, rulers)
+```
+
+Alpha is a dimensionless RATIO (tunneling probability). It does not depend on
+the number of lattice sites or the lattice spacing. When the lattice grows,
+alpha stays the same. Atoms don't grow. Rulers don't stretch.
+
+The signal — whether cosmological redshift or LIGO strain — is always:
+
+```
+signal = (change in free quantity) / (unchanged bound quantity)
+       = (lattice dynamics) / (alpha-bound reference)
+```
+
+**Examples:**
+
+Cosmological redshift:
+```
+  Photon wavelength stretches (free, riding the lattice)
+  Atomic transition in spectrometer stays fixed (bound by alpha)
+  z = lambda_observed / lambda_emitted - 1
+```
+
+LIGO gravitational wave detection:
+```
+  Distance between mirrors changes (free, lattice oscillates)
+  Laser frequency stays fixed (atomic transition, bound by alpha)
+  Strain h = delta_L / L ~ 10^-21
+```
+
+Hubble constant measurement:
+```
+  H_0 = rate at which free distances grow relative to bound rulers
+  BOTH methods (CMB and distance ladder) measure this ratio
+  But different matter types couple differently to the lattice (VP hierarchy)
+```
+
+**Why LIGO strain is tiny:**
+
+The gravitational wave tries to move the lattice. The atoms in the mirrors
+resist because electromagnetic binding (alpha ~ 1/137) overwhelms the
+gravitational perturbation (alpha_G ~ 10^-39). The strain 10^-21 reflects
+the RATIO of gravitational to electromagnetic coupling.
+
+**The Hubble constant in this framework:**
+
+```
+H_0 = (c/l_P) * exp(-1/alpha) / d^3 = 64.5 km/s/Mpc
+
+  c/l_P:        detection rate — our instruments sample at the Planck frequency
+  exp(-1/alpha): probability of lattice site creation per sampling
+  d^3:           phase space volume (3D expansion)
+```
+
+H_0 is the OBSERVED expansion rate — the rate at which matter-based instruments
+detect lattice growth. The c in the formula appears because c is the speed at
+which our detectors respond, not necessarily the speed at which expansion happens.
+
+**Open question: does the lattice restructure at c, faster than c, or instantaneously?**
+
+Current evidence cannot distinguish these because all measurements are c-filtered:
+  - GW170817: gravitational wave arrived 1.7s before light. Proves EFFECTS on
+    matter propagate at c. Does NOT prove the lattice restructuring travels at c.
+  - Cosmological recession: galaxies beyond the Hubble radius recede at v > c.
+    Already accepted — expansion is not constrained by c.
+  - Entanglement: GWT derives correlations from lattice balance at creation,
+    not from c-speed signaling. Already in this framework.
+
+The hypothesis that gravity is an INSTANTANEOUS force (the lattice restructures
+everywhere simultaneously) is:
+  - Consistent with all current observations (effects still propagate at c)
+  - Consistent with the GWT framework (lattice defines c, not vice versa)
+  - Consistent with Newtonian gravity (which was instantaneous and worked)
+  - NOT yet proven — would require detecting lattice changes faster than c
+
+**Proposed test:** Create a controlled lattice disruption (e.g., sudden mass
+redistribution) and measure whether gravitational effects appear at distant
+detectors before light-speed signals could arrive. Current detector spacing
+(~10ms light-travel between LIGO sites) may be insufficient. A space-based
+detector network with microsecond timing might resolve the question.
+
+**Summary:**
+```
+  c = wave speed on the lattice        [DERIVED from Lagrangian]
+  c = measurement speed of our equipment [consequence of being lattice waves]
+  c = speed of lattice restructuring    [UNKNOWN — open question]
+
+  Einstein's postulate (constant c) = a measurement tautology in GWT:
+  all local instruments are lattice waves, so all local measurements give c.
+  Not a cosmic law — a property of the observer being made of the medium.
+```
