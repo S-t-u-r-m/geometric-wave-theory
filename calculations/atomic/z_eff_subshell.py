@@ -219,19 +219,80 @@ def compute_alpha_for_target(config, n_target, l_target, S_core):
     return alpha
 
 
+def intra_shell_repulsion(config, n_target, l_target):
+    """
+    Repulsion energy from other electrons in the SAME shell.
+
+    When multiple electrons occupy the same n, they repel via the
+    A1g channel of their Oh tensor product. This raises the energy
+    (makes it less negative = weaker binding).
+
+    The repulsion strength: J_hund = 2/(d+2) = 0.4 (Oh exchange coupling)
+    multiplied by the number of same-shell electrons.
+    """
+    J = 2.0 / (d + 2)  # 0.4 = Hund exchange from Oh
+
+    # Count OTHER electrons in the same shell (same n, any l)
+    n_same_shell = 0
+    for n_sh, l_sh, count in config:
+        if n_sh == n_target:
+            if l_sh == l_target:
+                n_same_shell += count - 1  # exclude the target electron
+            else:
+                n_same_shell += count
+
+    # Repulsion proportional to same-shell electron count
+    # Scaled by E_H / n^2 (the energy scale of that shell)
+    E_rep = n_same_shell * J * E_H / n_target**2
+
+    return E_rep
+
+
+def core_depth_correction(config, n_target):
+    """
+    Correction for shallow cores (core just 1 shell below valence).
+
+    When the core is deep (delta_n >= 2), penetration factors work well.
+    When the core is shallow (delta_n = 1), the penetration model
+    overestimates how much the electron sees of the nucleus.
+
+    Returns a multiplicative factor on the penetration correction.
+    """
+    # Find the deepest occupied core shell
+    core_n_max = 0
+    for n_sh, l_sh, count in config:
+        if n_sh < n_target and count > 0:
+            core_n_max = max(core_n_max, n_sh)
+
+    if core_n_max == 0:
+        return 1.0  # no core (H, He) — no correction
+
+    delta_n = n_target - core_n_max
+    if delta_n >= 2:
+        return 1.0  # deep core — penetration model works
+
+    # Shallow core (delta_n = 1): reduce the penetration effect
+    # The correction blends toward less penetration
+    return (d - 1) / d  # 2/3 reduction for shallow cores
+
+
 def compute_subshell_energy(Z, config, n_target, l_target):
     """
     Compute the energy of a specific subshell (n, l).
 
-    E(n, l) = -(Z_eff / n)^2 * E_H
+    E(n, l) = -(Z_eff / n)^2 * E_H + E_repulsion
 
     where Z_eff = (Z - S_core)^alpha
+    and E_repulsion from same-shell A1g coupling.
     """
     S = screening_for_target(Z, config, n_target, l_target)
     Z_net = max(Z - S, 0.5)
     alpha = compute_alpha_for_target(config, n_target, l_target, S)
     Z_eff = Z_net ** alpha
     E = -(Z_eff / n_target)**2 * E_H
+
+    # Add intra-shell repulsion (raises energy = less binding)
+    E += intra_shell_repulsion(config, n_target, l_target)
 
     return E, Z_eff, Z_net, alpha, S
 
