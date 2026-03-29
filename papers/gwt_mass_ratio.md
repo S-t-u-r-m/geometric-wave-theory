@@ -276,6 +276,12 @@ Observed: 0.00115965218. Error: -0.32 ppm.
 
 **Where the denominators come from:** When two vectors combine in 3D, they can make three kinds of objects: a scalar (1 way — the dot product), a rotation (3 ways — the cross product), or a shape (5 ways — symmetric stretches like the five d-orbitals in chemistry). The 5 shapes come from a 3×3 symmetric matrix (6 entries) minus 1 for the trace, giving 2d-1 = 5. The denominator (2d+1) = 7 counts the total exchange paths on the cube: d² - d + 1 = 7 independent ways two lattice modes can interact, including both shapes and the scalar.
 
+**Muon g-2 (derived March 28, 2026):** The muon anomalous magnetic moment adds a hadronic VP correction with an NLO term from the $O_h \to D_{4h}$ subgroup restriction (the muon lives on $d-1=2$ axes, breaking $O_h$ to the square symmetry $D_{4h}$):
+
+$$a_\mu = a_e + \frac{\alpha^2}{2\pi}\left(\frac{m_\mu}{m_\pi}\right)^2 \frac{d}{d\!-\!1} \cdot \frac{169}{198} \cdot \left(1 + \alpha\cdot\frac{11}{10}\right) = 0.00116591962$$
+
+Observed: $0.00116592061$. Error: $-0.85$ ppm. The SM gets $-2.15$ ppm. GWT is 2.5× closer. The NLO factor $11/10 = (d^2\!+\!d\!-\!1)/(d^2\!+\!1)$ comes from the extra $A_{1g}$ channel produced when the $O_h$ irrep $E_g$ splits to $A_{1g} + B_{1g}$ under $D_{4h}$. Full derivation in `reference/nuclear.md`.
+
 ---
 
 ## 7. The Proton Magnetic Moment

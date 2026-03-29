@@ -134,19 +134,37 @@ Supporting evidence: all three lepton masses (e, μ, τ) are predicted without c
 
 ---
 
-## 6. Muon g-2: A Possible Signature?
+## 6. Muon g-2: A Derived Prediction
 
-The muon anomalous magnetic moment shows a ~4.2σ discrepancy between experiment and Standard Model (data-driven) predictions. GWT's g-2 formula:
+**Update (March 28, 2026): The muon g-2 has been fully derived.**
 
-$$a_\ell = \frac{\alpha}{2\pi}\left(1 - \frac{\alpha}{5} - \frac{\alpha^2}{7}\right)$$
+The electron g-2 uses the full $O_h$ channel decomposition:
 
-gives the electron g-2 to 0.31 ppm. For the muon, the same formula should apply (lepton universality). The observed discrepancy could indicate:
+$$a_e = \frac{\alpha}{2\pi}\left(1 - \frac{\alpha}{2d-1} - \frac{\alpha^2}{2d+1}\right) = 0.00115965182 \quad (\text{obs: ...218, } {-0.31 \text{ ppm}})$$
 
-1. A SM calculation issue (hadronic vacuum polarization — actively debated)
-2. New physics beyond the SM
-3. A generation-dependent correction in GWT (speculative — not yet derived)
+The muon g-2 adds a hadronic VP correction with an NLO term from the $O_h \to D_{4h}$ subgroup restriction:
 
-If the g-2 anomaly is real and persists, GWT would need to explain it through the muon's generation structure (the d/((d-1)α) factor). This is an **open question**, not a current prediction.
+$$a_\mu = a_e + \frac{\alpha^2}{2\pi}\left(\frac{m_\mu}{m_\pi}\right)^2 \frac{d}{d-1} \cdot F_{O_h} \cdot F_{D_{4h}}$$
+
+where:
+- $F_{O_h} = \frac{169}{198} = \frac{(d^2+d+1)^2}{2d^2(d^2+d-1)}$ — bifundamental EM×QCD trace (Oh symmetry of 3D vacuum)
+- $F_{D_{4h}} = 1 + \alpha \cdot \frac{d^2+d-1}{d^2+1} = 1 + \alpha \cdot \frac{11}{10}$ — NLO from D4h restriction
+
+**Result:** $a_\mu = 0.00116591962$ (obs: $0.00116592061$, **−0.85 ppm**)
+
+The SM predicts $0.00116591810$ (−2.15 ppm). **GWT is 2.5× closer to observation.**
+
+**Derivation:** The muon lives on $d-1 = 2$ axes of the $d=3$ cube. Its local symmetry is $D_{4h}$ (the square), not $O_h$ (the cube). Restricting $T_{1u} \otimes T_{1u}$ from $O_h$ to $D_{4h}$:
+
+$$T_{1u} \to A_{2u} + E_u \quad \text{in } D_{4h}$$
+
+$$(A_{2u} + E_u) \otimes (A_{2u} + E_u) \text{ has } \textbf{2} \text{ } A_{1g} \text{ channels (not 1)}$$
+
+The extra $A_{1g}$ comes from the $E_g$ irrep of $O_h$ splitting under $D_{4h}$: $E_g \to A_{1g} + B_{1g}$. The $d_{z^2}$ component looks scalar from the 2D muon frame. This channel is $\alpha$-suppressed and normalized by the ratio of QCD exchange paths to coupling modes: $(d^2+d-1)/(d^2+1) = 11/10$.
+
+**Key identity:** $d^2+d-1 = d^2+2$ only at $d=3$ (requires $d-1=2$).
+
+The D4h character table, branching rules, and full calculation are in `reference/nuclear.md` and `calculations/core/muon_g2_d4h.py`.
 
 ---
 
