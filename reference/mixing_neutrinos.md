@@ -111,47 +111,171 @@ which is the fundamental angular unit of d=3 geometry.
 
 ## 10. NEUTRINO MASSES
 
-### Mass scale (third-order perturbative seesaw)
-```
-M_nu = m_e^3 / (d * m_p^2)
+### Mass scale — GWT three-factor seesaw [DERIVED, 2026-03-28]
 
-Using GWT-predicted m_p = 6*pi^5 * m_e:
-M_nu = m_e^3 / (d * m_p^2) = m_e / (d * (6*pi^5)^2) ≈ 49.9 meV
 ```
-Third-order perturbation: electron → proton → electron, averaged over d axes.
+M_nu = m_e^3 / (d * m_p^2) = m_e / (d * F^2) = 50.5 meV
+```
 
-### Gauge gate correction (lattice-derived)
-```
-M_eff = M_nu * (1 + 1/(N_gauge * pi)) = M_nu * (1 + 1/(12*pi)) = 51.2 meV
-```
-1/(N_gauge * pi) = 1/(|A_4| * pi): one gauge gate contribution over one half-period of the cosine potential. Previously labeled "Wyler transverse sphere" — now pure lattice geometry.
+**Derivation: mode-basis perturbation theory on the d=3 lattice.**
 
-### Topological mode count
+The key difference from the standard seesaw: in GWT, the left-handed neutrino
+(e_L) does NOT pre-exist as a field in the Lagrangian. The electron is breather
+mode n=16 with definite chirality. Its opposite-chirality partner must be
+CREATED by the kink interaction. This requires three factors of m_e/m_p
+instead of two.
+
+**The standard seesaw (2 factors):**
+```
+In standard physics, e_L is a pre-existing field in the Lagrangian.
+You write a Dirac mass m_D and Majorana mass M_R:
+  m_nu = m_D^2 / M_R       (2 factors of m_D)
+
+If m_D = m_e, M_R = m_p:
+  m_nu = m_e^2 / m_p = 278 eV    (too large by 10^4)
+```
+
+**The GWT seesaw (3 factors):**
+```
+In GWT, e_L is NOT a pre-existing mode. It must be CREATED.
+Three factors of m_e/m_p, each with a distinct physical origin:
+
+  Factor 1: m_e/m_p = e_R -> kink coupling
+    The electron (breather) scatters into the kink (proton).
+    Coupling = m_e (breather energy). Gap = m_p (kink mass).
+
+  Factor 2: m_e/m_p = kink -> e_L coupling
+    The kink produces the opposite-chirality state.
+    Same coupling, same gap. This is the CHIRALITY FLIP.
+
+  Factor 3: m_e/m_p = CREATION of the e_L mode
+    In standard seesaw, e_L already exists — you just need to
+    connect to it. In GWT, e_L is not any breather mode.
+    It exists only as a virtual excitation INSIDE the kink
+    interaction. Generating it costs one more mode-density gap.
+
+  Axis averaging: 1/d (kink selects one of d equivalent axes)
+
+  M_nu = m_e * (m_e/m_p) * (m_e/m_p) * (1/d)
+       = m_e^3 / (d * m_p^2)
+       = m_e / (d * F^2)
+       = 50.5 meV
+```
+
+**Why e_L must be CREATED (the key GWT insight):**
+
+In GWT, particles are specific excitation modes of the lattice. The electron
+is breather mode n=16 — a definite mode with definite chirality. The 24
+breather modes of the sine-Gordon spectrum account for all quarks and leptons.
+The neutrino is NOT one of these 24 modes.
+
+The neutrino exists only as a topologically-generated virtual state: when
+the electron traverses the kink an ODD number of times, the intermediate
+state has opposite chirality. This state cannot exist as a free propagating
+mode — it is permanently confined to the kink interaction region.
+
+The creation probability = m_e/m_p = one additional traversal of the
+mode-density gap. This is the third factor that distinguishes GWT from
+standard seesaw.
+
+**Why the MODE basis, not position-space wavefunctions:**
+
+The derivation works in the breather/kink mode basis, NOT in position-space.
+Position-space Rayleigh-Schrödinger PT on the Pöschl-Teller wavefunctions
+gives a divergent result because it double-counts: the potential that creates
+the bound state is used again as the perturbation. In the mode basis, the
+breather energy m_e and kink mass m_p are already the physical states.
+The coupling between them IS m_e (the breather's energy = its coupling to
+the kink that created it). The gap IS m_p (the kink mass = the next mode).
+
+**Chirality = parity of kink traversals:**
+```
+The kink is a topological defect: phi goes 0 -> 2.
+Each traversal FLIPS the field orientation.
+
+  Even flips (0, 2, 4, ...): same chirality as electron (e_R)
+  Odd flips  (1, 3, 5, ...): OPPOSITE chirality = neutrino (e_L)
+
+Standard seesaw (2 traversals):
+  e_R ->[kink]-> p ->[kink]-> e_R    (even = same chirality = VP correction)
+
+GWT seesaw (3 traversals):
+  e_R ->[kink]-> p ->[create e_L]-> e_L ->[kink]-> e_R
+  The e_L creation is the THIRD traversal = odd = opposite chirality.
+```
+
+**Four neutrino properties from the mode-basis seesaw:**
+1. **Left-handed:** e_L is the odd-traversal partner, opposite chirality
+2. **Tiny mass:** THREE factors of m_e/m_p ≈ 5.4×10⁻⁴ gives (m_e/m_p)² ≈ 3×10⁻⁷
+3. **Three flavors:** one per spatial axis (d = 3 equivalent kink orientations)
+4. **Weak-only interaction:** the e_L exists only inside the kink interaction =
+   the SU(d-1) rotational mode of the torus = the weak force
+
+**Comparison to standard physics:**
+```
+Standard seesaw:  m_nu = m_D^2/M_R    (e_L pre-exists, 2 factors)
+GWT seesaw:       m_nu = m_e^3/(d*m_p^2) (e_L created, 3 factors)
+
+The extra factor m_e/m_p is WHY neutrinos are 10^4 lighter than
+standard seesaw predicts (278 eV vs 50 meV). Standard seesaw needs
+M_R >> m_p (a new high-energy scale) to get tiny neutrino masses.
+GWT needs no new scale — the extra suppression comes from the
+topological creation of e_L.
+```
+
+**Derivation status: [DERIVED]**
+Every factor traces to the Lagrangian:
+- m_e: breather bound state energy [DERIVED]
+- m_p: F × m_e, F = 2d·π^(2d-1) [DERIVED]
+- 1/d: axis averaging [STRUCTURAL]
+- Third factor: e_L creation, does not pre-exist as a lattice mode [TOPOLOGICAL]
+
+See: `calculations/core/neutrino_seesaw.py` for the full computation.
+
+### Corrections to base mass [PATTERN — not yet formally derived]
+
+The following corrections give excellent numerical results (0.1-2% on splittings)
+but their derivation from the perturbation chain is incomplete. The factors
+are geometrically motivated but the formal matrix element calculation connecting
+them to the PT wavefunctions has not been done.
+
+**Gauge gate correction:**
+```
+M_eff = M_nu * (1 + 1/(N_gauge * pi)) = M_nu * (1 + 1/(12*pi)) = 51.9 meV
+```
+1/(|A₄| × π): the PT chain passes through |A₄| = 12 gauge channels, each
+contributing over one half-period (π) of the cosine potential. Physically
+motivated but the 1/(|A₄|·π) product needs formal derivation from the
+overlap integrals.
+
+**Topological mode count:**
 ```
 N_top = d * 2^d + 1 = |O| + 1 = 25      (proper cube rotations + identity)
 N_eff = N_top * (1 + 1/(2*pi^2)) = 26.27   (V_0/2 = average potential perturbation)
 ```
-d*2^d = 24 = |O| = order of chiral octahedral group (proper rotations of the cube). +1 for the vacuum. The correction 1/(2*pi^2) = V_0/2 = half the Lagrangian potential depth. Previously labeled "D_IV(5) Shilov boundary" — now pure lattice quantities.
+d·2^d = 24 = |O| = chiral octahedral group. +1 for the vacuum. The correction
+V₀/2 = 1/(2π²) comes from the Lagrangian potential depth. The connection between
+N_eff and the splitting formulas below is pattern-matched, not derived.
 
-### Mass splittings
+### Mass splittings [PATTERN — 0.1% on ratio]
 ```
-Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.523 × 10^-3 eV^2
-  Observed: 2.534 × 10^-3 eV^2. Error: -0.4%
+Delta_m^2_31 = (1 - 1/N_eff) * M_eff^2 = 2.586 × 10^-3 eV^2
+  Observed: 2.534 × 10^-3 eV^2. Error: +2.1%
 
-Delta_m^2_21 = (d/(4*N_eff)) * M_eff^2 = 7.49 × 10^-5 eV^2
-  Observed: 7.53 × 10^-5 eV^2. Error: -0.5%
+Delta_m^2_21 = (d/(4*N_eff)) * M_eff^2 = 7.68 × 10^-5 eV^2
+  Observed: 7.53 × 10^-5 eV^2. Error: +2.0%
 
 Ratio: Delta_m^2_31 / Delta_m^2_21 = 33.69
   Observed: 33.65. Error: +0.1%
 ```
 
 ### Individual masses
-| State | Formula | Mass |
-|-------|---------|------|
-| nu_3 | M_eff | 51.2 meV |
-| nu_2 | sqrt(m_1^2 + Delta_m^2_21) | 13.2 meV |
-| nu_1 | M_eff / sqrt(N_eff) | 10.0 meV |
-| Sum | | 74.4 meV (< 120 meV cosmological bound) |
+| State | Formula | Mass | Status |
+|-------|---------|------|--------|
+| nu_3 | M_eff | 51.9 meV | [PATTERN] |
+| nu_2 | sqrt(m_1^2 + Delta_m^2_21) | 13.4 meV | [PATTERN] |
+| nu_1 | M_eff / sqrt(N_eff) | 10.1 meV | [PATTERN] |
+| Sum | | 75.4 meV (< 120 meV cosmo bound) | |
 
 ### Wave sizes (Compton wavelength)
 ```

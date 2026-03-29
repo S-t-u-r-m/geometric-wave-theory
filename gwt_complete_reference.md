@@ -104,8 +104,12 @@ MIXING:
   cos(d_CKM) = 1/d + 2/(d+1)!                            = 5/12         [STRUCTURAL]
 
 NEUTRINOS:
-  M_nu      = m_e^3 / (d * m_p^2)                                        [HYPOTHESIS]
+  M_nu      = m_e^3 / (d * m_p^2)                         = 50.5 meV    [DERIVED: 3-factor seesaw, e_L created not pre-existing]
+              3 factors of m_e/m_p: coupling(1) + chirality flip(2) + e_L creation(3). / d axes.
+              Standard seesaw: m_D^2/M_R = 278 eV (too high). GWT: extra factor from topology.
+  Corrections (gauge gate, N_eff, splittings)                             [PATTERN: 0.1% ratio]
   N_top     = d*2^d + 1                                   = 25           [STRUCTURAL]
+  Full derivation: reference/mixing_neutrinos.md
 
 ELECTRON g-2:
   a_e       = (alpha/(2*pi)) * (1 - alpha/(2d-1) - alpha^2/(2d+1))       [DERIVED: Oh channel decomposition]
