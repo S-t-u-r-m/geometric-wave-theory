@@ -24,7 +24,9 @@ import sys, os, io
 import numpy as np
 from math import factorial, comb
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+if not hasattr(sys.stdout, '_gwt_wrapped'):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stdout._gwt_wrapped = True
 
 PI = np.pi
 d = 3
