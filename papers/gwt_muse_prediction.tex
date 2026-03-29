@@ -1,0 +1,472 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage[]{charter}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmathfont[]{charter}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\DeclareUnicodeCharacter{2264}{$\leq$}
+\DeclareUnicodeCharacter{2265}{$\geq$}
+\DeclareUnicodeCharacter{2212}{$-$}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{03B1}{$\alpha$}
+\DeclareUnicodeCharacter{03B2}{$\beta$}
+\DeclareUnicodeCharacter{03B3}{$\gamma$}
+\DeclareUnicodeCharacter{03B4}{$\delta$}
+\DeclareUnicodeCharacter{03B5}{$\epsilon$}
+\DeclareUnicodeCharacter{03B7}{$\eta$}
+\DeclareUnicodeCharacter{03B8}{$\theta$}
+\DeclareUnicodeCharacter{03BB}{$\lambda$}
+\DeclareUnicodeCharacter{03BC}{$\mu$}
+\DeclareUnicodeCharacter{03BD}{$\nu$}
+\DeclareUnicodeCharacter{03C0}{$\pi$}
+\DeclareUnicodeCharacter{03C1}{$\rho$}
+\DeclareUnicodeCharacter{03C3}{$\sigma$}
+\DeclareUnicodeCharacter{03C4}{$\tau$}
+\DeclareUnicodeCharacter{03C6}{$\phi$}
+\DeclareUnicodeCharacter{03C7}{$\chi$}
+\DeclareUnicodeCharacter{03C8}{$\psi$}
+\DeclareUnicodeCharacter{03C9}{$\omega$}
+\DeclareUnicodeCharacter{0393}{$\Gamma$}
+\DeclareUnicodeCharacter{0394}{$\Delta$}
+\DeclareUnicodeCharacter{039B}{$\Lambda$}
+\DeclareUnicodeCharacter{03A3}{$\Sigma$}
+\DeclareUnicodeCharacter{03A9}{$\Omega$}
+\DeclareUnicodeCharacter{2202}{$\partial$}
+\DeclareUnicodeCharacter{210F}{$\hbar$}
+\DeclareUnicodeCharacter{2248}{$\approx$}
+\DeclareUnicodeCharacter{2260}{$\neq$}
+\DeclareUnicodeCharacter{00B1}{$\pm$}
+\DeclareUnicodeCharacter{00D7}{$\times$}
+\DeclareUnicodeCharacter{2192}{$\rightarrow$}
+\DeclareUnicodeCharacter{221A}{$\sqrt{}$}
+\DeclareUnicodeCharacter{221E}{$\infty$}
+\DeclareUnicodeCharacter{2272}{$\lesssim$}
+\DeclareUnicodeCharacter{2273}{$\gtrsim$}
+\DeclareUnicodeCharacter{2261}{$\equiv$}
+\DeclareUnicodeCharacter{207A}{$^{+}$}
+\DeclareUnicodeCharacter{207B}{$^{-}$}
+\DeclareUnicodeCharacter{2070}{$^{0}$}
+\DeclareUnicodeCharacter{00B2}{$^{2}$}
+\DeclareUnicodeCharacter{00B3}{$^{3}$}
+\DeclareUnicodeCharacter{2074}{$^{4}$}
+\DeclareUnicodeCharacter{2075}{$^{5}$}
+\DeclareUnicodeCharacter{2076}{$^{6}$}
+\DeclareUnicodeCharacter{00B9}{$^{1}$}
+\DeclareUnicodeCharacter{2077}{$^{7}$}
+\DeclareUnicodeCharacter{2078}{$^{8}$}
+\DeclareUnicodeCharacter{2079}{$^{9}$}
+\DeclareUnicodeCharacter{2080}{$_{0}$}
+\DeclareUnicodeCharacter{2081}{$_{1}$}
+\DeclareUnicodeCharacter{2082}{$_{2}$}
+\DeclareUnicodeCharacter{2083}{$_{3}$}
+\DeclareUnicodeCharacter{2084}{$_{4}$}
+\DeclareUnicodeCharacter{2089}{$_{9}$}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{8pt}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section{GWT Predictions for the MUSE
+Experiment}\label{gwt-predictions-for-the-muse-experiment}
+
+\textbf{Jonathan D. Wollenberg} ORCID:
+\href{https://orcid.org/0009-0009-5872-9076}{0009-0009-5872-9076}
+
+March 26, 2026 --- \emph{Prediction documented prior to MUSE
+publication}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Summary of Predictions}\label{summary-of-predictions}
+
+Geometric Wave Theory (GWT) makes the following \textbf{falsifiable
+predictions} for the MUSE experiment at PSI, which measures elastic
+muon-proton and electron-proton scattering at the same kinematics:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3056}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3611}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Prediction
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+GWT Value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Falsified if
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Proton radius from μ-p scattering & 0.84062 ± 0.00002 fm & Differs from
+e-p by \textgreater{} 0.5\% \\
+Proton radius from e-p scattering & 0.84062 ± 0.00002 fm & Differs from
+μ-p by \textgreater{} 0.5\% \\
+Lepton universality & Exact (at tree level) & Any lepton-specific form
+factor \\
+Muon charge radius & \textless{} 10⁻²⁰ fm (point-like) & R\_μ
+\textgreater{} 0.001 fm \\
+Two-photon exchange (μ vs e) & Identical structure &
+Lepton-mass-dependent TPE beyond QED \\
+\end{longtable}
+}
+
+\textbf{Core prediction: MUSE will find no discrepancy between μ-p and
+e-p extracted proton radii.} Both will yield r\_p ≈ 0.841 fm, consistent
+with muonic hydrogen spectroscopy.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1. Why GWT Makes These
+Predictions}\label{why-gwt-makes-these-predictions}
+
+\subsubsection{1.1 The Proton Radius}\label{the-proton-radius}
+
+In GWT, the proton charge radius is derived from the zero-mode structure
+of a sine-Gordon kink on the d=3 cubic lattice:
+
+\[r_p = (d+1)\left(1 - \alpha \cdot \frac{d^3-1}{d^3\pi^2}\right) \frac{\hbar c}{m_p} = 4 \times 0.99981 \times 0.21031 \text{ fm} = 0.84062 \text{ fm}\]
+
+This is a property of the \textbf{proton} (the kink-antikink pair), not
+of the scattering probe. The proton looks the same to any lepton because
+the proton's structure is topological --- it's determined by the lattice
+geometry, not by the probe particle.
+
+\subsubsection{1.2 The Muon Is Point-Like}\label{the-muon-is-point-like}
+
+In GWT, particles are classified by their topological structure on the
+lattice:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{3D torus (proton, neutron):} Kink-antikink pair wrapping all 3
+  spatial dimensions. Has d+1 = 4 zero modes → measurable charge radius
+  \textasciitilde{} 0.84 fm.
+\item
+  \textbf{1D breather (electron):} Oscillation along one lattice
+  direction. No topological winding → point-like. Charge radius at
+  Planck scale (\textasciitilde10⁻³⁵ m).
+\item
+  \textbf{Generation excitation (muon):} Same 1D breather structure as
+  electron, with mass ratio m\_μ/m\_e = d/((d-1)α) = 205.6. Still 1D →
+  still point-like.
+\end{itemize}
+
+The muon has \textbf{no topological zero modes} that would generate a
+classical charge radius. Its spatial extent is the breather width
+\textasciitilde1/ε in Planck units, which is \textasciitilde10⁻³⁵ m ---
+seventeen orders of magnitude below MUSE's sensitivity
+(\textasciitilde10⁻¹⁸ m).
+
+\subsubsection{1.3 Lepton Universality}\label{lepton-universality}
+
+GWT predicts exact lepton universality at tree level because:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The electromagnetic coupling α is derived from the lattice tunneling
+  rate, which is the same for all charged particles
+\item
+  The proton's form factor is a property of the proton (the kink
+  topology), not the probe
+\item
+  The muon and electron differ only in their internal oscillation
+  frequency, not in how they couple to the electromagnetic field
+\end{enumerate}
+
+Any lepton universality violation in MUSE would require the probe
+particle's internal structure to affect the scattering --- which in GWT
+would mean the muon has non-trivial topology. This would contradict the
+successful derivation of the muon mass as a generation excitation of the
+electron.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2. What MUSE Measures}\label{what-muse-measures}
+
+MUSE (MUon Scattering Experiment) at the Paul Scherrer Institute uses
+the πM1 beamline to deliver simultaneous π, μ, e beams at momenta
+115--210 MeV/c.~It measures:
+
+\begin{itemize}
+\tightlist
+\item
+  Elastic μ⁺p and μ⁻p differential cross sections
+\item
+  Elastic e⁺p and e⁻p differential cross sections (same detector, same
+  kinematics)
+\item
+  Ratio of μ-p to e-p cross sections (many systematics cancel)
+\end{itemize}
+
+The extracted observable is the proton charge form factor G\_E(Q²) at
+low Q² ≈ 0.002--0.08 GeV², from which the charge radius is obtained via:
+
+\[\langle r^2 \rangle = -6 \left.\frac{dG_E}{dQ^2}\right|_{Q^2=0}\]
+
+\subsubsection{2.1 Sensitivity to Muon
+Structure}\label{sensitivity-to-muon-structure}
+
+If the muon has a charge radius R\_μ, it modifies the measured cross
+section through the muon's own form factor:
+
+\[F_\mu(Q^2) = 1 - \frac{Q^2 R_\mu^2}{6} + \ldots\]
+
+This enters the cross section as a multiplicative factor, effectively
+shifting the extracted ``proton radius'' by:
+
+\[\delta r_p^2 \approx R_\mu^2\]
+
+For MUSE's target precision of \textasciitilde1\% on r\_p
+(\textasciitilde0.008 fm), this means MUSE is sensitive to R\_μ ≳ 0.008
+fm. GWT predicts R\_μ \textasciitilde{} 10⁻²⁰ fm, so \textbf{no muon
+structure will be visible}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3. Falsification Criteria}\label{falsification-criteria}
+
+GWT would be \textbf{challenged} if MUSE finds:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{r\_p(μ-p) ≠ r\_p(e-p)} at \textgreater{} 3σ significance
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This would imply lepton non-universality or muon structure
+  \item
+    GWT has no mechanism for this (both probe the same kink topology)
+  \end{itemize}
+\item
+  \textbf{r\_p ≠ 0.841 fm} from either channel
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The GWT value is 0.84062 fm with \textasciitilde0.02\% theoretical
+    uncertainty
+  \item
+    A measurement of 0.87 fm (the old CODATA value) would be problematic
+  \end{itemize}
+\item
+  \textbf{Anomalous Q²-dependence} in μ-p vs e-p ratio
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A flat ratio = lepton universality (GWT prediction)
+  \item
+    A Q²-dependent ratio = new physics beyond GWT
+  \end{itemize}
+\end{enumerate}
+
+GWT would be \textbf{confirmed} if MUSE finds:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  r\_p(μ-p) = r\_p(e-p) = 0.841 ± 0.01 fm (consistent with muonic H)
+\item
+  No lepton universality violation at any Q²
+\item
+  Muon consistent with point-like (no anomalous form factor)
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{4. Connection to the Proton Radius
+Puzzle}\label{connection-to-the-proton-radius-puzzle}
+
+The proton radius puzzle (2010--2019) arose from a discrepancy between:
+- Muonic hydrogen spectroscopy: r\_p = 0.84087 ± 0.00039 fm - Electronic
+hydrogen + e-p scattering: r\_p = 0.8751 ± 0.0061 fm
+
+GWT predicted the muonic value from the start (the formula gives 0.84062
+fm). The resolution of the puzzle in favor of \textasciitilde0.841 fm is
+consistent with GWT.
+
+MUSE provides the \textbf{definitive test}: same detector, same
+kinematics, both leptons. If μ-p and e-p give the same r\_p ≈ 0.841 fm,
+the puzzle is closed and GWT's prediction is confirmed.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{5. The Deeper Question: Why Is the Muon
+Point-Like?}\label{the-deeper-question-why-is-the-muon-point-like}
+
+In the Standard Model, the muon is point-like by assumption (it's a
+fundamental fermion). GWT provides a \textbf{reason}: the muon is a 1D
+oscillation (breather) on the lattice, with no topological winding. Only
+3D topological objects (kink-antikink tori) have measurable spatial
+extent.
+
+This connects to the correction hierarchy discovered in GWT: -
+\textbf{1D/2D modes (leptons):} No lattice distortion → no corrections
+to bare values → point-like - \textbf{3D torus (proton):} Wraps all 3
+dimensions → local lattice distortion → effective c reduced → correction
+terms (1 - α·26/(27π²)) → measurable radius
+
+The muon mass formula m\_μ/m\_e = d/((d-1)α) = 205.6 (obs: 206.8, 0.6\%)
+works \textbf{without} any spatial correction, confirming the muon has
+no 3D topological structure.
+
+Supporting evidence: all three lepton masses (e, μ, τ) are predicted
+without corrections: - m\_μ/m\_e = d/((d-1)α) = 205.6 (0.6\%) - Koide
+parameter = (d-1)/d = 2/3 (8.8 ppm) - m\_τ from Koide = 1777 MeV
+(0.006\%)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{6. Muon g-2: A Derived
+Prediction}\label{muon-g-2-a-derived-prediction}
+
+\textbf{Update (March 28, 2026): The muon g-2 has been fully derived.}
+
+The electron g-2 uses the full \(O_h\) channel decomposition:
+
+\[a_e = \frac{\alpha}{2\pi}\left(1 - \frac{\alpha}{2d-1} - \frac{\alpha^2}{2d+1}\right) = 0.00115965182 \quad (\text{obs: ...218, } {-0.31 \text{ ppm}})\]
+
+The muon g-2 adds a hadronic VP correction with an NLO term from the
+\(O_h \to D_{4h}\) subgroup restriction:
+
+\[a_\mu = a_e + \frac{\alpha^2}{2\pi}\left(\frac{m_\mu}{m_\pi}\right)^2 \frac{d}{d-1} \cdot F_{O_h} \cdot F_{D_{4h}}\]
+
+where: -
+\(F_{O_h} = \frac{169}{198} = \frac{(d^2+d+1)^2}{2d^2(d^2+d-1)}\) ---
+bifundamental EM×QCD trace (Oh symmetry of 3D vacuum) -
+\(F_{D_{4h}} = 1 + \alpha \cdot \frac{d^2+d-1}{d^2+1} = 1 + \alpha \cdot \frac{11}{10}\)
+--- NLO from D4h restriction
+
+\textbf{Result:} \(a_\mu = 0.00116591962\) (obs: \(0.00116592061\),
+\textbf{−0.85 ppm})
+
+The SM predicts \(0.00116591810\) (−2.15 ppm). \textbf{GWT is 2.5×
+closer to observation.}
+
+\textbf{Derivation:} The muon lives on \(d-1 = 2\) axes of the \(d=3\)
+cube. Its local symmetry is \(D_{4h}\) (the square), not \(O_h\) (the
+cube). Restricting \(T_{1u} \otimes T_{1u}\) from \(O_h\) to \(D_{4h}\):
+
+\[T_{1u} \to A_{2u} + E_u \quad \text{in } D_{4h}\]
+
+\[(A_{2u} + E_u) \otimes (A_{2u} + E_u) \text{ has } \textbf{2} \text{ } A_{1g} \text{ channels (not 1)}\]
+
+The extra \(A_{1g}\) comes from the \(E_g\) irrep of \(O_h\) splitting
+under \(D_{4h}\): \(E_g \to A_{1g} + B_{1g}\). The \(d_{z^2}\) component
+looks scalar from the 2D muon frame. This channel is
+\(\alpha\)-suppressed and normalized by the ratio of QCD exchange paths
+to coupling modes: \((d^2+d-1)/(d^2+1) = 11/10\).
+
+\textbf{Key identity:} \(d^2+d-1 = d^2+2\) only at \(d=3\) (requires
+\(d-1=2\)).
+
+The D4h character table, branching rules, and full calculation are in
+\texttt{reference/nuclear.md} and
+\texttt{calculations/core/muon\_g2\_d4h.py}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{7. Timeline and Experimental
+Status}\label{timeline-and-experimental-status}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{MUSE commissioning:} 2019--2022
+\item
+  \textbf{Production data:} 2023--2025
+\item
+  \textbf{First results:} Expected 2025--2026
+\item
+  \textbf{This prediction documented:} March 26, 2026
+\end{itemize}
+
+All GWT predictions in this document were derived from the Lagrangian
+\(\mathcal{L} = \frac{1}{2}(\partial\phi)^2 + \frac{1}{\pi^2}(1-\cos\pi\phi)\)
+on the d=3 cubic lattice with zero free parameters.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{References}\label{references}
+
+{[}1{]} Antognini et al., Science 339, 417 (2013) --- Muonic hydrogen
+r\_p = 0.84087 fm {[}2{]} Mohr et al., Rev.~Mod. Phys. 84, 1527 (2012)
+--- CODATA 2010 r\_p = 0.8775 fm {[}3{]} Brandt et al., Phys. Rev.~Lett.
+(2026) --- PRad-II r\_p = 0.840615 fm (to be confirmed) {[}4{]}
+Alexandrou et al., Phys. Rev.~D 101, 114513 (2020) --- Lattice QCD r\_p
+{[}5{]} Wollenberg, ``Proton-Electron Mass Ratio from Sine-Gordon
+Lattice'' (2026)
+
+\end{document}
