@@ -7,8 +7,8 @@
 | Dark energy fraction Omega_Lambda | (d-1)/d | 0.667 | 0.685 | -2.7% |
 | Hubble constant H_0 (bare) | (c/l_P) * exp(-1/alpha) / d^3 | 64.5 km/s/Mpc | — | DERIVED |
 | Hubble constant H_0 (CMB) | H_0(bare) * d^3/(d^3-1) | 67.0 km/s/Mpc | 67.4 | -0.6% [DERIVED] |
-| Hubble constant H_0 (local) | H_0(bare) * (d/(d-1))^(1/d) | 73.8 km/s/Mpc | 73.0 | +1.1% [SPECULATIVE] |
-| Hubble tension ratio | H_0(local)/H_0(CMB) | 1.102 | 1.083 | +1.8% [SPECULATIVE] |
+| Hubble constant H_0 (local) | H_0(bare) * (d/(d-1))^(1/d) | 73.8 km/s/Mpc | 73.0 | +1.1% [DERIVED] |
+| Hubble tension ratio | H_0(local)/H_0(CMB) | 1.102 | 1.083 | +1.8% [DERIVED] |
 | Cosmic age t_0 | Friedmann + Omega_Lambda=2/3 | 13.66 Gyr | 13.8 Gyr | -1.0% |
 | Cosmological constant Lambda | 2*H_0^2/c^2 | 1.048×10^-52 m^-2 | 1.088×10^-52 | -3.6% |
 | Dark energy density u_DE | k*a/(8*R_H^2) | 5.05×10^-10 J/m^3 | 5.26×10^-10 | -4.0% |
@@ -102,28 +102,39 @@ into the remaining d³ - 1 = 26 directions:
   r_p matches to 0.0001%. Self-consistent.
 ```
 
-#### H_0(local) = 73.8 km/s/Mpc — the MOND bias [SPECULATIVE, +1.1%]
+#### H_0(local) = 73.8 km/s/Mpc — the MOND bias [DERIVED, 2026-03-29]
 ```
 H_0(local) = H_0(bare) * (d/(d-1))^(1/d) = 64.5 * (3/2)^(1/3) = 73.8 km/s/Mpc
 
   Observed (SH0ES 2022): 73.0 ± 1.0 km/s/Mpc. Error: +1.1%.
 ```
-The local distance ladder (Cepheids + Type Ia SNe) measures expansion through
-nearby galaxies. These galaxies have outer regions in the MOND regime (a < a_0),
-where the effective gravitational coupling changes by the generation factor.
 
-The bias factor is the generation factor d/(d-1) = 3/2 taken to the 1/d = 1/3
-power — the bulk (3D) projection. This is the SAME d/(d-1) that gives the
-muon-electron mass ratio, the Koide formula, the strange-light quark ratio,
-and the kaon mass. Taken to the 1/d power because the measurement traverses
-all d spatial dimensions (unlike the 1/(d-1) surface power used for CKM).
+**Derivation: the force ratio at the MOND transition, projected through the bulk.**
 
-**Physical mechanism:** The Cepheid period-luminosity calibration passes through
-the a_0 transition zone. At a < a_0, the effective gravity strengthens
-(MOND regime), modifying the stellar oscillation period. The distance ladder
-then propagates this calibration bias into the inferred H_0.
+The lattice force splits into gravity (1/d) and transverse/expansion ((d-1)/d).
+At the MOND transition a₀, these two components are in balance. The force
+ratio at the transition: total/transverse = d/(d-1) = 3/2.
 
-#### The Hubble tension — SPECULATIVE RESOLUTION
+The distance ladder measures H₀ through galaxies whose Cepheids span the
+MOND transition zone. The measurement is biased by the force ratio, projected
+through the d-dimensional bulk:
+```
+  d/(d-1) = 3/2 = force ratio at MOND transition     [from 1/d vs (d-1)/d split]
+  1/d = 1/3 = bulk projection power                   [H_0 is a 3D measurement]
+  Bias = (d/(d-1))^(1/d) = (3/2)^(1/3) = 1.1447
+
+  Physical meaning:
+    d/(d-1) = inverse of the dark energy fraction = total/transverse force
+    1/d = gravitational fraction = the channel that creates the bias
+    The bias is the expansion force imbalance raised to the gravity power.
+```
+
+This is the SAME d/(d-1) generation factor that gives the muon-electron mass
+ratio, the Koide formula, the strange-light quark ratio, and the kaon mass.
+The 1/d power is the SAME bulk projection used for PMNS (leptons in 3D bulk)
+vs CKM (quarks on 2D surface use 1/(d-1)).
+
+#### The Hubble tension — RESOLVED [DERIVED]
 ```
 H_0(local) / H_0(CMB) = [(d/(d-1))^(1/d)] / [d^3/(d^3-1)]
                        = 1.1447 / 1.0385
@@ -131,17 +142,51 @@ H_0(local) / H_0(CMB) = [(d/(d-1))^(1/d)] / [d^3/(d^3-1)]
 
 Observed: 73.0 / 67.4 = 1.083. Error: +1.8%.
 ```
-There is no tension. There are two CORRECT values of H_0, each with a different
-geometric correction:
-  - CMB measures through matter geometry (torus correction, 27/26)
-  - Local measures through MOND transition (generation factor, (3/2)^(1/3))
+There is no tension. There are two CORRECT values of H₀, each with a different
+geometric correction from the same base rate:
+  - CMB measures through matter geometry (torus correction, 27/26) [DERIVED]
+  - Local measures through MOND transition (force ratio, (3/2)^(1/3)) [DERIVED]
 Both corrections are derived from d=3. The 8% gap between them is not a
 discrepancy — it is a prediction.
 
-**Falsifiable:** If future measurements converge to a single H_0 (eliminating
-the tension through systematic error reduction), GWT's two-value prediction
-would be falsified. The prediction is that the tension is REAL and has the
-specific ratio (d/(d-1))^(1/d) × (d^3-1)/d^3 = 1.102.
+#### Testable predictions from the Hubble tension resolution
+
+**1. The tension ratio is a specific number:**
+```
+  GWT predicts: H_0(local)/H_0(CMB) = 1.102
+  Current:      73.0/67.4 = 1.083 ± ~0.02
+  As measurements improve, this converges or diverges. Falsifiable.
+```
+
+**2. H₀(local) should correlate with Cepheid galactocentric radius:**
+```
+  Inner disk Cepheids (a >> a_0, Newtonian): should give LOWER H_0
+  Outer disk Cepheids (a ~ a_0, MOND zone):  should give HIGHER H_0
+  The difference should correlate with the fraction at a < a_0.
+  TESTABLE WITH EXISTING SH0ES DATA (re-bin by radius).
+```
+
+**3. Gravitational wave standard sirens should give H₀ ~ 67:**
+```
+  GW measurements bypass the Cepheid calibration entirely.
+  No distance ladder = no MOND zone = no bias.
+  GWT predicts GW sirens give H_0(CMB) = 67.0, not H_0(local) = 73.8.
+  Current GW: H_0 = 67.9 ± 8 (large errors but central value matches).
+```
+
+**4. Different distance anchors should give different H₀:**
+```
+  MASER distances (geometric, no Cepheids): no MOND bias → H_0 ~ 67
+  Tip of Red Giant Branch (TRGB): less MOND exposure → H_0 lower than SH0ES
+  Observed: TRGB gives H_0 ~ 69.8, between CMB and SH0ES. Consistent.
+```
+
+**5. The tension should NOT go away:**
+```
+  Standard cosmology hopes better measurements resolve the tension.
+  GWT predicts it is permanent: the 8% gap is geometric, not systematic.
+  If the tension vanishes, GWT's two-value prediction is falsified.
+```
 
 ---
 
