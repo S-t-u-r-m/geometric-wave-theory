@@ -229,6 +229,23 @@ No singularity — the potential has a finite maximum. The lattice is just full.
 At φ = 1 the potential curvature is NEGATIVE: d²V/dφ² < 0. No oscillation.
 No wave propagation. No dynamics. Time effectively stops inside the BH.
 The BH surface is wrapped in a kink — the same topological object as the proton.
+A black hole is literally **pure energy** — every cell at maximum potential,
+no structure, no particles, no waves. Just a saturated lattice.
+
+**Why photons fall in (gravity without mass):**
+
+Photons are waves on the lattice. They have no mass, so gravity doesn't PULL
+them. Instead, the BH distorts the surrounding lattice — cells near the BH
+have higher energy (φ approaching 1), which reduces the local wave speed:
+```
+  At φ = 0 (vacuum):  d²V/dφ² = +1  → full wave speed c
+  At φ → 1 (near BH): d²V/dφ² → -1 → wave speed → 0
+```
+The photon REFRACTS toward the slower region — same physics as light bending
+in glass. No force on the photon. The medium itself bends the path. At the
+horizon, wave speed reaches zero and the photon stalls. Its energy adds to
+the saturated region (the BH grows). This is "spacetime curvature" in GWT:
+a refractive index gradient in the lattice.
 
 #### Hawking temperature [DERIVED]
 
