@@ -294,6 +294,27 @@ but is now understood as the 2D VP contribution.
   The 2D VP is weaker (3/4 < 8/9) because fewer channels.
 ```
 
+**2D VP mass dressing [DERIVED]:**
+
+By the universal VP law, every particle mass gets dressed by α² × (non-A1g fraction)
+appropriate to its dimensionality. The neutrino lives in 2D (transverse plane):
+```
+  M_dressed = M_eff * (1 + alpha^2 * ((d-1)^2 - 1)/(d-1)^2)
+            = M_eff * (1 + alpha^2 * 3/4)
+            = M_eff * 1.0000399
+```
+This is a 40 ppm correction — negligible at current experimental precision
+(KATRIN ~200 meV, cosmological bounds ~120 meV, GWT predicts 75 meV total).
+Included for CONSISTENCY with the VP hierarchy:
+```
+  1D leptons:    dressed = bare              (no VP, 0 transverse)
+  2D neutrinos:  dressed = bare * (1 + alpha^2 * 3/4)   (40 ppm, from Eu x Eu in D4h)
+  3D proton:     dressed = bare * (1 + alpha^2 * 8/9)   (47 ppm, from T1u x T1u in Oh)
+```
+The same universal VP law, the same phi^4 -> tensor product mechanism,
+three different dimensionalities giving three different fractions.
+All three fractions derived from the character tables (Oh and D4h).
+
 ### Mass splittings — from Oh → D4h restriction [DERIVED, 2026-03-28]
 
 The kink sits along one axis (z), breaking Oh → D4h. The three neutrino axes
