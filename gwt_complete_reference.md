@@ -113,6 +113,12 @@ VP SELF-ENERGY CONSTANT:
   VP_self   = -0.7588963842629                                            [DERIVED: definite integral]
               Full derivation: reference/coupling_constants.md
 
+BLACK HOLE THERMODYNAMICS:
+  T_H       = 1/(2^d * pi * M)                              = 1/(8*pi*M)   [DERIVED: boundary cell tunneling]
+  S_BH      = A / 2^(d-1)                                   = A/4          [DERIVED: surface channels]
+              8 = 2^d (cube vertices), 4 = 2^(d-1) (surface channels), pi from Lagrangian.
+              Full derivation: reference/cosmology.md
+
 WHY 12:
   alpha^12  = alpha^((d+1)!/2)  =  alpha^|A_4|                           [STRUCTURAL]
   |Oh| = 48 -> |O| = 24 -> |A_4| = 12
@@ -144,7 +150,7 @@ CKM matrix from quark mass ratios (Cabibbo, θ₂₃, θ₁₃, CP phase, N_top/
 What particles are (toroidal circulations). Perron-Frobenius proof of A1g ground state. Explicit d-cube spectrum. Energy comparison of defects. Lattice stabilization. Three torus motions = three quantum numbers. Quarks as sub-circulations. Stability, annihilation, antimatter gravity. Toroidal coupling modes.
 
 ### [12. Cosmological Parameters](reference/cosmology.md)
-Dark energy Ω_Λ = (d-1)/d. Hubble constant H₀ = 64.5 (bare), with speculative corrections for CMB (67.0) and local (73.8). Cosmic age, cosmological constant, dark energy EOS (w = -1 exact), MOND acceleration, baryon asymmetry η_B = J × α² × d/2^d.
+Dark energy Ω_Λ = (d-1)/d. Hubble constant H₀ = 64.5 (bare), with speculative corrections for CMB (67.0) and local (73.8). Cosmic age, cosmological constant, dark energy EOS (w = -1 exact), MOND acceleration, baryon asymmetry η_B = J × α² × d/2^d. **Black hole thermodynamics**: T_H = 1/(2^d·π·M), S = A/2^(d-1) — the 8 and 4 are cube geometry.
 
 ### [13a. Atomic & Molecular Physics](reference/atomic_molecular.md)
 Hydrogen atom, H₂ bond energy, H₂O bond angle, wave channel geometry, atomic shell structure from the Lagrangian (Pöschl-Teller → n, l → Oh irreps → shell capacities), ionization energy Z_eff model (2.61% on 103 atoms), three-tier harmonic screening.
