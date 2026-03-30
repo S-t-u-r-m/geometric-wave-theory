@@ -153,7 +153,7 @@ What particles are (toroidal circulations). Perron-Frobenius proof of A1g ground
 Dark energy Ω_Λ = (d-1)/d. Hubble constant H₀ = 64.5 (bare), with speculative corrections for CMB (67.0) and local (73.8). Cosmic age, cosmological constant, dark energy EOS (w = -1 exact), MOND acceleration, baryon asymmetry η_B = J × α² × d/2^d. **Black hole thermodynamics**: T_H = 1/(2^d·π·M), S = A/2^(d-1) — the 8 and 4 are cube geometry.
 
 ### [13a. Atomic & Molecular Physics](reference/atomic_molecular.md)
-Hydrogen atom, H₂ bond energy, H₂O bond angle, wave channel geometry, atomic shell structure from the Lagrangian (Pöschl-Teller → n, l → Oh irreps → shell capacities), ionization energy Z_eff model (2.61% on 103 atoms), three-tier harmonic screening.
+Hydrogen atom, H₂ bond energy, H₂O bond angle, wave channel geometry, atomic shell structure from the Lagrangian. **Quantum defect formula**: δ_p = 1/25 + first×5/6 + rest×8/9, giving per-subshell Z_eff and spectral lines. Chain: δ → Z_eff → IE → E_harm → D_e. H < 0.03%, Na -1.4%, Mg -0.2%, 11/12 under 10%.
 
 ### [13b–11b. Chemical & Nuclear Bonding](reference/bonding.md)
 **The consolidated bond physics file.** V8 formula (8 corrections = 8 non-A1g channels). Oh-derived bond model (7.5% zero-parameter). Complete bond model rewrite: correct proton topology (poloidal winding), 3D ZPE mechanism, collective bonding (not mode-by-mode), scale separation (nuclear vs chemical), 5/9 universal reduction. Kink well physics (Morse from Pöschl-Teller). Born rule connection to bonding.
