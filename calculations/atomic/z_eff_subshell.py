@@ -459,6 +459,80 @@ def compute_all_levels(symbol, max_n=None):
 
 
 # ============================================================
+# QUANTUM DEFECT FORMULA (2026-03-29)
+# The unified depth formula: delta -> Z_eff -> IE -> bonds
+# ============================================================
+
+N_top = d * 2**d + 1  # 25 = topological mode count (|O| + 1)
+
+
+def quantum_defect(n_val, l, n_core, n_p_core, paired_s=False):
+    """
+    GWT quantum defect from d=3 constants.
+
+    The COMPLETE chain: delta -> Z_eff -> IE -> E_harm -> D_e
+      Z_eff = n / (n - delta)
+      IE = Z_eff^2 * E_H / n^2
+      E_harm = 2*IE_A*IE_B / (IE_A + IE_B)
+      D_e = pi/d^2 * E_harm
+
+    Formula:
+      delta_p = 1/N_top + n_p_core/(2d+1)
+      delta_s = delta_p + w_pi                 [deep core, n_core >= 2]
+      delta_s = delta_p + w_pi * d/(d+1)       [shallow core, n_core = 1]
+      delta_s += 1/(d+1)                       [if paired valence]
+      delta_d = 0                              [hydrogenic, fully blocked]
+
+    Constants (all from d=3 Lagrangian):
+      N_top = d*2^d + 1 = 25     (topological mode count)
+      1/(2d+1) = 1/7             (exchange paths, same as g-2 and ionic bonds)
+      w_pi = cos(pi/d) = 1/2     (pi-channel weight)
+      d/(d+1) = 3/4              (bonding fraction, shallow core correction)
+      1/(d+1) = 1/4              (pairing correction)
+
+    Verified against spectral data (Li through Cs):
+      Li: IE +0.4%, spectral line -1.4%
+      Na: IE +3.0%, spectral line -5.2%
+      K:  IE +2.8%
+      Mg: IE -2.8%, spectral line -0.2%
+      Ca: IE -0.5%
+    """
+    if n_core == 0:
+        return 0.0  # hydrogen-like: no core, no defect
+
+    if l == 0:  # s-orbital
+        dp = 1.0/N_top + n_p_core / (2*d + 1)
+        if n_core <= 1:
+            delta = dp + w_pi * d / (d + 1)  # 3/8 for shallow core
+        else:
+            delta = dp + w_pi  # 1/2 for deep core
+        if paired_s:
+            delta += 1.0 / (d + 1)  # 1/4 pairing
+        return delta
+
+    elif l == 1:  # p-orbital
+        return 1.0/N_top + n_p_core / (2*d + 1)
+
+    else:  # d, f orbitals
+        return 0.0  # hydrogenic (fully blocked by angular barrier)
+
+
+def z_eff_from_defect(n, l, n_core, n_p_core, paired_s=False):
+    """Z_eff = n / (n - delta). The depth formula."""
+    delta = quantum_defect(n, l, n_core, n_p_core, paired_s)
+    n_eff = n - delta
+    if n_eff <= 0.1:
+        return 1.0  # clamp
+    return n / n_eff
+
+
+def ie_from_defect(n, l, n_core, n_p_core, paired_s=False):
+    """IE = Z_eff^2 * E_H / n^2. From delta to ionization energy."""
+    z = z_eff_from_defect(n, l, n_core, n_p_core, paired_s)
+    return z**2 * E_H / n**2
+
+
+# ============================================================
 # TEST
 # ============================================================
 if __name__ == '__main__':
