@@ -140,26 +140,33 @@ def screening_for_target(Z, config, n_target, l_target):
             diff_weight = 4.0 / (2*d + 1)  # 0.571
             S += count * diff_weight
 
-        elif n_sh == n_target - 1:
-            # One shell below: partial screening (l-independent)
-            if l_sh <= 1:
-                S += count * w_pi
-            elif l_sh == 2:
-                if l_target == 1:
-                    S += count * w_pi
-                else:
-                    S += count * w_delta
-            elif l_sh == 3:
-                if l_target == 1:
-                    S += min(count, 3) * w_pi + max(0, min(count, 7) - 3) * w_delta / d
-                else:
-                    S += min(count, 7) * w_delta / d
+        elif n_sh < n_target:
+            # Inner shells: screening depends on DEPTH (delta_n)
+            delta_n = n_target - n_sh
 
-        elif n_sh < n_target - 1:
-            # Deep inner shell: nearly full screening
-            depth = n_target - n_sh
-            blend = 1.0 - 1.0 / (d * depth)
-            S += count * blend
+            # Base screening weight from Oh CG:
+            if l_sh <= 1:
+                w_base = w_pi  # 0.5
+            elif l_sh == 2:
+                w_base = w_pi if l_target == 1 else w_delta
+            elif l_sh == 3:
+                w_base = w_pi if l_target == 1 else w_delta / d
+            else:
+                w_base = w_pi
+
+            # Depth correction: use w_base for the closest shell,
+            # blend toward 1.0 for deeper shells.
+            # delta_n=1: w_base (the Oh CG weight — partial screening)
+            # delta_n>=2: 1 - (1-w_base) * 1/delta_n (approaches 1.0)
+            if delta_n == 1:
+                w_eff = abs(w_base)
+            else:
+                w_eff = 1.0 - (1.0 - abs(w_base)) / delta_n
+            # For anti-screening (w_delta < 0): keep the sign
+            if w_base < 0:
+                w_eff = -abs(w_eff)
+
+            S += count * w_eff
 
         # Outer shells (n_sh > n_target): no screening from outer electrons
 
@@ -200,6 +207,38 @@ def alpha_penetration_factor(l_target):
         return 1.0 / (d**2 + 1)         # 1/10 = 0.100
     else:
         return 1.0 / (d**2 + d + 1)     # 1/13 = 0.077
+
+
+def no_core_correction(config, n_target):
+    """
+    Correction for atoms with no inner core or very shallow core.
+
+    n=1 atoms (He): no core at all. The electrons access ALL (2d+1)=7
+    exchange paths on the cube. Alpha multiplied by (2d+1)/d = 7/3.
+    This is the INVERSE of the ionic coupling 1/(2d+1).
+
+    Shallow core (delta_n = 1 with small core): reduce p-penetration
+    further because the core doesn't block the angular barrier.
+
+    Returns multiplicative correction to alpha.
+    """
+    # Find deepest occupied shell below target
+    core_n_max = 0
+    core_electrons = 0
+    for n_sh, l_sh, count in config:
+        if n_sh < n_target and count > 0:
+            core_n_max = max(core_n_max, n_sh)
+            core_electrons += count
+
+    if core_n_max == 0 and n_target == 1:
+        # NO CORE at n=1 (He-like): both electrons in the innermost shell.
+        # No angular barriers to penetrate — the electrons access ALL
+        # (2d+1) = 7 exchange paths. Correction = (2d+1)/d = 7/3.
+        return (2*d + 1) / d    # 7/3 = 2.333
+
+    # All other cases: the penetration factor already handles it.
+    # Shallow cores (Li-like) work through the regular 11/9 and 3/4.
+    return 1.0
 
 
 def compute_alpha_for_target(config, n_target, l_target, S_core):
@@ -245,9 +284,12 @@ def compute_alpha_for_target(config, n_target, l_target, S_core):
     # Apply Oh penetration correction
     alpha = alpha_base * alpha_penetration_factor(l_target)
 
+    # Apply no-core / shallow-core correction
+    alpha *= no_core_correction(config, n_target)
+
     # Clamp
     alpha = max(alpha, 0.001)
-    alpha = min(alpha, 0.8)
+    alpha = min(alpha, 1.5)  # increased clamp for He (alpha ~ 1.04)
 
     return alpha
 
