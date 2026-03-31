@@ -477,31 +477,38 @@ def quantum_defect(n_val, l, n_core, n_p_core, paired_s=False):
       D_e = pi/d^2 * E_harm
 
     Formula:
-      delta_p = 1/N_top + n_p_core/(2d+1)
+      delta_p = 1/N_top + first_p * (2d-1)/(2d) + rest_p * (d^2-1)/d^2
+             = 1/25 + first * 5/6 + rest * 8/9
       delta_s = delta_p + w_pi                 [deep core, n_core >= 2]
       delta_s = delta_p + w_pi * d/(d+1)       [shallow core, n_core = 1]
       delta_s += 1/(d+1)                       [if paired valence]
       delta_d = 0                              [hydrogenic, fully blocked]
 
     Constants (all from d=3 Lagrangian):
-      N_top = d*2^d + 1 = 25     (topological mode count)
-      1/(2d+1) = 1/7             (exchange paths, same as g-2 and ionic bonds)
-      w_pi = cos(pi/d) = 1/2     (pi-channel weight)
-      d/(d+1) = 3/4              (bonding fraction, shallow core correction)
-      1/(d+1) = 1/4              (pairing correction)
+      N_top = d*2^d + 1 = 25           (topological mode count)
+      (2d-1)/(2d) = 5/6 = F_RAD        (first p-shell, directional/radical fraction)
+      (d^2-1)/d^2 = 8/9 = VP           (subsequent p-shells, VP fraction)
+      w_pi = cos(pi/d) = 1/2           (pi-channel weight, s-p splitting)
+      d/(d+1) = 3/4                    (bonding fraction, shallow core correction)
+      1/(d+1) = 1/4                    (pairing correction)
 
     Verified against spectral data (Li through Cs):
-      Li: IE +0.4%, spectral line -1.4%
-      Na: IE +3.0%, spectral line -5.2%
-      K:  IE +2.8%
-      Mg: IE -2.8%, spectral line -0.2%
-      Ca: IE -0.5%
+      Li: exact   Na: +1.6%   K: +3.1%   Rb: +0.04%   Cs: -0.6%
     """
     if n_core == 0:
         return 0.0  # hydrogen-like: no core, no defect
 
+    # p-shell contribution: first × 5/6, remaining × 8/9
+    F_RAD = (2*d - 1) / (2*d)        # 5/6
+    VP_FRAC = (d**2 - 1) / d**2      # 8/9
+
+    if n_p_core >= 1:
+        dp = 1.0/N_top + F_RAD  # first p-shell
+        dp += max(0, n_p_core - 1) * VP_FRAC  # remaining p-shells
+    else:
+        dp = 1.0/N_top  # no p-shells below
+
     if l == 0:  # s-orbital
-        dp = 1.0/N_top + n_p_core / (2*d + 1)
         if n_core <= 1:
             delta = dp + w_pi * d / (d + 1)  # 3/8 for shallow core
         else:
@@ -511,7 +518,7 @@ def quantum_defect(n_val, l, n_core, n_p_core, paired_s=False):
         return delta
 
     elif l == 1:  # p-orbital
-        return 1.0/N_top + n_p_core / (2*d + 1)
+        return dp
 
     else:  # d, f orbitals
         return 0.0  # hydrogenic (fully blocked by angular barrier)

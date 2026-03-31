@@ -90,11 +90,22 @@ def bond_v8(sym_a, sym_b, bond_order, is_radical=False):
     # Number of p-p electrons available for bonding
     ne_pp = min(p_a, d) + min(p_b, d)  # max d per atom
 
-    # --- CORRECTION 5: Half-filled sigma ---
-    # T1g[1]: radicals with odd ne_pp have half-sigma
+    # --- RADICAL CORRECTION (single, not double-counted) ---
+    # Half-sigma and F_RAD are the SAME geometric effect:
+    #   half-sigma = unpaired mode has half coupling strength
+    #   F_RAD = radical direction reduces projection to 5/6
+    # Applying both double-counts. Apply ONE:
+    #   - Half-sigma when BOTH atoms have p-electrons AND odd ne_pp
+    #     (two p-modes sharing one electron in the sigma channel)
+    #   - F_RAD otherwise (the radical modifies the projection angle)
+    # H-X bonds: H contributes an s-electron to sigma, fully occupying it.
+    #   The ne_pp count is irrelevant — sigma is full from the s-electron.
     sigma_eff = n_sigma
-    if is_radical and ne_pp > 0 and ne_pp % 2 == 1 and ne_pp <= 2*d:
+    half_sigma_applied = False
+    both_have_p = (p_a > 0 and p_b > 0)
+    if is_radical and both_have_p and ne_pp > 0 and ne_pp % 2 == 1 and ne_pp <= 2*d:
         sigma_eff = 0.5
+        half_sigma_applied = True
 
     # --- CORRECTION 6: Radical pi-weakening ---
     # T2g[1]: radical reduces pi by (ne_pp-1)/ne_pp
@@ -102,11 +113,6 @@ def bond_v8(sym_a, sym_b, bond_order, is_radical=False):
     if is_radical and ne_pp > 1 and n_pi > 0:
         pi_eff = n_pi * (ne_pp - 1) / ne_pp
 
-    # --- CORRECTION 1: Parity node counting ---
-    # T1g[3]: 3D parity nodes reduce overlap
-    # S /= n_lobes^(1 + (-1)^(rn+1)/d^rn) when has_nodes AND phase > pi
-    # For now: simplified version based on principal quantum numbers
-    # Nodes matter for n >= 3 (period 3+)
     parity_factor = 1.0
     n_max = max(n_a, n_b)
 
@@ -129,8 +135,10 @@ def bond_v8(sym_a, sym_b, bond_order, is_radical=False):
         phase_corr = am_gm_ratio ** (d - 1)  # ^2 for d=3
         coupling /= phase_corr
 
-    # --- CORRECTION 3 (T1g[1]): Radical sigma reduction ---
-    if is_radical:
+    # --- CORRECTION 3 (T1g[1]): Radical projection reduction ---
+    # Only apply F_RAD when half-sigma was NOT already applied
+    # (they are the same physics — applying both double-counts)
+    if is_radical and not half_sigma_applied:
         coupling *= F_RAD  # 5/6
 
     # --- CORRECTION 4 (T1g[2]): Overlap floor ---

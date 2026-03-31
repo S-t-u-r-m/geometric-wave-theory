@@ -21,6 +21,9 @@ L = (1/2)(∂φ)² + (1/π²)(1 − cos(πφ))
 | [Coupling constants](reference/coupling_constants.md) | α, α_s, sin²θ_W, VP law, Gray codes | [calculations/coupling/](calculations/coupling/) |
 | [Mass ratios & spectrum](reference/mass_ratios.md) | m_p/m_e, breathers, bosons, Koide | [calculations/masses/](calculations/masses/) |
 | [Mixing & neutrinos](reference/mixing_neutrinos.md) | CKM, PMNS, neutrino seesaw | [calculations/core/](calculations/core/) |
+| [Standing wave structure](reference/standing_waves.md) | Kinks, breathers, bound configurations, no particles inside | — |
+| [Relativity](reference/relativity.md) | SR/GR from springs: c, E=mc^2, Lorentz, equivalence, BH | — |
+| [Magnetism](reference/magnetism.md) | B-field = transverse twist (T1g), dia/para/ferromagnetism | — |
 | [Toroidal physics](reference/toroidal_physics.md) | Quarks, confinement, torus structure | [calculations/simulations/](calculations/simulations/) |
 | [Cosmology](reference/cosmology.md) | Ω_Λ, H₀, MOND, BH thermodynamics | [calculations/cosmology/](calculations/cosmology/) |
 | [Atomic & molecular](reference/atomic_molecular.md) | H atom, Z_eff, quantum defects, spectra | [calculations/atomic/](calculations/atomic/) |
@@ -95,7 +98,7 @@ Same 8 non-A1g channels from T1u⊗T1u = A1g + Eg + T1g + T2g. Different denomin
 | [Nuclear moments](reference/nuclear.md#proton-magnetic-moment-with-pion-cloud-003) (μ_p, μ_n, g_A) | 4 | 0.1% | 0.03% – 0.20% |
 | [Nuclear binding](reference/nuclear.md#nuclear-binding-energy-per-nucleon-derived-041) (B/A, deuteron) | 3 | 1.5% | 0.4% – 2.9% |
 | [Atomic](reference/atomic_molecular.md) (Rydberg, fine structure, spectra) | 3 | 0.08% | 0.004% – 0.20% |
-| [Molecular bonds & angles](reference/bonding.md) | 25 | 8.1% | 0.03% – 40% |
+| [Molecular bonds & angles](reference/bonding.md) | 25 | 7.8% | 0.03% – 20% |
 | [Cosmological](reference/cosmology.md) (Ω_Λ, H₀, η_B, MOND) | 8 | 2.7% | 0.3% – 9.1% |
 | Structural (generations, colors, gauge group) | 8 | 0% | exact |
 
@@ -152,15 +155,18 @@ The equation (d+1)!/2 = 2d(d−1) has unique solution d = 3. The "mysterious 3s"
 ```
 gwt_complete_reference.md      Master equation sheet + index to all derivations
 
-reference/                     Detailed derivations by topic (13 files)
+reference/                     Detailed derivations by topic (16 files)
   foundation.md                  Lagrangian, Born rule, harmonic space, gauge group
   forces.md                      Hooke's law, 1/3-2/3 split, 1D energy
   coupling_constants.md          α, α_s, sin²θ_W, VP law, Gray codes
   mass_ratios.md                 m_p/m_e, breather spectrum, bosons, Koide
   mixing_neutrinos.md            CKM, PMNS, neutrino masses
+  standing_waves.md              Kinks, breathers, bound configurations, shell structure
+  relativity.md                  SR/GR from springs: c, E=mc^2, Lorentz, equivalence, BH
+  magnetism.md                   B = transverse twist, dia/para/ferromagnetism
   toroidal_physics.md            Torus structure, quarks, confinement
   cosmology.md                   Ω_Λ, H₀, MOND, baryon asymmetry, BH thermodynamics
-  atomic_molecular.md            H atom, IE, Z_eff, quantum defects, spectra
+  atomic_molecular.md            H atom, IE, Z_eff, quantum defects, spatial Z_eff
   bonding.md                     V8 formula, Oh bonds, Morse, 3D ZPE
   nuclear.md                     Proton radius, mesons, g-2, D4h table, moments
   lattice_and_symmetry.md        8 modes, why d=3, N-body Oh, scorecard

@@ -248,3 +248,76 @@ This connects spectroscopy, ionization energies, and bond energies in ONE formul
 
 See: `calculations/atomic/z_eff_subshell.py` (formula + functions)
      `calculations/atomic/test_spectral_lines.py` (verification)
+
+---
+
+### Spatial Z_eff — Diamagnetic Susceptibility [DERIVED, 2026-03-30]
+
+**Discovery: Energy Z_eff and Spatial Z_eff are different physical quantities.**
+
+The energy Z_eff (from the alpha exponent) determines how deep a mode sits
+in the Poschl-Teller well. The spatial Z_eff determines how tightly the
+mode is confined around the kink. In hydrogen these are the same. In
+multi-mode configurations, they diverge.
+
+```
+ENERGY Z_eff:  Z_net^alpha(l)  — well depth (for IE, spectral lines)
+SPATIAL Z_eff: Z_net^beta(l)   — spatial confinement (for chi, radii)
+
+  s,p: beta = 1     (full Z_net — modes penetrate the core spatially)
+  d:   beta = d/(d+1) = 3/4  (angular barrier partially blocks confinement)
+  f:   beta = d/(d+2) = 3/5  (predicted, not yet tested)
+```
+
+**Same-shell spatial screening:**
+```
+  Energy same-subshell:  2/d     = 2/3   (modes block energy fully)
+  Spatial same-subshell: 2/(d+2) = 2/5   (modes cant block each other spatially)
+  Ratio: d/(d+2) = 3/5
+```
+
+**Inter-shell compression (from inverse analysis):**
+```
+  Z_eff(spatial, outer) = Z_eff(energy) × (n + 2d-1)/d = Z_eff(energy) × (n+5)/3
+
+  (2d-1)/d = 5/3: base compression from 5 symmetric Oh channels (Eg+T2g)
+  1/d = 1/3:     per-shell compression increment (longitudinal fraction)
+```
+
+**Results — diamagnetic susceptibility of noble gases (10^-6 cm^3/mol):**
+
+| Model | He | Ne | Ar | Kr | Xe |
+|-------|-----|-----|-----|-----|-----|
+| Z_net + beta(d)=3/4 | -42% | -36% | **+1.8%** | **-0.0%** | -8.9% |
+| He same-shell 2/5 | **+1.3%** | — | — | — | — |
+| Outer × (n+5)/3 | — | **-0.1%** | **+1.9%** | **+1.7%** | **+0.2%** |
+
+**GWT constants in the spatial model (all from d=3):**
+
+| Constant | Value | Same as |
+|----------|-------|---------|
+| d/(d+1) | 3/4 | Bonding fraction, neutrino splitting |
+| 2/(d+2) | 2/5 | Clementi-Raimondi closed-shell weight |
+| (2d-1)/d | 5/3 | Diamagnetic correction in g-2 |
+| 1/d | 1/3 | Gravitational/longitudinal fraction |
+
+**Physical interpretation:**
+
+The energy alpha exponent determines how DEEP a mode sits (via core penetration).
+The spatial beta determines how TIGHT the mode is confined (via screened charge).
+d-orbitals don't penetrate the core (energy alpha ~ 1/10) but ARE still confined
+by the screened charge (spatial beta = 3/4).
+
+Same-shell modes can't screen each other spatially as effectively as they block
+energy — they occupy the same radial region. The reduction factor d/(d+2) = 3/5
+converts energy screening to spatial screening.
+
+**Connection to bonding:**
+
+Bond overlap depends on spatial extent, not energy depth. The spatial Z_eff gives
+mode radii, which determine how two kinks' harmonic clouds interact. However,
+the coupling mechanism goes through the lattice springs (not free-space overlap),
+so the bond energy D_e = pi/d^2 * E_harm remains correct. The spatial Z_eff
+informs WHERE and HOW modes couple, not the coupling strength itself.
+
+See: `calculations/atomic/diamagnetic_susceptibility.py`
