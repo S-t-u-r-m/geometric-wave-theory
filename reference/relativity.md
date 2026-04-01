@@ -364,6 +364,105 @@ The equivalence principle holds because there is only ONE mechanism:
 spring compression. Whether caused by a nearby mass, an applied force,
 or sustained motion, the local lattice distortion is identical.
 
+### Radiation from velocity: friction from first principles [SIMULATED]
+
+Simulation confirms: energy is perfectly conserved, but it REDISTRIBUTES.
+
+| v | Energy conserved | Energy in kink | Leaked to radiation |
+|---|-----------------|---------------|-------------------|
+| 0.0 | 99.9% | 99.9% | 0.1% |
+| 0.3 | 100.0% | 100.1% | 0.0% |
+| 0.5 | 100.0% | 99.8% | 0.2% |
+| 0.7 | 100.0% | 34.4% | **65.6%** |
+| 0.9 | 100.0% | 0.0% | **100%** |
+
+At v=0.7: two-thirds of the kink's energy has leaked into lattice vibrations.
+At v=0.9: the kink is GONE — completely disintegrated into radiation.
+
+**This is friction from first principles.** The cosine nonlinearity at high
+velocity converts organized kink energy into disorganized lattice vibrations
+(= heat). No drag coefficient, no phenomenological force. Just springs.
+
+The transition happens at v ~ 0.6, exactly where the Lorentz-contracted
+breather width hits the lattice spacing. The kink can't maintain its profile
+and sheds the excess energy as traveling waves.
+
+In real physics, this manifests as:
+- **Synchrotron radiation**: power ~ gamma^4 (nonlinear self-coupling)
+- **Bremsstrahlung**: deceleration forces kink reorganization
+- **Cherenkov radiation**: kink exceeds local wave speed in medium
+
+Standard physics: only ACCELERATING charges radiate.
+GWT: radiation comes from kink-lattice mismatch, present even at constant v
+on a discrete lattice. At Planck-scale spacing, the constant-v radiation is
+unmeasurably small. Acceleration amplifies it by forcing faster reorganization.
+
+---
+
+## Mass = Lattice Disturbance Area
+
+**Mass is not stuff. It is how much lattice the wave pattern disturbs.**
+
+The self-interaction (what we called VP) is proportional to the number of
+lattice sites the wave pattern occupies. More sites = more nonlinear feedback
+= more energy stored = more mass.
+
+```
+Electron (breather n=16): narrow oscillation, few sites, small self-interaction
+  → lightest charged particle, 0.511 MeV
+
+Muon (breather n=11): wider oscillation, more sites, more self-interaction
+  → 207× electron mass, needs D4h restriction for g-2
+
+Proton (kink on torus): wraps entire torus, maximum surface area
+  → 1836× electron mass, maximum self-interaction
+```
+
+### The mass ratio IS the area ratio
+
+F = 2d × pi^(2d-1) = 6*pi^5 = 1836.15
+
+This is Surface × Volume on the half-Brillouin zone:
+- 2d = 6 = number of FACES the kink wraps (surface directions)
+- pi^(2d-1) = pi^5 = phase space volume per face
+
+The kink covers 6 faces × pi^5 phase space = 6*pi^5 times more lattice
+area than the electron's localized oscillation. That ratio IS m_p/m_e.
+
+**Mass ratio = lattice area ratio = self-interaction ratio.**
+
+### Connection to g-2
+
+The electron g-2 correction (alpha/2*pi with Oh corrections) measures
+the self-interaction of a COMPACT wave pattern. All 48 Oh operations
+contribute because the electron is small enough to couple to all channels.
+
+The muon g-2 needs D4h restriction because the muon is WIDER — it extends
+across enough lattice to feel the 2D subgroup structure. Its self-interaction
+samples a different subset of the Oh channels.
+
+The difference in g-2 between electron and muon is DIRECTLY the difference
+in how much lattice each one disturbs. Same physics, different scale.
+
+### Why E = mc^2 is really E = (lattice area) × (spring energy per site)
+
+The rest energy of a particle equals the total spring energy in all the
+lattice sites it disturbs:
+
+```
+E_rest = sum over disturbed sites of [(1/2)(grad phi)^2 + V(phi)]
+       = M_kink = 8/pi^2 for the proton
+       = M_breather(n) for each fermion
+```
+
+This is not a formula — it is a DEFINITION. Mass IS spring energy.
+The c^2 converts from natural units (where c=1) to SI.
+
+At velocity v, the disturbed region is Lorentz-contracted but the energy
+per site increases (steeper gradients). The total: E = gamma × M.
+The extra energy (gamma-1)×M is stored as increased spring compression
+plus field momentum plus lattice densification.
+
 See: `calculations/simulations/time_dilation_test.py`
 
 ---

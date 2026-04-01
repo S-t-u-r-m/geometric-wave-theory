@@ -309,3 +309,35 @@ harmonic on a guitar string" — it's everywhere the string vibrates in that pat
 This is not an interpretation. It is what the Lagrangian says. The kink creates
 a well. The well has modes. The modes are standing waves. There are no particles
 orbiting anything.
+
+---
+
+## Self-Interaction (Not "Vacuum Polarization")
+
+What standard physics calls "vacuum polarization" is really the nonlinear
+self-interaction of the cosine potential. The wave IS the lattice distortion —
+there is no separate vacuum being polarized by the wave.
+
+```
+Linear springs (F = -kx):
+  Displacement propagates without changing the springs.
+  No feedback. No self-interaction. No VP.
+
+Cosine springs (F = -(1/pi)*sin(pi*phi)):
+  Large displacement changes the local spring stiffness.
+  Stiffer springs change the displacement profile.
+  Changed profile changes the stiffness again.
+  → Feedback loop → equilibrium = "dressed" mass
+```
+
+The "VP correction" is the difference between the feedback-equilibrium
+mass and the no-feedback (linear approximation) mass. It is not a
+quantum effect or a virtual particle loop — it is a nonlinear spring
+settling into its equilibrium shape.
+
+Larger wave patterns (more lattice sites disturbed) have MORE self-interaction
+because more sites participate in the feedback loop. This is why heavier
+particles have larger VP corrections, and why mass = lattice disturbance area.
+
+See: [Relativity](relativity.md) for the full connection between mass,
+self-interaction, and kinetic energy.
