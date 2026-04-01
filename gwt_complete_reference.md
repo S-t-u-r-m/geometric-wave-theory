@@ -155,10 +155,13 @@ SR and GR from springs. c = sqrt(k/eta), E=mc^2 as elastic energy, Lorentz contr
 ### [13. Magnetism](reference/magnetism.md)
 Magnetism as transverse spring twist (T1g irrep). E-field = longitudinal, B-field = transverse. Diamagnetism (paired twists resist), paramagnetism (unpaired twists align), ferromagnetism (exchange coupling locks d-mode twists). Why div B = 0 (antisymmetric = traceless). Magnetic moments from Oh channels. Maxwell's equations as lattice wave equations.
 
-### [14. Toroidal Breather Physics](reference/toroidal_physics.md)
+### [14. Optics](reference/optics.md)
+Refraction from impedance mismatch (kinks change local spring properties). Snell's law from wave equation boundary conditions. Dispersion from resonant coupling to harmonic modes. Polarization = T1u vector direction. Reflection, diffraction, birefringence, photoelectric effect, Cherenkov radiation. All from waves on springs with varying stiffness.
+
+### [15. Toroidal Breather Physics](reference/toroidal_physics.md)
 What particles are (toroidal circulations). Perron-Frobenius proof of A1g ground state. Explicit d-cube spectrum. Energy comparison of defects. Lattice stabilization. Three torus motions = three quantum numbers. Quarks as sub-circulations. Stability, annihilation, antimatter gravity. Toroidal coupling modes.
 
-### [15. Cosmological Parameters](reference/cosmology.md)
+### [16. Cosmological Parameters](reference/cosmology.md)
 Dark energy Ω_Λ = (d-1)/d. Hubble constant H₀ = 64.5 (bare), with speculative corrections for CMB (67.0) and local (73.8). Cosmic age, cosmological constant, dark energy EOS (w = -1 exact), MOND acceleration, baryon asymmetry η_B = J × α² × d/2^d. **Black hole thermodynamics**: T_H = 1/(2^d·π·M), S = A/2^(d-1) — the 8 and 4 are cube geometry.
 
 ### [15a. Atomic & Molecular Physics](reference/atomic_molecular.md)
@@ -167,10 +170,10 @@ Hydrogen atom, H₂ bond energy, H₂O bond angle, wave channel geometry, atomic
 ### [15b. Chemical & Nuclear Bonding](reference/bonding.md)
 **The consolidated bond physics file.** V8 formula (8 corrections = 8 non-A1g channels). Oh-derived bond model (7.5% zero-parameter). Complete bond model rewrite: correct proton topology (poloidal winding), 3D ZPE mechanism, collective bonding (not mode-by-mode), scale separation (nuclear vs chemical), 5/9 universal reduction. Kink well physics (Morse from Pöschl-Teller). Born rule connection to bonding.
 
-### [17. Nuclear Physics, Mesons & Electromagnetic Moments](reference/nuclear.md)
+### [18. Nuclear Physics, Mesons & Electromagnetic Moments](reference/nuclear.md)
 Proton charge radius (bare, dressed, measured). Proton cavity. Pion mass (direct: m_p × 4/27). Rho, kaon, omega, complete meson spectrum. Nuclear energy scales, deuteron binding, B/A saturation. n-p mass difference. Electron g-2 (Oh channels, 0.31 ppm). Muon g-2 (D4h restriction, -0.85 ppm). D4h character table and Oh→D4h branching rules. Gravitational constant. Rydberg, Bohr radius, fine structure, 21cm. Proton/neutron magnetic moments, g_A. QCD string tension. Confinement theorem.
 
-### [18. Lattice Corrections, Symmetry & N-Body Oh Framework](reference/lattice_and_symmetry.md)
+### [19. Lattice Corrections, Symmetry & N-Body Oh Framework](reference/lattice_and_symmetry.md)
 1D breather discreteness corrections. 8 stable breather modes = 8 Oh channels (3D confirmed). Why d=3 (triple coincidence). Summary scorecard (55+ predictions). N-body problem: Oh tensor products, closed-form A1g content, screening selection rules, key structural theorems (parity, orthogonality, half-fill exactness), sparsity, implementation.
 
 ---

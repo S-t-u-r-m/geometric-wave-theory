@@ -24,6 +24,7 @@ L = (1/2)(∂φ)² + (1/π²)(1 − cos(πφ))
 | [Standing wave structure](reference/standing_waves.md) | Kinks, breathers, bound configurations, no particles inside | — |
 | [Relativity](reference/relativity.md) | SR/GR from springs: c, E=mc^2, Lorentz, equivalence, BH | — |
 | [Magnetism](reference/magnetism.md) | B-field = transverse twist (T1g), dia/para/ferromagnetism | — |
+| [Optics](reference/optics.md) | Refraction, dispersion, polarization from impedance matching | — |
 | [Toroidal physics](reference/toroidal_physics.md) | Quarks, confinement, torus structure | [calculations/simulations/](calculations/simulations/) |
 | [Cosmology](reference/cosmology.md) | Ω_Λ, H₀, MOND, BH thermodynamics | [calculations/cosmology/](calculations/cosmology/) |
 | [Atomic & molecular](reference/atomic_molecular.md) | H atom, Z_eff, quantum defects, spectra | [calculations/atomic/](calculations/atomic/) |
@@ -155,7 +156,7 @@ The equation (d+1)!/2 = 2d(d−1) has unique solution d = 3. The "mysterious 3s"
 ```
 gwt_complete_reference.md      Master equation sheet + index to all derivations
 
-reference/                     Detailed derivations by topic (16 files)
+reference/                     Detailed derivations by topic (17 files)
   foundation.md                  Lagrangian, Born rule, harmonic space, gauge group
   forces.md                      Hooke's law, 1/3-2/3 split, 1D energy
   coupling_constants.md          α, α_s, sin²θ_W, VP law, Gray codes
@@ -164,6 +165,7 @@ reference/                     Detailed derivations by topic (16 files)
   standing_waves.md              Kinks, breathers, bound configurations, shell structure
   relativity.md                  SR/GR from springs: c, E=mc^2, Lorentz, equivalence, BH
   magnetism.md                   B = transverse twist, dia/para/ferromagnetism
+  optics.md                      Refraction, dispersion, polarization, photoelectric
   toroidal_physics.md            Torus structure, quarks, confinement
   cosmology.md                   Ω_Λ, H₀, MOND, baryon asymmetry, BH thermodynamics
   atomic_molecular.md            H atom, IE, Z_eff, quantum defects, spatial Z_eff
