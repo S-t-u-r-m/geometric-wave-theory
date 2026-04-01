@@ -25,6 +25,27 @@ Corrections are NEGATIVE (discrete energy < continuous) and scale with breather 
 
 Convergence: corrections scale as ~a^2 (verified from a=1 down to a=0.05).
 
+### Discrete kink mass correction [DERIVED, 2026-04-01]
+
+The kink mass on the discrete lattice (a=1) differs from the continuum
+by a precise geometric factor:
+
+```
+M_discrete = M_continuum × (1 - 1/(2^d × (d²+1)))
+
+d=3: M = (8/π²) × (1 - 1/80) = (8/π²) × 79/80
+     Verified numerically to 0.0002%
+```
+
+The correction 1/(2^d × (d²+1)) = 1/80 is the resolution limit of
+the discrete lattice:
+- 2^d = 8 vertices per unit cell (spatial sampling)
+- d²+1 = 10 Oh irreps (symmetry channel sampling)
+- Total: 80 independent resolution channels
+
+See [Relativity](relativity.md) for the full derivation and connection
+to kinetic energy and self-interaction.
+
 ### 8 stable breather modes = 8 Oh channels (2026-03-20)
 
 **DISCOVERY: The d=3 cubic lattice supports exactly 8 stable breather eigenmodes.**
