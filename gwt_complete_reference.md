@@ -173,10 +173,13 @@ Hydrogen atom, H₂ bond energy, H₂O bond angle, wave channel geometry, atomic
 ### [18. Radioactive Decay](reference/radioactive_decay.md)
 Alpha decay (kink cluster tunneling), beta decay (torus mode conversion via SU(2)), gamma decay (harmonic relaxation), fission (topology splitting), fusion (topology merging). All from the cosine potential barrier. Geiger-Nuttall law from WKB. Sargent's rule E^5 = (2d-1)-body phase space. Iron peak at A ~ 56 from d=3 geometry.
 
-### [19. Nuclear Physics, Mesons & Electromagnetic Moments](reference/nuclear.md)
+### [19. Thermodynamics](reference/thermodynamics.md)
+Temperature = average spring vibration amplitude. Entropy = accessible Oh mode count. Heat capacity: T^3 from d=3 phase space, Dulong-Petit 3Nk_B from d=3 modes per site. Boltzmann distribution from wave statistics (entropy maximization). Phase transitions from mode structure changes. All four laws as emergent lattice properties.
+
+### [20. Nuclear Physics, Mesons & Electromagnetic Moments](reference/nuclear.md)
 Proton charge radius (bare, dressed, measured). Proton cavity. Pion mass (direct: m_p × 4/27). Rho, kaon, omega, complete meson spectrum. Nuclear energy scales, deuteron binding, B/A saturation. n-p mass difference. Electron g-2 (Oh channels, 0.31 ppm). Muon g-2 (D4h restriction, -0.85 ppm). D4h character table and Oh→D4h branching rules. Gravitational constant. Rydberg, Bohr radius, fine structure, 21cm. Proton/neutron magnetic moments, g_A. QCD string tension. Confinement theorem.
 
-### [20. Lattice Corrections, Symmetry & N-Body Oh Framework](reference/lattice_and_symmetry.md)
+### [21. Lattice Corrections, Symmetry & N-Body Oh Framework](reference/lattice_and_symmetry.md)
 1D breather discreteness corrections. 8 stable breather modes = 8 Oh channels (3D confirmed). Why d=3 (triple coincidence). Summary scorecard (55+ predictions). N-body problem: Oh tensor products, closed-form A1g content, screening selection rules, key structural theorems (parity, orthogonality, half-fill exactness), sparsity, implementation.
 
 ---
