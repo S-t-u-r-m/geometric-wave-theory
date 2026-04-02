@@ -150,7 +150,7 @@ CKM matrix from quark mass ratios (Cabibbo, θ₂₃, θ₁₃, CP phase, N_top/
 What kinks and breathers are. Why bound configurations have no separate particles inside — only a kink topology with harmonic modes. The donut picture. Shell structure as harmonic structure. Absorption, emission, and ionization as mode transitions. Free vs bound. The Pauli principle as wave interference.
 
 ### [12. Relativity](reference/relativity.md)
-SR and GR from springs. c = sqrt(k/eta), E=mc^2 as elastic energy, Lorentz contraction as wave compression, time dilation as oscillation dilution, equivalence principle as spring gradient indistinguishability, gravitational waves as stiffness ripples, black holes as barrier-top compression.
+SR and GR from springs. c = sqrt(k/eta), E=mc^2 as elastic energy, Lorentz contraction as wave compression, time dilation as oscillation dilution (SIMULATED: <1% for v=0-0.5c), equivalence principle as spring gradient indistinguishability, gravitational waves as stiffness ripples, black holes as barrier-top compression. Kinetic energy = lattice distortion (deficit coefficient pi^2/d). Discrete mass correction 1/(2^d*(d^2+1)) = 1/80 (DERIVED, 0.02%). Mass = lattice disturbance area (6*pi^5 = area ratio). Self-interaction replaces VP terminology.
 
 ### [13. Magnetism](reference/magnetism.md)
 Magnetism as transverse spring twist (T1g irrep). E-field = longitudinal, B-field = transverse. Diamagnetism (paired twists resist), paramagnetism (unpaired twists align), ferromagnetism (exchange coupling locks d-mode twists). Why div B = 0 (antisymmetric = traceless). Magnetic moments from Oh channels. Maxwell's equations as lattice wave equations.

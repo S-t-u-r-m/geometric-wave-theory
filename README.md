@@ -54,6 +54,8 @@ L = (1/2)(∂φ)² + (1/π²)(1 − cos(πφ))
 | [Hubble constant (local)](reference/cosmology.md#h_0local--738-kms--the-mond-bias-derived-2026-03-29) | H₀ × (d/(d−1))^(1/d) | 73.8 km/s/Mpc | 73.0 | **1.1%** |
 | [Gravitational constant](reference/nuclear.md#gravitational-constant-the-hierarchy-problem-solved) | F⁴ × α²⁴ | 5.903×10⁻³⁹ | 5.906×10⁻³⁹ | **0.05%** |
 | [Water bond angle](reference/atomic_molecular.md#h2o-bond-angle) | arccos(−1/(d+1)) | 104.48° | 104.45° | **0.03%** |
+| [Time dilation](reference/relativity.md) | ω(v) = ω₀/γ | simulated | simulated | **< 1%** |
+| [Discrete lattice correction](reference/lattice_and_symmetry.md) | 1/(2^d×(d²+1)) = 1/80 | 1.250% | 1.250% | **0.02%** |
 
 ---
 
@@ -67,6 +69,8 @@ L = (1/2)(∂φ)² + (1/π²)(1 − cos(πφ))
 - **Quark charges 1/3, 2/3** = flow fractions along one vs two axes of the torus
 - **Confinement** = [Perron-Frobenius theorem](reference/toroidal_physics.md) (A1g ground state is unique, deviation costs energy linearly)
 - **Born rule** P = cos²θ = [projection of T1u twist modes](reference/foundation.md) onto the d = 3 cube
+- **Mass = lattice disturbance area** — heavier particles disturb more lattice sites. m_p/m_e = 6π⁵ IS the [area ratio](reference/relativity.md)
+- **Self-interaction** (not "vacuum polarization") = [nonlinear feedback](reference/standing_waves.md) of the cosine potential on itself
 
 ### The Universal VP Law
 
