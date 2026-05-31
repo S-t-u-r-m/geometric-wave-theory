@@ -237,4 +237,107 @@ R_charge = R_mass * sqrt(pi/2) = 0.8417 fm
 
 vs CODATA R_charge = 0.8414 fm. **Error: +0.032% (Planck precision).**
 
+## FALSIFIABLE PREDICTIONS FOR EXPERIMENTAL TEST [2026-05-31]
+
+This section documents GWT's specific framework predictions for states NOT yet established in PDG. They constitute a falsifiable benchmark: if experiments find resonances at these predicted masses with compatible quantum numbers, the framework is vindicated; if searches in these mass windows find nothing, the framework is refuted.
+
+All predictions use the formulas derived above (S-wave angular, multi-mode mixed, P-wave, breathing, strange spin-flip) applied to known ground states.
+
+### Nucleon Baryons (Above Current PDG Well-Measured Region)
+
+Mass range: 2400-3500 MeV. JLab, COMPASS, and future facilities scan this region.
+
+| Predicted State | Mass (MeV) | Configuration | Mass Window for Search |
+|-----------------|------------|---------------|----------------------|
+| N(2476) | 2476 | m_p + 3m1 + 1m2 (mixed) | 2465-2490 MeV, between N(2400) and N(2570) |
+| N(2864) | 2864 | m_p + 2m1 + 2m2 (mixed) | 2850-2880 MeV, between N(2700) and Delta(2950) |
+| N(3050) | 3050 | m_p + 1m2 + 1m4 (mixed) | 3035-3070 MeV, 3 GeV nucleon region |
+| N(3074) | 3074 | m_p + 2m3 (pure) | 3060-3090 MeV, 3 GeV nucleon region |
+
+**Search channels**: pi-N elastic and inelastic scattering, photo-production gamma p -> ... + N*, electroproduction.
+
+### Charmonium-Like Exotic States (LHCb Territory)
+
+Mass range: 3200-5000 MeV. LHCb actively searching these masses via B-meson decays.
+
+| Predicted State | Mass (MeV) | Configuration | Search Region |
+|-----------------|------------|---------------|---------------|
+| X(3278) | 3277.5 | eta_c + 1m1 | Between eta_c(2984) and J/psi(3097) |
+| X(3935) | 3935 | eta_c + 1m1 + 1m2 (mixed) | Between X(3872) and Y(4140) |
+| X(3978) | 3978 | J/psi + 3m1 | Between Y(4140) and Y(4260) — note close to LHCb X(3960) (within 0.5%) |
+| X(4229) | 4229 | eta_c + 2m1 + 1m2 (mixed) | Between Y(4140) and Pc(4312) |
+| X(4709) | 4709 | eta_c + 1m2 + 1m3 (mixed) | Above Pc states, near Y(4660) |
+
+**Search channels**: pp -> B + X (B -> K + X with X -> J/psi + charged particles, X -> D Dbar, X -> gamma gamma).
+
+**Quantum numbers**: The mode-configuration affects J^PC. For η_c(0^-+) base + L=m_total: parity flips with each odd-L addition. For J/ψ(1^--) base: similar coupling rules. Specific J^PC determination would require coupling analysis we have not performed.
+
+### Bottomonium-Like Exotic States (Belle II Territory)
+
+Mass range: 10000-11500 MeV. Belle II and LHCb cover this region.
+
+| Predicted State | Mass (MeV) | Configuration | Search Region |
+|-----------------|------------|---------------|---------------|
+| Y_b(10141) | 10141 | Upsilon(1S) + 1m2 | Between Upsilon(1S) and Upsilon(2S) |
+| Y_b(10280) | 10280 | eta_b + 3m1 | Between Upsilon(2S) and Upsilon(3S) |
+| Y_b(10974) | 10974 | Upsilon(2S) + 1m1 + 1m2 (mixed) | Above Upsilon(4S), near Belle II's running threshold |
+
+**Search channels**: Belle II e+ e- -> Y(nS) X, dimuon mass spectra, B-meson decays.
+
+### Pure Single-Mode Predictions (Cleanest Test Cases)
+
+These use a SINGLE mode quantum with no mixed-mode corrections — the simplest and most testable cases:
+
+| Mass (MeV) | Configuration | Likely Counterpart |
+|------------|---------------|-------------------|
+| 2782 | m_p + 1m5 (5th angular harmonic) | Possibly Delta(2750), 1.2% off |
+| 2496 | m_p + 1m4 + 1m1 (mixed)... | (Many candidates in 2500 region) |
+| 3169 | m_p + 1m6 (6th angular harmonic) | No clean PDG match — falsifiable target |
+
+### What Would Confirm Each Prediction
+
+For a prediction to count as CONFIRMED:
+- Resonance found within +/-15 MeV of predicted mass
+- Quantum numbers compatible with framework expectation (where derivable)
+- Decay channels include those expected for the underlying configuration
+
+### What Would Falsify the Framework
+
+If experiments thoroughly scan a predicted mass window (typically +/-30 MeV) and find NO resonance, the framework's prediction is wrong. Repeated failures across multiple predictions would refute the framework.
+
+Specifically falsifiable single-mode tests:
+1. **N(3169) absence**: If high-luminosity facilities scan 3140-3200 MeV in nucleon spectroscopy and find no resonance, the 6th angular harmonic prediction fails.
+2. **X(3935) absence**: If LHCb searches B-meson decays in 3920-3950 MeV mass window thoroughly and finds nothing exotic, the multi-mode interaction formula breaks.
+3. **Y_b(10141) absence**: If Belle II scans 10130-10155 MeV in bottomonium spectroscopy and finds nothing, the universal lattice-excitation claim fails for heavy systems.
+
+### Honest Caveats
+
+1. **Mass uncertainties**: Our framework predictions have intrinsic uncertainty ~0.1-0.5% from:
+   - Imprecise alpha_s and Newton's G inputs
+   - Higher-order corrections we haven't included
+   - Lattice discreteness effects beyond leading order
+
+2. **Quantum number assignment**: We can predict masses but assigning J^PC requires angular-momentum coupling analysis we have not performed. Conservative interpretation needed.
+
+3. **Search difficulty**: Above 3 GeV nucleons and 4 GeV charmonium, resonance widths grow (~50-200 MeV) and multi-particle continuum dominates, making isolated resonance identification challenging.
+
+4. **Mode overcounting**: Multi-mode mixed configurations have flexibility — even if a state exists at predicted mass, attributing it to a specific (k_m) configuration is harder than just predicting the mass.
+
+5. **Time frame**: LHCb Run 3 results (2023-2025) and HL-LHC (2027+) will provide major tests. Belle II is already taking data. PANDA at FAIR (2027+) will scan baryon territory.
+
+### Process for Updating
+
+When a new resonance is reported by an experiment, check it against this prediction list. If close to predicted mass:
+- Update the state from "predicted" to "candidate observed"
+- Add the experiment reference
+- Note any deviation from predicted properties
+
+If a thorough search fails to find a predicted state:
+- Move that prediction to a "refuted" subsection
+- Note search bounds and experiment reference
+- Update the framework status accordingly
+
+This document is the testable benchmark by which the framework's baryon-resonance predictions stand or fall.
+
+
 The sqrt(pi/2) factor reflects the proton's charge distribution as a Gaussian extending out from the kink centerline.
