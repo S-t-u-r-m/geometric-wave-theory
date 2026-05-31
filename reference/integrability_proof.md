@@ -353,8 +353,48 @@ Sectors that don't fit this template (need separate analysis):
 3. **Multi-defect nuclear states** (need many-body extension)
 4. **Higgs/gauge boson sector** (different topology - VEV configuration)
 5. **Gravitational** (different scale - Planck physics)
+6. **Molecular bonds** (NOT SG-integrable, see below)
 
 These would need separate proofs or different mechanisms.
+
+### NEGATIVE RESULT: Molecular Spectra Do NOT Follow (m + (m-1)/pi) (2026-06-01)
+
+**Test**: Compared framework prediction omega_m/omega_1 = (m + (m-1)/pi)
+to measured vibrational and rotational excitation ratios for 10 diatomic
+molecules (H2, D2, N2, O2, CO, NO, HCl, HF, F2, Cl2).
+
+**Vibrational results** (E(v) - E(0) ratios from spectroscopic Dunham
+expansion):
+  - Observed E(2)/E(1) ~ 1.95-1.99 (close to harmonic 2.0 with small softening)
+  - Framework predicts 2.318
+  - Systematic error -14% to -16% across all molecules
+
+**Rotational results** (rigid rotor B*J(J+1)):
+  - Observed E(2)/E(1) = 3.0 exactly (J(J+1) form)
+  - Framework predicts 2.318
+  - Systematic error +29% (and grows with J)
+
+**Conclusion**: Molecular vibrational spectra are Morse-type
+(near-harmonic with anharmonic SOFTENING toward dissociation),
+NOT framework's uniform-step ladder. Molecular rotations are
+rigid-rotor J(J+1), NOT framework's linear m ladder.
+
+**Why**: Molecular bonds are bound by Coulomb attraction (long-range,
+electromagnetic), not sine-Gordon topology. The kink-ring dimensional
+reduction does not apply. Bond geometry is well-described by Born-
+Oppenheimer + Morse potential — fundamentally different physics from
+hadronic kinks.
+
+**This is a HEALTHY negative result**: it sharpens the scope of the
+integrability theorem to specifically HADRONIC physics (SG-topological),
+not a universal pattern for any oscillator. Today's exactness result is
+not over-claimed.
+
+**Implication**: V10 molecular bond model (in reference/bonding.md)
+uses different theoretical machinery (Oh tensor decomposition,
+electronic structure) and is NOT closed by today's integrability
+proof. Molecular sector remains at framework precision (~7.5% mean
+error for bond energies) and requires its own exactness work.
 
 ### Implications
 
