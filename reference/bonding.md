@@ -1057,6 +1057,71 @@ full Oh coordination chemistry observed in nature.
 Verification: experiments/multikink_3d_higher_coord.py,
               experiments/multikink_octahedral_fix.py
 
+### 3D HETERONUCLEAR (2026-06-01)
+
+Tested 2-kink systems with DIFFERENT radii (asymmetric bonds).
+
+**Bond length rule**: R_e(AB) = R_kA + R_kB (touching distance)
+
+| (R_kA, R_kB) | R_kA + R_kB | R_e | Ratio |
+|--------------|-------------|-----|-------|
+| (3, 3) | 6.0 | 6.5 | 1.08 |
+| (3, 4) | 7.0 | 7.5 | 1.07 |
+| (3, 5) | 8.0 | 8.0 | 1.00 |
+| (3, 6) | 9.0 | 9.5 | 1.06 |
+| (2, 5) | 7.0 | 7.5 | 1.07 |
+
+Confirms generalization of homonuclear R_e = 2*R_k to heteronuclear
+R_e = R_kA + R_kB.
+
+**Asymmetric pairs bind STRONGER**:
+
+| Pair | D_e |
+|------|-----|
+| (3, 3) symmetric | 0.036 (weakest!) |
+| (3, 4) | 0.112 (3x stronger) |
+| (2, 5) most asymmetric | 0.156 (4x stronger) |
+
+Mirrors real chemistry: HF (polar, D_e=6.12 eV) > H2 (nonpolar, D_e=4.75 eV).
+Framework naturally predicts polar bonds are stronger than nonpolar.
+
+**Even unbound kinks form bonds with larger partners**:
+- Single R_k=2 kink: E_min = +0.046 (UNBOUND)
+- Paired with R_k=5: D_e = 0.156 (strongest binding tested)
+
+Mirrors H+ alone (unbound) bonding strongly with electronegative atoms.
+
+### LIMITATION: Pauli Exclusion Not Captured (2026-06-01)
+
+Tested H2O-analog: 1 large kink + 2 small kinks at variable angle.
+Expected: bent geometry near 104.5° (real H2O).
+Found: minimum at 60° (small kinks collapse toward each other).
+
+**Reason**: Pure scalar sine-Gordon has NO quantum statistics.
+- Real H2O angle = result of Pauli repulsion between bonding pairs + LP repulsion
+- Our scalar field has no Pauli - all modes can overlap freely
+- So smaller kinks attract (collapse) rather than repel
+
+**Framework captures**:
+- Bond formation, coordination preferences (Td, Oh)
+- Bond lengths and energies
+- Polar bond strengthening
+- Group-theoretic orbital structure
+- LCAO bonding/antibonding splitting
+
+**Framework needs additional ingredient for**:
+- Polyatomic bond angles (need Pauli statistics)
+- Hund's rules
+- Spin/orbital pairing
+- Magnetic ordering
+
+This is an honest limitation: the basic scalar wave model produces
+classical chemistry but needs quantum statistics for full polyatomic
+geometry. Possible additions: explicit spin degree of freedom,
+fermionic constraint, or twist-mode physics from toroidal kinks.
+
+Verification: experiments/heteronuclear_3d.py, experiments/h2o_analog_3d.py
+
 ### Three toroidal coupling modes in bonding
 Two breathers near each other interact through all 3 torus motions:
 
