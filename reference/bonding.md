@@ -1410,6 +1410,74 @@ exposes others that were compensating. To genuinely improve V10:
 Verification: experiments/v10_audit.py,
               experiments/v10_correction_combinations.py
 
+### V10 ISOLATED-CORRECTION TESTS (2026-06-01)
+
+Tested specific V10 corrections via wave physics where possible.
+
+**TEST: Ionic enhancement scan**
+
+Used heteronuclear kink pair simulations to measure D_e/D_symmetric as
+function of polarity (R_k asymmetry as proxy for IE asymmetry).
+
+Result: Wave physics shows polar bonds bind **1.6-2.4x stronger** than
+symmetric bonds.
+V10 says polar bonds bind only **1.005-1.05x stronger** (1 + 1/7 * polarity).
+
+**V10 UNDERESTIMATES POLAR ENHANCEMENT by factor of 2-3x**.
+
+**TEST: V10 reconstruction (after fixing LP rule bug)**
+
+Fixed bug in V10 reconstruction: LP rule should ALWAYS be min(lpA, lpB),
+not max when one is 0. This drops mean error from 41% to 30%.
+
+Systematic errors revealed:
+
+**UNDER-predicted** (V10 too LOW):
+- Multi-bond: N2 -30%, O2 -42%, CO -35%, CS -35%
+- LP-heavy symmetric: F2 -69%, Cl2 -24%
+- Polar: HF -23%, NaCl -39%
+
+**OVER-predicted** (V10 too HIGH):
+- Alkali-H: LiH +12%, NaH +38%, BeH +63%, MgH +142%
+- Heavy halogens: Br2 +25%, I2 +61%
+
+**INTERPRETATION** (systematic, not random):
+
+1. **Bond order coefficient may be TOO LOW**:
+   V10 uses (bo-1) * cos(pi/d) = 0.5 per pi bond
+   To match N2 at 9.79 eV requires ~0.85 per pi bond
+   Wave physics for multi-orbital coupling not yet captured
+
+2. **Alkali-H needs separate treatment**:
+   Li/Na/Mg s-electrons are very loose, V10 treats them as normal atoms
+   The effective IE for bonding may differ from free-atom IE
+
+3. **Heavy halogens overpredicted**:
+   I, Br have weak f_anti contribution, V10 may not capture this
+
+4. **Multi-bond enhancement insufficient**:
+   N2 (bo=3) needs ~50% more than V10 gives
+
+**ERROR CANCELLATION CONFIRMED** (per user's insight):
+
+Boosting ionic enhancement alone (per wave-physics finding) makes total
+error WORSE (29.87% -> 41.56% at 4x boost). The alkali-H over-prediction
+is hiding the polar under-prediction. Fixing one without the other
+exposes the underlying imbalance.
+
+To genuinely improve V10:
+1. Fix ALL systematic errors simultaneously
+2. Boost ionic enhancement (per wave physics)
+3. Reduce alkali-H prediction (smaller effective IE for s-block)
+4. Boost multi-bond contribution
+5. Adjust heavy halogen f_anti
+
+Multi-session calibration work.
+
+Verification: experiments/v10_isolated_tests.py,
+              experiments/v10_compensation_test.py,
+              experiments/v10_fixed_v2.py
+
 ### Three toroidal coupling modes in bonding
 Two breathers near each other interact through all 3 torus motions:
 
