@@ -396,6 +396,37 @@ electronic structure) and is NOT closed by today's integrability
 proof. Molecular sector remains at framework precision (~7.5% mean
 error for bond energies) and requires its own exactness work.
 
+### Followup: testing hadron principles on V10 residuals (2026-06-01)
+
+Even though the (m + (m-1)/pi) formula doesn't apply, we tested whether
+the underlying PRINCIPLES (cumulative quantum corrections, polarization
+counting) could explain V10's residuals.
+
+**Test**: Fit V10 residuals for 11 molecules to combined model:
+  err% = a * (bo-1)/pi + b * (n_LP-1)/pi + c
+
+**Result**: R^2 = 0.22 (poor). Hadron-style cumulative pi-corrections
+do NOT explain V10's residuals.
+
+**Specific anomalies**:
+  - CN (bo=3, n_LP=0): V10 accurate at 0.1%, model predicts +2.7%
+  - NH3 vs NH (same bo, n_LP): errors differ by 4.4% — molecular geometry matters
+  - O2 (paramagnetic triplet): +3.6% error, no obvious counting source
+  - H2O vs HF: similar LP structure, opposite-sign errors
+
+**Conclusion**: principles transfer (cumulative corrections exist in both
+sectors) but the specific MATH differs because:
+  - Hadrons: ONE configuration (kink ring), ONE quantum number (m)
+  - Molecules: rich multi-atom phase space (geometry, spin, hybridization)
+
+V10 improvement requires molecular-specific theoretical machinery
+(Born-Oppenheimer + Morse + framework primitives), not just borrowing
+the hadron formula. This is paper-level work for the chemistry sector,
+analogous to today's integrability proof but using different techniques.
+
+Test file: experiments/v10_residual_fingerprint.py,
+           experiments/v10_multilinear_fit.py
+
 ### Implications
 
 **(1) Exact predictions for unmeasured states**:
