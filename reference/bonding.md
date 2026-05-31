@@ -1115,10 +1115,24 @@ Found: minimum at 60° (small kinks collapse toward each other).
 - Spin/orbital pairing
 - Magnetic ordering
 
-This is an honest limitation: the basic scalar wave model produces
-classical chemistry but needs quantum statistics for full polyatomic
-geometry. Possible additions: explicit spin degree of freedom,
-fermionic constraint, or twist-mode physics from toroidal kinks.
+**Connection to TWIST mode of toroidal kinks (already documented):**
+
+The framework's three toroidal coupling modes:
+- Toroidal (ring circulations) -> Electric/covalent (captured)
+- Poloidal (through-hole flows) -> Directional rigidity (captured)
+- TWIST (helical spiraling) -> Pauli exclusion/attraction (NOT captured)
+
+Our scalar field simulations capture toroidal + poloidal physics but
+NOT the twist mode. Pauli exclusion lives in the twist degree of freedom.
+
+To add Pauli to simulations would require:
+- Complex-valued field (phase = twist angle)
+- Or vector field with multiple components
+- Or explicit twist label per kink
+
+Verified by testing both "max blend" and "topological sum" kink constructions:
+both give same wrong answer (60° instead of 104.5°), confirming the
+issue is fundamental scalar-field limitation, not setup artifact.
 
 Verification: experiments/heteronuclear_3d.py, experiments/h2o_analog_3d.py
 
