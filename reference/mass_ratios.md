@@ -1,6 +1,8 @@
 # Mass Ratios, Fermion Spectrum & Generations
 
-*Part of the [GWT Complete Reference](../gwt_complete_reference.md). See also: [Coupling Constants](coupling_constants.md), [Foundation](foundation.md), [Nuclear](nuclear.md).*
+*Part of the [GWT Complete Reference](../gwt_complete_reference.md). See also: [Coupling Constants](coupling_constants.md), [Foundation](foundation.md), [Nuclear](nuclear.md), [Baryon Resonances](baryon_resonances.md).*
+
+**See [baryon_resonances.md](baryon_resonances.md) for the EXCITED baryon spectrum (Delta resonances, N* resonances, Roper, P-wave multiplet, strange spin-flips). This file (mass_ratios.md) covers ground-state masses; baryon_resonances.md extends to the resonance spectrum derived 2026-05-31.**
 
 ## 5. MASS RATIOS — The Big Numbers
 

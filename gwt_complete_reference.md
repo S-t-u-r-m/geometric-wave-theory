@@ -185,6 +185,9 @@ Proton charge radius (bare, dressed, measured). Proton cavity. Pion mass (direct
 ### [22. Lattice Corrections, Symmetry & N-Body Oh Framework](reference/lattice_and_symmetry.md)
 1D breather discreteness corrections. 8 stable breather modes = 8 Oh channels (3D confirmed). Why d=3 (triple coincidence). Summary scorecard (55+ predictions). N-body problem: Oh tensor products, closed-form A1g content, screening selection rules, key structural theorems (parity, orthogonality, half-fill exactness), sparsity, implementation.
 
+### [23. Baryon Resonance Spectrum](reference/baryon_resonances.md) [CANDIDATE — 2026-05-31]
+Five excitation mode types on the proton kink ring, all from the same half-BZ cube primitives. S-wave angular modes (Delta(1232), Delta(1620), N(2000)...). Multi-mode mixed states (1m1+1m2 cluster at 0.005%). P-wave orbital (N(1710) at 0.02%). **Breathing mode = Roper N(1440) at 0.004% (Planck precision) — resolves famous 40-year QCD puzzle via spring equation: omega_breath = sqrt(d)*omega_0*(1-alpha_s/2^d)**. Strange spin-flip (Sigma*-Sigma at 0.12%, Xi*-Xi at 0.17%) via cos(pi/d) cube axis-weighting. R_charge = R_mass * sqrt(pi/2) = 0.8417 fm at 0.032%. Universal angular ladder also matches charmonium, bottomonium, and "exotic" states (X(3872), Y(4360), Pc(4440/4457), Zb(10610)) — suggests "exotic" = standard lattice excitations. ~14 Planck-precision predictions, ~30 within 1%. Status: numerically verified, rigorous QFT derivations of individual ansatzes still open.
+
 ---
 
 ## Source of Truth
