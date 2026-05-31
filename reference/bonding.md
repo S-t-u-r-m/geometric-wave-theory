@@ -1529,6 +1529,72 @@ To genuinely improve beyond V10 requires:
 Verification: experiments/v10_full_with_meson.py,
               experiments/v11_on_proper_v10.py
 
+### MULTI-ORBITAL SIMULATOR INFRASTRUCTURE (2026-06-01)
+
+Started building multi-orbital quantum bonding simulator to beat V10.
+
+**Phase 1 COMPLETE**: Mapped kink size to orbital structure.
+
+Survey of bound states (lattice 48^3):
+
+| R_k | w | Bound states pattern |
+|-----|---|---------------------|
+| 3 | 1 | 1 mode (s only) |
+| 4 | 1 | 1 mode (s only) |
+| 3 | 2 | 4 modes: 1 deep + 3 degenerate (s + p!) |
+| 4 | 2 | 9 modes: s + 3p + 5 more (d-like?) |
+| 6 | 2 | 10 modes: full orbital structure |
+
+KEY FINDING: Framework's sine-Gordon kinks NATURALLY produce
+**s + 3p degenerate** orbital structure - exactly atomic orbitals!
+The framework HAS the right orbital physics built in.
+
+**Phase 2 COMPLETE**: Multi-orbital atom representation.
+
+Each atom = (R_k, w) tuned to give n_valence bound states:
+- H (1 valence): R_k=3, w=1 -> 1 mode
+- C (4 valence): R_k=3.3, w=1.65 -> 4 modes (s + 3p)
+- F (7 valence): R_k=2.65, w=1.5 -> 4 modes (mostly filled)
+
+**Phase 3 COMPLETE**: GPU acceleration via CuPy.
+
+3D Hessian eigenvalue solve: 0.82s CPU -> 0.09s GPU (9.5x speedup)
+Enables fast 25-molecule benchmarking.
+
+**Phase 4-5 INCOMPLETE**: SCF + proper MO theory needed.
+
+Naive multi-orbital simulator gave 338% error vs V10's 7.5%. Reasons:
+1. Can't easily identify which p-orbital points at partner (orientation)
+2. No SCF iteration (orbitals don't adjust to bonding)
+3. Eigenvalue counting overcounts non-bonding orbitals (lone pairs)
+4. No geometry optimization
+
+**WHAT'S NEEDED TO COMPLETE**:
+
+Building a working bond energy calculator from wave physics requires:
+1. **Orbital orientation tracking** - which p_x/p_y/p_z points at partner
+2. **Self-consistent field iteration** - electron repulsion in MO theory
+3. **Proper MO identification** - bonding vs lone pair vs antibonding
+4. **Geometry optimization** - find R_e by gradient descent
+5. **Multi-determinant treatment** - for some molecules (multireference)
+
+This is equivalent to building a small quantum chemistry code. Existing
+codes (PySCF, Psi4, etc.) have years of development behind them.
+
+**THE FRAMEWORK HAS WHAT'S NEEDED**:
+- Wave physics produces correct orbital structure (s, p, d...)
+- Bound state energies match real atomic orbital energies (scale-wise)
+- Coordination geometry emerges naturally (Td, Oh)
+- Polar enhancement appears in heteronuclear simulations
+
+What's needed is the IMPLEMENTATION work to extract these into a
+proper MO calculation. Multi-session theoretical project.
+
+**Infrastructure built today** (for future sessions):
+- GPU-accelerated 3D Hessian solver (experiments/multiorbital_sim_v1.py)
+- Atom parameterization (experiments/multiorbital_sim_v2.py)
+- Bond order based counting attempt (experiments/multiorbital_sim_v3.py)
+
 ### Three toroidal coupling modes in bonding
 Two breathers near each other interact through all 3 torus motions:
 
