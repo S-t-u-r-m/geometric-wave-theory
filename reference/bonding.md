@@ -1620,18 +1620,50 @@ The HF code is now WORKING and CORRECT.
 
 **DAY 3 RESULT - Multi-shell HF (added Li, Be)**:
 
-| Molecule | HF/STO-3G | Observed | Error | V10 Error |
-|----------|-----------|----------|-------|-----------|
-| H2 | 4.995 eV | 4.748 eV | +5.2% | +0.1% |
-| LiH | 2.526 eV | 2.429 eV | **+4.0%** | **+15.7%** |
-| BeH | -4.889 | 2.160 | -326% (ROHF fail) | +62.6% |
-| Li2 | 3.794 | 1.046 | +263% (ROHF fail) | -- |
+| Molecule | HF/STO-3G (bad ROHF) | Observed | Apparent Error |
+|----------|----------------------|----------|----------------|
+| H2 | 4.995 eV | 4.748 eV | +5.2% |
+| LiH | 2.526 eV | 2.429 eV | "+4.0%" |
 
-LiH at 4.0% BEATS V10's 15.7% error - first molecule where framework HF
-significantly improves on V10!
+The LiH 4.0% match was ERROR CANCELLATION (buggy ROHF + missing correlation
+happened to cancel). With proper UHF below, true HF/STO-3G gives 0.605 eV
+for LiH (-75% vs observed).
 
-Open-shell molecules (BeH, Li2) fail because my simple ROHF approximation
-breaks down. Need proper ROHF or UHF treatment for these.
+**DAY 4 RESULT - Proper UHF (correct open-shell)**:
+
+| Quantity | UHF/STO-3G | Literature | Match |
+|----------|------------|------------|-------|
+| H atom | -0.4666 Ha | -0.4666 Ha | EXACT |
+| Li atom | -7.3155 Ha | -7.3155 Ha | EXACT |
+| Be atom | -14.3519 Ha | -14.3519 Ha | EXACT |
+
+| Molecule | UHF/STO-3G | Observed | True HF Error |
+|----------|------------|----------|---------------|
+| H2 | 4.995 eV | 4.748 eV | +5.2% |
+| LiH | 0.605 eV | 2.429 eV | -75% |
+| BeH | unbound | 2.160 eV | HF fails entirely |
+| Li2 | unbound | 1.046 eV | HF fails entirely |
+
+**CRITICAL FINDING**: HF/STO-3G fundamentally cannot capture bond energies
+for systems beyond H2. The missing physics is ELECTRON CORRELATION.
+
+This is the well-known "HF correlation problem":
+- HF assumes electrons move independently
+- Real electrons correlate (avoid each other)
+- Correlation energy is ~1-5 eV per bond
+- HF systematically UNDERESTIMATES D_e
+
+To genuinely beat V10's 7.5% requires correlation methods:
+- MP2 (Moller-Plesset): captures ~80-90% of correlation
+- CCSD(T): gold standard, >95% correlation captured
+- DFT: practical alternative with various functionals
+
+Realistic timeline: ~2 weeks more focused work to reach MP2 level.
+
+**Honest position**: We have correct HF infrastructure (matches literature
+exactly) but HF itself is too crude to beat V10. V10's empirical formula
+is approximately MP2/STO-3G quality. To genuinely beat it requires
+implementing MP2 perturbation theory on top of our HF code.
 
 Week 2:
 - p-orbital integrals (key for heavier atoms)
