@@ -4,7 +4,8 @@
 
 | Parameter | Formula | Predicted | Observed | Error |
 |-----------|---------|-----------|----------|-------|
-| Dark energy fraction Omega_Lambda | (d-1)/d | 0.667 | 0.685 | -2.7% |
+| Dark energy fraction Omega_Lambda | (d-1)/d * (1+pi*alpha) | 0.682 | 0.685 | -0.4% |
+| Omega_Lambda (uncorrected) | (d-1)/d | 0.667 | 0.685 | -2.7% |
 | Hubble constant H_0 (bare) | (c/l_P) * exp(-1/alpha) / d^3 | 64.5 km/s/Mpc | — | DERIVED |
 | Hubble constant H_0 (CMB) | H_0(bare) * d^3/(d^3-1) | 67.0 km/s/Mpc | 67.4 | -0.6% [DERIVED] |
 | Hubble constant H_0 (local) | H_0(bare) * (d/(d-1))^(1/d) | 73.8 km/s/Mpc | 73.0 | +1.1% [DERIVED] |
@@ -18,9 +19,30 @@
 | Dark energy EOS w_a | 0 exactly | 0 | 0 ± 0.3 | exact |
 | MOND acceleration a_0 | c*H_0/(pi*sqrt(d)) | 1.196×10^-10 m/s^2 | 1.2×10^-10 | -0.3% |
 | G_eff in halos | (Omega_m/Omega_b)*G_N | 6.8 G_N | consistent | — |
-| Baryon asymmetry eta_B | J × alpha^2 × d/2^d | 5.86×10^-10 | 6.1×10^-10 | -4.0% |
+| Baryon asymmetry eta_B (uncorrected) | J × alpha^2 × d/2^d | 5.86×10^-10 | 6.1×10^-10 | -4.0% |
+| Baryon asymmetry eta_B (vacuum corr) | J*a^2*d/2^d * (1+pi*alpha) | 5.99×10^-10 | 6.1×10^-10 | -1.8% |
 
 ---
+
+### Systematic vacuum correction (1 + pi*alpha) for cosmological quantities (2026-06-01)
+
+The same (1 - pi*alpha) sine-Gordon periodicity correction that improves
+Gen 1+3 quark masses applies to COSMOLOGICAL quantities with OPPOSITE sign:
+
+| Quantity | Old residual | With (1+pi*alpha) | Improvement |
+|----------|--------------|-------------------|-------------|
+| Omega_Lambda | +2.70% | +0.40% | 7x |
+| Lambda (m^-2) | +3.82% | +1.49% | 2.5x |
+| u_DE | +4.16% | +1.82% | 2.3x |
+| Baryon eta_B | +4.10% | +1.76% | 2.3x |
+
+Sign rule (matches existing VP rule, mass_ratios.md:308-313):
+- Particles (waves, propagating in vacuum): (1 - pi*alpha) LOSE energy
+- Cosmology (vacuum-filling, long-wavelength): (1 + pi*alpha) GAIN energy
+
+This is structurally the same as fermions losing mass vs scalars (Higgs)
+gaining mass via pi^(+/-alpha/N) corrections, just at the cosmological
+scale with sine-Gordon periodicity setting the loop factor pi.
 
 ### Cosmological constant from breather vacuum entanglement (2026-06-01)
 
