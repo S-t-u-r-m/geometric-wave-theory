@@ -1815,6 +1815,43 @@ This is the same complexity as full MO theory, expressed in wave terms.
 
 Verification: experiments/bond_localized_modes.py
 
+### EXPLICIT sp3 LP MODELING (2026-06-01)
+
+Tried modeling lone pairs as EXPLICIT KINKS in sp3 tetrahedral directions:
+- Each atom = sp3 cluster: 1 bonding kink + n_LP lone pair kinks
+- Bonding kinks face partner, LP kinks face outward
+- LP-LP repulsion emerges from GEOMETRIC separation
+
+Result: Mean error 49% (down from 64% with naive single-kink wave).
+
+| Molecule | Naive | Explicit LP | V10 |
+|----------|-------|-------------|-----|
+| F2 | +209% | +115% | -3.8% |
+| Cl2 | +86% | -35% | +19.4% |
+
+REAL IMPROVEMENT but still 7x worse than V10. The geometric LP picture
+is correct in direction but needs proper calibration.
+
+ATTEMPTED OPTIMIZATION: Per-molecule R_arm and R_sep optimization to
+find equilibrium geometry. Made things WORSE (130% mean) because:
+- Naive optimization picks unphysical configurations
+- For F2: R_sep=3.0 makes kinks merge into blob (artificial deep binding)
+- Need physical constraints from framework atomic radii
+
+WHAT'S MISSING:
+- Proper energy functional (sum of occupied orbitals, not just lowest eig)
+- Framework-derived atomic radii constraints
+- Gradient-based optimization on physical energy surface
+- Self-consistent SCF iteration
+
+This is the standard quantum chemistry machinery, just expressed in
+framework wave terms.
+
+The explicit-LP approach VALIDATES the framework picture (LPs as geometric
+modes) but needs proper implementation for accurate predictions.
+
+Verification: experiments/sp3_lone_pairs.py, experiments/sp3_optimized.py
+
 Week 2:
 - p-orbital integrals (key for heavier atoms)
 - Multi-atom basis (1s + 2s + 2p for C, N, O, F)
