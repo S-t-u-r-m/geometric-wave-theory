@@ -555,7 +555,25 @@ where the loop basis needs ~10. The C3 "sign disagreement" with QED is a
 basis mismatch: comparing coefficients across different decompositions is
 not meaningful. The TOTAL matches, which is what physics requires.
 
-### Muon g-2 [DERIVED, -0.85 ppm] — Full formula with D4h NLO correction
+### Muon g-2 [DERIVED] — Two-tier precision (vacuum correction added 2026-06-01)
+
+**With vacuum correction (BEST)**: residual ~4 ppb (essentially at experimental noise)
+```
+a_mu = [previous formula] * (1 + alpha^2/(d^2(2d+1)))
+     = [previous formula] * (1 + alpha^2/63)
+     = 0.00116592060.5    (obs: 0.00116592061, ~4 ppb)
+```
+
+The (1 + alpha^2/63) is a vacuum correction with mode-counting denominator:
+- alpha^2: two-loop EM correction
+- d^2 = 9 = breather modes (SM mass spectrum, foundation.md:267)
+- (2d+1) = 7 = exchange paths on cubic lattice (same as ionic bonding,
+  n-p splitting, original g-2 second term)
+- Product 63 = number of (breather × exchange) combinations
+
+Same family as universal vacuum corrections in reference/vacuum_corrections.md.
+
+**Without vacuum correction (PRIOR)**: -0.85 ppm — Full formula with D4h NLO
 
 ```
 a_mu = a_e + (alpha^2/2pi) * (m_mu/m_pi)^2 * d/(d-1) * F_Oh * F_D4h
