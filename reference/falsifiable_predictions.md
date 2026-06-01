@@ -188,10 +188,15 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
 - Falsifiable: any GWT-based simulation showing VOLUME law instead of area law
 
 **Cosmological constant Lambda** — vacuum entanglement at 0.15%:
-- rho_Lambda / rho_Planck = alpha^48 / (F * sqrt(2)) = 1.041e-106
-- Observed: 1.039e-106  →  0.15% match
+- rho_Lambda / rho_Planck = alpha^(2(d+1)!) / (F * sqrt(d-1))
+- For d=3:                = alpha^48 / (F * sqrt(2)) = 1.041e-106
+- Observed:               = 1.039e-106  →  0.15% match
 - Solves the 122-orders-of-magnitude QFT cosmological constant problem
 - Mechanism: vacuum-mediated entanglement between breathers (particles)
+- Every factor derived from framework primitives (NO fitting):
+  * alpha^(2(d+1)!): lattice tunneling exponent (same family as m_p)
+  * 1/F: relevant mass scale is m_e not m_p
+  * 1/sqrt(d-1): face diagonal of (d-1)-dim entanglement boundary
 - Same family as G_N and m_p derivations
 - See cosmology.md for details
 
