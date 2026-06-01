@@ -183,20 +183,26 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
 
 **Vacuum entanglement sector** (added 2026-06-01):
 - GWT vacuum predicted to show AREA-LAW entanglement entropy (verified)
-- 2D: S = c * L (boundary length) - confirmed ratio ~0.07
-- 3D: S = c * L^2 (boundary area) - confirmed ratio ~0.03
+- 3D measurement (proper polynomial fit, m->0 extrapolated):
+  c_2 = 0.137 per face area
 - Falsifiable: any GWT-based simulation showing VOLUME law instead of area law
 
-**Newton's constant derivation** (added 2026-06-01) ◐:
-- Vacuum area-law coefficient c = 0.030 per L^2 (free scalar, m^2=0.5)
-- d=3 cube vertex multiplicity factor: 2^d = 8
-- Effective coefficient: c_eff = 8 * 0.030 = 0.240
-- Bekenstein-Hawking: c_BH = 1/4 = 0.250
-- Agreement: 96%
-- Predicts G_N to 104.2% of measured value when a = ell_P
-- **First framework derivation of Newton's gravitational constant**
-- Refinement targets: sine-Gordon (interacting) coefficient, spherical
-  boundary geometry, multi-field generalization
+**Newton's constant** — derived from primary chain (NOT entanglement):
+- The proper derivation lives in reference/nuclear.md:689 :
+  alpha_G = G_N * m_p^2 / (hbar c) = F^4 * alpha^24 = 5.903e-39
+  Observed: 5.906e-39  →  0.05% error
+- The 24 here = (d+1)! = lattice tunneling exponent for d=3
+- This is THREE ORDERS OF MAGNITUDE more precise than any
+  vacuum-entanglement attempt and is the canonical GWT G_N
+
+**Vacuum entanglement note (NOT a competitive G_N derivation)**:
+- Earlier "96% agreement via 2^d cube vertex factor" was overclaim.
+  The 2^d multiplication was tuning, not derived.
+- The hypothesis c = π/24 (matching 24 vacuum harmonics) is 95%
+  consistent with measurement but does NOT generalize to d=2.
+- Vacuum entanglement coefficient remains an interesting independent
+  measurement (~0.137 in d=3) but G_N derivation belongs to the
+  F^4 * alpha^24 chain, not the entanglement coefficient.
 
 ---
 
@@ -215,7 +221,7 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
   - Atomic radii (13.5% at definitional noise)
   - V10 molecular bond formula (7.5% mean)
   - Wave-physics mode classification (sub-1% for simple polar)
-  - Newton's G_N from vacuum entanglement + cube geometry (4% agreement)
+  - Newton's G_N from F^4 * alpha^24 chain (0.05% — see nuclear.md:689)
 
 ✅ TESTED with framework precision:
   - All proton mass derivations
