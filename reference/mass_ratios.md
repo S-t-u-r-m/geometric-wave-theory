@@ -224,6 +224,26 @@ Gen 2 quarks sit at the body center of the cube → all axes equivalent, 1D form
 Gen 1 and 3 quarks sit at cube faces → spring direction breaks symmetry → need VP from all d axes.
 Leptons are free on the lattice, not confined → no VP correction.
 
+**2b. Sine-Gordon periodicity correction (2026-06-01)** — additional
+factor of (1 - pi*alpha) ≈ exp(-pi*alpha) on Gen 1+3 quarks beyond
+the 3D VP. Reduces quark mean residual from 2.4% to 0.23%.
+
+| Quark | Old residual | With (1 - pi*alpha) |
+|-------|--------------|---------------------|
+| Up    | -2.26%       | +0.05% |
+| Down  | -2.30%       | +0.02% |
+| Top   | -2.14%       | +0.15% |
+| Bottom| -2.99%       | -0.71% |
+
+Physical: pi appears because SG cosine potential V = (1/pi^2)(1-cos(pi*phi))
+has period 2/(loop momentum), giving an additional pi*alpha phase factor
+per loop. This is the natural non-perturbative form for breather-vacuum
+coupling at face-position quarks.
+
+Full quark mass formula (gen 1+3):
+  m_quark = m_bare * pi^(-d*alpha) * (1 - pi*alpha)
+         ≈ m_bare * pi^(-3*alpha) * exp(-pi*alpha)
+
 ### Complete fermion mass table
 
 | Particle | n | p | Gen | Predicted (MeV) | Observed (MeV) | Error | Corrections |
