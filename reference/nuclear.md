@@ -694,17 +694,39 @@ alpha_G = G_N * m_p^2 / (hbar*c) = F^4 * alpha^24 * (1 - alpha/d(d+1))
 Observed: 5.906149 x 10^-39.  Error: 4 ppm.
 ```
 
-The (1 - alpha/12) factor is the VACUUM ENTANGLEMENT CORRECTION:
-- 12 = d(d+1) = number of gauge bosons in the Standard Model
-       (= 8 gluons + 3 weak + 1 photon, see foundation.md:261)
-- Each gauge boson's vacuum mode contributes alpha to vacuum
-  polarization of gravity
-- Total: -alpha/12
+The (1 - alpha/12) factor for alpha_G is actually the SQUARE of a more
+fundamental MASS-LEVEL vacuum correction (see Mass formulas below).
+Each gauge boson contribution viewed alternately as one of 12 (squared:
+24 vacuum harmonics) accounts for the same physics.
 
 Bare formula F^4*alpha^24 = 5.910e-39 alone gives 0.06% error.
 With vacuum correction: 4 ppm error — BELOW CODATA G_N
 measurement uncertainty (22 ppm). Framework now predicts G_N
 more precisely than it can currently be measured.
+
+### Mass formula vacuum correction (2026-06-01 discovery)
+
+The CORE vacuum correction in GWT lives at the MASS level:
+```
+m_p = F^2 * alpha^12 * (1 - alpha/24) * m_Planck
+m_e = F   * alpha^12 * (1 - alpha/24) * m_Planck
+```
+where 24 = |Oh|/2 = number of vacuum harmonic modes
+       (= 9 breathers + 12 gauge bosons + 3 momenta, foundation.md:261).
+
+Each vacuum harmonic mode contributes alpha/24 to mass renormalization.
+
+Verification:
+  m_p bare (F^2*alpha^12*m_P) = 938.559 MeV
+  m_p with (1 - alpha/24)     = 938.273 MeV
+  m_p observed                = 938.272 MeV  →  ppm agreement
+
+The mass RATIO m_p/m_e = F is preserved (vacuum correction cancels
+in ratio). The gravity correction (1 - alpha/12) is automatically
+(1 - alpha/24)^2 from squaring the mass.
+
+This is THE fundamental vacuum entanglement effect in GWT:
+24 modes of vacuum, each contributing alpha to mass-scale renormalization.
 
 **There is no hierarchy problem.** Gravity is 1/d = 33% of the lattice spring force.
 It APPEARS weak because protons are tiny compared to the lattice scale:
