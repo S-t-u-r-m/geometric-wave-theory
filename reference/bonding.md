@@ -1618,6 +1618,21 @@ Week 1 (DAYS 1-2 DONE):
 
 The HF code is now WORKING and CORRECT.
 
+**DAY 3 RESULT - Multi-shell HF (added Li, Be)**:
+
+| Molecule | HF/STO-3G | Observed | Error | V10 Error |
+|----------|-----------|----------|-------|-----------|
+| H2 | 4.995 eV | 4.748 eV | +5.2% | +0.1% |
+| LiH | 2.526 eV | 2.429 eV | **+4.0%** | **+15.7%** |
+| BeH | -4.889 | 2.160 | -326% (ROHF fail) | +62.6% |
+| Li2 | 3.794 | 1.046 | +263% (ROHF fail) | -- |
+
+LiH at 4.0% BEATS V10's 15.7% error - first molecule where framework HF
+significantly improves on V10!
+
+Open-shell molecules (BeH, Li2) fail because my simple ROHF approximation
+breaks down. Need proper ROHF or UHF treatment for these.
+
 Week 2:
 - p-orbital integrals (key for heavier atoms)
 - Multi-atom basis (1s + 2s + 2p for C, N, O, F)
