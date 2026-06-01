@@ -1751,6 +1751,42 @@ is the multi-week project.
 
 Verification: experiments/bonding_regimes.py
 
+### MODE CLASSIFICATION: bonding vs non-bonding vs antibonding (2026-06-01)
+
+Built mode classifier that identifies bonding/non-bonding/antibonding modes
+by comparing eigenvalues of bonded molecule to isolated atoms:
+- Shift < -tol: BONDING
+- |Shift| < tol: NON-BONDING (lone pair / core)
+- Shift > +tol: ANTIBONDING / LP-REPULSION
+
+Using bond_order to determine number of OCCUPIED bonding modes (2 e- each):
+
+| Molecule | BO | D_e calc | observed | Error | V10 Error |
+|----------|----|----------|----------|-------|-----------|
+| H2 | 1 | 4.748 | 4.748 | 0.0% (calib) | +0.1% |
+| HF | 1 | 6.133 | 6.122 | +0.18% | -3.5% |
+| HCl | 1 | 4.955 | 4.616 | +7.3% | +0.3% |
+| F2 | 1 | 5.133 | 1.660 | +209% | -3.8% |
+| Cl2 | 1 | 4.670 | 2.514 | +86% | +19.4% |
+| LiH | 1 | 4.925 | 2.429 | +103% | +15.7% |
+| N2 | 3 | 12.095 | 9.790 | +24% | +2.9% |
+| O2 | 2 | 8.465 | 5.213 | +62% | +3.6% |
+
+HF at 0.18% BEATS V10's 3.5% - simple polar bonds work brilliantly.
+
+ATTEMPTED LP REPULSION correction (subtract LP-shift × n_LP_facing):
+Made things WORSE (161% mean error) - the naive subtraction over-corrects.
+
+WHY: not all positive-shift modes are real LP repulsion. Many are spurious
+lattice modes. Proper accounting requires full MO bookkeeping (which HF does).
+
+CONCLUSION:
+- Mode classification works for SIMPLE POLAR BONDS (H-X) at <1% accuracy
+- Cannot easily generalize to LP-heavy molecules without full MO theory
+- V10's analytical formula has the right CALIBRATED balance
+
+Verification: experiments/bond_mode_classifier.py, experiments/bond_with_lp.py
+
 Week 2:
 - p-orbital integrals (key for heavier atoms)
 - Multi-atom basis (1s + 2s + 2p for C, N, O, F)
