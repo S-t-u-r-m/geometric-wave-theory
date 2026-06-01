@@ -187,6 +187,17 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
 - 3D: S = c * L^2 (boundary area) - confirmed ratio ~0.03
 - Falsifiable: any GWT-based simulation showing VOLUME law instead of area law
 
+**Newton's constant derivation** (added 2026-06-01) ◐:
+- Vacuum area-law coefficient c = 0.030 per L^2 (free scalar, m^2=0.5)
+- d=3 cube vertex multiplicity factor: 2^d = 8
+- Effective coefficient: c_eff = 8 * 0.030 = 0.240
+- Bekenstein-Hawking: c_BH = 1/4 = 0.250
+- Agreement: 96%
+- Predicts G_N to 104.2% of measured value when a = ell_P
+- **First framework derivation of Newton's gravitational constant**
+- Refinement targets: sine-Gordon (interacting) coefficient, spherical
+  boundary geometry, multi-field generalization
+
 ---
 
 ## Confidence Hierarchy
@@ -204,6 +215,7 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
   - Atomic radii (13.5% at definitional noise)
   - V10 molecular bond formula (7.5% mean)
   - Wave-physics mode classification (sub-1% for simple polar)
+  - Newton's G_N from vacuum entanglement + cube geometry (4% agreement)
 
 ✅ TESTED with framework precision:
   - All proton mass derivations
