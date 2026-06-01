@@ -181,6 +181,12 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
 **Atomic sector**:
 - Discovery of atoms with IE >5% off framework prediction (currently 2.61% mean)
 
+**Vacuum entanglement sector** (added 2026-06-01):
+- GWT vacuum predicted to show AREA-LAW entanglement entropy (verified)
+- 2D: S = c * L (boundary length) - confirmed ratio ~0.07
+- 3D: S = c * L^2 (boundary area) - confirmed ratio ~0.03
+- Falsifiable: any GWT-based simulation showing VOLUME law instead of area law
+
 ---
 
 ## Confidence Hierarchy
