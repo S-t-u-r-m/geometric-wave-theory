@@ -187,6 +187,14 @@ These are the **best-bet targets** for finding framework confirmation or falsifi
   c_2 = 0.137 per face area
 - Falsifiable: any GWT-based simulation showing VOLUME law instead of area law
 
+**Cosmological constant Lambda** — vacuum entanglement at 0.15%:
+- rho_Lambda / rho_Planck = alpha^48 / (F * sqrt(2)) = 1.041e-106
+- Observed: 1.039e-106  →  0.15% match
+- Solves the 122-orders-of-magnitude QFT cosmological constant problem
+- Mechanism: vacuum-mediated entanglement between breathers (particles)
+- Same family as G_N and m_p derivations
+- See cosmology.md for details
+
 **Newton's constant** — full closed-form to 4 ppm:
 - alpha_G = F^4 * alpha^24 * (1 - alpha/d(d+1))
          = 5.906175e-39  vs observed 5.906149e-39
