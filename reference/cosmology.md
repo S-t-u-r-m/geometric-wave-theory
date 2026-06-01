@@ -253,6 +253,23 @@ discrepancy — it is a prediction.
   If the tension vanishes, GWT's two-value prediction is falsified.
 ```
 
+**Statistical status (2026-06-01)**:
+With current observational data:
+  H_0(CMB)   = 67.36 +/- 0.54 (Planck 2018)
+  H_0(local) = 73.04 +/- 1.04 (SH0ES 2022)
+  Ratio_obs  = 1.0843 +/- 0.0177
+  Ratio_pred = 1.1023 (GWT)
+  Significance of residual = 1.02 sigma — WITHIN MEASUREMENT NOISE
+
+The framework prediction agrees with data at 1 sigma. Vacuum corrections
+(1 - alpha/N) at the 0.03-0.06% level are TOO SMALL to be relevant —
+measurement uncertainty (~1.6%) currently masks any sub-percent effect.
+
+If observational precision improves by 5x, vacuum corrections may become
+testable. A candidate form is sqrt(alpha)/5 = 1.7%, but this would be
+the first sqrt(alpha) correction in the framework and needs independent
+derivation before being claimed.
+
 ---
 
 ### Cosmic age
