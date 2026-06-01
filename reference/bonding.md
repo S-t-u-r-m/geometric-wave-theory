@@ -1787,6 +1787,34 @@ CONCLUSION:
 
 Verification: experiments/bond_mode_classifier.py, experiments/bond_with_lp.py
 
+### LOCALIZATION FILTER attempt (2026-06-01)
+
+Tried to distinguish TRUE BONDING (density between atoms) from PSEUDO-BONDING
+(shifted down but density on one atom) using eigenvector localization.
+
+Result: MADE THINGS WORSE in many cases (58% mean error vs 61% without).
+
+Why: For touching atoms, the "between" region is geometrically small.
+Density appears spread across atom regions even for true bonding modes.
+A simple geometric filter can't reliably distinguish modes.
+
+THE FUNDAMENTAL LIMIT:
+Single-shell wave configurations cannot distinguish between:
+- F2's bonding mode (shift = -0.091)
+- H2's bonding mode (shift = -0.099)
+
+Yet H2 has D_e = 4.75 eV while F2 has only 1.66 eV. The difference is
+LP-LP REPULSION which requires EXPLICIT multi-shell modeling.
+
+To capture this, each atom needs MULTIPLE EXPLICIT SHELLS:
+- 1s core (frozen)
+- 2s valence shell
+- 3 separate 2p shells (one bonding, two lone pair)
+
+This is the same complexity as full MO theory, expressed in wave terms.
+
+Verification: experiments/bond_localized_modes.py
+
 Week 2:
 - p-orbital integrals (key for heavier atoms)
 - Multi-atom basis (1s + 2s + 2p for C, N, O, F)
