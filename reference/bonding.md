@@ -1665,6 +1665,43 @@ exactly) but HF itself is too crude to beat V10. V10's empirical formula
 is approximately MP2/STO-3G quality. To genuinely beat it requires
 implementing MP2 perturbation theory on top of our HF code.
 
+### USER INSIGHT: "No electron clouds in GWT, just energy transfer"
+
+Profound framework insight. GWT doesn't have probability clouds - it has
+WAVE CONFIGURATIONS that transfer energy when bonding.
+
+**Approaches tested in this session**:
+
+| Approach | Best result | Status |
+|----------|-------------|--------|
+| HF/STO-3G (cloud picture) | H atom EXACT, LiH -75% | Wrong philosophy for GWT |
+| Wave field energy (single kink) | HCl +3.9% | Works for similar atoms |
+| Multi-shell wave field | HCl +8.8% | Naive blending insufficient |
+| V10 (analytical wave formula) | 7.5% mean | Current best |
+
+**Why naive wave-energy doesn't beat V10**:
+
+1. Single kink doesn't capture multi-electron atomic structure
+2. Multi-shell max-blending doesn't properly model shell separation
+3. Field energy integration misses quantum effects (Pauli, exchange)
+4. V10's analytical formula has ENCODED all this via framework primitives
+
+**V10 IS the wave-physics formula** - it's just expressed analytically.
+To beat numerically via simulation requires modeling:
+- Proper multi-shell atomic configs (core + valence separately)
+- Wave coupling between valence shells
+- Pauli exclusion in field formalism
+- Geometry effects (orientation of valence shells)
+
+Multi-week+ research project.
+
+**Files explored**:
+- experiments/wave_field_energy.py
+- experiments/wave_multishell.py
+- experiments/mo_hf_uhf.py (matches literature exactly)
+
+V10's 7.5% remains the best framework predictor for bond energies.
+
 Week 2:
 - p-orbital integrals (key for heavier atoms)
 - Multi-atom basis (1s + 2s + 2p for C, N, O, F)
