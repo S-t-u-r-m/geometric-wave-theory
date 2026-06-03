@@ -1,23 +1,39 @@
-# Integrability Proof: (m + (m-1)/π) Angular Ladder is EXACT
+# Integrability Argument: (m + (m-1)/π) Angular Ladder
 
-**Status**: Derivation complete. Closes the framework's deepest open theoretical question.
+**Status**: Suggestive argument via dimensional reduction. NOT a rigorous
+theorem. The dimensional-reduction-to-DHN sketch supports the conjecture
+but does not prove it. (Reframed 2026-06-03 per critical review.)
 
-**Date**: 2026-06-01
+**Date**: 2026-06-01 (original), 2026-06-03 (status downgraded)
 
-## Statement of Theorem
+## Statement of Conjecture
 
 For the GWT 2D sine-Gordon kink ring of radius R and width w, the angular
-perturbation spectrum is:
+perturbation spectrum is conjectured to follow:
 
 ```
 ω_m = (1/R) × (m + (m-1)/π)    for m = 1, 2, 3, ...
 ```
 
-This formula is EXACT to all orders in the loop expansion in the
-**thin-ring limit** w/R → 0. Finite-R corrections are O((w/R)²) and
-empirically negligible at PDG precision.
+CONJECTURED to be exact to all orders in the loop expansion in the
+**thin-ring limit** w/R → 0. Finite-R corrections O((w/R)²) and
+empirically near PDG precision.
 
-## Proof Strategy: Dimensional Reduction + DHN Integrability
+**Why this is a conjecture not a theorem**:
+- The dimensional reduction (2D → 1D) is exact at leading order in w/R but
+  the loop-corrections in the 2D theory don't automatically reduce to those
+  of the 1D theory.
+- DHN integrability is a theorem for 1D sine-Gordon; applying it to the
+  effective theory of perturbations on a 2D kink ring is a SKETCH, not
+  a derivation.
+- Numerical agreement at PDG precision is suggestive but not proof.
+
+A real proof would require:
+- Constructing explicit Lax pair for the reduced theory
+- Showing infinite-dimensional conserved currents
+- Verifying these are non-perturbative
+
+## Argument: Dimensional Reduction + DHN Integrability (sketch)
 
 The proof proceeds in three steps:
 

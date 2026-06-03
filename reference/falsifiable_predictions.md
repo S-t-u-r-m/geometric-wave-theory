@@ -2,18 +2,22 @@
 
 *Master list of testable framework predictions. Each tagged with confidence level and current status.*
 
-**Status legend**:
+**Status legend** (revised 2026-06-03):
 - ✅ TESTED at framework precision
 - ⏳ UNTESTED — awaiting experimental search
 - ❌ FALSIFIED — experiment ruled out (none yet)
-- ★ PLANCK-PRECISION confidence (proven exact via integrability)
-- ◐ FRAMEWORK confidence (derived, not yet integrability-proven)
+- ★ HIGH-PRECISION match (conjectured exact via integrability, see caveats in integrability_proof.md)
+- ◐ FRAMEWORK-DERIVED (closed-form match, derivation route varies)
+- ◇ CANDIDATE (matches data with a chosen anchor/exponent, derivation pending)
 
 ---
 
 ## A. HADRON SPECTROSCOPY (Planck-precision)
 
-After 2026-06-01 integrability proof, these predictions are EXACT (not leading-order):
+After 2026-06-01 integrability argument (status: conjecture, not proof
+— see integrability_proof.md and downgrade 2026-06-03), these predictions
+are CONJECTURED to be exact in the thin-ring limit. Numerical match is at
+PDG precision but rigorous proof requires Lax pair construction.
 
 ### A1. Baryon Angular Ladder ★
 
@@ -257,12 +261,12 @@ This consolidates all today's discoveries into a unified theory:
 ## Confidence Hierarchy
 
 ```
-★ PLANCK-PRECISION (proven exact):
-  - Integrability theorem: angular ladder formula
-  - Universal extension: same formula for all SG defects
-  - Roper sqrt(d) factor: exact from isotropy + line tension
-  - R_charge: exact from sech² + framework primitive
-  - α_s/2^d, c_ionic etc.: cube geometry exact
+★ HIGH-PRECISION (conjectured exact, pending rigorous proof):
+  - Integrability ARGUMENT: angular ladder formula (suggestive, not theorem)
+  - Universal extension: same formula structure for SG defects
+  - Roper sqrt(d) factor: derived from isotropy + line tension argument
+  - R_charge: closed-form from sech² + framework primitive
+  - α_s/2^d, c_ionic etc.: cube geometry derived
 
 ◐ FRAMEWORK-DERIVED (no integrability proof yet):
   - Quantum defect → IE (2.61% on 103 atoms)

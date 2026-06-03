@@ -174,30 +174,36 @@ corrections than observed.
 HYPOTHESIS: Sine-Gordon's integrability in 1D extends to the framework's
 kink ring spectrum, causing exact cancellation of higher-order corrections.
 
-**PROVED (2026-06-01)**: See reference/integrability_proof.md for full
-derivation via dimensional reduction + DHN integrability.
+**CONJECTURED (2026-06-01, status downgraded 2026-06-03)**:
+See reference/integrability_proof.md for the suggestive argument via
+dimensional reduction + DHN integrability. This is NOT a rigorous theorem.
 
-Outline of proof:
+Outline of the argument:
   1. In the thin-ring limit w/R -> 0, angular perturbations on the kink
      ring satisfy an effective 1D wave equation along the ring circumference.
   2. The effective 1D system inherits the sine-Gordon potential structure
-     from the 2D parent theory.
+     from the 2D parent theory (at leading order in w/R).
   3. 1D sine-Gordon is exactly integrable (DHN: infinitely many conserved
      currents constrain S-matrix to factorize via Yang-Baxter).
-  4. Therefore the angular ladder spectrum is EXACT to all loop orders:
+  4. SUGGESTS the angular ladder spectrum approaches:
         omega_m = (1/R) * (m + (m-1)/pi)
-  5. Finite-R corrections are O((w/R)^2) and empirically negligible.
+     in the thin-ring limit, but actual loop corrections in the 2D parent
+     theory don't automatically vanish.
+  5. Finite-R corrections are O((w/R)^2) and empirically near PDG precision.
 
-CONCLUSION (now established):
-  - (m + (m-1)/pi) IS EXACT (not just leading-order)
-  - Each baryon mass formula IS an EXACT relation (like E = mc^2)
-  - Framework predictions limited only by alpha and G measurement precision
-  - Framework belongs to the class of EXACT theories (1D SG, CFT, etc.)
+CONCLUSION (status: SUGGESTIVE, not established):
+  - (m + (m-1)/pi) appears to match observed states at PDG precision
+  - Numerical agreement is striking but not proof
+  - "EXACT to all orders" claim was overreach — the dimensional reduction
+    only shows the LEADING ORDER reduces to a known integrable system
+  - Framework is CONSISTENT WITH being in the class of exact theories,
+    pending rigorous proof
 
-REMAINING WORK (formalization):
-  - Write up proof in standard integrable-QFT formalism (Lax pair etc.)
+REMAINING WORK (to upgrade conjecture to theorem):
+  - Construct explicit Lax pair for the reduced theory
+  - Show infinite-dimensional conserved currents are inherited
+  - Verify these are non-perturbative
   - Compute the explicit O((w/R)^2) finite-R correction coefficient
-  - Submit for publication
 
 ### Approximations to Exact: Roadmap
 

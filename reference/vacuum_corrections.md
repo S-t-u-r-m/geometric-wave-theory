@@ -254,21 +254,28 @@ correction factor is determined entirely by GWT primitives.
 
 | Open problem | Status |
 |--------------|--------|
-| Cosmological constant (122-order discrepancy) | **Solved at 0.04%** (with NLO) |
-| Gravity unification (G_N from first principles) | **Solved at 4 ppm** |
-| **Strong CP problem** (why θ < 10⁻¹⁰?) | **Solved: θ ≈ 1.1×10⁻¹⁰ (just at bound)** |
-| **Muon g-2 anomaly** | **Solved at sub-ppb** (no SUSY/leptoquark) |
-| **Electron g-2** | Sharpened to 5 ppb |
-| Hierarchy problem (mass scales) | Closed-form chain: F²·α¹²·m_Planck |
+| Cosmological constant (122-order discrepancy) | **Candidate match at 0.04%** (with NLO; exponents partly chosen by fit) |
+| Gravity unification (G_N from first principles) | **Match at 4 ppm** (with chosen α/12 correction) |
+| **Strong CP problem** (why θ < 10⁻¹⁰?) | Candidate: exp(-d²·8/π) ≈ 1.1×10⁻¹⁰ (at bound) |
+| **Muon g-2 anomaly** | Sub-ppb match (with chosen NLO/NNLO terms; framework already had 0.85 ppm prior) |
+| **Electron g-2** | Sharpened to 5 ppb (with chosen α³·π/4 term) |
+| Hierarchy problem (mass scales) | Closed-form chain: F²·α¹²·m_Planck (derived) |
 | Hubble tension | Already explained by d=3 geometry (within 1σ) |
-| **Neutrino mass spectrum** | **Σm_ν = 60.6 meV** from √((d+1)α) hierarchy |
-| Quark mass precision | Improved 10× via (1-π·α); Bottom 50× via extra (1-α) |
-| Matter-antimatter asymmetry | Improved 2.3× (4.1% → 1.8%) |
-| Dark energy fraction | Improved 7× (2.7% → 0.4%) |
-| Cosmic age t_0 | 1.0% → 0.07% via consistent corrections |
-| q_0 deceleration | 5.1% → 0.77% via Ω_Λ inheritance |
-| m_p/m_e ratio | 19 ppm → 1 ppm via (1+α²/d) |
-| **d=3 specialness** | PROVEN: (d+1)! = SM count only at d=3 |
+| **Neutrino mass spectrum** | **Σm_ν = 60.6 meV** from √((d+1)α) hierarchy (candidate, 1.3% on ratio) |
+| Quark mass precision | Improved 10× via (1-π·α); Bottom needs extra (1-α) — quantity-specific |
+| Matter-antimatter asymmetry | Improved 2.3× (4.1% → 1.8%) — partial |
+| Dark energy fraction | Improved 7× (2.7% → 0.4%) — partial |
+| Cosmic age t_0 | 1.0% → 0.07% (consistent inputs, not new physics) |
+| q_0 deceleration | 5.1% → 0.77% (inheritance from Ω_Λ, not new physics) |
+| m_p/m_e ratio | 19 ppm → 1 ppm via (1+α²/d) — candidate |
+| **d=3 specialness** | Combinatorial identity (d+1)! = SM count only at d=3 — pure math |
+
+**Honest note on "Solved"**: Many of these are CANDIDATE matches where
+formulas with chosen exponents/anchors fit observed data. The PATTERN
+is suggestive (mode-counting + sine-Gordon periodicity) but most are
+not derived from a Hamiltonian. See `conceptual_principles_2026-06-03.md`
+for the critical-review status framework: derived / forced-but-unproven /
+fitted / open.
 
 ---
 
@@ -303,20 +310,25 @@ self-consistent.
 
 ## 7. Open Questions (UPDATED 2026-06-02)
 
-Status of yesterday's open questions (Day 2 progress):
+Status of yesterday's open questions (Day 2 progress, downgraded 2026-06-03):
 
-1. ~~**Strong CP problem**~~ **SOLVED 2026-06-01**:
-   theta_QCD = exp(-d²·8/π) = 1.11×10⁻¹⁰
+1. **Strong CP problem** — CANDIDATE (2026-06-01):
+   theta_QCD = exp(-d²·8/π) = 1.11×10⁻¹⁰ at observational bound.
+   Requires derivation that d² breathers actually mediate the QCD vacuum
+   tunneling at this action — not shown.
 
-2. ~~**Neutrino mass scale**~~ **SOLVED 2026-06-02**:
-   Full spectrum derived via √((d+1)α) hierarchy:
-   m_3 = 50.5 meV, m_2 = 8.6 meV, m_1 = 1.5 meV, Σ = 60.6 meV
+2. **Neutrino mass scale** — CANDIDATE (2026-06-02):
+   √((d+1)α) hierarchy gives m_3, m_2, m_1 within ~1-3%. The (d+1)
+   factor is consistent with framework usage elsewhere; the √ exponent
+   is plausible but chosen.
 
-3. ~~**q_0 deceleration**~~ **SOLVED 2026-06-02**:
-   0.77% via Ω_Λ inheritance (no new physics needed)
+3. **q_0 deceleration** — IMPROVED via consistent inputs:
+   0.77% from using vacuum-corrected Omega_L in Friedmann (no new physics
+   needed, just consistent application of existing corrections)
 
-4. ~~**Bottom quark residual**~~ **SOLVED 2026-06-02**:
-   Extra (1-α) factor closes to 0.014%
+4. **Bottom quark residual** — PATCHED (2026-06-02):
+   Extra (1-α) factor closes to 0.014%. WHY only Bottom needs this is
+   unexplained — likely fitted rather than derived.
 
 5. **Why π·α and not α/N**: Day 2 found BOTH appear consistently:
    - α/N: mode-counting corrections (alpha/24 mass, alpha/12 gravity)
@@ -344,7 +356,7 @@ Still genuinely open:
 9. **Tau g-2 prediction**: current bound |a_τ| < 0.020 too loose to test.
    Future Belle II, LHC measurements will provide falsifiable target.
 
-10. **WHY d=3 in the deepest sense**: We PROVED (d+1)! = SM mode count
+10. **WHY d=3 in the deepest sense**: The identity (d+1)! = SM mode count
     only at d=3 (pure combinatorial identity). But the deeper question
     "why does the lattice prefer dimension 3" might have anthropic
     or selection-effect answer rather than pure derivation.
