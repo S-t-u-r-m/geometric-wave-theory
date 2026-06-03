@@ -431,6 +431,25 @@ Step 2: Koide = (d-1)/d = 2/3                  (obs: 0.666661, 0.0009%)
 Step 3: m_tau from Koide constraint = 1777.1    (obs: 1776.86, +0.015%)
 ```
 Two formulas (m_mu/m_e and Koide), both from d=3, determine all three lepton masses.
+
+### m_p/m_e ratio with NLO vacuum correction (2026-06-02)
+
+The classical F = 6*pi^5 = 1836.118 gives the mass ratio to 19 ppm.
+NLO vacuum correction (1 + alpha^2/d) tightens this to 1 ppm:
+
+```
+m_p/m_e = F * (1 + alpha^2/d) = 6*pi^5 * (1 + alpha^2/3)
+       = 1836.151  vs observed 1836.153  -> 1 ppm
+```
+
+The alpha^2/d form is same family as Lambda NLO (1 - alpha/d):
+- alpha^2: two-loop EM
+- /d: per-dimension averaging
+- Tiny correction at the right scale
+
+Mass ratio correction does NOT contradict (1 - alpha/24) on individual
+masses (which cancels in ratio). Instead it's a small loop correction
+to the ratio itself, beyond F^2 ratio from breather formula.
 The tau mass is a PREDICTION from the Koide constraint — not an input.
 
 ### Complete GWT Koide parametrization

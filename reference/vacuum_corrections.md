@@ -223,6 +223,7 @@ correction factor is determined entirely by GWT primitives.
 | **Muon g-2 (LO)** | 0.85 ppm (already 2.5× better than SM) | × (1+α²/63) | 0.00116592061 | 4 ppb |
 | **Muon g-2 (LO+NNLO)** | × (1+α²/63) × (1+α³/d⁴) | 0.00116592060 | 0.00116592061 | **-0.94 ppb** |
 | **Electron g-2** | 0.32 ppm | × (1+α³·π/4) | 0.00115965217 | **5 ppb** |
+| **m_p/m_e ratio** | 19 ppm (F = 6π⁵) | × (1+α²/d) | 1836.151 | **1 ppm** |
 | Proton mass | 938.559 MeV | 938.273 (×(1-α/24)) | 938.272 | **1 ppm** |
 | Up quark | 2.21 MeV | 2.16 (×(1-π·α)) | 2.16 | 0.05% |
 | Down quark | 4.78 MeV | 4.67 (×(1-π·α)) | 4.67 | 0.02% |
