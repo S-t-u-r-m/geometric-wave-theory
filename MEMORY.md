@@ -130,6 +130,9 @@ In Planck units: k = η = 2/π, a = 1 → zero free parameters
 - Key files: `calculations/vacuum_polarization/breather_vp_exact.py`, `calculations/vacuum_polarization/breather_vp_closedform.py`
 
 ## Open Ideas / Future Work
+
+0. **TODO: F_Oh = 169/198 averaging derivation (muon g-2)** — The hadronic VP factor F_Oh = (8/9 + 9/11)/2 = 169/198 is used in `reference/nuclear.md` (muon g-2) and `calculations/core/muon_g2_d4h.py:212`, but the *why* of averaging the EM trace (8/9) and QCD trace (9/11) — as opposed to summing, multiplying, or tensor-producting them — is not written anywhere in the codebase. Labeled "parallel traces of bifundamental EM×QCD" but no derivation exists. Either (a) derive why averaging is the correct operation for parallel traces of a bifundamental, or (b) retag F_Oh from `[DERIVED]` to `[PATTERN]` per the status key. Closed form `(d²+d+1)²/(2·d²·(d²+d-1))` is clean algebra but unmotivated. **F_D4h (the 11/10 factor) is genuinely derived via D4h character-table restriction in `muon_g2_d4h.py` — only F_Oh is the gap.** Context: audit 2026-04-14, see `AUDIT_PROPOSAL_nuclear.md` Gap #3a.
+
 1. **Breather dynamics simulator** — the ultimate goal
    - Full 3D GPU simulation of pulsing breathers on d=3 lattice
    - All forces from L = (1/2)(dφ)² + (1/π²)(1-cos(πφ))

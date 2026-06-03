@@ -19,6 +19,8 @@ The proton-electron mass ratio m_p/m_e = 1836.15267343(11) is one of the most pr
 
 The empirical observation that m_p/m_e is close to 6 pi^5 = 1836.118 was noted by Lenz in the 1950s but dismissed as numerology due to the absence of a derivation path. We show that this relation is not a coincidence but a consequence of mode counting on a discrete elastic lattice in d=3 spatial dimensions, and that the 0.002% residual has a precise geometric origin in the quark charge structure of the proton.
 
+The Lagrangian employed here — a discrete chain of harmonic couplings in a periodic cosine potential — is mathematically identical to the Frenkel-Kontorova (FK) model [5], introduced in 1938 to describe dislocation dynamics in crystals. The FK model's continuum limit yields the sine-Gordon equation, whose kink and breather soliton spectrum we exploit throughout this work. The present theory was developed independently from first principles; the structural parallel to the FK model was recognized only after the main results were derived. The connection is physically suggestive: if the FK framework captures dislocation physics on an atomic lattice, the same mathematics applied at the Planck scale captures particle physics on the spacetime lattice.
+
 ### Key Results
 
 | Quantity | Formula | Predicted | Observed | Error | $\alpha$ used |
@@ -600,6 +602,8 @@ The same $(d\!-\!1)/d = 2/3$ transverse fraction appears in gravity vs. dark ene
 [3] F. Lenz, "The ratio of proton and electron masses," Phys. Rev. 82, 554 (1951).
 
 [4] T. Aoyama et al., "The anomalous magnetic moment of the muon in the Standard Model," Phys. Rep. 887, 1 (2020).
+
+[5] Y. I. Frenkel and T. Kontorova, "On the theory of plastic deformation and twinning," Zh. Eksp. Teor. Fiz. 8, 1340 (1938).
 
 ---
 
