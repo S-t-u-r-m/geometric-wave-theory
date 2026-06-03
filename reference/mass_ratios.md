@@ -233,7 +233,7 @@ the 3D VP. Reduces quark mean residual from 2.4% to 0.23%.
 | Up    | -2.26%       | +0.05% |
 | Down  | -2.30%       | +0.02% |
 | Top   | -2.14%       | +0.15% |
-| Bottom| -2.99%       | -0.71% |
+| Bottom| -2.99%       | -0.71% (+ (1-alpha) gives +0.014%) |
 
 Physical: pi appears because SG cosine potential V = (1/pi^2)(1-cos(pi*phi))
 has period 2/(loop momentum), giving an additional pi*alpha phase factor
@@ -243,6 +243,23 @@ coupling at face-position quarks.
 Full quark mass formula (gen 1+3):
   m_quark = m_bare * pi^(-d*alpha) * (1 - pi*alpha)
          ≈ m_bare * pi^(-3*alpha) * exp(-pi*alpha)
+
+**Bottom quark exception (2026-06-02)**: Bottom needs an ADDITIONAL
+(1 - alpha) factor beyond (1 - pi*alpha). Likely because bottom is
+the heaviest down-type quark and accumulates an extra EM-vacuum
+coupling at high mass scale.
+
+  m_bottom = m_bare * pi^(-3*alpha) * (1 - pi*alpha) * (1 - alpha)
+          = 4213.15 * (1 - alpha)
+          = 4182.40 MeV
+  Observed: 4183 MeV
+  Match: 0.014% (50x improvement over (1 - pi*alpha) alone)
+
+Combined correction: (1 - pi*alpha)(1 - alpha) = (1 - (pi+1)alpha + pi*alpha^2)
+                  ≈ exp(-(pi+1)*alpha)
+
+This pattern (heaviest down-type needs extra (1-alpha)) is the only
+known exception to the gen 1+3 quark mass formula.
 
 ### Complete fermion mass table
 

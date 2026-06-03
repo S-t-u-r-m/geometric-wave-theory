@@ -10,6 +10,7 @@ L = sum_<i,j> [ (1/2)(phi_i - phi_j)^2 + (1/pi^2)(1 - cos(pi * phi_i)) ]
 - **sum_<i,j>** = nearest-neighbor sum on d-dimensional cubic lattice
 - **1/pi^2** = potential depth (fixed by topological quantization of the kink)
 - **cos(pi*phi)** = sine-Gordon potential (periodic, allows soliton solutions)
+- **Historical note:** This Lagrangian is structurally identical to the Frenkel-Kontorova (FK) model (1938), originally developed for crystal dislocation dynamics. The FK model's continuum limit is the sine-Gordon equation. The present theory was derived independently; the FK parallel was recognized only after the main results were obtained. The same mathematics that describes dislocations on an atomic lattice describes particles on the spacetime lattice.
 - **Lattice spacing** a = 1 (Planck length). Not a parameter — it's the unit.
 
 ### What falls out of the Lagrangian

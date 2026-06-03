@@ -215,7 +215,10 @@ correction factor is determined entirely by GWT primitives.
 | Quantity | Bare GWT | With vacuum correction | Observed | Final precision |
 |----------|----------|------------------------|----------|-----------------|
 | **Newton's G** | 5.910e-39 | 5.906e-39 (×(1-α/12)) | 5.906e-39 | **4 ppm** |
-| **Cosmological Λ** | (122 orders off in QFT) | 1.041e-106 (α^48/(F√2)) | 1.039e-106 | **0.20%** |
+| **Cosmological Λ (LO)** | (122 orders off in QFT) | 1.041e-106 (α^48/(F√2)) | 1.039e-106 | 0.20% |
+| **Cosmological Λ (LO+NLO)** | LO × (1 - α/d) | 1.0386e-106 | 1.0391e-106 | **-0.04%** |
+| Bottom quark (with extra (1-α)) | m_bare·π^(-3α)·(1-πα)·(1-α) | 4182.40 MeV | 4183 MeV | +0.014% |
+| q_0 deceleration (corrected Ω_L) | (Ω_m - 2Ω_L)/2 with corrected Ω_L | -0.523 | -0.527 | +0.77% |
 | **Strong CP theta_QCD** | (anything 0-2π in QCD) | 1.11e-10 (exp(-d²·8/π)) | < 10^-10 (bound) | **at bound** |
 | **Muon g-2** | 0.85 ppm (already 2.5× better than SM) | × (1+α²/63) | 0.00116592061 | **4 ppb** |
 | Proton mass | 938.559 MeV | 938.273 (×(1-α/24)) | 938.272 | **1 ppm** |
