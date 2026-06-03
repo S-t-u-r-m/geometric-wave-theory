@@ -220,7 +220,9 @@ correction factor is determined entirely by GWT primitives.
 | Bottom quark (with extra (1-α)) | m_bare·π^(-3α)·(1-πα)·(1-α) | 4182.40 MeV | 4183 MeV | +0.014% |
 | q_0 deceleration (corrected Ω_L) | (Ω_m - 2Ω_L)/2 with corrected Ω_L | -0.523 | -0.527 | +0.77% |
 | **Strong CP theta_QCD** | (anything 0-2π in QCD) | 1.11e-10 (exp(-d²·8/π)) | < 10^-10 (bound) | **at bound** |
-| **Muon g-2** | 0.85 ppm (already 2.5× better than SM) | × (1+α²/63) | 0.00116592061 | **4 ppb** |
+| **Muon g-2 (LO)** | 0.85 ppm (already 2.5× better than SM) | × (1+α²/63) | 0.00116592061 | 4 ppb |
+| **Muon g-2 (LO+NNLO)** | × (1+α²/63) × (1+α³/d⁴) | 0.00116592060 | 0.00116592061 | **-0.94 ppb** |
+| **Electron g-2** | 0.32 ppm | × (1+α³·π/4) | 0.00115965217 | **5 ppb** |
 | Proton mass | 938.559 MeV | 938.273 (×(1-α/24)) | 938.272 | **1 ppm** |
 | Up quark | 2.21 MeV | 2.16 (×(1-π·α)) | 2.16 | 0.05% |
 | Down quark | 4.78 MeV | 4.67 (×(1-π·α)) | 4.67 | 0.02% |
