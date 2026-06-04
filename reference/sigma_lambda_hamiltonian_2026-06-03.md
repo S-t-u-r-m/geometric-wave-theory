@@ -81,11 +81,47 @@ What's missing for a unique-valued derivation:
 
 ## Status
 
-**CANDIDATE prediction** (forced-but-unproven category per critical review framework):
-- Best independent calculation: 0.4% match with observed
-- Range across equivalent calculations: 60-111 MeV
-- Framework "soft-predicts" Sigma-Lambda at scale of 77 MeV
-- Not yet a unique numerical derivation
+**OPEN** (downgraded after cross-check failure 2026-06-03)
+
+The "0.4% match" was largely coincidence. Cross-check on heavier analog
+splittings (Sigma_c-Lambda_c and Sigma_b-Lambda_b) catastrophically fails:
+
+| Splitting | Observed | Predicted | Error |
+|-----------|----------|-----------|-------|
+| Sigma-Lambda | 77 MeV | 76.8 MeV | -0.3% |
+| Sigma_c-Lambda_c | 169 MeV | 420 MeV | +148% |
+| Sigma_b-Lambda_b | 191 MeV | 1373 MeV | +619% |
+
+### What the failure tells us
+
+Observed splittings grow SLOWLY with heavy quark mass (77 -> 169 -> 191
+across 50x mass range). The toy Hamiltonian predicts LINEAR scaling
+with mass ratio, which is wildly wrong.
+
+The actual physics (which the toy Hamiltonian doesn't capture):
+- Splitting is dominated by LIGHT-LIGHT pair interaction
+- Heavy quark only WEAKLY modifies the light dynamics
+- Our model with symmetric J couples all 3 modes equally,
+  making the heavy mode dominate the splitting
+
+### Honest conclusion
+
+The Sigma-Lambda "match at 0.4%" was getting one specific case right
+by coincidence. The methodology does NOT capture the actual physics
+of light-pair recoupling in baryons.
+
+What WOULD capture it:
+- Separate J_LL (light-light) vs J_LH (light-heavy) couplings
+- J_LL responsible for splitting, J_LH small perturbation
+- Splitting scale set by J_LL × light-mode dynamics
+- Then heavier baryons get same splitting scale (~100-200 MeV)
+  with small heavy-quark-dependent corrections
+
+But this requires deriving J_LL and J_LH separately from torus geometry,
+not from a single symmetric coupling assumption.
+
+Sigma-Lambda remains a genuine OPEN problem. The cross-check was
+valuable because it revealed what's NOT working.
 
 **Better than**: yesterday's 36%-off placeholder (49 MeV)
 **Not as clean as**: a true derivation with single-valued prediction
