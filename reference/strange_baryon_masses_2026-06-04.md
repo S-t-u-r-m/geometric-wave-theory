@@ -280,3 +280,30 @@ single unified formula with NO free parameters.
 
 This is what the framework needed.
 
+
+## Transition shape: sharp vs smooth
+
+Tested various transition forms for delta(m_h):
+- Sharp threshold at m_J/psi: max error 0.57%
+- Tanh smooth (scale 500): max error 0.61%
+- Sigmoid (scale 200): max error 0.65%
+- Sigmoid (scale 500): max error 0.67%
+
+With only 3 baryon data points (s, c, b), CANNOT distinguish sharp
+from smooth transitions. All forms that pass through:
+- ~0 at strange/charm
+- ~0.11 rad at bottom
+fit data equally well.
+
+Physical interpretation favored: smooth transition is more
+realistic. Sharp discontinuity would cause instability near threshold.
+The TRANSITION SHAPE is below our data resolution.
+
+What IS robust:
+- m_J/psi as the special scale (clear minimum in error landscape)
+- 1/d coefficient from cube geometry  
+- Rapid transition between two regimes (V10-style vs slider-corrected)
+- The position-dependent w_pi = cos(pi/d + delta) mechanism
+
+The "sharp threshold" in the formula is a mathematical proxy for a
+smooth crossover that happens too narrowly for our data to resolve.
