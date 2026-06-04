@@ -113,3 +113,42 @@ With the cross-check:
 - Honest 10% precision instead of fake 0.4%
 
 This is real progress through disciplined testing.
+
+## Extended cross-check (2026-06-03 evening)
+
+Question: does the formula generalize to OTHER baryon splittings?
+
+| Splitting | Physics type | Predicted / Observed |
+|-----------|--------------|---------------------|
+| Sigma*-Sigma (spin flip)         | spin flip       | 0.35 |
+| Delta-N (spin flip, pure light) | spin flip       | 0.11 |
+| Lambda_c-Lambda (s -> c)         | heavy replace   | 0.14 |
+| Omega-Xi (add strange)           | add strange     | 0.19 |
+| Xi-Sigma (s replaces light)      | add strange     | 0.54 |
+
+**The formula does NOT generalize.** Other baryon mass splittings involve
+different physics (spin coupling, quark replacement, content changes) and
+don't follow K = (2d+1)*alpha_s with mu^3/m_l^2 structure.
+
+This is informative: K = (2d+1)*alpha_s is SPECIFIC to the
+"light-pair recoupling in presence of heavy quark" physics, not a universal
+baryon constant.
+
+## Pattern in 3-point residuals: cannot be definitively tested
+
+The residuals -12%, -2%, +12% across Sigma-Lambda, Sigma_c-Lambda_c,
+Sigma_b-Lambda_b form a monotonic pattern. Best correlated with
+sqrt(m_h/m_l) (RMSE 0.003 vs 0.011-0.034 for other variables).
+
+But with 3 data points and 2 free parameters (slope, intercept of any
+monotonic correction), this is essentially fitting, not prediction.
+
+We CANNOT test if the pattern continues because:
+- No more Sigma-Lambda type splittings exist in nature (only s, c, b)
+- Top doesn't form bound states (decays too fast)
+- No lighter "heavy" exists (s is already lighter than c)
+
+The genuine open question: derive K and the residual correction structure
+from first-principles sine-Gordon torus dynamics. Until then, the 10%
+precision is the honest claim, the residual pattern is suggestive but
+unprovable.
