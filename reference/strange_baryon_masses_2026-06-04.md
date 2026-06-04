@@ -113,3 +113,49 @@ NOW: V10-style configuration-specific spin corrections work to <0.5%.
 - Cross-validates V10-extends-to-baryons hypothesis
 - Bottom remains genuinely open
 - Real progress from yesterday's failed approaches
+
+## Heavy-quark correction: cross-sector connection
+
+The 25% over-prediction for Sigma_b-Lambda_b correlates with V10 chemistry
+over-predicting heavy-atom bonds (Cl2 +21%, S2 +10%, PH +13%).
+
+This suggests a UNIVERSAL missing correction in both sectors when very
+heavy elements/quarks are involved.
+
+### Physical picture (Jon's top/bottom torus hypothesis)
+
+Heavy quark/atom sinks toward the inner ("bottom") radius of the torus,
+compressing surrounding light pair. This:
+1. Changes effective light constituent mass inside the system
+2. Reduces effective binding compared to "no compression" formula
+3. Activates only when heavy element is above some mass threshold
+
+For Sigma_b-Lambda_b: implied m_l_eff drops from 313 to ~290 (8%)
+For chemistry: similar effective compression for period-3 atoms
+
+### Form of the correction (genuinely open)
+
+Tested forms that didn't quite work:
+- delta = (1/(2d-1)) * max(0, (m_h - m_p)/m_h): charm -7%, bottom +5%
+- delta = (1/(2d-1)) * (1 - m_l/m_h)^2: charm -12%, bottom +3%
+- delta = c_ionic * sqrt(m_h/m_p - 1): both over-corrected
+- delta = c_ionic^2 * log(m_h/m_p): not enough
+
+The challenge: charm requires essentially 0% correction; bottom requires 20%.
+The transition is sharp around m_h ~ 2-3 GeV, suggesting threshold physics.
+
+### Research path forward
+
+To close the heavy-quark correction:
+1. Derive m_h threshold from torus stability analysis (when does heavy quark
+   "sink to bottom"?)
+2. Compute compression-induced effective m_l_eff from lattice dynamics
+3. Apply same correction to both baryons and chemistry simultaneously
+4. Verify across:
+   - Sigma_b-Lambda_b (target 195)
+   - Period-3 chemistry bonds (Cl2, S2, PH targets)
+   - Lithium bonds (different mechanism, but related?)
+
+This is multi-week research, not session work. The conceptual framing is
+right (top/bottom torus geometry); the math needs proper derivation.
+
