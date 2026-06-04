@@ -432,24 +432,35 @@ Step 3: m_tau from Koide constraint = 1777.1    (obs: 1776.86, +0.015%)
 ```
 Two formulas (m_mu/m_e and Koide), both from d=3, determine all three lepton masses.
 
-### m_p/m_e ratio with NLO vacuum correction (2026-06-02)
+### m_p/m_e ratio NLO correction — REDISCOVERED, not new (audit 2026-06-03)
 
-The classical F = 6*pi^5 = 1836.118 gives the mass ratio to 19 ppm.
-NLO vacuum correction (1 + alpha^2/d) tightens this to 1 ppm:
+On 2026-06-02, this doc claimed an "NLO vacuum correction" of
+(1 + alpha^2/d) = (1 + alpha^2/3) giving ~1 ppm match.
+
+**Audit finding (2026-06-03)**: this was a worse REDISCOVERY of an
+already-derived framework result, NOT a new finding.
+
+The framework's existing derivation at Section 5 above uses the
+**properly derived** correction:
 
 ```
-m_p/m_e = F * (1 + alpha^2/d) = 6*pi^5 * (1 + alpha^2/3)
-       = 1836.151  vs observed 1836.153  -> 1 ppm
+m_p/m_e = 6*pi^5 * (1 + alpha^2 / 2^(d/2))
+        = 6*pi^5 * (1 + alpha^2 / (2*sqrt(2)))
+        = 1836.15267 (<0.001 ppm match)
 ```
 
-The alpha^2/d form is same family as Lambda NLO (1 - alpha/d):
-- alpha^2: two-loop EM
-- /d: per-dimension averaging
-- Tiny correction at the right scale
+The 2^(d/2) = 2*sqrt(2) comes from lattice confinement normalization
+(DFT on the d-cube, see Step 3 of the original derivation), which IS
+derived from first principles.
 
-Mass ratio correction does NOT contradict (1 - alpha/24) on individual
-masses (which cancels in ratio). Instead it's a small loop correction
-to the ratio itself, beyond F^2 ratio from breather formula.
+The (1 + alpha^2/d) form is structurally similar (same alpha^2 EM order,
+same dimensional ratio in denominator) but is NOT as precisely matched:
+- (1 + alpha^2/(2*sqrt(2))) = 1.000018826  -> matches to <0.001 ppm
+- (1 + alpha^2/d) = 1 + alpha^2/3 = 1.000017751  -> 6% error in correction
+
+So yesterday's "NLO discovery" was a slightly worse rediscovery of an
+existing well-derived correction. Walking back the "new derivation" claim
+and pointing to Section 5 as the authoritative formula.
 The tau mass is a PREDICTION from the Koide constraint — not an input.
 
 ### Complete GWT Koide parametrization

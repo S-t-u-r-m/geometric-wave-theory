@@ -235,7 +235,7 @@ correction factor is determined entirely by GWT primitives.
 | **Muon g-2 (LO)** | 0.85 ppm (already 2.5× better than SM) | × (1+α²/63) | 0.00116592061 | 4 ppb |
 | **Muon g-2 (LO+NNLO)** | × (1+α²/63) × (1+α³/d⁴) | 0.00116592060 | 0.00116592061 | **-0.94 ppb** |
 | **Electron g-2** | 0.32 ppm | × (1+α³·π/4) | 0.00115965217 | **5 ppb** |
-| **m_p/m_e ratio** | 19 ppm (F = 6π⁵) | × (1+α²/d) | 1836.151 | **1 ppm** |
+| **m_p/m_e ratio** | 19 ppm (bare F = 6π⁵) | × (1+α²/(2√2)) [DERIVED already] | 1836.15267 | **<0.001 ppm** (existing framework formula — yesterday's α²/d claim was inferior rediscovery, walked back 2026-06-03) |
 | **Neutrino m_3 (atmospheric)** | m_e/(d·F²) | 50.524 meV | 50.10 meV | 0.85% |
 | **Neutrino m_2 (solar)** | m_3·√((d+1)α) | 8.632 meV | 8.61 meV | **0.2%** |
 | **Neutrino m_1 (lightest)** | m_2·√((d+1)α) | 1.475 meV | <30 meV bound | ✓ |
