@@ -468,18 +468,40 @@ The "bare" terms differ by factor ~2 between the two routes. Both routes
 match observation at the final answer (~1.29 MeV) but disagree on physics
 of the intermediate breakdown.
 
-**Real-physics interpretation** (likely):
-- Standard physics: m_d - m_u ≈ 2.5 MeV (raises n), EM ≈ -1.0 MeV (raises p), net +1.3 MeV
-- Route 1 formula matches the FINAL number but the m_e*8/3 factor includes
-  more than just the bare quark mass split - it implicitly absorbs other
-  effects. Calling it "bare quark mass splitting" is inaccurate.
+**Real-physics interpretation** (working hypothesis, 2026-06-03):
+The formula effectively captures the NET of TWO large contributions:
+
+```
+m_n - m_p = (m_d - m_u) - E_EM_proton + small_residual
+          = 2.57 - 1.20 + (-0.07)
+          ≈ m_e * 8/3 * (1 - 7*alpha)
+          = 1.293 MeV
+```
+
+Where:
+- (m_d - m_u) ~ 2.57 MeV comes from breather mass formulas (Route 2)
+- E_EM_proton ~ 1.20 MeV is the EM self-energy of the charged proton
+  (standard physics estimates: 1.0-1.3 MeV)
+- Small residual ~ -0.07 MeV from the explicit (1 - 7*alpha) correction
+
+The framework's m_e * (d^2-1)/d = 1.363 MeV is therefore better understood
+as "quark mass diff minus EM self-energy" rather than just "bare quark
+mass." Calling it "QCD bare" was inaccurate.
 
 **What the (d^2-1) factor likely IS** (from other framework uses):
 - d^2-1 = 8 = number of non-A1g channels in T1u x T1u Oh tensor product
 - Same factor appears in: hadronic VP for muon g-2 (8/9 EM trace),
   proton magnetic moment (d*(d^2-1)/d^2 = 8/3 bare moment)
-- The (d^2-1)/d structure may be the channel-counting prefactor
-  for SOME EM-related quantity, not directly the quark mass split
+- The (d^2-1)/d structure may be a channel-counting prefactor for the
+  NET (quark - EM) contribution, not directly the quark mass split
+
+**Open work to fully derive**: Show that
+  m_d - m_u (from breather formulas)
+  - E_EM_proton (from torus EM self-energy)
+  = m_e * (d^2-1)/d
+This requires deriving E_EM_proton from torus geometry. The implied value
+~1.20 MeV is in standard physics range but no clean framework formula
+yet produces it exactly.
 
 Honest verdict: The formula is a CANDIDATE closed-form match with
 plausible structural interpretation. Labeling it as "QCD bare" was
