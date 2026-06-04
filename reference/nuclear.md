@@ -444,23 +444,55 @@ Shell closures: 2, 8, 20, 28, 50, 82, 126
 ```
 From standing-wave shells in a spherical cavity with spin-orbit coupling. The same j_0 breather physics that gives the proton radius also gives the nuclear shell structure.
 
-### Neutron-proton mass difference [DERIVED, 0.005%]
+### Neutron-proton mass difference [CLOSED-FORM MATCH at 0.005%; bare/EM labeling inconsistent — audit 2026-06-03]
 ```
 m_n - m_p = m_e * (d^2-1)/d * (1 - alpha*(2d+1))
           = m_e * 8/3 * (1 - 7*alpha)
           = 1.2931 MeV                              (obs: 1.2930, +0.005%)
 ```
-Two contributions:
-  QCD: m_e * (d^2-1)/d = m_e * 8/3 = 1.363 MeV (bare quark mass splitting)
-  EM:  -alpha * (2d+1) = -7*alpha correction (EM self-energy of charged proton)
+
+**Status note (2026-06-03 audit)**: This formula matches observation at
+0.005% but its interpretation as "bare quark mass + EM correction" is
+INCONSISTENT with the framework's breather-derived quark masses.
+
+Original labeling (now flagged):
+  "QCD bare quark mass splitting":  m_e * 8/3 = 1.363 MeV
+  "EM correction":                  -7*alpha factor (5% reduction)
+
+Cross-check via Route 2 (using framework breather quark masses):
+  m_u (framework) = m(13,31) = 2.21 MeV
+  m_d (framework) = m(5,30)  = 4.78 MeV
+  m_d - m_u (bare quark diff) = 2.57 MeV  (NOT 1.36 MeV)
+
+The "bare" terms differ by factor ~2 between the two routes. Both routes
+match observation at the final answer (~1.29 MeV) but disagree on physics
+of the intermediate breakdown.
+
+**Real-physics interpretation** (likely):
+- Standard physics: m_d - m_u ≈ 2.5 MeV (raises n), EM ≈ -1.0 MeV (raises p), net +1.3 MeV
+- Route 1 formula matches the FINAL number but the m_e*8/3 factor includes
+  more than just the bare quark mass split - it implicitly absorbs other
+  effects. Calling it "bare quark mass splitting" is inaccurate.
+
+**What the (d^2-1) factor likely IS** (from other framework uses):
+- d^2-1 = 8 = number of non-A1g channels in T1u x T1u Oh tensor product
+- Same factor appears in: hadronic VP for muon g-2 (8/9 EM trace),
+  proton magnetic moment (d*(d^2-1)/d^2 = 8/3 bare moment)
+- The (d^2-1)/d structure may be the channel-counting prefactor
+  for SOME EM-related quantity, not directly the quark mass split
+
+Honest verdict: The formula is a CANDIDATE closed-form match with
+plausible structural interpretation. Labeling it as "QCD bare" was
+overreach. Real derivation requires resolving the inconsistency with
+the breather quark mass route.
 
 The EM correction factor (2d+1) = 7 is the NUMBER OF EXCHANGE PATHS on the
 d-cube (d^2 - d + 1 = 7). This is the SAME factor as the g-2 denominator
 (alpha^2/(2d+1) in the a_e formula). Both involve the EM self-energy of a
 charged particle through 7 independent lattice-mode interactions.
 
-Without EM correction: 1.363 MeV (+5.4% error)
-With EM correction:    1.293 MeV (+0.005% error) — three orders of magnitude improvement.
+Without "EM correction" factor: 1.363 MeV (+5.4% error)
+With "EM correction":           1.293 MeV (+0.005% error) — three orders of magnitude improvement.
 
 ### Magnetic moment ratio
 ```
