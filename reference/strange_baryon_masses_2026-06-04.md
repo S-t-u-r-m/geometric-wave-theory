@@ -159,3 +159,55 @@ To close the heavy-quark correction:
 This is multi-week research, not session work. The conceptual framing is
 right (top/bottom torus geometry); the math needs proper derivation.
 
+
+## Force balance interpretation (Jon's insight)
+
+The "slider" position of heavy element/quark on the torus is determined
+by FORCE BALANCE between:
+
+  F_sink(m_h)     ~ m_h * g_torus       (gravity-like, mass-dependent)
+  F_lattice(theta) ~ K_lattice * sin(theta - pi/d)  (restoring force from natural position)
+
+Equilibrium: F_sink = F_lattice → sin(theta - pi/d) = m_h * g / K_lattice
+
+For small deviations: theta - pi/d ≈ m_h / m_critical
+where m_critical = K_lattice / g (framework-derived scale)
+
+### Backed-out values
+
+From baryon data, the angle deviation needed:
+- Strange (m_s = 557): delta = 0° (no shift, sits at natural position)
+- Charm (m_c = 1500):  delta = 0° (still no shift)
+- Bottom (m_b = 4700): delta ≈ 6.4° (cos drops from 0.500 to 0.400)
+
+For chemistry, similar deviations would apply for period-3+ atoms.
+
+### Critical mass scale
+
+The transition happens around m_h ~ 2-3 GeV. Below this, no shift.
+Above this, progressive shift. This suggests m_critical ~ 2-3 GeV.
+
+In framework terms, 2-3 GeV is suggestive of:
+- 2*m_p = 1876 MeV (two proton masses?)
+- 3*m_p = 2815 MeV (three?)
+- m_eta_c = 2984 (charmonium ground state)
+
+### What needs derivation
+
+1. K_lattice from torus stability analysis
+2. g (sinking force coefficient) from mass-energy density
+3. m_critical = K_lattice / g
+4. delta(m_h) function valid across both baryons and chemistry
+5. Apply slider correction uniformly to:
+   - Bottom baryon splittings (target ~5° shift)
+   - Period-3 chemistry bonds (target similar)
+   - Lithium chemistry (separate mechanism, related concept)
+
+Status: conceptual framework right (force balance + position-dependent slider),
+quantitative closed-form derivation is multi-week research.
+
+The CONNECTION between baryon heavy-quark issue and chemistry heavy-atom
+issue is structurally identical: both involve heavy element shifting
+torus equilibrium position. Closing this would unify the two sectors at
+much higher precision than current ~10% for both.
+
