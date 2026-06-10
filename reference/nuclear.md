@@ -4,6 +4,12 @@
 
 **For BARYON RESONANCES (Delta, N*, Roper, P-wave multiplet, strange spin-flips) see [baryon_resonances.md](baryon_resonances.md). Also includes alternative derivation of proton charge radius via R_charge = R_mass * sqrt(pi/2) at 0.032%.**
 
+**Recent additions (2026-06):**
+- **Strange baryon ground states + Sigma_X-Lambda_X slider** [DERIVED, sub-1% s/c/b] — see [strange_baryon_masses_2026-06-04.md](strange_baryon_masses_2026-06-04.md). All 4 strange ground states via V10 Oh structure. Sigma_X-Lambda_X gap formula: `gap = (1+c_ionic)*K*cos(pi/d+delta)/cos(pi/d) * mu_lh^3/m_l^2` with `delta = (1/d)*max(0, (m_h - m_J/psi)/m_h)`.
+- **Baryon magnetic moments via GWT primitives** [DERIVED, Omega- at 0.20%] — see [baryon_moments_gwt_primitives_2026-06-04.md](baryon_moments_gwt_primitives_2026-06-04.md). SU(6) weights (4/3, 1/3) = GWT cube primitives. Omega- = SU(6) * P3_BOOST = 11/10.
+- **Atomic g-factors via GWT** — see [atomic_g_factors_gwt_2026-06-04.md](atomic_g_factors_gwt_2026-06-04.md). Lande factors ARE GWT cube primitives; Schwinger 1+alpha/(2pi) covers atomic S-state corrections uniformly.
+- **Nuclear shell-structure tests** [HYPOTHESIS] — see [nuclear_shell_tests_2026-06-03.md](nuclear_shell_tests_2026-06-03.md).
+
 ### Proton charge radius [DERIVED, 0.02%]
 ```
 r_p = (d+1) * hbar*c / m_p
@@ -228,6 +234,7 @@ m_K = sqrt(139.0^2 + 469.1^2) = 489.3 MeV    (obs K+: 493.7, -0.89%)
 ```
 
 The strange quark effective mass = m_p/(d-1) = m_p/2 = 469.1 MeV.
+The d/(d-1) generation factor is cross-referenced in [mass_ratios.md](mass_ratios.md) §generation factors.
 
 Derivation of the strange mass:
   Step 1: Constituent quark mass = m_p/d = 313 MeV (equipartition, PROVEN)
@@ -264,8 +271,9 @@ m_omega = m_rho * (1 + alpha*(2d-1)/d) = 773.1 * (1 + 5*alpha/3) = 782.5 MeV
 
 The factor (2d-1)/d = 5/3: the omega-rho EM splitting goes through the 5
 symmetric shape channels (same (2d-1) = 5 as the first g-2 correction
-denominator alpha/(2d-1) = alpha/5). The omega (symmetric flavor) couples
-to the shape channels that the rho (antisymmetric) does not access.
+denominator alpha/(2d-1) = alpha/5; see "Electron g-2 (three terms + vacuum
+correction, 5 ppb)" section below in this file). The omega (symmetric flavor)
+couples to the shape channels that the rho (antisymmetric) does not access.
 
 ### Complete meson spectrum — the mass-shell pattern
 
@@ -516,11 +524,13 @@ charged particle through 7 independent lattice-mode interactions.
 Without "EM correction" factor: 1.363 MeV (+5.4% error)
 With "EM correction":           1.293 MeV (+0.005% error) — three orders of magnitude improvement.
 
-### Magnetic moment ratio
+### Magnetic moment ratio [PATTERN, 2.7%]
 ```
 mu_n / mu_p = -(d-1)/d = -2/3               (obs: -0.685, 2.7%)
 ```
 The neutron is the flipped-phase partner of the proton. The transverse fraction (d-1)/d = 2/3 carries opposite magnetic moment. Same ratio as Omega_Lambda, quark charges, and Koide Q.
+
+**Note on status (2026-06-04):** The leading-order quark-model formula gives mu_p/mu_n = -3/2 (also (d+1)/(d-1) for d=3, same number). The 2.7% residual matches a framework primitive pattern — see [baryon_moments_gwt_primitives_2026-06-04.md](baryon_moments_gwt_primitives_2026-06-04.md) where each baryon's moment residual maps to a specific GWT primitive (Omega- at 0.20% via P3_BOOST). Status is [PATTERN] not [DERIVED] until the residual-correction structure is itself derived.
 
 ### Electron g-2 (three terms + vacuum correction, 5 ppb)
 

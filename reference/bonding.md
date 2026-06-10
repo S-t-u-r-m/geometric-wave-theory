@@ -4,6 +4,10 @@
 
 *This file consolidates all bond energy physics: the V8 formula, Oh tensor product corrections, the 3D ZPE mechanism, Morse potential emergence, kink well physics, and the connection between nuclear and chemical bonding scales. For atomic structure and ionization energies, see [Atomic & Molecular](atomic_molecular.md). For the toroidal structure underlying bonding, see [Toroidal Physics](toroidal_physics.md).*
 
+**Recent additions (2026-06):**
+- **Lithium 2s mode correction** [DERIVED, Li2 at 0.04%] — see [lithium_2s_mode_correction_2026-06-04.md](lithium_2s_mode_correction_2026-06-04.md). Note: 5/9 = (2d-1)/d^2 is already documented below at "The 5/9 Universal Reduction Factor" section from 2026-03-27. The 2026-06-04 file rediscovered it via mode-investigation methodology (validates the approach).
+- **Slider applied to chemistry** [FAILED, informative] — see [slider_chemistry_test_2026-06-04.md](slider_chemistry_test_2026-06-04.md). Baryon-derived slider doesn't transfer to chemistry directly. Chemistry V8 errors are bidirectional (multi-mechanism). The "single slider" appearance in baryons is because only one mode is engaged; chemistry engages multiple modes in superposition. See [framework reframing](../MEMORY.md#recent-foundational-reframing-2026-06-04).
+
 ### General bond energy formula (V8, 23 molecules, fully self-consistent)
 ```
 D_e = (pi/d) × sum[E_scale × |sin(phase)|] + D_ionic
