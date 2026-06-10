@@ -12,6 +12,14 @@ L = (1/2)(∂φ)² + (1/π²)(1 − cos(πφ))
 
 📖 **[Website](https://s-t-u-r-m.github.io/geometric-wave-theory/)** · 📄 **[Complete Reference](gwt_complete_reference.md)** · 🔬 **[Papers](papers/)**
 
+## Picking this up cold? Read these first
+
+1. **[MEMORY.md](MEMORY.md)** — Project-level memory with current state, recent findings, and how-to-work-with-Jon notes.
+2. **[gwt_complete_reference.md](gwt_complete_reference.md)** — Master equation sheet + index by topic. Status-keyed: `[DERIVED]`, `[PROVEN]`, `[STRUCTURAL]`, `[HYPOTHESIS]`, `[PATTERN]`.
+3. **Recent reframing (2026-06-04)**: baryons = structural SUBSECTIONS of a torus (per-mode), chemistry = COMPLETE torus (multi-mode superposition). This explains why baryon precision results don't transfer directly to chemistry. See `reference/strange_baryon_masses_2026-06-04.md` for the slider formula and `reference/lithium_2s_mode_correction_2026-06-04.md` for the mode-investigation methodology.
+4. **Website is OUTDATED** — repo is canonical source.
+5. **Calculations**: production scripts in `calculations/*/`. Abandoned approaches in `calculations/archive/`.
+
 ## Quick Navigation
 
 | Topic | Derivation | Calculations |
