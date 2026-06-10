@@ -188,6 +188,21 @@ Proton charge radius (bare, dressed, measured). Proton cavity. Pion mass (direct
 ### [23. Baryon Resonance Spectrum](reference/baryon_resonances.md) [CANDIDATE — 2026-05-31]
 Five excitation mode types on the proton kink ring, all from the same half-BZ cube primitives. S-wave angular modes (Delta(1232), Delta(1620), N(2000)...). Multi-mode mixed states (1m1+1m2 cluster at 0.005%). P-wave orbital (N(1710) at 0.02%). **Breathing mode = Roper N(1440) at 0.004% (Planck precision) — resolves famous 40-year QCD puzzle via spring equation: omega_breath = sqrt(d)*omega_0*(1-alpha_s/2^d)**. Strange spin-flip (Sigma*-Sigma at 0.12%, Xi*-Xi at 0.17%) via cos(pi/d) cube axis-weighting. R_charge = R_mass * sqrt(pi/2) = 0.8417 fm at 0.032%. Universal angular ladder also matches charmonium, bottomonium, and "exotic" states (X(3872), Y(4360), Pc(4440/4457), Zb(10610)) — suggests "exotic" = standard lattice excitations. ~14 Planck-precision predictions, ~30 within 1%. Status: numerically verified, rigorous QFT derivations of individual ansatzes still open.
 
+### [24. Strange Baryon Ground States + Sigma_X-Lambda_X Slider](reference/strange_baryon_masses_2026-06-04.md) [DERIVED — 2026-06-04]
+All 4 strange baryon ground states (Lambda, Sigma, Xi, Omega) derived at sub-0.5% via V10 Oh tensor product structure: K=(2d+1)*alpha_s, c_ionic=1/(2d+1), f_rad=(2d-1)/(2d). Sigma_X-Lambda_X splittings closed at sub-1% across strange/charm/bottom via slider formula: gap = (1+c_ionic)*K*cos(pi/d+delta)/cos(pi/d) * mu_lh^3/m_l^2 with delta = (1/d)*max(0, (m_h - m_J/psi)/m_h). m_J/psi threshold special; sharp vs smooth transition shape undetermined from 3 data points.
+
+### [25. Baryon Magnetic Moments via GWT Primitives](reference/baryon_moments_gwt_primitives_2026-06-04.md) [DERIVED — 2026-06-04]
+Omega- magnetic moment = SU(6) * (d^2+2)/(d^2+1) at 0.20% match. P3_BOOST primitive unifies atomic ionic (V8) and baryon magnetic moment physics. SU(6) weights 4/3, 1/3 = GWT cube primitives (d+1)/d, 1/d exactly. Each baryon residual matches a different framework primitive (8/9 for Sigma+/Xi0, 5/4 for Xi-, 1+alpha for neutron, 1+alpha_s for Sigma-) at 1-3% — suggestive but not derived as unifying formula. See also [atomic_g_factors_gwt_2026-06-04.md](reference/atomic_g_factors_gwt_2026-06-04.md): Lande g-factors are GWT cube primitives, atomic S-state corrections = 1+alpha/(2pi) Schwinger uniformly.
+
+### [26. Lithium 2s Mode Correction](reference/lithium_2s_mode_correction_2026-06-04.md) [DERIVED — 2026-06-04]
+Li2 D_e = (pi/d^2) * E_harm * (2d-1)/d^2 = 1.046 eV at 0.04% match. Framework primitive 5/9 = (2d-1)/d^2 for Li's diffuse 2s valence mode. (Also documented earlier in bonding.md from 2026-03-27 — rediscovered via mode-investigation methodology.) Li halides have separate V8 ionic issue (missing electron affinity term). Validates "baryons-vs-chemistry topology" reframing: chemistry anomalies trace to mode-specific physics, not mass-based corrections.
+
+### Framework Reframing: Baryons vs Chemistry (2026-06-04, FOUNDATIONAL)
+**Baryons = structural SUBSECTIONS of a torus (per-region/per-mode measurements). Chemistry = COMPLETE torus (full multi-mode system).** Explains why baryon precision results (single-mode dominant) don't transfer directly to chemistry (multi-mode superposition). Reframes all baryon-spectrum work as per-mode measurements rather than full predictions. Future unification path: derive torus mode equations from sine-Gordon dynamics, then project to single-mode (baryon) and full-multi-mode (chemistry) limits.
+
+### Cross-sector reverse-engineering methodology (2026-06-04)
+Use standard QCD/atomic measured residuals (1-20% range) to constrain GWT subsection structure, then project to chemistry. Validated by Omega- moment match. Works best where standard models have visible residuals; atomic g-factors too clean (Schwinger covers most). Untested productive sectors: nuclear magnetic moments, hyperfine constants.
+
 ---
 
 ## Source of Truth
@@ -212,9 +227,8 @@ Code implementation: [`calculations/core/gwt_lagrangian.py`](calculations/core/g
 | calculations/bonding/bond_v8_full.py | Bond energies V8 (24 molecules) |
 | calculations/bonding/bond_3d_emerge.py | Morse well emergence from Hessian |
 | calculations/bonding/bare_hessian_multimode.py | Multi-mode breather coupling |
-| calculations/bonding/toroidal_coupling_modes.py | Three coupling modes for bonding |
 | **Atomic** | |
-| calculations/atomic/z_eff_v20.py | IE v20: Oh tensor product corrections (3.02%) |
+| calculations/atomic/z_eff_subshell.py | Per-subshell Z_eff with penetration factors |
 | calculations/atomic/oh_nbody.py | N-body Oh tensor product analysis |
 | **Simulations** | |
 | calculations/simulations/breather_3d_kink.py | 3D breather stability proof |
