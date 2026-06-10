@@ -145,4 +145,4 @@ Two toroidal breathers interact through 3 modes, each with a geometric weight:
 The V8 formula already captures all three modes through its 6 parameters.
 Residual ~2% errors are higher-multipole (3D geometry) corrections, not missing modes.
 
-See: calculations/bonding/toroidal_coupling_modes.py for full calculation.
+See: calculations/archive/2026-06-cleanup/toroidal_coupling_modes.py (archived 2026-06-05; results integrated into bonding.md).
